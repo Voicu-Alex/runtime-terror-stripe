@@ -1,0 +1,48 @@
+{
+  "act": "OUG 6/2025",
+  "mo": "MO 182 / 28 feb 2025",
+  "publicat_la": "2025-02-28",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Plafonul la curent pentru casă a fost în vigoare doar 1 aprilie - 30 iunie 2025",
+      "taguri": ["consumator_energie"],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2025-06-30",
+      "status": "termen_depasit",
+      "directie": "termen",
+      "formula": "energie_plafon",
+      "formula_tip": null,
+      "articol": "art. 1 alin. (1)",
+      "citat": "pentru consumul realizat în perioada 1 aprilie 2025-30 iunie 2025, prețul final facturat plafonat de către furnizorii de energie electrică este",
+      "niveluri": {
+        "zero": "Plafonul la prețul curentului a fost valabil doar până pe 30 iunie 2025 și nu se mai aplică.",
+        "curios": "Pentru consumul din 1 aprilie - 30 iunie 2025, clienții casnici plăteau cel mult 0,68 lei/kWh (cu TVA) pentru consumul lunar de până la 100 kWh și cel mult 0,80 lei/kWh pentru consumul între 100,01 și 255 kWh. Peste 300 kWh pe lună tot consumul se facturează la maximum 1,3 lei/kWh. Perioada a trecut, deci azi prețul nu mai este limitat de această ordonanță.",
+        "expert": "Art. 1 alin. (1) lit. a) fixează 0,68 lei/kWh cu TVA pentru casnicii cu consum lunar până la 100 kWh, pentru cei cu dispozitive medicale (pe bază de cerere și confirmare medicală), pentru cei cu cel puțin 3 copii sau familii monoparentale cu copii (pe bază de cerere și declarație). Lit. b) 0,80 lei/kWh între 100,01 și 255 kWh, iar între 255 și 300 kWh partea respectivă la 1,3 lei/kWh; peste 300 kWh tot consumul la 1,3 lei/kWh. Lit. f) 1,3 lei/kWh pentru ceilalți consumatori casnici și noncasnici. Prețul final este valoarea minimă dintre plafon, prețul contractual și prețul calculat (art. 2 alin. (2)). Alin. (12): dacă după regularizare ai plătit în plus mai mult de 100 lei, furnizorul restituie în 5 zile de la factura de regularizare."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut față de 28 octombrie 2026. Impactul depindea de consum, iar textul nu dă un consum mediu, așa că nu calculăm o sumă."
+    },
+    {
+      "rezumat": "Plafonul la gaze pentru casă a fost valabil până la 31 martie 2026",
+      "taguri": ["consumator_gaz"],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2026-03-31",
+      "status": "termen_depasit",
+      "directie": "termen",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (3)",
+      "citat": "pentru consumul realizat în perioada 1 aprilie 2025-31 martie 2026, prețul final facturat de către furnizorii de gaze naturale este",
+      "niveluri": {
+        "zero": "Plafonul la gaze din această ordonanță nu se mai aplică, pentru că a expirat pe 31 martie 2026.",
+        "curios": "Pentru consumul din 1 aprilie 2025 - 31 martie 2026, clienții casnici plăteau gazele la cel mult 0,31 lei/kWh, cu TVA inclus. Componenta de furnizare era de cel mult 15 lei/MWh. Perioada a trecut; pentru consumul de după 1 aprilie 2026 se aplică alt act.",
+        "expert": "Art. 1 alin. (3) lit. a): maximum 0,31 lei/kWh cu TVA pentru clienții casnici. Lit. b): maximum 0,37 lei/kWh pentru noncasnici cu consum anual de cel mult 50.000 MWh și alte categorii. Art. 4 alin. (2): componenta de furnizare maximum 15 lei/MWh. Art. 2 alin. (2): prețul final este valoarea minimă dintre plafon, prețul contractual și prețul calculat. Art. 12: producătorii vând la 120 lei/MWh furnizorilor, pentru perioada 1 aprilie 2025 - 31 martie 2026."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut față de 28 octombrie 2026. Pentru perioada următoare de plafonare, acest text nu spune nimic; trebuie citit actul care a urmat. Impactul depindea de consum, necunoscut."
+    }
+  ]
+}

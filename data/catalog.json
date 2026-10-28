@@ -40,7 +40,9 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "cost",
-    "taguri": ["srl_dividende"],
+    "taguri": [
+      "srl_dividende"
+    ],
     "conditii": [],
     "formula": "dividende_16",
     "estimare": false,
@@ -54,11 +56,17 @@
         "text": "Distribuie dividendele din profitul 2025",
         "termen": "2025-12-31",
         "formula_economie": "dividende_economie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": "contabil",
-    "specialist": { "intrebare": "Mai merită să îmi iau banii din SRL ca dividende sau pe salariu, cu impozitul de 16%?", "documente": "Profitul estimat pe anul acesta și cât ai vrea să scoți din firmă." },
+    "specialist": {
+      "intrebare": "Mai merită să îmi iau banii din SRL ca dividende sau pe salariu, cu impozitul de 16%?",
+      "documente": "Profitul estimat pe anul acesta și cât ai vrea să scoți din firmă."
+    },
     "articol": "art. II pct. 1 (Codul fiscal art. 43 alin. 2); pct. 5 (art. 97 alin. 7)",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
     "sursa_explicativa": "https://www.crowe.com/ro/news/alerta-fiscala-modificari-fiscale-din-noul-pachet-fiscal-bugetar",
@@ -77,8 +85,16 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "cost",
-    "taguri": ["pensionar"],
-    "conditii": [{ "camp": "pensie_lunara", "op": ">", "valoare": 3000 }],
+    "taguri": [
+      "pensionar"
+    ],
+    "conditii": [
+      {
+        "camp": "pensie_lunara",
+        "op": ">",
+        "valoare": 3000
+      }
+    ],
     "formula": "cass_pensii",
     "estimare": false,
     "niveluri": {
@@ -91,7 +107,10 @@
         "text": "Verifică cuponul de pensie: CASS se aplică doar peste 3.000 lei",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": "cnpp"
       }
     ],
     "profesionist": null,
@@ -101,7 +120,13 @@
     "incredere": "ridicata",
     "verificat_la": "2026-10-28",
     "modificat_prin": [
-      {"act": "OG 22/2025", "mo_ref": "TODO", "data": null, "ce": "modifică art. VII alin. (1) lit. e) din Legea 141/2025: CASS se aplică veniturilor din pensii începând cu august 2025", "sursa_url": "TODO"}
+      {
+        "act": "OG 22/2025",
+        "mo_ref": "TODO",
+        "data": null,
+        "ce": "modifică art. VII alin. (1) lit. e) din Legea 141/2025: CASS se aplică veniturilor din pensii începând cu august 2025",
+        "sursa_url": "TODO"
+      }
     ]
   },
   {
@@ -116,7 +141,9 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "cost",
-    "taguri": ["consumator_energie"],
+    "taguri": [
+      "consumator_energie"
+    ],
     "conditii": [],
     "formula": "energie_plafon",
     "estimare": true,
@@ -130,7 +157,10 @@
         "text": "Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix",
         "termen": null,
         "formula_economie": null,
-        "one_click": "https://posf.ro/comparator"
+        "one_click": "https://posf.ro/comparator",
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anre_comparator"
       }
     ],
     "profesionist": null,
@@ -152,7 +182,9 @@
     "expira_la": null,
     "termen_actiune": "2027-01-05",
     "directie": "termen",
-    "taguri": ["pilon2"],
+    "taguri": [
+      "pilon2"
+    ],
     "conditii": [],
     "formula": "pilon2_plata",
     "estimare": false,
@@ -166,11 +198,17 @@
         "text": "Decide cum vrei plata: 30% o dată, restul eșalonat",
         "termen": "2027-01-05",
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "fond_pensii"
       }
     ],
     "profesionist": "consultant fiscal",
-    "specialist": { "intrebare": "Iau 30% deodată sau totul eșalonat?", "documente": "Ultimul extras de la fondul de pensii, cu suma strânsă." },
+    "specialist": {
+      "intrebare": "Iau 30% deodată sau totul eșalonat?",
+      "documente": "Ultimul extras de la fondul de pensii, cu suma strânsă."
+    },
     "articol": "art. 55 alin. (1) (max 30%); art. 113 (intrare în vigoare la un an de la publicare)",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/306255",
     "sursa_explicativa": "https://romania.europalibera.org/a/guvernul-a-modificat-legea-pensiilor-private-se-pot-lua-30-din-suma-acumulata-intr-o-singura-transa-esalonare-apoi-pe-opt-ani/33509248.html",
@@ -189,7 +227,11 @@
     "expira_la": null,
     "termen_actiune": "2026-12-31",
     "directie": "castig",
-    "taguri": ["pilon3", "angajat", "pfa"],
+    "taguri": [
+      "pilon3",
+      "angajat",
+      "pfa"
+    ],
     "conditii": [],
     "formula": "pilon3_deducere",
     "estimare": true,
@@ -203,7 +245,10 @@
         "text": "Alimentează Pilon III până la plafonul deductibil de 400 EUR/an",
         "termen": "2026-12-31",
         "formula_economie": "pilon3_economie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "asf_registru"
       }
     ],
     "profesionist": null,
@@ -225,7 +270,10 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "info",
-    "taguri": ["micro", "srl_dividende"],
+    "taguri": [
+      "micro",
+      "srl_dividende"
+    ],
     "conditii": [],
     "formula": "micro_1",
     "estimare": false,
@@ -239,18 +287,30 @@
         "text": "Verifică cifra de afaceri a SRL-ului față de noul prag",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": "contabil",
-    "specialist": { "intrebare": "Ce se întâmplă dacă depășesc plafonul de 100.000 euro la jumătatea anului?", "documente": "Veniturile firmei de la începutul anului și numărul de salariați." },
+    "specialist": {
+      "intrebare": "Ce se întâmplă dacă depășesc plafonul de 100.000 euro la jumătatea anului?",
+      "documente": "Veniturile firmei de la începutul anului și numărul de salariați."
+    },
     "articol": "art. I pct. 4 (Codul fiscal art. 51 alin. 1); art. II pct. 1",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
     "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
     "incredere": "medie",
     "verificat_la": "2026-10-28",
     "modificat_prin": [
-      {"act": "OUG 8/2026", "mo_ref": "MO 147 / 25 feb 2026", "data": "2026-02-25", "ce": "rescrie art. 47 alin. (1) lit. c) din Codul fiscal (plafonul de 100.000 euro) și dă 90 de zile unei firme noi pentru primul salariat", "sursa_url": "https://static.anaf.ro/static/10/Galati/micro.pdf"}
+      {
+        "act": "OUG 8/2026",
+        "mo_ref": "MO 147 / 25 feb 2026",
+        "data": "2026-02-25",
+        "ce": "rescrie art. 47 alin. (1) lit. c) din Codul fiscal (plafonul de 100.000 euro) și dă 90 de zile unei firme noi pentru primul salariat",
+        "sursa_url": "https://static.anaf.ro/static/10/Galati/micro.pdf"
+      }
     ]
   },
   {
@@ -265,7 +325,9 @@
     "expira_la": "2027-03-31",
     "termen_actiune": "2027-03-31",
     "directie": "cost",
-    "taguri": ["consumator_gaz"],
+    "taguri": [
+      "consumator_gaz"
+    ],
     "conditii": [],
     "formula": "gaz_plafon",
     "estimare": true,
@@ -279,7 +341,10 @@
         "text": "Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix",
         "termen": "2027-03-31",
         "formula_economie": null,
-        "one_click": "https://posf.ro/comparator"
+        "one_click": "https://posf.ro/comparator",
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anre_comparator"
       }
     ],
     "profesionist": null,
@@ -289,7 +354,13 @@
     "incredere": "ridicata",
     "verificat_la": "2026-10-28",
     "modificat_prin": [
-      {"act": "OUG 19/2026", "mo_ref": "MO 237 / 26 mar 2026", "data": "2026-03-26", "ce": "producătorii de energie termică pentru populație beneficiază doar pentru consumul dintre 1 noiembrie 2026 și 31 martie 2027", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/308479"}
+      {
+        "act": "OUG 19/2026",
+        "mo_ref": "MO 237 / 26 mar 2026",
+        "data": "2026-03-26",
+        "ce": "producătorii de energie termică pentru populație beneficiază doar pentru consumul dintre 1 noiembrie 2026 și 31 martie 2027",
+        "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/308479"
+      }
     ]
   },
   {
@@ -304,7 +375,9 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "cost",
-    "taguri": ["it"],
+    "taguri": [
+      "it"
+    ],
     "conditii": [],
     "formula": "it_scutire",
     "estimare": true,
@@ -318,7 +391,10 @@
         "text": "Verifică dacă angajatorul a compensat prin brut; cere o simulare la HR",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
       }
     ],
     "profesionist": null,
@@ -340,7 +416,10 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "cost",
-    "taguri": ["constructii", "agricultura"],
+    "taguri": [
+      "constructii",
+      "agricultura"
+    ],
     "conditii": [],
     "formula": "constructii_facilitati",
     "estimare": true,
@@ -354,7 +433,10 @@
         "text": "Cere angajatorului o simulare a salariului net actual",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
       }
     ],
     "profesionist": null,
@@ -376,7 +458,9 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "info",
-    "taguri": ["horeca"],
+    "taguri": [
+      "horeca"
+    ],
     "conditii": [],
     "formula": "horeca_tva_11",
     "estimare": false,
@@ -390,7 +474,10 @@
         "text": "Actualizează prețurile de listă și casa de marcat la 11%",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": "contabil",
@@ -412,7 +499,9 @@
     "expira_la": null,
     "termen_actiune": "2027-03-31",
     "directie": "cost",
-    "taguri": ["proprietar"],
+    "taguri": [
+      "proprietar"
+    ],
     "conditii": [],
     "formula": "impozit_cladiri",
     "estimare": true,
@@ -426,7 +515,10 @@
         "text": "Verifică decizia de impunere 2026 la primărie; plata integrală până la 31 mar 2027 aduce bonificație 10%",
         "termen": "2027-03-31",
         "formula_economie": "cladiri_bonificatie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "primaria"
       }
     ],
     "profesionist": null,
@@ -448,8 +540,17 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "castig",
-    "taguri": ["parinte", "parinte_singur"],
-    "conditii": [{ "camp": "nr_copii", "op": ">=", "valoare": 1 }],
+    "taguri": [
+      "parinte",
+      "parinte_singur"
+    ],
+    "conditii": [
+      {
+        "camp": "nr_copii",
+        "op": ">=",
+        "valoare": 1
+      }
+    ],
     "formula": "alocatie_copii",
     "estimare": true,
     "niveluri": {
@@ -462,7 +563,10 @@
         "text": "Verifică dacă alocația e cerută și dacă suma de pe extras e cea actuală",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": "primaria"
       }
     ],
     "profesionist": null,
@@ -472,7 +576,13 @@
     "incredere": "medie",
     "verificat_la": "2026-10-28",
     "modificat_prin": [
-      {"act": "OUG 126/2021", "mo_ref": "MO 1189 / 15 dec 2021", "data": "2021-12-15", "ce": "art. 3: 243 lei pe lună între 2 și 18 ani din ianuarie 2022 (600 lei sub 2 ani sau cu handicap), indexat anual din 2023", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212"},
+      {
+        "act": "OUG 126/2021",
+        "mo_ref": "MO 1189 / 15 dec 2021",
+        "data": "2021-12-15",
+        "ce": "art. 3: 243 lei pe lună între 2 și 18 ani din ianuarie 2022 (600 lei sub 2 ani sau cu handicap), indexat anual din 2023",
+        "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212"
+      },
       {
         "act": "Legea 141/2025",
         "mo_ref": "MO 699 / 25 iul 2025",
@@ -494,8 +604,17 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "castig",
-    "taguri": ["parinte_singur", "parinte"],
-    "conditii": [{ "camp": "nr_copii", "op": ">=", "valoare": 1 }],
+    "taguri": [
+      "parinte_singur",
+      "parinte"
+    ],
+    "conditii": [
+      {
+        "camp": "nr_copii",
+        "op": ">=",
+        "valoare": 1
+      }
+    ],
     "formula": null,
     "estimare": true,
     "niveluri": {
@@ -508,7 +627,10 @@
         "text": "Întreabă la primărie dacă te încadrezi; se depune o cerere cu declarație pe propria răspundere",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "primaria"
       }
     ],
     "profesionist": null,
@@ -530,8 +652,18 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "info",
-    "taguri": ["angajat", "pfa", "srl_dividende"],
-    "conditii": [{ "camp": "varsta", "op": ">=", "valoare": 58 }],
+    "taguri": [
+      "angajat",
+      "pfa",
+      "srl_dividende"
+    ],
+    "conditii": [
+      {
+        "camp": "varsta",
+        "op": ">=",
+        "valoare": 58
+      }
+    ],
     "formula": null,
     "estimare": false,
     "niveluri": {
@@ -544,7 +676,10 @@
         "text": "Cere de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "cnpp"
       }
     ],
     "profesionist": null,
@@ -566,8 +701,21 @@
     "expira_la": null,
     "termen_actiune": null,
     "directie": "castig",
-    "taguri": ["caut_primul_job"],
-    "conditii": [{ "camp": "varsta", "op": ">=", "valoare": 16 }, { "camp": "varsta", "op": "<", "valoare": 30 }],
+    "taguri": [
+      "caut_primul_job"
+    ],
+    "conditii": [
+      {
+        "camp": "varsta",
+        "op": ">=",
+        "valoare": 16
+      },
+      {
+        "camp": "varsta",
+        "op": "<",
+        "valoare": 30
+      }
+    ],
     "formula": "prima_stabilitate",
     "estimare": false,
     "niveluri": {
@@ -580,7 +728,10 @@
         "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi cere prima de stabilitate",
         "termen": null,
         "formula_economie": "prima_stabilitate_economie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anofm"
       }
     ],
     "profesionist": null,
@@ -613,12 +764,33 @@
       "curios": "Pentru contractele semnate între 3 și 31 iulie 2025 trebuia și un avans de 20% din preț, plătit integral până la 31 iulie. La un apartament nou de 400.000 lei fără TVA, diferența e de 48.000 lei: 36.000 lei TVA cu 9%, 84.000 lei cu 21%. Apartamentele vechi cumpărate de la o persoană fizică nu au TVA. Cine a cumpărat cu 21% între 1 și 7 august 2026 poate cere diferența înapoi de la 1 octombrie 2026 (Legea 161/2026).",
       "expert": "Legea 141/2025, art. III alin. (1): o singură locuință cu cota de 9% între 1 aug 2025 și 31 iul 2026, dacă are max. 120 mp utili (fără anexe), valoare cu teren de max. 600.000 lei fără TVA și există un act juridic între vii cu plată în avans încheiat până la 1 aug 2025. Alin. (2): pentru actele din 3–31 iul 2025, dovada unui avans de 20% din valoare fără TVA, achitat integral până la 31 iul 2025. Termenul de livrare prelungit la 30 sep 2026 și restituirea pentru achizițiile din 1–7 aug 2026: Legea 161/2026, MO 642 / 4 aug 2026 (articol necitit)."
     },
+    "modificat_prin": [
+      {
+        "act": "Legea 161/2026",
+        "mo_ref": "MO 642 / 4 aug 2026",
+        "data": "2026-08-04",
+        "ce": "Prelungește TVA 9% până la 30 sep 2026 pentru cine avea antecontract cu avans până la 1 aug 2025 (art. I) și permite restituirea diferenței de TVA pentru o singură locuință cumpărată cu cota standard între 1 aug 2026 și intrarea în vigoare a legii, cerută de la 1 oct 2026 după procedura aprobată prin ordin ANAF (art. II).",
+        "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/313202"
+      }
+    ],
     "actiuni": [
+      {
+        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), poți cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      },
       {
         "text": "Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025",
         "termen": "2025-07-31",
         "formula_economie": "tva_locuinta_economie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -641,7 +813,8 @@
     "termen_actiune": "2026-10-31",
     "directie": "termen",
     "taguri": [
-      "masina", "transport"
+      "masina",
+      "transport"
     ],
     "conditii": [],
     "formula": "motorina_acciza",
@@ -656,7 +829,10 @@
         "text": "Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă",
         "termen": "2026-10-31",
         "formula_economie": "motorina_economie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -694,7 +870,10 @@
         "text": "Legea permite: deschizi un cont CEI-D din 2027 și scazi din impozit 10% din ce depui",
         "termen": null,
         "formula_economie": "cei_d_economie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -732,7 +911,10 @@
         "text": "Plătește tot impozitul pe 2027 până la 31 mar 2027: primăria dă o bonificație de până la 10%",
         "termen": "2027-03-31",
         "formula_economie": "auto_bonificatie",
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "primaria"
       }
     ],
     "profesionist": null,
@@ -741,7 +923,7 @@
     "sursa_explicativa": "https://alba24.ro/impozit-auto-in-functie-de-norma-de-poluare-din-2026-cum-se-calculeaza-mai-transmite-baza-de-date-cu-vehiculele-in-judete-1112191.html",
     "incredere": "medie",
     "verificat_la": "2026-10-28"
-  },
+  },
   {
     "id": "salariu_minim_netaxabil_2026",
     "act": "OUG 89/2025",
@@ -776,7 +958,10 @@
         "text": "Nu trebuie să faci nimic: angajatorul aplică scutirea automat. Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut",
         "termen": "2026-12-31",
         "one_click": null,
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "nimic_pana_la",
+        "cine_aplica": "angajator",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -814,7 +999,10 @@
         "text": "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat",
         "termen": null,
         "one_click": null,
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
       }
     ],
     "profesionist": null,
@@ -861,7 +1049,10 @@
         "text": "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare",
         "termen": "2027-12-31",
         "one_click": null,
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
       }
     ],
     "profesionist": null,
@@ -892,7 +1083,10 @@
     "expira_la": null,
     "termen_actiune": "2027-05-25",
     "directie": "cost",
-    "taguri": ["intretin_parinti", "intretin_sot"],
+    "taguri": [
+      "intretin_parinti",
+      "intretin_sot"
+    ],
     "conditii": [],
     "formula": null,
     "estimare": false,
@@ -906,7 +1100,10 @@
         "text": "Dacă vrei să-i asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anaf_declaratia_unica"
       }
     ],
     "profesionist": null,
@@ -944,7 +1141,10 @@
         "text": "Nu trebuie să faci nimic: contribuția se reține automat din indemnizație și îți păstrează calitatea de asigurat",
         "termen": null,
         "one_click": null,
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -982,7 +1182,10 @@
         "text": "Nu trebuie să faci nimic: reținerea e automată. Verifică pe decizia de plată că indemnizația netă corespunde",
         "termen": null,
         "one_click": null,
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -1020,7 +1223,10 @@
         "text": "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare",
         "termen": null,
         "one_click": null,
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": "cnpp"
       }
     ],
     "profesionist": null,
@@ -1042,7 +1248,9 @@
     "expira_la": null,
     "termen_actiune": "2027-05-25",
     "directie": "cost",
-    "taguri": ["pfa_norma"],
+    "taguri": [
+      "pfa_norma"
+    ],
     "conditii": [],
     "formula": null,
     "estimare": false,
@@ -1056,7 +1264,10 @@
         "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; poți opta pentru sistemul real până la termenul legal",
         "termen": "2027-05-25",
         "one_click": null,
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": "contabil",
@@ -1098,7 +1309,10 @@
         "text": "Pune deoparte diferența de CASS pentru declarația unică pe 2026, cu plata până la termen",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anaf_declaratia_unica"
       }
     ],
     "profesionist": null,
@@ -1136,7 +1350,10 @@
         "text": "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală, apoi declară venitul din 2026 în declarația unică",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
-        "formula_economie": null
+        "formula_economie": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anaf_declaratia_unica"
       }
     ],
     "profesionist": null,
@@ -1161,7 +1378,13 @@
     "taguri": [
       "salariu_minim"
     ],
-    "conditii": [],
+    "conditii": [
+      {
+        "camp": "salariu_brut",
+        "op": ">=",
+        "valoare": 4050
+      }
+    ],
     "formula": null,
     "estimare": false,
     "niveluri": {
@@ -1171,18 +1394,38 @@
     },
     "actiuni": [
       {
-        "text": "Verifică fluturașul de salariu: din iulie 2026, salariul de bază la normă întreagă trebuie să fie cel puțin 4.325 lei brut",
+        "text": "Verifică fluturașul de salariu pe iulie 2026: salariul de bază brut, pentru normă întreagă, trebuie să fie cel puțin 4.325 lei.",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
+      },
+      {
+        "text": "Dacă angajatorul nu a aplicat noul salariu minim, poți sesiza Inspecția Muncii.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "inspectia_muncii"
       }
     ],
     "profesionist": null,
-    "articol": "art. 1",
+    "articol": "art. 1 (4.325 lei lunar de la 1 iulie 2026, 25,949 lei/oră); art. 2 (abrogă HG 1.506/2024). Condiția brut ≥ 4.050 lei: salariul minim de dinainte, menținut la 4.050 lei în 1 ian - 30 iun 2026 (OUG 89/2025, preambul); sub el (normă parțială) nu afișăm o sumă.",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/308231",
     "sursa_explicativa": "https://www.avocatnet.ro/articol_70565/",
     "incredere": "ridicata",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "formula_tip": {
+      "tip": "diferenta_prag",
+      "parametri": {
+        "camp": "salariu_brut",
+        "prag": 4325,
+        "perioada": "luna"
+      }
+    }
   },
   {
     "id": "ajutor_incalzire",
@@ -1220,7 +1463,10 @@
         "text": "Cere la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -1258,7 +1504,10 @@
         "text": "Dacă datoriile tale trec de prag, cere informații la comisia de insolvență din județul tău înainte să depui cererea",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -1296,7 +1545,10 @@
         "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, cere corectarea",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": "primaria"
       }
     ],
     "profesionist": null,
@@ -1335,7 +1587,10 @@
         "text": "Întreabă la grădinița sau școala copilului dacă e inclusă în programul „Masă sănătoasă” în 2026",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": "scoala"
       }
     ],
     "profesionist": null,
@@ -1379,7 +1634,10 @@
         "text": "Înscrie-te pentru sprijin prin aplicația EPIDS sau la primărie; primești banii din luna înscrierii, cel mult până în decembrie 2026",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -1410,7 +1668,9 @@
     "expira_la": "2026-12-31",
     "termen_actiune": null,
     "directie": "info",
-    "taguri": ["bugetar"],
+    "taguri": [
+      "bugetar"
+    ],
     "conditii": [],
     "formula": null,
     "estimare": false,
@@ -1424,7 +1684,10 @@
         "text": "Dacă faci ore suplimentare, cere ca timpul liber corespunzător să-ți fie acordat în cel mult 90 de zile",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "angajator_hr"
       }
     ],
     "profesionist": null,
@@ -1446,7 +1709,9 @@
     "expira_la": "2026-12-31",
     "termen_actiune": "2026-12-31",
     "directie": "castig",
-    "taguri": ["bugetar"],
+    "taguri": [
+      "bugetar"
+    ],
     "conditii": [
       {
         "camp": "salariu_net",
@@ -1466,7 +1731,10 @@
         "text": "Verifică la serviciul de resurse umane dacă ai primit cei 800 lei în vouchere pentru 2026",
         "termen": "2026-12-31",
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
       }
     ],
     "profesionist": null,
@@ -1504,7 +1772,10 @@
         "text": "Nu trebuie să faci nimic acum; verifică la direcția de asistență socială ce documente îți trebuie pentru indemnizația de solidaritate din 2027",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -1543,7 +1814,10 @@
         "text": "Verifică norma Euro din talon (certificatul de înmatriculare) ca să știi ce tarif plătești, apoi cumpără rovinieta de pe site-ul CNAIR",
         "termen": null,
         "formula_economie": null,
-        "one_click": "https://www.cnair.ro"
+        "one_click": "https://www.cnair.ro",
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,
@@ -1582,7 +1856,10 @@
         "text": "Setează în programul de facturare un termen de 5 zile lucrătoare pentru trimiterea în RO e-Factura",
         "termen": null,
         "formula_economie": null,
-        "one_click": "https://www.anaf.ro"
+        "one_click": "https://www.anaf.ro",
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": "contabil",
@@ -1624,7 +1901,10 @@
         "text": "Depune dosarul pentru bursa socială la secretariatul facultății, în perioada anunțată de universitate",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
       }
     ],
     "profesionist": null,

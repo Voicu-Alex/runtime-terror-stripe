@@ -1,0 +1,46 @@
+{
+  "act": "OUG 12/2026",
+  "mo": "MO 178 / 9 mar 2026",
+  "publicat_la": "2026-03-09",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Prețul gazelor pentru casnici se stabilește după o formulă nouă, cu componenta de furnizare de cel mult 15 lei/MWh",
+      "taguri": ["consumator_gaz"],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": "gaz_plafon",
+      "articol": "art. 1 alin. (1)-(2), art. 3",
+      "citat": "Componenta de furnizare a gazelor naturale este de maximum 15 lei/MWh",
+      "niveluri": {
+        "zero": "Pentru perioada de la 1 aprilie 2026 până la 31 martie 2027, prețul gazelor pentru clienții casnici se calculează din mai multe componente, iar componenta de furnizare nu poate depăși 15 lei/MWh.",
+        "curios": "Prețul final facturat de furnizor este suma componentei de achiziție, a componentei de furnizare, a tarifelor reglementate de ANRE pentru rețea și a TVA și accizelor. Componenta de furnizare are un plafon de 15 lei/MWh. Dacă prețul din contract este mai mare decât prețul calculat după această formulă, se aplică prețul mai mic. Textul nu dă o sumă în lei pe lună, deci impactul depinde de consum.",
+        "expert": "Art. 1 alin. (1) stabilește prețul final ca sumă a componentei de achiziție (art. 2), a componentei de furnizare (art. 3), a tarifelor ANRE pentru distribuție și transport și a TVA și accizelor. Art. 1 alin. (2) prevede că prețul facturat este cel mai mic dintre prețul contractual și prețul calculat conform alin. (1). Art. 3 limitează componenta de furnizare la maximum 15 lei/MWh. Art. 2 alin. (1) lit. b) limitează dezechilibrul la 10% din costul mediu ponderat. Prevederile se aplică clienților casnici (CC) și producătorilor de energie termică pentru populație."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Textul nu conține o sumă în lei/lună pentru client, deci nu dăm o cifră de impact. Componenta de achiziție depinde de piață și de cantitățile calculate de OTS, care nu sunt în text. Art. 9 prevede că furnizorul notifică clienții odată cu prima factură după intrarea în vigoare; comparația cu prețul anterior nu e în acest act."
+    },
+    {
+      "rezumat": "Consumul de gaze din condominii se împarte la numărul de apartamente",
+      "taguri": ["consumator_gaz"],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. 4 alin. (1)-(2), art. 6 alin. (4)",
+      "citat": "consumul de gaze naturale se determină prin împărțirea consumului total anual al asociației de proprietari/locatari la numărul de spații locative",
+      "niveluri": {
+        "zero": "Într-un bloc cu condominiu, consumul anual de gaze al asociației se împarte la numărul de apartamente, iar fiecare apartament primește această parte.",
+        "curios": "Pentru calculul fiecărui spațiu locativ din condominiu, consumul total anual al asociației se împarte la numărul de spații locative din condominiu. Același principiu se aplică și în cartierele rezidențiale unde mai mulți consumatori sunt facturați la comun. Clienții casnici din condominii sunt incluși în categoria protejată de această ordonanță.",
+        "expert": "Art. 4 alin. (1) stabilește împărțirea egală a consumului anual al asociației de proprietari/locatari la numărul de spații locative. Art. 4 alin. (2) extinde regula la cartierele rezidențiale cu facturare comună. Art. 6 alin. (4) include clienții casnici din condominii și cartiere rezidențiale în categoria CC."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Textul nu spune cum se face împărțirea pe apartament dacă există consum diferit sau alte reguli din contractul asociației. Nu avem o cifră de impact."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "act": "Legea 161/2026",
+  "mo": "MO 642 / 4 aug 2026",
+  "publicat_la": "2026-08-04",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "TVA de 9% la locuințe a fost valabil doar până la 30 septembrie 2026",
+      "taguri": [
+        "cumpar_locuinta"
+      ],
+      "in_vigoare_de_la": "2026-08-07",
+      "pana_la": "2026-09-30",
+      "status": "termen_depasit",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I alin. (1)",
+      "citat": "În perioada cuprinsă între data intrării în vigoare a prezentei legi și data de 30 septembrie 2026 inclusiv, persoana fizică, în mod individual sau în comun cu altă persoană fizică/alte persoane fizice, poate achiziționa o singură locuință cu cota redusă de TVA de 9%",
+      "niveluri": {
+        "zero": "Cota redusă de TVA de 9% la cumpărarea unei locuințe s-a putut aplica doar pentru contracte până la 30 septembrie 2026, iar acum această fereastră s-a închis.",
+        "curios": "Locuința trebuia să aibă cel mult 120 mp suprafață utilă, fără anexe, și o valoare de cel mult 600.000 lei fără TVA, terenul inclus. Cumpărătorul nu trebuia să fi cumpărat altă locuință cu cota redusă de TVA din 1 ianuarie 2023, iar avansul trebuia plătit până la 1 august 2025. Pentru cumpărările după 30 septembrie 2026, legea nu mai prevede cota de 9%, deci se aplică cota standard. Legea nu spune explicit acest lucru, dar rezultă din termenul ei.",
+        "expert": "Art. I alin. (1) lit. a)-d): suprafață utilă maximum 120 mp conform Legii 114/1996, anexe conform Legii 50/1991, valoare maximum 600.000 lei exclusiv TVA, locuibilă în momentul livrării, dar nu după 30 septembrie 2026. Alin. (2): pentru avansurile din 3-31 iulie 2025, avans de 20% achitat integral până la 31 iulie 2025. Alin. (3)-(4): notarul verifică Registrul achizițiilor de locuințe cu cota redusă de TVA și înscrie cota aplicată în actul autentic. Legea nu conține o cotă standard scrisă explicit; 21% este cifra din alte acte, nu din acesta, așa că nu o folosim ca formulă."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut la 30 septembrie 2026. Dacă cineva a încheiat un contract de avans sau de vânzare în fereastra legală, cota de 9% rămâne valabilă, dar acesta nu e cazul pentru cumpărările noi. Formula nu poate fi calculată din datele profilului, deoarece depinde de prețul locuinței, pe care nu îl cunoaștem."
+    },
+    {
+      "rezumat": "Restituire la TVA plătit în plus, dacă ai cumpărat locuință cu cota standard între 1 și 7 august 2026",
+      "taguri": [
+        "cumpar_locuinta"
+      ],
+      "in_vigoare_de_la": "2026-08-07",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II alin. (1), (2), (3) și (5)",
+      "citat": "Restituirea sumelor prevăzute la alin. (1) și (4) poate fi solicitată începând cu data de 1 octombrie 2026, potrivit procedurii aprobate în termen de 30 de zile de la data intrării în vigoare a prezentei legi",
+      "niveluri": {
+        "zero": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a legii, poți cere restituirea diferenței față de cota de 9%, după ce se publică procedura ANAF.",
+        "curios": "Restituirea se poate cere pentru o singură locuință, cu aceleași condiții ca la cota redusă: maximum 120 mp, valoare de cel mult 600.000 lei fără TVA, fără altă locuință cu cota redusă din 2023 și un avans plătit până la 1 august 2025. Dacă ai cumpărat mai multe locuințe în această perioadă, se restituie doar pentru cea al cărei fapt generator de TVA a intervenit primul. Cererea se poate depune doar de la 1 octombrie 2026.",
+        "expert": "Art. II alin. (1) lit. a)-d) cu condițiile de la art. I. Alin. (2): avans de 20% din valoarea exclusiv TVA, achitat integral până la 31 iulie 2025 pentru avansurile din 3-31 iulie 2025. Alin. (3): dacă mai multe locuințe îndeplinesc condițiile, restituirea se aplică doar primei al cărei fapt generator de TVA a intervenit. Alin. (5): procedura se aprobă prin ordin al președintelui ANAF în 30 de zile de la intrarea în vigoare, cu publicare în Monitorul Oficial, Partea I. Ordinul nu e în textul legii."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Cererea de restituire se poate depune doar de la 1 octombrie 2026, conform procedurii ANAF. Până la depunere, verifică în Monitorul Oficial Partea I ordinul președintelui ANAF care stabilește procedura și formularul. Pregătește contractul de achiziție, facturile și dovada avansului de 20% plătit până la 31 iulie 2025.",
+          "termen": "2026-10-01",
+          "destinatie": null,
+          "destinatie_propusa": "Pagina ANAF cu procedura și formularul de restituire TVA pentru locuințe, din ordinul președintelui ANAF publicat în Monitorul Oficial Partea I (de confirmat numărul și data ordinului)."
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Ordinul ANAF cu procedura nu e în textul legii, așa că nu știm dacă a fost publicat și care e formularul. Trebuie verificat în Monitorul Oficial Partea I. Restituirea privește doar achizițiile cu cota standard făcute între 1 august 2026 și data intrării în vigoare; ca dată de intrare în vigoare am folosit 7 august 2026, din Portal. Sumele primăriilor din alin. (4) nu sunt drepturi ale persoanelor fizice, așa că nu le-am inclus. Suma restituită depinde de prețul locuinței, de aceea nu avem formulă."
+    }
+  ]
+}

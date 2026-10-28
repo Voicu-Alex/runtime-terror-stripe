@@ -1,5 +1,7 @@
 import catalogJson from "@/data/catalog.json";
+import { esteDestinatie, type DestinatieId } from "./destinatii";
 import { esteFormula, type FormulaId } from "./formule";
+import { esteFormulaTip, type FormulaTip } from "./formule-tip";
 import type { CampConditie } from "./profil";
 import { esteTag, type TagId } from "./taguri";
 
@@ -16,6 +18,13 @@ export type Conditie = {
   valoare: number;
 };
 
+/** fa = omul are ceva de făcut; verifica = altcineva aplică legea, omul verifică; nimic_pana_la = nimic de făcut până la `termen` */
+export type TipActiune = "fa" | "verifica" | "nimic_pana_la";
+/** cine aplică schimbarea: omul însuși sau altcineva, automat */
+export type CineAplica = "tu" | "angajator" | "furnizor" | "stat";
+export const TIPURI_ACTIUNE: TipActiune[] = ["fa", "verifica", "nimic_pana_la"];
+export const CINE_APLICA: CineAplica[] = ["tu", "angajator", "furnizor", "stat"];
+
 export type Actiune = {
   text: string;
   termen: string | null; // ISO, data până la care merită făcută
@@ -23,6 +32,11 @@ export type Actiune = {
   formula_economie: FormulaId | null;
   /** URL de partener pentru butonul one-click (task-ul lui Andrei și Haggy); null deocamdată */
   one_click: string | null;
+  /** opționale pentru intrările vechi; obligatorii pentru propunerile noi (vezi eval/scor.mjs) */
+  tip?: TipActiune;
+  cine_aplica?: CineAplica;
+  /** unde merge omul: un id din data/destinatii.json, niciodată un URL scris de model */
+  destinatie?: DestinatieId | null;
 };
 
 /** Un act ulterior care a modificat actul din intrare. Forma la zi = intrarea + aceste modificări. */
@@ -56,6 +70,8 @@ export type Schimbare = {
   taguri: TagId[];
   conditii: Conditie[];
   formula: FormulaId | null;
+  /** formulă parametrizată (lib/formule-tip.ts), folosită când `formula` e null */
+  formula_tip?: FormulaTip | null;
   /** cifra e o medie sau un calcul propriu, nu din lege */
   estimare: boolean;
   niveluri: Niveluri;
@@ -98,9 +114,18 @@ export function valideazaCatalog(brut: unknown): Schimbare[] {
     if (!Array.isArray(x.taguri) || x.taguri.length === 0) throw new CatalogInvalid(`${unde}: fără etichete`);
     for (const t of x.taguri) if (!esteTag(t)) throw new CatalogInvalid(`${unde}: eticheta necunoscută „${String(t)}”`);
     if (x.formula != null && !esteFormula(x.formula)) throw new CatalogInvalid(`${unde}: formula necunoscută „${String(x.formula)}”`);
+    if (x.formula_tip != null && !esteFormulaTip(x.formula_tip)) throw new CatalogInvalid(`${unde}: formula_tip invalidă`);
     for (const a of (x.actiuni as Actiune[]) ?? []) {
       if (a.formula_economie != null && !esteFormula(a.formula_economie))
         throw new CatalogInvalid(`${unde}: formula de economie necunoscută „${String(a.formula_economie)}”`);
+      if (a.tip != null && !TIPURI_ACTIUNE.includes(a.tip)) throw new CatalogInvalid(`${unde}: tip de acțiune necunoscut „${String(a.tip)}”`);
+      if (a.cine_aplica != null && !CINE_APLICA.includes(a.cine_aplica))
+        throw new CatalogInvalid(`${unde}: cine_aplica necunoscut „${String(a.cine_aplica)}”`);
+      if (a.tip === "nimic_pana_la" && !a.termen) throw new CatalogInvalid(`${unde}: „nimic_pana_la” cere un termen`);
+      if (a.destinatie != null) {
+        if (a.tip == null) throw new CatalogInvalid(`${unde}: destinația cere și tipul acțiunii`);
+        if (!esteDestinatie(a.destinatie)) throw new CatalogInvalid(`${unde}: destinație necunoscută „${String(a.destinatie)}”`);
+      }
     }
     for (const c of (x.conditii as Conditie[]) ?? []) {
       if (![">", ">=", "<", "<=", "=="].includes(c.op)) throw new CatalogInvalid(`${unde}: operator necunoscut „${c.op}”`);

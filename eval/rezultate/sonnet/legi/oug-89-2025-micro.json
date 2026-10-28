@@ -1,0 +1,177 @@
+{
+  "act": "OUG 89/2025",
+  "mo": "MO 1203 / 24 dec 2025",
+  "publicat_la": "2025-12-24",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Microîntreprinderile plătesc cota unică de 1% pe venituri din 2026",
+      "taguri": ["micro"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": "micro_1",
+      "articol": "art. I pct. 4 (art. 51 alin. (1) Cod fiscal), art. II alin. (1)",
+      "citat": "(1) Cota de impozit pe veniturile microîntreprinderilor este de 1%.",
+      "niveluri": {
+        "zero": "Dacă ai un SRL mic (microîntreprindere), din 2026 impozitul pe veniturile firmei este 1%.",
+        "curios": "Ordonanța fixează o singură cotă de 1% pentru impozitul pe veniturile microîntreprinderilor și abrogă alineatele care prevedeau alte cote (art. 51 alin. (1^1) și (4^1)-(4^3)). Intră în vigoare la 1 ianuarie 2026. Tot aici, limitele pentru a rămâne microîntreprindere se verifică pe veniturile cumulate de la începutul anului, iar preambulul vorbește despre un nou plafon de 100.000 euro.",
+        "expert": "Art. I pct. 4 modifică art. 51 alin. (1) din Codul fiscal (cota 1%), pct. 5 abrogă art. 51 alin. (1^1) și (4^1)-(4^3). Pct. 6 modifică art. 52 alin. (5): limitele din alin. (1) se verifică pe veniturile cumulate de la începutul anului fiscal, cu cursul din ultima zi a exercițiului precedent. Pct. 7 modifică art. 54 alin. (1) pentru încadrarea în art. 47 alin. (1) lit. c) și art. 52 alin. (1). Art. II alin. (1): art. I intră în vigoare la 1 ianuarie 2026, iar pct. 9-51 la 1 martie 2026."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Cota anterioară și cuantumul plafonului de 100.000 euro (doar menționat în preambul) nu sunt în text; de verificat în art. 47, 51 și 52 din Codul fiscal. Impactul în lei depinde de cifra de afaceri."
+    },
+    {
+      "rezumat": "Până la 300 lei pe lună fără impozit și contribuții pentru cei pe salariul minim în 2026",
+      "taguri": ["angajat", "salariu_minim"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "articol": "art. III alin. (1)",
+      "citat": "pentru suma de 300 lei/lună din veniturile din salarii și asimilate salariilor aferente perioadei 1 ianuarie-30 iunie 2026, respectiv pentru suma de 200 lei/lună",
+      "niveluri": {
+        "zero": "Dacă ai norma întreagă și salariul de bază este chiar salariul minim, o parte din venit nu mai e impozitată: 300 lei pe lună până în iunie 2026 și 200 lei pe lună din iulie.",
+        "curios": "Pe suma de 300 lei lunar (ianuarie-iunie 2026) și 200 lei lunar (iulie-decembrie 2026) nu se datorează impozit pe venit și nici contribuții sociale. Condițiile: contract cu normă întreagă la funcția de bază, salariul de bază brut egal cu salariul minim brut pe țară din luna respectivă, iar venitul brut din acel contract să nu treacă de 4.300 lei (ianuarie-iunie) sau 4.600 lei (iulie-decembrie), fără tichete de masă și vouchere de vacanță. Dacă angajatorul scade salariul de bază după intrarea în vigoare, condiția nu mai e îndeplinită.",
+        "expert": "Art. III alin. (1) derogă de la art. 78, 139, 140, 157 și 220^4 din Codul fiscal; condițiile lit. a) și b) sunt cumulative. Alin. (2): reducerea salariului de bază după intrarea în vigoare blochează aplicarea. Alin. (3): se aplică și raporturilor de serviciu. Alin. (4): suma se diminuează proporțional cu perioada lucrată la minim, cu data angajării, cu fracția de lună și cu data încetării contractului. Alin. (5): pentru art. 146 alin. (5^6)-(5^9) și art. 168 alin. (6^1) din Codul fiscal, salariul minim se diminuează cu 300 lei (ianuarie-iunie) și 200 lei (iulie-decembrie). Alin. (6): se aplică veniturilor aferente lunilor ianuarie-decembrie 2026."
+      },
+      "actiuni": [
+        {
+          "text": "Verifică în contract că salariul de bază brut este egal cu salariul minim și că venitul brut lunar nu depășește plafonul din lege (4.300 lei până în iunie, 4.600 lei din iulie).",
+          "termen": "2026-12-31",
+          "link": "https://legislatie.just.ro/Public/DetaliiDocument/305817"
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Salariul minim brut din a doua jumătate a anului 2026 nu e în acest text (preambulul spune doar că crește din 1 iulie 2026 și că în ianuarie-iunie este 4.050 lei); de verificat în actul care îl stabilește."
+    },
+    {
+      "rezumat": "PFA cu CNP trebuie să se înscrie în RO e-Factura și să trimită facturile în 5 zile lucrătoare",
+      "taguri": ["pfa"],
+      "in_vigoare_de_la": "2026-01-15",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "termen",
+      "formula": null,
+      "articol": "art. XI alin. (1)-(2); art. X pct. 2, 4 și 5",
+      "citat": "sunt înscriși în Registrul RO e-Factura obligatoriu cu data de 15 ianuarie 2026",
+      "niveluri": {
+        "zero": "Dacă ai PFA și te identifici fiscal cu CNP-ul, trebuie să fii înscris în RO e-Factura și să trimiți facturile prin sistem.",
+        "curios": "Cine avea activitate economică înainte de 15 ianuarie 2026 trebuia să ceară înscrierea în Registrul RO e-Factura înainte de acea dată și este înscris cu data de 15 ianuarie 2026. Cine începe activitatea după aceea cere înscrierea înainte de a începe, iar înscrierea se face în 3 zile lucrătoare de la cerere. Facturile se trimit în sistem în cel mult 5 zile lucrătoare de la emitere.",
+        "expert": "Art. XI alin. (1)-(2) prevede cererea de înscriere înainte de 15 ianuarie 2026 și înscrierea cu data de 15 ianuarie 2026 pentru cei care identifică fiscal prin CNP și au început activitatea mai devreme. Art. X pct. 5 introduce art. 10^10 din OUG 120/2021: cererea se face înainte de începerea activității, iar înscrierea are loc în 3 zile lucrătoare. Art. X pct. 2 și 3 fixează termenul de 5 zile lucrătoare pentru transmiterea facturilor. Art. X pct. 4: livrările către persoane fizice fără cod fiscal sau identificate prin CNP sunt B2C, iar factura poartă 13 cifre de zero dacă nu există cod. Art. XI alin. (3): procedura de înscriere se modifică prin ordin ANAF în 15 zile."
+      },
+      "actiuni": [
+        {
+          "text": "Dacă ai început activitatea ca PFA înainte de 15 ianuarie 2026 și nu ai cerut înscrierea în Registrul RO e-Factura, termenul a trecut; verifică la ANAF situația ta.",
+          "termen": "2026-01-15",
+          "link": "https://www.anaf.ro/"
+        },
+        {
+          "text": "Dacă începi o activitate nouă cu CNP, cere înscrierea în Registrul RO e-Factura înainte de a începe.",
+          "termen": null,
+          "link": "https://www.anaf.ro/"
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Obligația rămâne în vigoare pentru PFA noi; termenul din 15 ianuarie 2026 a trecut pentru cei existenți. Cine intră sub obligațiile din art. 5, 9^1, 10 alin. (1) și 10^1 alin. (2) din OUG 120/2021 nu e descris în acest text; de verificat în OUG 120/2021. Sancțiuni pentru neînscriere nu sunt în acest act."
+    },
+    {
+      "rezumat": "Ajutorul pentru sărăcia energetică la curent se aplică până la 31 decembrie 2026",
+      "taguri": ["consumator_energie"],
+      "in_vigoare_de_la": "2025-12-24",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. XXXIV pct. 1 (art. 1 alin. (2) din OUG 35/2025)",
+      "citat": "(2) Măsurile de protecție socială se aplică în perioada 1 iulie 2025-31 decembrie 2026.",
+      "niveluri": {
+        "zero": "Sprijinul pentru gospodăriile sărace la factura de curent poate fi cerut până la sfârșitul lui 2026.",
+        "curios": "Mecanismul de sprijin pentru consumatorii casnici de energie electrică aflați în sărăcie energetică se aplică în perioada 1 iulie 2025-31 decembrie 2026. Pentru unele categorii de venituri, venitul lunar se calculează împărțind la 12 veniturile realizate cumulat în anul dinaintea cererii.",
+        "expert": "Art. XXXIV pct. 1 modifică art. 1 alin. (2) din OUG 35/2025 (perioada 1 iulie 2025-31 decembrie 2026). Pct. 2 modifică art. 5 alin. (2) lit. d): pentru veniturile din alin. (1) lit. e), f) și h)-k) se iau în calcul veniturile cumulate din anul anterior solicitării, împărțite la 12."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Cuantumul sprijinului, condițiile de eligibilitate și modul de cerere sunt în OUG 35/2025, nu în acest text; de verificat acolo."
+    },
+    {
+      "rezumat": "Pentru persoanele cu handicap, art. 58^2 din Legea 448/2006 nu se aplică în 2026",
+      "taguri": ["persoana_handicap"],
+      "in_vigoare_de_la": "2025-12-24",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. XXXVIII",
+      "citat": "În anul 2026, prevederile art. 58^2 din Legea nr. 448/2006 privind protecția și promovarea drepturilor persoanelor cu handicap",
+      "niveluri": {
+        "zero": "Un mod nou de acordare și calcul al unor drepturi pentru persoanele cu handicap nu se aplică în 2026.",
+        "curios": "Ordonanța spune că în 2026 nu se mai aplică art. 58^2 din Legea 448/2006. Preambulul explică că e vorba de amânarea unui mecanism nou de acordare și calcul al drepturilor, din cauza dificultăților de adaptare a sistemelor informatice, în paralel cu prorogarea art. 58 alin. (1) până la 1 ianuarie 2027.",
+        "expert": "Art. XXXVIII suspendă aplicarea art. 58^2 din Legea 448/2006 pe anul 2026. Preambulul leagă măsura de prorogarea art. 58 alin. (1) prin Legea 141/2025 până la 1 ianuarie 2027, pentru tratament unitar."
+      },
+      "actiuni": [],
+      "incredere": "scazuta",
+      "nota": "Conținutul art. 58^2 și efectul concret în lei nu sunt în text; de verificat în Legea 448/2006."
+    },
+    {
+      "rezumat": "Sere, solare și silozuri sunt scutite de impozit pe clădiri în 2026, apoi cu 50% mai puțin",
+      "taguri": ["proprietar", "agricultura"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "articol": "art. VI pct. 3 (art. 456 alin. (3) Cod fiscal)",
+      "citat": "(3) În anul 2026, clădirile care sunt utilizate ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje",
+      "niveluri": {
+        "zero": "Dacă ai sere, solare sau silozuri pentru cereale, nu plătești impozit pe clădiri în 2026.",
+        "curios": "În 2026, clădirile folosite ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje și silozuri sau pătule pentru cereale sunt scutite de impozit pe clădiri. Din 2027 impozitul pentru ele se reduce cu 50%. Scutirea nu se aplică încăperilor folosite pentru alte activități economice. Mai există o scutire pentru 2 ani pentru clădirile cu regim de protecție, altele decât monumentele istorice, din zone de protecție, după renovare.",
+        "expert": "Art. VI pct. 3 modifică art. 456 alin. (3) din Codul fiscal (scutire în 2026, reducere de 50% din 2027, cu excepția încăperilor pentru alte activități economice). Pct. 2 introduce art. 456 alin. (2) lit. ș): scutire 2 ani de la 1 ianuarie a anului următor finalizării renovării pentru clădiri cu regim de protecție din zone de protecție ale monumentelor istorice și din zonele construite protejate. Art. VIII alin. (1): art. VI intră în vigoare la 1 ianuarie 2026."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Suma economisită depinde de valoarea clădirii și de cota locală; nu e în text."
+    },
+    {
+      "rezumat": "Programul „Masă sănătoasă” continuă în 2026 pentru preșcolari și elevii din școli de stat",
+      "taguri": ["parinte"],
+      "in_vigoare_de_la": "2026-01-08",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "articol": "art. XIX alin. (1)",
+      "citat": "în anul 2026, începând cu data de 8 ianuarie 2026, se implementează Programul național „Masă sănătoasă“",
+      "niveluri": {
+        "zero": "Copiii din școlile și grădinițele de stat primesc masă prin programul „Masă sănătoasă” și în 2026.",
+        "curios": "Programul național „Masă sănătoasă” se implementează în 2026, începând cu 8 ianuarie, pentru preșcolarii și elevii din unitățile de învățământ preuniversitar de stat. Bugetul este de 1.531.090 mii lei din sume defalcate din TVA. Repartizarea pe școli și normele de aplicare se aprobă prin hotărâre a Guvernului.",
+        "expert": "Art. XIX alin. (1) derogă de la art. 77 alin. (4) din Legea 198/2023 și prevede finanțarea din bugetul de stat în limita a 1.531.090 mii lei. Alin. (2): de la 8 ianuarie, la cererea unităților administrativ-teritoriale, Trezoreria alocă sume defalcate din TVA până la finele lunii în care expiră termenul de aprobare a bugetelor locale."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Valoarea per copil și cine primește efectiv masa se stabilesc prin hotărâre de Guvern, care nu e în acest text."
+    },
+    {
+      "rezumat": "Impozit reținut la sursă de 10% sau 16% în funcție de tipul venitului",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. I pct. 8 (art. 115 alin. (1) Cod fiscal)",
+      "citat": "b) 16% pentru veniturile prevăzute la art. 114 alin. (2) lit. h) și i).",
+      "niveluri": {
+        "zero": "Pentru unele venituri se reține la sursă 10%, iar pentru altele 16%.",
+        "curios": "Ordonanța rescrie art. 115 alin. (1) din Codul fiscal: se reține 10% pentru veniturile din art. 114 alin. (2) lit. a)-g), j)-k^1) și m^2) și 16% pentru cele de la lit. h) și i). Textul nu spune ce venituri sunt la lit. h) și i).",
+        "expert": "Art. I pct. 8 modifică art. 115 alin. (1) din Codul fiscal cu cotele de 10% (lit. a)) și 16% (lit. b)). Intră în vigoare la 1 ianuarie 2026 conform art. II alin. (1)."
+      },
+      "actiuni": [],
+      "incredere": "scazuta",
+      "nota": "Ce venituri acoperă art. 114 alin. (2) lit. h) și i) nu e în text; de verificat în Codul fiscal. Nu se alege nicio etichetă sau formulă până la verificare."
+    }
+  ]
+}

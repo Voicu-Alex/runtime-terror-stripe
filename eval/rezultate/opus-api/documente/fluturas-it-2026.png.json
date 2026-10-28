@@ -1,0 +1,28 @@
+{
+  "mod": "claude",
+  "tip_document": "fluturas_salariu",
+  "etichete_propuse": [
+    {
+      "tag": "angajat",
+      "incredere": 0.97,
+      "motiv": "Documentul este un fluturaș de salariu pe septembrie 2026, cu salariu brut și net."
+    },
+    {
+      "tag": "it",
+      "incredere": 0.95,
+      "motiv": "Angajatorul are codul CAEN 6201, adică realizare de soft la comandă, iar funcția este inginer software."
+    },
+    {
+      "tag": "pilon2",
+      "incredere": 0.8,
+      "motiv": "Fluturașul arată că din contribuția CAS o parte de 4,75% merge la Pilon II."
+    }
+  ],
+  "valori": {
+    "salariu_brut": 10000,
+    "cheltuieli_lunare": 0,
+    "suma_factura": 0,
+    "chirie_lunara": 0
+  },
+  "explicatie_scurta": "Am găsit un fluturaș de salariu pe septembrie 2026 de la o firmă de software, pentru funcția de inginer software. Salariul brut este 10.000 lei, iar salariul net este 6.500 lei. Fluturașul arată și o contribuție la Pilon II și impozit pe venit 0 lei, cu mențiunea scutire IT."
+}

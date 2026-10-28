@@ -1,0 +1,37 @@
+{
+  "act": "HG 146/2026",
+  "mo": "MO 196 / 13 mar 2026",
+  "publicat_la": "2026-03-13",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Salariul minim brut pe țară crește la 4.325 lei de la 1 iulie 2026",
+      "taguri": ["angajat", "salariu_minim"],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": { "tip": "diferenta_prag", "parametri": { "camp": "salariu_brut", "prag": 4325, "perioada": "luna" } },
+      "articol": "art. 1",
+      "citat": "se stabilește în bani, fără a include sporuri și alte adaosuri, la suma de 4.325 lei lunar",
+      "niveluri": {
+        "zero": "De la 1 iulie 2026, salariul minim brut garantat în plată este de 4.325 lei pe lună, fără sporuri.",
+        "curios": "Dacă salariul tău brut de bază este sub 4.325 lei, angajatorul trebuie să ți-l ridice până la această sumă. Diferența dintre 4.325 lei și salariul tău brut de bază este câștigul tău lunar. Legea nu spune cât era salariul minim înainte, deci diferența se calculează față de salariul din profil, nu față de vechea sumă.",
+        "expert": "Hotărârea stabilește salariul de bază minim brut pe țară garantat în plată la 4.325 lei lunar, pentru 166,667 ore pe lună (25,949 lei pe oră), începând cu 1 iulie 2026, în sensul art. 164 alin. (1) din Codul muncii. Sumă fără sporuri și alte adaosuri. Art. 2 abrogă HG 1.506/2024."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică fluturașul din luna următoare și vezi că salariul de bază brut, fără sporuri, nu este sub 4.325 lei pe lună.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Vechea sumă (HG 1.506/2024) nu e scrisă în text, deci nu se afișează ca diferență față de ea. Cifra de 25,949 lei/oră e calculată de lege și nu e necesară aici."
+    }
+  ]
+}

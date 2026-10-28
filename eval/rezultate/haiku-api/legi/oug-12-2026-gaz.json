@@ -1,0 +1,39 @@
+{
+  "act": "OUG 12/2026",
+  "mo": "MO 178 / 9 mar 2026",
+  "publicat_la": "2026-03-09",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Gazul pentru casnici se facturează după o formulă, nu după plafonul vechi, din 1 aprilie 2026 până la 31 martie 2027",
+      "taguri": [
+        "consumator_gaz"
+      ],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (1)-(2) și art. 3",
+      "citat": "Componenta de furnizare a gazelor naturale este de maximum 15 lei/MWh.",
+      "niveluri": {
+        "zero": "Din 1 aprilie 2026, furnizorul de gaze nu poate să îți factureze gazul mai scump decât prețul din contract, iar partea lui de furnizare nu poate depăși 15 lei pe megawatt-oră.",
+        "curios": "Prețul final al gazului este cel mai mic dintre două valori: prețul din contractul tău și prețul calculat după formula din ordonanță. Prețul calculat e format din costul de achiziție al furnizorului, o componentă de furnizare de maximum 15 lei/MWh, tarifele de rețea stabilite de ANRE, TVA și accizele. Ordonanța nu spune ce sumă vei plăti, pentru că aceasta depinde de consumul tău și de contractul tău. Îți poți verifica factura după aceste reguli.",
+        "expert": "Art. 1 alin. (1): prețul final = componenta de achiziție (art. 2) + componenta de furnizare (art. 3) + tarife reglementate ANRE pentru distribuție și transport, cu excepția celor din achiziție + TVA și accize. Art. 1 alin. (2): prețul final facturat este valoarea cea mai mică dintre prețul contractual și prețul calculat. Art. 2 alin. (1) lit. b): contravaloarea dezechilibrului, dar nu mai mult de 10% din CMP. Art. 9: furnizorul notifică modificările odată cu prima factură emisă după intrarea în vigoare. Art. 8 alin. (1): sancțiuni de 1% până la 5% din cifra de afaceri pentru furnizori. Ordonanța abrogă regimul OUG 6/2025, al cărui termen a expirat la 31 martie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică factura de gaze: prețul final nu trebuie să depășească prețul din contractul tău, iar componenta de furnizare nu poate depăși 15 lei/MWh. Dacă prețul de pe factură e mai mare decât cel din contract, cere furnizorului explicația pe componente.",
+          "termen": null,
+          "destinatie": "furnizor",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Ordonanța nu stabilește o sumă pe lună pentru casnici, deci nu putem estima economia: depinde de consum și de contract. Componenta de achiziție (CMP) și tarifele ANRE sunt calculate de furnizor și de ANRE și nu sunt în acest text: de verificat în factură și pe site-ul ANRE. Prețul de 110 lei/MWh din art. 6 se aplică producătorilor, nu direct casnicilor, și poate fi modificat prin hotărâre de Guvern; de verificat dacă modificarea ajunge la factura ta. Pragul de 15 lei/MWh din art. 3 e fixat prin ordonanță; nu am găsit o cifră de referință pentru perioada anterioară în text."
+    }
+  ]
+}

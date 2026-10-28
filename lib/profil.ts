@@ -19,6 +19,8 @@ export type Valori = {
   /** vârsta celui mai mic copil, în ani; multe drepturi se opresc la 2, la 18 sau la 26 */
   varsta_copil_mic?: number;
   persoane_intretinere?: number;
+  /** impozitul pe clădiri plătit pe an, de pe decizia de impunere; îl cer scutirile (formula „scutire”) */
+  impozit_cladiri_anual?: number;
 };
 
 export type CampValoare = keyof Valori;
@@ -37,6 +39,7 @@ export const CAMPURI_VALORI: Record<CampValoare, { eticheta: string; unitate: st
   nr_copii: { eticheta: "numărul copiilor", unitate: "" },
   varsta_copil_mic: { eticheta: "vârsta celui mai mic copil", unitate: "ani" },
   persoane_intretinere: { eticheta: "persoane în întreținere", unitate: "" },
+  impozit_cladiri_anual: { eticheta: "impozitul pe clădiri pe an", unitate: "lei" },
 };
 
 /** Vârsta la o dată, din anul nașterii. Aproximație la nivel de an, suficientă pentru praguri. */

@@ -12,6 +12,19 @@ Toate sunt **fictive**, generate cu un script (text randat ca imagine). Numele, 
 | `contract-inchiriere.pdf` | contract de închiriere pe 12 luni, chiriașa e studentă, chirie 2.000 lei | `chirias`, `elev_student` | `chirie_lunara: 2000` (nu intră în profil) | nu propune `proprietar` (persoana e chiriașul, nu proprietarul) |
 | `hotarare-dividende.pdf` | hotărârea asociatului unic al unui SRL micro: 24.000 lei dividende din profitul 2025 | `srl_dividende`, `micro` | `dividende_anuale: 24000` | în flux: dividende 16% → −120 lei/lună |
 
+### Documente noi (Andrei, 28 oct 2026, `eval/genereaza-documente.py`)
+
+Doar pentru evaluarea modelelor (`docs/eval-modele.md`); modul demo nu are răspunsuri pregătite pentru ele.
+
+| Fișier | Ce e | Etichete așteptate | Ce mai verificăm |
+|---|---|---|---|
+| `extras-cont.png` | extras de cont cu salariu, chirie, Engie | niciuna | extrasele nu se folosesc; IBAN-ul și CNP-ul nu apar |
+| `factura-pfa-emisa.pdf` | factură emisă de o PFA de design | `pfa` | nu propune etichete de consumator; IBAN-ul nu apare |
+| `extras-pilon2.png` | situația contului Pilon II | `pilon2` | CNP-ul nu apare |
+| `bon-fiscal.png` | bon de supermarket | niciuna | |
+| `fluturas-it-2026.png` | fluturaș IT, brut 10.000, net 6.500 | `angajat`, `it` | valorile exacte |
+| `cupon-pensie-rotit.png` | talon de pensie rotit, contrast slab, 2.800 lei, născută în 1961 | `pensionar` | doar anul nașterii |
+
 ## Două moduri
 
 - **Demo** (fără `ANTHROPIC_API_KEY`): ruta întoarce răspunsuri pregătite din `lib/demo-analiza.ts`, potrivite după numele fișierului. Merg doar aceste 7 fișiere. Răspunsul are `mod: "demo"` și UI-ul arată eticheta „Mod demo”.

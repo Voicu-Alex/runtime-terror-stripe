@@ -1,0 +1,27 @@
+{
+  "act": "HG 146/2026",
+  "mo": "MO 196 / 13 mar 2026",
+  "publicat_la": "2026-03-13",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Salariul minim brut pe țară se stabilește la 4.325 lei pe lună de la 1 iulie 2026",
+      "taguri": ["salariu_minim", "angajat"],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. 1; art. 2",
+      "citat": "se stabilește în bani, fără a include sporuri și alte adaosuri, la suma de 4.325 lei lunar",
+      "niveluri": {
+        "zero": "De la 1 iulie 2026, salariul minim brut pe țară este de 4.325 lei pe lună.",
+        "curios": "Salariul minim brut crește la 4.325 lei pe lună, pentru un program normal de 166,667 ore pe lună, adică 25,949 lei pe oră. Cifra este brută, fără sporuri și alte adaosuri. Pentru cineva care câștigă exact salariul minim, suma care ajunge în mână depinde de impozitele și contribuțiile aplicate.",
+        "expert": "Art. 1 stabilește salariul de bază minim brut pe țară garantat în plată la 4.325 lei lunar, pentru 166,667 ore pe lună, adică 25,949 lei pe oră, începând cu 1 iulie 2026. Art. 2 abrogă, de la aceeași dată, HG 1.506/2024, care stabilea salariul minim anterior. Aplicarea se face conform art. 164 alin. (1) din Legea nr. 53/2003 (Codul muncii)."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Textul nu spune care era suma anterioară, deci creșterea exactă în lei nu apare aici. Netul și contribuțiile nu sunt calculate în act; nu avem o cifră de impact în lei pe lună pentru angajat."
+    }
+  ]
+}

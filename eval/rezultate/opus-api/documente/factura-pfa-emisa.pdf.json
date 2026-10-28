@@ -1,0 +1,13 @@
+{
+  "mod": "claude",
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "pfa",
+      "incredere": 0.75,
+      "motiv": "Factura este emisă de o persoană fizică autorizată către o firmă. Eticheta se potrivește dacă documentul a fost încărcat de cea care a emis factura."
+    }
+  ],
+  "valori": {},
+  "explicatie_scurta": "Documentul este o factură emisă de o persoană fizică autorizată către o firmă, pentru servicii de design (logo și manual de brand). Nu este o factură de utilități, așa că nu am completat furnizorul și suma de plată. Am propus doar eticheta pfa, pentru persoana care a emis factura."
+}

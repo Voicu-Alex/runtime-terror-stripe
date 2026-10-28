@@ -1,0 +1,33 @@
+{
+  "act": "Legea 204/2026",
+  "mo": "MO 886 / 22 oct 2026",
+  "publicat_la": "2026-10-22",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Până la 200 litri pe an de băutură tradițională, pentru gospodărie, fără accize",
+      "taguri": ["rural", "agricultura"],
+      "in_vigoare_de_la": "2026-10-25",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "articol": "art. II (art. 342 alin. (1^10) Cod fiscal)",
+      "citat": "(1^10) Sunt scutite de la plata accizelor băuturile alcoolice tradiționale, astfel cum sunt reglementate prin dispoziții speciale, în limita a 200 litri anual pe o gospodărie evidențiată",
+      "niveluri": {
+        "zero": "O gospodărie de la țară poate face până la 200 litri de băutură tradițională pe an fără să plătească accize, dacă nu o vinde.",
+        "curios": "Băuturile alcoolice tradiționale sunt scutite de accize în limita a 200 litri pe an pentru o gospodărie înscrisă în Registrul agricol, cu condiția să nu fie destinate vânzării. Cantitatea nedestinată vânzării nu se numără în limitele pentru micii producători independenți de băuturi fermentate. Condițiile și modelul documentelor pentru evidența și justificarea cantităților vor fi stabilite prin normele metodologice.",
+        "expert": "Art. II completează art. 342 din Codul fiscal cu alin. (1^10): scutire de accize pentru băuturile alcoolice tradiționale, în limita a 200 litri anual pe gospodărie evidențiată în Registrul agricol (OG 28/2008), nedestinate vânzării. Alin. (1^11): cantitatea nedestinată vânzării nu intră în limitele cantitative de la alin. (1^2) pentru micii producători independenți de băuturi fermentate. Condițiile și documentele se stabilesc prin normele metodologice."
+      },
+      "actiuni": [
+        {
+          "text": "Verifică dacă gospodăria ta este înscrisă în Registrul agricol și urmărește normele metodologice, care vor stabili documentele pentru evidența cantităților.",
+          "termen": null,
+          "link": "https://legislatie.just.ro/Public/DetaliiDocument/315641"
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Art. I aprobă OG 22/2025 fără a-i reproduce conținutul; de verificat în OG 22/2025 ce alte modificări aduce Codului fiscal. Normele metodologice nu sunt în text. Definiția băuturilor tradiționale este în dispoziții speciale, nereproduse aici."
+    }
+  ]
+}

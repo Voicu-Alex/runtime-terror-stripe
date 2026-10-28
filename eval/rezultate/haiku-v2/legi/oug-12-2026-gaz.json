@@ -1,0 +1,95 @@
+{
+  "act": "OUG 12/2026",
+  "mo": "MO 178 / 9 mar 2026",
+  "publicat_la": "2026-03-09",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Prețul gazului pentru casnici este cel mai mic dintre prețul din contract și cel calculat după lege, din aprilie 2026 până în martie 2027",
+      "taguri": ["consumator_gaz"],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (1) și (2)",
+      "citat": "prețul final facturat de către fiecare furnizor de gaze naturale este valoarea cea mai mică dintre",
+      "niveluri": {
+        "zero": "Furnizorul de gaze nu te poate factura peste prețul din contract, nici peste prețul calculat după lege, până la 31 martie 2027.",
+        "curios": "Pentru clienții casnici, prețul final este cea mai mică dintre două sume: prețul din contract și prețul calculat după lege. Prețul calculat e format din costul de achiziție, componenta de furnizare, tarifele reglementate, TVA și accize. Câștigul depinde de contractul tău și de consumul tău, care nu sunt în profil.",
+        "expert": "Art. 1 alin. (1) stabilește prețul final pentru clienții casnici și pentru producătorii de energie termică destinată populației, pe perioada 1 aprilie 2026-31 martie 2027, ca sumă a: componentei de achiziție (art. 2), componentei de furnizare (art. 3, cel mult 15 lei/MWh), tarifelor reglementate ANRE pentru distribuție și transport, TVA și accizelor. Alin. (2) aplică regula celui mai mic preț dintre cel contractual și cel calculat. Art. 9 cere furnizorului să notifice modificările odată cu prima factură."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică factura de gaze: prețul final nu poate fi mai mare decât cel mai mic dintre prețul din contract și prețul calculat după lege. Verifică și că prima factură de după 1 aprilie 2026 te-a notificat despre modificări.",
+          "termen": null,
+          "destinatie": "furnizor",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Prețul din contract și consumul nu sunt în profil, deci suma în lei nu se poate calcula. Art. 6 (prețul de 110 lei/MWh și obligațiile producătorilor) și art. 5 și 8 privesc producătorii și furnizorii, nu persoanele fizice, și nu sunt tratate aici."
+    },
+    {
+      "rezumat": "Componenta de furnizare a gazului are plafon de 15 lei/MWh",
+      "taguri": ["consumator_gaz"],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 3",
+      "citat": "Componenta de furnizare a gazelor naturale este de maximum 15 lei/MWh.",
+      "niveluri": {
+        "zero": "Partea de furnizare din prețul gazului nu poate trece de 15 lei pe megavatoră (MWh).",
+        "curios": "Din prețul gazului, componenta de furnizare, adică partea care revine furnizorului pentru serviciu, nu poate depăși 15 lei/MWh. Pe factură o vezi ca un rând separat sau în prețul pe unitate.",
+        "expert": "Art. 3 din OUG 12/2026 limitează componenta de furnizare la maximum 15 lei/MWh, pentru perioada 1 aprilie 2026-31 martie 2027, ca parte a prețului final din art. 1 alin. (1) lit. b)."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică pe factura de gaze că prețul componentei de furnizare nu depășește 15 lei/MWh.",
+          "termen": null,
+          "destinatie": "furnizor",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Valoarea de dinainte nu e în text, deci nu afișăm o diferență. Efectul în lei depinde de consum, care nu e în profil."
+    },
+    {
+      "rezumat": "În bloc, consumul total de gaz al asociației se împarte egal la numărul de apartamente",
+      "taguri": ["consumator_gaz"],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 4 alin. (1)",
+      "citat": "Pentru calculul aferent fiecărui spațiu locativ din condominiu, consumul de gaze naturale se determină prin împărțirea consumului total anual",
+      "niveluri": {
+        "zero": "Dacă locuiești într-un bloc cu gaz comun, consumul de gaz se împarte egal la numărul de apartamente.",
+        "curios": "Legea spune cum se calculează consumul fiecărui apartament din condominiu: consumul total anual al asociației se împarte la numărul de spații locative. Dacă blocul are un singur contract de gaz, suma pe apartament depinde de consumul total, care nu e în profil.",
+        "expert": "Art. 4 alin. (1) stabilește împărțirea egală a consumului anual al asociației de proprietari sau locatari la numărul de spații locative din condominiu. Alin. (2) aplică regula și la cartierele rezidențiale facturate la comun."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ai gaz printr-un contract comun în bloc, cere asociației calculul consumului pe apartament și verifică împărțirea la numărul de apartamente.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Asociația de proprietari sau de locatari a blocului, care ține contractul comun și calculul."
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul nu spune cine face împărțirea în practică. Pentru asociația de proprietari nu există un ghișeu în lista de destinații, de aceea e propusă ca destinație. Cifrele consumului nu sunt în profil."
+    }
+  ]
+}

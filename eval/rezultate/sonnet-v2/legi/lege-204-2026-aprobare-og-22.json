@@ -1,0 +1,37 @@
+{
+  "act": "Legea 204/2026",
+  "mo": "MO 886 / 22 oct 2026",
+  "publicat_la": "2026-10-22",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Fără accize pentru țuica și alte băuturi tradiționale făcute în gospodărie, până la 200 de litri pe an",
+      "taguri": ["rural", "agricultura"],
+      "in_vigoare_de_la": "2026-10-25",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II (art. 342 alin. (1^10) Cod fiscal)",
+      "citat": "Sunt scutite de la plata accizelor băuturile alcoolice tradiționale, astfel cum sunt reglementate prin dispoziții speciale, în limita a 200 litri anual pe o gospodărie",
+      "niveluri": {
+        "zero": "O gospodărie din Registrul agricol nu plătește accize pentru până la 200 de litri de băuturi tradiționale pe an, dacă nu le vinde.",
+        "curios": "Băuturile alcoolice tradiționale, făcute în gospodărie și nedestinate vânzării, sunt scutite de accize până la 200 de litri pe an pentru o gospodărie înscrisă în Registrul agricol. Cantitatea aceasta nu se numără în limitele micilor producători independenți de băuturi fermentate. Condițiile și actele necesare pentru luarea în evidență se stabilesc prin normele metodologice.",
+        "expert": "Art. II completează art. 342 din Codul fiscal cu alin. (1^10) și (1^11). Alin. (1^10): scutire de accize pentru băuturile alcoolice tradiționale reglementate prin dispoziții speciale, în limita a 200 litri anual pe gospodărie evidențiată în Registrul agricol (OG 28/2008) și nesupuse vânzării. Alin. (1^11): cantitatea nedestinată vânzării nu intră în limitele cantitative de la alin. (1^2) pentru micii producători independenți de băuturi fermentate. Normele metodologice vor stabili condițiile și modelul documentelor pentru luarea în evidență și justificarea cantităților."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Verifică la primărie că gospodăria ta este înscrisă în Registrul agricol; când apar normele metodologice, depune documentele cerute pentru luarea în evidență a cantității de băuturi tradiționale, ca să poți justifica cei 200 de litri.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Nivelul accizei nu apare în text, deci nu calculăm câștigul. Condițiile și actele depind de normele metodologice, care nu sunt în acest text. Legea aprobă și OG 22/2025, al cărei conținut nu este în text, deci nu îl descriem; de verificat de un om."
+    }
+  ]
+}

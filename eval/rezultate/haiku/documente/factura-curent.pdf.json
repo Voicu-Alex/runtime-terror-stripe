@@ -1,0 +1,20 @@
+{
+  "tip_document": "factura_utilitati",
+  "etichete_propuse": [
+    {
+      "tag": "consumator_energie",
+      "incredere": 0.95,
+      "motiv": "Este o factură fiscală de energie electrică emisă clientei Dumitru Elena, pe locul ei de consum."
+    },
+    {
+      "tag": "rural",
+      "incredere": 0.9,
+      "motiv": "Locul de consum este scris ca sat Fictivești, comuna Exemplu, județul Argeș."
+    }
+  ],
+  "valori": {
+    "furnizor": "HIDROELECTRICA S.A.",
+    "suma_factura": 302.74
+  },
+  "explicatie_scurta": "Este factura de energie electrică pe perioada 01.09.2026 – 30.09.2026, cu un consum de 180 kWh. Totalul de plată este de 302,74 lei, cu scadența pe 23.10.2026."
+}

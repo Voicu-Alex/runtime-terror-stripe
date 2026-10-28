@@ -1,0 +1,171 @@
+{
+  "act": "OUG 89/2025",
+  "mo": "MO 1203 / 24 dec 2025",
+  "publicat_la": "2025-12-24",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Cota de impozit pe veniturile microîntreprinderilor este 1%",
+      "taguri": ["micro"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": "micro_1",
+      "articol": "art. I pct. 4 (art. 51 alin. (1) din Codul fiscal); art. II alin. (1)",
+      "citat": "Cota de impozit pe veniturile microîntreprinderilor este de 1%",
+      "niveluri": {
+        "zero": "De la 1 ianuarie 2026, impozitul pe veniturile microîntreprinderilor este de 1%.",
+        "curios": "Cota de impozit pentru microîntreprinderi este acum 1%, fără alte condiții în acest articol. Textul nu dă cota anterioară, deci nu spune cu cât s-a schimbat. Cât plătește firma depinde de venitul ei, iar textul nu conține o sumă în lei.",
+        "expert": "Art. I pct. 4 înlocuiește art. 51 alin. (1) din Codul fiscal: cota de impozit pe veniturile microîntreprinderilor este de 1%. Art. II alin. (1) prevede că art. I intră în vigoare la 1 ianuarie 2026, iar art. II alin. (2) stabilește că pct. 1-3 se aplică, pentru anumiți contribuabili, de la anul fiscal modificat care începe în 2026. Art. I pct. 5 abrogă alin. (1^1) și (4^1)-(4^3) din același articol, dar textul lor nu apare în act."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Textul nu dă cota anterioară, deci nu afirmăm o reducere. Formula micro_1 din listă dă 0 și nu cuantifică schimbarea. Impactul în lei depinde de venitul firmei și nu e calculat în text."
+    },
+    {
+      "rezumat": "Limitele de venit ale microîntreprinderii se verifică pe venitul cumulat din anul fiscal",
+      "taguri": ["micro"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. I pct. 6 (art. 52 alin. (5) din Codul fiscal); art. I pct. 7 (art. 54 alin. (1)); art. II alin. (1)",
+      "citat": "Limitele fiscale prevăzute la alin. (1) se verifică pe baza veniturilor înregistrate cumulat de la începutul anului fiscal",
+      "niveluri": {
+        "zero": "Limita de venit pentru a rămâne microîntreprindere se verifică pe veniturile adunate de la începutul anului fiscal.",
+        "curios": "Limitele de venit ale microîntreprinderii se verifică acum pe veniturile adunate de la începutul anului fiscal. Cursul pentru echivalentul în euro este cel de la închiderea exercițiului financiar precedent. Pentru încadrare se iau în calcul aceleași elemente care formează baza impozabilă.",
+        "expert": "Art. I pct. 6 modifică art. 52 alin. (5): limitele fiscale din alin. (1) se verifică pe veniturile cumulate de la începutul anului fiscal, iar cursul de schimb pentru euro este cel de la închiderea exercițiului precedent. Art. I pct. 7 modifică art. 54 alin. (1): la încadrarea în condițiile de venit din art. 47 alin. (1) lit. c) și art. 52 alin. (1) se iau în calcul aceleași elemente ca baza impozabilă din art. 53."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Pragurile în sine (cifrele de plafon) nu sunt modificate în articolele citate și nu apar aici. Preambulul pomenește un plafon de 100.000 euro, dar textul articolelor nu îl stabilește, deci nu îl folosim. Efectul practic depinde de cum se aplică verificarea de către contribuabil; de verificat în art. 52 și 54 din Codul fiscal."
+    },
+    {
+      "rezumat": "Scutire de impozit pe venit și contribuții pentru o parte din salariul minim, în 2026",
+      "taguri": ["salariu_minim", "angajat"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "articol": "art. III alin. (1)-(4), (6); art. VIII alin. (1)",
+      "citat": "nu se datorează impozit pe venit și contribuții sociale obligatorii dacă sunt îndeplinite cumulativ următoarele condiții",
+      "niveluri": {
+        "zero": "În 2026, pentru salariul minim, nu se plătesc impozit pe venit și contribuții pe o sumă de 300 lei pe lună (ianuarie-iunie) sau 200 lei pe lună (iulie-decembrie).",
+        "curios": "Scutirea se aplică salariaților cu normă întreagă al căror salariu de bază este egal cu salariul minim, iar venitul brut lunar nu depășește 4.300 lei (ianuarie-iunie) sau 4.600 lei (iulie-decembrie). Suma se diminuează dacă salariul e la minim doar o parte din lună sau dacă angajatul începe ori încetează contractul în cursul lunii.",
+        "expert": "Art. III alin. (1) lit. a)-b): salariu de bază brut egal cu salariul minim și venit brut lunar de cel mult 4.300 lei (1 ian-30 iun 2026) sau 4.600 lei (1 iul-31 dec 2026), fără tichete de masă. Alin. (2): condiția de salariu nu e îndeplinită dacă salariul de bază e redus în perioada respectivă. Alin. (4): suma de 300 sau 200 lei se diminuează pe fracțiuni de lună și la angajările sau încetările de contract. Alin. (5): nivelul salariului minim din art. 146 și 168 din Codul fiscal se diminuează cu aceleași sume, în lunile respective. Alin. (6): se aplică veniturilor din ianuarie-decembrie 2026."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Pentru perioada de la 1 iulie 2026 suma e 200 lei, nu 300 lei. Cifrele sunt din text; nu calculăm suma netă. Alin. (3) extinde regula la veniturile din raport de serviciu."
+    },
+    {
+      "rezumat": "Înscrierea în Registrul RO e-Factura obligatoriu înainte de a începe activitatea, pentru cei identificați fiscal prin CNP",
+      "taguri": ["pfa"],
+      "in_vigoare_de_la": "2026-01-15",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "termen",
+      "formula": null,
+      "articol": "art. X pct. 4-5 (art. 10^1 alin. (3)-(4) și art. 10^10 din OUG 120/2021); art. XI alin. (1)-(2); art. XIV alin. (2)",
+      "citat": "au obligația de a solicita înscrierea în Registrul RO e-Factura obligatoriu înainte de a începe desfășurarea activităților economice",
+      "niveluri": {
+        "zero": "Dacă te identifici fiscal prin CNP și vrei să începi o activitate economică, trebuie să te înscrii înainte în Registrul RO e-Factura obligatoriu.",
+        "curios": "Înscrierea se cere înainte de începerea activității, iar registrul îți confirmă înscrierea în 3 zile lucrătoare. Facturile emise trebuie transmise în sistemul RO e-Factura în cel mult 5 zile lucrătoare de la emitere. Cei care desfășurau deja activitate înainte de 15 ianuarie 2026 trebuiau să se înscrie până la această dată.",
+        "expert": "Art. X pct. 5 adaugă art. 10^10: furnizorii sau prestatorii care se identifică fiscal prin CNP trebuie să solicite înscrierea în registru înainte de a începe activitatea; înscrierea se face în 3 zile lucrătoare. Art. X pct. 2 modifică art. 10 alin. (7) și pct. 3 art. 10^1 alin. (2^1): termenul de transmitere a facturilor este de 5 zile lucrătoare de la emitere. Art. XI alin. (1)-(2): cei care au început activitatea înainte de 15 ianuarie 2026 trebuiau să solicite înscrierea până la acea dată, iar aceștia sunt înscriși în registru cu data de 15 ianuarie 2026. Art. X pct. 4-5 intră în vigoare la 15 ianuarie 2026 (art. XIV alin. (2))."
+      },
+      "actiuni": [
+        {
+          "text": "Dacă ai început o activitate economică înainte de 15 ianuarie 2026 și te identifici prin CNP, înscrierea în Registrul RO e-Factura obligatoriu trebuia făcută până la 15 ianuarie 2026.",
+          "termen": "2026-01-15",
+          "link": "https://anaf.ro/"
+        },
+        {
+          "text": "Înainte de a începe o activitate economică, dacă te identifici prin CNP, cere înscrierea în Registrul RO e-Factura obligatoriu. Înscrierea se face în 3 zile lucrătoare.",
+          "termen": null,
+          "link": "https://anaf.ro/"
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Art. X pct. 1-3 și art. XII-XIII intră în vigoare la 1 ianuarie 2026, iar pct. 4-5 la 15 ianuarie 2026. Procedura de înscriere se stabilește prin ordin ANAF, care nu e în text. Termenul de 5 zile e de la emiterea facturii, dar nu mai târziu de 5 zile de la data-limită de emitere din art. 319 alin. (16)."
+    },
+    {
+      "rezumat": "Sprijinul pentru consumatorii vulnerabili de energie electrică se aplică până la 31 decembrie 2026",
+      "taguri": ["consumator_energie"],
+      "in_vigoare_de_la": "2025-07-01",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "termen",
+      "formula": null,
+      "articol": "art. XXXIV pct. 1 (modifică art. 1 alin. (2) din OUG 35/2025)",
+      "citat": "Măsurile de protecție socială se aplică în perioada 1 iulie 2025-31 decembrie 2026",
+      "niveluri": {
+        "zero": "Sprijinul pentru casnicii cu sărăcie energetică se aplică până la 31 decembrie 2026.",
+        "curios": "Textul prelungește până la 31 decembrie 2026 perioada în care se aplică măsurile de protecție socială din OUG 35/2025. Ce sprijin primești și cum se calculează venitul sunt în OUG 35/2025, nu în acest text.",
+        "expert": "Art. XXXIV pct. 1 înlocuiește art. 1 alin. (2) din OUG 35/2025: măsurile de protecție socială se aplică în perioada 1 iulie 2025-31 decembrie 2026. Pct. 2 modifică art. 5 alin. (2) lit. d): venitul lunar se calculează din veniturile cumulate ale anului anterior cererii, împărțite la 12."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Conținutul sprijinului (cuantum, criterii) nu e în textul acestei legi; de verificat în OUG 35/2025. Pct. 2 din același articol schimbă modul de calcul al venitului lunar, dar nu avem o sumă."
+    },
+    {
+      "rezumat": "Clădirile folosite ca sere, solare, răsadnițe sau silozuri sunt scutite de impozitul pe clădiri în 2026",
+      "taguri": ["agricultura"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "articol": "art. VI pct. 3 (modifică art. 456 alin. (3) din Legea 239/2025); art. VIII alin. (1)",
+      "citat": "sunt scutite de la plata impozitului pe clădiri, iar începând cu anul 2027 pentru acestea impozitul pe clădiri se reduce cu 50%",
+      "niveluri": {
+        "zero": "În 2026, clădirile folosite ca sere, solare, răsadnițe, ciupercării sau silozuri nu plătesc impozit pe clădiri, iar din 2027 impozitul scade cu 50%.",
+        "curios": "Scutirea se aplică clădirilor folosite ca sere, solare, răsadnițe, ciupercării și silozuri pentru furaje sau cereale, cu excepția încăperilor folosite pentru alte activități economice. Din 2027 impozitul pe aceste clădiri scade cu 50%.",
+        "expert": "Art. VI pct. 3 modifică art. 456 alin. (3) din Legea 239/2025: în 2026, clădirile folosite ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje și silozuri sau pătule pentru cereale sunt scutite de impozitul pe clădiri, cu excepția încăperilor pentru alte activități economice. Începând cu 2027, impozitul se reduce cu 50%. Art. VIII alin. (1): art. VI intră în vigoare la 1 ianuarie 2026."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Textul modifică art. 456 din Legea 239/2025, care nu e în textul primit. Nu avem suma impozitului. Regula se aplică și persoanelor fizice care dețin astfel de clădiri, dar nu e clar din text dacă e cerută vreo declarație."
+    },
+    {
+      "rezumat": "Nu se mai aplică în 2026 art. 58^2 din Legea 448/2006, privind drepturile persoanelor cu handicap",
+      "taguri": ["persoana_handicap"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. XXXVIII",
+      "citat": "În anul 2026, prevederile art. 58^2 din Legea nr. 448/2006 privind protecția și promovarea drepturilor persoanelor cu handicap",
+      "niveluri": {
+        "zero": "În 2026 nu se aplică art. 58^2 din Legea 448/2006, care privește drepturile persoanelor cu handicap.",
+        "curios": "Articolul 58^2 din Legea 448/2006 este amânat pentru 2026, deci nu se aplică în acest an. Textul articolului amânat nu e în actul primit, așa că nu știm ce drept se amână.",
+        "expert": "Art. XXXVIII: în anul 2026, prevederile art. 58^2 din Legea nr. 448/2006, republicată, nu se mai aplică. Preambulul spune că amânarea e justificată de dificultățile de implementare a unui mecanism nou de acordare și calcul al drepturilor."
+      },
+      "actiuni": [],
+      "incredere": "scazuta",
+      "nota": "Conținutul art. 58^2 nu e în textul primit, deci nu știm dacă amânarea pune pe pauză un drept în bani. Nu tragem concluzii despre cuantum. De verificat în Legea 448/2006."
+    },
+    {
+      "rezumat": "Drepturile personalului medical din acțiunile împotriva COVID-19 nu se mai indexează cu inflația în 2026",
+      "taguri": ["sanatate"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. XXXVII",
+      "citat": "nu se indexează cu rata medie anuală a inflației",
+      "niveluri": {
+        "zero": "În 2026, drepturile personalului medical din acțiunile împotriva COVID-19 nu cresc cu inflația.",
+        "curios": "Articolul prevede că drepturile acordate personalului medical care a participat la acțiunile împotriva COVID-19 nu se mai indexează cu rata medie anuală a inflației în 2026. Textul nu spune cu cât sunt aceste drepturi, deci nu știm cât pierde fiecare persoană.",
+        "expert": "Art. XXXVII: prin derogare de la art. 6 alin. (1) din Legea 56/2020, în 2026 drepturile acordate potrivit art. 4 alin. (1) lit. b), alin. (2) și art. 5 din aceeași lege nu se indexează cu rata medie anuală a inflației."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Textul nu spune care sunt sumele. Efectul depinde de valoarea drepturilor din Legea 56/2020, care nu e în textul primit."
+    }
+  ]
+}

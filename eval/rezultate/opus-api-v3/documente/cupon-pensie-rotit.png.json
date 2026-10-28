@@ -1,0 +1,16 @@
+{
+  "mod": "claude",
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "pensionar",
+      "incredere": 0.97,
+      "motiv": "Documentul este un talon de pensie pentru limită de vârstă pe numele titularei, cu un cuantum al pensiei de 2.800 lei."
+    }
+  ],
+  "valori": {
+    "pensie_lunara": 2800,
+    "an_nastere": 1961
+  },
+  "explicatie_scurta": "Documentul este un talon de pensie pentru luna octombrie 2026. Titulara primește o pensie pentru limită de vârstă de 2.800 lei, fără CASS sau impozit reținut. Anul nașterii trecut pe talon este 1961."
+}
