@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 
 // Fonturile designului de referință (v3 F): Inter pentru text și sume, Raleway pentru titluri mari.
-const inter = Inter({ variable: "--font-inter", subsets: ["latin", "latin-ext"] });
-const raleway = Raleway({ variable: "--font-raleway", subsets: ["latin", "latin-ext"], weight: ["700", "800"] });
+// Le încărcăm cu <link>, nu cu next/font: next/font le descarcă la build și build-ul pică
+// când descărcarea de la Google eșuează (s-a întâmplat de 2 ori din 4 local).
+const FONTURI =
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Raleway:wght@700;800&display=swap";
 
 export const metadata: Metadata = {
   title: "Ce înseamnă pentru mine",
@@ -14,7 +15,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ro" className={`${inter.variable} ${raleway.variable}`}>
+    <html lang="ro">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link rel="stylesheet" href={FONTURI} />
+      </head>
       <body className="min-h-screen antialiased">
         <header className="border-b border-stone-200 bg-white">
           <nav className="mx-auto flex max-w-2xl items-center gap-5 px-4 py-3 text-sm">
