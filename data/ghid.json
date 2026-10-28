@@ -350,5 +350,185 @@
       "url": "https://ceccar.ro/ro/?page_id=97",
       "ce": "Registrul public al contabililor autorizați."
     }
+  },
+  {
+    "id": "salariu_minim_netaxabil_2026",
+    "pentru": "Pentru angajații cu salariul minim",
+    "ce": "200 de lei pe lună fără impozit și contribuții, doar pentru veniturile din 2026",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 996,
+      "cand": "pe_an",
+      "ipoteza": "la 4.325 lei brut, cei 200 lei scutiți înseamnă ≈ 83 lei net pe lună (35% contribuții + 10% impozit); OUG 89/2025 aplică scutirea doar veniturilor din 2026"
+    },
+    "termen": "2026-12-31",
+    "pasi": [
+      "Nu trebuie să faci nimic până la 31 decembrie 2026: angajatorul aplică scutirea automat.",
+      "Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut; până azi nu există un act care să prelungească scutirea."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "concediu_medical_procente",
+    "pentru": "Pentru angajații care iau concediu medical pentru boli obișnuite",
+    "ce": "concediile scurte se plătesc cu 55% (până la 7 zile) sau 65% (8–14 zile), nu cu 75%",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 200,
+      "cand": "o_data",
+      "ipoteza": "5 zile de concediu la o bază de 200 lei pe zi: 550 lei la 55%, față de 750 lei la 75%"
+    },
+    "termen": null,
+    "pasi": [
+      "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat.",
+      "Dacă episodul a trecut de 14 zile, procentul trebuie să fie 75%."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "concediu_medical_prima_zi",
+    "pentru": "Pentru angajații care iau concediu medical",
+    "ce": "o zi din fiecare episod de boală nu se plătește, între 1 februarie 2026 și 31 decembrie 2027",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 110,
+      "cand": "o_data",
+      "ipoteza": "o zi la o bază de 200 lei și 55%"
+    },
+    "termen": "2027-12-31",
+    "pasi": [
+      "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare.",
+      "Maternitatea, riscul maternal, pacienții din programele naționale de sănătate și spitalizarea sunt exceptate: dacă ești în una dintre situații, ziua nu trebuie scăzută."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "cass_intretinere",
+    "pentru": "Pentru cei care au în întreținere soțul, soția sau un părinte fără venituri",
+    "ce": "nu mai sunt asigurați gratuit la sănătate; îi poți asigura cu 2.430 de lei pe an pentru fiecare",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 2430,
+      "cand": "pe_an",
+      "ipoteza": "o persoană în întreținere: 6 salarii minime × 4.050 lei × 10%"
+    },
+    "termen": "2027-05-25",
+    "pasi": [
+      "Decide dacă vrei să-i asiguri: opțiunea e definitivă pentru anul respectiv.",
+      "Depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere.",
+      "Plătește 25% la depunere și restul de 75% până pe 25 mai a anului următor."
+    ],
+    "solutie": {
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
+  },
+  {
+    "id": "cass_somaj",
+    "pentru": "Pentru cei care primesc indemnizație de șomaj",
+    "ce": "10% contribuție la sănătate reținută din indemnizație; indemnizația nu crește în 2026",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 1200,
+      "cand": "pe_an",
+      "ipoteza": "indemnizație de 1.000 lei pe lună, 10% reținut"
+    },
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic: contribuția se reține automat și îți păstrează calitatea de asigurat."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "cass_crestere_copil",
+    "pentru": "Pentru părinții în concediu de creștere a copilului",
+    "ce": "10% contribuție la sănătate reținută din indemnizație, din august 2025",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 2400,
+      "cand": "pe_an",
+      "ipoteza": "indemnizație de 2.000 lei pe lună, 10% reținut"
+    },
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic: reținerea e automată.",
+      "Verifică pe decizia de plată că indemnizația netă corespunde."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "pensie_vpr_2026",
+    "pentru": "Pentru pensionarii din sistemul public",
+    "ce": "pensia nu se indexează în 2026: punctul de referință rămâne 81 de lei",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare.",
+      "Indexarea anuală revine din 2027."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "pfa_norma_minima_2026",
+    "pentru": "Pentru PFA-urile impozitate la normă de venit",
+    "ce": "norma de venit nu mai poate fi sub 12 salarii minime, adică 48.600 de lei pentru 2026",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": "2027-05-25",
+    "pasi": [
+      "Compară norma de 48.600 lei cu venitul tău real din 2026.",
+      "Discută cu contabilul dacă merită să treci la sistemul real.",
+      "Declară și plătește prin Declarația unică până pe 25 mai 2027."
+    ],
+    "solutie": {
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
+  },
+  {
+    "id": "pfa_cass_plafon_72",
+    "pentru": "Pentru PFA-urile și profesiile liberale cu venit net de peste 243.000 de lei pe an",
+    "ce": "plafonul CASS crește de la 60 la 72 de salarii minime",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 4860,
+      "cand": "pe_an",
+      "ipoteza": "venit net de peste 291.600 lei: CASS maxim 29.160 lei, față de 24.300 lei"
+    },
+    "termen": "2027-05-25",
+    "pasi": [
+      "Pune deoparte diferența de CASS pentru Declarația unică pe 2026.",
+      "Plătește până pe 25 mai 2027."
+    ],
+    "solutie": {
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
+  },
+  {
+    "id": "inchiriere_termen_scurt_2026",
+    "pentru": "Pentru proprietarii care închiriază 1–7 camere pe termen scurt (Airbnb, Booking)",
+    "ce": "impozit final de 10% pe 70% din încasări, adică 7%, fără contabilitate",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 2100,
+      "cand": "pe_an",
+      "ipoteza": "30.000 lei încasați într-un an: 10% din 21.000 lei"
+    },
+    "termen": "2027-05-25",
+    "pasi": [
+      "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală.",
+      "Declară venitul din 2026 în Declarația unică și plătește până pe 25 mai 2027.",
+      "Peste 7 camere, venitul devine activitate independentă, cu CAS și CASS."
+    ],
+    "solutie": {
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
   }
 ]
