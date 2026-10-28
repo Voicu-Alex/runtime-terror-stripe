@@ -1,32 +1,36 @@
 # Session state
 
-Updated: 2026-10-28 14:10
+Updated: 2026-10-28 14:35
 
 ## Context
-Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product: **"Ce înseamnă pentru mine"**, a personal fiscal-impact timeline: 4-question profile → dated rule changes translated to lei/month → simulate toggles per action → sticky "Planul meu" bar (without vs with actions). Standalone web app, integration-ready rule engine. Plan file: `~/.claude/plans/make-a-mockup-based-effervescent-sutherland.md`.
+Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product: **"Ce înseamnă pentru mine"**. Locked direction (v2, 28 Oct 2026, with Andrei): standalone app, no bank integrations, no Stripe for now; strictly financial impact across niches; profile = tags incl. work domain; onboarding by chat with an assistant (placeholder in mockup) with form fallback; feed of notifications, each item ends in lei/month + dated action + link to the law article + "te privește ca: tags"; statuses proiect / adoptat / în vigoare / termen depășit. Non-financial effects are a later step. Plan file (v1, partly superseded): `~/.claude/plans/make-a-mockup-based-effervescent-sutherland.md`.
 
-## Done (this session)
-- `mockup/index.html`: self-contained bilingual (RO default / EN) mockup, 3 preset profiles (Andrei 32 angajat+SRL, Maria 45 PFA, Ion 67 pensionar), 7 rule cards, date-aware actions (TODAY = 2026-10-28; passed deadlines muted), live 12-month headline and plan bar. Served via `.claude/launch.json` → `python -m http.server 8765 --directory mockup`.
-- `docs/produs.md` (RO) + `docs/product.md` (EN): what it is, audience/need/experience answer, the 4 "what to demonstrate" answers, standalone-vs-integrated paragraph, pitch skeleton by jury weight, 7 rules with sources.
-- Rule set verified by researcher (secondary sources; Monitorul Oficial texts not opened). Gas cap end (31 Mar 2027) and Pilon II payout (5 Jan 2027) are the genuine "upcoming" items.
+## Done (session 1, this clone, branch `andrei`)
+- v1 (committed 03243bc): 4-question profile → timeline → simulate → "Planul meu" bar; kept at `mockup/v1/index.html`.
+- v2 `mockup/index.html`: notification overlay (hero = Pilon II payout, Legea 2/2026, applies 5 Jan 2027; header shows "5 ian 2026 · demo"), three tabs (Noutăți feed, Planul meu, Profil with tag chips + chat placeholder), 12 rules with verified act / MO ref / Portal Legislativ link / article / explanatory source / "verificat la", tag intersection drives the feed per persona (Andrei IT+SRL, Maria PFA HoReCa, Ion pensionar). TODAY = 2026-10-28. My edits on top of the builder: CTA uses window.scrollTo (scrollIntoView scrolled the embedding pane); `.imp .v.zero` 17px for "informativ".
+- `docs/produs.md` / `docs/product.md` rewritten for v2 (tags, feed, notification, standalone, no Stripe, "Mai departe" for non-financial) + Sources table with legislatie.just.ro links and confidence per rule.
+- `docs/research-v2.md`: researcher output (13 rows). Window 1 Sep–28 Oct 2026: no new act found, hence the Pilon II hero.
+- Captures `captures/v2-0*.jpg` (phone 375px, RO and EN, Andrei and Maria, expanded Pilon II card with legal source, profile tab).
+- Artifact of the mockup: https://claude.ai/artifact/TXdexkw3rpvSMaU25mHW4n (republish from mockup/index.html keeps the URL).
 
-## Done (session 2, clone at ~/projects/runtime-terror-stripe-andrei)
-- `mockup/descriere.html`: Romanian product description page for the jury, built on the locked "profil din etichete" idea (6 tag families incl. Domeniul meu, asistent/formular, LLM reads Monitorul Oficial, notificare → flux + Planul meu, standalone, no Stripe/bank). Answers the 4 PDF "What the demonstration should make clear" points as numbered sections, plus Ce nu facem, Mai târziu, criteria table, sources. Opening notification = Pilon II / Legea 2/2026 + Pilon III before 31 dec 2026.
-- `docs/rethinking_financial_futures_hackathon_stripe.pdf` copied in and linked from the page.
-- Served on port 8766 (`descriere` in launch.json); 8765 belongs to the other session.
-- Capture: `captures/07-descriere-desktop.png`. Phone width checked live in the browser pane (scrollWidth 375). Headless Edge cannot render below ~500px, so its phone capture was misleading and was deleted.
+## Done (session 2, same clone)
+- `mockup/descriere.html`: Romanian product description page for the jury (6 tag families incl. Domeniul meu, asistent/formular, LLM reads Monitorul Oficial, notificare → flux + Planul meu, standalone, no Stripe/bank), answers the 4 PDF points, criteria table, sources. Opening notification = Pilon II / Legea 2/2026 + Pilon III before 31 dec 2026.
+- `docs/rethinking_financial_futures_hackathon_stripe.pdf` copied in and linked from the page. Served on port 8766 (`descriere` in launch.json). Capture: `captures/07-descriere-desktop.png`.
 
 ## Next step
-- Andrei reviews the mockup captures; on approval → Slice 3 prototype (Vite + React + TS, rule engine with Vitest tests, fallback explanations, no LLM, no Stripe) per plan file.
+- Andrei reviews v2 captures / artifact. Open decision: use the Claude API in the prototype for profile-tag extraction and MO classification (with cache fallback), which reverses the earlier "no API" choice.
+- On approval → prototype (Vite + React + TS, rule engine with tests, tag matching, no Stripe) per plan file Slice 3, updated for v2.
 
 ## Open in tools
-- Browser pane: http://localhost:8765 (preview server "mockup", may need restart).
-- Studio / Blender: not used.
-- Branch: `andrei` on https://github.com/Voicu-Alex/runtime-terror-stripe (pushed; base `main`).
+- Browser pane: http://localhost:8765 (preview "mockup", serves ./mockup). Port 8766 = session 2's description page.
+- Branch: `andrei` on https://github.com/Voicu-Alex/runtime-terror-stripe, base `main`.
 
 ## Open questions for Andrei
-- Approve the mockup as the reference for implementation? Any change to the hero action (Pilon III top-up before 31 Dec 2026)?
-- Keep the session in a chosen folder (files are in the app-made session folder).
+- API in the prototype: yes/no, and whose key.
+- Hero notification is my pick (Pilon II); change it if you want a cost figure in the first ten seconds (IT exemption −650 lei/lună is the biggest, but it dates from Jan 2025).
 
-## Proof so far
-- `captures/` holds phone-width screenshots (RO default, Pilon III toggle on, EN, dividend "termen depășit" card) and a desktop capture. Fix round 1 (plan bar height, action row layout) applied and re-captured; all five captures are post-fix.
+## Known deltas / not verified
+- Article link text on the Pilon II card wraps to three lines; fine on phone, could be shortened.
+- 1280px layout of v2 not captured (pane was narrow); column is max-width 680 like v1.
+- Articles marked "de confirmat" (OUG 156/2024, Legea 239/2025, Cod fiscal art. 78) were not read in the act text; building-tax and construction figures are press-only.
+- Haiku inspector not run (no browser tool); captures graded by the orchestrator.
