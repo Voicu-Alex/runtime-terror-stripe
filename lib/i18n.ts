@@ -281,6 +281,18 @@ const EN: Record<string, string> = {
   "Dacă ai plătit, confirmarea poate dura câteva minute. Reîncarcă pagina; dacă tot nu merge, încearcă din nou de pe pagina Pro.":
     "If you paid, confirmation can take a few minutes. Reload the page; if it still does not work, try again from the Pro page.",
   "Înapoi la Pro": "Back to Pro",
+
+  // erorile rutei de analiză (app/api/analiza-document), afișate în formular
+  "Am atins limita de documente analizate azi în demo. Încearcă mâine sau folosește un exemplu.":
+    "The demo has reached today’s limit of analysed documents. Try again tomorrow or use an example.",
+  "Ai analizat deja mai multe documente în ultima oră. Încearcă din nou mai târziu.":
+    "You have already analysed several documents in the last hour. Please try again later.",
+  "Acceptăm doar PDF, JPG sau PNG.": "We accept only PDF, JPG or PNG.",
+  "Fișierul are peste 10 MB.": "The file is over 10 MB.",
+  "Modelul a refuzat să analizeze documentul.": "The model declined to analyse the document.",
+  "Modelul nu a întors un rezultat structurat.": "The model did not return a structured result.",
+  "Modelul nu a întors JSON valid.": "The model did not return valid JSON.",
+  "Eroare la analiză.": "Analysis error.",
 };
 
 /** Are textul intrare în dicționarul EN (chiar dacă traducerea e identică, ca un nume propriu). */
