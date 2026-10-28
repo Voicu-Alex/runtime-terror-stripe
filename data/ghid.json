@@ -571,5 +571,89 @@
       "Dacă ai peste vârsta de pensionare și datorii de cel mult 43.250 lei, întreabă de procedura simplificată."
     ],
     "solutie": null
+  },
+  {
+    "id": "sere_solare_2026",
+    "pentru": "Pentru cei care au sere, solarii, răsadnițe, ciupercării sau silozuri pentru cereale",
+    "ce": "nu plătesc impozit pe clădiri pentru ele în 2026; din 2027, jumătate",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică pe decizia de impunere de la primărie că aceste clădiri apar ca scutite pentru 2026.",
+      "Dacă nu, cere corectarea la direcția de taxe locale."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "masa_sanatoasa_2026",
+    "pentru": "Pentru părinții cu copii la grădiniță sau școală de stat",
+    "ce": "programul „Masă sănătoasă” continuă în 2026 în unitățile incluse",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Întreabă la grădiniță sau la școală dacă unitatea e în program în 2026."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "saracie_energetica_2026",
+    "pentru": "Pentru familiile cu venit net de cel mult 1.784 de lei pe membru (1.940 lei pentru o persoană singură)",
+    "ce": "50 de lei pe lună la factura de curent, până la 31 decembrie 2026",
+    "salvezi": {
+      "lei": 100,
+      "cand": "o_data",
+      "ipoteza": "50 lei pe lună pentru noiembrie și decembrie 2026, dacă te înscrii în noiembrie"
+    },
+    "pierzi": null,
+    "termen": "2026-12-31",
+    "pasi": [
+      "Calculează venitul net pe membru de familie.",
+      "Înscrie-te prin aplicația EPIDS sau la primărie.",
+      "Sprijinul se acordă din luna înscrierii, deci cu cât te înscrii mai repede, cu atât primești mai mult."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "salarii_stat_inghetate_2026",
+    "pentru": "Pentru salariații de la stat (spitale, școli, administrație)",
+    "ce": "salariul de bază și sporurile rămân în 2026 la nivelul din decembrie 2025",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Orele suplimentare se compensează doar cu timp liber: cere-l în cel mult 90 de zile."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "vouchere_vacanta_stat_2026",
+    "pentru": "Pentru salariații de la stat cu salariul de bază net de cel mult 6.000 de lei",
+    "ce": "800 de lei în vouchere de vacanță în 2026",
+    "salvezi": {
+      "lei": 800,
+      "cand": "o_data",
+      "ipoteza": "vouchere de vacanță acordate în 2026"
+    },
+    "pierzi": null,
+    "termen": "2026-12-31",
+    "pasi": [
+      "Verifică la resurse umane dacă ai primit voucherele pentru 2026."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "handicap_indemnizatie_solidaritate",
+    "pentru": "Pentru pensionarii cu handicap vizual grav, grav sau accentuat",
+    "ce": "indemnizația de solidaritate nu se acordă înainte de 1 ianuarie 2027",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic acum.",
+      "Întreabă la direcția de asistență socială ce documente îți vor trebui din 2027."
+    ],
+    "solutie": null
   }
 ]

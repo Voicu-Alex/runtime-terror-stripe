@@ -1264,5 +1264,255 @@
     "sursa_explicativa": "https://www.digi24.ro/stiri/economie/pragul-pentru-insolventa-personala-creste-de-la-1-iulie-odata-cu-majorarea-salariului-minim-ce-se-schimba-pentru-romanii-cu-datorii-3802035",
     "incredere": "ridicata",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "sere_solare_2026",
+    "rezumat_en": "Greenhouses, polytunnels and grain silos pay no building tax in 2026, half from 2027",
+    "act": "OUG 89/2025",
+    "mo_ref": "MO 1203 / 24 dec 2025",
+    "rezumat": "Serele, solariile și silozurile nu plătesc impozit pe clădiri în 2026; din 2027, jumătate",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-24",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "agricultura"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai sere, solarii, răsadnițe, ciupercării sau silozuri pentru cereale, nu plătești impozit pe clădiri pentru ele în 2026, iar din 2027 plătești jumătate.",
+      "curios": "Scutirea se aplică clădirilor folosite ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje și silozuri sau pătule pentru depozitarea și conservarea cerealelor. Nu se aplică încăperilor folosite pentru alte activități economice. În 2026 impozitul e zero, iar începând cu 2027 impozitul pe aceste clădiri se reduce cu 50%.",
+      "expert": "OUG 89/2025, art. VI pct. 3, modifică art. XII pct. 26 din Legea 239/2025, adică art. 456 alin. (3) din Codul fiscal: în 2026 clădirile folosite ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje, silozuri și/sau pătule pentru cereale sunt scutite de impozitul pe clădiri, cu excepția încăperilor folosite pentru alte activități economice; din 2027 impozitul se reduce cu 50%. În vigoare la 1 ianuarie 2026 (art. VIII alin. (1)). Verificat în textul OUG 89/2025."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, cere corectarea",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. VI pct. 3 (art. 456 alin. (3) Cod fiscal)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
+    "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "masa_sanatoasa_2026",
+    "rezumat_en": "Healthy Meal programme continues in 2026 for pupils in participating state schools",
+    "act": "OUG 89/2025",
+    "mo_ref": "MO 1203 / 24 dec 2025",
+    "rezumat": "Programul „Masă sănătoasă” continuă în 2026 în școlile de stat incluse",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-24",
+    "in_vigoare_de_la": "2026-01-08",
+    "expira_la": "2026-12-31",
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "parinte",
+      "parinte_singur"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai un copil la grădiniță sau la școală de stat, verifică dacă unitatea lui e în programul „Masă sănătoasă”: în 2026 programul continuă, finanțat de stat.",
+      "curios": "Din 8 ianuarie 2026 programul național „Masă sănătoasă” continuă pentru preșcolarii și elevii din unitățile de învățământ preuniversitar de stat. Bugetul este de 1.531.090 mii lei. Ce școli intră în program și cum se împart banii stabilește Guvernul prin hotărâre, la propunerea Ministerului Educației.",
+      "expert": "OUG 89/2025, art. XIX alin. (1): prin derogare de la art. 77 alin. (4) din Legea 198/2023, în 2026, începând cu 8 ianuarie 2026, se implementează Programul național „Masă sănătoasă”, finanțat din sume defalcate din TVA, în limita a 1.531.090 mii lei, pentru preșcolarii și elevii din unitățile de învățământ preuniversitar de stat; repartizarea pe unități și normele metodologice se aprobă prin hotărâre a Guvernului. Lista unităților incluse: TODO (hotărârea de Guvern de aplicare)."
+    },
+    "actiuni": [
+      {
+        "text": "Întreabă la grădinița sau școala copilului dacă e inclusă în programul „Masă sănătoasă” în 2026",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. XIX alin. (1)-(2)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
+    "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "saracie_energetica_2026",
+    "rezumat_en": "Energy poverty support: 50 lei a month on the electricity bill until end of 2026",
+    "act": "OUG 35/2025 (prelungită prin OUG 89/2025)",
+    "mo_ref": "MO 612 / 30 iun 2025",
+    "rezumat": "50 lei pe lună la factura de curent pentru venituri mici, până la 31 dec 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2025-06-30",
+    "in_vigoare_de_la": "2025-07-01",
+    "expira_la": "2026-12-31",
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "consumator_energie"
+    ],
+    "conditii": [
+      {
+        "camp": "venit_net_pe_membru",
+        "op": "<=",
+        "valoare": 1784
+      }
+    ],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă venitul net din familie e de cel mult 1.784 lei pe persoană (1.940 lei dacă locuiești singur), poți primi 50 lei pe lună la factura de curent până la sfârșitul lui 2026, dar numai dacă te înscrii.",
+      "curios": "Sprijinul pentru consumatorii casnici de energie electrică aflați în sărăcie energetică este de 50 lei pe lună, pentru un singur loc de consum. Se acordă familiilor cu venit net de cel mult 1.784 lei pe membru și persoanelor singure cu cel mult 1.940 lei. Măsura a fost prelungită până la 31 decembrie 2026. Te înscrii online, prin aplicația EPIDS, sau prin poștă ori primărie; cine se înscrie mai târziu primește sprijinul din luna înscrierii.",
+      "expert": "OUG 35/2025 (MO nr. 612 din 30 iunie 2025), forma consolidată: art. 4 alin. (1), pragurile de venit (1.940 lei persoana singură, 1.784 lei pe membru de familie); art. 6 alin. (1) și (3), 50 lei pe lună pentru un singur loc de consum; art. 6 alin. (1) și (4), cererea prin EPIDS sau prin reprezentanții poștei ori ai primăriei; art. 7 alin. (8), sprijinul se acordă din luna înregistrării pentru cererile ulterioare. Art. 1 alin. (2), modificat prin OUG 89/2025 art. XXXIV: măsurile se aplică între 1 iulie 2025 și 31 decembrie 2026."
+    },
+    "actiuni": [
+      {
+        "text": "Înscrie-te pentru sprijin prin aplicația EPIDS sau la primărie; primești banii din luna înscrierii, cel mult până în decembrie 2026",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 1 alin. (2), art. 4 alin. (1), art. 6, art. 7 alin. (8)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/299488",
+    "sursa_explicativa": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {
+        "act": "OUG 89/2025",
+        "mo_ref": "MO 1203 / 24 dec 2025",
+        "data": "2025-12-24",
+        "ce": "art. XXXIV prelungește măsurile până la 31 decembrie 2026 și schimbă calculul venitului pentru unele categorii de venituri",
+        "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817"
+      }
+    ]
+  },
+  {
+    "id": "salarii_stat_inghetate_2026",
+    "rezumat_en": "Public sector pay frozen in 2026 at December 2025 levels; overtime only as time off",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Salariile la stat rămân în 2026 la nivelul din decembrie 2025; orele suplimentare, doar libere",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": "2026-12-31",
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "sanatate"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă lucrezi la stat, de exemplu într-un spital public, în 2026 salariul de bază și sporurile rămân la nivelul din decembrie 2025.",
+      "curios": "Pentru personalul plătit din fonduri publice, salariul de bază brut rămâne în 2026 la nivelul din decembrie 2025, dacă păstrezi aceeași funcție și aceleași condiții. Sporurile și celelalte elemente ale salariului rămân cel mult la nivelul din decembrie 2025. Orele suplimentare se compensează doar cu timp liber, în următoarele 90 de zile, iar instituțiile nu acordă premii sau bonusuri.",
+      "expert": "Legea 141/2025: art. XVI alin. (1)-(3), salariul de bază brut se menține la nivelul din decembrie 2025; art. XVII, sporurile și celelalte elemente ale salariului brut se mențin cel mult la nivelul din decembrie 2025; art. XVIII alin. (1), munca suplimentară se compensează numai cu timp liber în următoarele 90 de zile (cu excepții pentru militari și polițiști la alin. (2)); art. XIX alin. (3), instituțiile publice nu acordă premii, bonusuri sau drepturi similare; art. XLVIII, celelalte drepturi salariale din legi speciale rămân la nivelul din decembrie 2025. Se aplică tuturor bugetarilor, nu doar în sănătate: profilul nu are încă o etichetă pentru „lucrez la stat”."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă faci ore suplimentare, cere ca timpul liber corespunzător să-ți fie acordat în cel mult 90 de zile",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. XVI, XVII, XVIII alin. (1), XIX alin. (3), XLVIII",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": null,
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "vouchere_vacanta_stat_2026",
+    "rezumat_en": "Public sector staff earning up to 6,000 lei net base pay get 800 lei in holiday vouchers in 2026",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Bugetarii cu salariu de bază net de cel mult 6.000 lei primesc 800 lei vouchere de vacanță în 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": "2026-12-31",
+    "termen_actiune": "2026-12-31",
+    "directie": "castig",
+    "taguri": [
+      "sanatate"
+    ],
+    "conditii": [
+      {
+        "camp": "salariu_net",
+        "op": "<=",
+        "valoare": 6000
+      }
+    ],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă lucrezi la stat și salariul tău de bază net e de cel mult 6.000 lei, în 2026 primești 800 lei în vouchere de vacanță.",
+      "curios": "Instituțiile publice acordă în 2026 vouchere de vacanță de 800 lei personalului cu salariul de bază net de cel mult 6.000 lei. Voucherele se acordă între 1 ianuarie și 31 decembrie 2026.",
+      "expert": "Legea 141/2025, art. XLIV: instituțiile publice acordă anual vouchere de vacanță de 800 lei personalului al cărui salariu de bază net este de cel mult 6.000 lei, în perioada 1 ianuarie - 31 decembrie 2026. Condiția din profil folosește salariul net total, nu salariul de bază net: e o aproximare. Se aplică tuturor bugetarilor, nu doar în sănătate."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică la serviciul de resurse umane dacă ai primit cei 800 lei în vouchere pentru 2026",
+        "termen": "2026-12-31",
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. XLIV",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": null,
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "handicap_indemnizatie_solidaritate",
+    "rezumat_en": "Solidarity allowance for pensioners with severe disability postponed to 2027",
+    "act": "Legea 141/2025 (amână art. 58^1 din Legea 448/2006)",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Indemnizația de solidaritate pentru pensionarii cu handicap grav sau accentuat, amânată la 2027",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": "2027-01-01",
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": [
+      "persoana_handicap"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ești pensionar și ai handicap grav sau accentuat, indemnizația de solidaritate prevăzută de lege nu se acordă înainte de 1 ianuarie 2027.",
+      "curios": "Legea persoanelor cu handicap prevede o indemnizație de solidaritate pentru pensionarii pentru limită de vârstă cu handicap vizual grav, grav sau accentuat. Termenul de aplicare a fost amânat până la 1 ianuarie 2027. Separat, punctele suplimentare de pensie pentru stagiul lucrat cu handicap grav sau accentuat nu se mai aplică în 2026.",
+      "expert": "Legea 448/2006, art. 58^1 alin. (1): indemnizația de solidaritate pentru pensionarii pentru limită de vârstă cu handicap vizual grav, grav sau accentuat; termenul se prorogă până la 1 ianuarie 2027 prin Legea 141/2025, art. XLVII. Art. 58^2 (puncte de 0,125 din ISR pe an de stagiu lucrat cu handicap grav sau accentuat) nu se aplică în 2026, conform OUG 89/2025, art. XXXVIII. Indemnizația lunară din art. 58 alin. (4) (80% din ISR la grav, 53% la accentuat) nu e afectată. Cuantumul indemnizației de solidaritate în lei: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Nu trebuie să faci nimic acum; verifică la direcția de asistență socială ce documente îți trebuie pentru indemnizația de solidaritate din 2027",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "Legea 141/2025 art. XLVII; Legea 448/2006 art. 58^1, 58^2; OUG 89/2025 art. XXXVIII",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/77815",
+    "sursa_explicativa": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
   }
 ]
