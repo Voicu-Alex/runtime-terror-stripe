@@ -15,6 +15,7 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 
 ## Done (session 2, same clone)
 - `mockup/descriere.html`: Romanian product description page for the jury (6 tag families incl. Domeniul meu, asistent/formular, LLM reads Monitorul Oficial, notificare → flux + Planul meu, standalone, no Stripe/bank), answers the 4 PDF points, criteria table, sources. Opening notification = Pilon II / Legea 2/2026 + Pilon III before 31 dec 2026.
+- Domain tag now has a real example: OUG 156/2024 (MO 1334/31 dec 2024), IT/construcții/agricultură/ind. alimentară lose income-tax exemption from Jan 2025, ≈520 lei/lună at brut 8.000 (tax only; Pilon II part not verified). Demo set is now 8 acts.
 - `docs/rethinking_financial_futures_hackathon_stripe.pdf` copied in and linked from the page. Served on port 8766 (`descriere` in launch.json). Capture: `captures/07-descriere-desktop.png`.
 
 ## Next step
