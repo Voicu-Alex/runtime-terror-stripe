@@ -34,7 +34,6 @@ export function salveazaLimba(l: Limba): void {
 /** Cheia e textul românesc. Ce lipsește aici rămâne în română (nu inventăm traduceri la runtime). */
 const EN: Record<string, string> = {
   // meniu, subsol
-  Azi: "Today",
   Flux: "Feed",
   Profil: "Profile",
   "Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică. Profilul rămâne pe dispozitivul tău.":
@@ -132,13 +131,35 @@ const EN: Record<string, string> = {
   "Se aplică:": "Applies:",
   "Vezi ce înseamnă și sursa": "See what it means and the source",
   "pentru tine, în cifre": "for you, in numbers",
-  "pe lună, din actele în vigoare": "per month, from acts in force",
+  "pe an, dacă le faci pe toate": "per year, if you do them all",
   "termene deschise": "open deadlines",
   "acțiuni pe care legea le permite": "actions the law allows",
   "Termene · ce urmează": "Deadlines · what is next",
   Termene: "Deadlines",
   "Calculate față de azi, din datele din lege.": "Counted from today, using the dates in the law.",
   "Niciun termen deschis.": "No open deadlines.",
+  // pagina generală /legi
+  "Toate legile": "All laws",
+  "Toate schimbările din lege": "Every change in the law",
+  "Cât poți salva din legile noi, de la cea mai mare sumă în jos": "How much you can save from the new laws, biggest amount first",
+  "Pagina nu e personalizată. Fiecare articol spune pentru cine e și calculează pe un caz de referință, scris sub sumă: e calculul nostru, nu o cifră din lege. Pentru sumele tale, vezi":
+    "This page is not personalised. Each article says who it is for and uses a reference case, written under the amount: it is our calculation, not a figure from the law. For your own amounts, see",
+  "schimbări în vigoare sau adoptate": "changes in force or adopted",
+  "cu bani pe care îi poți salva": "with money you can save",
+  "cu termen încă deschis": "with a deadline still open",
+  "Poți salva": "You can save",
+  "Pierzi dacă nu faci nimic": "You lose if you do nothing",
+  "Depinde de situația ta; nu avem o sumă cu sursă.": "Depends on your situation; we have no sourced amount.",
+  "Nu avem o sumă cu sursă.": "We have no sourced amount.",
+  "Cum reduci pierderea, pas cu pas": "How to cut the loss, step by step",
+  "Ce mai poți face": "What you can still do",
+  "Cum iei banii, pas cu pas": "How to get the money, step by step",
+  "Ce poți face, pas cu pas": "What you can do, step by step",
+  "Unde o faci cu cei mai puțini bani": "Where to do it for the least money",
+  Deschide: "Open",
+  "Termenul a trecut · bine de știut pentru data viitoare": "Deadline passed · good to know next time",
+  "Soluțiile sunt instrumente oficiale sau gratuite; pe pagina asta nu primim bani de la nicio firmă.":
+    "The solutions are official or free tools; we take no money from any company on this page.",
   "Act legat, pe Portal Legislativ": "Related act, on the Legislative Portal",
   "Comunicat ANRE": "ANRE press release",
   "Comparatorul ANRE": "ANRE comparator",
@@ -164,17 +185,6 @@ const EN: Record<string, string> = {
   "o zi": "one day",
   zile: "days",
   "de zile": "days",
-
-  // notificare
-  "Ce înseamnă pentru tine azi": "What it means for you today",
-  "Nu avem ce să îți spunem până nu știm cine ești.": "We have nothing to tell you until we know who you are.",
-  "Niciun act din catalog nu te privește deocamdată. Te anunțăm când apare unul.": "No act in the catalogue affects you yet. We will let you know when one does.",
-  "acte te privesc; ăsta e cel cu termenul cel mai aproape sau cu suma cea mai mare.": "acts affect you; this is the one with the nearest deadline or the largest amount.",
-  "acte; ăsta e cel cu termenul cel mai aproape sau cu suma cea mai mare.": "acts; this is the one with the nearest deadline or the largest amount.",
-  "Nimic de arătat.": "Nothing to show.",
-  "Calculul nostru pe profilul tău, nu o cifră scrisă în lege.": "Our calculation on your profile, not a figure written in the law.",
-  "Până la": "By",
-  "Vezi în fluxul tău →": "See it in your feed →",
 
   // profil
   "Profilul meu": "My profile",

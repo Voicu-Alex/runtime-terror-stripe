@@ -696,5 +696,43 @@
     "sursa_explicativa": "https://alba24.ro/romanii-vor-putea-economisi-si-investi-bani-fara-impozit-din-2027-noua-lege-a-fost-publicata-in-monitorul-oficial-1162874.html",
     "incredere": "medie",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "impozit_auto_2026",
+    "rezumat_en": "Car tax: from 2026 it depends on engine size and Euro norm; small petrol and diesel cars pay up to twice as much",
+    "act": "Legea 239/2025 (modificată prin OUG 78/2025)",
+    "mo_ref": "MO 1160 / 15 dec 2025; OUG 78: MO 1172 / 17 dec 2025",
+    "rezumat": "Impozitul auto din 2026 depinde de cilindree și de norma Euro: mașinile mici pe benzină sau motorină plătesc până la dublu",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-15",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": "2027-03-31",
+    "directie": "cost",
+    "taguri": [
+      "masina"
+    ],
+    "conditii": [],
+    "formula": "impozit_auto",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Din 2026, impozitul pe mașină se calculează după capacitatea cilindrică și după norma de poluare Euro, nu după vechime. La mașinile mici pe benzină sau motorină, suma aproape se dublează.",
+      "curios": "Se plătește o sumă pentru fiecare 200 cmc. Până la 1.600 cmc: 19,5 lei la Euro 3 și mai vechi, 18,8 la Euro 4, 17,6 la Euro 5, 16,5 la Euro 6. Între 1.601 și 2.000 cmc: 29,7 / 28,5 / 26,7 / 25,1 lei. Electricele plătesc 40 lei pe an. De exemplu, un motor de 1.400 cmc Euro 5 trece de la 63 la 123 lei pe an. Primăria poate mări sumele, deci cifra exactă e pe decizia ta de impunere.",
+      "expert": "Legea 239/2025, MO 1160 / 15 dec 2025, modificată prin OUG 78/2025, schimbă calculul impozitului pe mijloacele de transport din Codul fiscal: sumă pe fiecare 200 cmc sau fracțiune, pe trepte de cilindree și norme Euro (tabelul din presă: Alba24, Capital). Articolul exact din Codul fiscal: de confirmat. Bonificația de până la 10% la plata integrală până la 31 martie: Codul fiscal art. 472 alin. (2), stabilită prin hotărâre a consiliului local; necitit în text."
+    },
+    "actiuni": [
+      {
+        "text": "Plătește tot impozitul pe 2027 până la 31 mar 2027: primăria dă o bonificație de până la 10%",
+        "termen": "2027-03-31",
+        "formula_economie": "auto_bonificatie",
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "articol de confirmat (Codul fiscal, impozitul pe mijloacele de transport, modificat prin Legea 239/2025 și OUG 78/2025)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305208",
+    "sursa_explicativa": "https://alba24.ro/impozit-auto-in-functie-de-norma-de-poluare-din-2026-cum-se-calculeaza-mai-transmite-baza-de-date-cu-vehiculele-in-judete-1112191.html",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
   }
 ]
