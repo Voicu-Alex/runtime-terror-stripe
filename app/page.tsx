@@ -1,15 +1,17 @@
 import Link from "next/link";
 import { CATALOG } from "@/lib/catalog";
-import { TOATE_TAGURILE } from "@/lib/taguri";
+import { FAMILII, TOATE_TAGURILE } from "@/lib/taguri";
 
 export default function Acasa() {
+  const verificate = CATALOG.filter((s) => s.verificat_la).length;
   return (
     <div className="space-y-6">
       <section>
         <h1 className="text-2xl font-semibold">Fiecare lege nouă, tradusă în lei pe lună pentru tine.</h1>
         <p className="mt-2 text-stone-600">
-          Scheletul aplicației. Catalogul are {CATALOG.length} schimbări verificate și {TOATE_TAGURILE.length} etichete în 6
-          familii. Potrivirea rulează pe dispozitiv: profilul nu pleacă nicăieri.
+          Scheletul aplicației. Catalogul are {CATALOG.length} schimbări ({verificate} verificate în text, restul de verificat)
+          și {TOATE_TAGURILE.length} etichete în {Object.keys(FAMILII).length} familii. Potrivirea rulează pe dispozitiv:
+          profilul nu pleacă nicăieri.
         </p>
       </section>
 
