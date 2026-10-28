@@ -415,7 +415,7 @@
   {
     "id": "alocatie_copii",
     "act": "Legea 61/1993 (alocația de stat pentru copii), republicată",
-    "mo_ref": "TODO",
+    "mo_ref": "MO 767 / 14 nov 2012 (republicare); art. 3 modificat prin OUG 126/2021, MO 1189 / 15 dec 2021",
     "rezumat": "Alocația de stat pentru copii: 292 lei pe lună pentru fiecare copil între 2 și 18 ani",
     "status": "in_vigoare",
     "publicat_la": "1993-09-27",
@@ -441,20 +441,20 @@
       }
     ],
     "profesionist": null,
-    "articol": "TODO: articolul și cuantumul din textul republicat; 292 lei (2–18 ani) e cifra din presă pentru 2026; sub 2 ani și pentru copiii cu handicap suma e mai mare",
-    "sursa_url": "TODO",
+    "articol": "art. 3 alin. (1) lit. b): 243 lei pe lună pentru copiii între 2 și 18 ani, din ianuarie 2022 (600 lei sub 2 ani sau cu handicap); alin. (2): se indexează anual cu rata medie a inflației din ianuarie 2023. Cifra de 292 lei pentru 2026 nu e scrisă în lege: e din presă.",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212",
     "sursa_explicativa": "https://stirileprotv.ro/divers/alocatia-pentru-copii-2026-cine-are-dreptul-valoarea-si-pasii-pentru-a-o-solicita.html",
     "incredere": "medie",
-    "verificat_la": null
+    "verificat_la": "2026-10-28"
   },
   {
     "id": "alocatie_sustinere_familie",
-    "act": "Legea 277/2010 (alocația pentru susținerea familiei)",
-    "mo_ref": "TODO",
-    "rezumat": "Alocația pentru susținerea familiei: pentru familii cu copii și venit mic, inclusiv părinți singuri",
+    "act": "Legea 196/2016 (venitul minim de incluziune), care a înlocuit Legea 277/2010",
+    "mo_ref": "MO 882 / 3 nov 2016",
+    "rezumat": "Alocația pentru susținerea familiei nu mai există din 2024: a fost înlocuită de venitul minim de incluziune",
     "status": "in_vigoare",
-    "publicat_la": "2010-12-24",
-    "in_vigoare_de_la": "2011-01-01",
+    "publicat_la": "2016-11-03",
+    "in_vigoare_de_la": "2024-01-01",
     "expira_la": null,
     "termen_actiune": null,
     "directie": "castig",
@@ -463,7 +463,7 @@
     "formula": null,
     "estimare": true,
     "niveluri": {
-      "zero": "Dacă ai copii și venitul net pe membru de familie e sub prag, poți primi lunar o alocație de la primărie. Suma depinde de venit și de numărul copiilor, iar copiii trebuie să meargă la școală.",
+      "zero": "Dacă ai copii și venit mic, ajutorul de la primărie se cere acum ca venit minim de incluziune, nu ca alocație pentru susținerea familiei. Suma depinde de venit și de numărul copiilor.",
       "curios": "TODO",
       "expert": "TODO"
     },
@@ -476,19 +476,19 @@
       }
     ],
     "profesionist": null,
-    "articol": "TODO: pragul de venit pe membru și cuantumurile (raportate la ISR) din textul actualizat; de adăugat condiția venit_net_pe_membru <= prag după verificare",
-    "sursa_url": "TODO",
-    "sursa_explicativa": "https://playtech.ro/2025/alocatia-pentru-sustinerea-familiei-cine-o-poate-primi-conditii-si-valoarea-actuala/",
+    "articol": "Legea 277/2010 a fost abrogată la 1 ian 2024 prin art. 96 lit. b) din Legea 196/2016 (nota de pe Portal Legislativ, DetaliiDocument/124905). TODO: articolul din Legea 196/2016 cu componenta pentru familie, pragurile de venit și cuantumurile.",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/183328",
+    "sursa_explicativa": "TODO",
     "incredere": "scazuta",
     "verificat_la": null
   },
   {
     "id": "varsta_pensionare",
     "act": "Legea 360/2023 (sistemul public de pensii)",
-    "mo_ref": "TODO",
-    "rezumat": "Vârsta standard de pensionare: 65 de ani; pentru femei crește treptat până în 2035",
+    "mo_ref": "MO 1089 / 4 dec 2023",
+    "rezumat": "Vârsta standard de pensionare este 65 de ani, pentru femei și bărbați, atinsă treptat",
     "status": "in_vigoare",
-    "publicat_la": "2023-12-01",
+    "publicat_la": "2023-12-04",
     "in_vigoare_de_la": "2024-09-01",
     "expira_la": null,
     "termen_actiune": null,
@@ -511,10 +511,10 @@
       }
     ],
     "profesionist": "consultant pensii",
-    "articol": "TODO: articolul cu vârsta standard și anexa cu eșalonarea pentru femei; pragul de 58 de ani pentru notificare e o alegere de produs, nu din lege",
-    "sursa_url": "TODO",
+    "articol": "art. 47 alin. (1): 65 de ani pentru bărbați și femei, atinsă prin eșalonarea din anexa nr. 5; alin. (2)-(3): stagiu minim 15 ani, complet 35 de ani; art. 167: legea intră în vigoare la 1 sep 2024. TODO: anii eșalonării pentru femei (anexa nr. 5 nu apare în textul citit).",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/276927",
     "sursa_explicativa": "TODO",
-    "incredere": "scazuta",
-    "verificat_la": null
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
   }
 ]

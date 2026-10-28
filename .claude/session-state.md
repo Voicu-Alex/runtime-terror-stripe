@@ -61,3 +61,9 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - Captures: `captures/flux-00-ref-v3f-*` (reference) vs `captures/flux-01-*` (result).
 - Not pushed. Open with Voicu: energy/gas formulas return null (shown "— de calculat"); Status lacks termen_depasit (derived in lib/card.ts); one_click is a bare URL (button label generic "Compară oferte"); catalog titles are not the rewritten v3 titles.
 - Next: "Planul meu" toggle, `/notificare`, `/admin` + BroadcastChannel, then PR.
+
+## Latest (session 3, 18:30, `andrei-flux`, local only)
+- Merged origin/voicu 792924b (profile numbers, 7 tag families, 3 new acts, AI Act footer, 4 more test docs). 32 tests, tsc, build green.
+- Voicu asked (PR #12 comment) to test the Portal SOAP API from a browser: works from browser AND from Node/curl here (200, no UA or honest UA, no spoofing). `Text` = base text, not consolidated. Written up in `docs/surse-de-date.md`.
+- Catalog fixes from official text: alocatie_copii (Legea 61/1993 art. 3 via OUG 126/2021, 243 lei from 2022 indexed; 292 lei = press), varsta_pensionare (Legea 360/2023, MO 1089/4 dec 2023, art. 47, art. 167; annex 5 schedule TODO), alocatie_sustinere_familie: **Legea 277/2010 abrogated 1 ian 2024** by Legea 196/2016 art. 96 lit. b) → entry now cites Legea 196/2016 (VMI), thresholds TODO.
+- Team blocker found: `origin/andrei-2` (other agent) has a full prototype on its OWN Next 16 skeleton (flux, admin, notificare, setari, documente, pipeline, 111 tests), colliding with Voicu's PR #12 (Next 15) and this branch. Needs a team decision on which skeleton wins. PR #12 still CONFLICTING with main (.gitignore), fixed only here.

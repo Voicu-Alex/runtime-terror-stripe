@@ -16,10 +16,17 @@ Motorul promite că „citește Monitorul Oficial” și spune fiecărui om ce l
 | **cdep.ro, senat.ro** (proiecte de lege) | Doar pagini HTML; n-am găsit date deschise. | Doar dacă afișăm și etapa „proiect”, ceea ce nu facem în prima versiune. |
 | **Wrapper-e neoficiale** ([ro-eli-mcp](https://github.com/matematicsolutions/ro-eli-mcp), [RO-LEX](https://www.ro-lex.ro/home)) | Folosesc același API; RO-LEX a atribuit identificatori ELI pentru peste 100.000 de acte. | Utile ca exemplu de cod; nu depindem de ele. |
 
+## Testat pe 28 oct 2026 (Andrei)
+
+- **Merge din browser și din cod.** Din browser: WSDL, `GetToken` și `Search` răspund 200. Din Node/`curl` (de pe mașina lui Andrei), tot 200, atât fără `User-Agent`, cât și cu unul care spune cine suntem (`ce-inseamna-pentru-mine/0.1 (hackathon prototip)`). Nu am imitat un browser. 403-ul de pe mașina lui Voicu ține probabil de rețea sau IP, nu de client.
+- Endpoint: `POST https://legislatie.just.ro/apiws/FreeWebService.svc/SOAP`, `Content-Type: text/xml; charset=utf-8`, `SOAPAction: "http://tempuri.org/IFreeWebService/Search"` (sau `.../GetToken`). În `SearchModel` câmpurile sunt în namespace-ul `http://schemas.datacontract.org/2004/07/FreeWebService`: `NumarPagina` (de la 0), `RezultatePagina`, `SearchAn`, `SearchNumar`, `SearchText`, `SearchTitlu`.
+- Un `Search` pe an + număr durează ~0,5 s. Rezultatele includ toate tipurile de acte cu acel număr (ordin, hotărâre, decret, lege), deci se filtrează după `TipAct`.
+- **`Text` e forma de bază, nu cea consolidată.** Exemplu: pentru Legea 61/1993 `Text` are cuantumul din 1993 (3.500 lei); forma consolidată de pe portal (DetaliiDocument/248212) are art. 3 modificat prin OUG 126/2021 (243 lei din 2022, indexat anual). Pentru modificări și abrogări trebuie citită și pagina actului (istoricul consolidărilor și nota de abrogare).
+- Exemplu de abrogare prinsă așa: **Legea 277/2010 (alocația pentru susținerea familiei) e abrogată din 1 ian 2024** prin art. 96 lit. b) din Legea 196/2016 (venitul minim de incluziune). Catalogul a fost corectat.
+
 ## Neconfirmat
 
-- De pe mașina lui Voicu, un `curl` simplu la WSDL a primit **403**. Probabil portalul filtrează clienții care nu arată ca un browser. N-am încercat să ocolesc filtrul. De testat din browser și, dacă merge, din cod cu antetele uzuale.
-- Documentația nu spune dacă `Text` e **forma consolidată** sau textul original, nici dacă există o limită de cereri. De testat cu câteva apeluri înainte să construim pe el.
+- Limita de cereri a API-ului: nu am făcut decât câteva zeci de apeluri.
 - Nu există un filtru „publicate după data X”. Varianta practică: căutare după an, cu numere crescătoare, și comparare cu ce avem deja.
 
 ## Ce înseamnă pentru motor
