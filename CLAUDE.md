@@ -6,7 +6,7 @@ Echipa: 6 instanțe Claude în paralel (2 Max, 4 Pro). Cum ne împărțim și ce
 
 ## Decizii luate (nu se redeschid fără echipă)
 
-- Aplicație de sine stătătoare: fără integrări bancare. Plata e un abonament lunar de 15 lei prin Stripe Checkout; fără abonament nu se văd sumele și Planul meu (`docs/adr/0002-abonament-stripe.md`).
+- Aplicație de sine stătătoare: fără integrări bancare. Pro e un abonament lunar de 15 lei prin Stripe Checkout, cu conectare Google înainte de plată; fără Pro, fluxul pe profilul tău se vede estompat (`docs/adr/0002-abonament-stripe.md`).
 - Strict impact financiar, pe nișe. Efectele nefinanciare vin mai târziu.
 - Profilul e format din etichete, inclusiv domeniul de lucru. Onboarding prin conversație cu un asistent, cu formular ca alternativă.
 - Fiecare element din flux are o stare: proiect, adoptat, în vigoare, termen depășit.

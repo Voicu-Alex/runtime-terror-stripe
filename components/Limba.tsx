@@ -47,7 +47,7 @@ export function ComutatorLimba() {
           type="button"
           aria-pressed={limba === l}
           onClick={() => setLimba(l)}
-          className={`min-h-8 px-2.5 uppercase ${limba === l ? "bg-v3-ink text-v3-on-ink" : "bg-v3-card text-v3-ink-2"}`}
+          className={`min-h-8 px-2 uppercase sm:px-2.5 ${limba === l ? "bg-v3-ink text-v3-on-ink" : "bg-v3-card text-v3-ink-2"}`}
         >
           {l}
         </button>
