@@ -2,7 +2,9 @@
 
 import { useId, useRef, useState } from "react";
 import type { Potrivire } from "@/lib/potrivire";
-import type { Valori } from "@/lib/profil";
+import type { CampValoare, Valori } from "@/lib/profil";
+import type { Actiune, CineAplica } from "@/lib/catalog";
+import { destinatie } from "@/lib/destinatii";
 import { etichetaTag } from "@/lib/taguri";
 import { ETICHETA_STARE, cuSemn, cuTracking, dataScurta, mii, vedere, zile, type StareCard } from "@/lib/card";
 import { furnizori, niveluri, specialist } from "@/lib/continut";
@@ -20,7 +22,15 @@ const PILL: Record<StareCard, string> = {
   termen_depasit: "border-[#C3CAC2] bg-v3-past-bg text-v3-past",
 };
 
-export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Valori }) {
+export default function CardSchimbare({
+  p,
+  valori,
+  onValoare,
+}: {
+  p: Potrivire;
+  valori: Valori;
+  onValoare?: (camp: CampValoare, valoare: number) => void;
+}) {
   const [deschis, setDeschis] = useState(false);
   const [curios, setCurios] = useState(false);
   const [lege, setLege] = useState(false);
@@ -36,6 +46,8 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
   const fz = furnizori(s.id);
   const sp = specialist(s);
   const surseExtra = n.surse.filter((u) => u !== s.sursa_url && !u.startsWith("https://posf.ro"));
+  // suma calculată din salariul brut e brută: din ea se rețin contribuțiile și impozitul
+  const brut = s.formula_tip?.tip === "diferenta_prag" && s.formula_tip.parametri.camp === "salariu_brut";
 
   return (
     <li id={`c-${s.id}`} className="border-b border-v3-line">
@@ -55,7 +67,7 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
         >
           {v.suma === null ? "—" : cuSemn(v.suma)}
           <small className="block text-[12.5px] font-semibold tracking-normal text-v3-ink-2">
-            {v.suma === null ? "de calculat" : v.suma === 0 ? "lei/lună acum" : "lei/lună"}
+            {v.suma === null ? "de calculat" : v.suma === 0 ? "lei/lună acum" : brut ? "lei/lună brut" : "lei/lună"}
           </small>
         </span>
         <span className={`col-start-1 text-[17px] leading-[1.3] font-bold ${dep ? "text-v3-past" : "text-v3-ink"}`}>{v.titlu}</span>
@@ -88,7 +100,35 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
           {s.estimare && v.suma !== null && v.suma !== 0 && (
             <p className="m-0 mb-2.5 text-[13.5px] text-v3-ink-2">Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege.</p>
           )}
-          {v.cere && <p className="m-0 mb-2.5 text-[13.5px] font-semibold text-v3-ink">Ca să calculăm suma: {v.cere}.</p>}
+          {v.cere && p.valori_lipsa[0] && (
+            // Pasul 4: cardul cere valoarea care îi lipsește; o salvează Fluxul, pe dispozitiv, pentru toate cardurile.
+            <form
+              className="m-0 mb-3 rounded-[10px] border border-v3-line bg-white p-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const n = Number(String(new FormData(e.currentTarget).get("valoare")).replace(/\./g, "").replace(",", "."));
+                if (Number.isFinite(n) && n > 0) onValoare?.(p.valori_lipsa[0], n);
+              }}
+            >
+              <label htmlFor={`${uid}-v`} className="mb-1.5 block text-[14px] font-semibold text-v3-ink">
+                Ca să vezi suma, {v.cere}:
+              </label>
+              <div className="flex gap-2">
+                <input
+                  id={`${uid}-v`}
+                  name="valoare"
+                  inputMode="decimal"
+                  autoComplete="off"
+                  placeholder="lei"
+                  className="min-h-11 w-full min-w-0 rounded-[10px] border border-v3-ink-2 px-3 text-[15px]"
+                />
+                <button type="submit" className="min-h-11 shrink-0 rounded-[10px] bg-v3-ink px-4 font-bold text-white">
+                  Calculează
+                </button>
+              </div>
+              <p className="mt-1.5 mb-0 text-[12.5px] text-v3-ink-2">Rămâne doar pe acest dispozitiv.</p>
+            </form>
+          )}
           <p className="m-0 mb-3 text-[13.5px] text-v3-ink-2">
             Te privește ca:{" "}
             {p.taguri_comune.map((t) => (
@@ -104,10 +144,9 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
                 dep ? "bg-v3-past-bg text-v3-past" : v.termen?.urgent ? "bg-v3-urg-soft shadow-[inset_3px_0_0_var(--color-v3-urg)]" : "bg-v3-act"
               }`}
             >
-              <p className={`m-0 text-[13px] font-bold tracking-[.02em] ${dep ? "text-v3-past" : "text-v3-ink-2"}`}>
-                {dep ? `Termen depășit: ${v.termen!.text}` : a.termen ? `Ce poți face până la ${dataScurta(a.termen)}` : "Ce poți face, oricând:"}
-              </p>
-              <p className="mt-0.5 mb-1.5 font-semibold">{a.text}</p>
+              {s.actiuni.map((ac, i) => (
+                <ActiuneTipizata key={i} ac={ac} dep={!!dep && ac === a} termenDepasit={v.termen?.text} prima={i === 0} />
+              ))}
               {v.economieAn !== null && !dep && (
                 <p className="m-0 mb-1.5 text-[14.5px]">
                   Dacă o faci, păstrezi până la <b className="whitespace-nowrap">{mii(v.economieAn)} lei/an</b>.
@@ -286,6 +325,49 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
         </dialog>
       )}
     </li>
+  );
+}
+
+const CINE: Record<CineAplica, string> = { tu: "tu", angajator: "angajatorul", furnizor: "furnizorul", stat: "statul" };
+
+/**
+ * O acțiune tipizată (plan, pasul 1): „fa” = ai ceva de făcut; „verifica” = altcineva aplică legea,
+ * tu verifici; „nimic_pana_la” = nimic de făcut până la termen. Destinația vine din lista verificată
+ * (data/destinatii.json): buton spre pagina exactă sau numele ghișeului, niciodată un URL inventat.
+ */
+function ActiuneTipizata({ ac, dep, termenDepasit, prima }: { ac: Actiune; dep: boolean; termenDepasit?: string; prima: boolean }) {
+  const d = destinatie(ac.destinatie);
+  const titlu = dep
+    ? `Termen depășit: ${termenDepasit}`
+    : ac.tip === "nimic_pana_la" && ac.termen
+      ? `Nu trebuie să faci nimic până la ${dataScurta(ac.termen)}`
+      : ac.tip === "verifica"
+        ? `Ce verifici${ac.cine_aplica && ac.cine_aplica !== "tu" ? ` · aplică ${CINE[ac.cine_aplica]}` : ""}`
+        : ac.termen
+          ? `Ce poți face până la ${dataScurta(ac.termen)}`
+          : "Ce poți face, oricând:";
+  return (
+    <div className={prima ? "" : "mt-3 border-t border-v3-line pt-3"}>
+      <p className={`m-0 text-[13px] font-bold tracking-[.02em] ${dep ? "text-v3-past" : "text-v3-ink-2"}`}>{titlu}</p>
+      <p className="mt-0.5 mb-1.5 font-semibold">{ac.text}</p>
+      {/* butonul one-click duce deja acolo (cu parametrii de tracking), nu îl dublăm */}
+      {d && !dep && !(d.url && ac.one_click) && (d.url ? (
+        <a
+          href={d.url}
+          target="_blank"
+          rel="noopener"
+          className="mt-0.5 inline-flex min-h-11 items-center gap-2 rounded-[10px] border border-v3-ink bg-white px-3 text-sm font-semibold text-v3-ink no-underline"
+        >
+          {d.nume}
+          <Sageata />
+          <span className="sr-only">(se deschide într-un tab nou)</span>
+        </a>
+      ) : (
+        <p className="m-0 text-[14px] text-v3-ink">
+          <span className="font-semibold">Unde:</span> {d.nume}
+        </p>
+      ))}
+    </div>
   );
 }
 

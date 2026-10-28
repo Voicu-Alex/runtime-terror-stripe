@@ -58,6 +58,32 @@ Instrucțiunile de interpretare sunt în `eval/interpretare/instructiuni.md` (tr
 5. **Două erori în așteptările mele, nu ale modelelor:** OUG 6/2025 acoperă și gazul (titlul o spune), iar „garantat în plată” e termenul din lege pentru salariul minim, nu o promisiune. Am corectat verificarea.
 6. **Pe Opus, prin API real (înainte de această rundă):** 3 din 7 documente au cerut reguli noi (net pe fluturaș, pensia brută, etichetele chiriașului); acum sunt în instrucțiuni.
 
+## Runda 2: acțiuni tipizate, destinații, formule parametrizate (28 oct 2026, seara)
+
+Ce s-a schimbat (planul în 4 pași, cu Fable ca advisor):
+
+1. **Acțiuni tipizate.** Fiecare acțiune are `tip` (`fa`, `verifica`, `nimic_pana_la`), `cine_aplica` (`tu`, `angajator`, `furnizor`, `stat`) și `destinatie`. Regula 7 din `eval/interpretare/instructiuni.md` cere cel puțin o acțiune pentru fiecare schimbare activă; o verificare a ceea ce cere legea („salariul de bază brut trebuie să fie cel puțin…”) nu e sfat financiar.
+2. **Destinații verificate** (`data/destinatii.json`): 10 adrese exacte (comparatorul ANRE, Declarația unică online, portalul de formulare ANAF, ghidul SPV, cererea RO e-Factura 2026, CNPP, Inspecția Muncii, registrul ASF, CECCAR, CCF) și 4 ghișee fără URL (primăria, HR-ul angajatorului, furnizorul, fondul de pensii). Modelul alege un id, nu scrie URL-uri; ce lipsește propune în `destinatie_propusa`, pentru un om. `node scripts/verifica-destinatii.mjs` verifică zilnic fiecare URL (status 200 și titlul așteptat sau PDF): 10/10.
+3. **Formule parametrizate** (`lib/formule-tip.ts`): `suma_fixa_lunar`, `schimbare_cota`, `diferenta_prag`, `scutire`. Modelul copiază numerele din lege; `parametriInText` respinge orice număr care nu apare în textul actului. Cota veche (de obicei absentă din actul nou) o dă un om, cu sursa.
+4. **„Spune-ne X” pe card:** când formulei îi lipsește o valoare din profil, cardul o cere; valoarea se păstrează în browser, pe persoana demo, și se recalculează toate cardurile. Persoana demo nouă **Elena, 24** (fictivă, pe salariul minim, fără brut în profil) arată fluxul: introduce 4.050 lei → „+275 lei/lună brut”.
+
+Exemplul din instrucțiunile v2 e un act inventat; un exemplu cu HG 146/2026 (din setul de test) și două comentarii-indiciu din `lib/formule-tip.ts` au fost scoase înainte de rulare, ca testul să nu fie contaminat.
+
+| | Haiku v1 → v2 | Sonnet v1 → v2 |
+|---|---|---|
+| Schimbări active cu cel puțin o acțiune | 3/15 → **15/15** | 5/12 → **11/11** |
+| Acțiuni valide (tip, cine, termen la „nimic până la”, fără URL scris de model) | **15/15** | **14/14** |
+| Destinații din listă, existente | **11/11** | **8/8** |
+| Destinații noi propuse pentru verificare | 4 | 2 |
+| Formule parametrizate cu numerele găsite în lege | **4/4** | **1/1** |
+| Triaj, etichete, date, citate, ton | toate trec | toate trec |
+
+Pe HG 146/2026 ambele au ales `diferenta_prag` cu 4.325 lei. Haiku a folosit și `suma_fixa_lunar` 200 lei (OUG 89/2025, a doua jumătate a lui 2026) și `scutire` pe impozitul pe clădiri pentru sere. Destinațiile propuse: procedura ANAF de restituire a TVA la locuință, declarația micro, școala (Masă sănătoasă), asociația de proprietari, pagina pentru sărăcia energetică.
+
+**Concluzie v2:** după schimbarea instrucțiunilor, Haiku nu mai lasă acțiunile goale; diferența față de Sonnet se reduce la formulări. Pentru interpretare, Haiku devine o opțiune reală (de ~20 de ori mai ieftin); decizia rămâne a echipei.
+
+**Găsit:** nu există o etichetă pentru „cumpăr o locuință”; Sonnet a lăsat Legea 161/2026 fără etichete, deci cardul nu ar ajunge la nimeni. De adăugat în `lib/taguri.ts` (decizie de echipă).
+
 ## Cum se rulează din nou
 
 ```bash
@@ -65,6 +91,8 @@ node eval/descarca-acte.mjs        # textele legilor, fără cheie
 python eval/genereaza-documente.py # documentele fictive noi
 node eval/scor.mjs                 # notează eval/rezultate/<model>/
 node eval/numara-actiuni.mjs       # câte acțiuni și linkuri pe model
+node eval/detalii-v2.mjs           # formulele, destinațiile alese și propuse (v2)
+node scripts/verifica-destinatii.mjs # verificarea zilnică a destinațiilor
 ```
 
 Rezultatele brute: `eval/rezultate/{sonnet,haiku}/{documente,legi}/`. Așteptările: `eval/asteptari-documente.json`, `eval/asteptari-legi.json`.
@@ -77,3 +105,5 @@ Rezultatele brute: `eval/rezultate/{sonnet,haiku}/{documente,legi}/`. Așteptăr
 - Sonnet a citit OUG 89 și OUG 6 pe bucăți, nu integral; poate rata schimbări.
 - Așteptările le-am scris eu; pe actele noi nu au fost revăzute de altcineva.
 - Costul pe API e estimat din prețul de listă, nu măsurat.
+- Runda 2: o singură rulare pe model. Cardul salariului minim apare doar de la 4.050 lei brut (minimul anterior, OUG 89/2025), ca să nu afișeze o sumă umflată la normă parțială; o normă parțială reală nu primește deci deloc cardul. Suma netă din brut nu e calculată (lipsește tabelul de deduceri).
+- Destinațiile propuse de modele nu au fost încă verificate și adăugate în listă.

@@ -5,6 +5,8 @@
 // etichete doar din listă, date personale nemascate, citat găsit în textul actului, date, linkuri.
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
+// aceeași verificare pe care o folosește aplicația: numerele formulei trebuie să fie în textul actului
+import { esteFormulaTip, parametriInText } from "../lib/formule-tip.ts";
 
 const RAD = path.join(import.meta.dirname, "..");
 const [fDoc = path.join(import.meta.dirname, "asteptari-documente.json"), fLeg = path.join(import.meta.dirname, "asteptari-legi.json")] =
@@ -15,6 +17,9 @@ const TAGURI = [...(await sursa("lib/taguri.ts")).matchAll(/^\s+(\w+): \{ famili
 const FORMULE = [...(await sursa("lib/formule.ts")).matchAll(/^\s+(\w+): \(/gm)].map((m) => m[1]);
 const TIPURI = ["contract_munca", "factura_utilitati", "fluturas_salariu", "altul"];
 const VALORI_OK = ["salariu_net", "salariu_brut", "pensie_lunara", "dividende_anuale", "cheltuieli_lunare", "an_nastere", "nr_copii", "furnizor", "suma_factura", "chirie_lunara"];
+const DESTINATII = Object.keys(JSON.parse(await sursa("data/destinatii.json")));
+const TIPURI_ACTIUNE = ["fa", "verifica", "nimic_pana_la"];
+const CINE = ["tu", "angajator", "furnizor", "stat"];
 const DOMENII_OK = ["legislatie.just.ro", "anaf.ro", "static.anaf.ro", "anre.ro", "posf.ro", "asfromania.ro", "cnpp.ro", "mfinante.gov.ro", "gov.ro"];
 // „garantat” e interzis ca promisiune, dar „salariul ... garantat în plată” e termenul din lege
 const INTERZISE_TEXT = [/recomand/i, /cel mai bun/i, /garantat(?! în plată)/i];
@@ -95,7 +100,13 @@ for (const m of modele) {
   const fis = await listeaza(dir);
   if (!fis.length) continue;
   console.log(`\n## Legi · ${m}`);
-  const tot = { acte: 0, triaj: 0, etichete: 0, citate: 0, citateTotal: 0, linkuri: 0, linkuriTotal: 0, linkuriInventate: [], formule: 0, formuleTotal: 0, data: 0, ton: 0 };
+  const tot = {
+    acte: 0, triaj: 0, etichete: 0, citate: 0, citateTotal: 0, linkuri: 0, linkuriTotal: 0, linkuriInventate: [],
+    formule: 0, formuleTotal: 0, data: 0, ton: 0,
+    // v2: acțiuni tipizate, destinații, formule parametrizate
+    active: 0, activeCuActiune: 0, actiuni: 0, actiuniValide: 0, cuDestinatie: 0, destinatiiValide: 0, propuse: 0,
+    ftTotal: 0, ftInText: 0, cuSuma: 0,
+  };
   for (const [act, a] of Object.entries(astLeg)) {
     if (act.startsWith("_")) continue;
     tot.acte++;
@@ -148,6 +159,39 @@ for (const m of modele) {
         if (FORMULE.includes(s.formula)) tot.formule++;
         else note.push(`formulă inexistentă: ${s.formula}`);
       }
+      if (s.formula != null || s.formula_tip != null) tot.cuSuma++;
+      if (s.formula_tip != null) {
+        tot.ftTotal++;
+        if (!esteFormulaTip(s.formula_tip)) note.push(`formula_tip invalidă: ${JSON.stringify(s.formula_tip)}`);
+        else {
+          const r2 = parametriInText(s.formula_tip, await readFile(path.join(import.meta.dirname, "legi", `${act}.txt`), "utf8"));
+          if (r2.ok) tot.ftInText++;
+          else note.push(`formula_tip: numere NEGĂSITE în text: ${r2.lipsa.join(", ")}`);
+        }
+      }
+      // v2: fiecare schimbare activă are cel puțin o acțiune tipizată
+      if (s.status !== "termen_depasit") {
+        tot.active++;
+        if ((s.actiuni ?? []).length) tot.activeCuActiune++;
+        else note.push(`schimbare activă fără acțiune: ${s.rezumat}`);
+      }
+      for (const ac of s.actiuni ?? []) {
+        if (!("tip" in ac)) continue; // rezultat v1
+        tot.actiuni++;
+        const probl = [];
+        if (!TIPURI_ACTIUNE.includes(ac.tip)) probl.push(`tip „${ac.tip}”`);
+        if (!CINE.includes(ac.cine_aplica)) probl.push(`cine_aplica „${ac.cine_aplica}”`);
+        if (ac.tip === "nimic_pana_la" && !ac.termen) probl.push("nimic_pana_la fără termen");
+        if (/https?:\/\//.test(JSON.stringify(ac))) probl.push("URL scris de model");
+        if (ac.destinatie != null) {
+          tot.cuDestinatie++;
+          if (DESTINATII.includes(ac.destinatie)) tot.destinatiiValide++;
+          else probl.push(`destinație inexistentă „${ac.destinatie}”`);
+        }
+        if (ac.destinatie_propusa) tot.propuse++;
+        if (probl.length) note.push(`acțiune invalidă (${probl.join(", ")}): ${ac.text?.slice(0, 70)}`);
+        else tot.actiuniValide++;
+      }
       for (const ac of s.actiuni ?? []) {
         if (!ac.link) continue;
         tot.linkuriTotal++;
@@ -182,6 +226,16 @@ for (const m of modele) {
     formule_valide: `${tot.formule}/${tot.formuleTotal}`,
     linkuri_ok: `${tot.linkuri}/${tot.linkuriTotal}`,
     ton: `${tot.ton}/${tot.acte}`,
+    active_cu_actiune: `${tot.activeCuActiune}/${tot.active}`,
+    ...(tot.actiuni
+      ? {
+          actiuni_valide: `${tot.actiuniValide}/${tot.actiuni}`,
+          destinatii_valide: `${tot.destinatiiValide}/${tot.cuDestinatie}`,
+          destinatii_propuse: tot.propuse,
+          formula_tip_in_text: `${tot.ftInText}/${tot.ftTotal}`,
+          cu_suma: tot.cuSuma,
+        }
+      : {}),
   };
 }
 

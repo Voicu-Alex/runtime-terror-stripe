@@ -1,0 +1,40 @@
+{
+  "act": "HG 146/2026",
+  "mo": "MO 196 / 13 mar 2026",
+  "publicat_la": "2026-03-13",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Salariul minim brut pe țară este 4.325 lei din 1 iulie 2026",
+      "taguri": ["angajat", "salariu_minim"],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": {
+        "tip": "diferenta_prag",
+        "parametri": { "camp": "salariu_brut", "prag": 4325, "perioada": "luna" }
+      },
+      "articol": "art. 1",
+      "citat": "se stabilește în bani, fără a include sporuri și alte adaosuri, la suma de 4.325 lei lunar",
+      "niveluri": {
+        "zero": "Din 1 iulie 2026, nimeni cu normă întreagă nu poate avea salariul de bază brut sub 4.325 lei pe lună.",
+        "curios": "Salariul minim brut garantat în plată devine 4.325 lei lunar din 1 iulie 2026, pentru un program normal de lucru în medie de 166,667 ore pe lună. Asta înseamnă 25,949 lei pe oră. Suma nu include sporuri și alte adaosuri. Dacă salariul tău de bază brut era mai mic, angajatorul trebuie să ți-l ridice cel puțin la 4.325 lei.",
+        "expert": "Art. 1 stabilește salariul de bază minim brut pe țară garantat în plată, conform art. 164 alin. (1) din Codul muncii, la 4.325 lei lunar, pentru un program normal de lucru în medie de 166,667 ore pe lună (25,949 lei/oră), fără sporuri și alte adaosuri, începând cu 1 iulie 2026. Art. 2 abrogă HG 1.506/2024 la aceeași dată."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul de salariu din iulie 2026 încoace că salariul de bază brut din contract, fără sporuri, este cel puțin 4.325 lei pentru program normal de lucru. Dacă e mai mic, cere explicații la resurse umane sau la contabilitate.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Suma calculată e diferența în lei brut până la 4.325, nu o sumă netă. Hotărârea nu spune nimic despre programul parțial; pentru normă redusă salariul de verificat se stabilește separat, de verificat."
+    }
+  ]
+}

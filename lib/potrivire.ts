@@ -1,5 +1,6 @@
 import type { Conditie, Schimbare } from "./catalog";
 import { calculeaza } from "./formule";
+import { evalueazaTip, necesita } from "./formule-tip";
 import { varstaLa, type CampConditie, type Profil, type Valori } from "./profil";
 import type { TagId } from "./taguri";
 
@@ -103,8 +104,14 @@ export function potriveste(profil: Profil, catalog: Schimbare[], azi = aziISO())
     }
     if (exclusa) continue;
 
-    const impact = calculeaza(s.formula, profil.valori);
+    // formula scrisă de mână are prioritate; altfel formula parametrizată (lib/formule-tip.ts)
+    const impact = s.formula
+      ? calculeaza(s.formula, profil.valori)
+      : s.formula_tip
+        ? evalueazaTip(s.formula_tip, profil.valori, s.directie)
+        : null;
     if (impact == null && s.formula) for (const k of VALORI_FORMULEI[s.formula] ?? []) if (profil.valori[k] == null) lipsa.add(k);
+    if (impact == null && !s.formula && s.formula_tip) for (const k of necesita(s.formula_tip)) if (profil.valori[k] == null) lipsa.add(k);
 
     const termen = s.termen_actiune ?? s.actiuni.find((a) => a.termen)?.termen ?? null;
 
