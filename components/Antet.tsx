@@ -57,6 +57,9 @@ export function Subsol() {
       {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}
       {t("Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică. Profilul rămâne pe dispozitivul tău.")}
       {limba === "en" && <> {t("Textele legilor sunt în română.")}</>}
+      <Link href="/abonament" className="ml-1 font-semibold text-v3-ink-2 underline decoration-v3-line underline-offset-2">
+        {t("Abonament")}
+      </Link>
     </footer>
   );
 }

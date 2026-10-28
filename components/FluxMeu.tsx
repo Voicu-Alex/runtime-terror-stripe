@@ -3,15 +3,20 @@
 import Link from "next/link";
 import { useLimba } from "@/components/Limba";
 import { ListaFlux } from "@/components/ListaFlux";
+import { useAbonament } from "@/components/useAbonament";
 import { useProfil } from "@/components/useProfil";
 import type { Sortare } from "@/lib/card";
 import { CATALOG } from "@/lib/catalog";
 import { etichetaTagL } from "@/lib/i18n";
 import { aziISO, potriveste } from "@/lib/potrivire";
 
-/** Fluxul pe profilul real. Profilul stă în localStorage, deci potrivirea rulează aici, pe dispozitiv. */
+/**
+ * Fluxul pe profilul real. Profilul stă în localStorage, deci potrivirea rulează aici, pe dispozitiv.
+ * Sumele și Planul meu se văd doar cu abonament activ (verificat la Stripe); până la răspuns, nu se arată.
+ */
 export function FluxMeu({ sortare }: { sortare: Sortare }) {
   const profil = useProfil();
+  const { stare } = useAbonament();
   const { t, limba } = useLimba();
 
   if (profil === null) return <p className="mt-4 text-sm text-v3-ink-2">{t("Se încarcă profilul de pe dispozitiv…")}</p>;
@@ -43,7 +48,7 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
           {t("modifică")}
         </Link>
       </p>
-      <ListaFlux potriviri={potriviri} valori={profil.valori} sortare={sortare} baza="/flux" azi={aziISO()} />
+      <ListaFlux potriviri={potriviri} valori={profil.valori} sortare={sortare} baza="/flux" azi={aziISO()} faraSume={!stare?.activ} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLimba } from "@/components/Limba";
 import { ETICHETA_STARE, cuSemn, dataScurta, mii, vedere, zile, type VedereCard } from "@/lib/card";
 import { lunaScurta, type Limba } from "@/lib/i18n";
@@ -52,6 +53,25 @@ export function evenimente(potriviri: Potrivire[], valori: Valori, azi: string, 
   return ev.sort((a, b) => a.iso.localeCompare(b.iso));
 }
 
+/** În locul unei sume, fără abonament: o insignă care duce la /abonament (docs/adr/0002-abonament-stripe.md). */
+export function SumaInAbonament({ mare = false }: { mare?: boolean }) {
+  const { t } = useLimba();
+  return (
+    <Link
+      href="/abonament"
+      className={`inline-flex items-center gap-1.5 rounded-full border border-v3-line bg-v3-card font-semibold text-v3-ink-2 no-underline hover:border-v3-accent ${
+        mare ? "px-3 py-1 text-[14px]" : "px-2 py-0.5 text-[12.5px]"
+      }`}
+    >
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="size-3.5 fill-none stroke-current stroke-2" strokeLinecap="round">
+        <rect x="5" y="11" width="14" height="10" rx="2" />
+        <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+      </svg>
+      {t("suma, în abonament")}
+    </Link>
+  );
+}
+
 export function TitluSectiune({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="mt-[22px] mb-1 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-v3-line pb-2.5 text-xs font-extrabold tracking-[.12em] text-v3-accd uppercase">
@@ -60,7 +80,7 @@ export function TitluSectiune({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Termene({ ev }: { ev: Eveniment[] }) {
+export function Termene({ ev, faraSume = false }: { ev: Eveniment[]; faraSume?: boolean }) {
   const { t, limba } = useLimba();
   if (!ev.length) return <p className="mt-1.5 text-[13px] text-v3-ink-2">{t("Niciun termen deschis.")}</p>;
   return (
@@ -96,7 +116,7 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
                     {x.termen ? t("mai ai") : t("peste")} {zile(x.zile, limba)}
                   </span>
                 )}
-                {suma && <>· {suma}</>}
+                {suma && !faraSume && <>· {suma}</>}
               </div>
             </div>
           </li>
@@ -109,7 +129,7 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
 const CUTIE =
   "mb-3.5 rounded-2xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-[18px] py-5 lg:px-[34px] lg:py-[30px]";
 
-export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valori: Valori; azi: string }) {
+export function ArticolPrincipal({ p, valori, azi, faraSume = false }: { p: Potrivire | null; valori: Valori; azi: string; faraSume?: boolean }) {
   const { t, limba } = useLimba();
   if (!p)
     return (
@@ -142,7 +162,11 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
       </p>
       <span className="mb-2 block text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">{v.kicker}</span>
       <h2 className="m-0 mb-2.5 font-head text-[clamp(25px,6.6vw,36px)] leading-[1.16] font-extrabold tracking-[-.015em]">{v.titlu}</h2>
-      {actiune && v.economieAn ? (
+      {faraSume ? (
+        <p className="m-0 mb-3">
+          <SumaInAbonament mare />
+        </p>
+      ) : actiune && v.economieAn ? (
         <p className="m-0 mb-3 font-head text-[clamp(30px,8vw,40px)] font-extrabold tracking-[-.02em] text-v3-pos">
           <span className="font-sans text-[15px] font-semibold tracking-normal">{limba === "en" ? "up to" : "până la"}</span> +{mii(v.economieAn)}
           <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">{t("lei/an")}</small>
@@ -198,7 +222,19 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
   );
 }
 
-export function Cifre({ potriviri, valori, ev, azi }: { potriviri: Potrivire[]; valori: Valori; ev: Eveniment[]; azi: string }) {
+export function Cifre({
+  potriviri,
+  valori,
+  ev,
+  azi,
+  faraSume = false,
+}: {
+  potriviri: Potrivire[];
+  valori: Valori;
+  ev: Eveniment[];
+  azi: string;
+  faraSume?: boolean;
+}) {
   const { t, limba } = useLimba();
   const vederi = potriviri.map((p) => ({ p, v: vedere(p, valori, limba) }));
   // Suma pe lună e deja în bara „Planul meu”; aici arătăm cât poți păstra dacă faci tot ce permite legea.
@@ -208,7 +244,7 @@ export function Cifre({ potriviri, valori, ev, azi }: { potriviri: Potrivire[]; 
     [potriviri.length, t("acte care te privesc")],
     [ev.filter((x) => x.termen).length, t("termene deschise")],
     [deschise.length, t("acțiuni pe care legea le permite")],
-    [<span key="p" className={culoare(pastrezi)}>{cuSemn(pastrezi)} lei</span>, t("pe an, dacă le faci pe toate")],
+    [faraSume ? <SumaInAbonament key="p" /> : <span key="p" className={culoare(pastrezi)}>{cuSemn(pastrezi)} lei</span>, t("pe an, dacă le faci pe toate")],
   ];
   return (
     <section

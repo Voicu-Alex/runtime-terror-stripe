@@ -4,6 +4,7 @@ import { useId, useRef, useState } from "react";
 import type { Potrivire } from "@/lib/potrivire";
 import type { Valori } from "@/lib/profil";
 import { useLimba } from "@/components/Limba";
+import { SumaInAbonament } from "@/components/RevistaFlux";
 import { etichetaTagL } from "@/lib/i18n";
 import { ETICHETA_STARE, cuSemn, cuTracking, dataScurta, mii, vedere, zile, type StareCard } from "@/lib/card";
 import { furnizori, niveluri, specialist } from "@/lib/continut";
@@ -28,9 +29,12 @@ export default function CardSchimbare({
   valori,
   bifata = false,
   onBifeaza,
+  faraSume = false,
 }: {
   p: Potrivire;
   valori: Valori;
+  /** fără abonament: suma lunară și economia din acțiune nu se arată (docs/adr/0002-abonament-stripe.md) */
+  faraSume?: boolean;
   /** acțiunea e bifată în „Planul meu” */
   bifata?: boolean;
   onBifeaza?: () => void;
@@ -71,10 +75,16 @@ export default function CardSchimbare({
             dep ? "text-v3-past" : v.suma === null || v.suma === 0 ? "text-v3-ink" : v.suma < 0 ? "text-v3-neg" : "text-v3-pos"
           }`}
         >
-          {v.suma === null ? "—" : cuSemn(v.suma)}
-          <small className="block text-[12.5px] font-semibold tracking-normal text-v3-ink-2">
-            {v.suma === null ? t("de calculat") : v.suma === 0 ? t("lei/lună acum") : t("lei/lună")}
-          </small>
+          {faraSume ? (
+            <SumaInAbonament />
+          ) : (
+            <>
+              {v.suma === null ? "—" : cuSemn(v.suma)}
+              <small className="block text-[12.5px] font-semibold tracking-normal text-v3-ink-2">
+                {v.suma === null ? t("de calculat") : v.suma === 0 ? t("lei/lună acum") : t("lei/lună")}
+              </small>
+            </>
+          )}
         </span>
         <span className={`col-start-1 text-[17px] leading-[1.3] font-bold ${dep ? "text-v3-past" : "text-v3-ink"}`}>{v.titlu}</span>
         {v.termen && (
@@ -107,10 +117,10 @@ export default function CardSchimbare({
           <p className="m-0 mb-2.5 max-w-[60ch] text-[15px] text-v3-ink">
             <b>{t("Pentru tine:")}</b> <span lang="ro">{n.zero}</span>
           </p>
-          {s.estimare && v.suma !== null && v.suma !== 0 && (
+          {!faraSume && s.estimare && v.suma !== null && v.suma !== 0 && (
             <p className="m-0 mb-2.5 text-[13.5px] text-v3-ink-2">{t("Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege.")}</p>
           )}
-          {v.cere && <p className="m-0 mb-2.5 text-[13.5px] font-semibold text-v3-ink">{t("Ca să calculăm suma:")} {t(v.cere)}.</p>}
+          {!faraSume && v.cere && <p className="m-0 mb-2.5 text-[13.5px] font-semibold text-v3-ink">{t("Ca să calculăm suma:")} {t(v.cere)}.</p>}
           <p className="m-0 mb-3 text-[13.5px] text-v3-ink-2">
             {t("Te privește ca:")}{" "}
             {p.taguri_comune.map((x) => (
@@ -132,7 +142,7 @@ export default function CardSchimbare({
               <p className="mt-0.5 mb-1.5 font-semibold" lang="ro">
                 {a.text}
               </p>
-              {v.economieAn !== null && !dep && (
+              {!faraSume && v.economieAn !== null && !dep && (
                 <p className="m-0 mb-1.5 text-[14.5px]">
                   {t("Dacă o faci, păstrezi până la")} <b className="whitespace-nowrap">{mii(v.economieAn)} {t("lei/an")}</b>.
                 </p>
