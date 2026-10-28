@@ -43,7 +43,7 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
           {t("modifică")}
         </Link>
       </p>
-      <ListaFlux potriviri={potriviri} valori={profil.valori} sortare={sortare} baza="/flux" />
+      <ListaFlux potriviri={potriviri} valori={profil.valori} sortare={sortare} baza="/flux" azi={aziISO()} />
     </>
   );
 }

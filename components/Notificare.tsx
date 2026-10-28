@@ -80,7 +80,7 @@ export function Notificare({ p, valori, baza }: { p: Potrivire; valori: Valori; 
         <b className="text-v3-ink">{s.act}</b> · {s.mo_ref} · <span lang="ro">{s.articol}</span>
       </p>
       <a href={s.sursa_url} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center font-semibold text-v3-accent">
-        {t("Textul legii pe Portal Legislativ")} ↗︎
+        {t(s.sursa_url.includes("legislatie.just.ro") ? "Textul legii pe Portal Legislativ" : "Textul actului")} ↗︎
       </a>
 
       <p className="mt-3 mb-0 flex flex-wrap items-center gap-1.5 text-[12.5px] text-v3-ink-2">
