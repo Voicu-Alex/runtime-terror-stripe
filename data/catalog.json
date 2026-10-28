@@ -16,8 +16,8 @@
     "estimare": true,
     "niveluri": {
       "zero": "Cota standard de TVA crește cu 2 puncte, deci aproape tot ce cumperi costă puțin mai mult. Estimat ca 1,68% din cheltuielile tale lunare.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Creșterea face parte din pachetul de măsuri fiscal-bugetare din Legea 141/2025. Atinge pe oricine cumpără ceva, pentru că TVA e inclus în prețul de la raft. Cotele reduse de 5% și 9% au devenit una singură, de 11%, pentru alimente, medicamente, apă, cărți, cazare și restaurante. Exemplu: un produs care costa 119 lei cu TVA de 19% ajunge la 121 lei, dacă prețul fără TVA rămâne același.",
+      "expert": "Legea 141/2025, art. II pct. 42, modifică art. 291 alin. (1) și (2) din Codul fiscal: cota standard 21%, cota redusă 11%; pct. 43 abrogă cota de 5%. Publicată în Monitorul Oficial nr. 699 din 25 iulie 2025, aplicabilă de la 1 august 2025 (art. VII alin. (1)). Nuanță: o persoană fizică putea cumpăra o singură locuință cu TVA de 9% până la 31 iulie 2026, dacă avea maximum 120 mp utili, costa maximum 600.000 lei fără TVA și contractul de avans era încheiat până la 1 august 2025 (art. III). Nuanță: alimentele cu minimum 10 g zahăr adăugat la 100 g, băuturile alcoolice și suplimentele alimentare nu intră la 11%."
     },
     "actiuni": [],
     "profesionist": null,
@@ -44,8 +44,8 @@
     "estimare": false,
     "niveluri": {
       "zero": "Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu 10%. Pe dividendele tale, diferența apare în cifra lunară.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Creșterea face parte din același pachet de măsuri fiscal-bugetare, Legea 141/2025. Te atinge dacă ai un SRL și îți plătești profitul ca dividende. Contează data la care sunt distribuite, nu data plății: ce s-a distribuit până la 31 decembrie 2025 a rămas la 10%. Exemplu: la 10.000 lei dividende, impozitul crește de la 1.000 lei la 1.600 lei.",
+      "expert": "Legea 141/2025, art. II pct. 5, modifică art. 97 alin. (7) din Codul fiscal (persoane fizice: 16%, impozit final); pct. 1 modifică art. 43 alin. (2) (persoane juridice). Publicată în Monitorul Oficial nr. 699 din 25 iulie 2025; se aplică dividendelor distribuite începând cu 1 ianuarie 2026 (art. VII alin. (1)). Nuanță: dividendele distribuite pe baza situațiilor financiare interimare din 2025 rămân la 10%, fără recalculare la regularizare (art. VII alin. (2)). Nuanță: pentru firmele cu an fiscal modificat, data este prima zi a anului fiscal care începe în 2026."
     },
     "actiuni": [
       {
@@ -56,6 +56,7 @@
       }
     ],
     "profesionist": "contabil",
+    "specialist": { "intrebare": "Mai merită să îmi iau banii din SRL ca dividende sau pe salariu, cu impozitul de 16%?", "documente": "Profitul estimat pe anul acesta și cât ai vrea să scoți din firmă." },
     "articol": "art. II pct. 1 (Codul fiscal art. 43 alin. 2); pct. 5 (art. 97 alin. 7)",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
     "sursa_explicativa": "https://www.crowe.com/ro/news/alerta-fiscala-modificari-fiscale-din-noul-pachet-fiscal-bugetar",
@@ -79,8 +80,8 @@
     "estimare": false,
     "niveluri": {
       "zero": "Contribuția de 10% pentru sănătate se aplică doar părții din pensie care depășește 3.000 lei.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Până în august 2025, pensionarii nu plăteau contribuția de sănătate (CASS). Legea 141/2025 a introdus-o, dar doar pe partea din pensie care trece de 3.000 lei pe lună. Cine are pensia de 3.000 lei sau mai mică nu plătește nimic în plus. Exemplu: la o pensie de 4.000 lei, plătești 10% din 1.000 lei, adică 100 lei pe lună.",
+      "expert": "Legea 141/2025, art. II pct. 16 abrogă scutirea generală a pensionarilor (Codul fiscal art. 154 alin. (1) lit. h)), pct. 18 introduce lit. h^2) (scutire pentru pensiile de până la 3.000 lei lunar inclusiv), iar pct. 25 introduce art. 157^6 (baza = pensia minus 3.000 lei). Cota de 10% vine din art. 156 din Codul fiscal. Publicată în Monitorul Oficial nr. 699 din 25 iulie 2025; se aplică veniturilor din august 2025 (art. VII alin. (1) lit. e), modificat prin OG 22/2025). Nuanță: e temporară, se aplică între 1 august 2025 și 31 decembrie 2027 (art. VII alin. (3)). Nuanță: pragul de 3.000 lei se scade separat pentru fiecare drept de pensie."
     },
     "actiuni": [
       {
@@ -114,8 +115,8 @@
     "estimare": true,
     "niveluri": {
       "zero": "Plafonul a acoperit 1 apr–30 iun 2025 și a încetat la 1 iul 2025; de atunci factura urmează prețul pieței.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Între 1 aprilie și 30 iunie 2025, statul a limitat prețul curentului pentru casnici, după consum: 0,68, 0,80 sau 1,3 lei/kWh cu TVA. De la 1 iulie 2025 schema s-a încheiat, iar prețul depinde doar de oferta furnizorului. Te atinge dacă ai contract de curent pe numele tău. Exemplu: la 200 kWh pe lună, cu plafonul de 0,80 lei/kWh plăteai cel mult 160 lei; acum suma depinde de prețul din contractul tău.",
+      "expert": "OUG 6/2025, art. 1 alin. (1): prețul final plafonat pentru consumul dintre 1 aprilie și 30 iunie 2025 era maximum 0,68 lei/kWh (consum de până la 100 kWh/lună și categoriile vulnerabile de la lit. a)), maximum 0,80 lei/kWh (între 100,01 și 255 kWh/lună) și maximum 1,3 lei/kWh pentru ceilalți casnici. Publicată în Monitorul Oficial nr. 182 din 28 februarie 2025. Încetarea schemei la 1 iulie 2025 este confirmată de ANRE (comunicat din 11 iunie 2025). Nuanță: peste 300 kWh pe lună, tot consumul se factura la 1,3 lei/kWh. Nuanță: ANRE recomandă compararea ofertelor pe comparatorul oficial (posf.ro); schimbarea furnizorului e fără costuri."
     },
     "actiuni": [
       {
@@ -149,8 +150,8 @@
     "estimare": false,
     "niveluri": {
       "zero": "Legea nouă schimbă felul în care primești banii din Pilon II: doar o parte deodată, restul în rate. Azi nu pierzi nimic, dar pensia privată se planifică altfel.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Legea 2/2026 stabilește cum îți primești banii din Pilonul II și III când ieși la pensie. Poți cere o singură dată maximum 30% din suma strânsă, iar restul vine în rate lunare sau ca pensie viageră. Exemplu: dacă ai strâns 100.000 lei, poți lua deodată cel mult 30.000 lei, iar 70.000 lei îi primești eșalonat. Regulile noi pornesc abia după ce ASF autorizează primul fond care plătește în rate; până atunci se aplică regulile vechi.",
+      "expert": "Legea 2/2026 privind plata pensiilor private, publicată în Monitorul Oficial nr. 2 din 5 ianuarie 2026; intră în vigoare la un an de la publicare, adică pe 5 ianuarie 2027 (art. 113). Art. 55 alin. (1): maximum 30% din activ, la cerere, o singură dată, înainte de plățile lunare. Art. 60: rata lunară este egală cu indemnizația socială pentru pensionari; dacă astfel plata ar dura peste 8 ani, rata poate crește, dar plata durează cel puțin 8 ani. Nuanță: până când ASF autorizează cel puțin un fond de plată prin retragere programată, plata se face exclusiv după legile vechi (411/2004, 204/2006, 1/2020), conform art. 111 alin. (1). Nuanță: dacă suma strânsă nu depășește de 12 ori indemnizația socială pentru pensionari, primești totul o dată sau în maximum 12 luni (art. 50 alin. (3))."
     },
     "actiuni": [
       {
@@ -160,7 +161,8 @@
         "one_click": null
       }
     ],
-    "profesionist": "consultant pensii",
+    "profesionist": "consultant fiscal",
+    "specialist": { "intrebare": "Iau 30% deodată sau totul eșalonat?", "documente": "Ultimul extras de la fondul de pensii, cu suma strânsă." },
     "articol": "art. 55 alin. (1) (max 30%); art. 113 (intrare în vigoare la un an de la publicare)",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/306255",
     "sursa_explicativa": "https://romania.europalibera.org/a/guvernul-a-modificat-legea-pensiilor-private-se-pot-lua-30-din-suma-acumulata-intr-o-singura-transa-esalonare-apoi-pe-opt-ani/33509248.html",
@@ -219,8 +221,8 @@
     "estimare": false,
     "niveluri": {
       "zero": "Cotă unică de 1% pentru microîntreprinderi (cota de 3% eliminată). Plafonul de 100.000 EUR și condiția de un angajat: de verificat.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Cota de 3% a dispărut: din 2026, toate microîntreprinderile plătesc 1% din venituri. În schimb, plafonul de venituri a coborât de la 250.000 la 100.000 euro pe an. Te atinge dacă ai un SRL micro; ca să rămână micro, firma trebuie să aibă cel puțin un salariat și să nu treacă de plafon. Exemplu: la 50.000 lei venituri într-un trimestru, impozitul este 500 lei.",
+      "expert": "OUG 89/2025, art. I pct. 4, modifică art. 51 alin. (1) din Codul fiscal: „Cota de impozit pe veniturile microîntreprinderilor este de 1%.” Publicată în Monitorul Oficial nr. 1203 din 24 decembrie 2025, aplicabilă de la 1 ianuarie 2026 (art. II alin. (1)). Plafonul de 100.000 euro nu vine din OUG 89/2025, ci din art. 47 alin. (1) lit. c) din Codul fiscal, introdus prin OUG 156/2024 și rescris prin OUG 8/2026 (Monitorul Oficial nr. 147 din 25 februarie 2026). Nuanță: la plafon se adună și veniturile întreprinderilor legate, inclusiv ale PFA-urilor asociaților care dețin peste 25% (art. 47 alin. (1^1), art. 52 alin. (5^1)). Nuanță: o firmă nou înființată are 90 de zile să angajeze primul salariat (OUG 8/2026)."
     },
     "actiuni": [
       {
@@ -231,6 +233,7 @@
       }
     ],
     "profesionist": "contabil",
+    "specialist": { "intrebare": "Ce se întâmplă dacă depășesc plafonul de 100.000 euro la jumătatea anului?", "documente": "Veniturile firmei de la începutul anului și numărul de salariați." },
     "articol": "art. I pct. 4 (Codul fiscal art. 51 alin. 1); art. II pct. 1",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
     "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
@@ -254,8 +257,8 @@
     "estimare": true,
     "niveluri": {
       "zero": "Până la 31 martie 2027 prețul la gaz e plafonat. De la 1 aprilie 2027 factura urmează prețul pieței.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Plafonul fix de 0,31 lei/kWh s-a terminat la 31 martie 2026. De la 1 aprilie 2026, OUG 12/2026 a pus în loc o formulă: gazul de la producători are preț fix, iar adaosul furnizorului e limitat. Te atinge dacă ești client casnic de gaz, inclusiv în bloc sau cartier rezidențial. Exemplu: TODO, avem nevoie de un preț final oficial în lei/kWh calculat după formulă.",
+      "expert": "OUG 12/2026, art. 1 alin. (2): prețul facturat clienților casnici între 1 aprilie 2026 și 31 martie 2027 este cel mai mic dintre prețul contractual și prețul final calculat. Art. 3: componenta de furnizare este de maximum 15 lei/MWh. Art. 6 alin. (1): producătorii livrează cu 110 lei/MWh. Publicată în Monitorul Oficial nr. 178 din 9 martie 2026; modificată prin OUG 19/2026 (Monitorul Oficial nr. 237 din 26 martie 2026). Nuanță: cifra de 0,31 lei/kWh vine din OUG 6/2025 și s-a aplicat doar între 1 aprilie 2025 și 31 martie 2026. Nuanță: producătorii de energie termică pentru populație beneficiază doar pentru consumul dintre 1 noiembrie 2026 și 31 martie 2027 (modificare prin OUG 19/2026)."
     },
     "actiuni": [
       {

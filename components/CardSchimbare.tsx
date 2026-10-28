@@ -24,6 +24,7 @@ const eTODO = (s: string) => !s || s.trim() === "TODO";
 export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Valori }) {
   const [deschis, setDeschis] = useState(false);
   const [lege, setLege] = useState(false);
+  const [copiat, setCopiat] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const uid = useId();
 
@@ -137,16 +138,20 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
             >
               Arată-mi legea
             </button>
-            {s.profesionist && (
+          </div>
+          {s.profesionist && (
+            // Textele din content/modal-specialist.md (issue #5, Chris): întâi pașii, apoi specialistul.
+            <p className="mt-3 mb-0 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13.5px] text-v3-ink-2">
+              <b className="text-v3-ink">Situația ta e mai complicată?</b>
               <button
                 type="button"
                 onClick={() => dialog.current?.showModal()}
                 className="min-h-11 rounded-[10px] border border-v3-line bg-white px-4 text-sm font-semibold text-v3-ink"
               >
-                Vorbește cu un {s.profesionist}
+                Găsește un {s.profesionist}
               </button>
-            )}
-          </div>
+            </p>
+          )}
 
           {/* Expert */}
           {lege && (
@@ -179,18 +184,45 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
       )}
 
       {s.profesionist && (
-        // Placeholder pentru fluxul cu contabili și notari (issue #5, Chris).
+        // Modalul „Când merită un specialist” (content/modal-specialist.md, business/profesionisti.md secțiunea 3).
+        // Linkul la registrul public al profesiei lipsește până avem URL-urile verificate (profesionisti.md, „De confirmat” 1).
         <dialog
           ref={dialog}
           aria-labelledby={`${uid}-t`}
           className="m-auto w-[min(420px,calc(100%-32px))] rounded-2xl border border-v3-line p-5 backdrop:bg-black/50"
         >
           <h4 id={`${uid}-t`} className="m-0 mb-2 text-[17px] font-bold">
-            Vorbește cu un {s.profesionist}
+            Când merită un {s.profesionist}
           </h4>
-          <p className="m-0 mb-4 text-[15px] text-v3-ink-2">Aici vei putea cere ajutorul unui {s.profesionist} pentru „{s.rezumat}”. În lucru.</p>
-          <form method="dialog">
-            <button className="min-h-11 w-full rounded-[10px] bg-v3-ink font-bold text-white">Închide</button>
+          <p className="m-0 mb-3 text-[15px] text-v3-ink-2">
+            Pașii de mai sus ajung pentru cei mai mulți oameni. Un {s.profesionist} te ajută când răspunsul depinde de cifrele tale și suma e
+            mare.
+          </p>
+          {s.specialist && (
+            <>
+              <p className="m-0 text-[13px] font-bold tracking-[.02em] text-v3-ink-2">Ce să întrebi:</p>
+              <p className="mt-0.5 mb-1 text-[15px] font-semibold">{s.specialist.intrebare}</p>
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard?.writeText(s.specialist!.intrebare).then(
+                    () => setCopiat(true),
+                    () => {},
+                  );
+                }}
+                className="mb-3 min-h-9 rounded-lg border border-v3-line bg-white px-3 text-[13px] font-semibold text-v3-ink"
+              >
+                {copiat ? "Copiat" : "Copiază întrebarea"}
+              </button>
+              <p className="m-0 text-[13px] font-bold tracking-[.02em] text-v3-ink-2">Ce să ai pregătit:</p>
+              <p className="mt-0.5 mb-3 text-[15px]">{s.specialist.documente}</p>
+            </>
+          )}
+          <p className="m-0 mb-4 text-[12.5px] text-v3-ink-2">
+            Te trimitem la registrul public al profesiei. Nu primim bani de la specialiști și nu trimitem nimic din profilul tău.
+          </p>
+          <form method="dialog" className="flex flex-col gap-2">
+            <button className="min-h-11 w-full rounded-[10px] border border-v3-line bg-white font-bold text-v3-ink">Mă descurc singur</button>
           </form>
         </dialog>
       )}
