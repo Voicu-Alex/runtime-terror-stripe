@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --fundal: #fafaf9;
+  --text: #1c1917;
+  --accent: #4f46e5;
+}
+
+/* Culorile designului de referință: mockup/v3/index.html?v=f (ADR 0001). */
+@theme {
+  --color-v3-ink: #111827;
+  --color-v3-ink-2: #4B5563;
+  --color-v3-line: #E5E7EB;
+  --color-v3-accent: #57534E;
+  --color-v3-neg: #C81E1E;
+  --color-v3-pos: #15803D;
+  --color-v3-pos-soft: #E1F1E7;
+  --color-v3-accent-soft: #F5F5F4;
+  --color-v3-act: #FAF7F2;
+  --color-v3-urg: #B42318;
+  --color-v3-urg-soft: #FCEBE9;
+  --color-v3-past: #5E6A63;
+  --color-v3-past-bg: #E8EBE6;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-head: "Raleway", system-ui, sans-serif;
+}
+
+body {
+  background: var(--fundal);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-v3-accent);
+  outline-offset: 2px;
+}

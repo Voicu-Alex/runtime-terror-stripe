@@ -51,3 +51,21 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - OUG 156/2024 cards (it_scutire, constructii_facilitati) now cite art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2 / pct. 5 și 7), verified in the official text on legislatie.just.ro/293109 (applies from Jan 2025 income); "de verificat" chip removed from constructii; its secondary link switched to KPMG. Capture: captures/09-app-card-it-sursa.jpg. Branch: andrei-2.
 - Open question: IT card in index.html says -650 lei/lună, descriere.html says ≈520 lei/lună (tax only, brut 8.000). Pick one number before the pitch.
 - Servers running: :8765 (other session), :8766 (descriere, this repo root), :8767 (mockup/ folder).
+
+## Latest (session 3, branch `andrei-flux`, worktree `.claude/worktrees/andrei-flux`)
+- `andrei-2` and the main checkout belong to another agent: do not touch them.
+- `andrei-flux` = origin/voicu (PR #12, Voicu's skeleton) + merge of main (fixes the .gitignore conflict that blocks PR #12) + issue #3 card. Earlier standalone version kept on local branch `andrei-flux-v1` (2f1ce59).
+- Design reference is now `mockup/v3/index.html?v=f` (PR #13, ADR 0001). Card follows its list row: kicker, title, amount right, deadline, status + act. Levels: Zero = closed row, Curios = opened row, Expert = "Arată-mi legea".
+- Added: `components/CardSchimbare.tsx`, `lib/card.ts` (+7 tests), `lib/persoane-demo.ts` (Andrei brut 8.000 → IT −520), `/flux?p=andrei|maria|ion` sorted by impact, Inter + Raleway fonts, "Flux" nav link, one_click = https://posf.ro/comparator on energy and gas actions.
+- 28 tests pass, tsc clean, build green (needs network for Google Fonts).
+- Captures: `captures/flux-00-ref-v3f-*` (reference) vs `captures/flux-01-*` (result).
+- Not pushed. Open with Voicu: energy/gas formulas return null (shown "— de calculat"); Status lacks termen_depasit (derived in lib/card.ts); one_click is a bare URL (button label generic "Compară oferte"); catalog titles are not the rewritten v3 titles.
+- Next: "Planul meu" toggle, `/notificare`, `/admin` + BroadcastChannel, then PR.
+
+## Latest (session 3, 18:30, `andrei-flux`, local only)
+- Merged origin/voicu 792924b (profile numbers, 7 tag families, 3 new acts, AI Act footer, 4 more test docs). 32 tests, tsc, build green.
+- Voicu asked (PR #12 comment) to test the Portal SOAP API from a browser: works from browser AND from Node/curl here (200, no UA or honest UA, no spoofing). `Text` = base text, not consolidated. Written up in `docs/surse-de-date.md`.
+- Catalog fixes from official text: alocatie_copii (Legea 61/1993 art. 3 via OUG 126/2021, 243 lei from 2022 indexed; 292 lei = press), varsta_pensionare (Legea 360/2023, MO 1089/4 dec 2023, art. 47, art. 167; annex 5 schedule TODO), alocatie_sustinere_familie: **Legea 277/2010 abrogated 1 ian 2024** by Legea 196/2016 art. 96 lit. b) → entry now cites Legea 196/2016 (VMI), thresholds TODO.
+- Team blocker found: `origin/andrei-2` (other agent) has a full prototype on its OWN Next 16 skeleton (flux, admin, notificare, setari, documente, pipeline, 111 tests), colliding with Voicu's PR #12 (Next 15) and this branch. Needs a team decision on which skeleton wins. PR #12 still CONFLICTING with main (.gitignore), fixed only here.
+- 19:00: pushed b1e3962 to origin/voicu (merge main → .gitignore conflict fixed, PR #12 now MERGEABLE/CLEAN; 25 tests, tsc ok). andrei-flux merged it, fonts moved from next/font to a <link> (next/font broke 2 of 4 builds on the Google download), demo personas got an_nastere/nr_copii (Maria no longer sees varsta_pensionare). andrei-flux pushed. Capture: captures/flux-02-lista-maria-375.jpg.
+- andrei-2 is a separate part of the project (Andrei, 28 oct): leave it out.
