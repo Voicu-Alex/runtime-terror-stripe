@@ -69,3 +69,11 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - Team blocker found: `origin/andrei-2` (other agent) has a full prototype on its OWN Next 16 skeleton (flux, admin, notificare, setari, documente, pipeline, 111 tests), colliding with Voicu's PR #12 (Next 15) and this branch. Needs a team decision on which skeleton wins. PR #12 still CONFLICTING with main (.gitignore), fixed only here.
 - 19:00: pushed b1e3962 to origin/voicu (merge main → .gitignore conflict fixed, PR #12 now MERGEABLE/CLEAN; 25 tests, tsc ok). andrei-flux merged it, fonts moved from next/font to a <link> (next/font broke 2 of 4 builds on the Google download), demo personas got an_nastere/nr_copii (Maria no longer sees varsta_pensionare). andrei-flux pushed. Capture: captures/flux-02-lista-maria-375.jpg.
 - andrei-2 is a separate part of the project (Andrei, 28 oct): leave it out.
+
+## Latest (session 3, 19:30, branch `andrei-continut` from main 5471f11, local only)
+- main now has PRs #9 #10 #11 #12 #14 merged. No open PRs.
+- Wired: `lib/continut.ts` (+10 tests): Iasmina's content/niveluri.json → card levels (7 acts, explicit id map, sentences with TODO dropped); Haggy's business/parteneri.json → energy/gas suppliers under the ANRE comparator, alphabetical, utm, "partener" label only if affiliate; Chris's modal (content/modal-specialist.md + business/profesionisti.md table) with CECCAR / CCF registers verified on their sites. Catalog: pilon2_plata → "consultant fiscal", varsta_pensionare → null (no regulated pensions consultant, per Chris).
+- Card: open row = Zero; "De ce?" = Curios; "Arată-mi legea" = Expert (Iasmina's text + sources). "Găsește un {profesie}" stays after a passed deadline.
+- 42 tests, tsc, build green. Captures: captures/continut-0*.jpg.
+- Gotcha: `next build` in the same folder breaks a running `next dev` (shared .next); stop dev or rm -rf .next and restart.
+- Content conflicts to raise: gas action says "blochează un preț fix" but Iasmina/Chris say nothing to do until 31 mar 2027; child allowance title states 292 lei (press) as fact.
