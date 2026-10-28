@@ -104,32 +104,3 @@ body {
   outline: 3px solid var(--color-v3-accent);
   outline-offset: 2px;
 }
-
-/*
- * Trecerea între teme. Cu View Transitions (Chrome, Edge, Safari 18): tema nouă se deschide ca un cerc din
- * butonul apăsat (components/Tema.tsx). Fără ele: culorile se schimbă lin, 350 ms, doar cât durează trecerea.
- */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-html.tema-trecere,
-html.tema-trecere *,
-html.tema-trecere *::before,
-html.tema-trecere *::after {
-  transition:
-    background-color 350ms ease,
-    border-color 350ms ease,
-    color 350ms ease,
-    fill 350ms ease,
-    stroke 350ms ease !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html.tema-trecere,
-  html.tema-trecere * {
-    transition: none !important;
-  }
-}

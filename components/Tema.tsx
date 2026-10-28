@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, type MouseEvent } from "react";
-import { flushSync } from "react-dom";
+import { useEffect, useState } from "react";
 import { useLimba } from "@/components/Limba";
 
 type Tema = "light" | "dark";
@@ -23,7 +22,7 @@ function alesa(): Tema | null {
   }
 }
 
-/** Comutatorul de temă din antet. Trecerea: un cerc care se deschide din buton; fără View Transitions, culori care se schimbă lin. */
+/** Comutatorul de temă din antet. Tema se schimbă instant, fără animație. */
 export function ComutatorTema() {
   const { t } = useLimba();
   const [tema, setTema] = useState<Tema | null>(null);
@@ -42,40 +41,15 @@ export function ComutatorTema() {
     return () => mq.removeEventListener("change", laSchimbare);
   }, []);
 
-  function comuta(ev: MouseEvent<HTMLButtonElement>) {
-    const html = document.documentElement;
-    const urmatoarea: Tema = html.dataset.theme === "dark" ? "light" : "dark";
+  function comuta() {
+    const urmatoarea: Tema = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     try {
       window.localStorage.setItem(CHEIE, urmatoarea);
     } catch {
       // storage blocat: tema rămâne doar pentru sesiunea asta
     }
-    const aplica = () => {
-      html.dataset.theme = urmatoarea;
-      flushSync(() => setTema(urmatoarea));
-    };
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return aplica();
-
-    if (document.startViewTransition) {
-      // Centrul cercului: punctul apăsat; de la tastatură (clientX 0), mijlocul butonului.
-      const r = ev.currentTarget.getBoundingClientRect();
-      const x = ev.clientX || r.left + r.width / 2;
-      const y = ev.clientY || r.top + r.height / 2;
-      const raza = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
-      const trecere = document.startViewTransition(aplica);
-      trecere.ready.then(() => {
-        html.animate(
-          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${raza}px at ${x}px ${y}px)`] },
-          { duration: 600, easing: "cubic-bezier(.22,1,.36,1)", pseudoElement: "::view-transition-new(root)" },
-        );
-      });
-      return;
-    }
-
-    html.classList.add("tema-trecere");
-    aplica();
-    window.setTimeout(() => html.classList.remove("tema-trecere"), 400);
+    document.documentElement.dataset.theme = urmatoarea;
+    setTema(urmatoarea);
   }
 
   const inchisa = tema === "dark";
