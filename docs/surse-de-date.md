@@ -1,0 +1,48 @@
+# Surse de date pentru legi și ce înseamnă pentru profil
+
+Verificat pe 28 octombrie 2026 (Voicu). Ce n-am putut confirma e marcat.
+
+## Întrebarea
+
+Motorul promite că „citește Monitorul Oficial” și spune fiecărui om ce lege îl atinge. De unde ia legile un program, în format pe care îl poate citi?
+
+## Ce există
+
+| Sursă | Ce oferă | Verdict |
+|---|---|---|
+| **Portalul Legislativ, serviciul web** ([documentație](https://legislatie.just.ro/serviciulweblegislatie.htm), [WSDL](https://legislatie.just.ro/apiws/FreeWebService.svc?wsdl=)) | API SOAP oficial, gratuit, fără înregistrare. `GetToken` dă un token cu valabilitate limitată; `Search(SearchModel, tokenKey)` caută după an, număr, titlu sau text, paginat (10 rezultate pe pagină). Întoarce `Titlu`, `Emitent`, `TipAct`, `Numar`, `Publicatie` (numărul din MO), `DataVigoare` și `Text`. | **Sursa principală.** Zilnic: căutare după anul curent, se compară cu ce avem deja, actele noi intră în coada de etichetare. |
+| **Monitorul Oficial, e-Monitor** | Partea I e gratuită online din 2017 (modificarea Legii 202/1998), ca PDF, cu sumar pe numere. Fără API, fără date deschise. | Sursa de adevăr pentru „a apărut azi”, dar doar ca PDF. Portalul Legislativ indexează aceleași acte în câteva zile. |
+| **data.gov.ro** | Căutarea „legislație” dă 5 seturi, niciunul despre acte normative. | Nimic util. |
+| **cdep.ro, senat.ro** (proiecte de lege) | Doar pagini HTML; n-am găsit date deschise. | Doar dacă afișăm și etapa „proiect”, ceea ce nu facem în prima versiune. |
+| **Wrapper-e neoficiale** ([ro-eli-mcp](https://github.com/matematicsolutions/ro-eli-mcp), [RO-LEX](https://www.ro-lex.ro/home)) | Folosesc același API; RO-LEX a atribuit identificatori ELI pentru peste 100.000 de acte. | Utile ca exemplu de cod; nu depindem de ele. |
+
+## Neconfirmat
+
+- De pe mașina lui Voicu, un `curl` simplu la WSDL a primit **403**. Probabil portalul filtrează clienții care nu arată ca un browser. N-am încercat să ocolesc filtrul. De testat din browser și, dacă merge, din cod cu antetele uzuale.
+- Documentația nu spune dacă `Text` e **forma consolidată** sau textul original, nici dacă există o limită de cereri. De testat cu câteva apeluri înainte să construim pe el.
+- Nu există un filtru „publicate după data X”. Varianta practică: căutare după an, cu numere crescătoare, și comparare cu ce avem deja.
+
+## Ce înseamnă pentru motor
+
+1. **Zilnic:** `Search(SearchAn = anul curent)`, paginat, până la actele deja văzute. Actele noi intră în coada de etichetare.
+2. **LLM-ul propune** pentru fiecare act: etichetele (doar din taxonomie), condițiile numerice, formula (doar din lista existentă) și textele pe niveluri.
+3. **Un om aprobă.** Abia apoi intrarea primește `verificat_la` și intră în catalog.
+4. **Backlog-ul:** nu pornim de la 100.000 de acte. Pornim de la o listă curatoriată de circa 30 de „legi ale banilor” (Codul fiscal, Legea 360/2023 a pensiilor, Legea 61/1993 a alocațiilor, Legea 277/2010, VMI, legea energiei), etichetate o dată.
+
+## Profilul: nu doar etichete, ci și cifre
+
+Legile românești se aplică rar după „ești pensionar”. De obicei se aplică după un număr: pensia peste 3.000 lei, copil sub 2 ani sau sub 18, venit net pe membru de familie sub un prag, vârsta de pensionare. De aceea:
+
+- **Condițiile** din catalog sunt numerice (`camp`, `op`, `valoare`) și se evaluează pe valorile din profil. O valoare lipsă dă starea „posibil” și aplicația știe exact ce să ceară.
+- **Valorile** din profil (28 oct 2026): salariu net și brut, pensie, dividende pe an, cheltuieli pe lună, venit net pe membru de familie, anul nașterii (vârsta se derivă la potrivire), numărul copiilor, vârsta celui mai mic copil, persoane în întreținere.
+- **Etichetele** au 7 familii: cum câștig, ce dețin, cine depinde de mine (inclusiv **părinte singur**, persoană cu handicap în întreținere), ce conduc, unde locuiesc (inclusiv **rural**), domeniul meu, **situația mea** (elev sau student, în șomaj, persoană cu handicap, în concediu de creștere, pe salariul minim).
+
+Exemple de acte pe care le-am rata fără cifre, de verificat în text înainte să intre cu sume în catalog: alocația de stat pentru copii (292 lei pe lună între 2 și 18 ani, cifră din presă pentru 2026), alocația pentru susținerea familiei (depinde de venitul pe membru și de școlarizare), venitul minim de incluziune, deducerea personală la salarii mici, scutirea de impozit pentru persoanele cu handicap grav, vârsta de pensionare care crește treptat pentru femei până în 2035.
+
+## Surse secundare folosite aici
+
+- [Monitorul Oficial gratuit online, G4Media](https://www.g4media.ro/monitorul-oficial-va-fi-accesibil-gratuit-integral-online-premiera-noul-format-va-permite-inclusiv-cautarea-in-interiorul-documentelor.html)
+- [Legea promulgată pentru e-Monitor gratuit, Economica](https://www.economica.net/lege-promulgata-monitorul-oficial-in-format-electronic-disponibil-gratuit-permanent_501962.html)
+- [data.gov.ro, căutare „legislație”](https://data.gov.ro/dataset?q=legislatie)
+- [Alocația pentru susținerea familiei, Playtech](https://playtech.ro/2025/alocatia-pentru-sustinerea-familiei-cine-o-poate-primi-conditii-si-valoarea-actuala/)
+- [Alocația pentru copii 2026, ProTV](https://stirileprotv.ro/divers/alocatia-pentru-copii-2026-cine-are-dreptul-valoarea-si-pasii-pentru-a-o-solicita.html)

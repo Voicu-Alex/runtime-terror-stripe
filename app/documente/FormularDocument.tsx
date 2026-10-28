@@ -194,12 +194,12 @@ function Confirmare({
           <dl className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {(Object.keys(valori) as CampValoare[]).map((k) => (
               <div key={k} className="flex items-center justify-between gap-2 rounded-lg border border-stone-200 px-3 py-2 text-sm">
-                <dt className="text-stone-600">{CAMPURI_VALORI[k]}</dt>
+                <dt className="text-stone-600">{CAMPURI_VALORI[k].eticheta}</dt>
                 <dd className="flex items-center gap-1">
                   <input
                     type="number"
                     inputMode="decimal"
-                    aria-label={CAMPURI_VALORI[k]}
+                    aria-label={CAMPURI_VALORI[k].eticheta}
                     value={valori[k] ?? ""}
                     onChange={(ev) => {
                       const n = ev.target.valueAsNumber;
@@ -207,7 +207,7 @@ function Confirmare({
                     }}
                     className="w-28 rounded border border-stone-300 px-2 py-1 text-right"
                   />
-                  <span className="text-stone-500">lei</span>
+                  <span className="text-stone-500">{CAMPURI_VALORI[k].unitate}</span>
                 </dd>
               </div>
             ))}
@@ -252,7 +252,9 @@ function ProfilCurent({ profil }: { profil: Profil }) {
       </ul>
       {Object.keys(profil.valori).length > 0 ? (
         <p className="mt-2 text-stone-600">
-          {(Object.entries(profil.valori) as [CampValoare, number][]).map(([k, v]) => `${CAMPURI_VALORI[k]}: ${v} lei`).join(" · ")}
+          {(Object.entries(profil.valori) as [CampValoare, number][])
+            .map(([k, v]) => `${CAMPURI_VALORI[k].eticheta}: ${v} ${CAMPURI_VALORI[k].unitate}`.trim())
+            .join(" · ")}
         </p>
       ) : null}
     </section>

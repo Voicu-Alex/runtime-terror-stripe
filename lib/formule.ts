@@ -53,6 +53,12 @@ export const FORMULE = {
   /** Legea 239/2025 + OUG 78/2025: baza impozitului pe clădiri crește. Estimare din presă: 35 lei/lună. Încredere scăzută. */
   impozit_cladiri: () => -35,
 
+  /**
+   * Legea 61/1993 (alocația de stat pentru copii): 292 lei/lună pe copil între 2 și 18 ani,
+   * cifră din presă pentru 2026 (ProTV). Sub 2 ani e mai mare; aici folosim cifra de bază. Estimare.
+   */
+  alocatie_copii: (v) => (v.nr_copii == null ? null : v.nr_copii * 292),
+
   // Economii din acțiuni (pozitive):
 
   /** Deducere Pilon III 400 EUR/an ≈ 2.000 lei × 10% impozit = ≈200 lei/an. Estimare (curs ≈ 5 lei/EUR). */

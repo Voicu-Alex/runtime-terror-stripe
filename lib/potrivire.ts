@@ -1,6 +1,6 @@
 import type { Conditie, Schimbare } from "./catalog";
 import { calculeaza } from "./formule";
-import type { Profil, Valori } from "./profil";
+import { varstaLa, type CampConditie, type Profil, type Valori } from "./profil";
 import type { TagId } from "./taguri";
 
 /**
@@ -22,15 +22,28 @@ export type Potrivire = {
   /** lei pe lună; null = nu putem calcula din ce știm */
   impact_lei_luna: number | null;
   /** ce valori ar trebui să ne spună omul ca să calculăm sau să fim siguri */
-  valori_lipsa: (keyof Valori)[];
+  valori_lipsa: CampValoare[];
   moment: Moment;
   /** zile până la termenul acțiunii (negativ = a trecut); null fără termen */
   zile_pana_la_termen: number | null;
 };
 
 type RezultatConditie = "adevarat" | "fals" | "necunoscut";
+type CampValoare = keyof Valori;
 
-export function evalueazaConditia(c: Conditie, valori: Valori): RezultatConditie {
+/** Valorile din profil plus cele derivate (vârsta), pe care le pot folosi condițiile. */
+export type ValoriConditii = Valori & { varsta?: number };
+
+export function valoriPentruConditii(valori: Valori, azi: string): ValoriConditii {
+  return { ...valori, varsta: varstaLa(valori.an_nastere, azi) };
+}
+
+/** Ce valoare din profil trebuie cerută ca să se poată evalua un câmp de condiție. */
+function campDeCerut(camp: CampConditie): CampValoare {
+  return camp === "varsta" ? "an_nastere" : camp;
+}
+
+export function evalueazaConditia(c: Conditie, valori: ValoriConditii): RezultatConditie {
   const v = valori[c.camp];
   if (v == null) return "necunoscut";
   const ok =
@@ -57,33 +70,35 @@ function zileIntre(deLa: string, panaLa: string): number {
 }
 
 /** Valorile de care are nevoie formula, ca să îi putem cere omului exact ce lipsește. */
-const VALORI_FORMULEI: Partial<Record<NonNullable<Schimbare["formula"]>, (keyof Valori)[]>> = {
+const VALORI_FORMULEI: Partial<Record<NonNullable<Schimbare["formula"]>, CampValoare[]>> = {
   tva_21: ["cheltuieli_lunare"],
   dividende_16: ["dividende_anuale"],
   cass_pensii: ["pensie_lunara"],
   it_scutire: ["salariu_brut"],
+  alocatie_copii: ["nr_copii"],
 };
 
 export function potriveste(profil: Profil, catalog: Schimbare[], azi = aziISO()): Potrivire[] {
   const rezultate: Potrivire[] = [];
   const profilTaguri = new Set<TagId>(profil.taguri);
+  const valori = valoriPentruConditii(profil.valori, azi);
 
   for (const s of catalog) {
     const comune = s.taguri.filter((t) => profilTaguri.has(t));
     if (comune.length === 0) continue;
 
     let stare: Stare = "sigur";
-    const lipsa = new Set<keyof Valori>();
+    const lipsa = new Set<CampValoare>();
     let exclusa = false;
     for (const c of s.conditii) {
-      const r = evalueazaConditia(c, profil.valori);
+      const r = evalueazaConditia(c, valori);
       if (r === "fals") {
         exclusa = true;
         break;
       }
       if (r === "necunoscut") {
         stare = "posibil";
-        lipsa.add(c.camp);
+        lipsa.add(campDeCerut(c.camp));
       }
     }
     if (exclusa) continue;
