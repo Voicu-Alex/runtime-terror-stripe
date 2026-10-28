@@ -1,18 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { ListaFlux, type Sortare } from "@/components/ListaFlux";
+import { ListaFlux } from "@/components/ListaFlux";
+import type { Sortare } from "@/lib/card";
+import { useProfil } from "@/components/useProfil";
 import { CATALOG } from "@/lib/catalog";
-import { incarcaProfil, type Profil } from "@/lib/profil";
 import { aziISO, potriveste } from "@/lib/potrivire";
 import { etichetaTag } from "@/lib/taguri";
 
 /** Fluxul pe profilul real. Profilul stă în localStorage, deci potrivirea rulează aici, pe dispozitiv. */
 export function FluxMeu({ sortare }: { sortare: Sortare }) {
-  const [profil, setProfil] = useState<Profil | null>(null);
-
-  useEffect(() => setProfil(incarcaProfil()), []);
+  const profil = useProfil();
 
   if (profil === null) return <p className="mt-4 text-sm text-v3-ink-2">Se încarcă profilul de pe dispozitiv…</p>;
 

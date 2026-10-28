@@ -28,6 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/" className="font-semibold">
               Ce înseamnă pentru mine
             </Link>
+            <Link href="/notificare" className="text-stone-600 hover:text-stone-900">
+              Azi
+            </Link>
             <Link href="/flux" className="text-stone-600 hover:text-stone-900">
               Flux
             </Link>

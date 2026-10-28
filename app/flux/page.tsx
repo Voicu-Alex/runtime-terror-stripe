@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FluxMeu } from "@/components/FluxMeu";
-import { ListaFlux, sortareDin } from "@/components/ListaFlux";
+import { ListaFlux } from "@/components/ListaFlux";
+import { sortareDin, type Sortare } from "@/lib/card";
 import { CATALOG } from "@/lib/catalog";
 import { PERSOANE_DEMO, persoanaDemo } from "@/lib/persoane-demo";
 import { potriveste } from "@/lib/potrivire";
@@ -23,7 +24,7 @@ export default async function Flux({ searchParams }: { searchParams: Promise<{ p
 }
 
 /** Persoanele fictive din demo (Andrei, Maria, Ion), calculate pe server pentru că nu depind de dispozitiv. */
-function FluxDemo({ id, sortare }: { id: string; sortare: ReturnType<typeof sortareDin> }) {
+function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
   const persoana = persoanaDemo(id);
   const potriviri = potriveste(persoana.profil, CATALOG, AZI_DEMO);
   return (

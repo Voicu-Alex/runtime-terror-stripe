@@ -1,18 +1,32 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import CardSchimbare from "@/components/CardSchimbare";
-import { dupaImpact, dupaNoutate } from "@/lib/card";
-import type { Potrivire } from "@/lib/potrivire";
+import { cuSemn, dupaImpact, dupaNoutate, mii, type Sortare } from "@/lib/card";
+import { incarcaPlan, salveazaPlan } from "@/lib/plan";
+import { planulMeu, type Potrivire } from "@/lib/potrivire";
 import type { Valori } from "@/lib/profil";
 
-export type Sortare = "impact" | "noi";
-
-export function sortareDin(x: string | undefined): Sortare {
-  return x === "noi" ? "noi" : "impact";
-}
-
-/** Lista „Toate actele care te privesc”, cu comutatorul de sortare. O folosesc și profilul real, și persoanele demo. */
+/**
+ * Lista „Toate actele care te privesc”, cu sortarea și „Planul meu”: acțiunile bifate
+ * se adună în bara de jos. O folosesc și profilul real, și persoanele demo.
+ */
 export function ListaFlux({ potriviri, valori, sortare, baza }: { potriviri: Potrivire[]; valori: Valori; sortare: Sortare; baza: string }) {
+  const [bifate, setBifate] = useState<Set<string>>(new Set());
+  useEffect(() => setBifate(incarcaPlan()), []);
+
+  function comuta(id: string) {
+    const nou = new Set(bifate);
+    if (nou.has(id)) nou.delete(id);
+    else nou.add(id);
+    setBifate(nou);
+    salveazaPlan(nou);
+  }
+
   const flux = [...potriviri].sort(sortare === "noi" ? dupaNoutate : dupaImpact);
+  const plan = planulMeu(potriviri, bifate, valori);
+  const cuEconomie = potriviri.filter((p) => p.schimbare.actiuni.some((a) => a.formula_economie)).length;
   const sep = baza.includes("?") ? "&" : "?";
   const optiune = (s: Sortare, text: string) =>
     s === sortare ? (
@@ -38,10 +52,35 @@ export function ListaFlux({ potriviri, valori, sortare, baza }: { potriviri: Pot
       ) : (
         <ul className="m-0 list-none p-0">
           {flux.map((x) => (
-            <CardSchimbare key={x.schimbare.id} p={x} valori={valori} />
+            <CardSchimbare key={x.schimbare.id} p={x} valori={valori} bifata={bifate.has(x.schimbare.id)} onBifeaza={() => comuta(x.schimbare.id)} />
           ))}
         </ul>
       )}
+
+      {/* Planul meu: suma actelor cu impact calculabil, fără și cu acțiunile bifate (lib/potrivire.ts planulMeu). */}
+      <aside
+        aria-label="Planul meu"
+        className="sticky bottom-0 -mx-4 mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t-2 border-v3-ink bg-[var(--fundal)] px-4 py-3"
+      >
+        <span className="text-[11.5px] font-extrabold tracking-[.1em] text-v3-accent uppercase">Planul meu</span>
+        <span className="text-[15px] text-v3-ink">
+          Acum:{" "}
+          <b className={`tabular-nums ${plan.fara_actiuni < 0 ? "text-v3-neg" : plan.fara_actiuni > 0 ? "text-v3-pos" : ""}`}>
+            {cuSemn(plan.fara_actiuni)} lei/lună
+          </b>
+        </span>
+        {plan.economii !== 0 ? (
+          <span className="text-[15px] text-v3-ink">
+            Cu ce ai bifat:{" "}
+            <b className={`tabular-nums ${plan.cu_actiuni < 0 ? "text-v3-neg" : "text-v3-pos"}`}>{cuSemn(plan.cu_actiuni)} lei/lună</b>
+            <span className="text-v3-ink-2"> · păstrezi {mii(plan.economii * 12)} lei/an</span>
+          </span>
+        ) : (
+          <span className="text-[13.5px] text-v3-ink-2">
+            {cuEconomie > 0 ? `Bifează „O fac” la ${cuEconomie === 1 ? "actul cu economie" : `cele ${cuEconomie} acte cu economie`} și vezi cât păstrezi.` : "Sumele din acțiuni se adună aici."}
+          </span>
+        )}
+      </aside>
     </>
   );
 }

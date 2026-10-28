@@ -21,7 +21,18 @@ const PILL: Record<StareCard, string> = {
 
 const eTODO = (s: string) => !s || s.trim() === "TODO";
 
-export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Valori }) {
+export default function CardSchimbare({
+  p,
+  valori,
+  bifata = false,
+  onBifeaza,
+}: {
+  p: Potrivire;
+  valori: Valori;
+  /** acțiunea e bifată în „Planul meu” */
+  bifata?: boolean;
+  onBifeaza?: () => void;
+}) {
   const [deschis, setDeschis] = useState(false);
   const [lege, setLege] = useState(false);
   const [copiat, setCopiat] = useState(false);
@@ -114,6 +125,13 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
                 <p className="m-0 mb-1.5 text-[14.5px]">
                   Dacă o faci, păstrezi până la <b className="whitespace-nowrap">{mii(v.economieAn)} lei/an</b>.
                 </p>
+              )}
+              {onBifeaza && !dep && (
+                // Planul meu: bifa intră în bara de jos (ListaFlux); economia se adună doar dacă acțiunea are formulă.
+                <label className="mb-1.5 flex min-h-11 cursor-pointer items-center gap-2 text-[14.5px] font-semibold">
+                  <input type="checkbox" checked={bifata} onChange={onBifeaza} className="size-5 accent-v3-ink" />
+                  {bifata ? "În planul meu" : "O fac, pune-o în planul meu"}
+                </label>
               )}
               {a.one_click && !dep && (
                 // Aici intră mai târziu comisionul pe client redirecționat (issue #4, Haggy).
