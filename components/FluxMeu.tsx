@@ -19,15 +19,11 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
       <section className="mt-5 rounded-[10px] border border-v3-line bg-white p-5">
         <h2 className="m-0 text-[17px] font-bold text-v3-ink">Profilul tău e gol</h2>
         <p className="mt-1 mb-4 text-[15px] text-v3-ink-2">
-          Spune-ne în două minute cum câștigi și ce deții, sau încarcă un document și lasă-l pe Claude să propună etichetele.
-          Profilul rămâne pe dispozitivul tău.
+          Încarcă un contract, un fluturaș sau o factură și profilul se completează singur. Rămâne pe dispozitivul tău.
         </p>
         <div className="flex flex-wrap gap-2">
           <Link href="/profil" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-white no-underline">
             Completează profilul
-          </Link>
-          <Link href="/documente" className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-line bg-white px-4 text-sm font-semibold text-v3-ink no-underline">
-            Încarcă un document
           </Link>
         </div>
         <p className="mt-4 mb-0 text-[13px] text-v3-ink-2">

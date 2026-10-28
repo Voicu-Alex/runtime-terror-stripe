@@ -37,9 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/profil" className="text-stone-600 hover:text-stone-900">
               Profil
             </Link>
-            <Link href="/documente" className="text-stone-600 hover:text-stone-900">
-              Documente
-            </Link>
           </nav>
         </header>
         <main className="mx-auto max-w-2xl px-4 py-6">{children}</main>
