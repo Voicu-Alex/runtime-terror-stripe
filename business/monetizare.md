@@ -1,152 +1,154 @@
 # Monetizare: planul recomandat
 
-*Chris, 28 octombrie 2026, versiunea 2. Propunere de aliniat cu Haggy (#4, modelul de business). Se bazează pe feedback-ul organizatorului (#8), pe `docs/product.md`, `docs/design-research.md`, pe analiza de competitori a lui Voicu (`research/competitori.md`, branch `voicu`) și pe research web. Ce nu are sursă e marcat `TODO` sau „ipoteză”.*
+*Chris, 28 octombrie 2026, versiunea 3. Propunere de aliniat cu Haggy (#4, modelul de business). Se bazează pe feedback-ul organizatorului (#8), pe `docs/produs.md`, `docs/design-research.md`, `CLAUDE.md` și pe research web. Ce nu are sursă e marcat `TODO` sau „ipoteză”. Punctele marcate **[decizie de echipă]** ating reguli din `CLAUDE.md` și se adoptă doar după discuția în echipă.*
 
 ## Pe scurt
 
-Produsul trebuie să fie folosit de cât mai mulți români, gratuit. Banii vin din două surse care se susțin una pe alta:
+1. **Banii vin din abonamente.** O singură variantă pentru toată lumea: **49,99 lei/lună sau 299 lei/an (≈ 25 lei/lună)**, cu **prima lună gratuită**.
+2. **Aplicația e plătită.** Dacă echipa vrea totuși un plan gratuit, acesta dă doar știrile care te privesc, fără sumă, fără calcul și fără plan.
+3. **Notificări în aplicație și un rezumat pe WhatsApp**, pentru cine îl vrea.
+4. **Contează și legile cu efect indirect**, nu doar cele care te ating direct. Așa ai motiv să deschizi aplicația și între legile mari.
+5. **Afilierea e un bonus, nu un pilon.** N-am găsit programe pentru energie, iar cele mai multe legi schimbă taxe, nu furnizori. **[decizie de echipă]**
+6. **Fără reclame și fără vânzare de date.** Înainte de orice apel la LLM ascundem numele și datele de identificare.
+7. **Stripe nu e necesar în produsul de bază.** Abonamentul se plătește prin App Store sau Google Play.
 
-1. **Afiliere neutră (venitul principal, din utilizatorii gratuiți).** Când o lege îți schimbă banii, cardul îți arată cea mai bună variantă pentru tine și te duce direct acolo cu un click. Dacă furnizorul acelei variante are program de afiliere, primim un comision. **Clasamentul se calculează înainte să ne uităm la comisioane.** Dacă cea mai bună variantă nu ne plătește nimic, o arătăm la fel, pe primul loc, cu link neplătit.
-2. **Abonament Plus, același pentru toată lumea: 49,99 lei/lună sau 299 lei/an (≈ 25 lei/lună).** Gratuit primești estimarea. Cu Plus primești **calculul exact pe cifrele tale**: pierderi și câștigi pe 12 luni, simulare, documente analizate cu AI, întrebări către asistent.
-3. **Fără specialiști ca sursă de venit.** Cele mai multe situații le rezolvi singur, cu pașii din card. Când chiar ai nevoie de un contabil, te trimitem gratuit la registrul public al profesiei.
-4. **Fără reclame și fără vânzare de date.** Nimeni nu poate plăti ca să apară primul.
-5. **Stripe nu e necesar în produsul de bază.** Abonamentul se plătește prin App Store sau Google Play.
+## 1. Abonamentul
 
-## 1. Afilierea neutră
+### Prețul: 49,99 lei/lună sau 299 lei/an, prima lună gratuită
 
-### Ideea
+- **Facem mai mult decât Biziday, deci costăm mai mult.** Biziday (15 lei/lună după organizator; prețul real e `TODO`) îți dă știrea. Noi îți dăm și suma: cât pierzi, cât poți câștiga, ce faci și până când.
+- **Anualul e varianta pe care o împingem:** 299 lei/an ≈ 25 lei/lună, cam cât Spotify (26 lei, [Newsweek RO](https://newsweek.ro/timp-liber/care-sunt-cele-mai-bune-surse-de-muzica-online-si-cat-costa-abonamentul-in-romania)). Lunarul de 49,99 lei e plafonul și face anualul să pară o afacere. Fără anual, mulți ar plăti o lună când apare o lege mare și ar anula imediat.
+- **Intervalul:** minim ≈ 20 lei/lună (249 lei/an), maxim 50 lei/lună. Îl validăm cu testul de preț din `business/README-chris.md`.
 
-Nu facem parteneriate în care o firmă ne plătește ca să-i aducem clienți. Facem afiliere **cu toți furnizorii care au program**, iar comisionul vine doar dacă omul alege varianta care chiar e cea mai bună pentru el.
+### De ce aplicație plătită, cu o lună gratuită
 
-Precedentul: **MoneySavingExpert** (UK) marchează linkurile afiliate cu asterisc și scrie public că, dacă pentru cea mai bună ofertă nu se poate obține un link afiliat, oferta e inclusă exact la fel, doar cu link neplătit ([MSE, nota despre linkuri](https://www.moneysavingexpert.com/cheap-mobile-finder/contracts/google/)). Linia editorială e protejată printr-un cod editorial obligatoriu juridic ([anunțul achiziției MSE](https://www.investegate.co.uk/announcement/rns/moneysupermarket-com-group--mony/acquisition-of-moneysavingexpert-com/3165113)).
+- **Un paywall strict convertește de ~5 ori mai bine la 35 de zile decât freemium** ([RevenueCat 2026](https://www.revenuecat.com/state-of-subscription-apps)).
+- **Probele de 17–32 de zile au cea mai bună conversie.** Luna gratuită intră exact în interval.
+- **Fără card la pornirea probei.** Aproximativ un sfert dintre români evită plățile online de teama furtului de date (`docs/design-research.md`). La final întrebăm o dată și nu taxăm pe nimeni care n-a ales să plătească.
+- **Prima zi trebuie să arate valoarea.** 55% dintre anulări au loc în ziua 0 (RevenueCat). La onboarding arătăm deci schimbările din 2025–2026 care te-au atins deja, cu suma.
+- **Riscul:** românii plătesc greu pentru aplicații ([Statista](https://www.statista.com/statistics/1265685/romania-willingness-to-pay-for-mobile-phone-apps)). Mai puțini utilizatori înseamnă și mai puțină recomandare de la om la om. Testul de preț ne spune cât de mare e riscul.
 
-### Regulile de neutralitate (le punem în cod și le spunem public)
+### Ce primești
 
-1. **Clasamentul nu vede comisionul.** Modulul care ordonează variantele primește doar profilul tău și ofertele. Câmpul cu comisionul nu există în datele lui. Comisionul se atașează abia la link, după ce ordinea e stabilită.
-2. **Cea mai bună variantă e mereu prima**, cu sau fără afiliere.
-3. **Linkul plătit e marcat:** „* Putem primi un comision dacă alegi oferta asta. Ordinea nu depinde de comision.”
-4. **„Nu face nimic” e un răspuns valid.** Exemplu: plafonarea la gaz e prelungită până la 31 martie 2027, deci nu ai de schimbat furnizorul. Cardul spune asta, chiar dacă nu câștigăm nimic.
-5. **Raport public de transparență, o dată pe an:** cât din venit vine din afiliere și în câte cazuri cea mai bună variantă nu ne-a plătit nimic.
-6. **Volumul se negociază, ordinea nu.** Putem spune unui furnizor „ți-am adus 2.000 de clienți luna trecută, vrem un comision mai mare”. Comisionul mai mare nu schimbă niciodată ordinea (regula 1).
-
-### Cum ne apucăm fără contracte directe
-
-Există rețele de afiliere care fac legătura cu firmele: te înscrii o dată, apoi folosești linkurile programelor din rețea fără să negociezi cu fiecare firmă în parte. În România cea mai mare e **2Performant**. Profitshare avea ~250 de programe, iar 2Performant a anunțat preluarea ei, dar tranzacția apare ca oprită într-o sursă ulterioară, deci statutul e neclar ([Profit.ro](https://www.profit.ro/povesti-cu-profit/emag-vinde-profitshare-romania-si-bulgaria-proprietarul-devine-actionar-la-2performant-intelegere-dupa-acord-preliminar-22024149)).
-
-- **`TODO` (Haggy, #4):** care furnizori de energie, telecom și bănci au programe active în aceste rețele, cu ce comision. Lista merge în `business/parteneri.json`.
-- Unde nu există program, linkul merge direct la ofertă, neplătit.
-
-### Ce afiliem și ce nu
-
-| Categorie | Exemple de acțiuni din carduri | Afiliere? |
+| | Abonament (după luna gratuită) | Plan gratuit, doar dacă echipa îl vrea |
 |---|---|---|
-| Energie și gaz | „Schimbă furnizorul, economisești X lei/lună” | **Da**, pornim cu ea. Comparația o facem pe datele comparatorului ANRE (`TODO`: cum accesăm datele) |
-| Telecom | „Abonamentul tău s-a scumpit cu TVA; uite varianta mai ieftină” | **Da** |
-| Conturi de economii, depozite | „Banii din cont pierd față de inflație” | **După avizul unui jurist** |
-| Asigurări | – | **Nu, deocamdată.** Distribuția de asigurări e reglementată de Legea 236/2018 și cere înregistrare la ASF ([ASF](https://asfromania.ro/en/a/2407/alerte-asigurari)). De confirmat cu un jurist dacă un link afiliat intră aici |
-| Credite | – | **Nu, deocamdată.** Intermedierea de credite e reglementată. De confirmat |
-| Pilon III, investiții | „Contribui la Pilon III, deduci până la 400 EUR/an” | **Nu.** Trimitem la lista oficială ASF a fondurilor, neplătit. Cel mai mare risc de reglementare și de încredere |
+| Profil din etichete (asistent sau formular), inclusiv domeniul de lucru | ✓ | ✓ |
+| Știrile care te privesc + link la articolul din lege | ✓ | ✓ |
+| Legi cu efect indirect, marcate „informativ” | ✓ | ✓ |
+| Suma în lei/lună pentru tine (cât pierzi, cât câștigi) | ✓ | – |
+| „Ce poți face” cu termen și butonul care te duce unde rezolvi | ✓ | – |
+| „Planul meu”: pierderi și câștiguri pe 12 luni, cu și fără acțiuni | ✓ | – |
+| Simulare: „dacă fac asta, cât câștig” | ✓ | – |
+| Analiza documentelor cu AI: contract de muncă, factură, decizie de pensie (#2, Voicu) | ✓ | – |
+| Întrebări libere către asistent | ✓ | – |
+| Remindere înainte de termene, alerte pe proiecte în consultare | ✓ | – |
+| Rezumat pe WhatsApp | ✓ | – |
+| Profiluri pentru familie (de exemplu părinții pensionari) | ✓ | – |
 
-## 2. Abonamentul Plus
+## 2. Notificările: destule ca să merite abonamentul
 
-### Prețul: 49,99 lei/lună sau 299 lei/an
+O lege mare care te atinge direct vine de câteva ori pe an. Abonamentul se justifică prin tot ce vine între ele:
 
-- **Facem mai mult decât Biziday, deci costăm mai mult.** Biziday (15 lei/lună după organizator, prețul real e `TODO`) îți dă știrea. Noi îți dăm și suma: cât pierzi, cât poți câștiga, ce faci și până când.
-- **Anualul e varianta pe care o împingem:** 299 lei/an ≈ 25 lei/lună, cam cât Spotify (26 lei, [Newsweek RO](https://newsweek.ro/timp-liber/care-sunt-cele-mai-bune-surse-de-muzica-online-si-cat-costa-abonamentul-in-romania)). Lunarul de 49,99 lei e plafonul și face anualul să pară o afacere. Legile care te ating vin de câteva ori pe an, deci un lunar ieftin ar însemna „plătesc o lună, anulez”.
-- **Intervalul:** minim ≈ 20 lei/lună (249 lei/an), maxim 50 lei/lună. Testăm anualul la 249 față de 299 lei.
-- **De ce putem cere atât:** majoritatea oamenilor folosesc gratuit, iar afilierea acoperă costul lor. Plus e pentru cei care vor calculul complet.
+1. **Legile care te ating direct**, cu sumă. Acestea sunt singurele care primesc notificare push.
+2. **Legile cu efect indirect.** O lege care nu-ți schimbă impozitul poate să-ți schimbe prețurile, chiria sau situația angajatorului. Apar în flux cu eticheta „informativ”, care există deja în mockup.
+3. **Domeniul tău de lucru** (IT, construcții, HoReCa, transport, agricultură, sănătate, educație). Partea financiară e deja în plan: exemplul IT cu OUG 156/2024 e în mockup. Schimbările nefinanciare pe domeniu, de exemplu un sistem nou la ANAF, sunt amânate în `CLAUDE.md` („efectele nefinanciare vin mai târziu”). Propun să intre ca știri fără sumă. **[decizie de echipă]**
+4. **Calendarul fiscal anual:** Declarația Unică pe 25 mai, impozitele locale pe 31 martie. Aceste termene revin în fiecare an.
+5. **Proiectele în consultare publică**, ca avertizare din timp.
 
-### Gratuit și Plus
+**Ca să nu devină zgomot:** push doar pentru 1 și 4. Restul merg în flux și în rezumatul săptămânal.
 
-Principiul: **gratuit afli ce te atinge și ce poți face. Cu Plus afli exact, pe cifrele tale.**
+### Rezumatul pe WhatsApp
 
-| | Gratuit | Plus |
-|---|---|---|
-| Profil din etichete (asistent sau formular) | ✓ | ✓ |
-| Alertă când o lege îți atinge etichetele + link la articol | ✓ | ✓ |
-| Cele 3 niveluri ale cardului (zero / curios / expert) | ✓ | ✓ |
-| Suma în lei/lună, **estimată** după etichete și medii | ✓ | ✓ |
-| Buton one-click spre cea mai bună variantă | ✓ | ✓ |
-| Legi din care **câștigi** și nu știai (de exemplu deducerea Pilon III) | ✓ | ✓ |
-| Suma **exactă**, pe cifrele tale (salariu, chirie, facturi) | – | ✓ |
-| Analiza documentelor cu AI: contract de muncă, factură, decizie de pensie (#2, Voicu) | – | ✓ |
-| „Planul meu”: pierderi și câștiguri pe 12 luni, cu și fără acțiuni | – | ✓ |
-| Simulare: „dacă fac asta, cât câștig” | – | ✓ |
-| Întrebări libere către asistent („ce înseamnă legea X pentru mine?”) | – | ✓ |
-| Remindere înainte de termene, alerte pe proiecte în consultare | – | ✓ |
-| Profiluri pentru familie (de exemplu părinții pensionari) | – | ✓ |
+- **Doar cu acord explicit (opt-in).** Numărul de telefon ajunge pe serverul nostru, deci promisiunea „profilul rămâne pe telefon” se nuanțează pentru cine alege WhatsApp.
+- **Mesajul nu conține sume sau date personale.** Exemplu: „Ai 2 noutăți săptămâna asta, una cu termen pe 25 mai. Deschide aplicația.”
+- **Cost per mesaj:** Meta taxează mesajele de business pe categorii. Prețul pentru România e `TODO`, de verificat pe pagina oficială WhatsApp Business. Mesajele trimise din proprie inițiativă trebuie să folosească șabloane aprobate. De verificat.
 
-**De ce așa:** tot ce consumă tokeni (documente, întrebări libere, calcul exact) e în Plus. Tot ce aduce oameni și clickuri pe afiliere (alerta, estimarea, butonul) e gratuit.
+## 3. Calculul și butoanele „du-mă unde rezolv”
 
-**Probă:** 30 de zile de Plus la instalare, fără card. Perioadele de probă de 17–32 de zile au cea mai bună conversie ([RevenueCat 2026](https://www.revenuecat.com/state-of-subscription-apps)). După probă treci automat pe Gratuit și nu plătești nimic fără să alegi tu.
-
-## 3. Calculul cu LLM și butoanele „du-mă unde rezolv”
-
-Era deja în plan, în bucăți: catalogul are pentru fiecare act o `formula` și `actiuni` cu câmpul `one_click` (#3, Andrei), iar spațiul de documente cu Claude e #2 (Voicu). Propunerea mea e cum le legăm.
+Era deja în plan, în bucăți: catalogul are pentru fiecare act o `formula` și `actiuni` cu `one_click` (#3, Andrei), iar spațiul de documente cu Claude e #2 (Voicu).
 
 **Cine face ce:**
 
-1. **LLM-ul citește legea** (Monitorul Oficial) și propune: etichetele, formula, acțiunile și unde se rezolvă fiecare. Un om verifică, apoi actul intră în catalog. E motorul descris deja în `product.md`.
-2. **Suma o calculează codul, nu LLM-ul.** Formula verificată + cifrele tale = același rezultat de fiecare dată, verificabil și ieftin. Merge pe telefon, fără să trimitem profilul nicăieri. Un LLM care calculează direct poate da altă sumă la fiecare rulare, iar o sumă greșită ne costă încrederea.
-3. **LLM-ul explică și răspunde.** Traduce suma pe înțeles, pe cele 3 niveluri, și răspunde la întrebări („de ce mă costă asta?”). Citește documentele încărcate (Plus) și extrage cifrele exacte, pe care apoi tot codul le calculează.
+1. **LLM-ul citește legea** din Monitorul Oficial și propune etichetele, formula, acțiunile și unde se rezolvă fiecare. Un om verifică, apoi actul intră în catalog.
+2. **Suma o calculează codul, nu LLM-ul.** Formula verificată și cifrele tale dau același rezultat de fiecare dată. E verificabil, ieftin și merge pe telefon.
+3. **LLM-ul explică și răspunde:** traduce suma pe cele 3 niveluri, răspunde la întrebări și citește documentele. Cifrele extrase din documente le calculează tot codul.
 
-**Butoanele de acțiune** (call to action), după tipul problemei:
+**„Ce poți face” e cât mai acționabil și personalizat pe profilul tău.** Personalizarea înseamnă *care* dintre acțiunile prevăzute de lege ți se aplică ție, cu suma și termenul tău. Asta respectă regula din `CLAUDE.md`: „arătăm impactul și acțiunea posibilă din lege, nu recomandăm produse”. Mai departe de atât, adică recomandări de produse sau „ce ar trebui să faci” dincolo de lege, e **[decizie de echipă]**. Atenție la două limite:
+- consultanța fiscală e o activitate reglementată (OG 71/2001, Camera Consultanților Fiscali);
+- recomandările de investiții (de exemplu Pilon III) intră la ASF.
+
+Ambele sunt de confirmat cu un jurist.
 
 | Tipul acțiunii | Unde duce butonul | Exemplu |
 |---|---|---|
-| Schimbi un furnizor | Cea mai bună ofertă (afiliat dacă există, altfel neplătit) | Energie, telecom |
 | Depui ceva la stat | Formularul sau pagina oficială (ANAF SPV, ghișeul.ro) | Declarația Unică, CASS |
-| Alegi o opțiune | Pagina oficială, cu termenul | Pilon II: cererea la fond |
+| Alegi o opțiune prevăzută de lege | Pagina oficială, cu termenul | Pilon II: cererea la fond |
 | Beneficiu de care nu știai | Unde îl ceri | Deducerea Pilon III: ce dai angajatorului |
+| Schimbi un furnizor | Comparatorul oficial (de exemplu ANRE pentru energie) | Energie |
 | Nu ai nimic de făcut | Niciun buton, doar „Nu trebuie să faci nimic până la {data}” | Gazul până la 31 martie 2027 |
-| Situație complicată | Registrul public CECCAR, „Găsește un contabil”, neplătit | Dividende față de salariu, peste un anumit prag |
+| Situație complicată | Registrul public CECCAR, „Găsește un contabil”, neplătit | Dividende față de salariu (`business/profesionisti.md`) |
 
-## 4. Specialiștii: link, nu sursă de venit
+## 4. Afilierea: bonus, cu reguli **[decizie de echipă]**
 
-Cei mai mulți oameni își rezolvă singuri problema dacă au pașii clari. Puțini ar rezerva o sesiune cu un contabil din aplicație, deci nu construim venit pe asta. Detalii în `business/profesionisti.md`:
+Am verificat cele 7 acte din demo: doar unul (plafonarea la energia electrică) are o acțiune de tip „alegi un furnizor”. N-am găsit niciun program de afiliere pentru furnizorii de energie sau gaz. Singurul program telecom găsit e Orange pe 2Performant, cu 3% din vânzările din magazinul online, adică telefoane. Informația e din 2015 ([wall-street.ro](https://www.wall-street.ro/articol/eCommerce/190180/orange-romania-intra-in-2parale.html)). **Concluzia: nu punem sume din afiliere în pitch.**
 
-- Cardul are pașii „rezolvă singur”. Ghidurile pentru situațiile mai grele sunt verificate de un contabil real, plătit de noi per ghid.
-- Doar când chiar e nevoie, butonul „Găsește un contabil” duce la registrul public CECCAR. Nu cerem și nu primim bani de la contabili (codul etic CECCAR interzice oricum ofertele cu comisioane, [contabilul.manager.ro](https://contabilul.manager.ro/a/5028/ceccar-cum-are-voie-un-contabil-sa-si-faca-reclama.html)).
+Dacă echipa vrea totuși afiliere acolo unde există program, regulile ar fi:
 
-## 5. Unit economics (ipoteze, de verificat)
+1. **Ordinea nu vede comisionul.** Variantele se ordonează după cât economisești, cu calculul vizibil. Comisionul se atașează la link abia după ce ordinea e stabilită.
+2. **Varianta cu cea mai mare economie e prima**, cu sau fără afiliere. Precedent: MoneySavingExpert (UK) include ofertele de top la fel și când nu are link afiliat pentru ele ([MSE](https://www.moneysavingexpert.com/cheap-mobile-finder/contracts/google/)).
+3. **Linkul plătit e marcat:** „* Putem primi un comision. Ordinea nu depinde de el.”
+4. **Fără afiliere la Pilon III, investiții, asigurări și credite.** Distribuția de asigurări cere înregistrare la ASF (Legea 236/2018, [ASF](https://asfromania.ro/en/a/2407/alerte-asigurari)). De confirmat cu un jurist.
 
-**Venit pe lună = afiliere + abonamente**
-- afiliere = utilizatori activi × rată de click pe acțiuni × rată de conversie × comision mediu;
-- abonamente = utilizatori × conversie în Plus × preț net.
+Regula din `CLAUDE.md` („fără «cel mai bun produs»”) cere formularea „ordonate după cât economisești”, nu „cea mai bună variantă”.
+
+## 5. Datele personale
+
+- **Înainte de orice apel la LLM, ascundem:** numele, CNP-ul, adresa, IBAN-ul și angajatorul. Ascunderea se face pe telefon sau pe serverul nostru, nu la furnizorul de AI.
+- **Sumele (salariu, pensie) rămân date personale după GDPR chiar fără nume**, pentru că datele pseudonimizate sunt tot date personale. Spunem cinstit în aplicație: „trimitem cifrele, fără nume și fără date de identificare, și nu le păstrăm”.
+- **Etichetele profilului rămân pe telefon.** Ce pleacă: conversația de onboarding, documentele încărcate (cu datele ascunse) și numărul de telefon, doar pentru cine alege WhatsApp.
+- **Formularul rămâne alternativa** pentru cine nu vrea să vorbească cu asistentul.
+
+## 6. Unit economics (ipoteze, de verificat)
+
+**Venit pe lună ≈ utilizatori × conversie după luna gratuită × preț net.**
 
 | Ipoteză | Valoare | Sursă |
 |---|---|---|
 | Venit net din anual, după comisionul magazinului (15%) | ≈ 254 lei/an ≈ 21 lei/lună | calcul |
-| Conversie în Plus | 2% (prețul e mai mare) | ipoteză, `TODO` |
-| Rată de click pe butoanele de acțiune | `TODO` | de măsurat în demo / beta |
-| Comision mediu pe client (energie, telecom) | `TODO` | rețelele de afiliere (Haggy, #4) |
+| Conversie după luna gratuită | `TODO` (de măsurat; datele RevenueCat arată 25–45% de la probă la plată, dar pentru piețe cu putere de cumpărare mai mare) | [RevenueCat 2026](https://www.revenuecat.com/state-of-subscription-apps) |
+| Câți încep proba din cei care instalează | `TODO` | de măsurat |
 | Cost onboarding cu LLM per instalare | Haiku 5.5 ≈ 0,02 lei; Sonnet 5.5 ≈ 0,45 lei | prețuri API Anthropic, oct 2026; 1 USD ≈ 4,5 lei |
+| Cost WhatsApp per abonat pe lună (4 rezumate) | `TODO` | prețurile WhatsApp Business |
 | Costuri fixe: LLM pe Monitorul Oficial + găzduire + verificator fiscal part-time | ≈ 7.500 lei/lună | ipoteză |
 
-**Exemplu la 100.000 de instalări:** 2.000 de abonați × 254 lei ≈ 508.000 lei/an din abonamente, plus afilierea (`TODO`). Pragul de rentabilitate doar din abonamente e ≈ 360 de abonați anuali. Afilierea e plusul care plătește utilizatorii gratuiți.
+**Pragul de rentabilitate pe costurile fixe:** ≈ 360 de abonați anuali (7.500 × 12 / 254). Analiza documentelor și întrebările libere consumă tokeni, dar le folosesc doar abonații, deci costul lor e acoperit din abonament.
 
-**Despre tokeni:** onboarding-ul cu asistentul rulează pentru fiecare instalare. Testăm Haiku 5.5 și Sonnet 5.5 pe ~30 de conversații reale în română și îl alegem pe cel mai ieftin care pune corect etichetele. Analiza documentelor și întrebările libere sunt în Plus, deci tokenii scumpi îi plătesc abonații. Atenție la promisiunea din `product.md`: etichetele rămân pe telefon, dar conversația de onboarding și documentele pleacă la API. Trebuie spus clar în aplicație, iar formularul rămâne alternativa.
+## 7. Promovare fără sponsorizări
 
-## 6. Promovare fără sponsorizări
-
-1. **Un calculator public, gratuit, pentru fiecare lege mare** („Ce înseamnă Legea 2/2026 pentru tine”). Oamenii caută pe Google fiecare schimbare fiscală, deci paginile astea apar exact atunci.
+1. **Un calculator public, gratuit, pentru fiecare lege mare** („Ce înseamnă Legea 2/2026 pentru tine”). Oamenii caută pe Google fiecare schimbare fiscală, deci paginile astea apar exact atunci. E și ușa către luna gratuită.
 2. **Widget gratuit pentru redacții**, cu atribuire. Câștigăm vizibilitate în presă fără să plătim pe nimeni.
 3. **Carduri de rezultat de distribuit:** „Noile reguli mă costă −120 lei/lună. Pe tine?”
-4. **„Dă o lună de Plus, primești o lună”** între utilizatori reali.
-5. **Beneficii prin angajator** (Edenred Benefit, Pluxee, Up MultiBeneficii): angajatorul plătește Plus, fără acces la date.
-6. **Fără postări plătite la influenceri.** Dacă un creator folosește aplicația, își arată propriul profil și propria sumă. ANPC a găsit în 2026 că mulți influenceri nu marchează reclamele ([Digi24](https://www.digi24.ro/stiri/sci-tech/lumea-digitala/activitatea-influencerilor-verificata-de-anpc-publicitatea-nu-era-marcata-constant-70-au-creat-continut-cu-ai-fara-a-informa-3844799)).
+4. **„Dă o lună, primești o lună”** între utilizatori reali.
+5. **Prin angajator:** platformele de beneficii flexibile (Edenred Benefit, Pluxee, Up MultiBeneficii). Angajatorul plătește abonamentul, fără acces la date. Merge bine cu etichetele de domeniu (IT, construcții…).
+6. **Fără postări plătite la influenceri.** ANPC a găsit în 2026 că mulți influenceri nu marchează reclamele ([Digi24](https://www.digi24.ro/stiri/sci-tech/lumea-digitala/activitatea-influencerilor-verificata-de-anpc-publicitatea-nu-era-marcata-constant-70-au-creat-continut-cu-ai-fara-a-informa-3844799)).
 
-## 7. Slide „Cum facem bani”
+## 8. Slide „Cum facem bani”
 
-> **Gratuit pentru toți. Plătit de cei care vor calculul exact și de firmele alese pe merit.**
-> - Gratuit: fiecare lege care te atinge, cât te costă și butonul care te duce unde rezolvi.
-> - Afiliere neutră: dacă cea mai bună variantă pentru tine are program de afiliere, primim comision. Ordinea nu se cumpără.
-> - Plus, 299 lei/an: suma exactă pe cifrele tale, documente analizate cu AI, planul pe 12 luni.
-> - Fără reclame, fără vânzare de date.
+> **Plătești pentru că afli la timp cât te costă o lege și ce poți face.**
+> - Prima lună gratuită, apoi 299 lei/an (≈ 25 lei/lună) sau 49,99 lei/lună.
+> - Pentru banii ăștia primești: suma în lei pentru tine, termenele, butonul care te duce unde rezolvi, planul pe 12 luni și rezumatul pe WhatsApp.
+> - Fără reclame, fără vânzare de date; numele tău nu ajunge la AI.
+> - Distribuție: calculatoare publice per lege, presa și angajatorii.
+
+## Răspunsuri scurte pentru juriu
+
+- **„De ce nu întreb ChatGPT?”** Noi venim la tine fără să întrebi. Formula e verificată de un om. Cardul are termenul și butonul care te duce unde rezolvi.
+- **„E sfat financiar?”** Arătăm acțiunile prevăzute de lege care ți se aplică ție, cu articolul alături. Nu recomandăm produse.
+- **„Cât de des primesc ceva?”** Legile directe, cele indirecte, domeniul tău, calendarul fiscal și proiectele în consultare (secțiunea 2).
 
 ## De confirmat
 
 - Prețul real Biziday.
-- Programele de afiliere active pentru energie, telecom și bănci, cu comisioane (Haggy).
-- Cu un jurist: afilierea pentru conturi bancare, asigurări și credite; ce înseamnă „ordinea nu depinde de comision” ca obligație legală (protecția consumatorului).
-- Cum obținem datele de ofertă pentru comparații (comparatorul ANRE și ofertele telecom).
+- Prețurile WhatsApp Business pentru România și regulile pentru șabloane.
+- Cu un jurist: limita dintre informație și consultanță fiscală (OG 71/2001) pentru „ce poți face”; afilierea, dacă echipa o vrea.
+- În echipă: planul gratuit (da/nu), știrile nefinanciare pe domeniu, afilierea.
