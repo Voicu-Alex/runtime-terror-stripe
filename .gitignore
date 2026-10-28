@@ -16,3 +16,7 @@ next-env.d.ts
 .DS_Store
 *.log
 .vercel
+
+# python (scripturi și servere locale)
+__pycache__/
+*.pyc
