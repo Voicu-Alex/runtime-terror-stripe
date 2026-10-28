@@ -294,6 +294,8 @@ const EN: Record<string, string> = {
   "Modelul nu a întors JSON valid.": "The model did not return valid JSON.",
   "Eroare la analiză.": "Analysis error.",
   "Surse și limitări": "Sources and limitations",
+  "Nou în Monitorul Oficial": "New in the Official Gazette",
+  "verificat de un om azi": "checked by a person today",
 };
 
 /** Are textul intrare în dicționarul EN (chiar dacă traducerea e identică, ca un nume propriu). */
