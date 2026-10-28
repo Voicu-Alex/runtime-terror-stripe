@@ -1,7 +1,7 @@
 # Cum facem bani: „Ce înseamnă pentru mine”
 
-* **Model de abonament cu 1 lună Free Trial (19 lei/lună):** Fără nivel gratuit perpetuu; fiecare utilizator primește 30 de zile acces complet gratuit pentru conceperea profilului, onboarding cu asistentul AI și primele alerte. După trial, abonamentul deblochează continuu alertele legislative și recalcularea „Planului meu”.
-* **ROI evident pentru utilizator:** O singură decizie fiscală optimizată la timp (distribuirea dividendelor înainte de 1 ianuarie 2026, comutarea la un tarif de energie sub plafon) economisește între 500 și 6.000 lei/an — utilizatorul își recuperează instant costul pe mai mulți ani.
-* **Neutralitate radicală (Zero Bias Comercial):** Nu semnăm parteneriate comerciale directe negociate cu băncile sau furnizorii de energie pentru a nu fi părtinitori. Utilizatorul primește întotdeauna cea mai avantajoasă opțiune reală din piață.
-* **Monetizare pasivă doar prin 2Performant, restul 100% gratuit:** Folosim linkuri de afiliat exclusiv dacă furnizorul are deja un program deschis pe 2Performant (ex: Orange, Pint.ro). Pentru toți ceilalți (ex: Hidroelectrica, Engie, CEC, Pilon III), trimitem utilizatorul direct și gratuit (0 lei comision), protejând credibilitatea.
-* **Infrastructură scalabilă Stripe Billing & Connect:** Trial-ul de 30 de zile și abonamentele recurente sunt gestionate nativ prin **Stripe Billing**; marketplace-ul de consultanță cu experți (contabili, fiscaliști) este monetizat prin comision de platformă reținut automat prin **Stripe Connect**.
+* **Abonament, prima lună gratuită:** 299 lei/an (≈ 25 lei/lună, cam cât Spotify) sau 49,99 lei/lună. Fără card la pornire, fără plan gratuit permanent.
+* **Pentru ce plătești:** suma în lei pentru tine, termenele, butonul care te duce unde rezolvi (ANAF, fondul de pensii, comparatorul ANRE), Planul meu pe 12 luni, documentele analizate cu AI și rezumatul pe WhatsApp.
+* **Neutri prin construcție:** fără reclame, fără comision de la furnizori sau de la specialiști, fără vânzare de date. Comparatorul oficial apare primul, furnizorii în ordine alfabetică.
+* **Datele tale:** etichetele rămân pe telefon, iar numele și datele de identificare nu ajung la AI.
+* **Distribuție:** un calculator public pentru fiecare lege mare, presa și angajatorii (beneficii flexibile).
