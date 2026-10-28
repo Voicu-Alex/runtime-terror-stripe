@@ -231,6 +231,7 @@ ro:{
  'plan.next':'următorul termen: {d}','plan.none':'niciun termen apropiat',
  'info':'informativ','art.tbc':'articol de confirmat','demo':'demo','ov.line0':'Pentru tine: decizie până la {d} · te privește ca: {t}','ov.line':'Pentru tine: {v} lei/lună · te privește ca: {t}','ov.cta':'Vezi ce înseamnă','ov.close':'Închide',
  'pf.Venit':'Venit','pf.Domeniu':'Domeniu','pf.Locuință':'Locuință','pf.Familie':'Familie','pf.Altele':'Altele',
+ 'pf.domainEx':'Exemplu real: OUG 156/2024 a eliminat, din ianuarie 2025, scutirea de impozit pentru salariații din IT, construcții, agricultură și industria alimentară.',
  'pf.empty':'Nicio etichetă. Profilul gol nu primește notificări.','pf.reset':'Resetează profilul','pf.remove':'Elimină eticheta {t}',
  'chat.h':'Completează profilul vorbind cu asistentul',
  'chat.a1':'Spune-mi în câteva cuvinte cum câștigi și ce deții.',
@@ -266,6 +267,7 @@ en:{
  'plan.next':'next deadline: {d}','plan.none':'no upcoming deadline',
  'info':'informative','art.tbc':'article to be confirmed','demo':'demo','ov.line0':'For you: decide by {d} · concerns you as: {t}','ov.line':'For you: {v} lei/month · concerns you as: {t}','ov.cta':'See what it means','ov.close':'Close',
  'pf.Venit':'Income','pf.Domeniu':'Field','pf.Locuință':'Home','pf.Familie':'Family','pf.Altele':'Other',
+ 'pf.domainEx':'Real example: GEO 156/2024 removed, from January 2025, the income tax exemption for employees in IT, construction, agriculture and the food industry.',
  'pf.empty':'No tags. An empty profile gets no notifications.','pf.reset':'Reset profile','pf.remove':'Remove tag {t}',
  'chat.h':'Complete your profile by talking to the assistant',
  'chat.a1':'Tell me in a few words how you earn and what you own.',
@@ -595,7 +597,7 @@ function profileHtml(){
     if(!ids.length)return;
     out+='<div class="grp"><h3>'+t('pf.'+g)+'</h3><div class="chips">'+ids.map(function(x){
       return '<span class="ptag">'+tagLabel(x)+'<button type="button" data-rm="'+x+'" aria-label="'+t('pf.remove',{t:tagLabel(x)})+'">×</button></span>';
-    }).join('')+'</div></div>';
+    }).join('')+'</div>'+(g==='Domeniu'?'<p class="pf-note" style="margin:8px 0 0;font-size:12.5px;line-height:1.4;color:var(--ink-2)">'+t('pf.domainEx')+'</p>':'')+'</div>';
   });
   if(!tags.length)out='<p class="feed-head">'+t('pf.empty')+'</p>';
   var reset=(state.removed[state.profile]||[]).length?'<button type="button" class="reset" data-reset="1">'+t('pf.reset')+'</button>':'';

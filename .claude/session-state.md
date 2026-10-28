@@ -1,6 +1,6 @@
 # Session state
 
-Updated: 2026-10-28 14:55
+Updated: 2026-10-28 14:40
 
 ## Context
 Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product: **"Ce înseamnă pentru mine"**. Locked direction (v2, 28 Oct 2026, with Andrei): standalone app, no bank integrations, no Stripe for now; strictly financial impact across niches; profile = tags incl. work domain; onboarding by chat with an assistant (placeholder in mockup) with form fallback; feed of notifications, each item ends in lei/month + dated action + link to the law article + "te privește ca: tags"; statuses proiect / adoptat / în vigoare / termen depășit. Non-financial effects are a later step. Plan file (v1, partly superseded): `~/.claude/plans/make-a-mockup-based-effervescent-sutherland.md`.
@@ -35,3 +35,9 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - 1280px layout of v2 not captured (pane was narrow); column is max-width 680 like v1.
 - Articles marked "de confirmat" (OUG 156/2024, Legea 239/2025, Cod fiscal art. 78) were not read in the act text; building-tax and construction figures are press-only.
 - Haiku inspector not run (no browser tool); captures graded by the orchestrator.
+
+## Latest (14:40)
+- `mockup/index.html` (served on :8767 by the other session's server): added the "Exemplu real: OUG 156/2024..." note under the Domeniu group in the Profil tab (i18n key `pf.domainEx`, RO+EN). Capture: `captures/08-app-profil-domeniu-exemplu.jpg`. NOT committed yet; awaiting Andrei's go-ahead to commit + push to andrei and main.
+- main was fast-forwarded to andrei at 19165ec and pushed.
+- Open question: IT card in index.html says -650 lei/lună, descriere.html says ≈520 lei/lună (tax only, brut 8.000). Pick one number before the pitch.
+- Servers running: :8765 (other session), :8766 (descriere, this repo root), :8767 (mockup/ folder).
