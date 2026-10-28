@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
-:root {
-  --fundal: #fff;
-  --text: #111827;
-}
+/* dark: pentru utilitarele care au nevoie explicit de tema închisă (tema e pe <html data-theme>) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Culorile designului de referință: mockup/v3/index.html?v=f (ADR 0001). */
+/* Culorile designului de referință: mockup/v3/index.html?v=f (ADR 0001). Fiecare culoare din interfață trece
+   prin tokenurile astea, ca tema închisă să le schimbe doar aici. */
 @theme {
   --color-v3-ink: #111827;
   --color-v3-ink-2: #4B5563;
+  /* textul lung de citit (lede, paragrafe mari) */
+  --color-v3-ink-soft: #1F2937;
+  /* hover pe butoanele închise */
+  --color-v3-ink-strong: #000000;
+  /* textul de pe butoanele și insignele pline (ink, urg, logo) */
+  --color-v3-on-ink: #FFFFFF;
+  --color-v3-paper: #FFFFFF;
+  /* suprafețele: carduri, butoane secundare, câmpuri */
+  --color-v3-card: #FFFFFF;
   --color-v3-line: #E5E7EB;
   --color-v3-accent: #57534E;
   --color-v3-neg: #C81E1E;
@@ -20,6 +28,7 @@
   --color-v3-urg-soft: #FCEBE9;
   --color-v3-past: #5E6A63;
   --color-v3-past-bg: #E8EBE6;
+  --color-v3-past-line: #C3CAC2;
   /* gri cald: logo, titlurile de secțiune și degradeurile articolului principal */
   --color-v3-logo: #44403C;
   --color-v3-accd: #292524;
@@ -27,11 +36,64 @@
   --color-v3-tint2: #F1F0EE;
   --color-v3-tintb: #D6D3D1;
   --color-v3-stats: #ECEAE8;
+  /* banda închisă din landing („Termenele care se închid acum”) și telefonul din exemple */
+  --color-v3-band: #111827;
+  --color-v3-band-ink: #FFFFFF;
+  --color-v3-band-ink-2: #D1D5DB;
+  --color-v3-band-pos: #86EFAC;
+}
+
+/*
+ * Tema închisă. Reguli de culoare pentru interfețe închise:
+ * - fără negru pur: fundal gri cald (#151413), din aceeași familie ca accentul „gri șobolan”;
+ * - adâncimea prin luminozitate, nu prin umbre: cu cât suprafața e mai sus, cu atât e mai deschisă
+ *   (fundal #151413 → card #1E1D1B → banda #23211E → degradeuri #2B2825);
+ * - textul nu e alb pur (#ECE8E3), ca să nu „ardă” pe fundal închis;
+ * - verdele și roșul sunt desaturate și mai deschise, ca să nu vibreze, dar rămân verde = bani în plus,
+ *   roșu = bani în minus; fundalurile lor „soft” sunt aceeași nuanță, foarte închisă;
+ * - toate perechile text/fundal au cel puțin 4,5:1 (WCAG AA); cele mai multe peste 6:1.
+ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-v3-ink: #ECE8E3;
+  --color-v3-ink-2: #ABA49D;
+  --color-v3-ink-soft: #D9D4CE;
+  --color-v3-ink-strong: #FFFFFF;
+  --color-v3-on-ink: #151413;
+  --color-v3-paper: #151413;
+  --color-v3-card: #1E1D1B;
+  --color-v3-line: #34312D;
+  --color-v3-accent: #C9C1B8;
+  --color-v3-neg: #F28B82;
+  --color-v3-pos: #6FCF97;
+  --color-v3-pos-soft: #17271E;
+  --color-v3-accent-soft: #2A2724;
+  --color-v3-act: #221F1B;
+  --color-v3-urg: #F07167;
+  --color-v3-urg-soft: #2E1B19;
+  --color-v3-past: #929B94;
+  --color-v3-past-bg: #252724;
+  --color-v3-past-line: #454A45;
+  --color-v3-logo: #EDE6DE;
+  --color-v3-accd: #E7E1DA;
+  --color-v3-tint1: #2B2825;
+  --color-v3-tint2: #1F1D1B;
+  --color-v3-tintb: #3A3632;
+  --color-v3-stats: #26231F;
+  --color-v3-band: #23211E;
+  --color-v3-band-ink: #F1EDE8;
+  --color-v3-band-ink-2: #B5AEA6;
+  --color-v3-band-pos: #86EFAC;
 }
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-head: "Raleway", system-ui, sans-serif;
+}
+
+:root {
+  --fundal: var(--color-v3-paper);
+  --text: var(--color-v3-ink);
 }
 
 body {
@@ -44,4 +106,33 @@ body {
 :focus-visible {
   outline: 3px solid var(--color-v3-accent);
   outline-offset: 2px;
+}
+
+/*
+ * Trecerea între teme. Cu View Transitions (Chrome, Edge, Safari 18): tema nouă se deschide ca un cerc din
+ * butonul apăsat (components/Tema.tsx). Fără ele: culorile se schimbă lin, 350 ms, doar cât durează trecerea.
+ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.tema-trecere,
+html.tema-trecere *,
+html.tema-trecere *::before,
+html.tema-trecere *::after {
+  transition:
+    background-color 350ms ease,
+    border-color 350ms ease,
+    color 350ms ease,
+    fill 350ms ease,
+    stroke 350ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.tema-trecere,
+  html.tema-trecere * {
+    transition: none !important;
+  }
 }

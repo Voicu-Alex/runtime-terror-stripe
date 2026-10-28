@@ -15,10 +15,10 @@ import { furnizori, niveluri, specialist } from "@/lib/continut";
 //   Expert = „Arată-mi legea”: actul, MO, articolul, nuanțele și linkurile oficiale
 
 const PILL: Record<StareCard, string> = {
-  proiect: "border-dashed border-v3-ink-2 bg-white text-v3-ink-2",
+  proiect: "border-dashed border-v3-ink-2 bg-v3-card text-v3-ink-2",
   adoptat: "border-v3-accent bg-v3-accent-soft text-v3-accent",
   in_vigoare: "border-v3-pos bg-v3-pos-soft text-v3-pos",
-  termen_depasit: "border-[#C3CAC2] bg-v3-past-bg text-v3-past",
+  termen_depasit: "border-v3-past-line bg-v3-past-bg text-v3-past",
 };
 
 const eTODO = (s: string) => !s || s.trim() === "TODO";
@@ -83,8 +83,8 @@ export default function CardSchimbare({
           >
             {dep ? `${t("termen depășit:")} ${v.termen.text}` : `${t("până la")} ${v.termen.text} · ${t("mai ai")} ${zile(v.termen.zile, limba)}`}
             {v.termen.urgent && (
-              <span className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-v3-urg px-2.5 py-0.5 align-[1px] text-[12.5px] text-white">
-                <span aria-hidden="true" className="size-[7px] rounded-full bg-white" />
+              <span className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-v3-urg px-2.5 py-0.5 align-[1px] text-[12.5px] text-v3-on-ink">
+                <span aria-hidden="true" className="size-[7px] rounded-full bg-v3-card" />
                 {t("urgent")}
               </span>
             )}
@@ -114,7 +114,7 @@ export default function CardSchimbare({
           <p className="m-0 mb-3 text-[13.5px] text-v3-ink-2">
             {t("Te privește ca:")}{" "}
             {p.taguri_comune.map((x) => (
-              <span key={x} className="mr-1 mb-1 inline-block rounded-lg border border-v3-line bg-white px-[9px] py-0.5 text-[13px] font-semibold">
+              <span key={x} className="mr-1 mb-1 inline-block rounded-lg border border-v3-line bg-v3-card px-[9px] py-0.5 text-[13px] font-semibold">
                 {etichetaTagL(limba, x)}
               </span>
             ))}
@@ -151,7 +151,7 @@ export default function CardSchimbare({
                   href={cuTracking(a.one_click, s.id)}
                   target="_blank"
                   rel="noopener"
-                  className="mt-1.5 inline-flex min-h-[46px] items-center gap-2 rounded-[10px] bg-v3-ink px-[18px] font-bold text-white no-underline"
+                  className="mt-1.5 inline-flex min-h-[46px] items-center gap-2 rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline"
                 >
                   {t("Compară oferte pe comparatorul ANRE")}
                   <Sageata />
@@ -171,7 +171,7 @@ export default function CardSchimbare({
                           href={cuTracking(f.url, s.id)}
                           target="_blank"
                           rel="noopener"
-                          className="inline-flex min-h-11 items-center gap-1.5 rounded-[10px] border border-v3-line bg-white px-3 text-sm font-semibold text-v3-ink no-underline"
+                          className="inline-flex min-h-11 items-center gap-1.5 rounded-[10px] border border-v3-line bg-v3-card px-3 text-sm font-semibold text-v3-ink no-underline"
                         >
                           {f.nume}
                           {f.comision && <span className="rounded border border-v3-ink-2 px-1 text-[11px] text-v3-ink-2">{t("partener")}</span>}
@@ -190,7 +190,7 @@ export default function CardSchimbare({
                   <button
                     type="button"
                     onClick={() => dialog.current?.showModal()}
-                    className="min-h-11 rounded-[10px] border border-v3-ink bg-white px-4 text-sm font-semibold text-v3-ink"
+                    className="min-h-11 rounded-[10px] border border-v3-ink bg-v3-card px-4 text-sm font-semibold text-v3-ink"
                   >
                     {t("Găsește un")} {t(sp.profesie)}
                   </button>
@@ -206,7 +206,7 @@ export default function CardSchimbare({
                 aria-expanded={curios}
                 aria-controls={`${uid}-c`}
                 onClick={() => setCurios(!curios)}
-                className="min-h-11 rounded-[10px] border border-v3-line bg-white px-4 text-sm font-semibold text-v3-ink aria-expanded:border-v3-ink"
+                className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-4 text-sm font-semibold text-v3-ink aria-expanded:border-v3-ink"
               >
                 {t("De ce?")}
               </button>
@@ -216,7 +216,7 @@ export default function CardSchimbare({
               aria-expanded={lege}
               aria-controls={`${uid}-e`}
               onClick={() => setLege(!lege)}
-              className="min-h-11 rounded-[10px] border border-v3-line bg-white px-4 text-sm font-semibold text-v3-ink aria-expanded:border-v3-ink"
+              className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-4 text-sm font-semibold text-v3-ink aria-expanded:border-v3-ink"
             >
               {t("Arată-mi legea")}
             </button>
@@ -231,7 +231,7 @@ export default function CardSchimbare({
 
           {/* Expert */}
           {lege && (
-            <div id={`${uid}-e`} className="mt-3 rounded-[10px] border border-v3-line bg-white p-3 text-sm">
+            <div id={`${uid}-e`} className="mt-3 rounded-[10px] border border-v3-line bg-v3-card p-3 text-sm">
               <h5 className="m-0 mb-1 text-xs font-bold tracking-[.05em] text-v3-ink-2 uppercase">{t("Sursa legală")}</h5>
               <p className="m-0 mb-1 font-semibold">
                 {s.act} · {s.mo_ref}
@@ -297,7 +297,7 @@ export default function CardSchimbare({
         <dialog
           ref={dialog}
           aria-labelledby={`${uid}-t`}
-          className="m-auto w-[min(420px,calc(100%-32px))] rounded-2xl border border-v3-line p-5 text-v3-ink backdrop:bg-black/50"
+          className="m-auto w-[min(420px,calc(100%-32px))] rounded-2xl border border-v3-line bg-v3-card p-5 text-v3-ink backdrop:bg-black/60"
         >
           <h4 id={`${uid}-t`} className="m-0 mb-2 font-head text-xl font-extrabold">
             {t("Când merită un")} {t(sp.profesie)}
@@ -315,7 +315,7 @@ export default function CardSchimbare({
               <button
                 type="button"
                 onClick={() => navigator.clipboard?.writeText(sp.intrebare!).then(() => setCopiat(true), () => {})}
-                className="mb-3 min-h-11 rounded-[10px] border border-v3-line bg-white px-3 text-sm font-semibold"
+                className="mb-3 min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-3 text-sm font-semibold"
               >
                 {copiat ? t("Copiat") : t("Copiază întrebarea")}
               </button>
@@ -337,7 +337,7 @@ export default function CardSchimbare({
               href={sp.registru.url}
               target="_blank"
               rel="noopener"
-              className="mb-2 flex min-h-[46px] w-full items-center justify-center gap-2 rounded-[10px] bg-v3-ink font-bold text-white no-underline"
+              className="mb-2 flex min-h-[46px] w-full items-center justify-center gap-2 rounded-[10px] bg-v3-ink font-bold text-v3-on-ink no-underline"
             >
               {t("Deschide registrul")}
               <Sageata />
@@ -345,7 +345,7 @@ export default function CardSchimbare({
             </a>
           )}
           <form method="dialog">
-            <button className="min-h-11 w-full rounded-[10px] border border-v3-line bg-white font-semibold">{t("Mă descurc singur")}</button>
+            <button className="min-h-11 w-full rounded-[10px] border border-v3-line bg-v3-card font-semibold">{t("Mă descurc singur")}</button>
           </form>
         </dialog>
       )}

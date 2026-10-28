@@ -88,7 +88,7 @@ function Cta({ href, children, secundar }: { href: string; children: React.React
     <Link
       href={href}
       className={`inline-flex min-h-[52px] items-center justify-center rounded-[12px] px-6 text-[16px] font-bold no-underline ${
-        secundar ? "border border-v3-line bg-white text-v3-ink" : "bg-v3-ink text-white hover:bg-black"
+        secundar ? "border border-v3-line bg-v3-card text-v3-ink" : "bg-v3-ink text-v3-on-ink hover:bg-v3-ink-strong"
       }`}
     >
       {children}
@@ -140,7 +140,7 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
           </li>
         </ol>
 
-        <p className="m-0 mt-5 max-w-[62ch] text-[17px] leading-[1.6] text-[#1F2937]">
+        <p className="m-0 mt-5 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft">
           <b>Ce trebuia făcut:</b> {c.ceTrebuia}
         </p>
         <div className="mt-5 rounded-2xl border border-v3-neg/20 bg-v3-urg-soft p-4">
@@ -162,11 +162,11 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
       {/* Ce ar fi făcut aplicația: notificarea din ziua în care a apărut legea */}
       <aside aria-label="Ce ar fi făcut aplicația" className="self-start">
         <p className="m-0 mb-2 text-[11px] font-extrabold tracking-[.1em] text-v3-pos uppercase">Ce ți-am fi spus în ziua aceea</p>
-        <div className="rounded-[22px] bg-v3-ink p-3 shadow-[0_18px_40px_-18px_rgba(17,24,39,.55)]">
-          <p className="m-0 mb-2 text-center text-[12px] font-semibold text-[#D1D5DB]">{dataScurta(c.aflat)} · 09:41</p>
-          <div className="rounded-2xl bg-white p-3.5">
+        <div className="rounded-[22px] bg-v3-band p-3 shadow-[0_18px_40px_-18px_rgba(17,24,39,.55)] ring-1 ring-white/10">
+          <p className="m-0 mb-2 text-center text-[12px] font-semibold text-v3-band-ink-2">{dataScurta(c.aflat)} · 09:41</p>
+          <div className="rounded-2xl bg-v3-card p-3.5">
             <p className="m-0 flex items-center gap-2 text-[12px] font-bold text-v3-ink-2">
-              <span className="inline-flex size-5 items-center justify-center rounded-md bg-v3-logo text-[10px] font-extrabold text-white">cî</span>
+              <span className="inline-flex size-5 items-center justify-center rounded-md bg-v3-logo text-[10px] font-extrabold text-v3-on-ink">cî</span>
               Ce înseamnă pentru mine · acum
             </p>
             <p className="m-0 mt-2 text-[14.5px] leading-[1.45] font-semibold text-v3-ink">{c.notificare}</p>
@@ -189,11 +189,11 @@ export default function Acasa() {
   return (
     <div className="mx-auto max-w-[980px]">
       {/* HOOK */}
-      <section className="rounded-3xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-white px-5 py-9 sm:px-10 sm:py-12">
+      <section className="rounded-3xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-5 py-9 sm:px-10 sm:py-12">
         <p className="m-0 mb-4 inline-flex flex-wrap items-center gap-2 text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">
           Legea, pe banii tăi
           {primul && (
-            <span className={`rounded-full px-2.5 py-1 tracking-normal normal-case ${primul.zile! < ZILE_URGENT ? "bg-v3-urg text-white" : "bg-white text-v3-ink"}`}>
+            <span className={`rounded-full px-2.5 py-1 tracking-normal normal-case ${primul.zile! < ZILE_URGENT ? "bg-v3-urg text-v3-on-ink" : "bg-v3-card text-v3-ink"}`}>
               Un termen din lege se închide peste {zile(primul.zile!)}
             </span>
           )}
@@ -201,7 +201,7 @@ export default function Acasa() {
         <h1 className="m-0 max-w-[18ch] font-head text-[clamp(34px,7.4vw,60px)] leading-[1.04] font-extrabold tracking-[-.025em] text-v3-ink">
           Legea ți-a dat 6 zile să păstrezi <span className="text-v3-pos">48.000 de lei</span>. Ai aflat?
         </h1>
-        <p className="m-0 mt-5 max-w-[56ch] text-[19px] leading-[1.55] text-[#1F2937]">
+        <p className="m-0 mt-5 max-w-[56ch] text-[19px] leading-[1.55] text-v3-ink-soft">
           Pe 25 iulie 2025, o lege a scumpit locuințele noi cu 12%. Cine plătea un avans în următoarele 6 zile scăpa. Cine a aflat după a
           plătit diferența. <b>Noi îți spunem în ziua în care apare legea: cât te costă, ce poți face și până când.</b>
         </p>
@@ -229,12 +229,12 @@ export default function Acasa() {
       </section>
 
       {/* URGENȚA REALĂ: termenele deschise acum */}
-      <section className="mt-6 rounded-3xl bg-v3-ink px-5 py-9 text-white sm:px-10">
-        <p className="m-0 mb-2 text-xs font-extrabold tracking-[.12em] text-[#D1D5DB] uppercase">Azi, {dataScurta(azi)}</p>
+      <section className="mt-6 rounded-3xl bg-v3-band px-5 py-9 text-v3-band-ink sm:px-10">
+        <p className="m-0 mb-2 text-xs font-extrabold tracking-[.12em] text-v3-band-ink-2 uppercase">Azi, {dataScurta(azi)}</p>
         <h2 className="m-0 font-head text-[clamp(26px,5.6vw,38px)] leading-[1.12] font-extrabold tracking-[-.015em]">
           Termenele care se închid acum
         </h2>
-        <p className="m-0 mt-3 max-w-[60ch] text-[16px] text-[#D1D5DB]">
+        <p className="m-0 mt-3 max-w-[60ch] text-[16px] text-v3-band-ink-2">
           Nu sunt numărători inventate: fiecare dată e scrisă în lege și zilele se calculează față de azi.
         </p>
         <ul className="m-0 mt-6 grid list-none gap-3 p-0 sm:grid-cols-2">
@@ -243,14 +243,14 @@ export default function Acasa() {
             return (
               <li key={a.id} className="rounded-2xl bg-white/[.06] p-4 ring-1 ring-white/15">
                 <p className="m-0 flex flex-wrap items-center gap-2 text-[12.5px] font-bold">
-                  <span className={`rounded-full px-2.5 py-0.5 ${urgent ? "bg-v3-urg" : "bg-white/15"}`}>mai ai {zile(a.zile!)}</span>
-                  <span className="text-[#D1D5DB]">până pe {dataScurta(a.termen!)}</span>
+                  <span className={`rounded-full px-2.5 py-0.5 ${urgent ? "bg-v3-urg text-v3-on-ink" : "bg-white/15"}`}>mai ai {zile(a.zile!)}</span>
+                  <span className="text-v3-band-ink-2">până pe {dataScurta(a.termen!)}</span>
                 </p>
                 <p className="m-0 mt-2 text-[15px] leading-[1.4] font-semibold">
-                  <span className="text-[#D1D5DB]">{a.pentru}:</span> {a.ce}
+                  <span className="text-v3-band-ink-2">{a.pentru}:</span> {a.ce}
                 </p>
                 {a.salvezi && (
-                  <p className="m-0 mt-1.5 text-[14px] font-bold text-[#86EFAC]">
+                  <p className="m-0 mt-1.5 text-[14px] font-bold text-v3-band-pos">
                     păstrezi până la {mii(a.salvezi.lei)} lei {a.salvezi.cand === "o_data" ? "o dată" : "pe an"}
                   </p>
                 )}
@@ -259,7 +259,7 @@ export default function Acasa() {
           })}
         </ul>
         <div className="mt-7 flex flex-wrap gap-3">
-          <Link href="/profil" className="inline-flex min-h-[52px] items-center rounded-[12px] bg-white px-6 text-[16px] font-bold text-v3-ink no-underline">
+          <Link href="/profil" className="inline-flex min-h-[52px] items-center rounded-[12px] bg-v3-band-ink px-6 text-[16px] font-bold text-v3-band no-underline">
             Află care dintre ele te privesc
           </Link>
         </div>
@@ -277,7 +277,7 @@ export default function Acasa() {
             ["Sursa lângă fiecare sumă", "Actul, Monitorul Oficial, articolul și linkul la Portalul Legislativ. Ce nu am verificat scrie „de confirmat”."],
             ["Toate legile, ordonate după bani", "Pagina generală: fiecare schimbare, de la cea care poate salva cei mai mulți bani în jos."],
           ].map(([t, d]) => (
-            <li key={t} className="rounded-2xl border border-v3-line bg-white p-5">
+            <li key={t} className="rounded-2xl border border-v3-line bg-v3-card p-5">
               <p className="m-0 flex items-center gap-2 text-[17px] font-bold text-v3-ink">
                 <span aria-hidden="true" className="inline-flex size-6 items-center justify-center rounded-full bg-v3-pos-soft text-[13px] text-v3-pos">
                   ✓
@@ -308,12 +308,12 @@ export default function Acasa() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="mt-14 rounded-3xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-white px-5 py-10 text-center sm:px-10">
+      <section className="mt-14 rounded-3xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-5 py-10 text-center sm:px-10">
         <h2 className="m-0 mx-auto max-w-[22ch] font-head text-[clamp(28px,6vw,42px)] leading-[1.1] font-extrabold tracking-[-.02em] text-v3-ink">
           Următoarea lege cu termen nu te va anunța singură.
         </h2>
         {primul && (
-          <p className="m-0 mt-3 text-[17px] text-[#1F2937]">
+          <p className="m-0 mt-3 text-[17px] text-v3-ink-soft">
             Cel mai apropiat termen se închide pe <b>{dataScurta(primul.termen!)}</b>: mai ai <b className="text-v3-urg">{zile(primul.zile!)}</b>.
           </p>
         )}
