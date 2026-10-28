@@ -1,0 +1,19 @@
+{
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "chirias",
+      "incredere": 0.95,
+      "motiv": "Este un contract de închiriere pentru un apartament din Cluj-Napoca, pentru locuit, cu chiria lunară de 2.000 lei."
+    },
+    {
+      "tag": "elev_student",
+      "incredere": 0.85,
+      "motiv": "Chiriașul este scris ca studentă la Universitatea Exemplu, anul II."
+    }
+  ],
+  "valori": {
+    "chirie_lunara": 2000
+  },
+  "explicatie_scurta": "Este un contract de închiriere pentru un apartament cu 2 camere, pe 12 luni, de la 01.10.2026 până la 30.09.2027. Chiria lunară este de 2.000 lei, plătibilă până pe data de 5 a fiecărei luni."
+}

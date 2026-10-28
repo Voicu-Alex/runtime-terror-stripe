@@ -1,0 +1,138 @@
+{
+  "anre_comparator": {
+    "nume": "Comparatorul de oferte ANRE (energie și gaz)",
+    "url": "https://posf.ro/comparator",
+    "ce_este": "pagina",
+    "autoritate": "ANRE",
+    "verificare": { "tip": "titlu", "contine": "POSF" },
+    "verificat_la": "2026-10-28"
+  },
+  "anaf_declaratia_unica": {
+    "nume": "Declarația unică (formularul 212), completare online",
+    "url": "https://www.anaf.ro/declaratii/duf",
+    "ce_este": "formular",
+    "autoritate": "ANAF",
+    "verificare": { "tip": "titlu", "contine": "Declaratie Unica" },
+    "verificat_la": "2026-10-28"
+  },
+  "anaf_formulare": {
+    "nume": "Portalul de formulare ANAF",
+    "url": "https://www.anaf.ro/declaratii/",
+    "ce_este": "pagina",
+    "autoritate": "ANAF",
+    "verificare": { "tip": "titlu", "contine": "Portal formulare" },
+    "verificat_la": "2026-10-28"
+  },
+  "anaf_spv_ghid": {
+    "nume": "Ghidul ANAF de înregistrare în Spațiul Privat Virtual (persoane fizice)",
+    "url": "https://static.anaf.ro/static/10/Anaf/Informatii_R/SPV/InregistrarePF.pdf",
+    "ce_este": "ghid",
+    "autoritate": "ANAF",
+    "verificare": { "tip": "pdf" },
+    "verificat_la": "2026-10-28"
+  },
+  "anaf_efactura_cerere": {
+    "nume": "Cererea de înregistrare în Registrul RO e-Factura (formularul 082, 2026)",
+    "url": "https://static.anaf.ro/static/10/Anaf/formulare/A2_OPANAF_378_2026.pdf",
+    "ce_este": "formular",
+    "autoritate": "ANAF",
+    "verificare": { "tip": "pdf" },
+    "verificat_la": "2026-10-28"
+  },
+  "cnpp": {
+    "nume": "Casa Națională de Pensii Publice",
+    "url": "https://www.cnpp.ro/",
+    "ce_este": "pagina",
+    "autoritate": "CNPP",
+    "verificare": { "tip": "titlu", "contine": "Casa Na" },
+    "verificat_la": "2026-10-28"
+  },
+  "inspectia_muncii": {
+    "nume": "Inspecția Muncii",
+    "url": "https://www.inspectiamuncii.ro/",
+    "ce_este": "pagina",
+    "autoritate": "Inspecția Muncii",
+    "verificare": { "tip": "titlu", "contine": "Inspectia Muncii" },
+    "verificat_la": "2026-10-28"
+  },
+  "asf_registru": {
+    "nume": "Registrul public ASF (inclusiv fondurile de pensii)",
+    "url": "https://asfromania.ro/ro/a/1546/registrul-public-asf",
+    "ce_este": "registru",
+    "autoritate": "ASF",
+    "verificare": { "tip": "titlu", "contine": "Registrul" },
+    "verificat_la": "2026-10-28"
+  },
+  "ceccar_tablou": {
+    "nume": "Tabloul membrilor CECCAR",
+    "url": "https://ceccar.ro/ro/?page_id=97",
+    "ce_este": "registru",
+    "autoritate": "CECCAR",
+    "verificare": { "tip": "titlu", "contine": "Tablou membri" },
+    "verificat_la": "2026-10-28"
+  },
+  "ccf_registru": {
+    "nume": "Registrul membrilor Camerei Consultanților Fiscali",
+    "url": "https://www.ccfiscali.ro/registrul-membrilor-ccf/toti-membrii-ccf/",
+    "ce_este": "registru",
+    "autoritate": "Camera Consultanților Fiscali",
+    "verificare": { "tip": "titlu", "contine": "membrii CCF" },
+    "verificat_la": "2026-10-28"
+  },
+  "primaria": {
+    "nume": "Primăria de care aparții (direcția de taxe și impozite locale)",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "primăria",
+    "verificare": null,
+    "verificat_la": null
+  },
+  "angajator_hr": {
+    "nume": "Departamentul de resurse umane sau contabilitatea angajatorului",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "angajatorul",
+    "verificare": null,
+    "verificat_la": null
+  },
+  "furnizor": {
+    "nume": "Furnizorul tău (contul de client sau numărul de pe factură)",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "furnizorul",
+    "verificare": null,
+    "verificat_la": null
+  },
+  "fond_pensii": {
+    "nume": "Fondul tău de pensii private (datele sunt pe extrasul anual)",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "administratorul fondului",
+    "verificare": null,
+    "verificat_la": null
+  },
+  "anofm": {
+    "nume": "ANOFM, Agenția Națională pentru Ocuparea Forței de Muncă (de aici ajungi la agenția județului tău)",
+    "url": "https://www.anofm.ro/",
+    "ce_este": "pagina",
+    "autoritate": "ANOFM",
+    "verificare": { "tip": "titlu", "contine": "ANOFM" },
+    "verificat_la": "2026-10-28"
+  },
+  "scoala": {
+    "nume": "Școala sau grădinița copilului (secretariatul)",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "unitatea de învățământ",
+    "verificare": null,
+    "verificat_la": null
+  },
+  "asociatia_proprietari": {
+    "nume": "Asociația de proprietari sau de locatari a blocului",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "asociația",
+    "verificare": null,
+    "verificat_la": null
+  }
+}

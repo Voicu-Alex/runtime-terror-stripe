@@ -5,6 +5,7 @@
 import niveluriJson from "@/content/niveluri.json";
 import parteneriJson from "@/business/parteneri.json";
 import type { Niveluri, Schimbare } from "./catalog";
+import { destinatie } from "./destinatii";
 
 type NivelIasmina = Niveluri & { surse: string[] };
 const NIVELURI = niveluriJson as Record<string, NivelIasmina>;
@@ -78,13 +79,13 @@ export function furnizori(idSchimbare: string): Furnizor[] {
 }
 
 /** Registrele publice ale profesiilor, verificate pe site-urile oficiale pe 28 oct 2026. */
-const REGISTRU: Record<string, { nume: string; url: string }> = {
-  contabil: { nume: "Tabloul membrilor CECCAR", url: "https://ceccar.ro/ro/?page_id=97" },
-  "consultant fiscal": {
-    nume: "Registrul membrilor Camerei Consultanților Fiscali",
-    url: "https://www.ccfiscali.ro/registrul-membrilor-ccf/toti-membrii-ccf/",
-  },
-};
+const REGISTRU_PROFESIE: Record<string, string> = { contabil: "ceccar_tablou", "consultant fiscal": "ccf_registru" };
+
+/** Registrul profesiei vine din lista de destinații verificate (data/destinatii.json). */
+function registru(profesie: string): { nume: string; url: string } | null {
+  const d = destinatie(REGISTRU_PROFESIE[profesie]);
+  return d?.url ? { nume: d.nume, url: d.url } : null;
+}
 
 export type Specialist = {
   profesie: string;
@@ -101,6 +102,6 @@ export function specialist(s: Schimbare): Specialist | null {
     profesie: s.profesionist,
     intrebare: d?.intrebare ?? null,
     documente: d?.documente ?? null,
-    registru: REGISTRU[s.profesionist] ?? null,
+    registru: registru(s.profesionist),
   };
 }

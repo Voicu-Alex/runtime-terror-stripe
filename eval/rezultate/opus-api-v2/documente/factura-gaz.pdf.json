@@ -1,0 +1,21 @@
+{
+  "mod": "claude",
+  "tip_document": "factura_utilitati",
+  "etichete_propuse": [
+    {
+      "tag": "consumator_gaz",
+      "incredere": 0.95,
+      "motiv": "Documentul este o factură de gaze naturale pentru un client casnic."
+    },
+    {
+      "tag": "rural",
+      "incredere": 0.05,
+      "motiv": "Locul de consum este în București, deci nu în mediul rural; eticheta nu se potrivește."
+    }
+  ],
+  "valori": {
+    "furnizor": "ENGIE ROMÂNIA S.A.",
+    "suma_factura": 553.44
+  },
+  "explicatie_scurta": "Documentul este o factură de gaze naturale emisă de ENGIE România pentru septembrie 2026. Clientul este casnic, iar totalul de plată este 553,44 lei. Factura arată că persoana are un contract de gaz pe numele ei."
+}

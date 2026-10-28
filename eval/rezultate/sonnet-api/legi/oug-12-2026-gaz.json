@@ -1,0 +1,55 @@
+{
+  "act": "OUG 12/2026",
+  "mo": "MO 178 / 9 mar 2026",
+  "publicat_la": "2026-03-09",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Prețul gazelor pentru casă are un tavan de calcul până la 31 martie 2027",
+      "taguri": [
+        "consumator_gaz"
+      ],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": "gaz_plafon",
+      "formula_tip": null,
+      "articol": "art. 1 alin. (2)",
+      "citat": "prețul final facturat de către fiecare furnizor de gaze naturale este valoarea cea mai mică dintre",
+      "niveluri": {
+        "zero": "Pentru gazul consumat între 1 aprilie 2026 și 31 martie 2027, furnizorul nu poate să-ți factureze mai mult decât prețul calculat după regulile din ordonanță.",
+        "curios": "Furnizorul îți facturează cel mai mic preț dintre cel din contract și cel calculat după regulile din ordonanță. Prețul calculat are patru părți: costul gazului cumpărat de furnizor, o componentă de furnizare de cel mult 15 lei/MWh, tarifele reglementate de ANRE pentru transport și distribuție, plus TVA și accize. Dacă prețul din contract este deja mai mic, se aplică acela. Cât economisești depinde de consumul tău și de oferta furnizorului.",
+        "expert": "Art. 1 alin. (1) derogă de la art. 180 alin. (1) din Legea 123/2012 pentru consumul din 1 aprilie 2026 până la 31 martie 2027. Prețul final se compune din: componenta de achiziție (art. 2: costul mediu ponderat al gazelor, plus dezechilibrul realizat, dar nu mai mult de 10% din CMP, plus o posibilă ajustare de la luni anterioare), componenta de furnizare de cel mult 15 lei/MWh (art. 3), tarifele reglementate ANRE și TVA cu accize. Art. 1 alin. (2) cere ca furnizorii să aplice valoarea cea mai mică dintre prețul contractual și cel calculat. Furnizorii de ultimă instanță aplică direct prețul calculat (art. 1 alin. (3)). Producătorii de gaze trebuie să vândă la 110 lei/MWh către furnizori (art. 6 alin. (1)), iar prețul acesta poate fi modificat prin hotărâre de Guvern (art. 6 alin. (2)). Contravențiile furnizorilor față de clienții casnici se constată și se sancționează de ANPC (art. 8 alin. (5)). Furnizorii trebuie să-i notifice pe clienți odată cu prima factură de după intrarea în vigoare (art. 9). Articolele 8 și următoarele din ordonanță au intrat în vigoare la 1 aprilie 2026 (art. 10)."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică pe facturile pentru gazul consumat din 1 aprilie 2026 că prețul facturat nu depășește prețul calculat conform ordonanței (achiziție, furnizare de cel mult 15 lei/MWh, tarife reglementate, TVA și accize). Dacă ai un preț contractual mai mic, trebuie să vezi pe factură acel preț.",
+          "termen": null,
+          "destinatie": "furnizor",
+          "destinatie_propusa": null
+        },
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă prețul facturat pare mai mare decât cel permis de lege și furnizorul nu îl corectează, ANPC este instituția care constată și sancționează încălcările față de clienții casnici (art. 8 alin. (5)).",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Pagina de sesizări online a Autorității Naționale pentru Protecția Consumatorilor (ANPC), autoritatea care sancționează furnizorii de gaze în raport cu clienții casnici"
+        },
+        {
+          "tip": "nimic_pana_la",
+          "cine_aplica": "stat",
+          "text": "Nu trebuie să ceri nimic ca să primești regula. Se aplică automat pentru consumul până la 31 martie 2027. După această dată, ordonanța nu mai spune nimic despre preț.",
+          "termen": "2027-03-31",
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Textul nu dă un preț final în lei/MWh; prețul calculat depinde de costul gazelor cumpărate de fiecare furnizor și de tarifele ANRE din perioada respectivă, care nu sunt în act. Suma economisită depinde de consum și de prețul din contract, deci nu se poate estima din profil. Prețul de 110 lei/MWh plătit producătorilor poate fi modificat prin hotărâre de Guvern, de verificat. Pentru consumatorii din blocuri, art. 4 prevede împărțirea consumului anual al asociației la numărul de apartamente, dar textul nu spune cum se aplică asta pe factura individuală."
+    }
+  ]
+}

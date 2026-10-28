@@ -1,0 +1,20 @@
+{
+  "mod": "claude",
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "chirias",
+      "incredere": 0.95,
+      "motiv": "Persoana apare în contract ca chiriaș al unui apartament închiriat pentru locuit."
+    },
+    {
+      "tag": "elev_student",
+      "incredere": 0.9,
+      "motiv": "În contract scrie că chiriașa este studentă în anul II la o facultate."
+    }
+  ],
+  "valori": {
+    "chirie_lunara": 2000
+  },
+  "explicatie_scurta": "Documentul este un contract de închiriere pentru un apartament cu 2 camere, pe 12 luni. Chiria lunară este de 2.000 lei, iar chiriașa este studentă. Utilitățile se plătesc separat, dar contractul nu arată pe numele cui sunt facturile."
+}

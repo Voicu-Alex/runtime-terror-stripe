@@ -97,6 +97,18 @@ const EN: Record<string, string> = {
   "Termen depășit:": "Deadline passed:",
   "Ce poți face până la": "What you can do by",
   "Ce poți face, oricând:": "What you can do, any time:",
+  "Ce verifici": "What to check",
+  aplică: "applied by",
+  angajatorul: "your employer",
+  furnizorul: "your supplier",
+  statul: "the state",
+  "Nu trebuie să faci nimic până la": "Nothing to do until",
+  "Unde:": "Where:",
+  "lei/lună brut": "lei/month gross",
+  "Ca să vezi suma,": "To see the amount,",
+  Calculează: "Calculate",
+  "Rămâne doar pe acest dispozitiv.": "It stays on this device only.",
+  "spune-ne impozitul pe clădire de pe decizia de impunere": "tell us the building tax on your tax notice",
   "Ce poți face": "What you can do",
   "Dacă o faci, păstrezi până la": "If you do it, you keep up to",
   "În planul meu": "In my plan",
@@ -245,7 +257,9 @@ const FAMILIE_EN: Record<Familie, string> = {
 
 const TAG_EN: Record<TagId, string> = {
   angajat: "salary",
+  bugetar: "public sector salary",
   pfa: "sole trader (PFA)",
+  pfa_norma: "sole trader on income norm",
   srl_dividende: "SRL dividends",
   pensionar: "pension",
   masina: "car",
@@ -254,6 +268,7 @@ const TAG_EN: Record<TagId, string> = {
   parinte: "children",
   parinte_singur: "raising children alone",
   intretin_parinti: "supporting my parents",
+  intretin_sot: "supporting my spouse",
   intretin_handicap: "dependant with a disability",
   micro: "SRL micro-company",
   chirias: "renting",
@@ -288,6 +303,7 @@ const CAMP_EN: Record<CampValoare, string> = {
   nr_copii: "number of children",
   varsta_copil_mic: "age of the youngest child",
   persoane_intretinere: "dependants",
+  impozit_cladiri_anual: "building tax per year",
 };
 
 export function etichetaTagL(limba: Limba, tag: TagId): string {

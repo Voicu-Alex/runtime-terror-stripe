@@ -19,7 +19,9 @@ export type Familie = keyof typeof FAMILII;
 export const TAGURI = {
   // Cum câștig
   angajat: { familie: "venit", eticheta: "salariu" },
+  bugetar: { familie: "venit", eticheta: "salariu la stat (bugetar)" },
   pfa: { familie: "venit", eticheta: "PFA" },
+  pfa_norma: { familie: "venit", eticheta: "PFA la normă de venit" },
   srl_dividende: { familie: "venit", eticheta: "dividende SRL" },
   pensionar: { familie: "venit", eticheta: "pensie" },
 
@@ -32,6 +34,7 @@ export const TAGURI = {
   parinte: { familie: "familie", eticheta: "copii" },
   parinte_singur: { familie: "familie", eticheta: "cresc copiii singur" },
   intretin_parinti: { familie: "familie", eticheta: "părinți în întreținere" },
+  intretin_sot: { familie: "familie", eticheta: "soț sau soție în întreținere" },
   intretin_handicap: { familie: "familie", eticheta: "persoană cu handicap în întreținere" },
 
   // Ce conduc (PFA e deja la „Cum câștig”; nu îl dublăm)

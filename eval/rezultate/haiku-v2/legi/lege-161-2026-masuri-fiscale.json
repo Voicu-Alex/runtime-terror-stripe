@@ -1,0 +1,57 @@
+{
+  "act": "Legea 161/2026",
+  "mo": "MO 642 / 4 aug 2026",
+  "publicat_la": "2026-08-04",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Cota redusă de TVA de 9% la prima locuință cumpărată, doar până la 30 septembrie 2026",
+      "taguri": ["proprietar"],
+      "in_vigoare_de_la": "2026-08-07",
+      "pana_la": "2026-09-30",
+      "status": "termen_depasit",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I alin. (1)",
+      "citat": "În perioada cuprinsă între data intrării în vigoare a prezentei legi și data de 30 septembrie 2026 inclusiv, persoana fizică",
+      "niveluri": {
+        "zero": "Locuința cumpărată cu TVA de 9% trebuia cumpărată până la 30 septembrie 2026. Termenul a trecut.",
+        "curios": "Persoana fizică putea cumpăra o singură locuință cu TVA redus de 9%, dacă avea cel mult 120 mp utili și valoarea, cu teren, nu depășea 600.000 lei fără TVA. Locuința trebuia să fie gata de locuit la livrare, care nu putea fi după 30 septembrie 2026. Economia depinde de prețul locuinței, care nu e în profil.",
+        "expert": "Art. I alin. (1) lit. a)-d): cel mult 120 mp utili fără anexe, cel mult 600.000 lei fără TVA cu teren, locuibilă la livrare, fără altă locuință cu cotă redusă de TVA de la 1 ian 2023, avans încheiat până la 1 aug 2025. Alin. (2): pentru avansuri din 3-31 iulie 2025 se cere dovada avansului de 20% fără TVA, plătit integral până la 31 iulie 2025. Notarii verifică registrul și aplică cota standard dacă condiția nu e îndeplinită (alin. (3)). Art. I alin. (4) privește primăriile și nu e inclus aici."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Cota standard de TVA nu e scrisă în text, deci nu putem calcula economia. Prețul locuinței nu e în profil. Termenul de 30 septembrie 2026 a trecut la data de azi."
+    },
+    {
+      "rezumat": "Restituire a diferenței de TVA la locuința cumpărată cu cota standard, între 1 august 2026 și intrarea în vigoare a legii",
+      "taguri": ["proprietar"],
+      "in_vigoare_de_la": "2026-08-07",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II alin. (1), (2), (5)",
+      "citat": "poate solicita restituirea sumei rezultate din diferența între cota standard de TVA și cota redusă de TVA de 9%, pentru o singură locuință achiziționată",
+      "niveluri": {
+        "zero": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și 7 august 2026, poți cere diferența dintre TVA standard și TVA de 9%. Cererea se poate depune din 1 octombrie 2026.",
+        "curios": "Restituirea e pentru o singură locuință, cu aceleași condiții ca la TVA redus: cel mult 120 mp utili, cel mult 600.000 lei fără TVA cu teren și avansul din 2025. Suma e diferența dintre cota standard și 9%, deci depinde de prețul locuinței, care nu e în profil.",
+        "expert": "Art. II alin. (1)-(3): restituire pentru o locuință cu cota standard achiziționată între 1 aug 2026 și intrarea în vigoare; dacă sunt mai multe, se restituie pentru cea al cărei fapt generator de TVA a intervenit primul. Alin. (5): cererea se poate depune din 1 oct 2026, după procedura aprobată printr-un ordin al președintelui ANAF, publicat în Monitorul Oficial, Partea I, în 30 de zile de la intrarea în vigoare. Art. II alin. (4) privește primăriile și nu e inclus."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Depune cererea de restituire a diferenței de TVA la ANAF, dacă ai cumpărat locuința în perioada legii și îndeplinești condițiile. Cererea se depune din 1 octombrie 2026, după procedura din ordinul ANAF.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Cererea de restituire TVA de la ANAF, în forma stabilită de ordinul președintelui ANAF (ordinul nu e în textul legii)."
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Ordinul ANAF cu procedura și formularul nu sunt în textul legii; trebuie verificat dacă a fost publicat în Monitorul Oficial. Suma nu se poate calcula: prețul locuinței nu e în profil și cota standard nu e scrisă în text."
+    }
+  ]
+}

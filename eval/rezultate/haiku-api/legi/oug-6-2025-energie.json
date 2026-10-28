@@ -1,0 +1,65 @@
+{
+  "act": "OUG 6/2025",
+  "mo": "MO 182 / 28 feb 2025",
+  "publicat_la": "2025-02-28",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Plafonul de preț la energie și gaze a expirat: 30 iunie 2025 la curent, 31 martie 2026 la gaze",
+      "taguri": [
+        "consumator_energie",
+        "consumator_gaz",
+        "parinte",
+        "parinte_singur"
+      ],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2026-03-31",
+      "status": "termen_depasit",
+      "directie": "info",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (1) lit. a) și alin. (3)",
+      "citat": "pentru consumul realizat în perioada 1 aprilie 2025-30 iunie 2025, prețul final facturat plafonat de către furnizorii de energie electrică este",
+      "niveluri": {
+        "zero": "Prețurile plafonate la curent și gaze, prevăzute de această ordonanță, s-au încheiat: la energie electrică pe 30 iunie 2025, iar la gaze pe 31 martie 2026.",
+        "curios": "Ordonanța fixa un preț maxim pentru consumul casnic: de exemplu, la energie electrică, 0,68 lei/kWh cu TVA pentru consumul de până la 100 kWh pe lună, în perioada 1 aprilie 2025-30 iunie 2025. Pentru gaze, prețul maxim era de 0,31 lei/kWh cu TVA, între 1 aprilie 2025 și 31 martie 2026. Aceste perioade s-au încheiat, deci nu mai există un plafon pentru consumul de azi.",
+        "expert": "Art. 1 alin. (1) lit. a) pct. (i)-(iv) stabilea plafoane pe tranșe și categorii (casnici cu consum de până la 100 kWh, familii cu cel puțin 3 copii sub 18 ani, familii monoparentale, persoane cu dispozitive medicale), pentru consumul realizat în perioada 1 aprilie 2025-30 iunie 2025. Art. 1 alin. (3) lit. a) stabilea 0,31 lei/kWh pentru clienții casnici la gaze, pentru 1 aprilie 2025-31 martie 2026. Ordonanța nu prevede prelungire, iar alin. (8) permitea modificarea valorilor doar prin hotărâre de Guvern."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Nu se poate calcula o sumă de lună: impactul depinde de consumul fiecărei familii, iar plafoanele nu mai sunt active. Dacă ai o factură din perioada plafonată, verifică-o după schimbarea de mai jos. Articolul 1 alin. (1) lit. a) menționează și alte categorii de clienți și tranșe (100,01-255 kWh, 255-300 kWh); nu le-am detaliat, fiindcă sunt expirate."
+    },
+    {
+      "rezumat": "Până la 31 decembrie 2026 furnizorii fac regularizarea facturilor din perioada plafonată; dacă ai plătit în plus peste 100 lei, trebuie restituit în 5 zile",
+      "taguri": [
+        "consumator_energie",
+        "consumator_gaz"
+      ],
+      "in_vigoare_de_la": "2025-02-28",
+      "pana_la": "2026-12-31",
+      "status": "in_vigoare",
+      "directie": "termen",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (12) și art. 19 alin. (2) și (4)",
+      "citat": "Până la data de 31 decembrie 2026, pentru perioada de aplicare a schemei de sprijin instituite prin prezenta ordonanță de urgență se va efectua regularizarea sumelor decontate",
+      "niveluri": {
+        "zero": "Dacă furnizorul îți corectează factura pentru perioada plafonată, până la 31 decembrie 2026, și ai plătit în plus peste 100 lei, trebuie să primești banii înapoi în 5 zile.",
+        "curios": "Regularizarea înseamnă că factura se recalculează după ce se schimbă cantitățile de energie. Dacă ai plătit mai mult decât trebuia peste 100 lei, furnizorul trebuie să îți restituie suma în 5 zile de la factura de regularizare. Sumele mai mici de 100 lei se compensează în facturile următoare.",
+        "expert": "Art. 1 alin. (12): la regularizare, dacă suma plătită în plus de clientul casnic depășește 100 lei, furnizorul restituie în 5 zile de la emiterea facturii de regularizare; sub 100 lei, compensare în facturile următoare. Art. 19 alin. (2) și (4): termenul final pentru regularizarea decontărilor din Fondul de Tranziție Energetică este 31 decembrie 2026. Regularizarea decontărilor se face între furnizor, ANRE și bugete, nu direct cu clientul."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Dacă ți-a venit o factură de regularizare pentru perioada în care ai avut plafon, verifică prețul din factură cu cel plafonat din lege și suma de restituit. Dacă ai plătit în plus peste 100 lei, furnizorul trebuie să ți-o returneze în 5 zile de la factura de regularizare.",
+          "termen": "2026-12-31",
+          "destinatie": "furnizor",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Nu știm dacă vor fi facturi de regularizare pentru fiecare client; depinde de furnizor și de corecțiile de consum. Termenul de 5 zile se aplică doar pentru clienții casnici, la sumele peste 100 lei."
+    }
+  ]
+}

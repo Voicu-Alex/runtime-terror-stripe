@@ -1,0 +1,37 @@
+{
+  "act": "Legea 204/2026",
+  "mo": "MO 886 / 22 oct 2026",
+  "publicat_la": "2026-10-22",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Până la 200 litri pe an de băuturi alcoolice tradiționale, scutite de acciză pentru gospodăriile din Registrul agricol",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-10-25",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II (introduce alin. (1^10) și (1^11) la art. 342 din Codul fiscal)",
+      "citat": "Sunt scutite de la plata accizelor băuturile alcoolice tradiționale, astfel cum sunt reglementate prin dispoziții speciale, în limita a 200 litri anual pe o gospodărie",
+      "niveluri": {
+        "zero": "O gospodărie înscrisă în Registrul agricol nu plătește acciză pentru cel mult 200 de litri pe an de băuturi alcoolice tradiționale, dacă nu le vinde.",
+        "curios": "Legea scutește de acciză băuturile alcoolice tradiționale, până la 200 de litri pe an pentru fiecare gospodărie evidențiată în Registrul agricol. Scutirea se aplică doar băuturilor care nu sunt destinate vânzării. Condițiile și documentele pentru luarea în evidență a cantităților vor veni prin normele metodologice, deci până atunci nu se știe exact cum se dovedește scutirea.",
+        "expert": "Art. II completează art. 342 din Codul fiscal cu alin. (1^10) și (1^11). Alin. (1^10) scutește de acciză băuturile alcoolice tradiționale, astfel cum sunt reglementate prin dispoziții speciale, în limita a 200 litri anual pe gospodărie evidențiată în Registrul agricol (OG 28/2008), dacă nu sunt supuse vânzării. Alin. (1^11) spune că cantitatea nedestinată vânzării nu se include în limitele cantitative din alin. (1^2) pentru micii producători independenți de băuturi fermentate. Condițiile și modelul documentelor pentru luarea în evidență și justificarea cantităților se stabilesc prin normele metodologice, care nu sunt în acest text."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Verifică la primărie dacă gospodăria ta este evidențiată în Registrul agricol, condiția din lege pentru scutire. Documentele pentru luarea în evidență a cantităților vor fi stabilite prin normele metodologice, care încă nu sunt în acest text.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Nicio etichetă din listă nu se potrivește direct: condiția este înscrierea gospodăriei în Registrul agricol, nu mediul rural sau domeniul agricultură. Suma economisită nu se poate calcula, pentru că cuantumul accizei la aceste băuturi nu e în text. Ar trebui cuantumul accizei și cantitatea consumată. Sunt de verificat: (1) ce băuturi intră la „dispoziții speciale”, (2) normele metodologice (condiții, documente), încă neemise în textul primit, (3) limitele din alin. (1^2), la care trimite alin. (1^11) și care nu sunt în text. Legea aprobă și OG 22/2025 (art. I), al cărei conținut nu este în textul primit, deci nu e interpretat aici; un om trebuie să verifice dacă OG 22/2025 conține schimbări fiscale care atingă banii persoanelor fizice sau ai PFA/SRL mici. Actul intră în vigoare la 25 oct 2026 conform Portalului Legislativ; aplicarea practică depinde de norme."
+    }
+  ]
+}

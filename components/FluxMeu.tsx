@@ -34,7 +34,7 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
         </Link>
         <p className="mt-4 mb-0 text-[13px] text-v3-ink-2">
           {t("Sau vezi un exemplu:")} <Link href="/flux?p=andrei">Andrei, 32</Link> · <Link href="/flux?p=maria">Maria, 45</Link> ·{" "}
-          <Link href="/flux?p=ion">Ion, 67</Link> · <Link href="/flux?p=ioana">Ioana, 23</Link>
+          <Link href="/flux?p=ion">Ion, 67</Link> · <Link href="/flux?p=ioana">Ioana, 23</Link> · <Link href="/flux?p=elena">Elena, 24</Link>
         </p>
       </section>
     );
@@ -53,7 +53,15 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
       <div className="relative">
         {/* inert: conținutul estompat nu se poate citi cu tastatura sau cititorul de ecran, doar vedea ca formă */}
         <div inert={blocat} aria-hidden={blocat} className={blocat ? "pointer-events-none max-h-[1400px] overflow-hidden blur-[6px] select-none" : ""}>
-          <ListaFlux potriviri={potriviri} valori={profil.valori} sortare={sortare} baza="/flux" azi={aziISO()} />
+          <ListaFlux
+            potriviri={potriviri}
+            valori={profil.valori}
+            sortare={sortare}
+            baza="/flux"
+            azi={aziISO()}
+            profil={profil}
+            pastrare={{ tip: "profil" }}
+          />
         </div>
         {blocat && stare !== null && <Peste nr={potriviri.length} conectat={stare.conectat} />}
       </div>
@@ -68,7 +76,7 @@ function Peste({ nr, conectat }: { nr: number; conectat: boolean }) {
     <div className="absolute inset-0 flex justify-center bg-linear-to-b from-transparent via-[var(--fundal)]/40 to-[var(--fundal)] px-2 pt-16">
       <section
         aria-labelledby="pro-titlu"
-        className="sticky top-6 h-fit w-full max-w-[460px] rounded-2xl border border-v3-line bg-v3-card p-6 text-center shadow-[0_24px_60px_-24px_rgba(17,24,39,.45)]"
+        className="sticky top-[70px] h-fit w-full max-w-[460px] rounded-2xl border border-v3-line bg-v3-card p-6 text-center shadow-[0_24px_60px_-24px_rgba(17,24,39,.45)]"
       >
         <span className="inline-flex size-11 items-center justify-center rounded-full bg-v3-accent-soft text-v3-ink">
           <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5 fill-none stroke-current stroke-2" strokeLinecap="round">

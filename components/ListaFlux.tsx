@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import CardSchimbare from "@/components/CardSchimbare";
 import { useLimba } from "@/components/Limba";
 import { ArticolPrincipal, Cifre, Termene, TitluSectiune, evenimente } from "@/components/RevistaFlux";
 import { cuSemn, dupaImpact, dupaNoutate, mii, type Sortare } from "@/lib/card";
 import { alegeNotificarea, incarcaPlan, salveazaPlan } from "@/lib/plan";
-import { planulMeu, type Potrivire } from "@/lib/potrivire";
-import type { Valori } from "@/lib/profil";
+import { CATALOG } from "@/lib/catalog";
+import { planulMeu, potriveste, type Potrivire } from "@/lib/potrivire";
+import { adaugaInProfil, salveazaProfil, type CampValoare, type Profil, type Valori } from "@/lib/profil";
 
 /**
  * Lista „Toate actele care te privesc”, cu sortarea și „Planul meu”: acțiunile bifate
@@ -16,21 +17,58 @@ import type { Valori } from "@/lib/profil";
  * Deasupra: articolul principal (alegeNotificarea: termenul cel mai apropiat sau cei mai mulți bani), cifrele și termenele (mockup/v3?v=f).
  */
 export function ListaFlux({
-  potriviri,
-  valori,
+  potriviri: potriviriDate,
+  valori: valoriDate,
   sortare,
   baza,
   azi,
+  profil,
+  pastrare,
 }: {
   potriviri: Potrivire[];
   valori: Valori;
   sortare: Sortare;
   baza: string;
   azi: string;
+  /** cu profilul, un card poate cere o valoare lipsă („spune-ne X”) și lista se recalculează aici */
+  profil?: Profil;
+  /** unde păstrăm valoarea dată: în profilul real sau pe o cheie separată pentru o persoană demo */
+  pastrare?: { tip: "profil" } | { tip: "demo"; cheie: string };
 }) {
   const { t, limba } = useLimba();
   const [bifate, setBifate] = useState<Set<string>>(new Set());
   useEffect(() => setBifate(incarcaPlan()), []);
+
+  // Valorile date pe carduri, peste profil. Pentru persoanele demo stau pe cheia lor (nu ating profilul real).
+  const [extra, setExtra] = useState<Valori>({});
+  const cheieDemo = pastrare?.tip === "demo" ? pastrare.cheie : null;
+  useEffect(() => {
+    if (!cheieDemo) return;
+    try {
+      const brut = window.localStorage.getItem(cheieDemo);
+      setExtra(brut ? (JSON.parse(brut) as Valori) : {});
+    } catch {
+      setExtra({});
+    }
+  }, [cheieDemo]);
+
+  const cuExtra = profil && Object.keys(extra).length > 0;
+  const valori: Valori = cuExtra ? { ...valoriDate, ...extra } : valoriDate;
+  const potriviri = useMemo(
+    () => (cuExtra ? potriveste({ ...profil, valori: { ...profil.valori, ...extra } }, CATALOG, azi) : potriviriDate),
+    [cuExtra, profil, extra, azi, potriviriDate],
+  );
+
+  function seteazaValoare(camp: CampValoare, valoare: number) {
+    const urm = { ...extra, [camp]: valoare };
+    setExtra(urm);
+    try {
+      if (pastrare?.tip === "demo") window.localStorage.setItem(pastrare.cheie, JSON.stringify(urm));
+      else if (pastrare?.tip === "profil" && profil) salveazaProfil(adaugaInProfil(profil, [], { [camp]: valoare }));
+    } catch {
+      // storage blocat: valoarea rămâne până la reîncărcare
+    }
+  }
 
   function comuta(id: string) {
     const nou = new Set(bifate);
@@ -77,7 +115,14 @@ export function ListaFlux({
         ) : (
           <ul className="m-0 list-none p-0">
             {flux.map((x) => (
-              <CardSchimbare key={x.schimbare.id} p={x} valori={valori} bifata={bifate.has(x.schimbare.id)} onBifeaza={() => comuta(x.schimbare.id)} />
+              <CardSchimbare
+                key={x.schimbare.id}
+                p={x}
+                valori={valori}
+                bifata={bifate.has(x.schimbare.id)}
+                onBifeaza={() => comuta(x.schimbare.id)}
+                onValoare={profil && pastrare ? seteazaValoare : undefined}
+              />
             ))}
           </ul>
         )}

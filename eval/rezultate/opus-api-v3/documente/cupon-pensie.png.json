@@ -1,0 +1,16 @@
+{
+  "mod": "claude",
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "pensionar",
+      "incredere": 0.97,
+      "motiv": "Documentul este un talon de pensie pentru limită de vârstă emis de casa de pensii pe numele beneficiarului."
+    }
+  ],
+  "valori": {
+    "pensie_lunara": 4200,
+    "an_nastere": 1958
+  },
+  "explicatie_scurta": "Documentul este un talon de pensie pentru luna octombrie 2026, pentru o pensie pentru limită de vârstă. Pensia brută este de 4.200 lei, iar după reținerea CASS se plătesc 4.080 lei. Beneficiarul este născut în 1958."
+}
