@@ -16,7 +16,7 @@ export function Antet() {
   const { t } = useLimba();
   const cale = usePathname();
   return (
-    <header className="border-b border-v3-line">
+    <header>
       <div className="mx-auto grid max-w-[1080px] grid-cols-[1fr_auto_1fr] items-center gap-2.5 px-4 pt-3.5 pb-2.5 lg:pt-[18px] lg:pb-4">
         {/* stânga: tema, dreapta: limba, ca logo-ul să rămână centrat */}
         <span className="flex justify-start">
@@ -34,7 +34,11 @@ export function Antet() {
           <ComutatorLimba />
         </span>
       </div>
-      <nav aria-label={t("Secțiuni")} className="flex justify-center gap-5 border-t border-v3-line sm:gap-11">
+      {/* Bara de secțiuni rămâne lipită sus la scroll; logo-ul de deasupra iese din ecran. */}
+      <nav
+        aria-label={t("Secțiuni")}
+        className="sticky top-0 z-20 flex justify-center gap-5 border-t border-b border-v3-line bg-[var(--fundal)] sm:gap-11"
+      >
         {SECTIUNI.map((s) => (
           <Link
             key={s.href}
