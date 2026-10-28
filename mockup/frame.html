@@ -1,0 +1,13 @@
+<!doctype html>
+<!-- Ramă pentru capturi: Chrome headless pe Windows nu randează sub ~500px lățime.
+     Folosire: frame.html?src=v3/%3Fv%3Da&w=375&h=812 (src encodat cu encodeURIComponent). -->
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#fff}iframe{border:0;display:block}</style>
+<iframe id="f"></iframe>
+<script>
+  const p = new URLSearchParams(location.search);
+  const f = document.getElementById("f");
+  f.width = p.get("w") || 375;
+  f.height = p.get("h") || 812;
+  f.src = p.get("src") || "index.html";
+</script>
