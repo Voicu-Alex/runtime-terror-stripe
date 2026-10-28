@@ -1,0 +1,39 @@
+{
+  "act": "OUG 29/2026",
+  "mo": "MO 313 / 20 apr 2026",
+  "publicat_la": "2026-04-20",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Din 1 iulie 2026 dispare o regulă specială legată de salariul minim; se aplică regula generală din Codul muncii",
+      "taguri": [
+        "salariu_minim"
+      ],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II",
+      "citat": "La data de 1 iulie 2026, articolul LXX din Ordonanța de urgență a Guvernului nr. 156/2024 privind unele măsuri fiscal-bugetare",
+      "niveluri": {
+        "zero": "Din 1 iulie 2026 se abrogă o regulă specială despre salariul minim, iar salariul minim brut garantat în plată este de 4.325 lei.",
+        "curios": "Ordonanța abrogă de la 1 iulie 2026 articolul LXX din OUG 156/2024. Potrivit preambulului, acesta crea o excepție de la regula generală din Codul muncii pentru salariul minim, iar abrogarea așază totul sub aceeași regulă. Tot din 1 iulie 2026, salariul minim brut garantat în plată este de 4.325 lei (HG 146/2026). Ce spunea exact articolul abrogat nu e scris în acest act. Cât te afectează depinde de contractul tău.",
+        "expert": "Art. II abrogă de la 1 iulie 2026 art. LXX din OUG 156/2024. Preambulul spune că menținerea lui ar genera un regim derogatoriu de la art. 164 alin. (1) din Codul muncii și o discriminare în regimul salariului minim brut garantat în plată. Același preambul arată că prin HG 146/2026 salariul minim brut garantat în plată este de 4.325 lei de la 1 iulie 2026. Conținutul lui art. LXX nu apare în text, așa că efectul concret nu poate fi descris din acest act. Art. I (completarea art. XXII din Legea 141/2025 cu alin. (16)-(18)) permite, prin memorandum, concursuri pentru posturi în MApN, STS, justiție și INEC. Nu atinge banii unei persoane fizice sau ai unei PFA/SRL."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Dacă ești pe salariul minim, verifică pe fluturașul din iulie sau din lunile următoare că salariul de bază brut nu e sub 4.325 lei, cât este salariul minim brut garantat în plată din 1 iulie 2026. Dacă nu se potrivește, cere explicații contabilității.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Conținutul art. LXX din OUG 156/2024 nu e în acest text, deci nu știm ce se schimbă concret pentru bani și nici cine e afectat (de exemplu, anumite domenii). Un om trebuie să verifice textul art. LXX din OUG 156/2024 înainte ca cardul să apară în aplicație. Eticheta salariu_minim vine doar din preambul, care leagă abrogarea de regimul salariului minim. Fără formulă: nu avem o sumă în text. Art. I (concursuri în sectorul public) nu e o schimbare pentru bani și nu a primit card."
+    }
+  ]
+}

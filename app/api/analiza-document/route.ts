@@ -6,6 +6,7 @@ import {
   MARIME_MAXIMA,
   SCHEMA_ANALIZA,
   TIPURI_FISIER_ACCEPTATE,
+  curataValori,
   type AnalizaDocument,
 } from "@/lib/analiza-document";
 import { raspunsDemo } from "@/lib/demo-analiza";
@@ -93,8 +94,10 @@ export async function POST(req: Request) {
       tip_document: brut.tip_document ?? "altul",
       etichete_propuse: (brut.etichete_propuse ?? [])
         .filter((e) => esteTag(e.tag))
+        // sub 0,2 modelul spune de fapt că eticheta nu se potrivește (ex. „rural” la o adresă din București)
+        .filter((e) => Number(e.incredere) >= 0.2)
         .map((e) => ({ ...e, incredere: Math.min(1, Math.max(0, Number(e.incredere) || 0)) })),
-      valori: brut.valori ?? {},
+      valori: curataValori(brut.valori as Record<string, unknown>),
       explicatie_scurta: brut.explicatie_scurta ?? "",
     });
 

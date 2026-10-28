@@ -1,0 +1,23 @@
+{
+  "mod": "claude",
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "pilon2",
+      "incredere": 0.97,
+      "motiv": "Documentul este situația contului de participant la un fond de pensii Pilon II, cu contribuții virate în 2025."
+    },
+    {
+      "tag": "angajat",
+      "incredere": 0.8,
+      "motiv": "Documentul arată că un angajator a virat contribuțiile la Pilon II în 2025, calculate din venitul brut."
+    },
+    {
+      "tag": "transport",
+      "incredere": 0.35,
+      "motiv": "Numele angajatorului conține cuvântul logistică, dar documentul nu spune clar domeniul de activitate."
+    }
+  ],
+  "valori": {},
+  "explicatie_scurta": "Documentul este situația anuală a unui cont la Pilon II, la 31.12.2025. Arată contribuții virate în 2025 de 5.130,00 lei de către un angajator și o valoare a contului de 63.874,15 lei. Nu apar salariul lunar sau alte date pe care aplicația să le poată completa."
+}

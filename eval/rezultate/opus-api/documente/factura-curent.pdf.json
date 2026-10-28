@@ -1,0 +1,21 @@
+{
+  "mod": "claude",
+  "tip_document": "factura_utilitati",
+  "etichete_propuse": [
+    {
+      "tag": "consumator_energie",
+      "incredere": 0.95,
+      "motiv": "Este o factură de energie electrică pentru un client casnic, emisă pe numele persoanei."
+    },
+    {
+      "tag": "rural",
+      "incredere": 0.6,
+      "motiv": "Locul de consum este într-un sat, dar factura nu arată sigur că persoana locuiește acolo."
+    }
+  ],
+  "valori": {
+    "furnizor": "Hidroelectrica",
+    "suma_factura": 302.74
+  },
+  "explicatie_scurta": "Documentul este o factură de curent de la Hidroelectrica pentru luna septembrie 2026, pentru un client casnic. Totalul de plată este 302,74 lei. Locul de consum este într-un sat."
+}

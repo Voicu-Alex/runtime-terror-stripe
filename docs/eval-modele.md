@@ -84,6 +84,34 @@ Pe HG 146/2026 ambele au ales `diferenta_prag` cu 4.325 lei. Haiku a folosit și
 
 **Găsit:** nu există o etichetă pentru „cumpăr o locuință”; Sonnet a lăsat Legea 161/2026 fără etichete, deci cardul nu ar ajunge la nimeni. De adăugat în `lib/taguri.ts` (decizie de echipă).
 
+## Runda 3: API real (28 oct 2026, noaptea)
+
+Cu cheia din `.env.local`. Legile: `eval/interpreteaza-api.mjs` (aceleași instrucțiuni v2 ca subagenții, cu fișierele pe care le citeau ei puse în promptul de sistem, memorat în cache). Documentele: `eval/documente-api.mjs`, prin ruta reală `/api/analiza-document` (Opus 5.5).
+
+| | Haiku 5.5 (API) | Sonnet 5.5 (API) |
+|---|---|---|
+| Triaj, etichete, data publicării, ton (9 acte) | 9/9 la toate | 9/9 la toate |
+| Citate găsite textual în act | 18/18 | 21/21 |
+| Schimbări active cu acțiune | 16/16 | 15/15 |
+| Acțiuni valide / destinații din listă | 16/16 · 12/12 | 19/19 · 12/12 |
+| Formule parametrizate cu numerele în lege | 3/3 | 1/1 |
+| Timp, 9 acte | 224 s | 368 s |
+| **Cost măsurat (usage din API), 9 acte** | **0,04 USD** | **0,85 USD** |
+
+Pe API real, Haiku face aceeași treabă ca Sonnet pe acest set, de ~20 de ori mai ieftin. Legea 161/2026 primește `cumpar_locuinta` la amândouă (în rulările cu subagenți eticheta nu exista încă pe branch; de aceea acolo apare acum 8/9 la etichete).
+
+**Documente pe Opus, prin rută:**
+
+| Rulare | Rezultat | Ce s-a schimbat după |
+|---|---|---|
+| 1 | 11/13: salariul net lipsea pe ambele fluturașe (era în explicație), iar câmpurile fără legătură veneau cu 0 sau "" | schema cere fiecare valoare (poate fi `null`); ruta aruncă `null`, 0 și textul gol (`curataValori`) |
+| 2 | 13/13, dar factura de gaz a primit „rural” cu încredere 0,05 („nu se potrivește”) | regula 10 (nu propui o etichetă ca să spui că nu se potrivește) și ruta aruncă propunerile sub 0,2 |
+| 3 | **13/13**, valori curate (net și brut pe fluturașe, pensia și anul nașterii pe cupon) | — |
+
+**De ce conta:** `components/FormularProfil.tsx` pune automat în profil orice valoare numerică primită. Cu prima rulare, un fluturaș ar fi pus `cheltuieli_lunare: 0` în profil și ar fi anulat calculul TVA. Subagenții nu arătaseră problema: e un efect al schemei de răspuns din API.
+
+Costul documentelor nu e măsurat (ruta nu înregistrează tokenii); estimare pe prețul de listă Opus 5.5: ~0,4 USD pe rulare de 13 documente.
+
 ## Cum se rulează din nou
 
 ```bash
@@ -93,6 +121,8 @@ node eval/scor.mjs                 # notează eval/rezultate/<model>/
 node eval/numara-actiuni.mjs       # câte acțiuni și linkuri pe model
 node eval/detalii-v2.mjs           # formulele, destinațiile alese și propuse (v2)
 node scripts/verifica-destinatii.mjs # verificarea zilnică a destinațiilor
+node --env-file=.env.local eval/interpreteaza-api.mjs claude-haiku-5-5   # legile, API real (costă)
+node eval/documente-api.mjs http://localhost:3010 opus-api-v3          # documentele prin rută (cere npm run dev și cheia)
 ```
 
 Rezultatele brute: `eval/rezultate/{sonnet,haiku}/{documente,legi}/`. Așteptările: `eval/asteptari-documente.json`, `eval/asteptari-legi.json`.

@@ -1,0 +1,20 @@
+{
+  "mod": "claude",
+  "tip_document": "contract_munca",
+  "etichete_propuse": [
+    {
+      "tag": "angajat",
+      "incredere": 0.97,
+      "motiv": "Documentul este un contract individual de muncă pe durată nedeterminată, cu normă întreagă."
+    },
+    {
+      "tag": "it",
+      "incredere": 0.93,
+      "motiv": "Angajatorul are cod CAEN 6201 (realizare de software la comandă), iar funcția este de programator."
+    }
+  ],
+  "valori": {
+    "salariu_brut": 12000
+  },
+  "explicatie_scurta": "Este un contract de muncă pe durată nedeterminată, pentru funcția de programator la o firmă de software. Salariul de bază lunar brut scris în contract este de 12.000 lei. Salariul net nu apare în document."
+}
