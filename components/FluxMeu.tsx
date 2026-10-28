@@ -38,7 +38,7 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
   return (
     <>
       <p className="mt-1 mb-0 text-sm text-v3-ink-2">
-        {t("Profilul tău:")} {profil.taguri.map((x) => etichetaTagL(limba, x)).join(", ")} · {potriviri.length} {t("acte care te privesc")} ·{" "}
+        {t("Profilul tău:")} {profil.taguri.map((x) => etichetaTagL(limba, x)).join(", ")} ·{" "}
         <Link href="/profil" className="text-v3-ink underline decoration-v3-line underline-offset-2">
           {t("modifică")}
         </Link>

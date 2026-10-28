@@ -33,7 +33,7 @@ function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
   return (
     <>
       <p className="mt-1 mb-0 text-sm text-v3-ink-2">
-        <T k="Profil demo:" /> <b className="text-v3-ink">{persoana.nume}</b> · {potriviri.length} <T k="acte care te privesc" /> ·{" "}
+        <T k="Profil demo:" /> <b className="text-v3-ink">{persoana.nume}</b> ·{" "}
         <Link href="/flux" className="text-v3-ink underline decoration-v3-line underline-offset-2">
           <T k="profilul meu" />
         </Link>

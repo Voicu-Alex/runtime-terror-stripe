@@ -157,7 +157,6 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
             <span>
               {s.verificat_la ? `verificat la ${dataScurta(s.verificat_la)}` : "neverificat încă"}
               {s.incredere === "scazuta" && " · sursă de încredere scăzută"}
-              {s.estimare && " · sumele sunt calculul nostru pe cazul de referință, nu cifre din lege"}
             </span>
           </p>
         </div>
@@ -181,7 +180,7 @@ export default function PaginaLegi() {
           <T k="Cât poți salva din legile noi, de la cea mai mare sumă în jos" />
         </h1>
         <p className="m-0 mt-3 max-w-[62ch] text-[17px] leading-[1.6] text-[#1F2937]">
-          <T k="Pagina nu e personalizată. Fiecare articol spune pentru cine e și calculează pe un caz de referință, scris sub sumă. Pentru sumele tale, vezi" />{" "}
+          <T k="Pagina nu e personalizată. Fiecare articol spune pentru cine e și calculează pe un caz de referință, scris sub sumă: e calculul nostru, nu o cifră din lege. Pentru sumele tale, vezi" />{" "}
           <Link href="/flux" className="font-semibold text-v3-ink underline decoration-v3-tintb underline-offset-2">
             <T k="Fluxul meu" />
           </Link>
@@ -224,7 +223,7 @@ export default function PaginaLegi() {
       )}
 
       <p className="mt-6 text-[13px] text-v3-ink-2">
-        <T k="Informare, nu sfat financiar. Soluțiile sunt instrumente oficiale sau gratuite; pe pagina asta nu primim bani de la nicio firmă." />
+        <T k="Soluțiile sunt instrumente oficiale sau gratuite; pe pagina asta nu primim bani de la nicio firmă." />
       </p>
     </div>
   );

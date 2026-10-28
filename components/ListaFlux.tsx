@@ -13,7 +13,7 @@ import type { Valori } from "@/lib/profil";
 /**
  * Lista „Toate actele care te privesc”, cu sortarea și „Planul meu”: acțiunile bifate
  * se adună în bara de jos. O folosesc și profilul real, și persoanele demo.
- * Deasupra: articolul principal (același act ca notificarea), cifrele și termenele (mockup/v3?v=f).
+ * Deasupra: articolul principal (alegeNotificarea: termenul cel mai apropiat sau cei mai mulți bani), cifrele și termenele (mockup/v3?v=f).
  */
 export function ListaFlux({
   potriviri,

@@ -201,13 +201,14 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
 export function Cifre({ potriviri, valori, ev, azi }: { potriviri: Potrivire[]; valori: Valori; ev: Eveniment[]; azi: string }) {
   const { t, limba } = useLimba();
   const vederi = potriviri.map((p) => ({ p, v: vedere(p, valori, limba) }));
-  const acum = vederi.reduce((s, x) => s + (x.p.moment === "in_vigoare" ? (x.v.suma ?? 0) : 0), 0);
-  const actiuni = vederi.filter((x) => x.v.economieAn && !x.v.termen?.depasit).length;
+  // Suma pe lună e deja în bara „Planul meu”; aici arătăm cât poți păstra dacă faci tot ce permite legea.
+  const deschise = vederi.filter((x) => x.v.economieAn && !x.v.termen?.depasit);
+  const pastrezi = deschise.reduce((s, x) => s + (x.v.economieAn ?? 0), 0);
   const cifre: [React.ReactNode, string][] = [
     [potriviri.length, t("acte care te privesc")],
-    [<span key="a" className={culoare(acum)}>{cuSemn(acum)} lei</span>, t("pe lună, din actele în vigoare")],
     [ev.filter((x) => x.termen).length, t("termene deschise")],
-    [actiuni, t("acțiuni pe care legea le permite")],
+    [deschise.length, t("acțiuni pe care legea le permite")],
+    [<span key="p" className={culoare(pastrezi)}>{cuSemn(pastrezi)} lei</span>, t("pe an, dacă le faci pe toate")],
   ];
   return (
     <section

@@ -6,7 +6,6 @@ import { ComutatorLimba, useLimba } from "@/components/Limba";
 
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
 const SECTIUNI = [
-  { href: "/notificare", text: "Azi" },
   { href: "/flux", text: "Flux" },
   { href: "/legi", text: "Toate legile" },
   { href: "/profil", text: "Profil" },
