@@ -44,46 +44,43 @@
 }
 
 /*
- * Tema închisă. Reguli de culoare pentru interfețe închise:
- * - fără negru pur: fundal gri cald (#151413), din aceeași familie ca accentul „gri șobolan”;
- * - adâncimea prin luminozitate, nu prin umbre: cu cât suprafața e mai sus, cu atât e mai deschisă
- *   (fundal #151413 → card #1E1D1B → banda #23211E → degradeuri #2B2825);
- * - textul nu e alb pur (#ECE8E3), ca să nu „ardă” pe fundal închis;
- * - verdele și roșul sunt desaturate și mai deschise, ca să nu vibreze, dar rămân verde = bani în plus,
- *   roșu = bani în minus; fundalurile lor „soft” sunt aceeași nuanță, foarte închisă;
- * - toate perechile text/fundal au cel puțin 4,5:1 (WCAG AA); cele mai multe peste 6:1.
+ * Tema închisă, neutră: gri-negru curat (scara zinc), fără tentă caldă.
+ * - fără negru pur: fundal #18181B; suprafețele mai sus sunt puțin mai deschise (card #1F1F23, degradeuri #27272A);
+ * - text aproape alb (#F4F4F5), text secundar #A1A1AA;
+ * - verde #4ADE80 = bani în plus, roșu #F87171 = bani în minus, mai deschise ca să se citească pe închis;
+ * - toate perechile text/fundal au cel puțin 4,5:1 (WCAG AA); cea mai mică e 5,8:1.
  */
 [data-theme="dark"] {
   color-scheme: dark;
-  --color-v3-ink: #ECE8E3;
-  --color-v3-ink-2: #ABA49D;
-  --color-v3-ink-soft: #D9D4CE;
+  --color-v3-ink: #F4F4F5;
+  --color-v3-ink-2: #A1A1AA;
+  --color-v3-ink-soft: #D4D4D8;
   --color-v3-ink-strong: #FFFFFF;
-  --color-v3-on-ink: #151413;
-  --color-v3-paper: #151413;
-  --color-v3-card: #1E1D1B;
-  --color-v3-line: #34312D;
-  --color-v3-accent: #C9C1B8;
-  --color-v3-neg: #F28B82;
-  --color-v3-pos: #6FCF97;
-  --color-v3-pos-soft: #17271E;
-  --color-v3-accent-soft: #2A2724;
-  --color-v3-act: #221F1B;
-  --color-v3-urg: #F07167;
-  --color-v3-urg-soft: #2E1B19;
-  --color-v3-past: #929B94;
-  --color-v3-past-bg: #252724;
-  --color-v3-past-line: #454A45;
-  --color-v3-logo: #EDE6DE;
-  --color-v3-accd: #E7E1DA;
-  --color-v3-tint1: #2B2825;
-  --color-v3-tint2: #1F1D1B;
-  --color-v3-tintb: #3A3632;
-  --color-v3-stats: #26231F;
-  --color-v3-band: #23211E;
-  --color-v3-band-ink: #F1EDE8;
-  --color-v3-band-ink-2: #B5AEA6;
-  --color-v3-band-pos: #86EFAC;
+  --color-v3-on-ink: #18181B;
+  --color-v3-paper: #18181B;
+  --color-v3-card: #1F1F23;
+  --color-v3-line: #303036;
+  --color-v3-accent: #D4D4D8;
+  --color-v3-neg: #F87171;
+  --color-v3-pos: #4ADE80;
+  --color-v3-pos-soft: #132A1C;
+  --color-v3-accent-soft: #27272A;
+  --color-v3-act: #232327;
+  --color-v3-urg: #F87171;
+  --color-v3-urg-soft: #2D1A1A;
+  --color-v3-past: #9CA3AF;
+  --color-v3-past-bg: #27272A;
+  --color-v3-past-line: #3F3F46;
+  --color-v3-logo: #F4F4F5;
+  --color-v3-accd: #E4E4E7;
+  --color-v3-tint1: #27272A;
+  --color-v3-tint2: #1F1F23;
+  --color-v3-tintb: #3F3F46;
+  --color-v3-stats: #232327;
+  --color-v3-band: #232327;
+  --color-v3-band-ink: #F4F4F5;
+  --color-v3-band-ink-2: #A1A1AA;
+  --color-v3-band-pos: #4ADE80;
 }
 
 @theme {
