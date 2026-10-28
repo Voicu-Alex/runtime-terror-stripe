@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ce înseamnă pentru mine · v3</title>
+<!--
+PROTOTIP DE ARUNCAT (skill `prototype`, ramura UI, sub-forma B: ecrane noi, fără aplicație reală încă).
+Întrebarea: cât FOMO (pierdere în lei + termen din lege) suportă produsul fără să piardă încrederea?
+Trei variante pe aceeași pagină: ?v=a|b|c, plus ?s=notif|feed|card|plan|profile|onb|form|stari,
+?d=<dată demo ISO>, ?p=andrei|maria|ion, ?on=<id-uri simulate>, ?bar=0 (ascunde bara de prototip, pentru capturi).
+Server: python -m http.server 8765 --directory mockup  →  http://localhost:8765/v3/
+
+Decizii din grilling (28 oct 2026): token-urile v2 rămân baza; urgența „c” (suma întâi, termenul pe rândul doi,
+fără pulsații, fără cronometru cu secunde); trei variante, B favorită; prag de urgență 30 de zile + dată demo
+comutabilă, marcată; „pierzi” doar pe sume sigure (încredere ridicată, nu estimare), estimările scrise „≈ … · estimare”;
+IT = ≈520 lei/lună (estimare, brut 8.000; decizia finală a echipei); persona Andrei; notificarea = regula
+„cel mai apropiat termen real”; onboarding = chat scriptat cu răspunsuri rapide + formular; Planul meu = două linii
+cumulative; doar temă deschisă; desktop = coloană de 680px.
+
+ui-ux-pro-max (din rădăcina repo-ului, fără --persist):
+  --design-system "personal finance legal news mobile calm"
+     LUAT: Minimalism & Swiss (spațiu alb, ierarhie prin tipografie), Newsreader pentru titluri, checklist (4.5:1, focus, reduced-motion).
+     RESPINS: paleta „Breaking red + link blue” (#DC2626 pe #FEF2F2) ca bază și „Hero-Centric” full-bleed: contrazic
+       design-research.md („calm”, „culoarea înseamnă stare”). Roșul rămâne doar pentru urgență sub prag, mereu cu text.
+  --domain typography "editorial serif news trustworthy"
+     LUAT: Newsreader (titluri, B). RESPINS: Roboto ca pereche → Inter (design-research: grotesk tip Inter, cifre tabulare bune);
+       perechile all-serif (Cormorant, Playfair): fără sans pentru cifre, contra „precizie de fintech”.
+  --domain color "government legal news calm trust"
+     LUAT în C: Government/Public Service (#0F172A + #0369A1). RESPINS: Legal „trust gold” #B45309 ca accent (aurul citește a premium/upsell).
+  --domain chart "cumulative savings comparison projection"
+     LUAT: linie solidă = sigur, linie punctată = simulare, etichete directe, tabel ca alternativă, semn + text, nu doar culoare.
+     RESPINS: Waterfall ca grafic principal (întrebarea e „fără vs. cu acțiuni”, nu componența) → folosit doar ca defalcare în C.
+       „Line with confidence band”: nu avem interval de încredere real, ar fi inventat.
+  --domain landing "urgency scarcity"
+     LUAT: termen static scris în text, fără ticker; stare finală statică la reduced-motion; raritate doar verificată și datată.
+     RESPINS: tiparul webinar/waitlist (timer în hero, „locuri limitate”, contor de waitlist): nu avem raritate de acest tip.
+  --domain ux "notification", "empty state", "loading skeleton", "error message", "number formatting", "chat onboarding conversational"
+     LUAT: gol = mesaj + acțiune; încărcare cu aria-busy și text, nu doar schelet; erori cu role=alert, lângă câmp, aria-describedby;
+       separator de mii ro-RO; onboarding cu „Sari peste” și alternativă (formular).
+
+A · „Termenul întâi” (urgența pe primul plan)
+  Încearcă: fiecare card e Hook = suma mare, Story = termenul + „mai ai N zile” pe rândul doi, Offer = Simulează. Fluxul e sortat
+  după cel mai apropiat termen; un bloc întunecat „Următorul termen” deschide ecranul. Bricolage Grotesque peste tot (continuitate v2).
+  Sacrifică: contextul de știre (de când, ce s-a schimbat), calmul; actele fără termen par secundare chiar dacă costă mai mult
+  (IT −520 lei/lună stă sub Pilon III ≈200 lei/an). Pe 28 oct nimic nu e sub 30 de zile, deci tonul depinde mult de dată.
+B · „Calm editorial” (favorita)
+  Încearcă: cronologie de știri (Urmează / Deja în vigoare), titluri serif, sumă aliniată la dreapta, urgența doar ca insignă sub 30
+  de zile și ca frază de pierdere în cardul deschis. Cel mai aproape de design-research.md.
+  Sacrifică: impactul vizual în primele 5 secunde; termenul nu „țipă” până nu intră sub prag.
+C · „Planul întâi”
+  Încearcă: cârligul e totalul pe 12 luni și banii lăsați pe masă; grafic + defalcare pe acte, apoi rândurile de registru.
+  Sacrifică: lectura actelor (rânduri dense, titluri scurte); cere încredere în model înainte de a arăta legea; cifra mare e
+  o sumă de estimări.
+D · „Revistă” (după tiparul avocatnet.ro, cerut pe 28 oct; vezi docs/research-competitori.md și captures/competitori/avocatnet-*)
+  Încearcă: limbajul unei publicații pentru „milioane de români”: antet centrat cu slogan, navigare cu majuscule, filtre pe familii
+  de etichete cu număr de acte, articolul principal (următorul termen) pe fundal colorat, blocul „Pentru tine, în cifre”, listă
+  simplă și coloana „Termene · ce urmează” cu data mare. Titluri Raleway 800, text Inter, accent albastru regal (#1D4ED8, 6,7:1 pe alb).
+  F = gri șobolan (text #57534E, 7,6:1; fundal în degrade spre gri), doar verdele și roșul banilor au culoare.
+  E = aceeași pagină în turcoaz (text #0B7A80, 5,1:1; logo #0D9488, folosit doar ca text mare). Pe desktop 3 coloane; pe telefon: bară de filtru închisă, apoi articol, cifre, termene, listă.
+  Sacrifică: densitate mare pe telefon; seamănă cu un site de știri, deci „Planul meu” pierde bara fixă (cifrele sunt în bloc).
+  Riscă să arate ca avocatnet: brandul, logo-ul și textele sunt ale noastre, doar tiparul de pagină e împrumutat.
+Recomandare: B ca bază, cu două împrumuturi: din A, rândul „până la <dată> · mai ai N zile” pe cardurile cu acțiune (nu doar
+sub prag), din C, graficul în Planul meu. Detaliile în răspunsul din sesiune și în ADR-ul care urmează alegerii.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Raleway:wght@600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4EF; --card:#FFFFFF; --ink:#14201B; --ink-2:#4A5851; --line:#D6DCD3;
+  --accent:#2A3BC9; --accent-soft:#E7EAFB;
+  --neg:#9A4630; --pos:#1E7A4B; --pos-soft:#E1F1E7;
+  --urg:#B42318; --urg-soft:#FCEBE9; --past:#5E6A63; --past-bg:#E8EBE6;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif; --serif:'Newsreader',Georgia,serif;
+  --r:14px; --tb:60px; --pb:0px; --planh:0px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 var(--sans);font-variant-numeric:tabular-nums}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.app{max-width:680px;margin:0 auto;padding:0 16px calc(var(--tb) + var(--planh) + var(--pb) + 28px)}
+.nw{white-space:nowrap}
+.pre{font-size:.5em;font-weight:600;letter-spacing:0}
+.a-hero .pre{display:block;font-size:17px;margin-bottom:2px}
+.ahead .pre{font-size:16px}
+.bhead .pre,.chd .pre{font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.stbox .btn2,.stbox .cta{display:flex;align-items:center;justify-content:center;margin:12px auto 0}
+.stbox.err .btn2{margin-left:0}
+.stbox.err b+*{display:block}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 10px;padding:16px 0 6px}
+.brand{margin:0;font-weight:700;font-size:19px;letter-spacing:-.01em}
+.demo{font-size:12.5px;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.sub{margin:2px 0 14px;font-size:14px;color:var(--ink-2)}
+h2.sec{margin:22px 0 10px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+
+/* shared atoms */
+.pill{display:inline-block;font-size:12.5px;font-weight:600;border-radius:999px;padding:1px 9px;border:1px solid var(--line);white-space:nowrap}
+.st-proiect{background:var(--paper);color:var(--ink-2);border:1px dashed var(--ink-2)}
+.st-adoptat{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.st-in_vigoare{background:var(--pos-soft);color:var(--pos);border-color:var(--pos)}
+.st-termen_depasit{background:var(--past-bg);color:var(--past);border-color:#C3CAC2}
+.est{display:inline-block;font-size:12px;font-weight:600;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:6px;padding:0 6px;vertical-align:middle}
+.simtag{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);border:1.5px dashed var(--accent);border-radius:6px;padding:0 6px;vertical-align:middle}
+.urgchip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:#fff;background:var(--urg);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.urgchip::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
+.neg{color:var(--neg)} .pos{color:var(--pos)} .zero{color:var(--ink)}
+.tg{display:inline-block;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:2px 9px;margin:0 4px 4px 0}
+
+/* detail (shared, styled per variant) */
+.detail{padding:14px 16px 16px;border-top:1px solid var(--line)}
+.why{margin:0 0 10px;font-size:15px;max-width:60ch}
+.tgrow{margin:0 0 12px;font-size:13.5px;color:var(--ink-2)}
+.act{background:var(--paper);border-radius:10px;padding:12px;margin-bottom:12px}
+.act.urg{background:var(--urg-soft);box-shadow:inset 3px 0 0 var(--urg)}
+.act.exp{background:var(--past-bg);color:var(--past)}
+.act .ah{margin:0;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--ink-2)}
+.act.exp .ah{color:var(--past)}
+.act .at{margin:2px 0 6px;font-weight:600}
+.act .loss{margin:0 0 6px;font-size:14.5px}
+.act .loss b{white-space:nowrap}
+.act .none{margin:0;color:var(--ink-2)}
+.sw{display:flex;align-items:center;gap:10px;border:0;background:none;padding:0;min-height:44px;font-weight:700;font-size:15px}
+.track{width:46px;height:28px;border-radius:999px;background:#8A948D;position:relative;flex:none;transition:background .15s}
+.track::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw[aria-checked="true"] .track{background:var(--accent)}
+.sw[aria-checked="true"] .track::after{transform:translateX(18px)}
+.sw[disabled]{opacity:.45;cursor:not-allowed}
+.res{margin:2px 0 0;font-size:14.5px;font-weight:600;color:var(--accent)}
+.legal{border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px}
+.legal h5{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.legal p{margin:0 0 4px;font-weight:600}
+.legal .art{font-weight:500;color:var(--ink-2)}
+.legal a{display:flex;align-items:center;min-height:44px;font-weight:600}
+.legal .vf{display:block;font-size:12.5px;color:var(--ink-2)}
+.chk{font-size:12px;font-weight:600;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:6px;padding:0 6px;margin-left:4px;white-space:nowrap}
+.note{font-size:13.5px;color:var(--ink-2);margin:0 0 10px}
+
+/* plan bar + tab bar + proto bar */
+.planbar{position:fixed;left:0;right:0;bottom:calc(var(--tb) + var(--pb));z-index:10}
+.planbar button{display:block;width:100%;max-width:680px;margin:0 auto;text-align:left;background:var(--card);border:1px solid var(--line);border-bottom:0;border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(20,32,27,.12);padding:10px 16px}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pg span{display:block;font-size:12px;color:var(--ink-2)}
+.pg b{display:block;font-size:19px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.pg div:last-child{text-align:right}
+.pnext{margin:4px 0 0;font-size:12.5px;color:var(--ink-2)}
+.tabbar{position:fixed;left:0;right:0;bottom:var(--pb);z-index:12;background:var(--card);border-top:1px solid var(--line)}
+.tabbar .in{max-width:680px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
+.tab{border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:var(--tb);font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.tab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tab[aria-current="page"]{color:var(--accent)}
+.proto{position:fixed;left:50%;transform:translateX(-50%);bottom:6px;z-index:50;background:#111;color:#fff;border-radius:14px;padding:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;width:calc(100% - 12px);max-width:560px;font:13px/1.2 system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.proto button,.proto select{background:#2b2b2b;color:#fff;border:1px solid #555;border-radius:8px;min-height:36px;padding:0 10px}
+.proto .lbl{font-weight:700;min-width:150px;text-align:center}
+body.hasbar{--pb:96px}
+
+/* notification (lock screen) */
+.lock{min-height:100vh;background:#1B2420;color:#fff;padding:56px 12px 24px;font-family:var(--sans)}
+.lock .clock{text-align:center;font-size:64px;font-weight:300;letter-spacing:-.02em;line-height:1}
+.lock .ldate{text-align:center;margin:6px 0 34px;opacity:.85}
+.nf{max-width:420px;margin:0 auto;background:rgba(255,255,255,.96);color:var(--ink);border-radius:22px;padding:14px 16px 12px}
+.nh{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2)}
+.nh .ic{width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;font-weight:800;font-size:11px;display:inline-flex;align-items:center;justify-content:center}
+.nh b{color:var(--ink)} .nh .nt{margin-left:auto}
+.nf .hook{margin:10px 0 2px;font-size:17px;font-weight:700;line-height:1.25}
+.nf .story{margin:4px 0 12px;font-size:14.5px;color:var(--ink-2)}
+.nf .story b{color:var(--ink)}
+.cta{display:flex;align-items:center;justify-content:center;width:100%;border:0;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;padding:12px;min-height:46px;text-decoration:none}
+.ghost{display:flex;align-items:center;justify-content:center;width:100%;border:0;background:none;color:var(--ink-2);text-decoration:underline;min-height:44px;font-size:14px}
+.lock .hint{max-width:420px;margin:16px auto 0;font-size:13px;opacity:.8;text-align:center}
+
+/* chart + table */
+.chart{width:100%;height:auto;display:block}
+.chart text{font:12px var(--sans);fill:var(--ink-2)}
+.chart .lb{font-weight:700;fill:var(--ink)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+.tbl th,.tbl td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+details>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600;color:var(--accent)}
+.disc{font-size:13px;color:var(--ink-2);margin:8px 0 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px}
+.big2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 10px}
+.big2 span{display:block;font-size:12.5px;color:var(--ink-2)}
+.big2 b{display:block;font-size:24px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.alist{list-style:none;margin:0;padding:0}
+.alist li{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);padding:6px 0}
+.alist li:first-child{border-top:0}
+.alist .an{font-size:14.5px;font-weight:600}
+.alist .ad{display:block;font-size:12.5px;color:var(--ink-2);font-weight:500}
+
+/* profile */
+.grp{margin-top:16px}
+.grp h3{margin:0 0 8px;font-size:14px;font-weight:700;color:var(--ink-2)}
+.ptag{display:inline-flex;align-items:center;gap:4px;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:0 0 0 14px;margin:0 6px 8px 0;font-weight:600;font-size:15px;min-height:44px}
+.ptag button{border:0;background:none;width:44px;height:44px;border-radius:50%;font-size:18px;color:var(--ink-2)}
+.ptag.add{border-style:dashed;color:var(--ink-2);padding:0 14px;background:none}
+.ex{margin:6px 0 0;font-size:13.5px;color:var(--ink-2);max-width:60ch}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.btn2{border:1.5px solid var(--ink);background:var(--card);border-radius:12px;min-height:44px;padding:0 16px;font-weight:600}
+
+/* onboarding chat */
+.onbtop{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 0 4px}
+.onbtop button{border:0;background:none;color:var(--accent);text-decoration:underline;font-weight:600;min-height:44px;padding:0 4px}
+.prog{font-size:13px;color:var(--ink-2)}
+.bub{max-width:86%;padding:10px 14px;border-radius:16px;font-size:15px;margin:0 0 8px}
+.bub.as{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:4px}
+.bub.us{background:var(--accent);color:#fff;border-bottom-right-radius:4px;margin-left:auto}
+.xtr{margin:0 0 12px;max-width:92%}
+.xt{display:inline-flex;align-items:center;gap:2px;font-size:13.5px;border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:10px;padding:0 0 0 10px;margin:0 6px 6px 0;font-weight:600}
+.xt small{font-weight:500;color:var(--ink-2);margin-left:4px}
+.xt button{border:0;background:none;color:var(--accent);width:44px;height:44px;font-size:16px}
+.qr{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.qr button{border:1.5px solid var(--accent);background:var(--card);color:var(--accent);border-radius:999px;min-height:44px;padding:0 14px;font-weight:600}
+.compose{position:sticky;bottom:calc(var(--pb) + 8px);display:flex;gap:8px;background:var(--paper);padding:8px 0}
+.compose input{flex:1;min-width:0;border:1px solid var(--ink-2);border-radius:999px;padding:0 16px;min-height:46px;background:var(--card)}
+.compose button{border:0;background:var(--accent);color:#fff;border-radius:50%;width:46px;height:46px;font-size:18px;flex:none}
+.typing{display:inline-flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--ink-2);animation:bl 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes bl{0%,80%,100%{opacity:.3}40%{opacity:1}}
+.final{border:1.5px solid var(--accent);background:var(--card);border-radius:16px;padding:14px;margin:4px 0 12px}
+.final .hook{margin:0 0 4px;font-weight:700;font-size:17px}
+.final p{margin:0 0 10px;font-size:14.5px;color:var(--ink-2)}
+.tally{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;border-radius:12px;padding:10px 14px;margin:6px 0 12px;font-size:14px}
+.tally b{font-size:16px}
+
+/* form */
+fieldset{border:0;margin:0 0 18px;padding:0}
+legend{font-weight:700;font-size:15px;margin-bottom:8px}
+.ck{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:var(--card);border-radius:999px;min-height:44px;padding:0 14px 0 10px;margin:0 6px 8px 0;font-weight:600;font-size:15px;cursor:pointer}
+.ck input{width:20px;height:20px;accent-color:var(--accent);margin:0}
+.ck:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.fld{display:block;margin-bottom:6px;font-weight:600}
+.inp{width:100%;min-height:46px;border:1px solid var(--ink-2);border-radius:10px;padding:0 12px;background:var(--card)}
+.help{font-size:13px;color:var(--ink-2);margin:4px 0 0}
+.err{font-size:13.5px;color:var(--urg);font-weight:600;margin:4px 0 0}
+.inp[aria-invalid="true"]{border:2px solid var(--urg)}
+
+/* states sheet */
+.sheet h3{margin:26px 0 8px;font-size:15px}
+.sheet h3 small{font-weight:500;color:var(--ink-2)}
+.stbox{background:var(--card);border:1px dashed var(--ink-2);border-radius:var(--r);padding:20px 16px;text-align:center;color:var(--ink-2);margin-bottom:10px}
+.stbox b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
+.stbox .cta,.stbox .btn2{margin-top:12px}
+.stbox.err{border:1.5px solid var(--urg);background:var(--urg-soft);color:var(--ink);text-align:left}
+.sk{background:linear-gradient(90deg,#E4E8E2 25%,#EEF1EC 50%,#E4E8E2 75%);background-size:200% 100%;animation:sh 1.4s infinite;border-radius:8px;height:14px;margin:8px 0}
+@keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:10px;text-align:left}
+.stlabel{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);margin:10px 0 6px}
+
+/* ====================== A · Termenul întâi ====================== */
+.v-a{--sans:'Bricolage Grotesque',system-ui,sans-serif;--paper:#EEF0EC}
+.v-a .brand{font-weight:800;font-size:20px}
+.a-hero{background:var(--ink);color:#fff;border-radius:18px;padding:18px 18px 16px;margin:6px 0 4px}
+.a-hero.urg{box-shadow:inset 0 0 0 3px var(--urg)}
+.a-hero .k{margin:0;font-size:13px;font-weight:600;opacity:.8;letter-spacing:.04em;text-transform:uppercase}
+.a-hero .amt{margin:8px 0 0;font-size:clamp(40px,13vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.a-hero .amt small{font-size:.32em;font-weight:600;letter-spacing:0;margin-left:6px;opacity:.85}
+.a-hero .amt .est{color:#fff;border-color:#fff;font-size:12px;letter-spacing:0;margin-left:6px;vertical-align:.9em}
+.a-hero .dl{margin:10px 0 0;font-size:20px;font-weight:700}
+.a-hero .dl .urgchip{margin-left:6px;vertical-align:2px}
+.a-hero .t{margin:8px 0 14px;font-size:15px;opacity:.88}
+.a-hero .days{display:flex;gap:3px;margin:10px 0 0}
+.a-hero .days i{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.22)}
+.a-hero .days i.on{background:#fff}
+.a-hero .days.urg i.on{background:#FF9B8F}
+.a-hero .dcap{display:flex;justify-content:space-between;font-size:12px;opacity:.75;margin-top:4px}
+.ac{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px;overflow:hidden;position:relative}
+.ac::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--line)}
+.ac.has-dl::before{background:var(--ink)}
+.ac.urg::before{background:var(--urg)}
+.ac.exp{opacity:.78}
+.ac.exp::before{background:#C3CAC2}
+.ahead{display:block;width:100%;text-align:left;border:0;background:none;padding:14px 40px 14px 18px;position:relative}
+.ahead::after{content:"";position:absolute;right:16px;top:22px;width:9px;height:9px;border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);transform:rotate(45deg)}
+.ahead[aria-expanded="true"]::after{transform:rotate(-135deg);top:26px}
+.ahead .amt{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.ahead .amt small{font-size:15px;font-weight:600;letter-spacing:0;color:var(--ink-2);margin-left:4px}
+.ahead .dl{display:block;margin-top:4px;font-size:16px;font-weight:700}
+.ahead .dl.past{color:var(--past);font-weight:600}
+.ahead .dl.eff{color:var(--ink-2);font-weight:600}
+.ahead .ttl{display:block;margin-top:8px;font-size:15px;font-weight:600;line-height:1.3}
+.ahead .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px;font-size:12.5px;color:var(--ink-2)}
+.v-a .detail{padding-left:18px}
+.v-a .planbar b{font-weight:800}
+
+/* ====================== B · Calm editorial ====================== */
+.v-b{--paper:#F6F5F0;--line:#DEDCD3}
+.v-b .brand{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:0}
+.v-b h2.sec{font-family:var(--sans);border-top:2px solid var(--ink);padding-top:8px;color:var(--ink)}
+.bi{border-bottom:1px solid var(--line)}
+.bi.exp .bhead{color:var(--past)}
+.bi.exp .ttl,.bi.exp .amt{color:var(--past)}
+.bhead{display:block;width:100%;text-align:left;border:0;background:none;padding:14px 32px 14px 0;position:relative}
+.bhead::after{content:"";position:absolute;right:6px;top:22px;width:8px;height:8px;border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);transform:rotate(45deg)}
+.bhead[aria-expanded="true"]::after{transform:rotate(-135deg);top:26px}
+.bhead .kick{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-2)}
+.bhead .ttl{display:block;margin:6px 0 6px;font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.2}
+.bhead .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bhead .dl{font-size:14px;color:var(--ink-2)}
+.bhead .dl b{color:var(--ink);font-weight:600}
+.bhead .amt{font-size:19px;font-weight:700;white-space:nowrap;margin-left:auto}
+.bhead .amt small{font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.v-b .detail{padding:4px 0 18px;border-top:0}
+.v-b .why{font-size:16px}
+.v-b .act{background:var(--card);border:1px solid var(--line)}
+.v-b .act.urg{background:var(--urg-soft);border-color:transparent}
+.v-b .act.exp{background:var(--past-bg);border-color:transparent}
+.v-b .planbar button{border-radius:0;border-top:2px solid var(--ink);box-shadow:none;background:var(--paper)}
+.v-b .lede{font-family:var(--serif);font-size:19px;line-height:1.35;margin:6px 0 4px}
+.v-b .box{background:var(--card)}
+
+/* ====================== C · Planul întâi ====================== */
+.v-c{--paper:#F4F6F8;--ink:#0F172A;--ink-2:#475569;--line:#D9DEE5;--accent:#0369A1;--accent-soft:#E0F0F9}
+.v-c .brand{font-weight:700}
+.c-top{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin:6px 0 12px}
+.c-top .k{margin:0;font-size:13px;color:var(--ink-2);font-weight:600}
+.c-top .tot{margin:2px 0 0;font-size:34px;font-weight:700;letter-spacing:-.02em}
+.c-top .tot small{font-size:14px;font-weight:500;color:var(--ink-2);margin-left:4px}
+.c-top .left{margin:6px 0 8px;font-family:var(--serif);font-size:18px;line-height:1.3}
+.c-top .left b{font-family:var(--sans);font-size:16px}
+.wf{list-style:none;margin:6px 0 0;padding:0}
+.wf li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:6px 0;border-top:1px solid var(--line);font-size:13.5px}
+.wf .bar{grid-column:1/-1;height:8px;border-radius:4px;background:var(--neg)}
+.wf .bar.p{background:var(--pos)}
+.wf .bar.s{background:repeating-linear-gradient(135deg,var(--accent) 0 4px,transparent 4px 8px);border:1px solid var(--accent)}
+.wf .v{font-weight:700;white-space:nowrap}
+.cr{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:6px;overflow:hidden}
+.cr.exp{opacity:.8}
+.chd{display:grid;grid-template-columns:1fr auto;gap:2px 10px;width:100%;text-align:left;border:0;background:none;padding:10px 12px;min-height:56px;align-items:center}
+.chd .ttl{font-weight:600;font-size:14.5px;line-height:1.25}
+.chd .yr{font-weight:700;white-space:nowrap;text-align:right}
+.chd .s2{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-2)}
+.v-c .detail{padding:12px}
+
+/* ====================== D · Revistă (tipar avocatnet) ====================== */
+.v-d{--paper:#FFFFFF;--card:#FFFFFF;--ink:#111827;--ink-2:#4B5563;--line:#E5E7EB;--accent:#1D4ED8;--accent-soft:#EFF4FF;--neg:#C81E1E;--pos:#15803D;--logo:#2563EB;--accd:#1E3A8A;--tint1:#E6EEFF;--tint2:#F6F9FF;--tintb:#D9E4FB;--srchbg:#DBEAFE;
+  --head:'Raleway',system-ui,sans-serif;--read:'Merriweather',Georgia,serif;--gold:var(--accent)}
+.v-f{--stats:#ECEAE8;--accent:#57534E;--accent-soft:#F5F5F4;--logo:#44403C;--accd:#292524;--tint1:#DEDBD8;--tint2:#F1F0EE;--tintb:#D6D3D1;--srchbg:#E7E5E4}
+.v-e{--accent:#0B7A80;--accent-soft:#E6F7F6;--logo:#0D9488;--accd:#115E59;--tint1:#DDF5F2;--tint2:#F3FBFA;--tintb:#C9ECE7;--srchbg:#CCFBF1}
+.v-d body,.v-d{background:#fff;font-variant-numeric:lining-nums tabular-nums}
+.v-d h2,.v-d .catd,.v-d .nt{font-variant-numeric:lining-nums proportional-nums}
+.v-d .est{display:none}
+.v-d .feat .famt,.v-d .nl .na,.v-d .stats li b,.v-d .stats .yr b{font-family:var(--sans);letter-spacing:-.02em}
+.v-d .app.wide{max-width:1240px}
+.mast{border-bottom:1px solid var(--line);margin:0 -16px;padding:14px 16px 10px}
+.mast .mt{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+.mast .ico{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:inline-flex;align-items:center;justify-content:center}
+.mast .ico svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round}
+.mast .srch{display:none}
+.mast .logo{text-align:center;border:0;background:none;padding:0}
+.mast .logo b{display:block;white-space:nowrap;font-family:var(--head);font-weight:800;font-size:clamp(17px,4.9vw,22px);letter-spacing:-.02em;color:var(--logo);line-height:1.1}
+.mast .logo span{display:block;margin-top:3px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.mast .rt{display:flex;justify-content:flex-end;align-items:center;gap:8px}
+.mast .demo{display:none}
+.navd{display:none}
+.fbar{display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border-radius:10px;padding:6px 10px;margin:12px 0}
+.fbar .fi{width:30px;height:30px;border-radius:7px;background:#374151;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.fbar .fi svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:1.8}
+.fbar label{display:flex;flex-direction:column;flex:1;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#D1D5DB}
+.fbar select{background:transparent;color:#fff;border:0;font-weight:700;font-size:15px;padding:0;min-height:26px;letter-spacing:0;text-transform:none}
+.fbar select option{color:#111}
+.dgrid{display:block}
+.dside{display:none}
+.feat{background:linear-gradient(135deg,var(--tint1) 0%,var(--tint2) 45%,#FFFFFF 100%);border:1px solid var(--tintb);border-radius:16px;padding:20px 18px;margin-bottom:14px}
+.feat .fk{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 12px}
+.feat .fk .pill{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.feat .day{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.catd{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.feat h2{margin:0 0 10px;font-family:var(--head);font-weight:800;font-size:clamp(25px,6.6vw,36px);line-height:1.16;letter-spacing:-.015em}
+.feat .famt{margin:0 0 12px;font-family:var(--head);font-weight:800;font-size:clamp(30px,8vw,40px);letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.feat .famt small{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink-2);margin-left:6px;letter-spacing:0}
+.feat .lede{font-family:var(--sans);font-size:17px;line-height:1.6;color:#1F2937;margin:0 0 16px;max-width:62ch}
+.feat .ff{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid var(--tintb);padding-top:14px}
+.feat .tl{border-left:3px solid var(--gold);padding-left:10px}
+.feat .tl b{display:block;font-family:var(--head);font-size:22px;font-weight:800;line-height:1.15}
+.feat .tl span{display:block;font-size:14px;font-weight:600;color:var(--ink-2);margin-top:2px}
+.feat .tl.urg{border-color:var(--urg)} .feat .tl.urg b{color:var(--urg)}
+.feat .src{display:flex;align-items:center;gap:10px}
+.feat .src i{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-style:normal;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.feat .src b{display:block;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.feat .src span{display:block;font-size:13px;color:var(--ink-2)}
+.feat .ctad{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;background:var(--ink);color:#fff;font-weight:700;min-height:46px;padding:0 18px;margin-top:16px}
+.feat .detail{margin:16px -18px -20px;background:#fff;border-radius:0 0 16px 16px}
+.stats{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:18px;background:linear-gradient(135deg,var(--stats,#EEF4FB) 0%,#FFFFFF 70%)}
+.stats .yr{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:10px}
+.stats .yr b{font-family:var(--head);font-weight:800;font-size:30px;color:var(--accd);font-variant-numeric:lining-nums}
+.stats .yr span{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.stats ul{list-style:none;margin:0;padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:16px 14px}
+.stats li::before{content:"";display:block;width:16px;height:2px;background:var(--logo);margin-bottom:8px}
+.stats li b{display:block;font-family:var(--head);font-weight:800;font-size:22px;letter-spacing:-.01em;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.stats li span{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-top:2px}
+.secd{display:flex;align-items:center;gap:8px;margin:22px 0 4px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accd)}
+.secd small{font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink-2);font-size:13px}
+.nl{list-style:none;margin:0;padding:0}
+.nl>li{border-bottom:1px solid var(--line)}
+.nl .nh2{display:grid;grid-template-columns:1fr auto;gap:6px 14px;width:100%;text-align:left;border:0;background:none;padding:16px 0;align-items:start}
+.nl .nk{grid-column:1;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.nl .nt{grid-column:1;font-weight:700;font-size:17px;line-height:1.3}
+.nl .na{grid-row:1/span 2;grid-column:2;font-family:var(--head);font-weight:800;font-size:20px;white-space:nowrap;text-align:right;font-variant-numeric:lining-nums tabular-nums}
+.nl .na small{display:block;font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.nl .ndl{grid-column:1/-1;font-size:15px;font-weight:700;color:var(--ink)}
+.nl .ndl.urg{color:var(--urg)} .nl .ndl.past{color:var(--past)} .nl .ndl.eff{color:var(--ink-2);font-weight:600}
+.nl .nm{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-2)}
+.nl .exp .nt,.nl .exp .na{color:var(--past)}
+.nl .detail{padding:0 0 16px;border-top:0}
+.v-d .act{background:#FAF7F2}
+.v-d .act.urg{background:var(--urg-soft)}
+.v-d .legal{background:#fff}
+.cal{list-style:none;margin:0;padding:0}
+.cal li{display:grid;grid-template-columns:46px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cal .dd{text-align:center;line-height:1}
+.cal .dd b{display:block;font-family:var(--head);font-weight:800;font-size:24px;font-variant-numeric:lining-nums}
+.cal .dd span{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:3px}
+.cal .dd small{display:block;font-size:10.5px;color:var(--ink-2);margin-top:2px}
+.cal button{border:0;background:none;text-align:left;padding:0;font-weight:700;font-size:15px;line-height:1.3}
+.cal .cm{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;margin-top:6px;font-size:14.5px;font-weight:700;color:var(--ink)}
+.cal .cm .urgchip{font-size:13.5px}
+.cal li.urg .dd b{color:var(--urg)}
+.flt{list-style:none;margin:0;padding:0}
+.flt button{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;border-radius:8px;padding:0 12px;min-height:40px;font-size:15px;font-weight:500;text-align:left}
+.flt button i{width:10px;height:10px;border-radius:50%;flex:none}
+.flt button small{color:var(--ink-2);font-size:12px}
+.flt button[aria-pressed="true"]{background:var(--ink);color:#fff;font-weight:700}
+.flt button[aria-pressed="true"] small{color:#D1D5DB}
+.sideh{margin:0 0 10px;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accd)}
+.sidenote{font-size:13px;color:var(--ink-2);margin:6px 0 0}
+@media (min-width:1000px){
+  .v-d .tabbar{display:none}
+  .v-d.hasbar{--pb:96px}
+  .v-d .app{padding-bottom:calc(var(--pb) + 40px)}
+  .mast{margin:0 calc(50% - 50vw);padding:18px calc(50vw - 50% + 16px) 16px}
+  .mast .srch{display:flex;align-items:center;max-width:320px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .mast .srch input{border:0;flex:1;min-width:0;padding:0 12px;min-height:44px}
+  .mast .srch span{width:46px;height:44px;background:var(--srchbg);display:inline-flex;align-items:center;justify-content:center}
+  .mast .menu{display:none}
+  .mast .logo b{font-size:34px}
+  .mast .logo span{font-size:11.5px}
+  .mast .demo{display:inline-block}
+  .navd{display:flex;justify-content:center;gap:44px;margin:0 calc(50% - 50vw);border-bottom:1px solid var(--line)}
+  .navd button{border:0;background:none;min-height:46px;font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+  .navd button[aria-current="page"]{color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+  .fbar{display:none}
+  .dgrid{display:grid;grid-template-columns:200px minmax(0,1fr) 270px;gap:28px;margin-top:22px}
+  .dside{display:block}
+  .dside.l{border-right:1px solid var(--line);padding-right:16px}
+  .dside.r{border-left:1px solid var(--line);padding-left:20px}
+  .dmain .calm{display:none}
+  .feat{padding:30px 34px}
+  .feat .detail{margin:20px -34px -30px}
+  .stats{grid-template-columns:190px 1fr}
+  .stats .yr{flex-direction:column;justify-content:center;border-bottom:0;border-right:1px solid var(--line)}
+  .stats ul{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:22px}
+  .stats li b{font-size:20px}
+}
+@media (min-width:700px){.brand{font-size:22px}.v-b .brand{font-size:26px}.bhead .ttl{font-size:23px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+/* ---------- date demo, persone, reguli (din v2, sursele în docs/research-v2.md) ---------- */
+var DEMO_DATES=[['2026-10-28','28 oct 2026'],['2026-12-10','10 dec 2026'],['2027-01-02','2 ian 2027']];
+var URG_DAYS=30;
+var VARIANTS={a:'Termenul întâi',b:'Calm editorial',c:'Planul întâi',d:'Revistă · albastru',e:'Revistă · turcoaz',f:'Revistă · gri șobolan'};
+function isD(){return S.v==='d'||S.v==='e'||S.v==='f'}
+var SCREENS={notif:'Notificarea',feed:'Noutăți',card:'Card deschis',plan:'Planul meu',profile:'Profil',onb:'Onboarding (chat)',form:'Onboarding (formular)',stari:'Stări: gol / încărcare / eroare'};
+
+var TAGS={
+ angajat:['angajat','Venit'],pfa:['PFA','Venit'],srl_dividende:['SRL cu dividende','Venit'],micro:['microîntreprindere','Venit'],pensionar:['pensionar','Venit'],
+ angajat_it:['IT','Domeniul meu'],constructii:['construcții','Domeniul meu'],horeca:['HoReCa','Domeniul meu'],agricultura:['agricultură','Domeniul meu'],
+ proprietar:['proprietar','Locuință'],chirias:['chiriaș','Locuință'],ipoteca:['ipotecă','Locuință'],consumator_gaz:['consumator gaz','Locuință'],consumator_energie:['consumator energie','Locuință'],
+ parinte:['părinte','Familie'],sofer:['șofer','Altele'],pilon2:['Pilon II','Altele'],pilon3:['Pilon III','Altele']
+};
+var GROUPS=['Venit','Domeniul meu','Locuință','Familie','Altele'];
+var PERSONAS={
+ andrei:{name:'Andrei, 32',divs:24000,spend:5000,energy:-60,energySave:25,gas:-40,gasSave:15,net:9500,
+  tags:['angajat','angajat_it','srl_dividende','chirias','pilon2','sofer','consumator_energie','consumator_gaz']},
+ maria:{name:'Maria, 45',divs:0,spend:6000,energy:-85,energySave:35,gas:-55,gasSave:20,net:9000,
+  tags:['pfa','horeca','ipoteca','proprietar','pilon2','pilon3','parinte','consumator_energie','consumator_gaz']},
+ ion:{name:'Ion, 67',divs:0,spend:3000,energy:-45,energySave:20,gas:-35,gasSave:12,net:4200,
+  tags:['pensionar','proprietar','sofer','consumator_energie','consumator_gaz']}
+};
+var ALL_INCOME=['angajat','angajat_it','pfa','srl_dividende','micro','pensionar'];
+/* conf: încrederea sursei din research-v2; est: cifra e calculul nostru, nu din act. „pierzi” doar când conf=high și !est. */
+var RULES=[
+{id:'tva21',title:'TVA a crescut de la 19% la 21%, cota redusă de la 9% la 11%',act:'Legea 141/2025',mo:'MO 699 / 25 iul 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/300022',art:'art. II pct. 42 (Codul fiscal art. 291 alin. 1-2)',sec:'https://www.crowe.com/ro/news/alerta-fiscala-modificari-fiscale-din-noul-pachet-fiscal-bugetar',
+ published:'2025-07-25',effective:'2025-08-01',status:'in_vigoare',conf:'high',est:true,tags:ALL_INCOME,
+ impact:function(p){return -p.spend*0.0168},why:'Cota standard crește cu 2 puncte, deci aproape tot ce cumperi costă puțin mai mult. Estimat ca 1,68% din cheltuielile tale lunare.',
+ action:null},
+{id:'dividend16',title:'Impozitul pe dividende crește de la 10% la 16% din 1 ian 2026',act:'Legea 141/2025',mo:'MO 699 / 25 iul 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/300022',art:'art. II pct. 1 (Codul fiscal art. 43 alin. 2); pct. 5 (art. 97 alin. 7)',sec:'https://www.crowe.com/ro/news/alerta-fiscala-modificari-fiscale-din-noul-pachet-fiscal-bugetar',
+ published:'2025-07-25',effective:'2026-01-01',status:'in_vigoare',conf:'high',est:false,tags:['srl_dividende'],
+ impact:function(p){return -p.divs*0.06/12},why:'Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu cu 10%.',
+ action:{text:'Distribuie dividendele din profitul 2025 cu impozitul vechi de 10%',deadline:'2025-12-31',saving:function(p){return p.divs*0.06/12}}},
+{id:'cass_pensii',title:'Pensionarii plătesc 10% sănătate (CASS) pe partea din pensie peste 3.000 lei',act:'Legea 141/2025',mo:'MO 699 / 25 iul 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/300022',art:'art. II pct. 7 (art. 100), pct. 17/18 (art. 154 alin. 1 lit. h^2), pct. 25 (art. 157^6)',sec:'https://alba24.ro/document-masurile-fiscale-care-intra-in-vigoare-din-1-august-2025-doua-cote-tva-cass-pentru-pensii-mari-si-alte-prevederi-1092463.html',
+ published:'2025-07-25',effective:'2025-08-01',status:'in_vigoare',conf:'high',est:false,tags:['pensionar'],
+ impact:function(p){return -Math.max(0,p.net-3000)*0.1},why:'Contribuția de 10% pentru sănătate se aplică doar părții din pensie care depășește 3.000 lei.',
+ action:{text:'Verifică pe cuponul de pensie că CASS se aplică doar peste 3.000 lei',deadline:null,saving:function(){return 0}}},
+{id:'energie_plafon',title:'Prețul la curent nu mai e plafonat din 1 iul 2025: factura urmează piața',act:'OUG 6/2025',mo:'MO 182 / 28 feb 2025',url:'https://legislatie.just.ro/public/DetaliiDocument/295106',art:'art. 1 alin. (1) lit. a)',sec:'https://economedia.ro/plafonarea-preturilor-la-energiei-electrica-inceteaza-de-la-1-iulie-recomandarile-anre.html',
+ published:'2025-02-28',effective:'2025-07-01',status:'in_vigoare',conf:'high',est:true,tags:['consumator_energie'],
+ impact:function(p){return p.energy},why:'Plafonul a acoperit 1 apr–30 iun 2025; de atunci factura urmează prețul pieței. Cifra e o medie pentru o gospodărie ca a ta.',
+ action:{text:'Compară ofertele pe comparatorul ANRE și treci pe un contract cu preț fix',deadline:null,saving:function(p){return p.energySave}}},
+{id:'pilon2',title:'Pilon II: din 5 ian 2027, la pensie iei cel mult 30% deodată, restul în rate',act:'Legea 2/2026',mo:'MO 2 / 5 ian 2026',url:'https://legislatie.just.ro/Public/DetaliiDocument/306255',art:'art. 55 alin. (1) (max 30%); art. 113 (intră în vigoare la un an de la publicare)',sec:'https://romania.europalibera.org/a/guvernul-a-modificat-legea-pensiilor-private-se-pot-lua-30-din-suma-acumulata-intr-o-singura-transa-esalonare-apoi-pe-opt-ani/33509248.html',
+ published:'2026-01-05',effective:'2027-01-05',status:'adoptat',conf:'high',est:false,tags:['pilon2'],
+ impact:function(){return 0},why:'Se schimbă felul în care primești banii din Pilon II la pensionare: o parte deodată, restul în rate. Azi nu pierzi nimic.',
+ note:'0 lei/lună acum · la pensionare: maximum 30% o dată, restul lunar (8 ani: din presă, de verificat)',
+ action:{text:'Nimic de făcut acum; alegerea o faci la pensionare',deadline:null,saving:function(){return 0}}},
+{id:'pilon3_deduct',title:'Pilon III: ce depui până la 400 EUR pe an îți scade impozitul pe venit',act:'Codul fiscal (Legea 227/2015)',mo:'MO 688 / 10 sep 2015 (text de bază)',url:'https://legislatie.just.ro/Public/DetaliiDocument/171282',art:'art. 78 (salariați); art. 68 (PFA)',artTbc:true,sec:'https://www.fiscalitatea.ro/pilonul-iii-de-pensii-facultative-deductibilitate-fiscala-si-inregistrari-contabile-25028/',
+ published:'2015-09-08',effective:'2016-01-01',status:'in_vigoare',conf:'medium',est:true,tags:['pilon3','angajat','pfa'],
+ impact:function(){return 0},why:'Contribuțiile la Pilon III îți scad impozitul pe venit, până la 400 EUR pe an. Plafonul e anual: cel pentru 2026 se folosește cu plăți făcute în 2026.',
+ action:{text:'Contribuie la Pilon III până la plafonul deductibil de 400 EUR pentru 2026',deadline:'2026-12-31',saving:function(){return 200/12}}},
+{id:'micro',title:'Microîntreprinderi: impozit de 1% pe venituri din 2026, cota de 3% dispare',act:'OUG 89/2025',mo:'MO 1203 / 24 dec 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/305817',art:'art. I pct. 4 (Codul fiscal art. 51 alin. 1); art. II pct. 1',sec:'https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf',
+ published:'2025-12-24',effective:'2026-01-01',status:'in_vigoare',conf:'medium',est:false,tags:['micro','srl_dividende'],
+ impact:function(){return 0},why:'Cotă unică de 1% pentru microîntreprinderi; cota de 3% a fost eliminată.',note:'Plafonul de 100.000 EUR și condiția de un angajat: de verificat.',
+ action:{text:'Verifică cifra de afaceri a SRL-ului față de plafon',deadline:null,saving:function(){return 0}}},
+{id:'gaz_plafon',title:'Gazul nu mai are preț protejat de la 1 apr 2027: factura poate crește',act:'OUG 12/2026',mo:'MO 178 / 9 mar 2026',url:'https://legislatie.just.ro/public/DetaliiDocument/308129',art:'art. 1 alin. (1)-(2); art. 3; art. 6 alin. (1)',sec:'https://infocons.ro/pretul-gazelor-naturale-pentru-consumatorii-casnici-ce-se-schimba-de-la-1-aprilie-2026-si-ce-trebuie-sa-stii-infocons-te-informeaza/',
+ published:'2026-03-09',effective:'2027-04-01',status:'in_vigoare',conf:'high',est:true,tags:['consumator_gaz'],
+ impact:function(p){return p.gas},why:'De la 1 aprilie 2027 factura de gaz urmează prețul pieței. Cifra e o medie pentru o gospodărie ca a ta și contează doar pentru lunile de după.',
+ note:'Actul folosește o formulă de preț; 0,31 lei/kWh e cifra din presă.',
+ action:{text:'Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix',deadline:'2027-03-31',saving:function(p){return p.gasSave}}},
+{id:'it_scutire',title:'IT: salariile nu mai sunt scutite de impozit din 1 ian 2025',act:'OUG 156/2024',mo:'MO 1334 / 31 dec 2024',url:'https://legislatie.just.ro/Public/DetaliiDocument/293109',art:'art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2)',sec:'https://assets.kpmg.com/content/dam/kpmg/ro/pdf/2025/TNF_OUG_156_2024_Ordonanta_trenulet_dec_2024.pdf',
+ published:'2024-12-30',effective:'2025-01-01',status:'in_vigoare',conf:'medium',est:true,tags:['angajat_it'],
+ impact:function(){return -520},why:'Venitul brut de până la 10.000 lei nu mai e scutit de impozit, deci netul a scăzut.',note:'Estimare pentru brut 8.000 lei, doar impozitul pe venit.',
+ action:{text:'Verifică dacă angajatorul a compensat prin brut; cere o simulare la HR',deadline:null,saving:function(){return 0}}},
+{id:'constructii_facilitati',title:'Construcții și agricultură: salariile nu mai sunt scutite de impozit din 1 ian 2025',act:'OUG 156/2024',mo:'MO 1334 / 31 dec 2024',url:'https://legislatie.just.ro/Public/DetaliiDocument/293109',art:'art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 5 și 7)',sec:'https://assets.kpmg.com/content/dam/kpmg/ro/pdf/2025/TNF_OUG_156_2024_Ordonanta_trenulet_dec_2024.pdf',
+ published:'2024-12-30',effective:'2025-01-01',status:'in_vigoare',conf:'low',est:true,tags:['constructii','agricultura'],
+ impact:function(){return -400},why:'Facilitățile fiscale pentru salariații din construcții și agricultură au fost eliminate; netul a scăzut.',
+ action:{text:'Cere angajatorului o simulare a salariului net actual',deadline:null,saving:function(){return 0}}},
+{id:'horeca_tva11',title:'Restaurante și hoteluri: TVA de 11% din 1 aug 2025',act:'Legea 141/2025',mo:'MO 699 / 25 iul 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/300022',art:'art. II pct. 42 (Codul fiscal art. 291 alin. 2)',sec:'https://www.capital.ro/schimbari-la-tva-accize-concedii-medicale-si-cass-intra-in-vigoare-de-astazi-1-august.html',
+ published:'2025-07-25',effective:'2025-08-01',status:'in_vigoare',conf:'medium',est:false,tags:['horeca'],
+ impact:function(){return 0},why:'Serviciile HoReCa au cota redusă unică de 11% din 1 august 2025. Prețurile și casa de marcat trebuie aliniate.',note:'Fără impact direct estimat.',
+ action:{text:'Actualizează prețurile de listă și casa de marcat la 11%',deadline:null,saving:function(){return 0}}},
+{id:'impozit_cladiri_2026',title:'Impozitul pe casă crește din 2026: baza de calcul e mai mare',act:'Legea 239/2025 (modificată prin OUG 78/2025)',mo:'MO 1160 / 15 dec 2025; OUG 78: MO 1172 / 17 dec 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/305208',art:'OUG 78/2025 art. I pct. 6-7',artTbc:true,sec:'https://adevarul.ro/economie/statul-face-un-pas-inapoi-impozitul-pe-valoarea-2495086.html',
+ published:'2025-12-15',effective:'2026-01-01',status:'in_vigoare',conf:'low',est:true,tags:['proprietar'],
+ impact:function(){return -35},why:'Baza de calcul a impozitului pe clădiri crește de la 1 ianuarie 2026, deci plătești mai mult la primărie.',
+ action:{text:'Plătește integral impozitul pe 2027 până la 31 mar 2027 pentru bonificația de 10%',deadline:'2027-03-31',saving:function(){return 3.5}}}
+];
+
+/* ---------- stare ---------- */
+var Q=new URLSearchParams(location.search);
+var S={v:VARIANTS[Q.get('v')]?Q.get('v'):'b',s:SCREENS[Q.get('s')]?Q.get('s'):'feed',d:Q.get('d')||DEMO_DATES[0][0],
+  p:PERSONAS[Q.get('p')]?Q.get('p'):'andrei',on:{},open:Q.get('open'),bar:Q.get('bar')!=='0',removed:[],f:'all'};
+(Q.get('on')||'').split(',').forEach(function(id){if(id)S.on[id]=true});
+
+/* ---------- formatare ---------- */
+var NF=new Intl.NumberFormat('ro-RO',{maximumFractionDigits:0});
+var MONTHS=['ian','feb','mar','apr','mai','iun','iul','aug','sep','oct','noi','dec'];
+var MONTHS_L=['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
+function lei(n){return NF.format(Math.abs(Math.round(n)))}
+function sgn(n){var r=Math.round(n);return (r<0?'−':r>0?'+':'')+lei(r)}
+function cls(n){var r=Math.round(n);return r<0?'neg':r>0?'pos':'zero'}
+function fd(iso){var p=iso.split('-');return (+p[2])+' '+MONTHS[+p[1]-1]+' '+p[0]}
+function fdShort(iso){var p=iso.split('-');return (+p[2])+' '+MONTHS[+p[1]-1]}
+function dn(iso){var p=iso.split('-');return Date.UTC(+p[0],+p[1]-1,+p[2])/864e5}
+function daysTo(iso){return dn(iso)-dn(S.d)}
+function zile(n){if(n===1)return '1 zi';var m=n%100;return n+((m>=20||m===0)?' de zile':' zile')}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function tagName(id){return TAGS[id]?TAGS[id][0]:id}
+
+/* ---------- calcul ---------- */
+function activeTags(){return PERSONAS[S.p].tags.filter(function(t){return S.removed.indexOf(t)<0})}
+function effIdx(iso){return iso<=S.d?0:Math.ceil(daysTo(iso)/30.4375)}
+function calc(){
+  var p=PERSONAS[S.p],tags=activeTags(),cards=[];
+  RULES.forEach(function(r){
+    var common=tags.filter(function(t){return r.tags.indexOf(t)>=0});
+    if(!common.length)return;
+    var a=r.action,dl=a&&a.deadline,m=Math.round(r.impact(p)),sv=a?a.saving(p):0;
+    var expired=!!(dl&&dl<S.d),days=dl&&!expired?daysTo(dl):null;
+    var status=expired?'termen_depasit':(r.status==='adoptat'&&r.effective<=S.d?'in_vigoare':r.status);
+    var on=!expired&&sv>0&&!!S.on[r.id];
+    var ei=effIdx(r.effective),months=Math.max(0,12-ei);
+    cards.push({r:r,a:a,dl:dl,m:m,sv:sv,svYr:sv*12,on:on,expired:expired,days:days,status:status,common:common,ei:ei,months:months,
+      urgent:days!==null&&days<=URG_DAYS&&sv>0&&status!=='proiect',
+      upcomingEff:r.effective>S.d?daysTo(r.effective):null,
+      sure:r.conf==='high'&&!r.est});
+  });
+  var base=[0],sim=[0];
+  for(var i=1;i<=12;i++){
+    var b=0,s=0;
+    cards.forEach(function(c){if(c.ei<=i-1){b+=c.m;if(c.on)s+=c.sv;}});
+    base.push(base[i-1]+b);sim.push(sim[i-1]+b+s);
+  }
+  var next=null;cards.forEach(function(c){if(c.days!==null&&c.sv>0&&(!next||c.dl<next.dl))next=c});
+  return {cards:cards,base:base,sim:sim,total:base[12],totalSim:sim[12],nOn:cards.filter(function(c){return c.on}).length,next:next};
+}
+/* regula notificării: cel mai apropiat termen real cu bani; altfel cea mai apropiată dată de aplicare */
+function pickNotif(R){
+  if(R.next)return R.next;
+  var u=R.cards.filter(function(c){return c.upcomingEff!==null}).sort(function(a,b){return a.upcomingEff-b.upcomingEff});
+  return u[0]||null;
+}
+
+/* ---------- bucăți comune ---------- */
+function statusPill(c){var L={proiect:'proiect',adoptat:'adoptat',in_vigoare:'în vigoare',termen_depasit:'termen depășit'};return '<span class="pill st-'+c.status+'">'+L[c.status]+'</span>'}
+function estTag(c){return c.r.est&&!isD()?' <span class="est">estimare</span>':''}
+/* cârligul: suma lunară dacă există, altfel banii din acțiune pe an */
+function hook(c){
+  var ap=c.r.est&&!isD()?'≈ ':''; /* D: limbaj vizual simplu, estimarea e explicată în card */
+  if(c.m!==0)return {v:ap+sgn(c.m),u:'lei/lună',k:cls(c.m)};
+  if(c.svYr>0&&!c.expired)return {pre:'până la',v:ap+'+'+lei(c.svYr),u:'lei/an',k:'pos'};
+  return {v:'0',u:'lei/lună acum',k:'zero'};
+}
+function hv(h){return (h.pre?'<span class="pre">'+h.pre+'</span> ':'')+h.v}
+function deadlineText(c,short){
+  if(c.dl&&c.expired)return {t:'Termen depășit: '+fd(c.dl),k:'past'};
+  if(c.dl)return {t:'până la '+(short?fdShort(c.dl):fd(c.dl))+' · <span class="nw">mai ai '+zile(c.days)+'</span>',k:c.urgent?'urg':'dl'};
+  if(c.upcomingEff!==null)return {t:'se aplică de la '+fd(c.r.effective)+' · <span class="nw">peste '+zile(c.upcomingEff)+'</span>',k:'eff'};
+  return null;
+}
+function lossLine(c){
+  if(!c.a||!c.dl||c.sv<=0)return '';
+  if(c.expired)return '<p class="loss">Termenul a trecut pe '+fd(c.dl)+'. Cu acțiunea făcută la timp, ai fi plătit cu <b>'+lei(c.sv)+' lei/lună</b> mai puțin.</p>';
+  if(c.sure)return '<p class="loss">Dacă nu faci asta până la '+fd(c.dl)+', pierzi <b>'+lei(c.svYr)+' lei/an</b>.</p>';
+  return '<p class="loss">Dacă nu faci asta până la '+fd(c.dl)+', lași pe masă până la <b>≈ '+lei(c.svYr)+' lei/an</b> <span class="est">estimare</span></p>';
+}
+function actionBox(c){
+  var a=c.a;
+  if(!a)return '<div class="act"><p class="none">Nicio acțiune disponibilă. Îți arătăm impactul ca să nu te ia prin surprindere.</p></div>';
+  var head=c.dl?(c.expired?'Termen depășit: '+fd(c.dl):'Ce poți face până la '+fd(c.dl)+(c.urgent?' · mai ai '+zile(c.days):'')):'Ce poți face, oricând:';
+  var sw='';
+  if(c.sv>0){
+    sw='<button type="button" class="sw" role="switch" aria-checked="'+c.on+'" data-sim="'+c.r.id+'"'+(c.expired?' disabled':'')+'><span class="track"></span>Simulează</button>';
+    if(c.on)sw+='<p class="res">'+'<span class="simtag">simulare</span> '+(c.r.est?'≈ ':'')+'+'+lei(c.sv)+' lei/lună · +'+lei(c.svYr)+' lei/an în Planul meu</p>';
+  }
+  return '<div class="act'+(c.urgent?' urg':'')+(c.expired?' exp':'')+'"><p class="ah">'+head+'</p><p class="at">'+esc(a.text)+'</p>'+lossLine(c)+sw+'</div>';
+}
+function legalBox(c){
+  var r=c.r;
+  return '<div class="legal"><h5>Sursa legală</h5><p>'+r.act+' · '+r.mo+'</p><p class="art">'+r.art+(r.artTbc?'<span class="chk">articol de confirmat</span>':'')+'</p>'+
+   '<a href="'+r.url+'" target="_blank" rel="noopener">Textul legii pe Portal Legislativ ↗</a>'+
+   '<a href="'+r.sec+'" target="_blank" rel="noopener">Explicație (ANAF / presă) ↗</a>'+
+   '<span class="vf">verificat la 28 oct 2026'+(r.conf==='low'?' · sursă de încredere scăzută':'')+'</span></div>';
+}
+function detail(c){
+  var estNote=isD()&&c.r.est?'<p class="note">Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege.</p>':'';
+  return '<div class="detail" id="d-'+c.r.id+'"><p class="why"><b>Pentru tine:</b> '+c.r.why+'</p>'+(c.r.note?'<p class="note">'+c.r.note+'</p>':'')+estNote+
+   '<p class="tgrow">Te privește ca: '+c.common.map(function(t){return '<span class="tg">'+tagName(t)+'</span>'}).join('')+'</p>'+actionBox(c)+legalBox(c)+'</div>';
+}
+function header(sub){
+  if(isD())return masthead()+(sub?'<p class="sub" style="margin-top:14px">'+sub+'</p>':'');
+  return '<header class="hd"><h1 class="brand">Ce înseamnă pentru mine</h1><span class="demo" title="Data folosită pentru calcule în demo">demo · azi '+fd(S.d)+'</span></header>'+(sub?'<p class="sub">'+sub+'</p>':'');
+}
+function planBar(R){
+  var nx=R.next?'Următorul termen: '+fd(R.next.dl)+' · mai ai '+zile(R.next.days):'Niciun termen deschis';
+  return '<div class="planbar"><button type="button" data-go="plan" aria-label="Deschide Planul meu"><div class="pg"><div><span>Fără acțiuni · 12 luni</span><b class="'+cls(R.total)+'">'+sgn(R.total)+' lei</b></div>'+
+   '<div><span>'+(R.nOn?'Cu acțiuni <span class="simtag">simulare</span>':'Cu acțiuni · 12 luni')+'</span><b class="'+cls(R.totalSim)+'">'+sgn(R.totalSim)+' lei</b></div></div><p class="pnext">'+nx+'</p></button></div>';
+}
+var ICONS={feed:'<path d="M4 5h16M4 12h16M4 19h10"/>',plan:'<path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/>',profile:'<circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-5 8-5s6.5 1 8 5"/>'};
+function tabBar(){
+  var cur=S.s==='card'?'feed':S.s;
+  return '<nav class="tabbar" aria-label="Navigare"><div class="in">'+[['feed','Noutăți'],['plan','Planul meu'],['profile','Profil']].map(function(t){
+    return '<button type="button" class="tab" data-go="'+t[0]+'"'+(cur===t[0]?' aria-current="page"':'')+'><svg viewBox="0 0 24 24" aria-hidden="true">'+ICONS[t[0]]+'</svg>'+t[1]+'</button>'}).join('')+'</div></nav>';
+}
+
+/* ---------- grafic: două linii cumulative ---------- */
+function chart(R,h){
+  h=h||190;var W=340,pl=6,pr=86,pt=14,pb=26;
+  var all=R.base.concat(R.sim),mn=Math.min.apply(null,all.concat([0])),mx=Math.max.apply(null,all.concat([0]));
+  if(mx===mn)mn=mx-1;
+  function x(i){return pl+(W-pl-pr)*i/12}
+  function y(v){return pt+(h-pt-pb)*(mx-v)/(mx-mn)}
+  function path(a){return a.map(function(v,i){return (i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)}).join(' ')}
+  var m0=new Date(dn(S.d)*864e5),lab=function(i){var d=new Date(Date.UTC(m0.getUTCFullYear(),m0.getUTCMonth()+i,1));return MONTHS[d.getUTCMonth()]+(i===0||d.getUTCMonth()===0?' '+String(d.getUTCFullYear()).slice(2):'')};
+  var diff=R.totalSim-R.total,yb=y(R.total),ys=y(R.totalSim);
+  if(Math.abs(yb-ys)<30){if(ys<=yb){ys=yb-30}else{ys=yb+30}}
+  var s='<svg class="chart" viewBox="0 0 '+W+' '+h+'" role="img" aria-label="Impact cumulat pe 12 luni: fără acțiuni '+sgn(R.total)+' lei, cu acțiuni '+sgn(R.totalSim)+' lei">';
+  s+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="var(--line)" stroke-width="1.5"/><text x="'+(W-pr+4)+'" y="'+(y(0)+4)+'">0 lei</text>';
+  [0,6,12].forEach(function(i){s+='<text x="'+x(i)+'" y="'+(h-6)+'" text-anchor="'+(i===0?'start':i===12?'end':'middle')+'">'+lab(i)+'</text>'});
+  s+='<path d="'+path(R.base)+'" fill="none" stroke="var(--ink)" stroke-width="2.5"/>';
+  if(R.nOn)s+='<path d="'+path(R.sim)+'" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 5"/>';
+  s+='<text class="lb" x="'+(W-pr+6)+'" y="'+(yb+4)+'">'+sgn(R.total)+'</text><text x="'+(W-pr+6)+'" y="'+(yb+18)+'">fără acțiuni</text>';
+  if(R.nOn)s+='<text class="lb" x="'+(W-pr+6)+'" y="'+(ys-14)+'" style="fill:var(--accent)">'+sgn(R.totalSim)+'</text><text x="'+(W-pr+6)+'" y="'+(ys)+'" style="fill:var(--accent)">cu acțiuni</text>';
+  return s+'</svg>';
+}
+function chartTable(R){
+  var rows='';for(var i=3;i<=12;i+=3)rows+='<tr><td>după '+i+' luni</td><td>'+sgn(R.base[i])+' lei</td><td>'+sgn(R.sim[i])+' lei</td></tr>';
+  return '<details><summary>Vezi ca tabel</summary><table class="tbl"><thead><tr><th>Perioadă</th><th>Fără acțiuni</th><th>Cu acțiuni</th></tr></thead><tbody>'+rows+'</tbody></table></details>';
+}
+function actionsList(R){
+  var cs=R.cards.filter(function(c){return c.sv>0}).sort(function(a,b){return (a.dl||'9')<(b.dl||'9')?-1:1});
+  return '<ul class="alist">'+cs.map(function(c){
+    var dt=deadlineText(c,true);
+    return '<li><span><span class="an">'+esc(c.a.text)+'</span><span class="ad">'+(dt?dt.t:'oricând')+' · '+(c.expired?'ai fi economisit '+lei(c.svYr)+' lei/an':(c.r.est?'≈ ':'')+'+'+lei(c.svYr)+' lei/an'+(c.r.est?' · estimare':''))+'</span></span>'+
+    '<button type="button" class="sw" role="switch" aria-label="Simulează: '+esc(c.a.text)+'" aria-checked="'+c.on+'" data-sim="'+c.r.id+'"'+(c.expired?' disabled':'')+'><span class="track"></span></button></li>'}).join('')+'</ul>';
+}
+var DISC='<p class="disc">Scenariu educativ, nu consultanță financiară. Sumele marcate „estimare” sunt calculul nostru pe profilul tău, nu cifre din lege.</p>';
+var DISC_D='<p class="disc">Scenariu educativ, nu consultanță financiară. Verde: bani în plus. Roșu: bani în minus. Unde suma e calculul nostru pe profilul tău, nu o cifră din lege, scrie în card.</p>';
+
+/* ======================= A · Termenul întâi ======================= */
+function sortA(cards){
+  function key(c){if(c.expired)return [3,0];if(c.days!==null&&c.sv>0)return [0,c.days];if(c.upcomingEff!==null)return [1,c.upcomingEff];return [2,-Math.abs(c.m)]}
+  return cards.slice().sort(function(a,b){var x=key(a),y=key(b);return x[0]-y[0]||x[1]-y[1]});
+}
+function aHero(c){
+  if(!c)return '';
+  var h=hook(c.days!==null?{m:0,svYr:c.svYr,r:c.r,expired:false}:c);
+  var dots='';var span=90,left=Math.min(span,c.days||0);for(var i=0;i<18;i++)dots+='<i'+(i<Math.round(18*left/span)?' class="on"':'')+'></i>';
+  return '<section class="a-hero'+(c.urgent?' urg':'')+'" aria-label="Următorul termen"><p class="k">Următorul termen</p>'+
+   '<p class="amt">'+hv(h)+'<small>'+h.u+'</small>'+(c.r.est?'<span class="est">estimare</span>':'')+'</p>'+
+   '<p class="dl">până la '+fd(c.dl)+' · <span class="nw">mai ai '+zile(c.days)+'</span>'+(c.urgent?' <span class="urgchip">sub '+URG_DAYS+' de zile</span>':'')+'</p>'+
+   '<div class="days'+(c.urgent?' urg':'')+'" aria-hidden="true">'+dots+'</div><div class="dcap" aria-hidden="true"><span>azi</span><span>'+fdShort(c.dl)+'</span></div>'+
+   '<p class="t">'+esc(c.r.title)+(c.on?' · <span class="simtag" style="color:#fff;border-color:#fff">simulare pornită</span>':'')+'</p><button type="button" class="cta" data-open="'+c.r.id+'">'+(c.on?'Vezi cardul':'Simulează')+'</button></section>';
+}
+function aCard(c){
+  var h=hook(c),dt=deadlineText(c),open=S.open===c.r.id;
+  return '<article class="ac'+(c.dl&&!c.expired?' has-dl':'')+(c.urgent?' urg':'')+(c.expired?' exp':'')+'" id="c-'+c.r.id+'">'+
+   '<button type="button" class="ahead" aria-expanded="'+open+'" aria-controls="d-'+c.r.id+'" data-tog="'+c.r.id+'">'+
+   '<span class="amt '+h.k+'">'+hv(h)+'<small>'+h.u+'</small>'+estTag(c)+'</span>'+
+   (dt?'<span class="dl '+dt.k+'">'+dt.t+(c.urgent?' <span class="urgchip">urgent</span>':'')+'</span>':'')+
+   '<span class="ttl">'+esc(c.r.title)+'</span><span class="meta">'+statusPill(c)+'<span>'+c.r.act+'</span></span></button>'+(open?detail(c):'')+'</article>';
+}
+function feedA(R){
+  var cs=sortA(R.cards),nx=R.next;
+  var withDl=cs.filter(function(c){return !c.expired&&(c.days!==null&&c.sv>0||c.upcomingEff!==null)}),rest=cs.filter(function(c){return withDl.indexOf(c)<0});
+  return header()+aHero(nx)+
+   '<h2 class="sec">Cu termen, în ordinea termenului</h2>'+withDl.filter(function(c){return c!==nx||S.open===c.r.id}).map(aCard).join('')+
+   '<h2 class="sec">Deja în vigoare</h2>'+rest.map(aCard).join('');
+}
+
+/* ======================= B · Calm editorial ======================= */
+function bItem(c){
+  var h=hook(c),dt=deadlineText(c),open=S.open===c.r.id;
+  var dt0=deadlineText(c),kick=statusPill(c)+'<span>'+(dt0&&dt0.k==='eff'?'':(c.r.effective>S.d?'schimbarea de la ':'din ')+fd(c.r.effective)+' · ')+c.r.act+'</span>'+(c.urgent?'<span class="urgchip">mai ai '+zile(c.days)+'</span>':'');
+  var dlh='';if(dt&&!c.urgent)dlh='<span class="dl">'+(dt.k==='past'?dt.t:(dt.k==='eff'?dt.t:'Acțiune <b>'+dt.t+'</b>'))+'</span>';
+  return '<article class="bi'+(c.expired?' exp':'')+'" id="c-'+c.r.id+'"><button type="button" class="bhead" aria-expanded="'+open+'" aria-controls="d-'+c.r.id+'" data-tog="'+c.r.id+'">'+
+   '<span class="kick">'+kick+'</span><span class="ttl">'+esc(c.r.title)+'</span>'+
+   '<span class="row">'+dlh+'<span class="amt '+h.k+'">'+hv(h)+' <small>'+h.u+'</small>'+estTag(c)+'</span></span></button>'+(open?detail(c):'')+'</article>';
+}
+function feedB(R){
+  var ev=function(c){return c.dl&&!c.expired?c.dl:c.r.effective};
+  var up=R.cards.filter(function(c){return ev(c)>=S.d}).sort(function(a,b){return ev(a)<ev(b)?-1:1});
+  var past=R.cards.filter(function(c){return ev(c)<S.d}).sort(function(a,b){return a.r.effective>b.r.effective?-1:1});
+  var lede=R.next?'<p class="lede">Următorul lucru care contează pentru tine are termen pe '+fd(R.next.dl)+'.</p>':'<p class="lede">Niciun termen deschis acum. Mai jos, ce s-a schimbat deja.</p>';
+  return header()+lede+'<p class="sub">'+R.cards.length+' acte care te privesc · '+PERSONAS[S.p].name+'</p>'+
+   '<h2 class="sec">Urmează</h2>'+up.map(bItem).join('')+'<h2 class="sec">Deja în vigoare</h2>'+past.map(bItem).join('');
+}
+
+/* ======================= C · Planul întâi ======================= */
+function cRow(c){
+  var open=S.open===c.r.id,yr=c.m*c.months,dt=deadlineText(c,true);
+  var yv=c.m!==0?(c.r.est?'≈ ':'')+sgn(yr)+' lei':(c.svYr>0&&!c.expired?'până la '+(c.r.est?'≈ ':'')+'+'+lei(c.svYr)+' lei':'0 lei');
+  return '<article class="cr'+(c.expired?' exp':'')+'" id="c-'+c.r.id+'"><button type="button" class="chd" aria-expanded="'+open+'" aria-controls="d-'+c.r.id+'" data-tog="'+c.r.id+'">'+
+   '<span class="ttl">'+esc(c.r.title)+'</span><span class="yr '+cls(c.m!==0?yr:c.svYr)+'">'+yv+'</span>'+
+   '<span class="s2">'+statusPill(c)+(c.m!==0?'<span>'+sgn(c.m)+' lei/lună × '+c.months+'</span>':'')+(dt?'<span>'+dt.t+'</span>':'')+(c.urgent?'<span class="urgchip">urgent</span>':'')+estTag(c)+'</span></button>'+(open?detail(c):'')+'</article>';
+}
+function waterfall(R){
+  var cs=R.cards.filter(function(c){return c.m!==0||c.on}),mx=1;
+  cs.forEach(function(c){mx=Math.max(mx,Math.abs(c.m*c.months),c.on?c.sv*c.months:0)});
+  var li=cs.sort(function(a,b){return a.m*a.months-b.m*b.months}).map(function(c){
+    var v=c.m*c.months,out='';
+    if(c.m!==0)out+='<li><span>'+esc(c.r.title)+'</span><span class="v '+cls(v)+'">'+(c.r.est?'≈ ':'')+sgn(v)+' lei</span><span class="bar" style="width:'+Math.max(2,100*Math.abs(v)/mx)+'%"></span></li>';
+    if(c.on)out+='<li><span><span class="simtag">simulare</span> '+esc(c.a.text)+'</span><span class="v pos">+'+lei(c.sv*c.months)+' lei</span><span class="bar s" style="width:'+Math.max(2,100*c.sv*c.months/mx)+'%"></span></li>';
+    return out}).join('');
+  return '<ul class="wf" aria-label="Defalcare pe acte, 12 luni">'+li+'</ul>';
+}
+function cTop(R,full){
+  var left=R.cards.filter(function(c){return c.sv>0&&!c.expired&&!c.on}).reduce(function(s,c){return s+c.sv*Math.max(c.months,c.dl?12:0)},0);
+  var est=R.cards.some(function(c){return c.sv>0&&!c.on&&!c.expired&&c.r.est});
+  return '<section class="c-top"><p class="k">Legile noi, pe 12 luni, pentru tine</p><p class="tot '+cls(R.total)+'">≈ '+sgn(R.total)+'<small>lei · fără acțiuni</small></p>'+
+   (left>0?'<p class="left">Bani lăsați pe masă dacă nu faci nimic: <b class="pos">până la '+(est?'≈ ':'')+lei(left)+' lei</b>'+(R.next?', primul termen pe '+fd(R.next.dl)+' (mai ai '+zile(R.next.days)+')':'')+'.</p>':'')+
+   chart(R,full?200:150)+(full?chartTable(R):'')+(full?'':'<button type="button" class="cta" data-go="plan">Vezi planul și simulează</button>')+'</section>';
+}
+function feedC(R){
+  var cs=R.cards.slice().sort(function(a,b){if(a.expired!==b.expired)return a.expired?1:-1;return Math.abs(b.m*b.months)+b.svYr-(Math.abs(a.m*a.months)+a.svYr)});
+  return header()+cTop(R,false)+'<h2 class="sec">Pe acte, după impact</h2>'+cs.map(cRow).join('');
+}
+
+/* ======================= D · Revistă (tipar avocatnet) ======================= */
+var DOTS={'Venit':'#0F766E','Domeniul meu':'#7C3AED','Locuință':'#A16207','Familie':'#2563EB','Altele':'#15803D'};
+var WD_L=['duminică','luni','marți','miercuri','joi','vineri','sâmbătă'];
+function groupsOf(c){var g=[];c.common.forEach(function(t){var G=TAGS[t]&&TAGS[t][1];if(G&&g.indexOf(G)<0)g.push(G)});return g}
+function inFilter(c){return S.f==='all'||groupsOf(c).indexOf(S.f)>=0}
+function catLabel(c){return groupsOf(c)[0]+' · '+c.common.map(tagName).join(', ')}
+function longDate(iso){var d=new Date(dn(iso)*864e5);return WD_L[d.getUTCDay()]+', '+(+iso.slice(8))+' '+MONTHS_L[+iso.slice(5,7)-1]+' '+iso.slice(0,4)}
+function masthead(){
+  var cur=S.s==='card'?'feed':S.s;
+  var nav=[['feed','Noutăți'],['plan','Planul meu'],['profile','Profilul meu']].map(function(t){return '<button type="button" data-go="'+t[0]+'"'+(cur===t[0]?' aria-current="page"':'')+'>'+t[1]+'</button>'}).join('');
+  return '<header class="mast"><div class="mt"><div><button type="button" class="ico menu" aria-label="Meniu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>'+
+   '<label class="srch"><span class="vh">Caută</span><input placeholder="Caută în actele care te privesc…"><span aria-hidden="true">⌕</span></label></div>'+
+   '<button type="button" class="logo" data-go="feed"><b>Ce înseamnă pentru mine</b><span>Legea, pe banii tăi</span></button>'+
+   '<div class="rt"><span class="demo" title="Data folosită pentru calcule în demo">demo · azi '+fd(S.d)+'</span><button type="button" class="ico" data-go="profile" aria-label="Profilul meu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-5 8-5s6.5 1 8 5"/></svg></button></div></div></header>'+
+   '<nav class="navd" aria-label="Secțiuni">'+nav+'</nav>';
+}
+function dFeat(c){
+  if(!c)return '<section class="feat"><h2>Nimic nou care să te privească</h2><p class="lede">Niciun act din acest filtru nu are termen sau dată de aplicare înainte.</p></section>';
+  var h=hook(c.days!==null?{m:0,svYr:c.svYr,r:c.r,expired:false}:c),open=S.open===c.r.id;
+  var tl=c.days!==null?'<div class="tl'+(c.urgent?' urg':'')+'"><b>mai ai '+zile(c.days)+'</b><span>până la '+fd(c.dl)+'</span></div>':
+    '<div class="tl"><b>peste '+zile(c.upcomingEff)+'</b><span>se aplică de la '+fd(c.r.effective)+'</span></div>';
+  var lede=c.a&&c.days!==null?'<b>Ce poți face:</b> '+esc(c.a.text)+'.':c.r.why;
+  return '<section class="feat" id="c-'+c.r.id+'" aria-label="Următorul lucru care contează"><p class="fk">'+statusPill(c)+'<span class="day">'+longDate(S.d)+'</span>'+(c.urgent?'<span class="urgchip">urgent</span>':'')+'</p>'+
+   '<span class="catd">'+catLabel(c)+'</span><h2>'+esc(c.r.title)+'</h2>'+
+   '<p class="famt '+h.k+'">'+hv(h)+'<small>'+h.u+'</small>'+estTag(c)+'</p><p class="lede">'+lede+'</p>'+
+   '<div class="ff">'+tl+'<div class="src"><i aria-hidden="true">§</i><span><b>'+c.r.act+'</b><span>'+c.r.mo+' · verificat la 28 oct 2026</span></span></div></div>'+
+   '<button type="button" class="ctad" aria-expanded="'+open+'" aria-controls="d-'+c.r.id+'" data-tog="'+c.r.id+'">'+(open?'Închide':(c.sv>0&&!c.expired?'Simulează și vezi sursa':'Vezi ce înseamnă'))+'</button>'+(open?detail(c):'')+'</section>';
+}
+function dStats(R,cs){
+  var openDl=cs.filter(function(c){return c.days!==null&&c.sv>0}).length,acts=cs.filter(function(c){return c.sv>0&&!c.expired}).length;
+  return '<section class="stats" aria-label="Pentru tine, în cifre"><div class="yr"><b>'+S.d.slice(0,4)+'</b><span>pentru tine, în cifre</span></div><ul>'+
+   '<li><b>'+cs.length+'</b><span>acte care te privesc</span></li>'+
+   '<li><b class="'+cls(R.total)+'">'+sgn(R.total)+' lei</b><span>impact pe 12 luni, fără acțiuni</span></li>'+
+   '<li><b>'+openDl+'</b><span>termene deschise</span></li>'+
+   '<li><b class="'+cls(R.totalSim-R.total)+'">'+(R.nOn?sgn(R.totalSim-R.total)+' lei':acts)+'</b><span>'+(R.nOn?'cu acțiunile simulate':'acțiuni pe care legea le permite')+'</span></li></ul></section>';
+}
+function dCal(cs){
+  var ev=[];
+  cs.forEach(function(c){
+    if(c.days!==null&&c.sv>0)ev.push({iso:c.dl,c:c,t:c.a.text,k:'dl'});
+    else if(c.upcomingEff!==null)ev.push({iso:c.r.effective,c:c,t:'Se aplică: '+c.r.title,k:'eff'});
+  });
+  ev.sort(function(a,b){return a.iso<b.iso?-1:1});
+  if(!ev.length)return '<p class="sidenote">Niciun termen deschis pentru acest filtru.</p>';
+  return '<ul class="cal">'+ev.map(function(e){
+    var c=e.c,d=daysTo(e.iso),amt=e.k==='dl'?'<span class="pos">+'+lei(c.svYr)+' lei/an</span>':(c.m?'<span class="'+cls(c.m)+'">'+sgn(c.m)+' lei/lună</span>':'');
+    return '<li class="'+(e.k==='dl'&&c.urgent?'urg':'')+'"><div class="dd"><b>'+(+e.iso.slice(8))+'</b><span>'+MONTHS[+e.iso.slice(5,7)-1]+'</span><small>'+e.iso.slice(0,4)+'</small></div><div>'+
+     '<button type="button" data-open="'+c.r.id+'">'+esc(e.t)+'</button><div class="cm">'+(e.k==='dl'&&c.urgent?'<span class="urgchip">mai ai '+zile(d)+'</span>':'<span>'+(e.k==='dl'?'mai ai ':'peste ')+zile(d)+'</span>')+(amt?'· <b>'+amt+'</b>':'')+'</div></div></li>'}).join('')+'</ul>';
+}
+function dItem(c){
+  var h=hook(c),open=S.open===c.r.id,dt=deadlineText(c,true);
+  return '<li class="'+(c.expired?'exp':'')+'" id="c-'+c.r.id+'"><button type="button" class="nh2" aria-expanded="'+open+'" aria-controls="d-'+c.r.id+'" data-tog="'+c.r.id+'">'+
+   '<span class="nk">'+catLabel(c)+'</span><span class="na '+h.k+'">'+hv(h)+'<small>'+h.u+'</small></span>'+
+   '<span class="nt">'+esc(c.r.title)+'</span>'+(dt?'<span class="ndl '+dt.k+'">'+dt.t+'</span>':'')+
+   '<span class="nm">'+statusPill(c)+'<span>'+c.r.act+'</span></span></button>'+(open?detail(c):'')+'</li>';
+}
+function feedD(R){
+  var cs=R.cards.filter(inFilter),all=R.cards;
+  var nx=pickNotif({next:(function(){var n=null;cs.forEach(function(c){if(c.days!==null&&c.sv>0&&(!n||c.dl<n.dl))n=c});return n})(),cards:cs});
+  var rest=cs.filter(function(c){return c!==nx}).sort(function(a,b){if(a.expired!==b.expired)return a.expired?1:-1;return Math.abs(b.m)*12+b.svYr-(Math.abs(a.m)*12+a.svYr)});
+  var cnt=function(G){return all.filter(function(c){return groupsOf(c).indexOf(G)>=0}).length};
+  var gs=GROUPS.filter(function(G){return cnt(G)>0});
+  var flt='<ul class="flt">'+[['all','Toate',all.length,'#111827']].concat(gs.map(function(G){return [G,G,cnt(G),DOTS[G]]})).map(function(g){
+    return '<li><button type="button" data-f="'+g[0]+'" aria-pressed="'+(S.f===g[0])+'"><i style="background:'+g[3]+'"></i>'+g[1]+' <small>'+g[2]+'</small></button></li>'}).join('')+'</ul>';
+  var fbar='<div class="fbar"><span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6 8v5l-4 2v-7z"/></svg></span><label>Ești în<select data-set="f">'+
+   [['all','Toate actele']].concat(gs.map(function(G){return [G,G]})).map(function(o){return '<option value="'+o[0]+'"'+(S.f===o[0]?' selected':'')+'>'+o[1]+'</option>'}).join('')+'</select></label></div>';
+  var left='<aside class="dside l" aria-label="Filtre"><p class="sideh">Filtre flux</p>'+flt+'<p class="sideh" style="margin-top:22px">De făcut</p><ul class="flt"><li><button type="button" data-go="plan"><i style="background:var(--accent)"></i>Planul meu <small>'+all.filter(function(c){return c.sv>0&&!c.expired}).length+'</small></button></li></ul>'+
+   '<p class="sidenote" style="margin-top:18px">'+PERSONAS[S.p].name+' · profilul rămâne pe telefon.</p></aside>';
+  var right='<aside class="dside r" aria-label="Termene"><p class="sideh">Termene · ce urmează</p><p class="sidenote" style="margin:0 0 4px">Calculate față de azi, din datele din lege.</p>'+dCal(cs)+'</aside>';
+  var main='<div class="dmain">'+fbar+dFeat(nx)+dStats(R,cs)+'<div class="calm"><h2 class="secd">Termene · ce urmează</h2>'+dCal(cs)+'</div>'+
+   '<h2 class="secd">Toate actele care te privesc <small>după impact</small></h2><ol class="nl">'+rest.map(dItem).join('')+'</ol>'+DISC_D+'</div>';
+  return masthead()+'<div class="dgrid">'+left+main+right+'</div>';
+}
+
+/* ======================= Planul meu ======================= */
+function planScreen(R){
+  var nums='<div class="big2"><div><span>Fără acțiuni · 12 luni</span><b class="'+cls(R.total)+'">'+sgn(R.total)+' lei</b></div><div><span>Cu acțiuni · '+(R.nOn?'<span class="simtag">simulare</span>':'nimic ales')+'</span><b class="'+cls(R.totalSim)+'">'+sgn(R.totalSim)+' lei</b></div></div>';
+  var nx=R.next?'<p class="sub" style="margin:0 0 8px">Următorul termen: <b>'+fd(R.next.dl)+'</b> · mai ai '+zile(R.next.days)+(R.next.urgent?' <span class="urgchip">urgent</span>':'')+'</p>':'';
+  var acts='<section class="box"><h2 class="sec" style="margin-top:0">Acțiuni pe care legea le permite</h2>'+actionsList(R)+'</section>';
+  if(S.v==='a')return header('Planul meu')+aHero(R.next)+'<section class="box">'+nums+chart(R)+chartTable(R)+DISC+'</section>'+acts;
+  if(S.v==='c')return header('Planul meu')+cTop(R,true)+'<section class="box"><h2 class="sec" style="margin-top:0">Din ce se compune</h2>'+waterfall(R)+DISC+'</section>'+acts;
+  return header()+'<p class="lede">Planul meu: ce se întâmplă cu banii tăi în următoarele 12 luni.</p>'+'<section class="box">'+nums+nx+chart(R)+chartTable(R)+DISC+'</section>'+acts;
+}
+
+/* ======================= Notificarea ======================= */
+function notifScreen(R){
+  var c=pickNotif(R),now=new Date(dn(S.d)*864e5),wd=['duminică','luni','marți','miercuri','joi','vineri','sâmbătă'][now.getUTCDay()];
+  var head='<div class="nh"><span class="ic" aria-hidden="true">CÎ</span><b>Ce înseamnă pentru mine</b><span class="nt">acum</span></div>';
+  var body;
+  if(!c)body='<p class="hook">Nimic nou care să te privească</p><p class="story">Nu e niciun termen deschis pentru etichetele tale.</p>';
+  else{
+    var tags=c.common.map(tagName).join(', '),amt=c.days!==null?('până la '+(c.r.est?'≈ ':'')+lei(c.svYr)+' lei/an'):'';
+    var est=c.r.est?' · estimare':'';
+    if(c.days===null){ /* doar dată de aplicare */
+      body='<p class="hook">'+esc(c.r.title)+'</p><p class="story">Se aplică de la '+fd(c.r.effective)+' (peste '+zile(c.upcomingEff)+'). Te privește ca: <b>'+tags+'</b>.</p>';
+    }else if(S.v==='a'){
+      body='<p class="hook">'+amt+est+'</p><p class="hook" style="margin-top:0;font-size:15.5px">până la '+fd(c.dl)+' · mai ai '+zile(c.days)+(c.urgent?' <span class="urgchip">urgent</span>':'')+'</p>'+
+       '<p class="story">'+esc(c.r.title)+'. Te privește ca: <b>'+tags+'</b>. Plafonul e anual.</p>';
+    }else if(S.v==='c'){
+      body='<p class="hook">Planul tău pe 12 luni: ≈ '+sgn(R.total)+' lei</p><p class="story">O acțiune cu termen pe '+fd(c.dl)+' (mai ai '+zile(c.days)+') aduce '+amt+est+'. Te privește ca: <b>'+tags+'</b>.</p>';
+    }else{
+      body='<p class="hook">'+esc(c.r.title.split(':')[0])+': '+amt+est+'</p><p class="story">Fereastra pentru '+c.dl.slice(0,4)+' se închide pe '+fd(c.dl)+' (mai ai '+zile(c.days)+'). Te privește ca: <b>'+tags+'</b>.</p>';
+    }
+  }
+  var hh=String(9).padStart(2,'0')+':41';
+  return '<div class="lock"><div class="clock">'+hh+'</div><div class="ldate">'+wd+', '+fd(S.d)+' (demo)</div><div class="nf" role="group" aria-label="Notificare">'+head+body+
+   (c?'<button type="button" class="cta" data-open="'+c.r.id+'">'+(S.v==='c'?'Vezi planul':'Simulează')+'</button>':'')+'<button type="button" class="ghost" data-go="feed">Mai târziu</button></div>'+
+   '<p class="hint">Cârlig: suma · Poveste: de ce te privește · Ofertă: acțiunea cu termen</p></div>';
+}
+
+/* ======================= Profil ======================= */
+function profileScreen(){
+  var tags=activeTags();
+  var g=GROUPS.map(function(G){
+    var ts=tags.filter(function(t){return TAGS[t]&&TAGS[t][1]===G});
+    return '<section class="grp"><h3>'+G+'</h3>'+(ts.length?ts.map(function(t){return '<span class="ptag">'+tagName(t)+'<button type="button" data-rm="'+t+'" aria-label="Elimină eticheta '+tagName(t)+'">×</button></span>'}).join(''):'')+
+     '<button type="button" class="ptag add">+ adaugă</button>'+(G==='Domeniul meu'?'<p class="ex">Exemplu real: OUG 156/2024 a eliminat, din ianuarie 2025, scutirea de impozit pentru salariații din IT, construcții, agricultură și industria alimentară.</p>':'')+'</section>'}).join('');
+  return header()+'<p class="'+(S.v==='b'?'lede':'sub')+'">Profilul tău: '+PERSONAS[S.p].name+'. Etichetele decid ce acte vezi.</p>'+g+
+   '<div class="btnrow"><button type="button" class="btn2" data-go="onb">Refă conversația</button><button type="button" class="btn2" data-go="form">Formular</button></div>'+
+   '<p class="disc">Profilul rămâne pe telefonul tău. Fără cont, fără bancă.</p>';
+}
+
+/* ======================= Onboarding ======================= */
+function xt(id,quote){return '<span class="xt">'+tagName(id)+'<small>din «'+quote+'»</small><button type="button" aria-label="Șterge eticheta '+tagName(id)+'">×</button></span>'}
+function onbScreen(R){
+  var nAct=R.cards.length;
+  var top='<div class="onbtop"><button type="button" data-go="form">Prefer formularul</button><span class="prog">pasul 4 din 4</span><button type="button" data-go="feed">Sari peste</button></div>';
+  var tally='';
+  if(S.v==='a'&&R.next)tally='<div class="tally" role="status">Până acum: <b>'+nAct+' acte</b> te privesc · cel mai apropiat termen <b>'+fdShort(R.next.dl)+'</b> (mai ai '+zile(R.next.days)+')</div>';
+  if(S.v==='c')tally='<div class="tally" role="status">Impact pe 12 luni, până acum: <b>≈ '+sgn(R.total)+' lei</b></div>';
+  var msgs=
+   '<p class="bub as">Salut. Te ajut să afli ce legi noi îți schimbă banii. Nu sunt consultant financiar: îți arăt ce scrie în lege și cât te atinge pe tine. Cum câștigi bani?</p>'+
+   '<p class="bub us">Sunt programator angajat și am și un SRL din care iau dividende.</p>'+
+   '<p class="bub as">Am notat trei etichete. Șterge-le dacă am greșit.</p><div class="xtr">'+xt('angajat','angajat')+xt('angajat_it','programator')+xt('srl_dividende','iau dividende')+'</div>'+
+   '<p class="bub as">Unde locuiești: cu chirie, în proprietate sau cu credit?</p>'+
+   '<p class="bub us">Stau în chirie, plătesc gaz și curent.</p><div class="xtr">'+xt('chirias','chirie')+xt('consumator_gaz','gaz')+xt('consumator_energie','curent')+'</div>'+
+   '<p class="bub as">Contribui la o pensie privată?</p><div class="qr" role="group" aria-label="Răspunsuri rapide"><button type="button">Pilon II</button><button type="button">Pilon III</button><button type="button">Amândouă</button><button type="button">Nu știu</button></div>'+
+   '<p class="bub us">Pilon II, cred.</p><div class="xtr">'+xt('pilon2','Pilon II')+'</div>';
+  var fin='<div class="final"><p class="hook">Am găsit '+nAct+' acte care te privesc.</p><p>'+(R.next?'Cel mai apropiat termen: '+fd(R.next.dl)+' (mai ai '+zile(R.next.days)+'). ':'')+'Le poți vedea pe toate, cu link la articolul din lege.</p><button type="button" class="cta" data-go="feed">Vezi ce te privește</button></div>';
+  return header()+top+tally+msgs+fin+'<div class="compose"><label class="vh" for="msg">Mesaj pentru asistent</label><input id="msg" placeholder="Scrie aici…"><button type="button" aria-label="Trimite">↑</button></div>';
+}
+function formScreen(){
+  function ck(id,on){return '<label class="ck"><input type="checkbox"'+(on?' checked':'')+'>'+tagName(id)+'</label>'}
+  var mine=activeTags();
+  var fs=GROUPS.filter(function(g){return g!=='Domeniul meu'}).map(function(G){
+    return '<fieldset><legend>'+G+'</legend>'+Object.keys(TAGS).filter(function(t){return TAGS[t][1]===G}).map(function(t){return ck(t,mine.indexOf(t)>=0)}).join('')+'</fieldset>'});
+  var dom='<fieldset><legend>Domeniul meu</legend><label class="fld" for="dom">În ce domeniu lucrezi?</label><select id="dom" class="inp" aria-describedby="domh">'+
+   ['—','IT','construcții','agricultură','HoReCa','altul'].map(function(o){return '<option'+(o==='IT'?' selected':'')+'>'+o+'</option>'}).join('')+'</select><p class="help" id="domh">Unele acte schimbă impozitul pe domenii (de exemplu OUG 156/2024).</p></fieldset>';
+  return header()+'<div class="onbtop"><button type="button" data-go="onb">Înapoi la conversație</button><button type="button" data-go="feed">Sari peste</button></div>'+
+   '<p class="'+(S.v==='b'?'lede':'sub')+'">Bifează ce ți se potrivește. Durează un minut.</p>'+fs[0]+dom+fs.slice(1).join('')+
+   '<button type="button" class="cta" data-go="feed">Vezi ce te privește</button><p class="disc">Răspunsurile rămân pe telefonul tău. Fără cont, fără bancă.</p>';
+}
+
+/* ======================= Stări ======================= */
+function skel(n){var s='';for(var i=0;i<n;i++)s+='<div class="skcard"><div class="sk" style="width:40%"></div><div class="sk" style="width:85%;height:18px"></div><div class="sk" style="width:60%"></div></div>';return s}
+function statesScreen(){
+  var r=function(t,sub,html){return '<h3>'+t+' <small>· '+sub+'</small></h3>'+html};
+  var L=function(t){return '<p class="stlabel">'+t+'</p>'};
+  return header()+'<div class="sheet">'+
+  r('Notificarea','gol','<div class="stbox"><b>Nu trimitem nimic</b>Când niciun act nu atinge etichetele tale, nu primești notificări. Deschis manual, fluxul spune „Nimic nou din '+fdShort(S.d)+'”.</div>')+
+  r('Notificarea','eroare','<div class="stbox err" role="alert"><b>Nu am putut încărca actele noi</b>Îți arătăm ce știm de la ultima actualizare, 28 oct 2026. Sumele și termenele de acolo rămân valabile.<button type="button" class="btn2">Reîncearcă</button></div>')+
+  r('Noutăți','gol','<div class="stbox"><b>Nimic nou care să te privească</b>Niciun act din setul curent nu atinge etichetele tale. Ultima verificare: 28 oct 2026.<button type="button" class="cta" data-go="profile">Adaugă etichete</button></div>')+
+  r('Noutăți','încărcare','<div aria-busy="true" aria-live="polite">'+L('Se încarcă actele care te privesc…')+skel(2)+'</div>')+
+  r('Noutăți','eroare','<div class="stbox err" role="alert"><b>Nu am putut actualiza fluxul</b>Vezi versiunea din 28 oct 2026. Termenele sunt calculate față de data de azi, deci rămân corecte.<button type="button" class="btn2">Reîncearcă</button></div>')+
+  r('Card + simulare','eroare','<div class="stbox err" role="alert"><b>Nu putem simula această acțiune</b>Ne lipsește un număr din profil (de exemplu, cât încasezi din dividende). Fără el, nu inventăm o sumă.<button type="button" class="btn2" data-go="profile">Completează profilul</button></div>')+
+  r('Planul meu','gol','<div class="stbox"><b>Nicio acțiune aleasă încă</b>Linia punctată apare când pornești „Simulează” pe un card. Până atunci vezi doar impactul fără acțiuni.<button type="button" class="cta" data-go="feed">Alege o acțiune</button></div>')+
+  r('Planul meu','încărcare','<div aria-busy="true">'+L('Recalculăm cele 12 luni…')+'<div class="skcard"><div class="sk" style="height:120px"></div></div></div>')+
+  r('Planul meu','eroare','<div class="stbox err" role="alert"><b>Nu putem calcula planul</b>Profilul nu are nicio etichetă de venit. Adaugă una ca să vezi sumele.<button type="button" class="btn2" data-go="profile">Deschide Profilul</button></div>')+
+  r('Profil','gol','<div class="stbox"><b>Profilul e gol</b>Fără etichete nu primești notificări și fluxul e gol. Spune-i asistentului cum câștigi și unde locuiești.<button type="button" class="cta" data-go="onb">Începe conversația</button><button type="button" class="btn2" data-go="form">Formular</button></div>')+
+  r('Profil','eroare','<div class="stbox err" role="alert"><b>Eticheta nu s-a salvat</b>Telefonul nu a permis salvarea. Profilul de mai înainte rămâne neschimbat.<button type="button" class="btn2">Reîncearcă</button></div>')+
+  r('Onboarding','gol','<p class="bub as">Salut. Te ajut să afli ce legi noi îți schimbă banii. Nu sunt consultant financiar. Cum câștigi bani?</p><div class="qr"><button type="button">Salariat</button><button type="button">PFA</button><button type="button">SRL</button><button type="button">Pensionar</button></div>')+
+  r('Onboarding','încărcare','<p class="bub as" aria-busy="true" aria-label="Asistentul scrie"><span class="typing"><i></i><i></i><i></i></span></p>')+
+  r('Onboarding','eroare','<p class="bub as" role="alert">Nu am înțeles din ce câștigi. Alege mai jos sau folosește formularul.</p><div class="qr"><button type="button">Salariat</button><button type="button">PFA</button><button type="button" data-go="form">Formular</button></div>')+
+  r('Formular','eroare','<label class="fld" for="e1">Venit brut lunar (lei)</label><input id="e1" class="inp" aria-invalid="true" aria-describedby="e1e" value="8 000 lei/lună"><p class="err" id="e1e" role="alert">Scrie doar cifre, de exemplu 8000.</p>')+
+  '</div>';
+}
+
+/* ---------- randare + evenimente ---------- */
+function render(){
+  document.body.className=(S.v==='e'||S.v==='f'?'v-d v-'+S.v:'v-'+S.v)+(S.bar?' hasbar':'');
+  var R=calc(),h='';
+  var isFeed=S.s==='feed'||S.s==='card',showPlan=isFeed&&S.v!=='c'&&!isD();
+  document.documentElement.style.setProperty('--planh',showPlan?'78px':'0px');
+  if(S.s==='notif')h=notifScreen(R);
+  else{
+    var main=S.s==='plan'?planScreen(R):S.s==='profile'?profileScreen():S.s==='onb'?onbScreen(R):S.s==='form'?formScreen():S.s==='stari'?statesScreen():(S.v==='a'?feedA(R):S.v==='c'?feedC(R):isD()?feedD(R):feedB(R));
+    h='<div class="app'+(isD()&&isFeed?' wide':'')+'"><main>'+main+'</main></div>'+(showPlan?planBar(R):'')+(S.s==='onb'||S.s==='form'?'':tabBar());
+  }
+  if(S.bar)h+=protoBar();
+  document.getElementById('root').innerHTML=h;
+}
+function protoBar(){
+  var sel=function(name,opts,cur){return '<select data-set="'+name+'" aria-label="'+name+'">'+opts.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===cur?' selected':'')+'>'+o[1]+'</option>'}).join('')+'</select>'};
+  return '<div class="proto" role="toolbar" aria-label="Bara de prototip"><button type="button" data-cyc="-1" aria-label="Varianta anterioară">←</button><span class="lbl">'+S.v.toUpperCase()+' · '+VARIANTS[S.v]+'</span><button type="button" data-cyc="1" aria-label="Varianta următoare">→</button>'+
+   sel('s',Object.keys(SCREENS).map(function(k){return [k,SCREENS[k]]}),S.s)+sel('d',DEMO_DATES,S.d)+sel('p',Object.keys(PERSONAS).map(function(k){return [k,PERSONAS[k].name]}),S.p)+'</div>';
+}
+function sync(){
+  var q=new URLSearchParams();q.set('v',S.v);q.set('s',S.s);if(S.d!==DEMO_DATES[0][0])q.set('d',S.d);if(S.p!=='andrei')q.set('p',S.p);
+  var on=Object.keys(S.on).filter(function(k){return S.on[k]});if(on.length)q.set('on',on.join(','));if(S.open)q.set('open',S.open);if(!S.bar)q.set('bar','0');
+  history.replaceState(null,'','?'+q.toString());
+}
+function go(s){S.s=s;if(s!=='card')S.open=null;sync();render();window.scrollTo(0,0)}
+function scrollToCard(id){var el=document.getElementById('c-'+id);if(el)window.scrollTo(0,Math.max(0,el.getBoundingClientRect().top+window.scrollY-12))}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  if(b.dataset.go){go(b.dataset.go);return}
+  if(b.dataset.cyc){var k=Object.keys(VARIANTS),i=(k.indexOf(S.v)+(+b.dataset.cyc)+k.length)%k.length;S.v=k[i];sync();render();return}
+  if(b.dataset.open){S.s='card';S.open=b.dataset.open;sync();render();scrollToCard(S.open);return}
+  if(b.dataset.tog){var id=b.dataset.tog;S.open=S.open===id?null:id;S.s=S.open?'card':'feed';sync();render();if(S.open)scrollToCard(id);return}
+  if(b.dataset.sim){S.on[b.dataset.sim]=!S.on[b.dataset.sim];var y=window.scrollY;sync();render();window.scrollTo(0,y);return}
+  if(b.dataset.rm){S.removed.push(b.dataset.rm);render();return}
+  if(b.dataset.f){S.f=b.dataset.f;render();return}
+});
+document.addEventListener('change',function(e){var s=e.target.dataset.set;if(!s)return;S[s]=e.target.value;if(s==='s'&&S.s!=='card')S.open=null;sync();render();window.scrollTo(0,0)});
+document.addEventListener('keydown',function(e){
+  if(e.target.closest('input,textarea,select,[contenteditable]'))return;
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'){var k=Object.keys(VARIANTS),i=(k.indexOf(S.v)+(e.key==='ArrowRight'?1:-1)+k.length)%k.length;S.v=k[i];sync();render()}
+});
+/* ?s=card fără open: deschide cardul ales de regula notificării */
+if(S.s==='card'&&!S.open){var n=pickNotif(calc());S.open=n?n.r.id:null}
+render();
+if(S.s==='card'&&S.open)scrollToCard(S.open);
+</script>
+</body>
+</html>
