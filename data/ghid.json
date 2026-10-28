@@ -530,5 +530,177 @@
       "url": "https://www.anaf.ro",
       "ce": "Declarația unică se depune și se plătește online, gratuit."
     }
+  },
+  {
+    "id": "salariu_minim_2026",
+    "pentru": "Pentru angajații cu salariul minim",
+    "ce": "salariul minim brut crește la 4.325 de lei de la 1 iulie 2026",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică fluturașul din iulie 2026: salariul de bază la normă întreagă trebuie să fie cel puțin 4.325 lei brut.",
+      "Dacă nu e, cere angajatorului corectarea."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "ajutor_incalzire",
+    "pentru": "Pentru familiile cu venit net de cel mult 1.386 de lei pe membru (2.053 lei pentru o persoană singură)",
+    "ce": "ajutor lunar la încălzire între noiembrie și martie, doar pe bază de cerere",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Calculează venitul net mediu pe membru de familie.",
+      "Cere formularul la primăria de care aparține locuința.",
+      "Termenul general e 15 octombrie; întreabă la primărie dacă mai poți depune și de când se acordă."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "insolventa_persoane_fizice",
+    "pentru": "Pentru cei cu datorii pe care nu le mai pot plăti",
+    "ce": "insolvența personală se poate cere de la 15 salarii minime de datorii, adică 64.875 de lei",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Adună lista datoriilor scadente și a creditorilor.",
+      "Cere informații la comisia de insolvență din județul tău.",
+      "Dacă ai peste vârsta de pensionare și datorii de cel mult 43.250 lei, întreabă de procedura simplificată."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "sere_solare_2026",
+    "pentru": "Pentru cei care au sere, solarii, răsadnițe, ciupercării sau silozuri pentru cereale",
+    "ce": "nu plătesc impozit pe clădiri pentru ele în 2026; din 2027, jumătate",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică pe decizia de impunere de la primărie că aceste clădiri apar ca scutite pentru 2026.",
+      "Dacă nu, cere corectarea la direcția de taxe locale."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "masa_sanatoasa_2026",
+    "pentru": "Pentru părinții cu copii la grădiniță sau școală de stat",
+    "ce": "programul „Masă sănătoasă” continuă în 2026 în unitățile incluse",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Întreabă la grădiniță sau la școală dacă unitatea e în program în 2026."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "saracie_energetica_2026",
+    "pentru": "Pentru familiile cu venit net de cel mult 1.784 de lei pe membru (1.940 lei pentru o persoană singură)",
+    "ce": "50 de lei pe lună la factura de curent, până la 31 decembrie 2026",
+    "salvezi": {
+      "lei": 100,
+      "cand": "o_data",
+      "ipoteza": "50 lei pe lună pentru noiembrie și decembrie 2026, dacă te înscrii în noiembrie"
+    },
+    "pierzi": null,
+    "termen": "2026-12-31",
+    "pasi": [
+      "Calculează venitul net pe membru de familie.",
+      "Înscrie-te prin aplicația EPIDS sau la primărie.",
+      "Sprijinul se acordă din luna înscrierii, deci cu cât te înscrii mai repede, cu atât primești mai mult."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "salarii_stat_inghetate_2026",
+    "pentru": "Pentru salariații de la stat (spitale, școli, administrație)",
+    "ce": "salariul de bază și sporurile rămân în 2026 la nivelul din decembrie 2025",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Orele suplimentare se compensează doar cu timp liber: cere-l în cel mult 90 de zile."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "vouchere_vacanta_stat_2026",
+    "pentru": "Pentru salariații de la stat cu salariul de bază net de cel mult 6.000 de lei",
+    "ce": "800 de lei în vouchere de vacanță în 2026",
+    "salvezi": {
+      "lei": 800,
+      "cand": "o_data",
+      "ipoteza": "vouchere de vacanță acordate în 2026"
+    },
+    "pierzi": null,
+    "termen": "2026-12-31",
+    "pasi": [
+      "Verifică la resurse umane dacă ai primit voucherele pentru 2026."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "handicap_indemnizatie_solidaritate",
+    "pentru": "Pentru pensionarii cu handicap vizual grav, grav sau accentuat",
+    "ce": "indemnizația de solidaritate nu se acordă înainte de 1 ianuarie 2027",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic acum.",
+      "Întreabă la direcția de asistență socială ce documente îți vor trebui din 2027."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "rovinieta_2026",
+    "pentru": "Pentru cei care au mașină",
+    "ce": "rovinieta pe un an costă între 228 și 330 de lei, după norma Euro",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică norma Euro în talon.",
+      "Cumpără rovinieta pe perioada de care ai nevoie: pentru drumuri rare, cea pe 10 sau 30 de zile poate fi mai ieftină decât cea anuală."
+    ],
+    "solutie": {
+      "nume": "CNAIR",
+      "url": "https://www.cnair.ro",
+      "ce": "Rovinieta se cumpără online de la CNAIR."
+    }
+  },
+  {
+    "id": "efactura_5_zile_lucratoare",
+    "pentru": "Pentru PFA-uri și firme care emit facturi",
+    "ce": "facturile se trimit în RO e-Factura în 5 zile lucrătoare de la emitere",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Setează în programul de facturare termenul de 5 zile lucrătoare.",
+      "Trimite și facturile către persoane fizice (B2C) în același termen."
+    ],
+    "solutie": {
+      "nume": "ANAF, RO e-Factura",
+      "url": "https://www.anaf.ro",
+      "ce": "Facturile se trimit prin SPV sau prin programul de facturare conectat la RO e-Factura."
+    }
+  },
+  {
+    "id": "burse_studenti_2026_2027",
+    "pentru": "Pentru studenții la buget",
+    "ce": "bursa socială minimă e 925 de lei în anul universitar 2026–2027",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Află de la secretariat perioada de depunere a dosarelor pentru bursa socială.",
+      "Pregătește actele de venit cerute de universitate și depune dosarul la timp."
+    ],
+    "solutie": null
   }
 ]
