@@ -51,3 +51,13 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - OUG 156/2024 cards (it_scutire, constructii_facilitati) now cite art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2 / pct. 5 și 7), verified in the official text on legislatie.just.ro/293109 (applies from Jan 2025 income); "de verificat" chip removed from constructii; its secondary link switched to KPMG. Capture: captures/09-app-card-it-sursa.jpg. Branch: andrei-2.
 - Open question: IT card in index.html says -650 lei/lună, descriere.html says ≈520 lei/lună (tax only, brut 8.000). Pick one number before the pitch.
 - Servers running: :8765 (other session), :8766 (descriere, this repo root), :8767 (mockup/ folder).
+
+## Latest (session 3, branch `andrei-flux`, worktree `.claude/worktrees/andrei-flux`)
+- `andrei-2` and the main checkout belong to another agent: do not touch them.
+- `andrei-flux` = origin/voicu (PR #12, Voicu's skeleton) + merge of main (fixes the .gitignore conflict that blocks PR #12) + issue #3 card. Earlier standalone version kept on local branch `andrei-flux-v1` (2f1ce59).
+- Design reference is now `mockup/v3/index.html?v=f` (PR #13, ADR 0001). Card follows its list row: kicker, title, amount right, deadline, status + act. Levels: Zero = closed row, Curios = opened row, Expert = "Arată-mi legea".
+- Added: `components/CardSchimbare.tsx`, `lib/card.ts` (+7 tests), `lib/persoane-demo.ts` (Andrei brut 8.000 → IT −520), `/flux?p=andrei|maria|ion` sorted by impact, Inter + Raleway fonts, "Flux" nav link, one_click = https://posf.ro/comparator on energy and gas actions.
+- 28 tests pass, tsc clean, build green (needs network for Google Fonts).
+- Captures: `captures/flux-00-ref-v3f-*` (reference) vs `captures/flux-01-*` (result).
+- Not pushed. Open with Voicu: energy/gas formulas return null (shown "— de calculat"); Status lacks termen_depasit (derived in lib/card.ts); one_click is a bare URL (button label generic "Compară oferte"); catalog titles are not the rewritten v3 titles.
+- Next: "Planul meu" toggle, `/notificare`, `/admin` + BroadcastChannel, then PR.

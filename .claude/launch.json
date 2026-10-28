@@ -34,6 +34,18 @@
         "C:/Users/andre/projects/runtime-terror-stripe-andrei/mockup"
       ],
       "port": 8767
+    },
+    {
+      "name": "mockup-ref",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8771", "--directory", "mockup"],
+      "port": 8771
+    },
+    {
+      "name": "app",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "--turbopack", "-p", "3010"],
+      "port": 3010
     }
   ]
 }

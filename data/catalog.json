@@ -122,7 +122,7 @@
         "text": "Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix",
         "termen": null,
         "formula_economie": null,
-        "one_click": null
+        "one_click": "https://posf.ro/comparator"
       }
     ],
     "profesionist": null,
@@ -262,7 +262,7 @@
         "text": "Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix",
         "termen": "2027-03-31",
         "formula_economie": null,
-        "one_click": null
+        "one_click": "https://posf.ro/comparator"
       }
     ],
     "profesionist": null,

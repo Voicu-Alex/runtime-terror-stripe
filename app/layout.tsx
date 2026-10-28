@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
+
+// Fonturile designului de referință (v3 F): Inter pentru text și sume, Raleway pentru titluri mari.
+const inter = Inter({ variable: "--font-inter", subsets: ["latin", "latin-ext"] });
+const raleway = Raleway({ variable: "--font-raleway", subsets: ["latin", "latin-ext"], weight: ["700", "800"] });
 
 export const metadata: Metadata = {
   title: "Ce înseamnă pentru mine",
@@ -9,12 +14,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ro">
+    <html lang="ro" className={`${inter.variable} ${raleway.variable}`}>
       <body className="min-h-screen antialiased">
         <header className="border-b border-stone-200 bg-white">
           <nav className="mx-auto flex max-w-2xl items-center gap-5 px-4 py-3 text-sm">
             <Link href="/" className="font-semibold">
               Ce înseamnă pentru mine
+            </Link>
+            <Link href="/flux" className="text-stone-600 hover:text-stone-900">
+              Flux
             </Link>
             <Link href="/documente" className="text-stone-600 hover:text-stone-900">
               Documente
