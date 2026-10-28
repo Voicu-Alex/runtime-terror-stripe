@@ -26,7 +26,7 @@ export default async function Flux({ searchParams }: { searchParams: Promise<{ p
   );
 }
 
-/** Persoanele fictive din demo (Andrei, Maria, Ion), calculate pe server pentru că nu depind de dispozitiv. */
+/** Persoanele fictive din demo (Andrei, Maria, Ion, Ioana), calculate pe server pentru că nu depind de dispozitiv. */
 function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
   const persoana = persoanaDemo(id);
   const potriviri = potriveste(persoana.profil, CATALOG, AZI_DEMO);

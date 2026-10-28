@@ -59,7 +59,13 @@ export const FORMULE = {
    */
   alocatie_copii: (v) => (v.nr_copii == null ? null : v.nr_copii * 292),
 
+  /** OUG 11/2026 (Legea 76/2002 art. 76^5): prima de stabilitate vine doar dacă faci pașii; impactul e în acțiune. */
+  prima_stabilitate: () => 0,
+
   // Economii din acțiuni (pozitive):
+
+  /** OUG 11/2026, art. 76^5 alin. (1) lit. a): 1.000 lei/lună în primele 12 luni (1.250 lei/lună în următoarele 12). Cifră din lege. */
+  prima_stabilitate_economie: () => 1000,
 
   /** Deducere Pilon III 400 EUR/an ≈ 2.000 lei × 10% impozit = ≈200 lei/an. Estimare (curs ≈ 5 lei/EUR). */
   pilon3_economie: () => 200 / 12,

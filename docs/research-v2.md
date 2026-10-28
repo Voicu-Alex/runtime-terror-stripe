@@ -38,3 +38,10 @@ Researcher pass, 28 Oct 2026. Portal Legislativ pages were fetched and their tit
 ```
 
 Sources for the context slide: OECD/INFE 2023 (press: Romania 35th of 39; score not found); Revolut Romania 5 million retail clients, reported 30 Sep 2026.
+
+## Adăugat pe 28 oct 2026: prima de stabilitate (persona Ioana)
+
+| id | Act, MO | Text | Articol | Sursă explicativă | Încredere și note |
+|---|---|---|---|---|---|
+| `prima_stabilitate` | OUG 11/2026, MO 181 / 9 mar 2026 (modifică Legea 76/2002) | TODO link Portal Legislativ (portalul nu a răspuns la verificare); text oficial: https://static.anaf.ro/static/10/Anaf/legislatie/OUG_11_2026.pdf | art. I pct. 15, care introduce art. 76^5 în Legea 76/2002, citit în text: alin. (1) tinerii NEET înregistrați la AJOFM, încadrați pentru prima dată cu normă întreagă și pe durată nedeterminată, primesc 1.000 lei/lună în primele 12 luni și 1.250 lei/lună în următoarele 12, neimpozabil; alin. (2) excluși angajatorii publici și de stat; alin. (5) restituire la încetare în 24 de luni (Codul muncii art. 55 lit. b, 61 lit. a, 81); alin. (7) nu se cumulează cu prima de inserție (art. 73^1 alin. 1). NEET = 16 ani până la 30 de ani, fără loc de muncă, școală sau formare (preambul) | ANOFM, comunicat AMOFM București 3 iul 2026: https://www.anofm.ro/bucuresti/wp-content/uploads/sites/11/2026/07/Comunicat-de-presa-Abs-03.07.2026.pdf | ridicată. 27.000 lei = 12 × 1.000 + 12 × 1.250, calculul nostru pe cifrele din lege. Normele: HG 570/2026, MO 614 / 28 iul 2026 (rubinian.com), necitite; termenul de 90 de zile de la angajare pentru cerere e doar din presă (TODO) |
+| prima de inserție (doar în textul cardului) | Legea 76/2002 art. 73^1 alin. (1) (trimiterea din art. 76^5 alin. 7) | TODO link Portal Legislativ | absolvenții care se înregistrează și se angajează în 60 de zile de la absolvire, cu normă întreagă pe mai mult de 12 luni: 3 × ISR | același comunicat ANOFM (3 iul 2026) | medie. 1.980 lei = 3 × 660 lei (ISR 660 lei din presă, nu din HG); textul articolului 73^1 necitit |

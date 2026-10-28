@@ -37,7 +37,8 @@ export default function Acasa() {
       <section className="text-sm text-stone-500">
         <p>
           <T k="Exemple fictive:" /> <Link href="/flux?p=andrei" className="underline">Andrei, 32</Link> ·{" "}
-          <Link href="/flux?p=maria" className="underline">Maria, 45</Link> · <Link href="/flux?p=ion" className="underline">Ion, 67</Link>
+          <Link href="/flux?p=maria" className="underline">Maria, 45</Link> · <Link href="/flux?p=ion" className="underline">Ion, 67</Link> ·{" "}
+          <Link href="/flux?p=ioana" className="underline">Ioana, 23</Link>
         </p>
       </section>
     </div>

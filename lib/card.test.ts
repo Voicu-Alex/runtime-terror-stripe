@@ -38,6 +38,18 @@ describe("vederea cardului", () => {
     expect(carduri("ion").find((c) => c.id === "cass_pensii")!.suma).toBe(-120);
   });
 
+  it("Ioana: prima de stabilitate, 0 lei acum, 12.000 lei în primul an dacă face pasul", () => {
+    const c = carduri("ioana").find((c) => c.id === "prima_stabilitate")!;
+    expect(c.suma).toBe(0);
+    expect(c.economieAn).toBe(12000);
+    expect(c.kicker).toBe("Situația mea · caut primul loc de muncă");
+  });
+
+  it("prima de stabilitate: nu apare la 30 de ani împliniți", () => {
+    const profil = { taguri: ["caut_primul_job" as const], valori: { an_nastere: 1996 } };
+    expect(potriveste(profil, CATALOG, AZI).some((p) => p.schimbare.id === "prima_stabilitate")).toBe(false);
+  });
+
   it("fără pensie în profil: suma lipsește și cardul cere pensia", () => {
     const p = potriveste({ taguri: ["pensionar"], valori: {} }, CATALOG, AZI);
     const v = vedere(p.find((x) => x.schimbare.id === "cass_pensii")!, {});

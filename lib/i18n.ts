@@ -238,6 +238,7 @@ const TAG_EN: Record<TagId, string> = {
   agricultura: "agriculture",
   elev_student: "pupil or student",
   somer: "unemployed",
+  caut_primul_job: "looking for my first job",
   persoana_handicap: "person with a disability",
   concediu_crestere: "on parental leave",
   salariu_minim: "on minimum wage",

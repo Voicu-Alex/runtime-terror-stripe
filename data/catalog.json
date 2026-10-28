@@ -546,5 +546,41 @@
     "sursa_explicativa": "TODO",
     "incredere": "medie",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "prima_stabilitate",
+    "act": "OUG 11/2026 (modifică Legea 76/2002)",
+    "mo_ref": "MO 181 / 9 mar 2026",
+    "rezumat": "Primul job pe durată nedeterminată: statul îți plătește 27.000 lei în 2 ani, dacă te înregistrezi la AJOFM înainte",
+    "rezumat_en": "First permanent job: the state pays you 27,000 lei over 2 years, if you register with the employment agency first",
+    "status": "in_vigoare",
+    "publicat_la": "2026-03-09",
+    "in_vigoare_de_la": "2026-03-09",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": ["caut_primul_job"],
+    "conditii": [{ "camp": "varsta", "op": ">=", "valoare": 16 }, { "camp": "varsta", "op": "<", "valoare": 30 }],
+    "formula": "prima_stabilitate",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai sub 30 de ani, nu lucrezi și nu ești la școală, primul contract cu normă întreagă și pe durată nedeterminată îți aduce de la stat 1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea. Condiția: să fii în evidența AJOFM înainte de angajare.",
+      "curios": "Prima vine pe lângă salariu, nu se impozitează și se plătește 24 de luni, în total 27.000 lei. Contează ordinea: întâi te înregistrezi la agenția pentru ocuparea forței de muncă, apoi semnezi contractul. Nu se acordă dacă angajatorul e o instituție publică sau o firmă de stat. Nu se cumulează cu prima de inserție pentru absolvenți, care e de 3 ori ISR (1.980 lei, după comunicatul ANOFM din iulie 2026), deci contează pe care o ceri. Dacă în primii 2 ani contractul se încheie prin demisie, prin acordul părților sau prin concediere disciplinară, banii se dau înapoi.",
+      "expert": "OUG 11/2026, art. I pct. 15, introduce art. 76^5 în Legea 76/2002. Alin. (1): tinerii NEET înregistrați la agenția pentru ocuparea forței de muncă, încadrați pentru prima dată cu normă întreagă și pe durată nedeterminată; 1.000 lei/lună în primele 12 luni și 1.250 lei/lună în următoarele 12; neimpozabilă, fără contribuții sociale. Alin. (2): nu se acordă la instituții publice, regii, companii naționale și societăți cu capital majoritar de stat sau al UAT. Alin. (4): dreptul se păstrează dacă te angajezi în maximum 60 de zile la alt angajator, în aceleași condiții. Alin. (5): restituire integrală dacă raportul de muncă încetează în primele 24 de luni în temeiul art. 55 lit. b), art. 61 lit. a) sau art. 81 din Codul muncii. Alin. (7): nu se cumulează cu prima de inserție (art. 73^1 alin. (1)), prima de activare, primele de mobilitate și prima de relocare. NEET: între 16 ani și împlinirea a 30 de ani, fără loc de muncă, fără școală sau formare profesională (preambulul OUG). TODO: termenul de depunere a cererii din normele aprobate prin HG 570/2026 (presa: 90 de zile de la angajare); necitit în text."
+    },
+    "actiuni": [
+      {
+        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi cere prima de stabilitate",
+        "termen": null,
+        "formula_economie": "prima_stabilitate_economie",
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. I pct. 15 (Legea 76/2002 art. 76^5 alin. (1)-(7)). Link Portal Legislativ: TODO; textul oficial e pe site-ul ANAF.",
+    "sursa_url": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_11_2026.pdf",
+    "sursa_explicativa": "https://www.anofm.ro/bucuresti/wp-content/uploads/sites/11/2026/07/Comunicat-de-presa-Abs-03.07.2026.pdf",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
   }
 ]

@@ -28,7 +28,7 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
         </Link>
         <p className="mt-4 mb-0 text-[13px] text-v3-ink-2">
           {t("Sau vezi un exemplu:")} <Link href="/flux?p=andrei">Andrei, 32</Link> · <Link href="/flux?p=maria">Maria, 45</Link> ·{" "}
-          <Link href="/flux?p=ion">Ion, 67</Link>
+          <Link href="/flux?p=ion">Ion, 67</Link> · <Link href="/flux?p=ioana">Ioana, 23</Link>
         </p>
       </section>
     );

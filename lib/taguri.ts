@@ -56,6 +56,7 @@ export const TAGURI = {
   // Situația mea: statute după care legile dau drepturi sau scutiri
   elev_student: { familie: "statut", eticheta: "elev sau student" },
   somer: { familie: "statut", eticheta: "în șomaj" },
+  caut_primul_job: { familie: "statut", eticheta: "caut primul loc de muncă" },
   persoana_handicap: { familie: "statut", eticheta: "persoană cu handicap" },
   concediu_crestere: { familie: "statut", eticheta: "în concediu de creștere a copilului" },
   salariu_minim: { familie: "statut", eticheta: "pe salariul minim" },

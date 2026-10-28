@@ -38,7 +38,7 @@ It serves people who learn about changes from headlines written for everyone and
 4. **My plan.** The timeline by effective date, the "Total impact over 12 months" headline and the sticky bar: without actions, with actions, next deadline. The 12-month window counts only the months after each rule's effective date.
 5. **Profile.** Your tags, grouped; remove one and the feed changes. Below it, the conversation with the assistant (appearance only in the mockup) and "Prefer a form?".
 
-The demo has three profiles: Andrei, 32, IT employee with dividends from an SRL, tenant; Maria, 45, hospitality PFA with an IRCC-linked mortgage, parent; Ion, 67, pensioner, homeowner. Each sees a different feed because the tags differ.
+The demo has four profiles: Andrei, 32, IT employee with dividends from an SRL, tenant; Maria, 45, hospitality PFA with an IRCC-linked mortgage, parent; Ion, 67, pensioner, homeowner; Ioana, 23, recent graduate looking for a first job, tenant (the stability bonus, OUG 11/2026: 27,000 lei over 2 years, with registration at the employment agency before hiring). Each sees a different feed because the tags differ.
 
 ### 4.3 Why it is relevant in Romania
 
