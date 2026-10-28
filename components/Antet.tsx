@@ -8,6 +8,7 @@ import { ComutatorLimba, useLimba } from "@/components/Limba";
 const SECTIUNI = [
   { href: "/notificare", text: "Azi" },
   { href: "/flux", text: "Flux" },
+  { href: "/legi", text: "Toate legile" },
   { href: "/profil", text: "Profil" },
 ];
 
@@ -30,7 +31,7 @@ export function Antet() {
           <ComutatorLimba />
         </span>
       </div>
-      <nav aria-label={t("Secțiuni")} className="flex justify-center gap-7 border-t border-v3-line sm:gap-11">
+      <nav aria-label={t("Secțiuni")} className="flex justify-center gap-5 border-t border-v3-line sm:gap-11">
         {SECTIUNI.map((s) => (
           <Link
             key={s.href}
