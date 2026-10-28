@@ -42,6 +42,8 @@ export async function POST(req: Request) {
                 currency: MONEDA,
                 unit_amount: PRET_BANI,
                 recurring: { interval: "month" },
+                // TVA inclus: pentru persoane fizice prețul afișat e cel final (15 lei, nu 15 + TVA).
+                tax_behavior: "inclusive",
                 // Codul fiscal e cerut de Managed Payments (Stripe ca vânzător înregistrat, se ocupă de TVA):
                 // „Website Information Services - Personal Use”.
                 product_data: { name: "Ce înseamnă pentru mine · Pro", tax_code: "txcd_10701401" },
