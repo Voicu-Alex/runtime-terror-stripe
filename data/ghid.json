@@ -689,5 +689,18 @@
       "url": "https://www.anaf.ro",
       "ce": "Facturile se trimit prin SPV sau prin programul de facturare conectat la RO e-Factura."
     }
+  },
+  {
+    "id": "burse_studenti_2026_2027",
+    "pentru": "Pentru studenții la buget",
+    "ce": "bursa socială minimă e 925 de lei în anul universitar 2026–2027",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Află de la secretariat perioada de depunere a dosarelor pentru bursa socială.",
+      "Pregătește actele de venit cerute de universitate și depune dosarul la timp."
+    ],
+    "solutie": null
   }
 ]

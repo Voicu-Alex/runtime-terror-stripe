@@ -1595,5 +1595,43 @@
     "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
     "incredere": "ridicata",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "burse_studenti_2026_2027",
+    "rezumat_en": "Student grants 2026-2027: social grant at least 925 lei, doctoral grant 3,700 lei",
+    "act": "Ordinul ministrului educației și cercetării nr. 5.732/2026",
+    "mo_ref": "MO 831 / 30 sep 2026",
+    "rezumat": "Burse studenți 2026–2027: bursa socială minimă 925 lei, doctorat 3.700 lei",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-30",
+    "in_vigoare_de_la": "2026-09-30",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "elev_student"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ești student la buget, în anul universitar 2026–2027 bursa socială e de cel puțin 925 lei; o primești doar dacă o ceri la facultate.",
+      "curios": "Pentru anul universitar 2026–2027, cuantumul minim al bursei sociale, gândit să acopere cheltuielile minime de masă și cazare, este 925 lei. Studenții la programele didactice (licență cu dublă specializare sau master didactic) primesc o bursă de 2.165 lei, iar doctoranzii la buget 3.700 lei. Universitățile pot da mai mult, dar nu mai puțin decât aceste minime.",
+      "expert": "Ordinul ministrului educației și cercetării nr. 5.732 din 25 septembrie 2026 (MO nr. 831 din 30 septembrie 2026), pentru studenții la programe finanțate de la bugetul de stat, anul universitar 2026–2027: art. 1, bursa de doctorat 3.700 lei, indiferent de anul de studiu; art. 2, bursa pentru licența didactică cu dublă specializare sau masterul didactic 2.165 lei; art. 3, cuantumul minim al bursei sociale 925 lei. Ordinul nu precizează perioada (lunar) și nici dacă bursele se plătesc și în vacanțe. Regulile de acordare și pragul de venit pentru bursa socială sunt stabilite de fiecare universitate: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Depune dosarul pentru bursa socială la secretariatul facultății, în perioada anunțată de universitate",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 1-3",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314940",
+    "sursa_explicativa": "https://www.edupedu.ro/oficial-burse-pentru-studenti-in-anul-universitar-2026-2027-minimum-925-de-lei-bursa-sociala-si-3-700-de-lei-bursa-de-doctorat/",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
   }
 ]
