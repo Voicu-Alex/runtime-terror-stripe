@@ -25,4 +25,10 @@ describe("alegeNotificarea", () => {
     const max = Math.max(...p.map((x) => Math.abs(x.impact_lei_luna ?? 0)));
     expect(Math.abs(ales.impact_lei_luna ?? 0)).toBe(max);
   });
+
+  it("fără termene viitoare, ia în calcul și economia din acțiune (Ioana: prima de stabilitate)", () => {
+    const { profil } = PERSOANE_DEMO.ioana;
+    const ales = alegeNotificarea(potriveste(profil, CATALOG, AZI), profil.valori)!;
+    expect(ales.schimbare.id).toBe("prima_stabilitate");
+  });
 });

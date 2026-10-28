@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --fundal: #fafaf9;
-  --text: #1c1917;
-  --accent: #4f46e5;
+  --fundal: #fff;
+  --text: #111827;
 }
 
 /* Culorile designului de referință: mockup/v3/index.html?v=f (ADR 0001). */
@@ -21,6 +20,13 @@
   --color-v3-urg-soft: #FCEBE9;
   --color-v3-past: #5E6A63;
   --color-v3-past-bg: #E8EBE6;
+  /* gri cald: logo, titlurile de secțiune și degradeurile articolului principal */
+  --color-v3-logo: #44403C;
+  --color-v3-accd: #292524;
+  --color-v3-tint1: #DEDBD8;
+  --color-v3-tint2: #F1F0EE;
+  --color-v3-tintb: #D6D3D1;
+  --color-v3-stats: #ECEAE8;
 }
 
 @theme {
@@ -32,6 +38,7 @@ body {
   background: var(--fundal);
   color: var(--text);
   font-family: var(--font-sans);
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 :focus-visible {

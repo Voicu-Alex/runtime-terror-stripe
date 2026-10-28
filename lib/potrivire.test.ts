@@ -42,7 +42,7 @@ describe("catalogul", () => {
 
 describe("potriveste", () => {
   it("fără etichete comune nu întoarce nimic", () => {
-    expect(potriveste(profil({ taguri: ["masina"] }), CATALOG, AZI)).toEqual([]);
+    expect(potriveste(profil({ taguri: ["transport"] }), CATALOG, AZI)).toEqual([]);
   });
 
   it("pensionar cu pensia sub 3.000 lei: CASS nu îl atinge", () => {

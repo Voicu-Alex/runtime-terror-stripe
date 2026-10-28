@@ -177,7 +177,7 @@ export function FormularProfil() {
                 <span className="text-v3-ink-2">({c.fisier})</span>
                 <span className="rounded-full border border-v3-line px-2 py-px text-[11.5px] text-v3-ink-2">{t("generat cu AI")}</span>
                 {c.mod === "demo" && (
-                  <span className="rounded-full border border-amber-400 bg-amber-50 px-2 py-px text-[11.5px] text-amber-800" title="Răspuns pregătit, fără apel la model. Pune ANTHROPIC_API_KEY în .env.local pentru citire reală.">
+                  <span className="rounded-full border border-v3-accent bg-v3-act px-2 py-px text-[11.5px] text-v3-accent" title="Răspuns pregătit, fără apel la model. Pune ANTHROPIC_API_KEY în .env.local pentru citire reală.">
                     {t("mod demo")}
                   </span>
                 )}

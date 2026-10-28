@@ -18,7 +18,7 @@ export default async function Flux({ searchParams }: { searchParams: Promise<{ p
 
   return (
     <div>
-      <h1 className="m-0 font-head text-2xl font-extrabold tracking-[-.015em] text-v3-ink">
+      <h1 className="m-0 font-head text-[clamp(26px,6.6vw,34px)] leading-[1.16] font-extrabold tracking-[-.015em] text-v3-ink">
         <T k="Fluxul meu" />
       </h1>
       {p && p in PERSOANE_DEMO ? <FluxDemo id={p} sortare={sortare} /> : <FluxMeu sortare={sortare} />}
@@ -38,7 +38,7 @@ function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
           <T k="profilul meu" />
         </Link>
       </p>
-      <ListaFlux potriviri={potriviri} valori={persoana.profil.valori} sortare={sortare} baza={`/flux?p=${id}`} />
+      <ListaFlux potriviri={potriviri} valori={persoana.profil.valori} sortare={sortare} baza={`/flux?p=${id}`} azi={AZI_DEMO} />
     </>
   );
 }

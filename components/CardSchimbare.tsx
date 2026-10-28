@@ -267,7 +267,7 @@ export default function CardSchimbare({
                 </div>
               )}
               <a href={s.sursa_url} target="_blank" rel="noopener" className="flex min-h-11 items-center font-semibold text-v3-accent">
-                {t("Textul legii pe Portal Legislativ")} {"↗︎"}
+                {t(s.sursa_url.includes("legislatie.just.ro") ? "Textul legii pe Portal Legislativ" : "Textul actului")} {"↗︎"}
               </a>
               {surseExtra.map((u) => (
                 <a key={u} href={u} target="_blank" rel="noopener" className="flex min-h-11 items-center font-semibold text-v3-accent">

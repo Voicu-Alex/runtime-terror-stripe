@@ -476,13 +476,13 @@ var SCREENS={notif:'Notificarea',feed:'Noutăți',card:'Card deschis',plan:'Plan
 var TAGS={
  angajat:['angajat','Venit'],pfa:['PFA','Venit'],srl_dividende:['SRL cu dividende','Venit'],micro:['microîntreprindere','Venit'],pensionar:['pensionar','Venit'],
  angajat_it:['IT','Domeniul meu'],constructii:['construcții','Domeniul meu'],horeca:['HoReCa','Domeniul meu'],agricultura:['agricultură','Domeniul meu'],
- proprietar:['proprietar','Locuință'],chirias:['chiriaș','Locuință'],ipoteca:['ipotecă','Locuință'],consumator_gaz:['consumator gaz','Locuință'],consumator_energie:['consumator energie','Locuință'],
+ proprietar:['proprietar','Locuință'],chirias:['chiriaș','Locuință'],cumpar_locuinta:['vreau să cumpăr locuință','Locuință'],ipoteca:['ipotecă','Locuință'],consumator_gaz:['consumator gaz','Locuință'],consumator_energie:['consumator energie','Locuință'],
  parinte:['părinte','Familie'],sofer:['șofer','Altele'],pilon2:['Pilon II','Altele'],pilon3:['Pilon III','Altele']
 };
 var GROUPS=['Venit','Domeniul meu','Locuință','Familie','Altele'];
 var PERSONAS={
  andrei:{name:'Andrei, 32',divs:24000,spend:5000,energy:-60,energySave:25,gas:-40,gasSave:15,net:9500,
-  tags:['angajat','angajat_it','srl_dividende','chirias','pilon2','sofer','consumator_energie','consumator_gaz']},
+  tags:['angajat','angajat_it','srl_dividende','chirias','cumpar_locuinta','pilon2','sofer','consumator_energie','consumator_gaz']},
  maria:{name:'Maria, 45',divs:0,spend:6000,energy:-85,energySave:35,gas:-55,gasSave:20,net:9000,
   tags:['pfa','horeca','ipoteca','proprietar','pilon2','pilon3','parinte','consumator_energie','consumator_gaz']},
  ion:{name:'Ion, 67',divs:0,spend:3000,energy:-45,energySave:20,gas:-35,gasSave:12,net:4200,
@@ -540,7 +540,22 @@ var RULES=[
 {id:'impozit_cladiri_2026',title:'Impozitul pe casă crește din 2026: baza de calcul e mai mare',act:'Legea 239/2025 (modificată prin OUG 78/2025)',mo:'MO 1160 / 15 dec 2025; OUG 78: MO 1172 / 17 dec 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/305208',art:'OUG 78/2025 art. I pct. 6-7',artTbc:true,sec:'https://adevarul.ro/economie/statul-face-un-pas-inapoi-impozitul-pe-valoarea-2495086.html',
  published:'2025-12-15',effective:'2026-01-01',status:'in_vigoare',conf:'low',est:true,tags:['proprietar'],
  impact:function(){return -35},why:'Baza de calcul a impozitului pe clădiri crește de la 1 ianuarie 2026, deci plătești mai mult la primărie.',
- action:{text:'Plătește integral impozitul pe 2027 până la 31 mar 2027 pentru bonificația de 10%',deadline:'2027-03-31',saving:function(){return 3.5}}}
+ action:{text:'Plătește integral impozitul pe 2027 până la 31 mar 2027 pentru bonificația de 10%',deadline:'2027-03-31',saving:function(){return 3.5}}},
+{id:'tva_locuinta',title:'Locuințele noi: TVA 21% din 1 aug 2025; 9% doar cu avans plătit până la 31 iul 2025',act:'Legea 141/2025',mo:'MO 699 / 25 iul 2025',url:'https://legislatie.just.ro/Public/DetaliiDocument/300022',art:'art. III alin. (1)-(2)',sec:'https://www.economica.net/lovitura-dura-de-ultim-moment-pentru-cine-vrea-sa-si-cumpere-locuinta-cu-tva-de-9-trebuie-sa-plateasca-20-avans-pana-la-finalul-acestei-luni_852069.html',
+ published:'2025-07-25',effective:'2025-08-01',status:'in_vigoare',conf:'high',est:true,tags:['cumpar_locuinta'],
+ impact:function(){return 0},why:'O locuință nouă (max. 120 mp, max. 600.000 lei fără TVA) se cumpără cu TVA 21%, nu 9%. Păstra 9% cine avea până la 1 aug 2025 un contract cu avans; contractele semnate între 3 și 31 iulie cereau un avans de 20% plătit până la 31 iulie.',
+ note:'La un apartament nou de 400.000 lei fără TVA: 36.000 lei TVA cu 9%, 84.000 lei cu 21%, deci 48.000 lei diferență o singură dată (≈160 lei/lună pe un credit de 25 de ani, fără dobândă). Apartamentele vechi cumpărate de la persoane fizice nu au TVA. Termenul de predare a fost prelungit la 30 sep 2026 prin Legea 161/2026.',
+ action:{text:'Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025',deadline:'2025-07-31',saving:function(){return 48000/300}}},
+{id:'motorina_acciza',title:'Motorina e cu ≈0,85 lei/l mai ieftină până la 31 oct 2026 (acciză redusă cu 25%)',act:'Legea 162/2026',mo:'MO 642 / 4 aug 2026',url:null,txt:'https://www.monitoruljuridic.ro/monitorul-oficial/642/2026-08-04/',art:'situație de criză 7 aug–31 oct 2026; reducere de 25% stabilită de MF pentru 16–31 oct 2026',artTbc:true,sec:'https://www.fuel-prices.eu/Romania/acciza-motorina/',
+ published:'2026-08-04',effective:'2026-08-07',status:'in_vigoare',conf:'medium',est:true,tags:['sofer'],
+ impact:function(){return 0},why:'Acciza la motorină scade cu 701,07 lei la 1.000 l; cu TVA 21% înseamnă ≈0,85 lei/l la pompă. Perioada de criză din lege se termină pe 31 oct 2026; Ministerul Finanțelor decide la două săptămâni dacă reducerea continuă.',
+ note:'Doar pentru motorină. Suma presupune un plin de 50 l. Dacă reducerea se prelungește după 31 oct, acțiunea nu mai aduce nimic.',
+ action:{text:'Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă',deadline:'2026-10-31',saving:function(){return 50*0.85/12}}},
+{id:'cei_d',title:'Cont de investiții pentru pensie (CEI-D): din 2027, ce depui îți scade impozitul cu 10%',act:'Legea 202/2026',mo:'MO 865 / 15 oct 2026',url:null,txt:'https://www.infodosar.ro/monitorul-oficial/parlamentul/368610-lege-202-2026',art:'art. 19 pct. 7 (Codul fiscal art. 78 alin. 2 lit. a pct. vii); art. 20 (de la 1 ian 2027); art. 5 alin. (3) (retragere); art. 19 pct. 13 (art. 96², 10% la retragere)',sec:'https://alba24.ro/romanii-vor-putea-economisi-si-investi-bani-fara-impozit-din-2027-noua-lege-a-fost-publicata-in-monitorul-oficial-1162874.html',
+ published:'2026-10-15',effective:'2027-01-01',status:'adoptat',conf:'medium',est:true,tags:['angajat'],
+ impact:function(){return 0},why:'Ce depui tu într-un cont CEI-D se scade din venitul impozabil în luna plății, deci plătești cu 10% din sumă mai puțin impozit. Banii se pot retrage la pensie sau după 65 de ani, iar la retragere se plătește 10% impozit.',
+ note:'Suma presupune 300 lei depuși pe lună. Plafonul anual al deducerii: TODO, nu l-am găsit în text. Conturile se deschid după normele ASF, încă neapărute.',
+ action:{text:'Legea permite: deschizi un cont CEI-D din 2027 și scazi din impozit 10% din ce depui',deadline:null,saving:function(){return 30}}}
 ];
 
 /* ---------- stare ---------- */
@@ -635,7 +650,7 @@ function actionBox(c){
 function legalBox(c){
   var r=c.r;
   return '<div class="legal"><h5>Sursa legală</h5><p>'+r.act+' · '+r.mo+'</p><p class="art">'+r.art+(r.artTbc?'<span class="chk">articol de confirmat</span>':'')+'</p>'+
-   '<a href="'+r.url+'" target="_blank" rel="noopener">Textul legii pe Portal Legislativ ↗</a>'+
+   (r.url?'<a href="'+r.url+'" target="_blank" rel="noopener">Textul legii pe Portal Legislativ ↗</a>':'<a href="'+r.txt+'" target="_blank" rel="noopener">Textul din Monitorul Oficial ↗</a><span class="chk">link Portal Legislativ: TODO</span>')+
    '<a href="'+r.sec+'" target="_blank" rel="noopener">Explicație (ANAF / presă) ↗</a>'+
    '<span class="vf">verificat la 28 oct 2026'+(r.conf==='low'?' · sursă de încredere scăzută':'')+'</span></div>';
 }

@@ -16,8 +16,8 @@ export default async function PaginaNotificare({ searchParams }: { searchParams:
   const demo = p && p in PERSOANE_DEMO ? persoanaDemo(p) : null;
 
   return (
-    <div>
-      <h1 className="m-0 font-head text-2xl font-extrabold tracking-[-.015em] text-v3-ink">
+    <div className="mx-auto max-w-2xl">
+      <h1 className="m-0 font-head text-[clamp(26px,6.6vw,34px)] leading-[1.16] font-extrabold tracking-[-.015em] text-v3-ink">
         <T k="Ce înseamnă pentru tine azi" />
       </h1>
       {demo ? <NotificareDemo id={p!} /> : <NotificareMea />}
@@ -28,7 +28,7 @@ export default async function PaginaNotificare({ searchParams }: { searchParams:
 function NotificareDemo({ id }: { id: string }) {
   const persoana = persoanaDemo(id);
   const potriviri = potriveste(persoana.profil, CATALOG, AZI_DEMO);
-  const aleasa = alegeNotificarea(potriviri);
+  const aleasa = alegeNotificarea(potriviri, persoana.profil.valori);
   return (
     <>
       <p className="mt-1 mb-4 text-sm text-v3-ink-2">
