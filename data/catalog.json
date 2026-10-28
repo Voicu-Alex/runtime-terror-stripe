@@ -1,6 +1,7 @@
 [
   {
     "id": "tva_21",
+    "rezumat_en": "Standard VAT 21%, single reduced rate 11%",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "TVA standard 21%, cota redusă unică 11%",
@@ -29,6 +30,7 @@
   },
   {
     "id": "dividende_16",
+    "rezumat_en": "Dividend tax rises from 10% to 16%",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "Impozitul pe dividende crește de la 10% la 16%",
@@ -68,6 +70,7 @@
   },
   {
     "id": "cass_pensii",
+    "rezumat_en": "10% health contribution on pensions above 3,000 lei",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "CASS 10% pe pensiile peste 3.000 lei",
@@ -102,10 +105,14 @@
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
     "sursa_explicativa": "https://alba24.ro/document-masurile-fiscale-care-intra-in-vigoare-din-1-august-2025-doua-cote-tva-cass-pentru-pensii-mari-si-alte-prevederi-1092463.html",
     "incredere": "ridicata",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OG 22/2025", "mo_ref": "TODO", "data": null, "ce": "modifică art. VII alin. (1) lit. e) din Legea 141/2025: CASS se aplică veniturilor din pensii începând cu august 2025", "sursa_url": "TODO"}
+    ]
   },
   {
     "id": "energie_plafon",
+    "rezumat_en": "The electricity price cap ended on 1 Jul 2025",
     "act": "OUG 6/2025",
     "mo_ref": "MO 182 / 28 feb 2025",
     "rezumat": "Plafonarea prețului la energia electrică a încetat la 1 iul 2025",
@@ -144,6 +151,7 @@
   },
   {
     "id": "pilon2_plata",
+    "rezumat_en": "Pillar II is paid out differently: up to 30% at once, the rest in instalments or a life annuity",
     "act": "Legea 2/2026",
     "mo_ref": "MO 2 / 5 ian 2026",
     "rezumat": "Pilon II se plătește altfel: până la 30% o dată, restul eșalonat sau rentă viageră",
@@ -183,6 +191,7 @@
   },
   {
     "id": "pilon3_deducere",
+    "rezumat_en": "Pillar III deduction of up to EUR 400/year",
     "act": "Codul fiscal (Legea 227/2015)",
     "mo_ref": "MO 688 / 10 sep 2015 (text de bază)",
     "rezumat": "Deducere Pilon III până la 400 EUR/an",
@@ -221,6 +230,7 @@
   },
   {
     "id": "micro_1",
+    "rezumat_en": "Micro-company: single 1% rate from 2026",
     "act": "OUG 89/2025",
     "mo_ref": "MO 1203 / 24 dec 2025",
     "rezumat": "Microîntreprindere: cotă unică 1% din 2026",
@@ -256,10 +266,14 @@
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
     "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
     "incredere": "medie",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OUG 8/2026", "mo_ref": "MO 147 / 25 feb 2026", "data": "2026-02-25", "ce": "rescrie art. 47 alin. (1) lit. c) din Codul fiscal (plafonul de 100.000 euro) și dă 90 de zile unei firme noi pentru primul salariat", "sursa_url": "https://static.anaf.ro/static/10/Galati/micro.pdf"}
+    ]
   },
   {
     "id": "gaz_plafon",
+    "rezumat_en": "The household gas price cap expires on 31 Mar 2027",
     "act": "OUG 12/2026",
     "mo_ref": "MO 178 / 9 mar 2026",
     "rezumat": "Plafonarea prețului la gaz pentru casnici expiră la 31 mar 2027",
@@ -294,10 +308,14 @@
     "sursa_url": "https://legislatie.just.ro/public/DetaliiDocument/308129",
     "sursa_explicativa": "https://infocons.ro/pretul-gazelor-naturale-pentru-consumatorii-casnici-ce-se-schimba-de-la-1-aprilie-2026-si-ce-trebuie-sa-stii-infocons-te-informeaza/",
     "incredere": "ridicata",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OUG 19/2026", "mo_ref": "MO 237 / 26 mar 2026", "data": "2026-03-26", "ce": "producătorii de energie termică pentru populație beneficiază doar pentru consumul dintre 1 noiembrie 2026 și 31 martie 2027", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/308479"}
+    ]
   },
   {
     "id": "it_scutire",
+    "rezumat_en": "The income tax exemption for IT has been removed",
     "act": "OUG 156/2024",
     "mo_ref": "MO 1334 / 31 dec 2024",
     "rezumat": "Scutirea de impozit pe venit din IT a fost eliminată",
@@ -336,6 +354,7 @@
   },
   {
     "id": "constructii_facilitati",
+    "rezumat_en": "Tax breaks in construction, agriculture and the food industry have been removed",
     "act": "OUG 156/2024",
     "mo_ref": "MO 1334 / 31 dec 2024",
     "rezumat": "Facilitățile fiscale din construcții, agricultură și industria alimentară au fost eliminate",
@@ -374,6 +393,7 @@
   },
   {
     "id": "horeca_tva_11",
+    "rezumat_en": "11% VAT on HoReCa services",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "TVA 11% la serviciile HoReCa",
@@ -412,6 +432,7 @@
   },
   {
     "id": "impozit_cladiri_2026",
+    "rezumat_en": "Building tax: the taxable value rises from 2026",
     "act": "Legea 239/2025 (modificată prin OUG 78/2025)",
     "mo_ref": "MO 1160 / 15 dec 2025; OUG 78: MO 1172 / 17 dec 2025",
     "rezumat": "Impozitul pe clădiri: valoarea impozabilă crește din 2026",
@@ -450,6 +471,7 @@
   },
   {
     "id": "alocatie_copii",
+    "rezumat_en": "State child allowance: 292 lei per month for each child aged 2 to 18",
     "act": "Legea 61/1993 (alocația de stat pentru copii), republicată",
     "mo_ref": "MO 767 / 14 nov 2012 (republicare); art. 3 modificat prin OUG 126/2021, MO 1189 / 15 dec 2021",
     "rezumat": "Alocația de stat pentru copii: 292 lei pe lună pentru fiecare copil între 2 și 18 ani",
@@ -484,10 +506,14 @@
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212",
     "sursa_explicativa": "https://stirileprotv.ro/divers/alocatia-pentru-copii-2026-cine-are-dreptul-valoarea-si-pasii-pentru-a-o-solicita.html",
     "incredere": "medie",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OUG 126/2021", "mo_ref": "MO 1189 / 15 dec 2021", "data": "2021-12-15", "ce": "art. 3: 243 lei pe lună între 2 și 18 ani din ianuarie 2022 (600 lei sub 2 ani sau cu handicap), indexat anual din 2023", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212"}
+    ]
   },
   {
     "id": "alocatie_sustinere_familie",
+    "rezumat_en": "The family support allowance no longer exists since 2024: replaced by the minimum inclusion income",
     "act": "Legea 196/2016 (venitul minim de incluziune), care a înlocuit Legea 277/2010",
     "mo_ref": "MO 882 / 3 nov 2016",
     "rezumat": "Alocația pentru susținerea familiei nu mai există din 2024: a fost înlocuită de venitul minim de incluziune",
@@ -526,6 +552,7 @@
   },
   {
     "id": "varsta_pensionare",
+    "rezumat_en": "The standard retirement age is 65 for women and men, reached gradually",
     "act": "Legea 360/2023 (sistemul public de pensii)",
     "mo_ref": "MO 1089 / 4 dec 2023",
     "rezumat": "Vârsta standard de pensionare este 65 de ani, pentru femei și bărbați, atinsă treptat",
@@ -563,7 +590,229 @@
     "verificat_la": "2026-10-28"
   },
   {
+    "id": "prima_stabilitate",
+    "act": "OUG 11/2026 (modifică Legea 76/2002)",
+    "mo_ref": "MO 181 / 9 mar 2026",
+    "rezumat": "Primul job pe durată nedeterminată: statul îți plătește 27.000 lei în 2 ani, dacă te înregistrezi la AJOFM înainte",
+    "rezumat_en": "First permanent job: the state pays you 27,000 lei over 2 years, if you register with the employment agency first",
+    "status": "in_vigoare",
+    "publicat_la": "2026-03-09",
+    "in_vigoare_de_la": "2026-03-09",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": ["caut_primul_job"],
+    "conditii": [{ "camp": "varsta", "op": ">=", "valoare": 16 }, { "camp": "varsta", "op": "<", "valoare": 30 }],
+    "formula": "prima_stabilitate",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai sub 30 de ani, nu lucrezi și nu ești la școală, primul contract cu normă întreagă și pe durată nedeterminată îți aduce de la stat 1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea. Condiția: să fii în evidența AJOFM înainte de angajare.",
+      "curios": "Prima vine pe lângă salariu, nu se impozitează și se plătește 24 de luni, în total 27.000 lei. Contează ordinea: întâi te înregistrezi la agenția pentru ocuparea forței de muncă, apoi semnezi contractul. Nu se acordă dacă angajatorul e o instituție publică sau o firmă de stat. Nu se cumulează cu prima de inserție pentru absolvenți, care e de 3 ori ISR (1.980 lei, după comunicatul ANOFM din iulie 2026), deci contează pe care o ceri. Dacă în primii 2 ani contractul se încheie prin demisie, prin acordul părților sau prin concediere disciplinară, banii se dau înapoi.",
+      "expert": "OUG 11/2026, art. I pct. 15, introduce art. 76^5 în Legea 76/2002. Alin. (1): tinerii NEET înregistrați la agenția pentru ocuparea forței de muncă, încadrați pentru prima dată cu normă întreagă și pe durată nedeterminată; 1.000 lei/lună în primele 12 luni și 1.250 lei/lună în următoarele 12; neimpozabilă, fără contribuții sociale. Alin. (2): nu se acordă la instituții publice, regii, companii naționale și societăți cu capital majoritar de stat sau al UAT. Alin. (4): dreptul se păstrează dacă te angajezi în maximum 60 de zile la alt angajator, în aceleași condiții. Alin. (5): restituire integrală dacă raportul de muncă încetează în primele 24 de luni în temeiul art. 55 lit. b), art. 61 lit. a) sau art. 81 din Codul muncii. Alin. (7): nu se cumulează cu prima de inserție (art. 73^1 alin. (1)), prima de activare, primele de mobilitate și prima de relocare. NEET: între 16 ani și împlinirea a 30 de ani, fără loc de muncă, fără școală sau formare profesională (preambulul OUG). TODO: termenul de depunere a cererii din normele aprobate prin HG 570/2026 (presa: 90 de zile de la angajare); necitit în text."
+    },
+    "actiuni": [
+      {
+        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi cere prima de stabilitate",
+        "termen": null,
+        "formula_economie": "prima_stabilitate_economie",
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anofm"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. I pct. 15 (Legea 76/2002 art. 76^5 alin. (1)-(7)). Link Portal Legislativ: TODO; textul oficial e pe site-ul ANAF.",
+    "sursa_url": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_11_2026.pdf",
+    "sursa_explicativa": "https://www.anofm.ro/bucuresti/wp-content/uploads/sites/11/2026/07/Comunicat-de-presa-Abs-03.07.2026.pdf",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "tva_locuinta",
+    "rezumat_en": "New homes: 21% VAT since 1 Aug 2025; 9% only with a 20% deposit paid by 31 Jul 2025",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Locuințele noi: TVA 21% din 1 aug 2025; 9% doar cu avans de 20% plătit până la 31 iul 2025",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": "2025-07-31",
+    "directie": "cost",
+    "taguri": [
+      "cumpar_locuinta"
+    ],
+    "conditii": [],
+    "formula": "tva_locuinta",
+    "estimare": true,
+    "niveluri": {
+      "zero": "O locuință nouă de până la 120 mp și 600.000 lei fără TVA se cumpără acum cu TVA 21%, nu 9%. Păstra 9% doar cine avea un contract cu avans până la 1 august 2025.",
+      "curios": "Pentru contractele semnate între 3 și 31 iulie 2025 trebuia și un avans de 20% din preț, plătit integral până la 31 iulie. La un apartament nou de 400.000 lei fără TVA, diferența e de 48.000 lei: 36.000 lei TVA cu 9%, 84.000 lei cu 21%. Apartamentele vechi cumpărate de la o persoană fizică nu au TVA. Cine a cumpărat cu 21% între 1 și 7 august 2026 poate cere diferența înapoi de la 1 octombrie 2026 (Legea 161/2026).",
+      "expert": "Legea 141/2025, art. III alin. (1): o singură locuință cu cota de 9% între 1 aug 2025 și 31 iul 2026, dacă are max. 120 mp utili (fără anexe), valoare cu teren de max. 600.000 lei fără TVA și există un act juridic între vii cu plată în avans încheiat până la 1 aug 2025. Alin. (2): pentru actele din 3–31 iul 2025, dovada unui avans de 20% din valoare fără TVA, achitat integral până la 31 iul 2025. Termenul de livrare prelungit la 30 sep 2026 și restituirea pentru achizițiile din 1–7 aug 2026: Legea 161/2026, MO 642 / 4 aug 2026 (articol necitit)."
+    },
+    "modificat_prin": [
+      {
+        "act": "Legea 161/2026",
+        "mo_ref": "MO 642 / 4 aug 2026",
+        "data": "2026-08-04",
+        "ce": "Prelungește TVA 9% până la 30 sep 2026 pentru cine avea antecontract cu avans până la 1 aug 2025 (art. I) și permite restituirea diferenței de TVA pentru o singură locuință cumpărată cu cota standard între 1 aug 2026 și intrarea în vigoare a legii, cerută de la 1 oct 2026 după procedura aprobată prin ordin ANAF (art. II).",
+        "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/313202"
+      }
+    ],
+    "actiuni": [
+      {
+        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), poți cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      },
+      {
+        "text": "Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025",
+        "termen": "2025-07-31",
+        "formula_economie": "tva_locuinta_economie",
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. III alin. (1)-(2)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.economica.net/lovitura-dura-de-ultim-moment-pentru-cine-vrea-sa-si-cumpere-locuinta-cu-tva-de-9-trebuie-sa-plateasca-20-avans-pana-la-finalul-acestei-luni_852069.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "motorina_acciza",
+    "rezumat_en": "Diesel about 0.85 lei/l cheaper until 31 Oct 2026 (excise cut by 25%)",
+    "act": "Legea 162/2026",
+    "mo_ref": "MO 642 / 4 aug 2026",
+    "rezumat": "Motorina e cu aproximativ 0,85 lei/l mai ieftină până la 31 oct 2026 (acciză redusă cu 25%)",
+    "status": "in_vigoare",
+    "publicat_la": "2026-08-04",
+    "in_vigoare_de_la": "2026-08-07",
+    "expira_la": "2026-10-31",
+    "termen_actiune": "2026-10-31",
+    "directie": "termen",
+    "taguri": [
+      "masina"
+    ],
+    "conditii": [],
+    "formula": "motorina_acciza",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Acciza la motorină e redusă cu 25%, adică motorina e cu aproximativ 0,85 lei pe litru mai ieftină. Perioada de criză din lege se termină pe 31 octombrie 2026.",
+      "curios": "Ministerul Finanțelor decide la fiecare două săptămâni cât e reducerea; pentru 16–31 octombrie a rămas 25%. Dacă nu se prelungește, de la 1 noiembrie litrul crește înapoi. Contează doar dacă mașina ta merge pe motorină. Suma presupune un plin de 50 de litri.",
+      "expert": "Legea 162/2026 declară situație de criză pe piața produselor petroliere între 7 aug și 31 oct 2026 și permite reducerea accizei la motorina standard cu 5–25%, stabilită de MF la două săptămâni. Pentru 16–31 oct 2026: 2.103,22 lei/1.000 l în loc de 2.804,29 (reducere 701,07 lei/1.000 l, comunicat MF din 15 oct 2026). 0,85 lei/l = 0,701 × 1,21 (TVA) e calculul nostru. Articolul exact: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă",
+        "termen": "2026-10-31",
+        "formula_economie": "motorina_economie",
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "articol necitit (TODO). Link Portal Legislativ: TODO; sumarul Monitorului Oficial 642 e pe monitoruljuridic.ro.",
+    "sursa_url": "https://www.monitoruljuridic.ro/monitorul-oficial/642/2026-08-04/",
+    "sursa_explicativa": "https://www.fuel-prices.eu/Romania/acciza-motorina/",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "cei_d",
+    "rezumat_en": "Retirement investment account (CEI-D): from 2027, what you pay in cuts your income tax by 10%",
+    "act": "Legea 202/2026",
+    "mo_ref": "MO 865 / 15 oct 2026",
+    "rezumat": "Cont de investiții pentru pensie (CEI-D): din 2027, ce depui îți scade impozitul cu 10%",
+    "status": "adoptat",
+    "publicat_la": "2026-10-15",
+    "in_vigoare_de_la": "2027-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "angajat"
+    ],
+    "conditii": [],
+    "formula": "cei_d",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Din 2027, ce depui într-un cont CEI-D se scade din venitul pe care plătești impozit, deci plătești cu 10% din sumă mai puțin impozit.",
+      "curios": "Banii se pot retrage la pensie sau după 65 de ani, oricare vine primul, iar la retragere se plătește 10% impozit. Există și varianta CEI-S, fără deducere acum, dar fără impozit la retragere. Conturile se deschid după ce ASF publică normele, care încă lipsesc. Suma presupune 300 lei depuși pe lună; plafonul anual al deducerii nu l-am găsit în text.",
+      "expert": "Legea 202/2026: art. 19 pct. 7 adaugă la Codul fiscal art. 78 alin. (2) lit. a) pct. (vii), contribuțiile CEI-D suportate de angajat, deduse în luna plății pe baza documentului administratorului. Art. 20: se aplică de la 1 ian 2027. Art. 5 alin. (3): retragere de la deschiderea dreptului la pensie sau după 65 de ani. Art. 19 pct. 13 (art. 96^2): 10% impozit final la retragerea din CEI-D. Text citit pe infodosar.ro, nu pe Portal Legislativ. Plafon anual: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Legea permite: deschizi un cont CEI-D din 2027 și scazi din impozit 10% din ce depui",
+        "termen": null,
+        "formula_economie": "cei_d_economie",
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 19 pct. 7 (Codul fiscal art. 78 alin. 2 lit. a pct. vii); art. 20; art. 5 alin. (3); art. 19 pct. 13. Link Portal Legislativ: TODO.",
+    "sursa_url": "https://www.infodosar.ro/monitorul-oficial/parlamentul/368610-lege-202-2026",
+    "sursa_explicativa": "https://alba24.ro/romanii-vor-putea-economisi-si-investi-bani-fara-impozit-din-2027-noua-lege-a-fost-publicata-in-monitorul-oficial-1162874.html",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "impozit_auto_2026",
+    "rezumat_en": "Car tax: from 2026 it depends on engine size and Euro norm; small petrol and diesel cars pay up to twice as much",
+    "act": "Legea 239/2025 (modificată prin OUG 78/2025)",
+    "mo_ref": "MO 1160 / 15 dec 2025; OUG 78: MO 1172 / 17 dec 2025",
+    "rezumat": "Impozitul auto din 2026 depinde de cilindree și de norma Euro: mașinile mici pe benzină sau motorină plătesc până la dublu",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-15",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": "2027-03-31",
+    "directie": "cost",
+    "taguri": [
+      "masina"
+    ],
+    "conditii": [],
+    "formula": "impozit_auto",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Din 2026, impozitul pe mașină se calculează după capacitatea cilindrică și după norma de poluare Euro, nu după vechime. La mașinile mici pe benzină sau motorină, suma aproape se dublează.",
+      "curios": "Se plătește o sumă pentru fiecare 200 cmc. Până la 1.600 cmc: 19,5 lei la Euro 3 și mai vechi, 18,8 la Euro 4, 17,6 la Euro 5, 16,5 la Euro 6. Între 1.601 și 2.000 cmc: 29,7 / 28,5 / 26,7 / 25,1 lei. Electricele plătesc 40 lei pe an. De exemplu, un motor de 1.400 cmc Euro 5 trece de la 63 la 123 lei pe an. Primăria poate mări sumele, deci cifra exactă e pe decizia ta de impunere.",
+      "expert": "Legea 239/2025, MO 1160 / 15 dec 2025, modificată prin OUG 78/2025, schimbă calculul impozitului pe mijloacele de transport din Codul fiscal: sumă pe fiecare 200 cmc sau fracțiune, pe trepte de cilindree și norme Euro (tabelul din presă: Alba24, Capital). Articolul exact din Codul fiscal: de confirmat. Bonificația de până la 10% la plata integrală până la 31 martie: Codul fiscal art. 472 alin. (2), stabilită prin hotărâre a consiliului local; necitit în text."
+    },
+    "actiuni": [
+      {
+        "text": "Plătește tot impozitul pe 2027 până la 31 mar 2027: primăria dă o bonificație de până la 10%",
+        "termen": "2027-03-31",
+        "formula_economie": "auto_bonificatie",
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "primaria"
+      }
+    ],
+    "profesionist": null,
+    "articol": "articol de confirmat (Codul fiscal, impozitul pe mijloacele de transport, modificat prin Legea 239/2025 și OUG 78/2025)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305208",
+    "sursa_explicativa": "https://alba24.ro/impozit-auto-in-functie-de-norma-de-poluare-din-2026-cum-se-calculeaza-mai-transmite-baza-de-date-cu-vehiculele-in-judete-1112191.html",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
     "id": "salariu_minim_2026",
+    "rezumat_en": "Gross minimum wage rises to 4,325 lei a month from 1 July 2026",
     "act": "HG 146/2026",
     "mo_ref": "MO 196 / 13 mar 2026",
     "rezumat": "Salariul minim brut crește la 4.325 lei pe lună din 1 iulie 2026",

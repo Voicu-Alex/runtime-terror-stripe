@@ -22,7 +22,7 @@
     "fapte": ["4.325 lei brut lunar de la 1 iulie 2026 (art. 1)", "25,949 lei/oră", "abrogă HG 1.506/2024"]
   },
   "lege-161-2026-masuri-fiscale": {
-    "atinge_banii": true, "taguri_posibile": ["proprietar", "ipoteca"],
+    "atinge_banii": true, "taguri_obligatorii": ["cumpar_locuinta"], "taguri_posibile": ["proprietar", "ipoteca"],
     "publicat_la": "2026-08-04",
     "fapte": ["TVA 9% la o singură locuință până la 30 sep 2026 (art. I), cu antecontract până la 1 aug 2025, max 120 mp și 600.000 lei fără TVA", "restituirea diferenței de TVA pentru locuințe cumpărate cu cota standard între 1 aug 2026 și intrarea în vigoare (art. II)", "cererea de restituire din 1 octombrie 2026, procedură prin ordin ANAF (art. II alin. 5)"],
     "termen_depasit": "30 sep 2026 pentru cumpărarea cu 9%"

@@ -110,5 +110,29 @@
     "autoritate": "administratorul fondului",
     "verificare": null,
     "verificat_la": null
+  },
+  "anofm": {
+    "nume": "ANOFM, Agenția Națională pentru Ocuparea Forței de Muncă (de aici ajungi la agenția județului tău)",
+    "url": "https://www.anofm.ro/",
+    "ce_este": "pagina",
+    "autoritate": "ANOFM",
+    "verificare": { "tip": "titlu", "contine": "ANOFM" },
+    "verificat_la": "2026-10-28"
+  },
+  "scoala": {
+    "nume": "Școala sau grădinița copilului (secretariatul)",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "unitatea de învățământ",
+    "verificare": null,
+    "verificat_la": null
+  },
+  "asociatia_proprietari": {
+    "nume": "Asociația de proprietari sau de locatari a blocului",
+    "url": null,
+    "ce_este": "ghiseu",
+    "autoritate": "asociația",
+    "verificare": null,
+    "verificat_la": null
   }
 }

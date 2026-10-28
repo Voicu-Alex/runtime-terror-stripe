@@ -15,7 +15,7 @@ Echipa: 6 instanțe Claude în paralel (2 Max, 4 Pro). Cum ne împărțim și ce
 
 - **Nimic inventat.** Orice act, articol, sumă sau termen are sursă verificată (act, Monitorul Oficial, articol, link Portal Legislativ, data verificării) în `docs/research-v2.md` sau în fișierul de date al actelor. Altfel se scrie `TODO`.
 - **Nu e sfat financiar.** Fără „garantat”, „vă recomandăm să investiți”, „cel mai bun produs”. Arătăm impactul și acțiunea posibilă din lege, nu recomandăm produse.
-- **Fără secrete și fără date personale reale** în repo. Personele din demo (Andrei, Maria, Ion) sunt fictive.
+- **Fără secrete și fără date personale reale** în repo. Personele din demo (Andrei, Maria, Ion, Ioana) sunt fictive.
 - **Designul de referință e `mockup/v3/index.html?v=f`** („Revistă”, pe gri; `docs/adr/0001-design-v3-revista-gri.md`). Verde pentru bani în plus, roșu pentru bani în minus, titluri care spun totul din prima. Un sistem de design nou se adoptă doar prin decizie de echipă.
 
 ## Skill-uri: ordinea de precedență

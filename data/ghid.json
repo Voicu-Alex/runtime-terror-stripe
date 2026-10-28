@@ -1,0 +1,373 @@
+[
+  {
+    "id": "tva_locuinta",
+    "pentru": "Pentru cine a cumpărat o locuință nouă între 1 și 7 august 2026",
+    "ce": "poți cere înapoi 12% din preț",
+    "salvezi": { "lei": 48000, "cand": "o_data", "ipoteza": "la un apartament nou de 400.000 lei fără TVA: 84.000 lei TVA cu 21%, 36.000 lei cu 9%" },
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică dacă locuința are cel mult 120 mp utili și a costat cel mult 600.000 lei fără TVA, cu tot cu teren.",
+      "Caută contractul cu avans încheiat până la 1 august 2025. Fără el nu te încadrezi.",
+      "Depune la ANAF cererea de restituire a diferenței de TVA, de la 1 octombrie 2026, după procedura din ordinul ANAF (numărul ordinului: TODO).",
+      "Se poate cere pentru o singură locuință."
+    ],
+    "solutie": {
+      "nume": "ANAF",
+      "url": "https://www.anaf.ro",
+      "ce": "Cererea se depune direct la ANAF. Nu trece prin nicio firmă și nu costă nimic."
+    },
+    "nota": "Cine a semnat după 31 iulie 2025 fără avans plătește 21% și nu mai poate recupera diferența."
+  },
+  {
+    "id": "prima_stabilitate",
+    "pentru": "Pentru tinerii sub 30 de ani care își caută primul job",
+    "ce": "statul îți dă 27.000 lei dacă te înregistrezi la AJOFM înainte să semnezi",
+    "salvezi": { "lei": 12000, "cand": "pe_an", "ipoteza": "1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea, în total 27.000 lei" },
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Înregistrează-te la agenția județeană pentru ocuparea forței de muncă (AJOFM) înainte de angajare. Ordinea contează.",
+      "Semnează primul contract cu normă întreagă și pe durată nedeterminată, la un angajator privat (nu la o instituție publică sau o firmă de stat).",
+      "Cere prima de stabilitate la AJOFM după angajare. Termenul de depunere: TODO (presa spune 90 de zile).",
+      "Nu o cere împreună cu prima de inserție pentru absolvenți (1.980 lei): nu se cumulează, iar prima de stabilitate e mai mare.",
+      "Dacă pleci în primii 2 ani prin demisie, prin acordul părților sau prin concediere disciplinară, dai banii înapoi."
+    ],
+    "solutie": {
+      "nume": "AJOFM (rețeaua ANOFM)",
+      "url": "https://www.anofm.ro",
+      "ce": "Înregistrarea și cererea sunt gratuite, la agenția din județul tău."
+    }
+  },
+  {
+    "id": "alocatie_copii",
+    "pentru": "Pentru părinții cu copii între 2 și 18 ani",
+    "ce": "292 de lei pe lună pentru fiecare copil, dacă ai cerut alocația",
+    "salvezi": { "lei": 3504, "cand": "pe_an", "ipoteza": "un copil, 292 lei × 12 luni, dacă alocația nu era cerută" },
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică pe extras că alocația vine pentru fiecare copil și că suma e cea actuală.",
+      "Dacă nu o primești, depune cererea la primăria de domiciliu.",
+      "Pentru copiii sub 2 ani suma e mai mare decât 292 lei."
+    ],
+    "solutie": {
+      "nume": "Primăria de domiciliu",
+      "url": null,
+      "ce": "Cererea se depune la primărie și e gratuită."
+    }
+  },
+  {
+    "id": "cei_d",
+    "pentru": "Pentru angajații care pun bani deoparte pentru pensie",
+    "ce": "din 2027, statul îți lasă în buzunar 10% din ce depui",
+    "salvezi": { "lei": 360, "cand": "pe_an", "ipoteza": "300 lei depuși pe lună într-un cont CEI-D, 10% impozit pe venit" },
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Așteaptă normele ASF: fără ele conturile nu se pot deschide.",
+      "Deschide un cont CEI-D la o bancă sau la o firmă de investiții autorizată.",
+      "Contribuția ta se scade din venitul impozabil chiar în luna în care plătești.",
+      "Banii se pot scoate la pensie sau după 65 de ani. La retragere se plătește 10% impozit.",
+      "Plafonul anual al deducerii: TODO, nu l-am găsit în text."
+    ],
+    "solutie": {
+      "nume": "ASF, lista entităților autorizate",
+      "url": "https://asfromania.ro",
+      "ce": "ASF publică cine are voie să administreze aceste conturi. Compară comisioanele: ele hotărăsc cât rămâne din cei 10%."
+    }
+  },
+  {
+    "id": "pilon3_deducere",
+    "pentru": "Pentru angajații și PFA-urile care plătesc impozit pe venit",
+    "ce": "aproximativ 200 de lei pe an înapoi dacă pui 400 de euro la Pilon III până pe 31 decembrie",
+    "salvezi": { "lei": 200, "cand": "pe_an", "ipoteza": "400 EUR ≈ 2.000 lei depuși, 10% impozit pe venit" },
+    "pierzi": null,
+    "termen": "2026-12-31",
+    "pasi": [
+      "Alege un fond de pensii facultative autorizat de ASF.",
+      "Angajat: cere angajatorului să rețină contribuția din salariu; deducerea apare pe fluturaș.",
+      "PFA: trece contribuția în declarația unică.",
+      "Plafonul de 400 EUR e pe an calendaristic: ce nu depui până pe 31 decembrie se pierde pentru 2026."
+    ],
+    "solutie": {
+      "nume": "ASF, lista fondurilor de pensii facultative",
+      "url": "https://asfromania.ro",
+      "ce": "ASF publică fondurile autorizate. Compară comisioanele de administrare: cel mai mic comision lasă cei mai mulți bani în cont."
+    }
+  },
+  {
+    "id": "it_scutire",
+    "pentru": "Pentru programatorii cu salariu brut de până la 10.000 de lei",
+    "ce": "impozit pe venit de 10%: până la 650 de lei pe lună mai puțin în mână",
+    "salvezi": { "lei": 200, "cand": "pe_an", "ipoteza": "recuperezi o parte prin deducerea Pilon III; din 2027 și prin CEI-D" },
+    "pierzi": { "lei": 7800, "cand": "pe_an", "ipoteza": "brut 10.000 lei: 10% × 65% × 10.000 = 650 lei pe lună" },
+    "termen": null,
+    "pasi": [
+      "Cere la HR o simulare a netului și întreabă dacă firma a compensat prin brut.",
+      "Folosește deducerea Pilon III (400 EUR pe an, aproximativ 200 lei impozit înapoi).",
+      "Din 2027, contul CEI-D scade și el impozitul cu 10% din ce depui."
+    ],
+    "solutie": {
+      "nume": "Departamentul de HR al angajatorului",
+      "url": null,
+      "ce": "Deducerile se fac pe statul de plată; nu ai nevoie de nicio firmă din afară."
+    }
+  },
+  {
+    "id": "constructii_facilitati",
+    "pentru": "Pentru angajații din construcții și agricultură",
+    "ce": "457 de lei pe lună mai puțin în mână la salariul minim din construcții",
+    "salvezi": { "lei": 200, "cand": "pe_an", "ipoteza": "recuperezi o parte prin deducerea Pilon III" },
+    "pierzi": { "lei": 5484, "cand": "pe_an", "ipoteza": "salariul minim din construcții, 4.582 lei brut: net 3.196 lei în 2024, 2.739 lei din 2025" },
+    "termen": null,
+    "pasi": [
+      "Cere angajatorului o simulare a salariului net actual.",
+      "Verifică dacă brutul a fost mărit ca să compenseze.",
+      "Folosește deducerea Pilon III (400 EUR pe an, aproximativ 200 lei impozit înapoi)."
+    ],
+    "solutie": {
+      "nume": "Departamentul de HR al angajatorului",
+      "url": null,
+      "ce": "Simularea și deducerile se fac pe statul de plată, gratuit."
+    }
+  },
+  {
+    "id": "motorina_acciza",
+    "pentru": "Pentru șoferii de mașini pe motorină",
+    "ce": "litrul e cu 0,85 lei mai ieftin doar până pe 31 octombrie",
+    "salvezi": { "lei": 42, "cand": "o_data", "ipoteza": "un plin de 50 de litri × 0,85 lei" },
+    "pierzi": null,
+    "termen": "2026-10-31",
+    "pasi": [
+      "Fă plinul până pe 31 octombrie 2026, cât acciza e redusă cu 25%.",
+      "Ministerul Finanțelor decide la două săptămâni dacă reducerea continuă. Dacă se prelungește, câștigul rămâne.",
+      "Compară prețul la pompă între stații înainte să alimentezi."
+    ],
+    "solutie": {
+      "nume": "Monitorul Prețurilor (Consiliul Concurenței)",
+      "url": "https://monitorulpreturilor.info",
+      "ce": "Site-ul statului care compară prețurile pe stații. Pagina de carburanți era indisponibilă pe 28 oct 2026."
+    }
+  },
+  {
+    "id": "impozit_cladiri_2026",
+    "pentru": "Pentru proprietarii de case și apartamente",
+    "ce": "impozitul pe clădire crește din 2026",
+    "salvezi": { "lei": 42, "cand": "pe_an", "ipoteza": "bonificația de 10% la un impozit estimat de 420 lei pe an" },
+    "pierzi": { "lei": 420, "cand": "pe_an", "ipoteza": "estimare din presă, 35 lei pe lună; încredere scăzută" },
+    "termen": "2027-03-31",
+    "pasi": [
+      "Verifică decizia de impunere de la primărie.",
+      "Plătește tot impozitul pe 2027 până pe 31 martie 2027 pentru bonificația de până la 10%."
+    ],
+    "solutie": {
+      "nume": "Ghișeul.ro",
+      "url": "https://www.ghiseul.ro",
+      "ce": "Plătești online impozitul la primărie, fără drum la ghișeu."
+    }
+  },
+  {
+    "id": "impozit_auto_2026",
+    "pentru": "Pentru șoferii cu mașini mici pe benzină sau motorină, mai ales Euro 3 și mai vechi",
+    "ce": "impozitul auto aproape se dublează din 2026",
+    "salvezi": { "lei": 12, "cand": "pe_an", "ipoteza": "bonificația de până la 10% la un impozit de 123 lei pe an" },
+    "pierzi": { "lei": 60, "cand": "pe_an", "ipoteza": "1.400 cmc, Euro 5: 63 lei în 2025, 123 lei în 2026" },
+    "termen": "2027-03-31",
+    "pasi": [
+      "Verifică decizia de impunere: suma depinde acum de cilindree și de norma Euro. Euro 3 și mai vechi plătesc cel mai mult.",
+      "Plătește tot impozitul pe 2027 până pe 31 martie 2027 pentru bonificația de până la 10%.",
+      "Mașinile electrice plătesc 40 de lei pe an. Contează doar dacă oricum schimbi mașina."
+    ],
+    "solutie": {
+      "nume": "Ghișeul.ro",
+      "url": "https://www.ghiseul.ro",
+      "ce": "Plătești online impozitul la primărie, fără drum la ghișeu."
+    }
+  },
+  {
+    "id": "cass_pensii",
+    "pentru": "Pentru pensionarii cu pensie de peste 3.000 de lei",
+    "ce": "10% contribuție la sănătate pe partea de peste 3.000 de lei",
+    "salvezi": null,
+    "pierzi": { "lei": 1440, "cand": "pe_an", "ipoteza": "pensie de 4.200 lei: 10% din 1.200 lei = 120 lei pe lună" },
+    "termen": null,
+    "pasi": [
+      "Verifică pe cuponul de pensie că CASS se aplică doar pe partea de peste 3.000 de lei.",
+      "Dacă e calculată pe toată pensia, cere corectarea la Casa de Pensii."
+    ],
+    "solutie": {
+      "nume": "Casa Națională de Pensii Publice",
+      "url": "https://www.cnpp.ro",
+      "ce": "Corectarea se cere la casa de pensii, gratuit."
+    }
+  },
+  {
+    "id": "tva_21",
+    "pentru": "Pentru toată lumea",
+    "ce": "TVA de 21%: aproape tot ce cumperi e cu 1,7% mai scump",
+    "salvezi": null,
+    "pierzi": { "lei": 1008, "cand": "pe_an", "ipoteza": "cheltuieli de 5.000 lei pe lună × 1,68%" },
+    "termen": null,
+    "pasi": [
+      "Legea nu oferă o acțiune care să compenseze creșterea.",
+      "Ți-o arătăm ca să-ți ajustezi bugetul: la fiecare 1.000 de lei cheltuiți, aproximativ 17 lei merg în plus la TVA."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "energie_plafon",
+    "pentru": "Pentru toți cei cu factură de curent pe numele lor",
+    "ce": "prețul la curent nu mai e plafonat din iulie 2025",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Uită-te pe factură la prețul pe kWh și la tipul contractului.",
+      "Pune consumul tău în comparatorul ANRE și vezi costul anual al fiecărei oferte.",
+      "Dacă găsești o ofertă mai ieftină, schimbarea furnizorului e gratuită; noul furnizor se ocupă de acte."
+    ],
+    "solutie": {
+      "nume": "Comparatorul de oferte ANRE",
+      "url": "https://posf.ro/comparator",
+      "ce": "Comparatorul oficial al ANRE arată costul estimat al fiecărei oferte pentru consumul tău. Nu primim nimic de la furnizori."
+    },
+    "nota": "Cât economisești depinde de consum și de oferta pe care o ai acum; nu avem o medie cu sursă (TODO)."
+  },
+  {
+    "id": "gaz_plafon",
+    "pentru": "Pentru cei care se încălzesc cu gaz",
+    "ce": "prețul protejat la gaz se termină pe 31 martie 2027",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": "2027-03-31",
+    "pasi": [
+      "Până pe 31 martie 2027, compară ofertele de gaz pentru consumul tău.",
+      "Uită-te la ofertele cu preț fix pe 12 luni: te protejează de creșterea de după.",
+      "Schimbarea furnizorului e gratuită."
+    ],
+    "solutie": {
+      "nume": "Comparatorul de oferte ANRE",
+      "url": "https://posf.ro/comparator",
+      "ce": "Comparatorul oficial al ANRE arată costul estimat al fiecărei oferte de gaz. Nu primim nimic de la furnizori."
+    },
+    "nota": "Cât economisești depinde de consum; nu avem o medie cu sursă (TODO)."
+  },
+  {
+    "id": "micro_1",
+    "pentru": "Pentru microîntreprinderi",
+    "ce": "o singură cotă de impozit: 1% din venituri din 2026",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică cifra de afaceri a firmei față de plafonul de microîntreprindere (100.000 EUR, de confirmat în text).",
+      "Discută cu contabilul dacă rămâi micro sau treci la impozit pe profit."
+    ],
+    "solutie": {
+      "nume": "Tabloul membrilor CECCAR",
+      "url": "https://ceccar.ro/ro/?page_id=97",
+      "ce": "Registrul public al contabililor autorizați."
+    }
+  },
+  {
+    "id": "horeca_tva_11",
+    "pentru": "Pentru restaurante, hoteluri și cafenele",
+    "ce": "TVA de 11% la servicii din august 2025",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Actualizează prețurile de listă și casa de marcat la cota de 11%.",
+      "Verifică facturile emise după 1 august 2025."
+    ],
+    "solutie": {
+      "nume": "Tabloul membrilor CECCAR",
+      "url": "https://ceccar.ro/ro/?page_id=97",
+      "ce": "Registrul public al contabililor autorizați."
+    }
+  },
+  {
+    "id": "alocatie_sustinere_familie",
+    "pentru": "Pentru familiile cu venituri mici",
+    "ce": "alocația pentru susținerea familiei a devenit venit minim de incluziune",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Întreabă la primărie dacă te încadrezi la venitul minim de incluziune.",
+      "Cererea se depune la primărie, cu declarație pe propria răspundere."
+    ],
+    "solutie": {
+      "nume": "Primăria de domiciliu",
+      "url": null,
+      "ce": "Cererea e gratuită."
+    }
+  },
+  {
+    "id": "varsta_pensionare",
+    "pentru": "Pentru cei care se apropie de pensie",
+    "ce": "vârsta standard de pensionare e 65 de ani, pentru femei și bărbați",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Cere de la Casa de Pensii stagiul de cotizare, online, cu cont pe portalul CNPP.",
+      "Verifică dacă lipsesc perioade lucrate și adu dovezile înainte de pensionare."
+    ],
+    "solutie": {
+      "nume": "Casa Națională de Pensii Publice",
+      "url": "https://www.cnpp.ro",
+      "ce": "Stagiul se cere online, gratuit."
+    }
+  },
+  {
+    "id": "pilon2_plata",
+    "pentru": "Pentru toți cei cu Pilon II",
+    "ce": "din 2027, la pensie iei cel mult 30% deodată, restul în rate",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Azi nu pierzi nimic: se schimbă doar felul în care primești banii la pensionare.",
+      "Alegerea dintre plata eșalonată și rentă o faci la pensionare."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "dividende_16",
+    "pentru": "Pentru asociații de SRL care își plătesc dividende",
+    "ce": "impozitul pe dividende a crescut de la 10% la 16%",
+    "salvezi": null,
+    "pierzi": { "lei": 6000, "cand": "pe_an", "ipoteza": "100.000 lei dividende pe an × 6 puncte" },
+    "termen": "2025-12-31",
+    "pasi": [
+      "Termenul pentru a distribui profitul din 2025 cu 10% a trecut pe 31 decembrie 2025.",
+      "Pentru profitul din 2026 se aplică 16%. Discută cu contabilul cum îți planifici veniturile."
+    ],
+    "solutie": {
+      "nume": "Tabloul membrilor CECCAR",
+      "url": "https://ceccar.ro/ro/?page_id=97",
+      "ce": "Registrul public al contabililor autorizați."
+    }
+  },
+  {
+    "id": "salariu_minim_2026",
+    "pentru": "Pentru cine lucrează cu normă întreagă pe salariul minim",
+    "ce": "salariul de bază minim brut crește la 4.325 lei pe lună din 1 iulie 2026",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică fluturașul pe iulie 2026: salariul de bază brut, pentru normă întreagă, trebuie să fie cel puțin 4.325 lei.",
+      "Dacă nu e, întreabă la departamentul de resurse umane sau la contabilitatea angajatorului.",
+      "Dacă angajatorul nu aplică noul salariu minim, poți sesiza Inspecția Muncii."
+    ],
+    "solutie": {
+      "nume": "Inspecția Muncii",
+      "url": "https://www.inspectiamuncii.ro/",
+      "ce": "Sesizarea e gratuită și nu trece prin nicio firmă."
+    },
+    "nota": "Suma e brută: din ea se rețin contribuțiile și impozitul. Înainte de 1 iulie 2026 minimul era 4.050 lei (OUG 89/2025)."
+  }
+]

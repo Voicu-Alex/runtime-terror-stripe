@@ -54,7 +54,7 @@ describe("acțiuni tipizate și destinații", () => {
   });
 
   it("destinațiile cu URL au doar adrese https de pe domenii oficiale cunoscute", () => {
-    const oficiale = ["posf.ro", "anaf.ro", "cnpp.ro", "inspectiamuncii.ro", "asfromania.ro", "ceccar.ro", "ccfiscali.ro"];
+    const oficiale = ["posf.ro", "anaf.ro", "cnpp.ro", "inspectiamuncii.ro", "asfromania.ro", "ceccar.ro", "ccfiscali.ro", "anofm.ro"];
     for (const [id, d] of Object.entries(DESTINATII)) {
       if (!d.url) continue;
       const gazda = new URL(d.url).hostname.replace(/^www\./, "");

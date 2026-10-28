@@ -38,7 +38,7 @@ Servește oameni care află despre schimbări din titluri de presă, scrise pent
 4. **Planul meu.** Cronologia după data intrării în vigoare, titlul „Impact total pe 12 luni" și bara fixă: fără acțiuni, cu acțiuni, următorul termen. Fereastra de 12 luni numără doar lunile de după intrarea în vigoare a fiecărei reguli.
 5. **Profilul.** Etichetele tale, grupate; scoți una și fluxul se schimbă. Dedesubt, conversația cu asistentul (în mockup doar ca aspect) și „Preferi un formular?".
 
-Demonstrația are trei profiluri: Andrei, 32, angajat IT cu dividende de la un SRL, chiriaș; Maria, 45, PFA în HoReCa, ipotecă pe IRCC, părinte; Ion, 67, pensionar, proprietar. Fiecare vede un flux diferit, pentru că etichetele diferă.
+Demonstrația are patru profiluri: Andrei, 32, angajat IT cu dividende de la un SRL, chiriaș; Maria, 45, PFA în HoReCa, ipotecă pe IRCC, părinte; Ion, 67, pensionar, proprietar; Ioana, 23, a terminat studiile și își caută primul loc de muncă, stă cu chirie (prima de stabilitate, OUG 11/2026: 27.000 lei în 2 ani, cu înregistrare la AJOFM înainte de angajare). Fiecare vede un flux diferit, pentru că etichetele diferă.
 
 ### 4.3 De ce este relevant în România
 
