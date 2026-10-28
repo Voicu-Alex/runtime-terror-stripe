@@ -36,6 +36,15 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - Articles marked "de confirmat" (OUG 156/2024, Legea 239/2025, Cod fiscal art. 78) were not read in the act text; building-tax and construction figures are press-only.
 - Haiku inspector not run (no browser tool); captures graded by the orchestrator.
 
+## Design v3 (28 oct, după-amiază, clona lui Matei)
+- **Ales: varianta F „Revistă · gri șobolan”** în `mockup/v3/index.html` (`?v=f`). Decizia și motivele: `docs/adr/0001-design-v3-revista-gri.md`. Înlocuiește v2 ca design de referință.
+- Variantele A, B, C (sesiunea de design) și D (albastru), E (turcoaz) rămân în fișier pentru comparație; se trece între ele cu ←/→.
+- Titlurile celor 12 acte au fost rescrise în limbaj clar (cu valoarea de dinainte acolo unde e confirmată), deci se schimbă în toate variantele.
+- Capturi: `captures/v3-*` (inclusiv `v3-f-desktop-1280.png`, `v3-f-2-noutati-top.png`). Capturi pe telefon prin `mockup/frame.html` (Chrome headless pe Windows nu randează sub ~500px).
+- Context: `docs/echipa/design-brief.md`, `docs/research-competitori.md` (concurenți, capturi în `captures/competitori/`).
+- Încă de făcut: Planul meu / Profil / onboarding în stilul F; decizia despre marcajul „estimare” în listă.
+- NIMIC din toate acestea nu e commitat încă.
+
 ## Latest (14:40)
 - `mockup/index.html` (served on :8767 by the other session's server): added the "Exemplu real: OUG 156/2024..." note under the Domeniu group in the Profil tab (i18n key `pf.domainEx`, RO+EN). Capture: `captures/08-app-profil-domeniu-exemplu.jpg`. NOT committed yet; awaiting Andrei's go-ahead to commit + push to andrei and main.
 - main was fast-forwarded to andrei at 19165ec and pushed.
