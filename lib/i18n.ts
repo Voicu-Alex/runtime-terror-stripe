@@ -241,7 +241,52 @@ const EN: Record<string, string> = {
   "Șterge profilul": "Delete profile",
   lei: "lei",
   ani: "years",
+
+  // Pro (abonamentul)
+  "Ce înseamnă pentru mine": "Ce înseamnă pentru mine",
+  "Upgrade la": "Upgrade to",
+  "Upgrade la Pro": "Upgrade to Pro",
+  "legi te privesc. Vezi cât te costă fiecare.": "laws affect you. See what each one costs you.",
+  "Cu Pro vezi suma pe profilul tău, termenele, ce poți face și Planul meu.":
+    "With Pro you see the amount for your profile, the deadlines, what you can do and My plan.",
+  "Anulezi oricând.": "Cancel anytime.",
+  "Te conectezi cu Google, apoi plătești prin Stripe. Anulezi oricând.": "Sign in with Google, then pay through Stripe. Cancel anytime.",
+  "Pro e deschis pentru demo.": "Pro is open for the demo.",
+  "Vezi abonamentul": "See the subscription",
+  "Vezi cât te costă fiecare lege": "See what each law costs you",
+  "Cât te costă sau îți aduce fiecare lege, în lei pe lună, pe profilul tău": "What each law costs or brings you, in lei per month, for your profile",
+  "Cât păstrezi pe an dacă faci ce permite legea": "How much you keep per year if you do what the law allows",
+  "Planul meu: bifezi ce faci și vezi totalul": "My plan: tick what you do and see the total",
+  "Abonamentul te urmează pe orice telefon, cu contul Google": "Your subscription follows you on any phone, with your Google account",
+  "Se verifică contul…": "Checking your account…",
+  "Pasul 1 din 2: conectează-te": "Step 1 of 2: sign in",
+  "Continuă cu Google": "Continue with Google",
+  "Folosim doar emailul, ca abonamentul să te urmeze pe orice telefon. Profilul rămâne pe dispozitivul tău.":
+    "We only use your email, so the subscription follows you on any phone. Your profile stays on your device.",
+  "Ai Pro.": "You have Pro.",
+  "Se oprește pe": "Ends on",
+  "Se reînnoiește pe": "Renews on",
+  "Gestionează sau anulează": "Manage or cancel",
+  "Pasul 2 din 2: plata": "Step 2 of 2: payment",
+  "Te ducem la plată…": "Taking you to payment…",
+  "Plata se face pe pagina Stripe; noi nu vedem datele cardului. Anulezi oricând, Pro rămâne activ până la finalul lunii plătite.":
+    "You pay on the Stripe page; we never see your card details. Cancel anytime, Pro stays active until the end of the paid month.",
+  "Conectat ca": "Signed in as",
+  "Deconectează-te": "Sign out",
+  "Verificăm plata la Stripe…": "Checking the payment with Stripe…",
+  "Plata a reușit": "Payment successful",
+  "Gata: ai Pro.": "Done: you have Pro.",
+  "Fluxul tău arată acum cât te costă fiecare lege și Planul meu.": "Your feed now shows what each law costs you, and My plan.",
+  "Nu am putut confirma plata": "We could not confirm the payment",
+  "Dacă ai plătit, confirmarea poate dura câteva minute. Reîncarcă pagina; dacă tot nu merge, încearcă din nou de pe pagina Pro.":
+    "If you paid, confirmation can take a few minutes. Reload the page; if it still does not work, try again from the Pro page.",
+  "Înapoi la Pro": "Back to Pro",
 };
+
+/** Are textul intrare în dicționarul EN (chiar dacă traducerea e identică, ca un nume propriu). */
+export function areTraducere(text: string): boolean {
+  return Object.hasOwn(EN, text);
+}
 
 export function traduce(limba: Limba, text: string): string {
   return limba === "en" ? (EN[text] ?? text) : text;
