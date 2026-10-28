@@ -15,26 +15,29 @@ const SECTIUNI = [
 export function Antet() {
   const { t } = useLimba();
   const cale = usePathname();
+  // Bara de secțiuni e în afara <header>: sticky se oprește la marginea părintelui,
+  // iar în <header> s-ar fi oprit imediat sub ea. Ca frate al lui <main>, rămâne sus pe tot scroll-ul.
   return (
-    <header>
-      <div className="mx-auto grid max-w-[1080px] grid-cols-[1fr_auto_1fr] items-center gap-2.5 px-4 pt-3.5 pb-2.5 lg:pt-[18px] lg:pb-4">
-        {/* stânga: tema, dreapta: limba, ca logo-ul să rămână centrat */}
-        <span className="flex justify-start">
-          <ComutatorTema />
-        </span>
-        <Link href="/" className="text-center no-underline">
-          <b className="block font-head text-[clamp(17px,4.9vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-logo lg:text-[34px]">
-            Ce înseamnă pentru mine
-          </b>
-          <span className="mt-[3px] block text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase lg:text-[11.5px]">
-            {t("Legea, pe banii tăi")}
+    <>
+      <header>
+        <div className="mx-auto grid max-w-[1080px] grid-cols-[1fr_auto_1fr] items-center gap-2.5 px-4 pt-3.5 pb-2.5 lg:pt-[18px] lg:pb-4">
+          {/* stânga: tema, dreapta: limba, ca logo-ul să rămână centrat */}
+          <span className="flex justify-start">
+            <ComutatorTema />
           </span>
-        </Link>
-        <span className="flex justify-end">
-          <ComutatorLimba />
-        </span>
-      </div>
-      {/* Bara de secțiuni rămâne lipită sus la scroll; logo-ul de deasupra iese din ecran. */}
+          <Link href="/" className="text-center no-underline">
+            <b className="block font-head text-[clamp(17px,4.9vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-logo lg:text-[34px]">
+              Ce înseamnă pentru mine
+            </b>
+            <span className="mt-[3px] block text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase lg:text-[11.5px]">
+              {t("Legea, pe banii tăi")}
+            </span>
+          </Link>
+          <span className="flex justify-end">
+            <ComutatorLimba />
+          </span>
+        </div>
+      </header>
       <nav
         aria-label={t("Secțiuni")}
         className="sticky top-0 z-20 flex justify-center gap-5 border-t border-b border-v3-line bg-[var(--fundal)] sm:gap-11"
@@ -50,7 +53,7 @@ export function Antet() {
           </Link>
         ))}
       </nav>
-    </header>
+    </>
   );
 }
 
