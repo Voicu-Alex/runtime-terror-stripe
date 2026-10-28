@@ -51,6 +51,8 @@ export type Schimbare = {
   actiuni: Actiune[];
   /** tipul de specialist potrivit (task-ul lui Chris) sau null */
   profesionist: string | null;
+  /** ce îl întrebi pe specialist și ce ai pregătit (content/modal-specialist.md); doar când profesionist nu e null */
+  specialist?: { intrebare: string; documente: string };
   articol: string;
   /** linkul la textul actului; "TODO" până îl găsește cineva */
   sursa_url: string;
