@@ -41,6 +41,7 @@ export const TAGURI = {
   chirias: { familie: "locuinta", eticheta: "chirie" },
   proprietar: { familie: "locuinta", eticheta: "proprietate" },
   ipoteca: { familie: "locuinta", eticheta: "ipotecă" },
+  cumpar_locuinta: { familie: "locuinta", eticheta: "vreau să cumpăr o locuință" },
   consumator_gaz: { familie: "locuinta", eticheta: "încălzire pe gaz" },
   consumator_energie: { familie: "locuinta", eticheta: "factură de curent pe numele meu" },
   rural: { familie: "locuinta", eticheta: "la sat (mediul rural)" },

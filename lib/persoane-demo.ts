@@ -8,7 +8,7 @@ export const PERSOANE_DEMO = {
   andrei: {
     nume: "Andrei, 32",
     profil: {
-      taguri: ["angajat", "it", "srl_dividende", "chirias", "pilon2", "masina", "consumator_energie", "consumator_gaz"],
+      taguri: ["angajat", "it", "srl_dividende", "chirias", "cumpar_locuinta", "pilon2", "masina", "consumator_energie", "consumator_gaz"],
       valori: { an_nastere: 1994, nr_copii: 0, salariu_brut: 8000, dividende_anuale: 24000, cheltuieli_lunare: 5000 },
     },
   },

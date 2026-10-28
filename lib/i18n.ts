@@ -227,6 +227,7 @@ const TAG_EN: Record<TagId, string> = {
   chirias: "renting",
   proprietar: "homeowner",
   ipoteca: "mortgage",
+  cumpar_locuinta: "planning to buy a home",
   consumator_gaz: "gas heating",
   consumator_energie: "electricity bill in my name",
   rural: "in a village (rural)",
