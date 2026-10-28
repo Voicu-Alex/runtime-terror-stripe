@@ -1,0 +1,27 @@
+{
+  "act": "HG 146/2026",
+  "mo": "MO 196 / 13 mar 2026",
+  "publicat_la": "2026-03-13",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Salariul minim brut este 4.325 lei pe lună din 1 iulie 2026",
+      "taguri": ["angajat", "salariu_minim"],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "articol": "art. 1",
+      "citat": "se stabilește în bani, fără a include sporuri și alte adaosuri, la suma de 4.325 lei lunar",
+      "niveluri": {
+        "zero": "Din 1 iulie 2026, salariul minim brut pe țară este 4.325 lei pe lună.",
+        "curios": "Salariul de bază minim brut garantat în plată este 4.325 lei lunar, fără sporuri și alte adaosuri, pentru un program normal de lucru în medie de 166,667 ore pe lună, adică 25,949 lei pe oră. Suma e brută, deci în mână rămâne mai puțin după impozit și contribuții. Hotărârea abrogă HG 1.506/2024, care stabilea salariul minim anterior.",
+        "expert": "Art. 1: aplicabil de la 1 iulie 2026, în temeiul art. 164 alin. (1) din Codul muncii, 4.325 lei lunar pentru 166,667 ore medii pe lună (25,949 lei/oră). Art. 2: la aceeași dată se abrogă HG 1.506/2024."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Valoarea anterioară și creșterea în lei nu sunt în acest text; salariul net și eventualele scutiri legate de salariul minim sunt în alte acte."
+    }
+  ]
+}

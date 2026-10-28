@@ -1,0 +1,15 @@
+{
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "pensionar",
+      "incredere": 0.95,
+      "motiv": "Este un talon de pensie emis de Casa Națională de Pensii Publice, pentru pensie pentru limită de vârstă."
+    }
+  ],
+  "valori": {
+    "pensie_lunara": 4200,
+    "an_nastere": 1958
+  },
+  "explicatie_scurta": "Este talonul de pensie pentru luna octombrie 2026. Pensia brută este de 4.200 lei, iar după reținerea CASS de 120 lei, pensia netă de plată este de 4.080 lei."
+}

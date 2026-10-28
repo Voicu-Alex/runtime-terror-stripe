@@ -1,0 +1,46 @@
+{
+  "_nota": "Așteptări pentru evaluarea interpretării, scrise de Andrei+Claude din textele descărcate în eval/legi (28 oct 2026). Nu se dau agenților.",
+  "oug-12-2026-gaz": {
+    "atinge_banii": true, "taguri_obligatorii": ["consumator_gaz"], "taguri_interzise": ["consumator_energie"],
+    "publicat_la": "2026-03-09", "in_vigoare_aproximativ": ["2026-03-09", "2026-04-01"],
+    "fapte": ["1 aprilie 2026 - 31 martie 2027", "cel mai mic dintre prețul contractual și prețul calculat (art. 1 alin. 2)"],
+    "nu_inventa": ["0,31 lei/kWh ca preț al acestei OUG"]
+  },
+  "oug-89-2025-micro": {
+    "atinge_banii": true, "taguri_obligatorii": ["micro"], "taguri_posibile": ["srl_dividende"],
+    "publicat_la": "2025-12-24", "in_vigoare_aproximativ": ["2026-01-01"],
+    "fapte": ["cota de impozit micro 1% (art. I pct. 4, Codul fiscal art. 51 alin. 1)"]
+  },
+  "oug-6-2025-energie": {
+    "atinge_banii": true, "taguri_obligatorii": ["consumator_energie"], "taguri_posibile": ["consumator_gaz"],
+    "publicat_la": "2025-02-28",
+    "fapte": ["plafonare 1 aprilie - 30 iunie 2025", "0,68 / 0,80 / 1,3 lei/kWh după consum (art. 1 alin. 1)", "azi (28 oct 2026) schema a expirat"]
+  },
+  "hg-146-2026-salariu-minim": {
+    "atinge_banii": true, "taguri_obligatorii": ["salariu_minim"], "taguri_posibile": ["angajat"],
+    "publicat_la": "2026-03-13", "in_vigoare_aproximativ": ["2026-07-01"],
+    "fapte": ["4.325 lei brut lunar de la 1 iulie 2026 (art. 1)", "25,949 lei/oră", "abrogă HG 1.506/2024"]
+  },
+  "lege-161-2026-masuri-fiscale": {
+    "atinge_banii": true, "taguri_posibile": ["proprietar", "ipoteca"],
+    "publicat_la": "2026-08-04",
+    "fapte": ["TVA 9% la o singură locuință până la 30 sep 2026 (art. I), cu antecontract până la 1 aug 2025, max 120 mp și 600.000 lei fără TVA", "restituirea diferenței de TVA pentru locuințe cumpărate cu cota standard între 1 aug 2026 și intrarea în vigoare (art. II)", "cererea de restituire din 1 octombrie 2026, procedură prin ordin ANAF (art. II alin. 5)"],
+    "termen_depasit": "30 sep 2026 pentru cumpărarea cu 9%"
+  },
+  "oug-29-2026": {
+    "atinge_banii": "ambiguu (mai ales angajări în sectorul public; art. II abrogă art. LXX din OUG 156/2024 de la 1 iul 2026, legat de salariul minim)",
+    "nu_inventa": ["o sumă în lei pentru persoană", "conținutul art. LXX din OUG 156/2024, care nu e în text"]
+  },
+  "lege-204-2026-aprobare-og-22": {
+    "atinge_banii": "puțin: aprobă OG 22/2025 și adaugă scutirea de accize pentru băuturile alcoolice tradiționale, max 200 l/an pe gospodărie din Registrul agricol, nedestinate vânzării (art. II)",
+    "taguri_posibile": ["rural"],
+    "publicat_la": "2026-10-22",
+    "nu_inventa": ["conținutul OG 22/2025, care nu e în text"]
+  },
+  "hg-573-2026-gaze-investitie": { "atinge_banii": false, "taguri_interzise_toate": true },
+  "hg-603-2026-energie-siguranta": {
+    "atinge_banii": false,
+    "fapte_daca_mentioneaza": ["măsuri Transelectrica până la 31 aug 2026, inclusiv limitarea consumului pe tranșe în criză"],
+    "nu_inventa": ["o sumă în lei"]
+  }
+}

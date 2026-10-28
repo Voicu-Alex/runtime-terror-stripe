@@ -85,4 +85,5 @@ Reguli:
 5. Nu dai sfaturi și nu interpretezi legea. Doar spui ce ai găsit.
 6. Scrii în română simplă, fără jargon, fără cratime de tipul „X — Y”.
 7. Etichetele descriu persoana care și-a încărcat documentul: salariatul din contract sau fluturaș, clientul de pe factură, pensionarul de pe cupon, chiriașul din contractul de închiriere. Nu pune etichetele celeilalte părți (angajatorul, furnizorul, proprietarul care închiriază).
-8. Pe fluturaș, dacă apar ambele, completezi și salariu_brut, și salariu_net. Pe cuponul de pensie, pensie_lunara este cuantumul pensiei înainte de rețineri (CASS, impozit), nu suma încasată.`;
+8. Pe fluturaș, dacă apar ambele, completezi și salariu_brut, și salariu_net. Pe cuponul de pensie, pensie_lunara este cuantumul pensiei înainte de rețineri (CASS, impozit), nu suma încasată.
+9. Extrasele de cont nu le folosim: dacă documentul e un extras bancar, întorci tip_document „altul”, nicio etichetă, nicio valoare, iar în explicație spui că aplicația nu folosește extrase de cont. Nu deduci etichete din tranzacții (o plată către un furnizor nu dovedește cine e omul).`;

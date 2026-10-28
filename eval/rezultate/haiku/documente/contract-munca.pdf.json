@@ -1,0 +1,19 @@
+{
+  "tip_document": "contract_munca",
+  "etichete_propuse": [
+    {
+      "tag": "angajat",
+      "incredere": 0.95,
+      "motiv": "Documentul este un contract individual de muncă în funcția de programator, cu salariu lunar brut."
+    },
+    {
+      "tag": "it",
+      "incredere": 0.85,
+      "motiv": "Angajatorul are codul CAEN 6201, activități de realizare a software-ului la comandă."
+    }
+  ],
+  "valori": {
+    "salariu_brut": 12000
+  },
+  "explicatie_scurta": "Este un contract de muncă nedeterminat, începând cu 10.06.2024, pentru funcția de programator. Salariul de bază brut este de 12.000 lei pe lună, plătit până în data de 10 a lunii următoare."
+}
