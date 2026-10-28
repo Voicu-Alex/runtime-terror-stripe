@@ -5,12 +5,13 @@ import type { Potrivire } from "@/lib/potrivire";
 import type { Valori } from "@/lib/profil";
 import { etichetaTag } from "@/lib/taguri";
 import { ETICHETA_STARE, cuSemn, cuTracking, dataScurta, mii, vedere, zile, type StareCard } from "@/lib/card";
+import { furnizori, niveluri, specialist } from "@/lib/continut";
 
 // Aspectul urmează rândul din lista „Toate actele care te privesc” din mockup/v3/index.html?v=f.
-// Cele 3 niveluri din issue #3:
-//   Zero   = rândul închis: titlul spune totul, suma, termenul (ADR 0001)
-//   Curios = rândul deschis: „Pentru tine”, de ce te privește, ce poți face
-//   Expert = „Arată-mi legea”: actul, MO, articolul, linkul la Portal Legislativ
+// Cele 3 niveluri din issue #3, cu textele din content/niveluri.json (Iasmina):
+//   Zero   = rândul deschis: „Pentru tine:” + o propoziție, apoi ce poți face
+//   Curios = „De ce?”: 3–4 propoziții cu un exemplu
+//   Expert = „Arată-mi legea”: actul, MO, articolul, nuanțele și linkurile oficiale
 
 const PILL: Record<StareCard, string> = {
   proiect: "border-dashed border-v3-ink-2 bg-white text-v3-ink-2",
@@ -19,10 +20,9 @@ const PILL: Record<StareCard, string> = {
   termen_depasit: "border-[#C3CAC2] bg-v3-past-bg text-v3-past",
 };
 
-const eTODO = (s: string) => !s || s.trim() === "TODO";
-
 export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Valori }) {
   const [deschis, setDeschis] = useState(false);
+  const [curios, setCurios] = useState(false);
   const [lege, setLege] = useState(false);
   const [copiat, setCopiat] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -32,6 +32,10 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
   const v = vedere(p, valori);
   const a = s.actiuni.find((x) => x.termen) ?? s.actiuni[0];
   const dep = v.termen?.depasit;
+  const n = niveluri(s);
+  const fz = furnizori(s.id);
+  const sp = specialist(s);
+  const surseExtra = n.surse.filter((u) => u !== s.sursa_url && !u.startsWith("https://posf.ro"));
 
   return (
     <li id={`c-${s.id}`} className="border-b border-v3-line">
@@ -74,12 +78,12 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
         </span>
       </button>
 
-      {/* Curios */}
+
       {deschis && (
         <div id={`${uid}-d`} className="pb-4">
+          {/* Zero: o propoziție, fără jargon */}
           <p className="m-0 mb-2.5 max-w-[60ch] text-[15px] text-v3-ink">
-            <b>Pentru tine:</b> {s.niveluri.zero}
-            {!eTODO(s.niveluri.curios) && <> {s.niveluri.curios}</>}
+            <b>Pentru tine:</b> {n.zero}
           </p>
           {s.estimare && v.suma !== null && v.suma !== 0 && (
             <p className="m-0 mb-2.5 text-[13.5px] text-v3-ink-2">Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege.</p>
@@ -110,25 +114,72 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
                 </p>
               )}
               {a.one_click && !dep && (
-                // Aici intră mai târziu comisionul pe client redirecționat (issue #4, Haggy).
-                // Ordinea fixă: link oficial, comparator, apoi partener marcat vizibil.
+                // Ordinea fixă: întâi comparatorul oficial, apoi furnizorii (business/parteneri.json, Haggy).
+                // Aici intră mai târziu comisionul pe client redirecționat (issue #4); acum niciun furnizor nu plătește.
                 <a
                   href={cuTracking(a.one_click, s.id)}
                   target="_blank"
                   rel="noopener"
                   className="mt-1.5 inline-flex min-h-[46px] items-center gap-2 rounded-[10px] bg-v3-ink px-[18px] font-bold text-white no-underline"
                 >
-                  Compară oferte
-                  <svg aria-hidden="true" viewBox="0 0 16 16" className="size-4 fill-none stroke-current stroke-2">
-                    <path d="M5 11 11 5M6 5h5v5" />
-                  </svg>
+                  Compară oferte pe comparatorul ANRE
+                  <Sageata />
                   <span className="sr-only">(se deschide într-un tab nou)</span>
                 </a>
+              )}
+              {fz.length > 0 && !dep && (
+                <div className="mt-3">
+                  <p className="m-0 mb-1 text-[13px] text-v3-ink-2">
+                    Sau direct la un furnizor. În ordine alfabetică
+                    {fz.every((f) => !f.comision) ? "; nu primim nimic de la ei." : "; cei marcați „partener” ne plătesc un comision."}
+                  </p>
+                  <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+                    {fz.map((f) => (
+                      <li key={f.nume}>
+                        <a
+                          href={cuTracking(f.url, s.id)}
+                          target="_blank"
+                          rel="noopener"
+                          className="inline-flex min-h-11 items-center gap-1.5 rounded-[10px] border border-v3-line bg-white px-3 text-sm font-semibold text-v3-ink no-underline"
+                        >
+                          {f.nume}
+                          {f.comision && <span className="rounded border border-v3-ink-2 px-1 text-[11px] text-v3-ink-2">partener</span>}
+                          <Sageata />
+                          <span className="sr-only">(se deschide într-un tab nou)</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {/* și după termen: întrebarea specialistului privește situația de acum */}
+              {sp && (
+                <div className="mt-3 border-t border-v3-line pt-3">
+                  <p className="m-0 mb-1.5 text-[14.5px] font-semibold">Situația ta e mai complicată?</p>
+                  <button
+                    type="button"
+                    onClick={() => dialog.current?.showModal()}
+                    className="min-h-11 rounded-[10px] border border-v3-ink bg-white px-4 text-sm font-semibold text-v3-ink"
+                  >
+                    Găsește un {sp.profesie}
+                  </button>
+                </div>
               )}
             </div>
           )}
 
           <div className="flex flex-wrap gap-2">
+            {n.curios && (
+              <button
+                type="button"
+                aria-expanded={curios}
+                aria-controls={`${uid}-c`}
+                onClick={() => setCurios(!curios)}
+                className="min-h-11 rounded-[10px] border border-v3-line bg-white px-4 text-sm font-semibold text-v3-ink aria-expanded:border-v3-ink"
+              >
+                De ce?
+              </button>
+            )}
             <button
               type="button"
               aria-expanded={lege}
@@ -139,17 +190,11 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
               Arată-mi legea
             </button>
           </div>
-          {s.profesionist && (
-            // Textele din content/modal-specialist.md (issue #5, Chris): întâi pașii, apoi specialistul.
-            <p className="mt-3 mb-0 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13.5px] text-v3-ink-2">
-              <b className="text-v3-ink">Situația ta e mai complicată?</b>
-              <button
-                type="button"
-                onClick={() => dialog.current?.showModal()}
-                className="min-h-11 rounded-[10px] border border-v3-line bg-white px-4 text-sm font-semibold text-v3-ink"
-              >
-                Găsește un {s.profesionist}
-              </button>
+
+          {/* Curios */}
+          {curios && n.curios && (
+            <p id={`${uid}-c`} className="mt-3 mb-0 max-w-[60ch] text-[15px] text-v3-ink">
+              {n.curios}
             </p>
           )}
 
@@ -160,12 +205,16 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
               <p className="m-0 mb-1 font-semibold">
                 {s.act} · {s.mo_ref}
               </p>
-              <p className="m-0 mb-1 font-medium text-v3-ink-2">{s.articol}</p>
-              {!eTODO(s.niveluri.expert) && <p className="m-0 mb-1 text-v3-ink-2">{s.niveluri.expert}</p>}
+              <p className="m-0 mb-1 text-v3-ink-2">{n.expert ?? s.articol}</p>
               <a href={s.sursa_url} target="_blank" rel="noopener" className="flex min-h-11 items-center font-semibold text-v3-accent">
                 Textul legii pe Portal Legislativ {"↗︎"}
               </a>
-              {s.sursa_explicativa && (
+              {surseExtra.map((u) => (
+                <a key={u} href={u} target="_blank" rel="noopener" className="flex min-h-11 items-center font-semibold text-v3-accent">
+                  {eticheteSursa(u)} {"↗︎"}
+                </a>
+              ))}
+              {s.sursa_explicativa && s.sursa_explicativa !== "TODO" && (
                 <a href={s.sursa_explicativa} target="_blank" rel="noopener" className="flex min-h-11 items-center font-semibold text-v3-accent">
                   Explicație (ANAF / presă) {"↗︎"}
                 </a>
@@ -183,49 +232,74 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
         </div>
       )}
 
-      {s.profesionist && (
-        // Modalul „Când merită un specialist” (content/modal-specialist.md, business/profesionisti.md secțiunea 3).
-        // Linkul la registrul public al profesiei lipsește până avem URL-urile verificate (profesionisti.md, „De confirmat” 1).
+      {sp && (
+        // Textele din content/modal-specialist.md și business/profesionisti.md (Chris, #5).
         <dialog
           ref={dialog}
           aria-labelledby={`${uid}-t`}
-          className="m-auto w-[min(420px,calc(100%-32px))] rounded-2xl border border-v3-line p-5 backdrop:bg-black/50"
+          className="m-auto w-[min(420px,calc(100%-32px))] rounded-2xl border border-v3-line p-5 text-v3-ink backdrop:bg-black/50"
         >
-          <h4 id={`${uid}-t`} className="m-0 mb-2 text-[17px] font-bold">
-            Când merită un {s.profesionist}
+          <h4 id={`${uid}-t`} className="m-0 mb-2 font-head text-xl font-extrabold">
+            Când merită un {sp.profesie}
           </h4>
-          <p className="m-0 mb-3 text-[15px] text-v3-ink-2">
-            Pașii de mai sus ajung pentru cei mai mulți oameni. Un {s.profesionist} te ajută când răspunsul depinde de cifrele tale și suma e
-            mare.
+          <p className="m-0 mb-3 text-[15px]">
+            Pașii de mai sus ajung pentru cei mai mulți oameni. Un {sp.profesie} te ajută când răspunsul depinde de cifrele tale și
+            suma e mare.
           </p>
-          {s.specialist && (
+          {sp.intrebare && (
             <>
-              <p className="m-0 text-[13px] font-bold tracking-[.02em] text-v3-ink-2">Ce să întrebi:</p>
-              <p className="mt-0.5 mb-1 text-[15px] font-semibold">{s.specialist.intrebare}</p>
+              <p className="m-0 text-[13px] font-bold text-v3-ink-2">Ce să întrebi</p>
+              <p className="m-0 mb-1.5 text-[15px]">{sp.intrebare}</p>
               <button
                 type="button"
-                onClick={() => {
-                  navigator.clipboard?.writeText(s.specialist!.intrebare).then(
-                    () => setCopiat(true),
-                    () => {},
-                  );
-                }}
-                className="mb-3 min-h-9 rounded-lg border border-v3-line bg-white px-3 text-[13px] font-semibold text-v3-ink"
+                onClick={() => navigator.clipboard?.writeText(sp.intrebare!).then(() => setCopiat(true), () => {})}
+                className="mb-3 min-h-11 rounded-[10px] border border-v3-line bg-white px-3 text-sm font-semibold"
               >
                 {copiat ? "Copiat" : "Copiază întrebarea"}
               </button>
-              <p className="m-0 text-[13px] font-bold tracking-[.02em] text-v3-ink-2">Ce să ai pregătit:</p>
-              <p className="mt-0.5 mb-3 text-[15px]">{s.specialist.documente}</p>
             </>
           )}
-          <p className="m-0 mb-4 text-[12.5px] text-v3-ink-2">
+          {sp.documente && (
+            <>
+              <p className="m-0 text-[13px] font-bold text-v3-ink-2">Ce să ai pregătit</p>
+              <p className="m-0 mb-3 text-[15px]">{sp.documente}</p>
+            </>
+          )}
+          <p className="m-0 mb-4 text-[13px] text-v3-ink-2">
             Te trimitem la registrul public al profesiei. Nu primim bani de la specialiști și nu trimitem nimic din profilul tău.
           </p>
-          <form method="dialog" className="flex flex-col gap-2">
-            <button className="min-h-11 w-full rounded-[10px] border border-v3-line bg-white font-bold text-v3-ink">Mă descurc singur</button>
+          {sp.registru && (
+            <a
+              href={sp.registru.url}
+              target="_blank"
+              rel="noopener"
+              className="mb-2 flex min-h-[46px] w-full items-center justify-center gap-2 rounded-[10px] bg-v3-ink font-bold text-white no-underline"
+            >
+              Deschide registrul
+              <Sageata />
+              <span className="sr-only">({sp.registru.nume}, se deschide într-un tab nou)</span>
+            </a>
+          )}
+          <form method="dialog">
+            <button className="min-h-11 w-full rounded-[10px] border border-v3-line bg-white font-semibold">Mă descurc singur</button>
           </form>
         </dialog>
       )}
     </li>
   );
+}
+
+function Sageata() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 16 16" className="size-4 flex-none fill-none stroke-current stroke-2">
+      <path d="M5 11 11 5M6 5h5v5" />
+    </svg>
+  );
+}
+
+function eticheteSursa(url: string): string {
+  if (url.includes("legislatie.just.ro")) return "Act legat, pe Portal Legislativ";
+  if (url.includes("anre.ro")) return "Comunicat ANRE";
+  if (url.includes("posf.ro")) return "Comparatorul ANRE";
+  return new URL(url).hostname.replace(/^www\./, "");
 }
