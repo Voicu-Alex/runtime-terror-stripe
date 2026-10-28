@@ -46,7 +46,8 @@ export const SCHEMA_ANALIZA = {
         required: ["tag", "incredere", "motiv"],
         properties: {
           tag: { type: "string", enum: TOATE_TAGURILE },
-          incredere: { type: "number", minimum: 0, maximum: 1 },
+          // structured outputs nu acceptă minimum/maximum pe number: intervalul e în descriere și se forțează în rută
+          incredere: { type: "number", description: "între 0 și 1" },
           motiv: { type: "string", description: "o propoziție: ce din document susține eticheta" },
         },
       },
@@ -82,4 +83,6 @@ Reguli:
 3. Valorile numerice le copiezi exact cum scriu în document, în lei, fără să calculezi nimic. Nu estima, nu rotunji, nu converti.
 4. Nu întoarce niciodată CNP, IBAN, serie de buletin, adresă sau număr de telefon, nici în motiv, nici în explicație.
 5. Nu dai sfaturi și nu interpretezi legea. Doar spui ce ai găsit.
-6. Scrii în română simplă, fără jargon, fără cratime de tipul „X — Y”.`;
+6. Scrii în română simplă, fără jargon, fără cratime de tipul „X — Y”.
+7. Etichetele descriu persoana care și-a încărcat documentul: salariatul din contract sau fluturaș, clientul de pe factură, pensionarul de pe cupon, chiriașul din contractul de închiriere. Nu pune etichetele celeilalte părți (angajatorul, furnizorul, proprietarul care închiriază).
+8. Pe fluturaș, dacă apar ambele, completezi și salariu_brut, și salariu_net. Pe cuponul de pensie, pensie_lunara este cuantumul pensiei înainte de rețineri (CASS, impozit), nu suma încasată.`;

@@ -57,40 +57,43 @@ export async function POST(req: Request) {
 
   const client = new Anthropic();
   try {
+    // Pe claude-opus-5-5, tool_choice forțat („tool”/„any”) dă 400. Răspunsul structurat vine prin
+    // output_config.format (JSON validat de API după SCHEMA_ANALIZA). Gândirea e mereu pornită pe acest
+    // model și se numără în max_tokens, de aici limita mai mare.
     const raspuns = await client.messages.create({
       model: "claude-opus-5-5",
-      max_tokens: 1024,
+      max_tokens: 16000,
       system: INSTRUCTIUNI_MODEL,
-      tools: [
-        {
-          name: "propune_etichete",
-          description: "Întoarce tipul documentului, etichetele propuse din lista fixă și valorile citite.",
-          input_schema: SCHEMA_ANALIZA as unknown as Anthropic.Tool["input_schema"],
-        },
-      ],
-      tool_choice: { type: "tool", name: "propune_etichete" },
+      output_config: { format: { type: "json_schema", schema: SCHEMA_ANALIZA as unknown as Record<string, unknown> } },
       messages: [
         {
           role: "user",
-          content: [
-            blocDocument,
-            { type: "text", text: "Analizează documentul și cheamă tool-ul propune_etichete." },
-          ],
+          content: [blocDocument, { type: "text", text: "Analizează documentul și întoarce rezultatul în formatul cerut." }],
         },
       ],
     });
 
-    const tool = raspuns.content.find((b) => b.type === "tool_use");
-    if (!tool || tool.type !== "tool_use") {
+    if (raspuns.stop_reason === "refusal") {
+      return NextResponse.json({ eroare: "Modelul a refuzat să analizeze documentul." }, { status: 422 });
+    }
+    const text = raspuns.content.find((b) => b.type === "text");
+    if (!text || text.type !== "text" || raspuns.stop_reason === "max_tokens") {
       return NextResponse.json({ eroare: "Modelul nu a întors un rezultat structurat." }, { status: 502 });
     }
 
-    const brut = tool.input as AnalizaDocument;
+    let brut: AnalizaDocument;
+    try {
+      brut = JSON.parse(text.text) as AnalizaDocument;
+    } catch {
+      return NextResponse.json({ eroare: "Modelul nu a întors JSON valid." }, { status: 502 });
+    }
     // Apărare în adâncime: păstrăm doar etichete din taxonomie și mascăm CNP/IBAN din orice text.
     const curat: AnalizaDocument = mascheaza({
       mod: "claude",
       tip_document: brut.tip_document ?? "altul",
-      etichete_propuse: (brut.etichete_propuse ?? []).filter((e) => esteTag(e.tag)),
+      etichete_propuse: (brut.etichete_propuse ?? [])
+        .filter((e) => esteTag(e.tag))
+        .map((e) => ({ ...e, incredere: Math.min(1, Math.max(0, Number(e.incredere) || 0)) })),
       valori: brut.valori ?? {},
       explicatie_scurta: brut.explicatie_scurta ?? "",
     });
@@ -99,7 +102,8 @@ export async function POST(req: Request) {
   } catch (e) {
     // Fără conținutul documentului în log: doar tipul erorii.
     const mesaj = e instanceof Anthropic.APIError ? `Claude API: ${e.status}` : "Eroare la analiză.";
-    console.error("[analiza-document]", mesaj);
+    // Mesajul de eroare al API-ului descrie cererea (parametri, schemă), nu documentul.
+    console.error("[analiza-document]", mesaj, e instanceof Anthropic.APIError ? e.message : "");
     return NextResponse.json({ eroare: mesaj }, { status: 502 });
   }
 }
