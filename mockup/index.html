@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ce înseamnă pentru mine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4EF; --card:#FFFFFF; --ink:#14201B; --ink-2:#4A5851; --line:#D6DCD3;
+  --accent:#2A3BC9; --accent-soft:#E7EAFB;
+  --neg:#9A4630; --pos:#1E7A4B;
+  --dark-neg:#F0AE98; --dark-pos:#86D9A9;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.45;font-variant-numeric:tabular-nums;padding-bottom:146px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+
+/* header */
+header{padding:18px 0 4px}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.02em;line-height:1.1;margin:0}
+.lang{display:flex;border:1px solid var(--ink);border-radius:999px;padding:2px;flex:none}
+.lang button{border:0;background:none;padding:6px 12px;border-radius:999px;font-weight:700;font-size:13px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.badge{display:inline-block;margin-top:8px;font-size:13px;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:999px;padding:3px 10px}
+
+/* profiles */
+.sect{margin-top:18px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.pchip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:9px 16px;font-weight:600;min-height:44px}
+.pchip[aria-checked="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.strip{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.sc{font-size:13px;border:1px solid var(--line);border-radius:8px;padding:3px 9px;color:var(--ink)}
+.sc span{color:var(--ink-2)}
+
+/* headline */
+.hero{margin-top:18px;background:var(--ink);color:var(--paper);border-radius:18px;padding:22px 20px 18px}
+.hero h2{margin:0;font-size:16px;font-weight:500;opacity:.8}
+.win{margin:2px 0 0;font-size:12.5px;opacity:.6}
+.big{font-size:clamp(46px,15vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:10px 0 2px}
+.big small{font-size:.28em;font-weight:600;letter-spacing:0;opacity:.75;margin-left:6px}
+.big.neg{color:var(--dark-neg)} .big.pos{color:var(--dark-pos)}
+.with{font-size:17px;font-weight:600;margin:10px 0 0}
+.with b{font-weight:800;font-size:1.15em}
+.with .neg{color:var(--dark-neg)} .with .pos{color:var(--dark-pos)}
+.conf{margin:14px 0 0;font-size:13px;opacity:.75;display:flex;gap:8px;align-items:flex-start}
+.ilus{flex:none;border:1px solid currentColor;border-radius:6px;padding:0 6px;font-size:12px;font-weight:600}
+
+/* timeline */
+.tl-head{margin:26px 0 10px;font-size:14px;color:var(--ink-2)}
+ol.tl{list-style:none;margin:0;padding:0}
+.tl>li{position:relative;padding:0 0 14px 30px}
+.tl>li::before{content:"";position:absolute;left:8px;top:24px;bottom:-4px;width:2px;background:var(--line)}
+.tl>li:last-child::before{display:none}
+.tl>li::after{content:"";position:absolute;left:1px;top:15px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--paper);box-shadow:0 0 0 1.5px var(--ink)}
+.tl>li.soon::after{background:var(--accent-soft);box-shadow:0 0 0 1.5px var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pill{font-size:12.5px;font-weight:600;border-radius:999px;padding:2px 10px;border:1px solid var(--line)}
+.pill.date{background:var(--paper)}
+.pill.in{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pill.soonp{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.card h3{margin:10px 0 6px;font-size:19px;line-height:1.2;letter-spacing:-.01em;font-weight:700}
+.imp{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:4px 0 6px;font-size:15px}
+.imp .v{font-size:24px;font-weight:800;letter-spacing:-.02em}
+.imp .u{font-weight:600;color:var(--ink-2)}
+.neg{color:var(--neg)} .pos{color:var(--pos)} .zero{color:var(--ink)}
+.imp small{flex-basis:100%;color:var(--ink-2);font-size:13.5px}
+.why{margin:6px 0 12px;color:var(--ink-2);font-size:15px;max-width:60ch}
+.act{background:var(--paper);border-radius:10px;padding:12px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center}
+.act.on{background:var(--accent-soft)}
+.act p{margin:0;font-size:14.5px;grid-column:1/-1}
+.act p b{font-weight:700}
+.sw{display:flex;align-items:center;gap:8px;border:0;background:none;padding:0;min-height:44px;font-size:13px;font-weight:600}
+.track{width:44px;height:26px;border-radius:999px;background:#9AA39C;position:relative;transition:background .15s;flex:none}
+.track::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw[aria-checked="true"] .track{background:var(--accent)}
+.sw[aria-checked="true"] .track::after{transform:translateX(18px)}
+.act.exp{background:#ECEEEA}.act.exp p:first-child{color:var(--ink-2)}
+.sw[disabled]{opacity:.4;cursor:not-allowed}
+.res.miss{color:var(--ink-2);font-weight:600}
+.tl>li.soon .card{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.res{grid-column:1/-1;margin:0;font-weight:700;font-size:14.5px;color:var(--pos)}
+.res.chk{color:var(--accent)}
+.noact{background:var(--paper);border-radius:10px;padding:10px 12px;margin:0;font-size:14px;color:var(--ink-2)}
+.foot{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:12px;align-items:center;font-size:12.5px;color:var(--ink-2)}
+.src{border:1px solid var(--line);border-radius:6px;padding:1px 8px;font-weight:600;color:var(--ink)}
+
+footer{margin-top:18px;font-size:13px;color:var(--ink-2)}
+footer p{margin:0 0 8px;max-width:62ch}
+
+/* plan bar */
+.plan{position:fixed;left:0;right:0;bottom:0;z-index:10;pointer-events:none}
+.plan .in{pointer-events:auto;max-width:680px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0;box-shadow:0 -10px 30px rgba(20,32,27,.16);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.plan h4{margin:0 0 6px;font-size:14px;font-weight:700}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pg div span{display:block;font-size:12.5px;color:var(--ink-2)}
+.pg div b{display:block;font-size:21px;line-height:1.2;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.pg div:last-child{text-align:right}
+.plan .sub{margin:6px 0 0;font-size:12.5px;color:var(--ink-2)}
+@media (min-width:700px){.brand{font-size:26px}.card{padding:20px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="hrow">
+      <h1 class="brand" id="brand"></h1>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ro">RO</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+    <span class="badge" id="badge"></span>
+  </header>
+  <main id="app"></main>
+  <footer id="foot"></footer>
+</div>
+<div class="plan"><div class="in" id="plan"></div></div>
+
+<script>
+var TODAY='2026-10-28';
+var WINDOW_END='2027-10-28';
+var DICT={
+ro:{
+ 'brand':'Ce înseamnă pentru mine','badge':'Scenariu educativ · nu este consultanță',
+ 'profiles':'Alege un profil','hero.title':'Impact total pe 12 luni','hero.per':'lei / 12 luni','hero.window':'Următoarele 12 luni: {a} – {b}','for.from':'Pentru tine, din {d}:',
+ 'hero.with':'cu acțiunile alese:','hero.none':'Pornește „Simulează” pe un card ca să vezi diferența.',
+ 'hero.conf':'Estimare pe baza profilului tău, cifre ilustrative','ilus':'ilustrativ',
+ 'tl.head':'Cronologic, de la cea mai veche regulă la cea mai nouă. Doar regulile care te privesc.',
+ 'unit.mo':'lei/lună','unit.lei':'lei','unit.yr':'lei/an',
+ 'for.you':'Pentru tine:','st.in':'în vigoare','st.soon':'urmează',
+ 'sim':'Simulează','before':'Înainte de {d}:','anytime':'Oricând:','noact':'Nicio acțiune disponibilă · ajustează bugetul',
+ 'verified':'verificat la {d}',
+ 'res.mo':'+{n} lei/lună economie','res.gas':'+{n} lei/lună economie, din apr 2027','res.pil':'+{n} lei economie la impozit (o singură dată, 10% din ~2.000 lei)','res.chk':'Verificat ✓',
+ 'res.missed':'Termen depășit ({d}) · ar fi economisit {n} lei','dl.past':'termen depășit',
+ 'plan.title':'Planul meu','plan.without':'Fără acțiuni · 12 luni','plan.with':'Cu acțiuni · 12 luni','plan.yr':'{n} lei',
+ 'plan.n0':'Nicio acțiune aleasă','plan.n1':'1 acțiune aleasă','plan.nn':'{n} acțiuni alese',
+ 'plan.next':'următorul termen: {d}','plan.none':'niciun termen apropiat',
+ 'foot.src':'Surse: Legea 141/2025, Legea 2/2026, OUG 89/2025, OUG 12/2026, ANAF, ASF, ANRE. Reguli rezumate, de verificat în textul oficial.',
+ 'foot.lim':'Scenarii educative, nu consultanță financiară. Datele rămân pe dispozitivul tău. Set de reguli curatoriat, cifre medii, ilustrative.',
+ 'p.andrei':'Andrei, 32','p.maria':'Maria, 45','p.ion':'Ion, 67',
+ 'f.income':'Venit','f.net':'Net/lună','f.second':'Venit secundar','f.home':'Locuință','f.p2':'Pilon II','f.p3':'Pilon III','f.age':'Vârstă','f.spend':'Cheltuieli',
+ 'v.employee':'angajat','v.pfa':'PFA','v.pension':'pensionar','v.netpension':'Pensie','v.rent':'chirie','v.mortgage':'ipotecă IRCC','v.owner':'proprietar',
+ 'v.yes':'da','v.no':'nu','v.none':'fără','v.divs':'dividende SRL {n} lei/an','v.ageyrs':'{n} ani','v.mo':'~{n} lei/lună',
+ 'r1.t':'TVA 19% → 21%','r1.w':'Cota standard de TVA crește cu 2 puncte, deci aproape tot ce cumperi costă puțin mai mult. Estimat ca 1,68% din cheltuielile tale lunare.',
+ 'r2.t':'Impozit pe dividende 10% → 16%','r2.w':'Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu 10%. Pe {d} lei dividende pe an, diferența este de {n} lei lunar.',
+ 'r2.a':'Distribuie dividendele din profitul 2025',
+ 'r3.t':'CASS 10% pe pensiile peste 3.000 lei','r3.w':'Contribuția de 10% pentru sănătate se aplică doar părții din pensie care depășește 3.000 lei.',
+ 'r3.a':'Verifică cuponul de pensie: CASS se aplică doar peste 3.000 lei',
+ 'r4.t':'Plafonarea prețului la energie eliminată','r4.w':'Fără plafon, factura urmează prețul pieței. Cifra este o medie pentru o gospodărie ca a ta.',
+ 'r4.a':'Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix',
+ 'r5.t':'Pilon II: plată eșalonată la pensionare (Legea 2/2026)','r5.w':'Legea nouă schimbă felul în care primești banii din Pilon II: doar o parte deodată, restul în rate. Azi nu pierzi nimic, dar pensia privată se planifică altfel.',
+ 'r5.n':'0 lei/lună acum · la pensionare: maximum 30% dintr-o dată, restul lunar pe minimum 8 ani sau rentă viageră',
+ 'r5.a1':'alimentează Pilon III până la plafonul deductibil de 400 EUR/an',
+ 'r5.a2':'completează contribuția din 2026 până la plafonul de 400 EUR',
+ 'r6.t':'Microîntreprinderi: prag și cote noi','r6.w':'Cotă unică 1% (cota de 3% eliminată), plafon 100.000 EUR, cel puțin un angajat.',
+ 'r7.t':'Plafonarea prețului la gaz expiră','r7.w':'De la 1 aprilie 2027 factura de gaz urmează prețul pieței. Cifra este o medie pentru o gospodărie ca a ta și se numără doar pentru lunile rămase în următoarele 12.',
+ 'r7.a':'Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix',
+ 'r6.i1':'0 lei/lună (sub prag) · de verificat','r6.i2':'Verifică dacă te afectează',
+ 'r6.a1':'Verifică cifra de afaceri a SRL-ului față de noul prag','r6.a2':'Verifică veniturile PFA față de noul prag'
+},
+en:{
+ 'brand':'What it means for me','badge':'Educational scenario · not advice',
+ 'profiles':'Choose a profile','hero.title':'Total impact over 12 months','hero.per':'lei / 12 months','hero.window':'Next 12 months: {a} – {b}','for.from':'For you, from {d}:',
+ 'hero.with':'with chosen actions:','hero.none':'Turn on “Simulate” on a card to see the difference.',
+ 'hero.conf':'Estimate based on your profile, illustrative figures','ilus':'illustrative',
+ 'tl.head':'Chronological, oldest rule first. Only the rules that concern you.',
+ 'unit.mo':'lei/month','unit.lei':'lei','unit.yr':'lei/year',
+ 'for.you':'For you:','st.in':'in force','st.soon':'upcoming',
+ 'sim':'Simulate','before':'Before {d}:','anytime':'Anytime:','noact':'No action available · adjust your budget',
+ 'verified':'verified on {d}',
+ 'res.mo':'+{n} lei/month saved','res.gas':'+{n} lei/month saved, from Apr 2027','res.pil':'+{n} lei tax saved (one-time, 10% of ~2,000 lei)','res.chk':'Checked ✓',
+ 'res.missed':'Deadline passed ({d}) · would have saved {n} lei','dl.past':'deadline passed',
+ 'plan.title':'My plan','plan.without':'Without actions · 12 months','plan.with':'With actions · 12 months','plan.yr':'{n} lei',
+ 'plan.n0':'No action chosen','plan.n1':'1 action chosen','plan.nn':'{n} actions chosen',
+ 'plan.next':'next deadline: {d}','plan.none':'no upcoming deadline',
+ 'foot.src':'Sources: Law 141/2025, Law 2/2026, GEO 89/2025, GEO 12/2026, ANAF, ASF, ANRE. Rules are summarised; check the official text.',
+ 'foot.lim':'Educational scenarios, not financial advice. Your data stays on your device. Curated rule set, average, illustrative figures.',
+ 'p.andrei':'Andrei, 32','p.maria':'Maria, 45','p.ion':'Ion, 67',
+ 'f.income':'Income','f.net':'Net/month','f.second':'Side income','f.home':'Housing','f.p2':'Pillar II','f.p3':'Pillar III','f.age':'Age','f.spend':'Spending',
+ 'v.employee':'employee','v.pfa':'sole trader (PFA)','v.pension':'retiree','v.netpension':'Pension','v.rent':'renting','v.mortgage':'mortgage (IRCC)','v.owner':'owner',
+ 'v.yes':'yes','v.no':'no','v.none':'none','v.divs':'SRL dividends {n} lei/year','v.ageyrs':'{n} years','v.mo':'~{n} lei/month',
+ 'r1.t':'VAT 19% → 21%','r1.w':'The standard VAT rate rises by 2 points, so almost everything you buy costs a little more. Estimated as 1.68% of your monthly spending.',
+ 'r2.t':'Dividend tax 10% → 16%','r2.w':'Dividends paid out after 1 January 2026 are taxed at 16%, not 10%. On {d} lei of dividends a year, the difference is {n} lei a month.',
+ 'r2.a':'Pay out the 2025 profit as dividends',
+ 'r3.t':'10% health contribution on pensions above 3,000 lei','r3.w':'The 10% health contribution applies only to the part of the pension above 3,000 lei.',
+ 'r3.a':'Check your pension slip: the contribution applies only above 3,000 lei',
+ 'r4.t':'Energy price cap removed','r4.w':'Without the cap, your bill follows the market price. The figure is an average for a household like yours.',
+ 'r4.a':'Compare supplier offers on the ANRE comparison tool and switch to a fixed-price contract',
+ 'r5.t':'Pillar II: staged payout at retirement (Law 2/2026)','r5.w':'The new law changes how you receive Pillar II money: only part at once, the rest in instalments. You lose nothing today, but private pension planning changes.',
+ 'r5.n':'0 lei/month now · at retirement: up to 30% at once, the rest monthly over at least 8 years or as a lifetime annuity',
+ 'r5.a1':'top up Pillar III to the 400 EUR/year deductible ceiling',
+ 'r5.a2':'complete your 2026 contribution up to the 400 EUR ceiling',
+ 'r6.t':'Micro-enterprises: new threshold and rates','r6.w':'Single 1% rate (3% removed), 100,000 EUR ceiling, at least one employee.',
+ 'r7.t':'Gas price cap expires','r7.w':'From 1 April 2027 your gas bill follows the market price. The figure is an average for a household like yours, counted only for the months left in the next 12.',
+ 'r7.a':'Compare gas offers on the ANRE comparator and lock a fixed price',
+ 'r6.i1':'0 lei/month (below threshold) · to be verified','r6.i2':'Check whether it affects you',
+ 'r6.a1':'Check your SRL turnover against the new threshold','r6.a2':'Check your PFA income against the new threshold'
+}};
+
+var MONTHS={ro:['ian','feb','mar','apr','mai','iun','iul','aug','sep','oct','noi','dec'],en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']};
+
+/* illustrative data */
+var PROFILES={
+ andrei:{key:'p.andrei',kind:'employee',net:6500,spend:5000,divs:24000,home:'rent',p2:true,p3:false,age:32,energy:-60,energySave:25,gas:-40,gasSave:15,srl:true},
+ maria:{key:'p.maria',kind:'pfa',net:9000,spend:6000,divs:0,home:'mortgage',p2:true,p3:true,age:45,energy:-85,energySave:35,gas:-55,gasSave:20,srl:false},
+ ion:{key:'p.ion',kind:'pension',net:4200,spend:3000,divs:0,home:'owner',p2:false,p3:false,age:67,energy:-45,energySave:20,gas:-35,gasSave:12,srl:false}
+};
+
+/* rules, chronological by effective date. monthly = base impact lei/month (counted for the months of the window it is in force);
+   action: monthly = lei/month saved, once = one-time lei saved, info = check only; deadline null = anytime */
+var RULES=[
+ {id:'r4',date:'2025-07-01',src:'ANRE',applies:function(p){return true},
+  monthly:function(p){return p.energy},
+  action:function(p){return {t:'r4.a',monthly:p.energySave,res:'res.mo',deadline:null}}},
+ {id:'r1',date:'2025-08-01',src:'Legea 141/2025',applies:function(p){return true},
+  monthly:function(p){return -Math.round(p.spend*0.0168)},action:null},
+ {id:'r3',date:'2025-08-01',src:'Legea 141/2025',applies:function(p){return p.kind==='pension'},
+  monthly:function(p){return -Math.round((p.net-3000)*0.1)},
+  action:function(p){return {t:'r3.a',info:true,deadline:null}}},
+ {id:'r2',date:'2026-01-01',src:'Legea 141/2025',applies:function(p){return p.divs>0},
+  monthly:function(p){return -Math.round(p.divs*0.06/12)},
+  action:function(p){return {t:'r2.a',once:Math.round(p.divs*0.06),deadline:'2025-12-31'}}},
+ {id:'r6',date:'2026-01-01',src:'OUG 89/2025 · ANAF',applies:function(p){return p.srl||p.kind==='pfa'},
+  monthly:function(p){return 0},
+  action:function(p){return {t:p.srl?'r6.a1':'r6.a2',info:true,deadline:null}}},
+ {id:'r5',date:'2027-01-05',src:'Legea 2/2026 · ASF',applies:function(p){return p.p2},
+  monthly:function(p){return 0},
+  action:function(p){return {t:p.p3?'r5.a2':'r5.a1',once:200,res:'res.pil',deadline:'2026-12-31'}}},
+ {id:'r7',date:'2027-04-01',src:'OUG 12/2026 · ANRE',applies:function(p){return true},
+  monthly:function(p){return p.gas},
+  action:function(p){return {t:'r7.a',monthly:p.gasSave,res:'res.gas',deadline:'2027-03-31'}}}
+];
+
+var state={lang:'ro',profile:'andrei',on:{}};
+
+function t(k,v){var s=(DICT[state.lang][k]!==undefined?DICT[state.lang][k]:k);if(v){for(var x in v)s=s.split('{'+x+'}').join(v[x]);}return s}
+function fmtNum(n){return String(Math.round(Math.abs(n))).replace(/\B(?=(\d{3})+(?!\d))/g,state.lang==='ro'?'.':',')}
+function signed(n){var r=Math.round(n);return (r<0?'−':(r>0?'+':''))+fmtNum(r)}
+function cls(n){var r=Math.round(n);return r<0?'neg':(r>0?'pos':'zero')}
+function fmtMonth(iso){var p=iso.split('-');return MONTHS[state.lang][+p[1]-1]+' '+p[0]}
+function fmtDate(iso){var p=iso.split('-');return p[2]+' '+MONTHS[state.lang][+p[1]-1]+' '+p[0]}
+
+/* calculations */
+function dayN(iso){var p=iso.split('-');return Date.UTC(+p[0],+p[1]-1,+p[2])/86400000}
+function monthsIn(effIso){
+  if(effIso<=TODAY)return 12;
+  return Math.max(0,Math.min(12,Math.round((dayN(WINDOW_END)-dayN(effIso))/30.4375)));
+}
+function calc(pid,on){
+  var p=PROFILES[pid],base=0,delta=0,count=0,next=null,cards=[];
+  RULES.filter(function(r){return r.applies(p)}).forEach(function(r){
+    var m=r.monthly(p),a=r.action?r.action(p):null,mo=monthsIn(r.date);
+    var expired=!!(a&&a.deadline&&a.deadline<TODAY);
+    var isOn=!!(a&&!expired&&on[r.id]);
+    var eff=m;
+    base+=m*mo;
+    if(a&&a.deadline&&a.deadline>=TODAY&&(!next||a.deadline<next))next=a.deadline;
+    if(isOn){
+      count++;
+      if(a.monthly){delta+=a.monthly*mo;eff+=a.monthly}
+      if(a.once)delta+=a.once;
+    }
+    cards.push({r:r,m:m,a:a,on:isOn,expired:expired,months:mo,eff:Math.round(eff)});
+  });
+  return {base:base,withActions:base+delta,delta:delta,count:count,next:next,cards:cards};
+}
+
+function profileStrip(p){
+  var items=[];
+  items.push(['f.income',t('v.'+p.kind)]);
+  items.push([p.kind==='pension'?'v.netpension':'f.net',fmtNum(p.net)+' lei']);
+  items.push(['f.second',p.divs>0?t('v.divs',{n:fmtNum(p.divs)}):t('v.none')]);
+  items.push(['f.home',t('v.'+p.home)]);
+  items.push(['f.p2',t(p.p2?'v.yes':'v.no')]);
+  items.push(['f.p3',t(p.p3?'v.yes':'v.no')]);
+  items.push(['f.age',t('v.ageyrs',{n:p.age})]);
+  items.push(['f.spend',t('v.mo',{n:fmtNum(p.spend)})]);
+  return items.map(function(i){return '<span class="sc"><span>'+t(i[0])+':</span> '+i[1]+'</span>'}).join('');
+}
+
+function cardHtml(c,p){
+  var r=c.r,a=c.a,id=r.id;
+  var soon=r.date>TODAY;
+  var lead=soon?t('for.from',{d:fmtMonth(r.date)}):t('for.you');
+  var impact;
+  if(id==='r6'){
+    impact='<div class="imp"><span class="u">'+t('for.you')+'</span><span class="v zero">'+(p.srl?t('r6.i1'):t('r6.i2'))+'</span></div>';
+  }else if(id==='r5'){
+    impact='<div class="imp"><span class="u">'+t('for.you')+'</span><span class="v zero">'+signed(0)+'</span><span class="u">'+t('unit.mo')+'</span><small>'+t('r5.n')+'</small></div>';
+  }else{
+    impact='<div class="imp"><span class="u">'+lead+'</span><span class="v '+cls(c.eff)+'">'+signed(c.eff)+'</span><span class="u">'+t('unit.mo')+'</span></div>';
+  }
+  var why=t(id+'.w',{d:fmtNum(p.divs),n:fmtNum(Math.abs(c.m))});
+  var actionHtml;
+  if(!a){
+    actionHtml='<p class="noact">'+t('noact')+'</p>';
+  }else{
+    var when=a.deadline?t('before',{d:fmtDate(a.deadline)}):t('anytime');
+    var res='',cl='act';
+    if(c.expired){
+      cl+=' exp';
+      res='<p class="res miss">'+t('res.missed',{d:fmtDate(a.deadline),n:fmtNum(a.once||a.monthly*c.months)})+'</p>';
+    }else if(c.on){
+      cl+=' on';
+      if(a.info)res='<p class="res chk">'+t('res.chk')+'</p>';
+      else res='<p class="res">'+t(a.res,{n:fmtNum(a.once||a.monthly)})+'</p>';
+    }
+    actionHtml='<div class="'+cl+'"><p><b>'+when+'</b> '+t(a.t)+'</p>'+
+      '<button type="button" class="sw" role="switch" aria-checked="'+c.on+'" data-rule="'+id+'"'+(c.expired?' disabled':'')+'><span class="track"></span>'+t('sim')+'</button>'+res+'</div>';
+  }
+  return '<li class="'+(soon?'soon':'')+'"><article class="card">'+
+    '<div class="meta"><span class="pill date">'+fmtDate(r.date)+'</span><span class="pill '+(soon?'soonp':'in')+'">'+t(soon?'st.soon':'st.in')+'</span></div>'+
+    '<h3>'+t(id+'.t')+'</h3>'+impact+'<p class="why">'+why+'</p>'+actionHtml+
+    '<div class="foot"><span class="src">'+r.src+'</span><span>'+t('verified',{d:fmtDate(TODAY)})+'</span></div>'+
+    '</article></li>';
+}
+
+function render(focusRule){
+  var p=PROFILES[state.profile],res=calc(state.profile,state.on);
+  document.documentElement.lang=state.lang;
+  document.title=t('brand');
+  document.getElementById('brand').textContent=t('brand');
+  document.getElementById('badge').textContent=t('badge');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===state.lang)});
+
+  var chips=Object.keys(PROFILES).map(function(k){return '<button type="button" class="pchip" role="radio" aria-checked="'+(k===state.profile)+'" data-profile="'+k+'">'+t(PROFILES[k].key)+'</button>'}).join('');
+  var withLine=res.count?
+    '<p class="with">'+t('hero.with')+' <b class="'+cls(res.withActions)+'">'+signed(res.withActions)+' '+t('unit.lei')+'</b></p>':
+    '<p class="with" style="font-weight:500;opacity:.8">'+t('hero.none')+'</p>';
+  var html=
+   '<section class="sect" aria-label="'+t('profiles')+'"><div class="chips" role="radiogroup" aria-label="'+t('profiles')+'">'+chips+'</div><div class="strip">'+profileStrip(p)+'</div></section>'+
+   '<section class="hero" aria-live="polite"><h2>'+t('hero.title')+'</h2><p class="win">'+t('hero.window',{a:fmtDate(TODAY),b:fmtDate(WINDOW_END)})+'</p><div class="big '+cls(res.base)+'">'+signed(res.base)+'<small>'+t('hero.per')+'</small></div>'+withLine+
+   '<p class="conf"><span class="ilus">'+t('ilus')+'</span><span>'+t('hero.conf')+'</span></p></section>'+
+   '<p class="tl-head">'+t('tl.head')+'</p><ol class="tl">'+res.cards.map(function(c){return cardHtml(c,p)}).join('')+'</ol>';
+  document.getElementById('app').innerHTML=html;
+
+  var n=res.count;
+  var nTxt=n===0?t('plan.n0'):(n===1?t('plan.n1'):t('plan.nn',{n:n}));
+  var nextTxt=' · '+(res.next?t('plan.next',{d:fmtDate(res.next)}):t('plan.none'));
+  document.getElementById('plan').innerHTML=
+   '<h4>'+t('plan.title')+'</h4><div class="pg"><div><span>'+t('plan.without')+'</span><b class="'+cls(res.base)+'">'+t('plan.yr',{n:signed(res.base)})+'</b></div>'+
+   '<div><span>'+t('plan.with')+'</span><b class="'+cls(res.withActions)+'">'+t('plan.yr',{n:signed(res.withActions)})+'</b></div></div>'+
+   '<p class="sub">'+nTxt+nextTxt+'</p>';
+  document.getElementById('foot').innerHTML='<p>'+t('foot.src')+'</p><p>'+t('foot.lim')+'</p>';
+
+  if(focusRule){var el=document.querySelector('[data-rule="'+focusRule+'"]');if(el)el.focus()}
+}
+
+function init(){
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.dataset.lang){state.lang=b.dataset.lang;render()}
+    else if(b.dataset.profile){state.profile=b.dataset.profile;state.on={};render()}
+    else if(b.dataset.rule){var id=b.dataset.rule;state.on[id]=!state.on[id];render(id)}
+  });
+  render();
+}
+
+if(typeof document!=='undefined')init();
+if(typeof module!=='undefined')module.exports={DICT:DICT,calc:calc,PROFILES:PROFILES,state:state,t:t,signed:signed};
+</script>
+</body>
+</html>
