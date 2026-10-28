@@ -74,6 +74,8 @@ const EN: Record<string, string> = {
 
   // card
   "de calculat": "to be calculated",
+  Detalii: "Details",
+  Închide: "Close",
   "lei/lună acum": "lei/month now",
   "lei/lună": "lei/month",
   "termen depășit:": "deadline passed:",

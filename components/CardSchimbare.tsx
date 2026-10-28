@@ -107,6 +107,17 @@ export default function CardSchimbare({
             // Forma la zi: textul citit include modificările ulterioare (legea cea mai nouă câștigă).
             <span>· {t("la zi:")} {ultima.data ? `${ultima.act}, ${d(ultima.data)}` : ultima.act}</span>
           )}
+          {/* Semnul că rândul se deschide: textul și săgeata se rotesc când e deschis. */}
+          <span className="ml-auto inline-flex items-center gap-1 font-semibold text-v3-accent">
+            {deschis ? t("Închide") : t("Detalii")}
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              className={`size-4 fill-none stroke-current stroke-2 transition-transform ${deschis ? "rotate-180" : ""}`}
+            >
+              <path d="m4 6 4 4 4-4" />
+            </svg>
+          </span>
         </span>
       </button>
 
