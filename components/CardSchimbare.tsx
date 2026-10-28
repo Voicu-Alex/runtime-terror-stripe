@@ -61,6 +61,9 @@ export default function CardSchimbare({
   const surseExtra = n.surse.filter((u) => u !== s.sursa_url && !u.startsWith("https://posf.ro"));
   // suma calculată din salariul brut e brută: din ea se rețin contribuțiile și impozitul
   const brut = s.formula_tip?.tip === "diferenta_prag" && s.formula_tip.parametri.camp === "salariu_brut";
+  // caseta e gri doar dacă toate acțiunile au termen (deci au expirat cu cardul); o acțiune fără termen,
+  // ca restituirea TVA din Legea 161/2026, rămâne activă chiar dacă termenul cardului a trecut
+  const casetaExpirata = !!dep && s.actiuni.every((x) => x.termen);
 
   return (
     <li id={`c-${s.id}`} className="border-b border-v3-line">
@@ -160,7 +163,11 @@ export default function CardSchimbare({
           {a && (
             <div
               className={`mb-3 rounded-[10px] p-3 ${
-                dep ? "bg-v3-past-bg text-v3-past" : v.termen?.urgent ? "bg-v3-urg-soft shadow-[inset_3px_0_0_var(--color-v3-urg)]" : "bg-v3-act"
+                casetaExpirata
+                  ? "bg-v3-past-bg text-v3-past"
+                  : v.termen?.urgent
+                    ? "bg-v3-urg-soft shadow-[inset_3px_0_0_var(--color-v3-urg)]"
+                    : "bg-v3-act"
               }`}
             >
               {s.actiuni.map((ac, i) => (
