@@ -39,5 +39,6 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 ## Latest (14:40)
 - `mockup/index.html` (served on :8767 by the other session's server): added the "Exemplu real: OUG 156/2024..." note under the Domeniu group in the Profil tab (i18n key `pf.domainEx`, RO+EN). Capture: `captures/08-app-profil-domeniu-exemplu.jpg`. NOT committed yet; awaiting Andrei's go-ahead to commit + push to andrei and main.
 - main was fast-forwarded to andrei at 19165ec and pushed.
+- OUG 156/2024 cards (it_scutire, constructii_facilitati) now cite art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2 / pct. 5 și 7), verified in the official text on legislatie.just.ro/293109 (applies from Jan 2025 income); "de verificat" chip removed from constructii; its secondary link switched to KPMG. Capture: captures/09-app-card-it-sursa.jpg. Branch: andrei-2.
 - Open question: IT card in index.html says -650 lei/lună, descriere.html says ≈520 lei/lună (tax only, brut 8.000). Pick one number before the pitch.
 - Servers running: :8765 (other session), :8766 (descriere, this repo root), :8767 (mockup/ folder).

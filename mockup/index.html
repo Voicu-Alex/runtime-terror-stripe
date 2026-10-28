@@ -321,7 +321,7 @@ var PERSONAS={
 /* ids whose figure is an estimate (shown with the "estimare" label); kept outside RULES so RULES keeps the agreed keys */
 var ESTIMATE_IDS=['energie_plafon','gaz_plafon','it_scutire','constructii_facilitati','impozit_cladiri_2026','pilon3_deduct'];
 /* rules whose source is low-confidence: shown with a "de verificat" chip next to the legal link */
-var LOW_IDS=['constructii_facilitati','impozit_cladiri_2026'];
+var LOW_IDS=['impozit_cladiri_2026'];
 /* optional extra note under the impact line */
 var NOTES={
  pilon2:{ro:'0 lei/lună acum · la pensionare: maximum 30% dintr-o dată, restul lunar pe minimum 8 ani sau rentă viageră',en:'0 lei/month now · at retirement: up to 30% at once, the rest monthly over at least 8 years or as a lifetime annuity'},
@@ -423,7 +423,7 @@ var RULES=[
 {id:'it_scutire',
  title:{ro:'Scutire impozit venit IT eliminată',en:'IT income tax facility removed'},
  act:'OUG 156/2024',mo_ref:'MO 1334 / 31 dec 2024',
- legal_url:'https://legislatie.just.ro/Public/DetaliiDocument/293109',article:'articol de confirmat',
+ legal_url:'https://legislatie.just.ro/Public/DetaliiDocument/293109',article:'art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2)',
  secondary_url:'https://assets.kpmg.com/content/dam/kpmg/ro/pdf/2025/TNF_OUG_156_2024_Ordonanta_trenulet_dec_2024.pdf',
  published:'2024-12-30',effective:'2025-01-01',status:'in_vigoare',
  tags:['angajat_it'],
@@ -434,8 +434,8 @@ var RULES=[
 {id:'constructii_facilitati',
  title:{ro:'Facilități fiscale construcții, agricultură, industrie alimentară eliminate',en:'Tax facilities removed for construction, agriculture, food industry'},
  act:'OUG 156/2024',mo_ref:'MO 1334 / 31 dec 2024',
- legal_url:'https://legislatie.just.ro/Public/DetaliiDocument/293109',article:'articol de confirmat',
- secondary_url:'https://startupcafe.ro/ordonanta-trenulet-1562024-publicat-monitorul-oficial-salariul-minim-net-constructii-scade-30009',
+ legal_url:'https://legislatie.just.ro/Public/DetaliiDocument/293109',article:'art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 5 și 7)',
+ secondary_url:'https://assets.kpmg.com/content/dam/kpmg/ro/pdf/2025/TNF_OUG_156_2024_Ordonanta_trenulet_dec_2024.pdf',
  published:'2024-12-30',effective:'2025-01-01',status:'in_vigoare',
  tags:['constructii','agricultura'],
  impact:function(p){return -400;},
