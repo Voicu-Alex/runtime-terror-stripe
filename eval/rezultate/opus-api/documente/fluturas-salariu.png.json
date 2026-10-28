@@ -1,0 +1,34 @@
+{
+  "mod": "claude",
+  "tip_document": "fluturas_salariu",
+  "etichete_propuse": [
+    {
+      "tag": "angajat",
+      "incredere": 0.97,
+      "motiv": "Fluturașul arată un salariat cu funcția de zidar și salariu lunar plătit de angajator."
+    },
+    {
+      "tag": "constructii",
+      "incredere": 0.93,
+      "motiv": "Angajatorul are codul CAEN 4120, adică lucrări de construcții a clădirilor rezidențiale, iar funcția este zidar."
+    },
+    {
+      "tag": "pilon2",
+      "incredere": 0.85,
+      "motiv": "La CAS scrie explicit că o parte de 4,75% merge la Pilonul II."
+    },
+    {
+      "tag": "pilon3",
+      "incredere": 0.9,
+      "motiv": "La rețineri apare o contribuție la Pilonul III (facultativ) de 100 lei."
+    }
+  ],
+  "valori": {
+    "salariu_brut": 6500,
+    "cheltuieli_lunare": 0,
+    "furnizor": "",
+    "suma_factura": 0,
+    "chirie_lunara": 0
+  },
+  "explicatie_scurta": "Este un fluturaș de salariu pe octombrie 2026 pentru un zidar angajat la o firmă de construcții. Salariul brut este 6.500 lei, iar salariul net este 3.802 lei. Pe fluturaș apar și contribuția la Pilonul II și o reținere de 100 lei pentru Pilonul III."
+}

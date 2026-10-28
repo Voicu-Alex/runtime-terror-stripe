@@ -1,0 +1,13 @@
+{
+  "mod": "claude",
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "pfa",
+      "incredere": 0.8,
+      "motiv": "Factura este emisă de o persoană fizică autorizată către o firmă, deci cel mai probabil omul care a încărcat-o lucrează ca PFA; documentul nu spune sigur cine l-a încărcat."
+    }
+  ],
+  "valori": {},
+  "explicatie_scurta": "Documentul este o factură emisă de un PFA pentru servicii de design (logo și manual de brand) către o firmă. Nu este o factură de utilități, așa că nu am completat furnizorul și suma. Activitatea este design, nu IT, așa că nu am pus eticheta de domeniu."
+}

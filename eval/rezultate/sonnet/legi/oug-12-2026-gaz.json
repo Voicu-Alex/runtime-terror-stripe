@@ -1,0 +1,33 @@
+{
+  "act": "OUG 12/2026",
+  "mo": "MO 178 / 9 mar 2026",
+  "publicat_la": "2026-03-09",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Prețul la gaze pentru casă rămâne plafonat până la 31 martie 2027",
+      "taguri": ["consumator_gaz"],
+      "in_vigoare_de_la": "2026-04-01",
+      "pana_la": "2027-03-31",
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": "gaz_plafon",
+      "articol": "art. 1 alin. (1) și (2)",
+      "citat": "pentru consumul realizat în perioada 1 aprilie 2026-31 martie 2027 prețul final facturat de către furnizorii de gaze naturale clienților casnici",
+      "niveluri": {
+        "zero": "Până la 31 martie 2027, factura ta la gaze nu poate trece de un preț calculat după reguli stabilite prin lege.",
+        "curios": "Pentru gazele consumate între 1 aprilie 2026 și 31 martie 2027, furnizorul poate să îți ceară cel mult suma dintre costul gazelor cumpărate, un adaos de furnizare de maximum 15 lei/MWh, tarifele reglementate de transport și distribuție, TVA și accize. Dacă prețul din contractul tău e mai mic decât acest preț calculat, plătești prețul din contract. După 31 martie 2027 plafonul nu mai este prevăzut în acest act.",
+        "expert": "Art. 1 alin. (1) derogă de la art. 180 alin. (1) din Legea 123/2012 și stabilește prețul final ca sumă a componentei de achiziție (art. 2: CMP plus dezechilibru, cel mult 10% din CMP), componentei de furnizare (art. 3: maximum 15 lei/MWh), tarifelor reglementate ANRE și TVA și accize. Alin. (2): pentru clienții casnici, în afara celor la furnizorul de ultimă instanță, se facturează valoarea cea mai mică dintre prețul contractual și prețul calculat. Furnizorii de ultimă instanță aplică prețul calculat (alin. (3)). Art. 4: în condominii consumul se împarte egal la numărul de spații locative. Art. 6 alin. (1) fixează la 110 lei/MWh prețul de vânzare al producătorilor către furnizori, dar alin. (2) permite modificarea lui prin hotărâre a Guvernului."
+      },
+      "actiuni": [
+        {
+          "text": "La prima factură după intrarea în vigoare, citește notificarea furnizorului despre modificările aduse de ordonanță și compară prețul facturat cu cel din contract.",
+          "termen": null,
+          "link": "https://legislatie.just.ro/Public/DetaliiDocument/308129"
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Impactul în lei depinde de consumul fiecărei gospodării și de prețul din contract, deci nu se calculează aici. Prețul de 110 lei/MWh poate fi modificat prin hotărâre a Guvernului (art. 6 alin. (2)), de verificat în actele ulterioare. Tarifele reglementate ANRE nu sunt în text."
+    }
+  ]
+}

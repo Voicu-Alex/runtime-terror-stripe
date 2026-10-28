@@ -1,0 +1,121 @@
+{
+  "act": "OUG 6/2025",
+  "mo": "MO 182 / 28 feb 2025",
+  "publicat_la": "2025-02-28",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Curent pentru casă: preț plafonat pe tranșe de consum, 1 aprilie - 30 iunie 2025 (perioadă încheiată)",
+      "taguri": [
+        "consumator_energie"
+      ],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2025-06-30",
+      "status": "termen_depasit",
+      "directie": "castig",
+      "formula": "energie_plafon",
+      "formula_tip": null,
+      "articol": "art. 1 alin. (1) lit. a) pct. (i), lit. b) și lit. f)",
+      "citat": "maximum 0,80 lei/kWh, cu TVA inclus, pentru consumul realizat de către clienții casnici al căror consum lunar la locul de consum este cuprins între 100,01 și 255 kWh",
+      "niveluri": {
+        "zero": "Prețul curentului pentru casă a avut un plafon între 1 aprilie și 30 iunie 2025, iar plafonul nu mai este valabil.",
+        "curios": "Pentru consumul din aprilie-iunie 2025, prețul final cu TVA nu putea trece de 0,68 lei/kWh pentru primii 100 kWh pe lună și de 0,80 lei/kWh între 100,01 și 255 kWh. Între 255 și 300 kWh, consumul se facura la maximum 1,3 lei/kWh. Peste 300 kWh pe lună, tot consumul se facura la maximum 1,3 lei/kWh. Perioada s-a încheiat pe 30 iunie 2025.",
+        "expert": "Art. 1 alin. (1) lit. a) pct. (i) fixează 0,68 lei/kWh cu TVA pentru consumul lunar de 0-100 kWh inclusiv. Lit. b) fixează 0,80 lei/kWh pentru 100,01-255 kWh. Consumul între 255 și 300 kWh/lună se facturează la maximum 1,3 lei/kWh. Peste 300 kWh/lună, întreg consumul se facturează la maximum 1,3 lei/kWh. Lit. f) dă același plafon de 1,3 lei/kWh pentru ceilalți consumatori, casnici și noncasnici, neprevăzuți la lit. a)-e). Conform art. 2 alin. (2), prețul facturat este cel mai mic dintre plafon, prețul din contract și prețul calculat conform art. 5-6. Dacă prețul din contract era mai mic, se aplica el (art. 5 alin. (3)). Art. 1 alin. (11) și art. 18 reglementează încadrarea în tranșe pentru facturile pe index și pentru perioadele de regularizare. Art. 1 alin. (12): la regularizare, dacă clientul casnic a plătit în plus peste 100 lei, furnizorul restituie în 5 zile de la factura de regularizare; sumele mai mici se compensează în facturile următoare."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut (30 iunie 2025). Textul nu prevede o prelungire a plafonului la curent după această dată. Dacă un alt act a introdus alt plafon, nu este în acest text și trebuie verificat. Suma depinde de consumul fiecărei persoane și de prețul din contract, deci nu poate fi dată din text. Facturile de regularizare pentru aprilie-iunie 2025 se pot verifica pe baza art. 1 alin. (12)."
+    },
+    {
+      "rezumat": "Curent la 0,68 lei/kWh pentru familii cu 3+ copii, familii monoparentale și persoane cu aparate medicale, doar pe bază de cerere (1 aprilie - 30 iunie 2025, perioadă încheiată)",
+      "taguri": [
+        "consumator_energie",
+        "parinte",
+        "parinte_singur"
+      ],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2025-06-30",
+      "status": "termen_depasit",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (1) lit. a) pct. (ii)-(iv) și alin. (2)",
+      "citat": "clienții casnici care au în întreținere cel puțin 3 copii cu vârsta de până în 18 ani, în baza unei cereri și a unei declarații pe propria răspundere",
+      "niveluri": {
+        "zero": "Familiile cu cel puțin 3 copii, familiile monoparentale și persoanele cu aparate medicale puteau plăti curentul la maximum 0,68 lei/kWh, dar numai după ce depuneau o cerere la furnizor.",
+        "curios": "Prețul de maximum 0,68 lei/kWh, cu TVA, se aplica pentru tot consumul acestor familii, nu doar pentru primii 100 kWh. Era nevoie de o cerere și de o declarație pe propria răspundere la furnizor. Prețul se aplica de la 1 a lunii următoare depunerii. Perioada s-a încheiat pe 30 iunie 2025.",
+        "expert": "Art. 1 alin. (1) lit. a) pct. (ii): locuri de consum cu aparate medicale alimentate la rețea, cu confirmare de la medicul specialist și cerere la furnizor. Pct. (iii): cel puțin 3 copii în întreținere sub 18 ani (până la 26 de ani dacă copilul major urmează o formă de învățământ), cu cerere și declarație. Pct. (iv): familii monoparentale cu cel puțin un copil sub 18 ani (aceeași prelungire până la 26 de ani), cu cerere și declarație. În toate cazurile, prețul se aplica de la data de 1 a lunii următoare celei în care s-au depus documentele. Alin. (2) extinde pct. (ii)-(iv) la locurile de consum închiriate. Chiriașul depune cererea, copia contractului de închiriere și declarația pe propria răspundere sau confirmarea medicală. Alin. (14) lasă valabile declarațiile și documentele depuse anterior în aplicarea OUG 27/2022."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Perioada a trecut. Dacă un alt act a prelungit această măsură, nu este în text și trebuie verificat. Suma depinde de consum, deci nu se poate calcula din text. Eticheta pentru chiriași nu a fost pusă, deși alin. (2) îi privește, ca să nu ajungă cardul la toți chiriașii."
+    },
+    {
+      "rezumat": "Curent pentru IMM-uri: 1 leu/kWh pentru 85% din consum, 1,3 lei/kWh pentru rest, cu declarație (1 aprilie - 30 iunie 2025, perioadă încheiată)",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2025-06-30",
+      "status": "termen_depasit",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (1) lit. c) pct. (i)",
+      "citat": "maximum 1 leu/kWh, cu TVA inclus, pentru 85% din consumul lunar realizat la locul de consum, diferența de consum lunar de energie electrică urmând a fi facturată la prețul de maximum 1,3 lei/kWh, cu TVA inclus",
+      "niveluri": {
+        "zero": "Firmele mici (IMM) au avut curentul plafonat la 1 leu/kWh pentru 85% din consum între 1 aprilie și 30 iunie 2025, iar măsura nu mai e valabilă.",
+        "curios": "Pentru consumul din aprilie-iunie 2025, un IMM plătea maximum 1 leu/kWh cu TVA pentru 85% din consumul lunar. Restul de 15% se facura la maximum 1,3 lei/kWh. Reprezentantul legal depunea o declarație pe propria răspundere. Perioada s-a încheiat pe 30 iunie 2025.",
+        "expert": "Art. 1 alin. (1) lit. c) pct. (i) se aplică IMM-urilor definite de Legea 346/2004. Aceeași lit. c) include și operatori economici din industria alimentară (CAEN 10) și din agricultură și pescuit (CAEN 01 și 03), precum și alte categorii (utilități publice, instituții de cercetare, entități publice locale). Condiția este declarația pe propria răspundere a reprezentantului legal. Alte entități au regimuri diferite: spitale și școli la 1 leu/kWh pentru tot consumul (lit. d)), instituții publice la 1 leu/kWh pentru 85% (lit. e)), ceilalți la maximum 1,3 lei/kWh (lit. f)). Prețul final este minimul dintre plafon, prețul din contract și prețul calculat conform art. 5-6 (art. 2 alin. (2))."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Perioada a trecut. Actul vorbește despre IMM-uri în sens larg, nu doar despre microîntreprinderi. O PFA poate fi sau nu IMM, ceea ce depinde de Legea 346/2004 și nu este în text, deci de verificat. Etichetele de domeniu (agricultură) nu au fost puse, fiindcă pct. (iii) acoperă toți operatorii cu acele coduri CAEN. Suma depinde de consumul firmei."
+    },
+    {
+      "rezumat": "Gaze pentru casă: preț plafonat la 0,31 lei/kWh, 1 aprilie 2025 - 31 martie 2026 (perioadă încheiată)",
+      "taguri": [
+        "consumator_gaz"
+      ],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2026-03-31",
+      "status": "termen_depasit",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (3) lit. a) și alin. (10)",
+      "citat": "maximum 0,31 lei/kWh, cu TVA inclus, în cazul clienților casnici denumiți în continuare CC",
+      "niveluri": {
+        "zero": "Gazele pentru casă au avut prețul plafonat la 0,31 lei/kWh între 1 aprilie 2025 și 31 martie 2026, iar acest plafon din ordonanță a expirat.",
+        "curios": "Pentru consumul de gaze din perioada 1 aprilie 2025 - 31 martie 2026, prețul final cu TVA nu putea trece de 0,31 lei/kWh pentru clienții casnici. Și prețul din ofertele-tip ale furnizorilor trebuia să respecte plafonul. Perioada din această ordonanță s-a încheiat pe 31 martie 2026.",
+        "expert": "Art. 1 alin. (3) lit. a) derogă de la art. 180 alin. (1) din Legea 123/2012 și fixează 0,31 lei/kWh cu TVA pentru clienții casnici. Alin. (10) impune ca prețul din ofertele-tip să nu depășească plafonul. Art. 5 alin. (3): dacă prețul din contract e mai mic, se aplică prețul din contract. Art. 1 alin. (8) permitea modificarea valorilor prin hotărâre de Guvern. Art. 12 obligă producătorii să vândă gaze la 120 lei/MWh pentru consumul curent al clienților casnici, ca sursă a plafonului. Art. 1 alin. (12) (regularizare, restituire peste 100 lei în 5 zile) este scris pentru energia electrică, nu pentru gaze, deci nu s-a presupus aplicabil aici."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul din acest act a trecut (31 martie 2026). Dacă un alt act a prelungit plafonul la gaze, nu este în acest text și trebuie verificat. Impactul în lei depinde de consum și de prețul din contract, iar prețul dinainte nu e în text, deci suma nu se calculează. Formula gaz_plafon din catalog nu a fost folosită, fiindcă se referă la altă perioadă."
+    },
+    {
+      "rezumat": "Gaze pentru firme (consum sub 50.000 MWh/an): preț plafonat la 0,37 lei/kWh, 1 aprilie 2025 - 31 martie 2026 (perioadă încheiată)",
+      "taguri": [
+        "micro",
+        "pfa"
+      ],
+      "in_vigoare_de_la": "2025-04-01",
+      "pana_la": "2026-03-31",
+      "status": "termen_depasit",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 alin. (3) lit. b) și alin. (4)",
+      "citat": "maximum 0,37 lei/kWh, cu TVA inclus, în cazul clienților noncasnici al căror consum anual de gaze naturale realizat în anul anterior la locul de consum este de cel mult 50.000 MWh",
+      "niveluri": {
+        "zero": "Firmele cu consum mic de gaze au avut prețul plafonat la 0,37 lei/kWh între 1 aprilie 2025 și 31 martie 2026, iar plafonul a expirat.",
+        "curios": "Clienții noncasnici (firme, PFA) cu un consum anual de cel mult 50.000 MWh în anul anterior plăteau maximum 0,37 lei/kWh, cu TVA. Regula se aplica și locurilor de consum racordate după 1 aprilie 2025, în aceeași limită de consum. Perioada din ordonanță s-a încheiat pe 31 martie 2026.",
+        "expert": "Art. 1 alin. (3) lit. b) fixează 0,37 lei/kWh cu TVA pentru clienții noncasnici cu consum anual de cel mult 50.000 MWh la locul de consum în anul anterior. Textul include și producătorii de energie termică, clienții din parcuri industriale (Legea 186/2013) și cei din sisteme de distribuție închise. Alin. (4) extinde plafonul la locurile de consum noncasnice racordate după 1 aprilie 2025, în limita a 50.000 MWh/an. Alin. (10) cere ca prețul din ofertele-tip să respecte plafonul. Compensarea către furnizori se face din Fondul de Tranziție Energetică prin bugetul Ministerului Energiei (art. 7). Clienții noncasnici cu consum mai mare nu sunt cuprinși la lit. b)."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Perioada a trecut. Dacă un alt act a prelungit plafonul la gaze, nu este în text și trebuie verificat. Suma depinde de consumul firmei și de prețul din contract, deci nu se poate calcula. Etichetele micro și pfa sunt pentru firmele mici care consumă gaze; actul nu vorbește explicit despre PFA."
+    }
+  ]
+}

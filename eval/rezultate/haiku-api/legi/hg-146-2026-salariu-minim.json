@@ -1,0 +1,47 @@
+{
+  "act": "HG 146/2026",
+  "mo": "MO 196 / 13 mar 2026",
+  "publicat_la": "2026-03-13",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Salariul minim brut pe țară crește la 4.325 lei de la 1 iulie 2026",
+      "taguri": [
+        "angajat",
+        "salariu_minim"
+      ],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": {
+        "tip": "diferenta_prag",
+        "parametri": {
+          "camp": "salariu_brut",
+          "prag": 4325,
+          "perioada": "luna"
+        }
+      },
+      "articol": "art. 1",
+      "citat": "se stabilește în bani, fără a include sporuri și alte adaosuri, la suma de 4.325 lei lunar, pentru un program normal de lucru în medie de 166,667 ore pe lună",
+      "niveluri": {
+        "zero": "Din 1 iulie 2026, cel mai mic salariu brut pe care îl poate primi un angajat cu program normal este de 4.325 lei pe lună.",
+        "curios": "Salariul minim brut garantat în plată crește la 4.325 lei pe lună, fără sporuri și alte adaosuri, pentru un program normal de 166,667 ore pe lună, adică 25,949 lei pe oră. Dacă ai un salariu brut sub această sumă, angajatorul trebuie să ajungă la acest prag. Verifică fluturașul din iulie sau din lunile următoare.",
+        "expert": "HG 146/2026 art. 1 stabilește salariul de bază minim brut pe țară garantat în plată, prevăzut la art. 164 alin. (1) din Legea 53/2003 (Codul muncii), la 4.325 lei lunar, începând cu 1 iulie 2026, pentru un program normal în medie de 166,667 ore pe lună (25,949 lei/oră). Art. 2 abrogă HG 1.506/2024 de la aceeași dată. Pragul se aplică salariului de bază, fără sporuri. Pentru fracțiune de normă, pragul se proporționalizează cu timpul lucrat."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul din iulie 2026 (și din lunile următoare) că salariul de bază brut nu este sub 4.325 lei, dacă lucrezi cu normă întreagă. Dacă lucrezi cu fracțiune de normă, pragul este proporțional cu orele tale.",
+          "termen": "2026-07-01",
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Valoarea anterioară a salariului minim (din HG 1.506/2024) nu apare în textul acestui act, deci nu am calculat diferența față de ea. Pragul se aplică salariului de bază brut, fără sporuri; impactul real depinde de programul fiecărui angajat și de dacă salariul de bază e deja peste prag."
+    }
+  ]
+}

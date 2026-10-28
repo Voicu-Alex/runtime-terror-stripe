@@ -1,0 +1,27 @@
+{
+  "act": "OUG 29/2026",
+  "mo": "MO 313 / 20 apr 2026",
+  "publicat_la": "2026-04-20",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Se abrogă regimul derogatoriu de la salariul minim pentru o categorie de personal din sectorul public",
+      "taguri": ["salariu_minim"],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. II",
+      "citat": "articolul LXX din Ordonanța de urgență a Guvernului nr. 156/2024",
+      "niveluri": {
+        "zero": "De la 1 iulie 2026, o prevedere veche care făcea excepție de la salariul minim pentru anumite persoane din sectorul public este abrogată.",
+        "curios": "Preambulul spune că prevederea abrogată creează un regim derogatoriu de la salariul minim brut din Codul muncii și că ar fi dus la o discriminare, mai ales după HG 146/2026, care stabilește 4.325 lei. Textul actului nu descrie însă ce prevedea articolul abrogat, deci nu știm cine e vizat și cu cât se schimbă salariul.",
+        "expert": "Art. II abrogă, de la 1 iulie 2026, art. LXX din OUG 156/2024 privind unele măsuri fiscal-bugetare în domeniul cheltuielilor publice. Preambulul arată că menținerea lui ar genera un regim derogatoriu de la art. 164 alin. (1) din Codul muncii și o discriminare a regimului salariului de bază minim brut pe țară, în contextul HG 146/2026 (4.325 lei)."
+      },
+      "actiuni": [],
+      "incredere": "scazuta",
+      "nota": "Conținutul art. LXX din OUG 156/2024 nu e în textul primit; de verificat ce prevedea și cui se aplica. Art. I (concursuri și angajări în sectorul public) nu schimbă banii și nu e tratat aici."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "act": "Legea 204/2026",
+  "mo": "MO 886 / 22 oct 2026",
+  "publicat_la": "2026-10-22",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Băuturile alcoolice tradiționale făcute în gospodărie sunt scutite de accize, până la 200 litri pe an",
+      "taguri": ["rural"],
+      "in_vigoare_de_la": "2026-10-25",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 342 alin. (1^10)",
+      "citat": "Sunt scutite de la plata accizelor băuturile alcoolice tradiționale, astfel cum sunt reglementate prin dispoziții speciale, în limita a 200 litri anual pe o gospodărie evidențiată în Registrul agricol",
+      "niveluri": {
+        "zero": "Dacă ai o gospodărie trecută în registrul agricol, băuturile alcoolice tradiționale făcute acolo și nevândute nu plătesc accize, până la 200 litri pe an.",
+        "curios": "Legea scutește de accize băuturile alcoolice tradiționale nevândute, în limita a 200 de litri pe an pentru fiecare gospodărie din registrul agricol. Cantitatea trebuie să fie dovedită, iar regulile de dovadă vin în normele metodologice, care nu sunt în textul legii. Băuturile vândute nu intră sub această scutire.",
+        "expert": "Art. II din Legea 204/2026 completează art. 342 din Codul fiscal cu alin. (1^10) și (1^11). Scutirea se acordă în limita a 200 litri anual pe gospodărie evidențiată în Registrul agricol (OG 28/2008, aprobată prin Legea 98/2009), pentru băuturile nesupuse vânzării. Alin. (1^11) exclude aceste cantități din limitele cantitative ale micilor producători independenți de băuturi fermentate. Condițiile și modelul documentelor se stabilesc prin normele metodologice."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Păstrează evidența cantităților de băuturi tradiționale făcute în gospodărie, ca să poți dovedi că nu depășești 200 de litri pe an. Cere la primărie documentele cerute de normele metodologice, când sunt publicate.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Normele metodologice și modelul documentelor nu sunt în text, deci nu știm ce dovezi se cer. Definiția băuturilor alcoolice tradiționale vine din dispoziții speciale, nedate în text. Conținutul OG 22/2025 (celelalte modificări ale Codului fiscal) nu e în textul legii și trebuie verificat separat."
+    }
+  ]
+}

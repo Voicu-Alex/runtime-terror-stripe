@@ -38,7 +38,15 @@ function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
           <T k="profilul meu" />
         </Link>
       </p>
-      <ListaFlux potriviri={potriviri} valori={persoana.profil.valori} sortare={sortare} baza={`/flux?p=${id}`} azi={AZI_DEMO} />
+      <ListaFlux
+        potriviri={potriviri}
+        valori={persoana.profil.valori}
+        sortare={sortare}
+        baza={`/flux?p=${id}`}
+        azi={AZI_DEMO}
+        profil={persoana.profil}
+        pastrare={{ tip: "demo", cheie: `cipm.demo.${id}.valori` }}
+      />
     </>
   );
 }

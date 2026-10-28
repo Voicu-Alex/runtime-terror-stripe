@@ -1,0 +1,13 @@
+{
+  "mod": "claude",
+  "tip_document": "altul",
+  "etichete_propuse": [
+    {
+      "tag": "pfa",
+      "incredere": 0.75,
+      "motiv": "Documentul este o factură emisă de o persoană fizică autorizată pentru servicii de design, deci cel care a încărcat-o pare să aibă un PFA."
+    }
+  ],
+  "valori": {},
+  "explicatie_scurta": "Documentul este o factură emisă de un PFA către o firmă, pentru servicii de design grafic, cu un total de 4.500,00 lei. Nu este o factură de utilități, așa că nu am completat furnizorul și suma facturii. Am propus eticheta PFA, presupunând că emitentul facturii a încărcat documentul."
+}

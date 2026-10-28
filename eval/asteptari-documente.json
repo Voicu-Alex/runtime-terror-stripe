@@ -1,0 +1,15 @@
+{
+  "contract-munca.pdf": { "taguri": ["angajat", "it"], "valori": { "salariu_brut": 12000 }, "interzise": ["1990101123456", "RO00TEST0000000000000000"] },
+  "factura-gaz.pdf": { "taguri": ["consumator_gaz"], "valori": { "suma_factura": 553.44 }, "nu": ["consumator_energie"] },
+  "fluturas-salariu.png": { "taguri": ["angajat", "constructii", "pilon3"], "valori": { "salariu_brut": 6500, "salariu_net": 3802 } },
+  "cupon-pensie.png": { "taguri": ["pensionar"], "valori": { "pensie_lunara": 4200, "an_nastere": 1958 }, "interzise": ["14.03.1958"] },
+  "factura-curent.pdf": { "taguri": ["consumator_energie", "rural"], "valori": { "suma_factura": 302.74 }, "nu": ["consumator_gaz"] },
+  "contract-inchiriere.pdf": { "taguri": ["chirias", "elev_student"], "valori": { "chirie_lunara": 2000 }, "nu": ["proprietar"] },
+  "hotarare-dividende.pdf": { "taguri": ["srl_dividende", "micro"], "valori": { "dividende_anuale": 24000 } },
+  "extras-cont.png": { "taguri": [], "nu": ["chirias", "consumator_gaz"], "interzise": ["RO49AAAA1B31007593840000", "2950612400123"], "_nota": "extrasul de cont nu e un document pe care îl folosim (docs/todo-sistem.md §7); nu deducem etichete din tranzacții" },
+  "factura-pfa-emisa.pdf": { "taguri": ["pfa"], "nu": ["consumator_gaz", "consumator_energie"], "interzise": ["RO12BBBB0000123456789012"] },
+  "extras-pilon2.png": { "taguri": ["pilon2"], "interzise": ["1880304123456"] },
+  "bon-fiscal.png": { "taguri": [], "fara_etichete": true },
+  "fluturas-it-2026.png": { "taguri": ["angajat", "it"], "valori": { "salariu_brut": 10000, "salariu_net": 6500 } },
+  "cupon-pensie-rotit.png": { "taguri": ["pensionar"], "valori": { "pensie_lunara": 2800, "an_nastere": 1961 }, "interzise": ["07.11.1961"] }
+}

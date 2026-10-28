@@ -1,0 +1,27 @@
+{
+  "act": "Legea 204/2026",
+  "mo": "MO 886 / 22 oct 2026",
+  "publicat_la": "2026-10-22",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Scutire de accize pentru băuturile alcoolice tradiționale făcute în gospodărie, până la 200 litri pe an",
+      "taguri": ["rural"],
+      "in_vigoare_de_la": "2026-10-25",
+      "pana_la": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "formula": null,
+      "articol": "art. II (art. 342 alin. (1^10) și (1^11) din Codul fiscal)",
+      "citat": "în limita a 200 litri anual pe o gospodărie evidențiată în Registrul agricol",
+      "niveluri": {
+        "zero": "Băuturile alcoolice tradiționale făcute într-o gospodărie din Registrul agricol nu plătesc accize, în limita a 200 litri pe an, dacă nu sunt vândute.",
+        "curios": "Scutirea se aplică băuturilor alcoolice tradiționale produse în gospodărie și evidențiate în Registrul agricol, până la 200 litri pe an. Cantitatea nu trebuie vândută. Condițiile și modelul documentelor pentru evidență se stabilesc prin normele metodologice, care nu sunt în text.",
+        "expert": "Art. II completează art. 342 din Codul fiscal cu alin. (1^10): sunt scutite de la plata accizelor băuturile alcoolice tradiționale, astfel cum sunt reglementate prin dispoziții speciale, în limita a 200 litri anual pe o gospodărie evidențiată în Registrul agricol (OG 28/2008, aprobată prin Legea 98/2009), dacă nu sunt supuse vânzării. Alin. (1^11) arată că această cantitate nu intră în limitele cantitative din alin. (1^2) pentru micii producători independenți de băuturi fermentate. Normele metodologice stabilesc condițiile și modelul documentelor."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Art. I aprobă OG 22/2025 fără a reproduce conținutul ei; modificările din OG 22/2025 la Codul fiscal nu sunt în textul primit și nu le descriem. Condițiile de evidență și normele metodologice nu sunt în text. Data de 25 octombrie 2026 e data de intrare în vigoare de pe Portal."
+    }
+  ]
+}

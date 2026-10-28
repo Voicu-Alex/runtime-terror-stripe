@@ -1,0 +1,15 @@
+{
+  "tip_document": "factura_utilitati",
+  "etichete_propuse": [
+    {
+      "tag": "consumator_gaz",
+      "incredere": 0.95,
+      "motiv": "Este o factură fiscală de gaze naturale emisă clientului Popescu Ion pentru locul de consum din București."
+    }
+  ],
+  "valori": {
+    "furnizor": "ENGIE ROMÂNIA S.A.",
+    "suma_factura": 553.44
+  },
+  "explicatie_scurta": "Este factura de gaze naturale pe perioada 01.09.2026 – 30.09.2026, cu un consum de 120 mc. Totalul de plată este de 553,44 lei, cu scadența pe 25.10.2026."
+}
