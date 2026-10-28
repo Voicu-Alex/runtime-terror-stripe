@@ -582,5 +582,119 @@
     "sursa_explicativa": "https://www.anofm.ro/bucuresti/wp-content/uploads/sites/11/2026/07/Comunicat-de-presa-Abs-03.07.2026.pdf",
     "incredere": "ridicata",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "tva_locuinta",
+    "rezumat_en": "New homes: 21% VAT since 1 Aug 2025; 9% only with a 20% deposit paid by 31 Jul 2025",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Locuințele noi: TVA 21% din 1 aug 2025; 9% doar cu avans de 20% plătit până la 31 iul 2025",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": "2025-07-31",
+    "directie": "cost",
+    "taguri": [
+      "cumpar_locuinta"
+    ],
+    "conditii": [],
+    "formula": "tva_locuinta",
+    "estimare": true,
+    "niveluri": {
+      "zero": "O locuință nouă de până la 120 mp și 600.000 lei fără TVA se cumpără acum cu TVA 21%, nu 9%. Păstra 9% doar cine avea un contract cu avans până la 1 august 2025.",
+      "curios": "Pentru contractele semnate între 3 și 31 iulie 2025 trebuia și un avans de 20% din preț, plătit integral până la 31 iulie. La un apartament nou de 400.000 lei fără TVA, diferența e de 48.000 lei: 36.000 lei TVA cu 9%, 84.000 lei cu 21%. Apartamentele vechi cumpărate de la o persoană fizică nu au TVA. Cine a cumpărat cu 21% între 1 și 7 august 2026 poate cere diferența înapoi de la 1 octombrie 2026 (Legea 161/2026).",
+      "expert": "Legea 141/2025, art. III alin. (1): o singură locuință cu cota de 9% între 1 aug 2025 și 31 iul 2026, dacă are max. 120 mp utili (fără anexe), valoare cu teren de max. 600.000 lei fără TVA și există un act juridic între vii cu plată în avans încheiat până la 1 aug 2025. Alin. (2): pentru actele din 3–31 iul 2025, dovada unui avans de 20% din valoare fără TVA, achitat integral până la 31 iul 2025. Termenul de livrare prelungit la 30 sep 2026 și restituirea pentru achizițiile din 1–7 aug 2026: Legea 161/2026, MO 642 / 4 aug 2026 (articol necitit)."
+    },
+    "actiuni": [
+      {
+        "text": "Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025",
+        "termen": "2025-07-31",
+        "formula_economie": "tva_locuinta_economie",
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. III alin. (1)-(2)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.economica.net/lovitura-dura-de-ultim-moment-pentru-cine-vrea-sa-si-cumpere-locuinta-cu-tva-de-9-trebuie-sa-plateasca-20-avans-pana-la-finalul-acestei-luni_852069.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "motorina_acciza",
+    "rezumat_en": "Diesel about 0.85 lei/l cheaper until 31 Oct 2026 (excise cut by 25%)",
+    "act": "Legea 162/2026",
+    "mo_ref": "MO 642 / 4 aug 2026",
+    "rezumat": "Motorina e cu aproximativ 0,85 lei/l mai ieftină până la 31 oct 2026 (acciză redusă cu 25%)",
+    "status": "in_vigoare",
+    "publicat_la": "2026-08-04",
+    "in_vigoare_de_la": "2026-08-07",
+    "expira_la": "2026-10-31",
+    "termen_actiune": "2026-10-31",
+    "directie": "termen",
+    "taguri": [
+      "masina"
+    ],
+    "conditii": [],
+    "formula": "motorina_acciza",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Acciza la motorină e redusă cu 25%, adică motorina e cu aproximativ 0,85 lei pe litru mai ieftină. Perioada de criză din lege se termină pe 31 octombrie 2026.",
+      "curios": "Ministerul Finanțelor decide la fiecare două săptămâni cât e reducerea; pentru 16–31 octombrie a rămas 25%. Dacă nu se prelungește, de la 1 noiembrie litrul crește înapoi. Contează doar dacă mașina ta merge pe motorină. Suma presupune un plin de 50 de litri.",
+      "expert": "Legea 162/2026 declară situație de criză pe piața produselor petroliere între 7 aug și 31 oct 2026 și permite reducerea accizei la motorina standard cu 5–25%, stabilită de MF la două săptămâni. Pentru 16–31 oct 2026: 2.103,22 lei/1.000 l în loc de 2.804,29 (reducere 701,07 lei/1.000 l, comunicat MF din 15 oct 2026). 0,85 lei/l = 0,701 × 1,21 (TVA) e calculul nostru. Articolul exact: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă",
+        "termen": "2026-10-31",
+        "formula_economie": "motorina_economie",
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "articol necitit (TODO). Link Portal Legislativ: TODO; sumarul Monitorului Oficial 642 e pe monitoruljuridic.ro.",
+    "sursa_url": "https://www.monitoruljuridic.ro/monitorul-oficial/642/2026-08-04/",
+    "sursa_explicativa": "https://www.fuel-prices.eu/Romania/acciza-motorina/",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "cei_d",
+    "rezumat_en": "Retirement investment account (CEI-D): from 2027, what you pay in cuts your income tax by 10%",
+    "act": "Legea 202/2026",
+    "mo_ref": "MO 865 / 15 oct 2026",
+    "rezumat": "Cont de investiții pentru pensie (CEI-D): din 2027, ce depui îți scade impozitul cu 10%",
+    "status": "adoptat",
+    "publicat_la": "2026-10-15",
+    "in_vigoare_de_la": "2027-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "angajat"
+    ],
+    "conditii": [],
+    "formula": "cei_d",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Din 2027, ce depui într-un cont CEI-D se scade din venitul pe care plătești impozit, deci plătești cu 10% din sumă mai puțin impozit.",
+      "curios": "Banii se pot retrage la pensie sau după 65 de ani, oricare vine primul, iar la retragere se plătește 10% impozit. Există și varianta CEI-S, fără deducere acum, dar fără impozit la retragere. Conturile se deschid după ce ASF publică normele, care încă lipsesc. Suma presupune 300 lei depuși pe lună; plafonul anual al deducerii nu l-am găsit în text.",
+      "expert": "Legea 202/2026: art. 19 pct. 7 adaugă la Codul fiscal art. 78 alin. (2) lit. a) pct. (vii), contribuțiile CEI-D suportate de angajat, deduse în luna plății pe baza documentului administratorului. Art. 20: se aplică de la 1 ian 2027. Art. 5 alin. (3): retragere de la deschiderea dreptului la pensie sau după 65 de ani. Art. 19 pct. 13 (art. 96^2): 10% impozit final la retragerea din CEI-D. Text citit pe infodosar.ro, nu pe Portal Legislativ. Plafon anual: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Legea permite: deschizi un cont CEI-D din 2027 și scazi din impozit 10% din ce depui",
+        "termen": null,
+        "formula_economie": "cei_d_economie",
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 19 pct. 7 (Codul fiscal art. 78 alin. 2 lit. a pct. vii); art. 20; art. 5 alin. (3); art. 19 pct. 13. Link Portal Legislativ: TODO.",
+    "sursa_url": "https://www.infodosar.ro/monitorul-oficial/parlamentul/368610-lege-202-2026",
+    "sursa_explicativa": "https://alba24.ro/romanii-vor-putea-economisi-si-investi-bani-fara-impozit-din-2027-noua-lege-a-fost-publicata-in-monitorul-oficial-1162874.html",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
   }
 ]

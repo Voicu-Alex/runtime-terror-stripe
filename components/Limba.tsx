@@ -40,14 +40,14 @@ export function useLimba(): Ctx {
 export function ComutatorLimba() {
   const { limba, setLimba } = useLimba();
   return (
-    <span className="ml-auto inline-flex rounded-lg border border-stone-300 text-xs font-semibold" role="group" aria-label="Limba / Language">
+    <span className="inline-flex overflow-hidden rounded-lg border border-v3-line text-xs font-semibold" role="group" aria-label="Limba / Language">
       {(["ro", "en"] as Limba[]).map((l) => (
         <button
           key={l}
           type="button"
           aria-pressed={limba === l}
           onClick={() => setLimba(l)}
-          className={`min-h-8 px-2.5 uppercase ${limba === l ? "bg-stone-900 text-white" : "text-stone-600"}`}
+          className={`min-h-8 px-2.5 uppercase ${limba === l ? "bg-v3-ink text-white" : "bg-white text-v3-ink-2"}`}
         >
           {l}
         </button>

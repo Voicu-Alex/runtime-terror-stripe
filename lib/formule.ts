@@ -62,7 +62,29 @@ export const FORMULE = {
   /** OUG 11/2026 (Legea 76/2002 art. 76^5): prima de stabilitate vine doar dacă faci pașii; impactul e în acțiune. */
   prima_stabilitate: () => 0,
 
+  /** Legea 141/2025 art. III: locuința nouă se cumpără cu TVA 21%; 9% doar cu avans plătit până la 31 iul 2025. Impactul e în acțiune. */
+  tva_locuinta: () => 0,
+
+  /** Legea 162/2026: acciza redusă la motorină e un câștig automat la pompă; impactul e în acțiune. */
+  motorina_acciza: () => 0,
+
+  /** Legea 202/2026: contul CEI-D există din 2027; impactul e în acțiune. */
+  cei_d: () => 0,
+
   // Economii din acțiuni (pozitive):
+
+  /**
+   * Legea 141/2025 art. III: 12 puncte de TVA pe o locuință nouă de 400.000 lei fără TVA = 48.000 lei o dată,
+   * împărțit pe un credit de 25 de ani (300 de luni), fără dobândă = 160 lei/lună. Estimare (prețul e ales de noi).
+   */
+  tva_locuinta_economie: () => 48000 / 300,
+
+  /** Legea 162/2026: 701,07 lei/1.000 l acciză × 1,21 TVA ≈ 0,85 lei/l, pe un plin de 50 l, o dată. Estimare (plinul e ales de noi). */
+  motorina_economie: () => (50 * 0.85) / 12,
+
+  /** Legea 202/2026 art. 19 pct. 7: contribuția CEI-D se scade din venitul impozabil; 10% din 300 lei depuși pe lună. Estimare (suma depusă e aleasă de noi). */
+  cei_d_economie: () => 30,
+
 
   /** OUG 11/2026, art. 76^5 alin. (1) lit. a): 1.000 lei/lună în primele 12 luni (1.250 lei/lună în următoarele 12). Cifră din lege. */
   prima_stabilitate_economie: () => 1000,

@@ -15,7 +15,7 @@ export function NotificareMea() {
   if (profil === null) return <p className="mt-4 text-sm text-v3-ink-2">{t("Se încarcă profilul de pe dispozitiv…")}</p>;
 
   const potriviri = potriveste(profil, CATALOG, aziISO());
-  const aleasa = alegeNotificarea(potriviri);
+  const aleasa = alegeNotificarea(potriviri, profil.valori);
   if (!aleasa) {
     return (
       <p className="mt-4 text-[15px] text-v3-ink-2">
