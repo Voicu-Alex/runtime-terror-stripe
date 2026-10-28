@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ComutatorLimba, useLimba } from "@/components/Limba";
 import { ComutatorTema } from "@/components/Tema";
+import { useAbonament } from "@/components/useAbonament";
 
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
 const SECTIUNI = [
@@ -20,20 +21,21 @@ export function Antet() {
   return (
     <>
       <header>
-        <div className="mx-auto grid max-w-[1080px] grid-cols-[1fr_auto_1fr] items-center gap-2.5 px-4 pt-3.5 pb-2.5 lg:pt-[18px] lg:pb-4">
-          {/* stânga: tema, dreapta: limba, ca logo-ul să rămână centrat */}
+        <div className="mx-auto grid max-w-[1080px] grid-cols-[auto_1fr_auto] items-center gap-2 px-4 pt-3.5 pb-2.5 sm:grid-cols-[1fr_auto_1fr] sm:gap-2.5 lg:pt-[18px] lg:pb-4">
+          {/* stânga: tema, dreapta: Pro și limba, ca logo-ul să rămână centrat */}
           <span className="flex justify-start">
             <ComutatorTema />
           </span>
           <Link href="/" className="text-center no-underline">
-            <b className="block font-head text-[clamp(17px,4.9vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-logo lg:text-[34px]">
+            <b className="block font-head text-[clamp(15px,4.4vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] text-balance text-v3-logo min-[400px]:whitespace-nowrap lg:text-[34px]">
               Ce înseamnă pentru mine
             </b>
             <span className="mt-[3px] block text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase lg:text-[11.5px]">
               {t("Legea, pe banii tăi")}
             </span>
           </Link>
-          <span className="flex justify-end">
+          <span className="flex items-center justify-end gap-1.5 sm:gap-2">
+            <ButonPro />
             <ComutatorLimba />
           </span>
         </div>
@@ -57,6 +59,26 @@ export function Antet() {
   );
 }
 
+/** „Upgrade la Pro” cât timp n-ai Pro; după plată, o insignă discretă. Duce la /abonament (conectare, apoi plată). */
+function ButonPro() {
+  const { t } = useLimba();
+  const stare = useAbonament();
+  if (stare?.activ)
+    return (
+      <Link href="/abonament" className="inline-flex min-h-8 items-center gap-1 rounded-lg border border-v3-line bg-v3-card px-2.5 text-xs font-bold text-v3-ink no-underline">
+        Pro <span className="text-v3-pos">✓</span>
+      </Link>
+    );
+  return (
+    <Link
+      href="/abonament"
+      className="inline-flex min-h-8 items-center rounded-lg bg-v3-ink px-2.5 text-xs font-bold whitespace-nowrap text-v3-on-ink no-underline hover:bg-v3-ink-strong"
+    >
+      <span className="hidden sm:inline">{t("Upgrade la")}&nbsp;</span>Pro
+    </Link>
+  );
+}
+
 export function Subsol() {
   const { t, limba } = useLimba();
   return (
@@ -64,6 +86,9 @@ export function Subsol() {
       {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}
       {t("Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică. Profilul rămâne pe dispozitivul tău.")}
       {limba === "en" && <> {t("Textele legilor sunt în română.")}</>}
+      <Link href="/abonament" className="ml-1 font-semibold text-v3-ink-2 underline decoration-v3-line underline-offset-2">
+        Pro
+      </Link>
     </footer>
   );
 }
