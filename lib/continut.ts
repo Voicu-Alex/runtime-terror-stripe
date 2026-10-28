@@ -86,20 +86,6 @@ const REGISTRU: Record<string, { nume: string; url: string }> = {
   },
 };
 
-/** Întrebarea tipică și ce să ai pregătit, din tabelul din business/profesionisti.md. */
-const SPECIALIST: Record<string, { intrebare: string; documente: string | null }> = {
-  dividende_16: {
-    intrebare: "Mai merită să îmi iau banii din SRL ca dividende sau pe salariu, cu impozitul de 16%?",
-    documente: "Profitul estimat pe anul acesta și cât ai vrea să scoți din firmă.",
-  },
-  micro_1: { intrebare: "Ce se întâmplă dacă depășesc plafonul la jumătatea anului?", documente: null },
-  horeca_tva_11: {
-    intrebare: "Ce cotă pun pe facturile emise după 1 august? Ce fac cu contractele în curs?",
-    documente: null,
-  },
-  pilon2_plata: { intrebare: "Iau 30% odată sau totul eșalonat?", documente: null },
-};
-
 export type Specialist = {
   profesie: string;
   intrebare: string | null;
@@ -109,7 +95,8 @@ export type Specialist = {
 
 export function specialist(s: Schimbare): Specialist | null {
   if (!s.profesionist) return null;
-  const d = SPECIALIST[s.id];
+  // Întrebarea și „ce să ai pregătit” stau în catalog, câmpul `specialist` (Voicu, #15).
+  const d = s.specialist;
   return {
     profesie: s.profesionist,
     intrebare: d?.intrebare ?? null,
