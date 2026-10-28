@@ -242,7 +242,9 @@ const FAMILIE_EN: Record<Familie, string> = {
 
 const TAG_EN: Record<TagId, string> = {
   angajat: "salary",
+  bugetar: "public sector salary",
   pfa: "sole trader (PFA)",
+  pfa_norma: "sole trader on income norm",
   srl_dividende: "SRL dividends",
   pensionar: "pension",
   masina: "car",
@@ -251,6 +253,7 @@ const TAG_EN: Record<TagId, string> = {
   parinte: "children",
   parinte_singur: "raising children alone",
   intretin_parinti: "supporting my parents",
+  intretin_sot: "supporting my spouse",
   intretin_handicap: "dependant with a disability",
   micro: "SRL micro-company",
   chirias: "renting",

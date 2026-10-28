@@ -885,16 +885,14 @@
     "expira_la": null,
     "termen_actiune": "2027-05-25",
     "directie": "cost",
-    "taguri": [
-      "intretin_parinti"
-    ],
+    "taguri": ["intretin_parinti", "intretin_sot"],
     "conditii": [],
     "formula": null,
     "estimare": false,
     "niveluri": {
       "zero": "Dacă ai în întreținere soțul, soția sau un părinte fără venituri, ei nu mai sunt asigurați gratuit la sănătate; îi poți asigura plătind 2.430 lei pe an pentru fiecare.",
       "curios": "Din 1 august 2025, soțul, soția și părinții fără venituri proprii nu mai sunt scutiți de contribuția la sănătate. Poți plăti CASS pentru ei prin Declarația unică: 10% din 6 salarii minime, adică 2.430 lei pentru fiecare persoană în 2026, cam 203 lei pe lună. Plătești 25% când depui declarația și restul de 75% până la 25 mai 2027. Copiii până la 18 ani și elevii sau studenții până la 26 de ani rămân asigurați fără plată.",
-      "expert": "Codul fiscal, art. 182^1, introdus prin Legea 141/2025. Baza: 6 salarii minime brute în vigoare la 1 ianuarie a anului opțiunii. ANAF a confirmat 2.430 lei și tranșele de 25% și 75% pentru 2025 (comunicatul din 4 sep 2025). Pentru 2026 suma rezultă la fel, 6 x 4.050 lei x 10%, pentru că salariul minim la 1 ianuarie 2026 a rămas 4.050 lei (OUG 89/2025, preambul). Termenul de 25 mai 2027 aplică regula ANAF a anului următor opțiunii. Persoana în întreținere poate opta și în nume propriu. Se aplică doar soțului, soției și părinților fără venituri proprii (comunicatul ANAF nr. 882/4.09.2025). Pentru soț sau soție nu există încă o etichetă în profil."
+      "expert": "Codul fiscal, art. 182^1, introdus prin Legea 141/2025. Baza: 6 salarii minime brute în vigoare la 1 ianuarie a anului opțiunii. ANAF a confirmat 2.430 lei și tranșele de 25% și 75% pentru 2025 (comunicatul din 4 sep 2025). Pentru 2026 suma rezultă la fel, 6 x 4.050 lei x 10%, pentru că salariul minim la 1 ianuarie 2026 a rămas 4.050 lei (OUG 89/2025, preambul). Termenul de 25 mai 2027 aplică regula ANAF a anului următor opțiunii. Persoana în întreținere poate opta și în nume propriu. Se aplică doar soțului, soției și părinților fără venituri proprii (comunicatul ANAF nr. 882/4.09.2025)."
     },
     "actiuni": [
       {
@@ -1037,9 +1035,7 @@
     "expira_la": null,
     "termen_actiune": "2027-05-25",
     "directie": "cost",
-    "taguri": [
-      "pfa"
-    ],
+    "taguri": ["pfa_norma"],
     "conditii": [],
     "formula": null,
     "estimare": false,
@@ -1407,16 +1403,14 @@
     "expira_la": "2026-12-31",
     "termen_actiune": null,
     "directie": "info",
-    "taguri": [
-      "sanatate"
-    ],
+    "taguri": ["bugetar"],
     "conditii": [],
     "formula": null,
     "estimare": false,
     "niveluri": {
       "zero": "Dacă lucrezi la stat, de exemplu într-un spital public, în 2026 salariul de bază și sporurile rămân la nivelul din decembrie 2025.",
       "curios": "Pentru personalul plătit din fonduri publice, salariul de bază brut rămâne în 2026 la nivelul din decembrie 2025, dacă păstrezi aceeași funcție și aceleași condiții. Sporurile și celelalte elemente ale salariului rămân cel mult la nivelul din decembrie 2025. Orele suplimentare se compensează doar cu timp liber, în următoarele 90 de zile, iar instituțiile nu acordă premii sau bonusuri.",
-      "expert": "Legea 141/2025: art. XVI alin. (1)-(3), salariul de bază brut se menține la nivelul din decembrie 2025; art. XVII, sporurile și celelalte elemente ale salariului brut se mențin cel mult la nivelul din decembrie 2025; art. XVIII alin. (1), munca suplimentară se compensează numai cu timp liber în următoarele 90 de zile (cu excepții pentru militari și polițiști la alin. (2)); art. XIX alin. (3), instituțiile publice nu acordă premii, bonusuri sau drepturi similare; art. XLVIII, celelalte drepturi salariale din legi speciale rămân la nivelul din decembrie 2025. Se aplică tuturor bugetarilor, nu doar în sănătate: profilul nu are încă o etichetă pentru „lucrez la stat”."
+      "expert": "Legea 141/2025: art. XVI alin. (1)-(3), salariul de bază brut se menține la nivelul din decembrie 2025; art. XVII, sporurile și celelalte elemente ale salariului brut se mențin cel mult la nivelul din decembrie 2025; art. XVIII alin. (1), munca suplimentară se compensează numai cu timp liber în următoarele 90 de zile (cu excepții pentru militari și polițiști la alin. (2)); art. XIX alin. (3), instituțiile publice nu acordă premii, bonusuri sau drepturi similare; art. XLVIII, celelalte drepturi salariale din legi speciale rămân la nivelul din decembrie 2025. Se aplică tuturor bugetarilor (sănătate, educație, administrație)."
     },
     "actiuni": [
       {
@@ -1445,9 +1439,7 @@
     "expira_la": "2026-12-31",
     "termen_actiune": "2026-12-31",
     "directie": "castig",
-    "taguri": [
-      "sanatate"
-    ],
+    "taguri": ["bugetar"],
     "conditii": [
       {
         "camp": "salariu_net",
@@ -1460,7 +1452,7 @@
     "niveluri": {
       "zero": "Dacă lucrezi la stat și salariul tău de bază net e de cel mult 6.000 lei, în 2026 primești 800 lei în vouchere de vacanță.",
       "curios": "Instituțiile publice acordă în 2026 vouchere de vacanță de 800 lei personalului cu salariul de bază net de cel mult 6.000 lei. Voucherele se acordă între 1 ianuarie și 31 decembrie 2026.",
-      "expert": "Legea 141/2025, art. XLIV: instituțiile publice acordă anual vouchere de vacanță de 800 lei personalului al cărui salariu de bază net este de cel mult 6.000 lei, în perioada 1 ianuarie - 31 decembrie 2026. Condiția din profil folosește salariul net total, nu salariul de bază net: e o aproximare. Se aplică tuturor bugetarilor, nu doar în sănătate."
+      "expert": "Legea 141/2025, art. XLIV: instituțiile publice acordă anual vouchere de vacanță de 800 lei personalului al cărui salariu de bază net este de cel mult 6.000 lei, în perioada 1 ianuarie - 31 decembrie 2026. Condiția din profil folosește salariul net total, nu salariul de bază net: e o aproximare. Se aplică tuturor bugetarilor (sănătate, educație, administrație)."
     },
     "actiuni": [
       {
