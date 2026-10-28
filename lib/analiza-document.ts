@@ -16,6 +16,7 @@ export type EtichetaPropusa = {
 export type ValoriExtrase = Valori & {
   furnizor?: string;
   suma_factura?: number;
+  chirie_lunara?: number;
 };
 
 export type AnalizaDocument = {
@@ -59,8 +60,11 @@ export const SCHEMA_ANALIZA = {
         pensie_lunara: { type: "number" },
         dividende_anuale: { type: "number" },
         cheltuieli_lunare: { type: "number" },
+        an_nastere: { type: "number", description: "doar anul, dacă apare data nașterii; nu copia data completă" },
+        nr_copii: { type: "number", description: "doar dacă documentul îi menționează explicit (de exemplu persoane în întreținere)" },
         furnizor: { type: "string", description: "numele furnizorului de pe factură (Engie, E.ON, Orange etc.)" },
         suma_factura: { type: "number", description: "totalul de plată de pe factură, în lei" },
+        chirie_lunara: { type: "number", description: "chiria lunară dintr-un contract de închiriere, în lei" },
       },
     },
     explicatie_scurta: { type: "string", description: "2–3 propoziții simple: ce ai găsit în document" },

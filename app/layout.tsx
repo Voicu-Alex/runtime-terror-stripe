@@ -30,6 +30,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
         <main className="mx-auto max-w-2xl px-4 py-6">{children}</main>
+        <footer className="mx-auto max-w-2xl px-4 pb-8 text-xs text-stone-500">
+          {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}
+          Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică. Profilul rămâne pe
+          dispozitivul tău.
+        </footer>
       </body>
     </html>
   );

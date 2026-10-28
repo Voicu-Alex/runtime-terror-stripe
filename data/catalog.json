@@ -411,5 +411,110 @@
     "sursa_explicativa": "https://adevarul.ro/economie/statul-face-un-pas-inapoi-impozitul-pe-valoarea-2495086.html",
     "incredere": "scazuta",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "alocatie_copii",
+    "act": "Legea 61/1993 (alocația de stat pentru copii), republicată",
+    "mo_ref": "TODO",
+    "rezumat": "Alocația de stat pentru copii: 292 lei pe lună pentru fiecare copil între 2 și 18 ani",
+    "status": "in_vigoare",
+    "publicat_la": "1993-09-27",
+    "in_vigoare_de_la": "2025-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": ["parinte", "parinte_singur"],
+    "conditii": [{ "camp": "nr_copii", "op": ">=", "valoare": 1 }],
+    "formula": "alocatie_copii",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Pentru fiecare copil primești de la stat o alocație lunară, indiferent de venit. Se cere o singură dată, la primărie sau online.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Verifică dacă alocația e cerută și dacă suma de pe extras e cea actuală",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "TODO: articolul și cuantumul din textul republicat; 292 lei (2–18 ani) e cifra din presă pentru 2026; sub 2 ani și pentru copiii cu handicap suma e mai mare",
+    "sursa_url": "TODO",
+    "sursa_explicativa": "https://stirileprotv.ro/divers/alocatia-pentru-copii-2026-cine-are-dreptul-valoarea-si-pasii-pentru-a-o-solicita.html",
+    "incredere": "medie",
+    "verificat_la": null
+  },
+  {
+    "id": "alocatie_sustinere_familie",
+    "act": "Legea 277/2010 (alocația pentru susținerea familiei)",
+    "mo_ref": "TODO",
+    "rezumat": "Alocația pentru susținerea familiei: pentru familii cu copii și venit mic, inclusiv părinți singuri",
+    "status": "in_vigoare",
+    "publicat_la": "2010-12-24",
+    "in_vigoare_de_la": "2011-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": ["parinte_singur", "parinte"],
+    "conditii": [{ "camp": "nr_copii", "op": ">=", "valoare": 1 }],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă ai copii și venitul net pe membru de familie e sub prag, poți primi lunar o alocație de la primărie. Suma depinde de venit și de numărul copiilor, iar copiii trebuie să meargă la școală.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Întreabă la primărie dacă te încadrezi; se depune o cerere cu declarație pe propria răspundere",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "TODO: pragul de venit pe membru și cuantumurile (raportate la ISR) din textul actualizat; de adăugat condiția venit_net_pe_membru <= prag după verificare",
+    "sursa_url": "TODO",
+    "sursa_explicativa": "https://playtech.ro/2025/alocatia-pentru-sustinerea-familiei-cine-o-poate-primi-conditii-si-valoarea-actuala/",
+    "incredere": "scazuta",
+    "verificat_la": null
+  },
+  {
+    "id": "varsta_pensionare",
+    "act": "Legea 360/2023 (sistemul public de pensii)",
+    "mo_ref": "TODO",
+    "rezumat": "Vârsta standard de pensionare: 65 de ani; pentru femei crește treptat până în 2035",
+    "status": "in_vigoare",
+    "publicat_la": "2023-12-01",
+    "in_vigoare_de_la": "2024-09-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": ["angajat", "pfa", "srl_dividende"],
+    "conditii": [{ "camp": "varsta", "op": ">=", "valoare": 58 }],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Te apropii de vârsta de pensionare. Merită să afli de pe acum câte luni de contribuție ai și când poți ieși la pensie fără penalizare.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Cere de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": "consultant pensii",
+    "articol": "TODO: articolul cu vârsta standard și anexa cu eșalonarea pentru femei; pragul de 58 de ani pentru notificare e o alegere de produs, nu din lege",
+    "sursa_url": "TODO",
+    "sursa_explicativa": "TODO",
+    "incredere": "scazuta",
+    "verificat_la": null
   }
 ]

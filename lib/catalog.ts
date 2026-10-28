@@ -1,6 +1,6 @@
 import catalogJson from "@/data/catalog.json";
 import { esteFormula, type FormulaId } from "./formule";
-import type { CampValoare } from "./profil";
+import type { CampConditie } from "./profil";
 import { esteTag, type TagId } from "./taguri";
 
 /** Formatul comun al unei schimbări din catalog (data/catalog.json). Îl folosesc toți. */
@@ -11,7 +11,7 @@ export type Incredere = "ridicata" | "medie" | "scazuta";
 export type Operator = ">" | ">=" | "<" | "<=" | "==";
 
 export type Conditie = {
-  camp: CampValoare;
+  camp: CampConditie;
   op: Operator;
   valoare: number;
 };
@@ -52,6 +52,7 @@ export type Schimbare = {
   /** tipul de specialist potrivit (task-ul lui Chris) sau null */
   profesionist: string | null;
   articol: string;
+  /** linkul la textul actului; "TODO" până îl găsește cineva */
   sursa_url: string;
   sursa_explicativa: string;
   incredere: Incredere;

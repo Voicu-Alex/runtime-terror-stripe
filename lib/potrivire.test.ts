@@ -13,9 +13,13 @@ describe("catalogul", () => {
     expect(CATALOG.length).toBeGreaterThanOrEqual(7);
     for (const s of CATALOG) {
       expect(s.taguri.every((t) => TOATE_TAGURILE.includes(t))).toBe(true);
-      expect(s.sursa_url.startsWith("https://")).toBe(true);
+      expect(s.sursa_url === "TODO" || s.sursa_url.startsWith("https://")).toBe(true);
       expect(s.niveluri.zero.length).toBeGreaterThan(10);
     }
+  });
+
+  it("o intrare cu sursa TODO nu poate fi marcată ca verificată", () => {
+    for (const s of CATALOG) if (s.sursa_url === "TODO") expect(s.verificat_la).toBeNull();
   });
 
   it("conține cele 7 acte din demo", () => {
@@ -86,6 +90,28 @@ describe("potriveste", () => {
     expect([...date].sort()).toEqual(date);
     expect(r.find((p) => p.schimbare.id === "pilon2_plata")!.moment).toBe("urmeaza");
     expect(r.find((p) => p.schimbare.id === "energie_plafon")!.moment).toBe("in_vigoare");
+  });
+
+  it("vârsta se derivă din anul nașterii: la 60 de ani apare pensionarea, la 30 nu", () => {
+    const la60 = potriveste(profil({ taguri: ["angajat"], valori: { an_nastere: 1966 } }), CATALOG, AZI);
+    expect(la60.map((p) => p.schimbare.id)).toContain("varsta_pensionare");
+    const la30 = potriveste(profil({ taguri: ["angajat"], valori: { an_nastere: 1996 } }), CATALOG, AZI);
+    expect(la30.map((p) => p.schimbare.id)).not.toContain("varsta_pensionare");
+  });
+
+  it("fără anul nașterii, pensionarea e „posibil” și cere an_nastere, nu „varsta”", () => {
+    const r = potriveste(profil({ taguri: ["angajat"] }), CATALOG, AZI);
+    const p = r.find((x) => x.schimbare.id === "varsta_pensionare")!;
+    expect(p.stare).toBe("posibil");
+    expect(p.valori_lipsa).toEqual(["an_nastere"]);
+  });
+
+  it("părinte singur cu 2 copii: alocația de stat dă 584 lei/lună, alocația de susținere apare fără sumă", () => {
+    const r = potriveste(profil({ taguri: ["parinte_singur"], valori: { nr_copii: 2 } }), CATALOG, AZI);
+    expect(r.find((p) => p.schimbare.id === "alocatie_copii")!.impact_lei_luna).toBe(584);
+    const sustinere = r.find((p) => p.schimbare.id === "alocatie_sustinere_familie")!;
+    expect(sustinere.stare).toBe("sigur");
+    expect(sustinere.impact_lei_luna).toBeNull();
   });
 
   it("numără zilele până la termen", () => {

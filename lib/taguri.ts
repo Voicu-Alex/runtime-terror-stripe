@@ -11,6 +11,7 @@ export const FAMILII = {
   conduc: "Ce conduc",
   locuinta: "Unde locuiesc",
   domeniu: "Domeniul meu",
+  statut: "Situația mea",
 } as const;
 
 export type Familie = keyof typeof FAMILII;
@@ -29,7 +30,9 @@ export const TAGURI = {
 
   // Cine depinde de mine
   parinte: { familie: "familie", eticheta: "copii" },
+  parinte_singur: { familie: "familie", eticheta: "cresc copiii singur" },
   intretin_parinti: { familie: "familie", eticheta: "părinți în întreținere" },
+  intretin_handicap: { familie: "familie", eticheta: "persoană cu handicap în întreținere" },
 
   // Ce conduc (PFA e deja la „Cum câștig”; nu îl dublăm)
   micro: { familie: "conduc", eticheta: "SRL microîntreprindere" },
@@ -40,6 +43,7 @@ export const TAGURI = {
   ipoteca: { familie: "locuinta", eticheta: "ipotecă" },
   consumator_gaz: { familie: "locuinta", eticheta: "încălzire pe gaz" },
   consumator_energie: { familie: "locuinta", eticheta: "factură de curent pe numele meu" },
+  rural: { familie: "locuinta", eticheta: "la sat (mediul rural)" },
 
   // Domeniul meu (doar categorii)
   it: { familie: "domeniu", eticheta: "IT" },
@@ -48,6 +52,13 @@ export const TAGURI = {
   transport: { familie: "domeniu", eticheta: "transport" },
   sanatate: { familie: "domeniu", eticheta: "sănătate" },
   agricultura: { familie: "domeniu", eticheta: "agricultură" },
+
+  // Situația mea: statute după care legile dau drepturi sau scutiri
+  elev_student: { familie: "statut", eticheta: "elev sau student" },
+  somer: { familie: "statut", eticheta: "în șomaj" },
+  persoana_handicap: { familie: "statut", eticheta: "persoană cu handicap" },
+  concediu_crestere: { familie: "statut", eticheta: "în concediu de creștere a copilului" },
+  salariu_minim: { familie: "statut", eticheta: "pe salariul minim" },
 } as const satisfies Record<string, { familie: Familie; eticheta: string }>;
 
 export type TagId = keyof typeof TAGURI;

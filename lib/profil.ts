@@ -11,17 +11,39 @@ export type Valori = {
   pensie_lunara?: number;
   dividende_anuale?: number;
   cheltuieli_lunare?: number;
+  /** venitul net lunar împărțit la membrii familiei; pragurile pentru beneficii sociale se dau așa */
+  venit_net_pe_membru?: number;
+  /** din el se calculează vârsta la data potrivirii; nu cerem data completă a nașterii */
+  an_nastere?: number;
+  nr_copii?: number;
+  /** vârsta celui mai mic copil, în ani; multe drepturi se opresc la 2, la 18 sau la 26 */
+  varsta_copil_mic?: number;
+  persoane_intretinere?: number;
 };
 
 export type CampValoare = keyof Valori;
 
-export const CAMPURI_VALORI: Record<CampValoare, string> = {
-  salariu_net: "salariul net pe lună",
-  salariu_brut: "salariul brut pe lună",
-  pensie_lunara: "pensia pe lună",
-  dividende_anuale: "dividendele pe an",
-  cheltuieli_lunare: "cheltuielile pe lună",
+/** Câmpurile pe care le poate folosi o condiție: valorile din profil plus cele derivate la potrivire. */
+export type CampConditie = CampValoare | "varsta";
+
+export const CAMPURI_VALORI: Record<CampValoare, { eticheta: string; unitate: string }> = {
+  salariu_net: { eticheta: "salariul net pe lună", unitate: "lei" },
+  salariu_brut: { eticheta: "salariul brut pe lună", unitate: "lei" },
+  pensie_lunara: { eticheta: "pensia pe lună", unitate: "lei" },
+  dividende_anuale: { eticheta: "dividendele pe an", unitate: "lei" },
+  cheltuieli_lunare: { eticheta: "cheltuielile pe lună", unitate: "lei" },
+  venit_net_pe_membru: { eticheta: "venitul net pe membru de familie", unitate: "lei" },
+  an_nastere: { eticheta: "anul nașterii", unitate: "" },
+  nr_copii: { eticheta: "numărul copiilor", unitate: "" },
+  varsta_copil_mic: { eticheta: "vârsta celui mai mic copil", unitate: "ani" },
+  persoane_intretinere: { eticheta: "persoane în întreținere", unitate: "" },
 };
+
+/** Vârsta la o dată, din anul nașterii. Aproximație la nivel de an, suficientă pentru praguri. */
+export function varstaLa(anNastere: number | undefined, aziISO: string): number | undefined {
+  if (anNastere == null) return undefined;
+  return Number(aziISO.slice(0, 4)) - anNastere;
+}
 
 export type Profil = {
   taguri: TagId[];
