@@ -31,8 +31,10 @@ type Caz = {
   ceTrebuia: string;
   notificare: string;
   ipoteza: string;
-  /** cine pierde suma */
-  cine: string;
+  /** categoria de persoane afectată, scurt, sub titlu */
+  afectati: string;
+  /** propoziția „cine a pierdut cât”, cu categoria exactă */
+  aPierdut: string;
 };
 
 // Trei cazuri reale, din catalog (data/catalog.json) și din pagina „Toate legile” (data/ghid.json).
@@ -48,7 +50,8 @@ const CAZURI: Caz[] = [
     ceTrebuia: "Să semnezi contractul cu avans și să plătești 20% din preț până pe 31 iulie. Așa locuința nouă rămânea cu TVA 9%, nu 21%.",
     notificare: "Locuința nouă pe care o vrei: TVA crește de la 9% la 21% pe 1 august. Ca să rămâi la 9%, plătește avansul de 20% până pe 31 iulie. Mai ai 6 zile.",
     ipoteza: "apartament nou de 400.000 lei fără TVA; Legea 141/2025, art. III",
-    cine: "lei pierduți de cine a aflat prea târziu",
+    afectati: "Cumpărătorii de locuințe noi de până la 120 mp și 600.000 lei",
+    aPierdut: "Cumpărătorii de locuințe noi care n-au plătit avansul de 20% până pe 31 iulie 2025 au pierdut 48.000 de lei la un apartament de 400.000 lei.",
   },
   {
     id: "dividende_16",
@@ -61,7 +64,8 @@ const CAZURI: Caz[] = [
     ceTrebuia: "Să distribui dividendele din profitul anului 2025 până pe 31 decembrie, cu impozitul vechi de 10%. Din 1 ianuarie 2026 impozitul e 16%.",
     notificare: "Impozitul pe dividende crește de la 10% la 16% din 1 ianuarie 2026. Distribuie profitul din 2025 până pe 31 decembrie. Vorbește cu contabilul din timp.",
     ipoteza: "100.000 lei dividende × 6 puncte; Legea 141/2025, art. II",
-    cine: "lei pierduți de cine a aflat prea târziu",
+    afectati: "Asociații de SRL care își plătesc dividende",
+    aPierdut: "Asociații de SRL care n-au distribuit dividendele din 2025 până pe 31 decembrie au pierdut 6.000 de lei la fiecare 100.000 de lei de dividende.",
   },
   {
     id: "prima_stabilitate",
@@ -74,7 +78,8 @@ const CAZURI: Caz[] = [
     ceTrebuia: "Să te înregistrezi la AJOFM înainte să semnezi primul contract pe durată nedeterminată. Cine semnează întâi nu mai primește prima de stabilitate.",
     notificare: "Cauți primul job? Înainte să semnezi, înregistrează-te la AJOFM. Statul îți dă 1.000 lei pe lună în primul an și 1.250 în al doilea: 27.000 de lei.",
     ipoteza: "tineri sub 30 de ani; OUG 11/2026, Legea 76/2002 art. 76^5",
-    cine: "lei pierduți de cine semnează contractul înainte de AJOFM",
+    afectati: "Tinerii sub 30 de ani la primul contract pe durată nedeterminată",
+    aPierdut: "Tinerii sub 30 de ani angajați prima dată pe durată nedeterminată fără să fie înscriși la AJOFM înainte au pierdut 27.000 de lei.",
   },
 ];
 
@@ -111,6 +116,10 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
           {c.eticheta}
         </p>
         <h3 className="m-0 font-head text-[clamp(24px,5vw,32px)] leading-[1.15] font-extrabold tracking-[-.015em] text-v3-ink">{c.titlu}</h3>
+        <p className="m-0 mt-2.5 inline-flex flex-wrap items-center gap-2 rounded-full bg-v3-accent-soft px-3 py-1 text-[13.5px] font-semibold text-v3-ink">
+          <span className="text-[11px] font-extrabold tracking-[.1em] text-v3-accent uppercase">Afectați</span>
+          {c.afectati}
+        </p>
 
         {/* Linia timpului: când se putea afla, până când se putea face ceva */}
         <ol className="m-0 mt-5 grid list-none gap-0 p-0 sm:grid-cols-3">
@@ -134,10 +143,14 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
         <p className="m-0 mt-5 max-w-[62ch] text-[17px] leading-[1.6] text-[#1F2937]">
           <b>Ce trebuia făcut:</b> {c.ceTrebuia}
         </p>
-        <p className="m-0 mt-4 flex flex-wrap items-baseline gap-x-3">
-          <span className="font-head text-[44px] leading-none font-extrabold tracking-[-.02em] text-v3-neg">−{c.suma}</span>
-          <span className="text-[15px] font-semibold text-v3-ink-2">{c.cine}</span>
-        </p>
+        <div className="mt-5 rounded-2xl border border-v3-neg/20 bg-v3-urg-soft p-4">
+          <p className="m-0 text-[11px] font-extrabold tracking-[.1em] text-v3-neg uppercase">Cine a pierdut</p>
+          <p className="m-0 mt-1 flex flex-wrap items-baseline gap-x-3">
+            <span className="font-head text-[44px] leading-none font-extrabold tracking-[-.02em] text-v3-neg">−{c.suma}</span>
+            <span className="text-[15px] font-semibold text-v3-neg">lei</span>
+          </p>
+          <p className="m-0 mt-2 max-w-[60ch] text-[16px] leading-[1.5] font-semibold text-v3-ink">{c.aPierdut}</p>
+        </div>
         <p className="m-0 mt-1 text-[13px] text-v3-ink-2">
           Calculul nostru: {c.ipoteza}.{" "}
           <a href={s.sursa_url} target="_blank" rel="noopener" className="font-semibold text-v3-accent">
