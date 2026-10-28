@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ComutatorLimba, useLimba } from "@/components/Limba";
+import { ComutatorTema } from "@/components/Tema";
 
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
 const SECTIUNI = [
@@ -17,7 +18,10 @@ export function Antet() {
   return (
     <header className="border-b border-v3-line">
       <div className="mx-auto grid max-w-[1080px] grid-cols-[1fr_auto_1fr] items-center gap-2.5 px-4 pt-3.5 pb-2.5 lg:pt-[18px] lg:pb-4">
-        <span />
+        {/* stânga: tema, dreapta: limba, ca logo-ul să rămână centrat */}
+        <span className="flex justify-start">
+          <ComutatorTema />
+        </span>
         <Link href="/" className="text-center no-underline">
           <b className="block font-head text-[clamp(17px,4.9vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-logo lg:text-[34px]">
             Ce înseamnă pentru mine

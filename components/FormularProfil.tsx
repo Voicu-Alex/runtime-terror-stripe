@@ -135,7 +135,7 @@ export function FormularProfil() {
     <div className="space-y-6">
       {/* 1. Documentele: intrarea principală */}
       <label
-        className={`block cursor-pointer rounded-2xl border-2 border-dashed bg-white p-6 text-center ${
+        className={`block cursor-pointer rounded-2xl border-2 border-dashed bg-v3-card p-6 text-center ${
           stare.pas === "analiza" ? "border-v3-ink" : "border-v3-line hover:border-v3-ink"
         }`}
       >
@@ -171,7 +171,7 @@ export function FormularProfil() {
       {citiri.length > 0 && (
         <ul className="m-0 list-none space-y-2 p-0" aria-live="polite">
           {citiri.map((c, i) => (
-            <li key={`${c.fisier}-${i}`} className="rounded-[10px] border border-v3-line bg-white p-3 text-sm">
+            <li key={`${c.fisier}-${i}`} className="rounded-[10px] border border-v3-line bg-v3-card p-3 text-sm">
               <p className="m-0 flex flex-wrap items-center gap-x-2 gap-y-1">
                 <b className="text-v3-ink">{t("Am citit")} {t(NUME_TIP[c.tip] ?? "documentul")}</b>
                 <span className="text-v3-ink-2">({c.fisier})</span>
@@ -205,7 +205,7 @@ export function FormularProfil() {
                         aria-pressed={are}
                         title={e.motiv}
                         onClick={() => comuta(e.tag)}
-                        className={`min-h-8 rounded-lg border px-2.5 text-[13px] font-semibold ${are ? "border-v3-ink bg-v3-ink text-white" : "border-v3-line bg-white text-v3-ink"}`}
+                        className={`min-h-8 rounded-lg border px-2.5 text-[13px] font-semibold ${are ? "border-v3-ink bg-v3-ink text-v3-on-ink" : "border-v3-line bg-v3-card text-v3-ink"}`}
                       >
                         {are ? "✓ " : "+ "}
                         {eticheta(e.tag)}
@@ -220,7 +220,7 @@ export function FormularProfil() {
       )}
 
       {/* 3. Profilul, așa cum e acum: etichetele cu × și cifrele editabile */}
-      <section className="rounded-[10px] border border-v3-line bg-white p-4">
+      <section className="rounded-[10px] border border-v3-line bg-v3-card p-4">
         <h2 className="m-0 text-[13px] font-extrabold tracking-[.08em] text-v3-ink uppercase">{t("Profilul tău")}</h2>
         {gol ? (
           <p className="mt-2 mb-0 text-[15px] text-v3-ink-2">{t("Gol deocamdată. Încarcă un document sau bifează manual mai jos.")}</p>
@@ -265,7 +265,7 @@ export function FormularProfil() {
           <label className="mt-3 block text-sm text-v3-ink-2">
             {t("Adaugă o cifră pe care documentele nu o au:")}{" "}
             <select
-              className="min-h-9 rounded-lg border border-v3-line bg-white px-2 text-v3-ink"
+              className="min-h-9 rounded-lg border border-v3-line bg-v3-card px-2 text-v3-ink"
               value=""
               onChange={(e) => {
                 const c = e.target.value as CampValoare;
@@ -307,7 +307,7 @@ export function FormularProfil() {
                         type="button"
                         aria-pressed={ales}
                         onClick={() => comuta(tag)}
-                        className={`min-h-9 rounded-lg border px-2.5 text-[13px] font-semibold ${ales ? "border-v3-ink bg-v3-ink text-white" : "border-v3-line bg-white text-v3-ink"}`}
+                        className={`min-h-9 rounded-lg border px-2.5 text-[13px] font-semibold ${ales ? "border-v3-ink bg-v3-ink text-v3-on-ink" : "border-v3-line bg-v3-card text-v3-ink"}`}
                       >
                         {eticheta(tag)}
                       </button>
@@ -326,7 +326,7 @@ export function FormularProfil() {
           {profil.taguri.length} {t("etichete")} · <b className="text-v3-ink">{nrActe} {t("acte te privesc")}</b> · {t("salvat pe dispozitiv")}
         </span>
         {!gol && (
-          <Link href="/flux" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-white no-underline">
+          <Link href="/flux" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
             {t("Vezi fluxul tău →")}
           </Link>
         )}

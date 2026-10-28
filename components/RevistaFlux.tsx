@@ -88,7 +88,7 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
               </a>
               <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14.5px] font-bold">
                 {urgent ? (
-                  <span className="rounded-full bg-v3-urg px-2.5 py-0.5 text-[13px] text-white">
+                  <span className="rounded-full bg-v3-urg px-2.5 py-0.5 text-[13px] text-v3-on-ink">
                     {t("mai ai")} {zile(x.zile, limba)}
                   </span>
                 ) : (
@@ -107,7 +107,7 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
 }
 
 const CUTIE =
-  "mb-3.5 rounded-2xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-white px-[18px] py-5 lg:px-[34px] lg:py-[30px]";
+  "mb-3.5 rounded-2xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-[18px] py-5 lg:px-[34px] lg:py-[30px]";
 
 export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valori: Valori; azi: string }) {
   const { t, limba } = useLimba();
@@ -134,8 +134,8 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
         </span>
         <span className="text-xs font-extrabold tracking-[.12em] uppercase">{dataLunga(azi, limba)}</span>
         {urgent && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-v3-urg px-2.5 py-0.5 text-[12.5px] font-bold text-white">
-            <span aria-hidden="true" className="size-[7px] rounded-full bg-white" />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-v3-urg px-2.5 py-0.5 text-[12.5px] font-bold text-v3-on-ink">
+            <span aria-hidden="true" className="size-[7px] rounded-full bg-v3-card" />
             {t("urgent")}
           </span>
         )}
@@ -155,7 +155,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
           </small>
         </p>
       ) : null}
-      <p className="m-0 mb-4 max-w-[62ch] text-[17px] leading-[1.6] text-[#1F2937]" lang="ro">
+      <p className="m-0 mb-4 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft" lang="ro">
         {actiune && a ? (
           <>
             <b>{t("Ce poți face:")}</b> {a.text}.
@@ -176,7 +176,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
           </div>
         )}
         <div className="flex items-center gap-2.5">
-          <i aria-hidden="true" className="inline-flex size-9 flex-none items-center justify-center rounded-full bg-v3-ink font-extrabold text-white not-italic">
+          <i aria-hidden="true" className="inline-flex size-9 flex-none items-center justify-center rounded-full bg-v3-ink font-extrabold text-v3-on-ink not-italic">
             §
           </i>
           <span>
@@ -190,7 +190,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
       </div>
       <a
         href={`#c-${s.id}`}
-        className="mt-4 inline-flex min-h-[46px] items-center justify-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-white no-underline"
+        className="mt-4 inline-flex min-h-[46px] items-center justify-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline"
       >
         {t("Vezi ce înseamnă și sursa")}
       </a>
@@ -213,7 +213,7 @@ export function Cifre({ potriviri, valori, ev, azi }: { potriviri: Potrivire[]; 
   return (
     <section
       aria-label={t("pentru tine, în cifre")}
-      className="mb-[18px] grid overflow-hidden rounded-2xl border border-v3-line bg-linear-135 from-v3-stats to-white to-70% lg:grid-cols-[190px_1fr]"
+      className="mb-[18px] grid overflow-hidden rounded-2xl border border-v3-line bg-linear-135 from-v3-stats to-v3-card to-70% lg:grid-cols-[190px_1fr]"
     >
       <div className="flex items-baseline gap-2.5 border-b border-v3-line px-[18px] py-4 lg:flex-col lg:justify-center lg:border-r lg:border-b-0">
         <b className="font-head text-[30px] font-extrabold text-v3-accd">{azi.slice(0, 4)}</b>

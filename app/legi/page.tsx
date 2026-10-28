@@ -58,7 +58,7 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
           <p className="m-0 mb-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[12.5px] text-v3-ink-2">
             <span
               className={`rounded-full border px-[9px] py-px font-semibold ${
-                a.expirat ? "border-[#C3CAC2] bg-v3-past-bg text-v3-past" : "border-v3-pos bg-v3-pos-soft text-v3-pos"
+                a.expirat ? "border-v3-past-line bg-v3-past-bg text-v3-past" : "border-v3-pos bg-v3-pos-soft text-v3-pos"
               }`}
             >
               {a.expirat ? "termen depășit" : STARE[s.status]}
@@ -67,7 +67,7 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
             {a.termen && a.zile !== null && (
               <span
                 className={`rounded-full px-2.5 py-0.5 font-bold ${
-                  a.expirat ? "bg-v3-past-bg text-v3-past" : urgent ? "bg-v3-urg text-white" : "bg-v3-accent-soft text-v3-ink"
+                  a.expirat ? "bg-v3-past-bg text-v3-past" : urgent ? "bg-v3-urg text-v3-on-ink" : "bg-v3-accent-soft text-v3-ink"
                 }`}
               >
                 {a.expirat ? `a expirat pe ${dataScurta(a.termen)}` : `până pe ${dataScurta(a.termen)} · mai ai ${zile(a.zile)}`}
@@ -100,7 +100,7 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
             <ol className="m-0 list-none space-y-2 p-0">
               {a.pasi.map((p, i) => (
                 <li key={i} className="grid grid-cols-[26px_1fr] gap-2 text-[15px] leading-[1.5] text-v3-ink" lang="ro">
-                  <span className="mt-px inline-flex size-[22px] items-center justify-center rounded-full bg-v3-ink text-[12px] font-bold text-white">
+                  <span className="mt-px inline-flex size-[22px] items-center justify-center rounded-full bg-v3-ink text-[12px] font-bold text-v3-on-ink">
                     {i + 1}
                   </span>
                   <span>{p}</span>
@@ -110,7 +110,7 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
           </div>
 
           {a.solutie && (
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-v3-line bg-white p-4">
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-v3-line bg-v3-card p-4">
               <div className="min-w-0 flex-1 basis-64">
                 <p className="m-0 text-[11px] font-extrabold tracking-[.1em] text-v3-accent uppercase">
                   <T k="Unde o faci cu cei mai puțini bani" />
@@ -125,7 +125,7 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
                   href={a.solutie.url}
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex min-h-[46px] items-center gap-2 rounded-[10px] bg-v3-ink px-[18px] font-bold text-white no-underline"
+                  className="inline-flex min-h-[46px] items-center gap-2 rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline"
                 >
                   <T k="Deschide" /> <span aria-hidden="true">↗︎</span>
                   <span className="sr-only">
@@ -172,14 +172,14 @@ export default function PaginaLegi() {
 
   return (
     <div className="mx-auto max-w-[860px]">
-      <header className="mb-2 rounded-2xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-white px-[18px] py-6 lg:px-[34px] lg:py-[30px]">
+      <header className="mb-2 rounded-2xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-[18px] py-6 lg:px-[34px] lg:py-[30px]">
         <p className="m-0 mb-2 text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">
           <T k="Toate schimbările din lege" /> · 28 octombrie 2026
         </p>
         <h1 className="m-0 font-head text-[clamp(28px,6.6vw,40px)] leading-[1.12] font-extrabold tracking-[-.015em] text-v3-ink">
           <T k="Cât poți salva din legile noi, de la cea mai mare sumă în jos" />
         </h1>
-        <p className="m-0 mt-3 max-w-[62ch] text-[17px] leading-[1.6] text-[#1F2937]">
+        <p className="m-0 mt-3 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft">
           <T k="Pagina nu e personalizată. Fiecare articol spune pentru cine e și calculează pe un caz de referință, scris sub sumă: e calculul nostru, nu o cifră din lege. Pentru sumele tale, vezi" />{" "}
           <Link href="/flux" className="font-semibold text-v3-ink underline decoration-v3-tintb underline-offset-2">
             <T k="Fluxul meu" />
