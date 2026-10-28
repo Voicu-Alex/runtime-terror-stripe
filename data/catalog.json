@@ -1,0 +1,415 @@
+[
+  {
+    "id": "tva_21",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "TVA standard 21%, cota redusă unică 11%",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": ["angajat", "pfa", "srl_dividende", "pensionar"],
+    "conditii": [],
+    "formula": "tva_21",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Cota standard de TVA crește cu 2 puncte, deci aproape tot ce cumperi costă puțin mai mult. Estimat ca 1,68% din cheltuielile tale lunare.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [],
+    "profesionist": null,
+    "articol": "art. II pct. 42 (Codul fiscal art. 291 alin. 1-2)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.crowe.com/ro/news/alerta-fiscala-modificari-fiscale-din-noul-pachet-fiscal-bugetar",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "dividende_16",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Impozitul pe dividende crește de la 10% la 16%",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": ["srl_dividende"],
+    "conditii": [],
+    "formula": "dividende_16",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu 10%. Pe dividendele tale, diferența apare în cifra lunară.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Distribuie dividendele din profitul 2025",
+        "termen": "2025-12-31",
+        "formula_economie": "dividende_economie",
+        "one_click": null
+      }
+    ],
+    "profesionist": "contabil",
+    "articol": "art. II pct. 1 (Codul fiscal art. 43 alin. 2); pct. 5 (art. 97 alin. 7)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.crowe.com/ro/news/alerta-fiscala-modificari-fiscale-din-noul-pachet-fiscal-bugetar",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "cass_pensii",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "CASS 10% pe pensiile peste 3.000 lei",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": ["pensionar"],
+    "conditii": [{ "camp": "pensie_lunara", "op": ">", "valoare": 3000 }],
+    "formula": "cass_pensii",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Contribuția de 10% pentru sănătate se aplică doar părții din pensie care depășește 3.000 lei.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Verifică cuponul de pensie: CASS se aplică doar peste 3.000 lei",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. II pct. 7 (art. 100), pct. 17/18 (art. 154 alin. 1 lit. h^2), pct. 25 (art. 157^6)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://alba24.ro/document-masurile-fiscale-care-intra-in-vigoare-din-1-august-2025-doua-cote-tva-cass-pentru-pensii-mari-si-alte-prevederi-1092463.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "energie_plafon",
+    "act": "OUG 6/2025",
+    "mo_ref": "MO 182 / 28 feb 2025",
+    "rezumat": "Plafonarea prețului la energia electrică a încetat la 1 iul 2025",
+    "status": "in_vigoare",
+    "publicat_la": "2025-02-28",
+    "in_vigoare_de_la": "2025-07-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": ["consumator_energie"],
+    "conditii": [],
+    "formula": "energie_plafon",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Plafonul a acoperit 1 apr–30 iun 2025 și a încetat la 1 iul 2025; de atunci factura urmează prețul pieței.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 1 alin. (1) lit. a)",
+    "sursa_url": "https://legislatie.just.ro/public/DetaliiDocument/295106",
+    "sursa_explicativa": "https://economedia.ro/plafonarea-preturilor-la-energiei-electrica-inceteaza-de-la-1-iulie-recomandarile-anre.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "pilon2_plata",
+    "act": "Legea 2/2026",
+    "mo_ref": "MO 2 / 5 ian 2026",
+    "rezumat": "Pilon II se plătește altfel: până la 30% o dată, restul eșalonat sau rentă viageră",
+    "status": "adoptat",
+    "publicat_la": "2026-01-05",
+    "in_vigoare_de_la": "2027-01-05",
+    "expira_la": null,
+    "termen_actiune": "2027-01-05",
+    "directie": "termen",
+    "taguri": ["pilon2"],
+    "conditii": [],
+    "formula": "pilon2_plata",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Legea nouă schimbă felul în care primești banii din Pilon II: doar o parte deodată, restul în rate. Azi nu pierzi nimic, dar pensia privată se planifică altfel.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Decide cum vrei plata: 30% o dată, restul eșalonat",
+        "termen": "2027-01-05",
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": "consultant pensii",
+    "articol": "art. 55 alin. (1) (max 30%); art. 113 (intrare în vigoare la un an de la publicare)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/306255",
+    "sursa_explicativa": "https://romania.europalibera.org/a/guvernul-a-modificat-legea-pensiilor-private-se-pot-lua-30-din-suma-acumulata-intr-o-singura-transa-esalonare-apoi-pe-opt-ani/33509248.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "pilon3_deducere",
+    "act": "Codul fiscal (Legea 227/2015)",
+    "mo_ref": "MO 688 / 10 sep 2015 (text de bază)",
+    "rezumat": "Deducere Pilon III până la 400 EUR/an",
+    "status": "in_vigoare",
+    "publicat_la": "2015-09-08",
+    "in_vigoare_de_la": "2016-01-01",
+    "expira_la": null,
+    "termen_actiune": "2026-12-31",
+    "directie": "castig",
+    "taguri": ["pilon3", "angajat", "pfa"],
+    "conditii": [],
+    "formula": "pilon3_deducere",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Contribuțiile la Pilon III sunt deductibile până la 400 EUR pe an. Economia estimată este de circa 200 lei pe an.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Alimentează Pilon III până la plafonul deductibil de 400 EUR/an",
+        "termen": "2026-12-31",
+        "formula_economie": "pilon3_economie",
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 78 (salariați); art. 68 (PFA); articol de confirmat în text",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/171282",
+    "sursa_explicativa": "https://www.fiscalitatea.ro/pilonul-iii-de-pensii-facultative-deductibilitate-fiscala-si-inregistrari-contabile-25028/",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "micro_1",
+    "act": "OUG 89/2025",
+    "mo_ref": "MO 1203 / 24 dec 2025",
+    "rezumat": "Microîntreprindere: cotă unică 1% din 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-24",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": ["micro", "srl_dividende"],
+    "conditii": [],
+    "formula": "micro_1",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Cotă unică de 1% pentru microîntreprinderi (cota de 3% eliminată). Plafonul de 100.000 EUR și condiția de un angajat: de verificat.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Verifică cifra de afaceri a SRL-ului față de noul prag",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": "contabil",
+    "articol": "art. I pct. 4 (Codul fiscal art. 51 alin. 1); art. II pct. 1",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
+    "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "gaz_plafon",
+    "act": "OUG 12/2026",
+    "mo_ref": "MO 178 / 9 mar 2026",
+    "rezumat": "Plafonarea prețului la gaz pentru casnici expiră la 31 mar 2027",
+    "status": "in_vigoare",
+    "publicat_la": "2026-03-09",
+    "in_vigoare_de_la": "2026-04-01",
+    "expira_la": "2027-03-31",
+    "termen_actiune": "2027-03-31",
+    "directie": "cost",
+    "taguri": ["consumator_gaz"],
+    "conditii": [],
+    "formula": "gaz_plafon",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Până la 31 martie 2027 prețul la gaz e plafonat. De la 1 aprilie 2027 factura urmează prețul pieței.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix",
+        "termen": "2027-03-31",
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 1 alin. (1)-(2); art. 3; art. 6 alin. (1). Actul folosește o formulă de preț; 0,31 lei/kWh este cifra din presă.",
+    "sursa_url": "https://legislatie.just.ro/public/DetaliiDocument/308129",
+    "sursa_explicativa": "https://infocons.ro/pretul-gazelor-naturale-pentru-consumatorii-casnici-ce-se-schimba-de-la-1-aprilie-2026-si-ce-trebuie-sa-stii-infocons-te-informeaza/",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "it_scutire",
+    "act": "OUG 156/2024",
+    "mo_ref": "MO 1334 / 31 dec 2024",
+    "rezumat": "Scutirea de impozit pe venit din IT a fost eliminată",
+    "status": "in_vigoare",
+    "publicat_la": "2024-12-30",
+    "in_vigoare_de_la": "2025-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": ["it"],
+    "conditii": [],
+    "formula": "it_scutire",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Venitul brut până la 10.000 lei nu mai e scutit de impozit; netul a scăzut.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Verifică dacă angajatorul a compensat prin brut; cere o simulare la HR",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/293109",
+    "sursa_explicativa": "https://assets.kpmg.com/content/dam/kpmg/ro/pdf/2025/TNF_OUG_156_2024_Ordonanta_trenulet_dec_2024.pdf",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "constructii_facilitati",
+    "act": "OUG 156/2024",
+    "mo_ref": "MO 1334 / 31 dec 2024",
+    "rezumat": "Facilitățile fiscale din construcții, agricultură și industria alimentară au fost eliminate",
+    "status": "in_vigoare",
+    "publicat_la": "2024-12-30",
+    "in_vigoare_de_la": "2025-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": ["constructii", "agricultura"],
+    "conditii": [],
+    "formula": "constructii_facilitati",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Facilitățile fiscale pentru salariații din construcții și agricultură au fost eliminate; netul a scăzut.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Cere angajatorului o simulare a salariului net actual",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 5 și 7)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/293109",
+    "sursa_explicativa": "https://startupcafe.ro/ordonanta-trenulet-1562024-publicat-monitorul-oficial-salariul-minim-net-constructii-scade-30009",
+    "incredere": "scazuta",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "horeca_tva_11",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "TVA 11% la serviciile HoReCa",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": ["horeca"],
+    "conditii": [],
+    "formula": "horeca_tva_11",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Serviciile HoReCa au cota redusă unică de TVA de 11% din 1 august 2025. Prețurile de listă și casa de marcat trebuie aliniate.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Actualizează prețurile de listă și casa de marcat la 11%",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": "contabil",
+    "articol": "art. II pct. 42 (Codul fiscal art. 291 alin. 2)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.capital.ro/schimbari-la-tva-accize-concedii-medicale-si-cass-intra-in-vigoare-de-astazi-1-august.html",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "impozit_cladiri_2026",
+    "act": "Legea 239/2025 (modificată prin OUG 78/2025)",
+    "mo_ref": "MO 1160 / 15 dec 2025; OUG 78: MO 1172 / 17 dec 2025",
+    "rezumat": "Impozitul pe clădiri: valoarea impozabilă crește din 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-15",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": "2027-03-31",
+    "directie": "cost",
+    "taguri": ["proprietar"],
+    "conditii": [],
+    "formula": "impozit_cladiri",
+    "estimare": true,
+    "niveluri": {
+      "zero": "Baza de calcul a impozitului pe clădiri crește de la 1 ianuarie 2026, deci plătești mai mult la primărie.",
+      "curios": "TODO",
+      "expert": "TODO"
+    },
+    "actiuni": [
+      {
+        "text": "Verifică decizia de impunere 2026 la primărie; plata integrală până la 31 mar 2027 aduce bonificație 10%",
+        "termen": "2027-03-31",
+        "formula_economie": "cladiri_bonificatie",
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "articol de confirmat; OUG 78/2025 art. I pct. 6-7",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305208",
+    "sursa_explicativa": "https://adevarul.ro/economie/statul-face-un-pas-inapoi-impozitul-pe-valoarea-2495086.html",
+    "incredere": "scazuta",
+    "verificat_la": "2026-10-28"
+  }
+]
