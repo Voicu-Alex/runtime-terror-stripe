@@ -82,8 +82,11 @@ export function potriveste(profil: Profil, catalog: Schimbare[], azi = aziISO())
   const rezultate: Potrivire[] = [];
   const profilTaguri = new Set<TagId>(profil.taguri);
   const valori = valoriPentruConditii(profil.valori, azi);
+  const inlocuite = inlocuiteLa(catalog, azi);
 
   for (const s of catalog) {
+    // Legea cea mai nouă câștigă: un act înlocuit de altul deja publicat nu mai apare.
+    if (inlocuite.has(s.id)) continue;
     const comune = s.taguri.filter((t) => profilTaguri.has(t));
     if (comune.length === 0) continue;
 
@@ -120,6 +123,13 @@ export function potriveste(profil: Profil, catalog: Schimbare[], azi = aziISO())
   }
 
   return rezultate.sort((a, b) => a.schimbare.in_vigoare_de_la.localeCompare(b.schimbare.in_vigoare_de_la));
+}
+
+/** Id-urile înlocuite de un act publicat până la data dată (un proiect nepublicat nu înlocuiește nimic). */
+export function inlocuiteLa(catalog: Schimbare[], azi: string): Set<string> {
+  const set = new Set<string>();
+  for (const s of catalog) if (s.publicat_la <= azi) for (const id of s.inlocuieste ?? []) set.add(id);
+  return set;
 }
 
 /** Suma pe lună a schimbărilor cu impact calculabil, fără și cu acțiunile bifate. */

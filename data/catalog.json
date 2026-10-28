@@ -96,7 +96,10 @@
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
     "sursa_explicativa": "https://alba24.ro/document-masurile-fiscale-care-intra-in-vigoare-din-1-august-2025-doua-cote-tva-cass-pentru-pensii-mari-si-alte-prevederi-1092463.html",
     "incredere": "ridicata",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OG 22/2025", "mo_ref": "TODO", "data": null, "ce": "modifică art. VII alin. (1) lit. e) din Legea 141/2025: CASS se aplică veniturilor din pensii începând cu august 2025", "sursa_url": "TODO"}
+    ]
   },
   {
     "id": "energie_plafon",
@@ -238,7 +241,10 @@
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
     "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
     "incredere": "medie",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OUG 8/2026", "mo_ref": "MO 147 / 25 feb 2026", "data": "2026-02-25", "ce": "rescrie art. 47 alin. (1) lit. c) din Codul fiscal (plafonul de 100.000 euro) și dă 90 de zile unei firme noi pentru primul salariat", "sursa_url": "https://static.anaf.ro/static/10/Galati/micro.pdf"}
+    ]
   },
   {
     "id": "gaz_plafon",
@@ -273,7 +279,10 @@
     "sursa_url": "https://legislatie.just.ro/public/DetaliiDocument/308129",
     "sursa_explicativa": "https://infocons.ro/pretul-gazelor-naturale-pentru-consumatorii-casnici-ce-se-schimba-de-la-1-aprilie-2026-si-ce-trebuie-sa-stii-infocons-te-informeaza/",
     "incredere": "ridicata",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OUG 19/2026", "mo_ref": "MO 237 / 26 mar 2026", "data": "2026-03-26", "ce": "producătorii de energie termică pentru populație beneficiază doar pentru consumul dintre 1 noiembrie 2026 și 31 martie 2027", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/308479"}
+    ]
   },
   {
     "id": "it_scutire",
@@ -448,7 +457,10 @@
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212",
     "sursa_explicativa": "https://stirileprotv.ro/divers/alocatia-pentru-copii-2026-cine-are-dreptul-valoarea-si-pasii-pentru-a-o-solicita.html",
     "incredere": "medie",
-    "verificat_la": "2026-10-28"
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {"act": "OUG 126/2021", "mo_ref": "MO 1189 / 15 dec 2021", "data": "2021-12-15", "ce": "art. 3: 243 lei pe lună între 2 și 18 ani din ianuarie 2022 (600 lei sub 2 ani sau cu handicap), indexat anual din 2023", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212"}
+    ]
   },
   {
     "id": "alocatie_sustinere_familie",

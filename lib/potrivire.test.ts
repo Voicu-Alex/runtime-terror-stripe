@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CATALOG, valideazaCatalog, CatalogInvalid, type Schimbare } from "./catalog";
+import { actualizatLa, CATALOG, valideazaCatalog, CatalogInvalid, type Schimbare } from "./catalog";
 import { evalueazaConditia, momentul, planulMeu, potriveste } from "./potrivire";
 import { adaugaInProfil, normalizeaza, PROFIL_GOL, type Profil } from "./profil";
 import { TOATE_TAGURILE } from "./taguri";
@@ -157,5 +157,42 @@ describe("profil", () => {
     const p = normalizeaza({ taguri: ["angajat", "altceva", "angajat"], valori: { salariu_net: "7000", dividende_anuale: 1000 } });
     expect(p).toEqual({ taguri: ["angajat"], valori: { dividende_anuale: 1000 } });
     expect(normalizeaza(null)).toEqual(PROFIL_GOL);
+  });
+});
+
+describe("forma la zi", () => {
+  const baza = CATALOG.find((s) => s.id === "gaz_plafon")!;
+  const vechi: Schimbare = { ...baza, id: "vechi", publicat_la: "2025-02-28", in_vigoare_de_la: "2025-04-01", modificat_prin: undefined, inlocuieste: undefined };
+  const nou: Schimbare = { ...baza, id: "nou", publicat_la: "2026-03-09", in_vigoare_de_la: "2026-04-01", inlocuieste: ["vechi"] };
+  const p = profil({ taguri: ["consumator_gaz"] });
+
+  it("actul înlocuit dispare din flux după publicarea celui nou", () => {
+    const ids = potriveste(p, [vechi, nou], "2026-10-28").map((x) => x.schimbare.id);
+    expect(ids).toEqual(["nou"]);
+  });
+
+  it("până la publicarea celui nou, cel vechi rămâne (iar cel nou apare ca „urmează”)", () => {
+    const r = potriveste(p, [vechi, nou], "2026-03-01");
+    expect(r.map((x) => x.schimbare.id)).toEqual(["vechi", "nou"]);
+    expect(r[1].moment).toBe("urmeaza");
+  });
+
+  it("data formei la zi e ultima modificare cu dată cunoscută, altfel publicarea", () => {
+    expect(actualizatLa(baza)).toBe("2026-03-26"); // OUG 19/2026
+    expect(actualizatLa(vechi)).toBe("2025-02-28");
+    const faraData: Schimbare = { ...vechi, modificat_prin: [{ act: "OG x", mo_ref: "TODO", data: null, ce: "", sursa_url: "TODO" }] };
+    expect(actualizatLa(faraData)).toBe("2025-02-28");
+  });
+
+  it("respinge o intrare care înlocuiește un id inexistent", () => {
+    expect(() => valideazaCatalog([{ ...baza, inlocuieste: ["nu_exista"] }])).toThrow(CatalogInvalid);
+  });
+
+  it("fiecare modificare din catalog are act și o sursă sau TODO", () => {
+    for (const s of CATALOG)
+      for (const m of s.modificat_prin ?? []) {
+        expect(m.act.length).toBeGreaterThan(3);
+        expect(m.sursa_url === "TODO" || m.sursa_url.startsWith("https://")).toBe(true);
+      }
   });
 });
