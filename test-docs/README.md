@@ -7,10 +7,14 @@ Toate sunt **fictive**, generate cu un script (text randat ca imagine). Numele, 
 | `contract-munca.pdf` | contract de muncă la o firmă de software (CAEN 6201), programator, 12.000 lei brut | `angajat`, `it` | `salariu_brut: 12000` | CNP-ul și IBAN-ul din document **nu** apar în răspuns (sau apar mascate `[CNP]`, `[IBAN]`) |
 | `factura-gaz.pdf` | factură Engie, client casnic, gaze naturale, total 553,44 lei | `consumator_gaz` | `furnizor: Engie`, `suma_factura: 553.44` | nu propune `consumator_energie` (nu e factură de curent) |
 | `fluturas-salariu.png` | fluturaș la o firmă de construcții (CAEN 4120), zidar, 6.500 brut, 3.802 net, Pilon II în CAS, Pilon III 100 lei | `angajat`, `constructii`, `pilon2`, `pilon3` | `salariu_brut: 6500`, `salariu_net: 3802` | `pilon2` poate veni cu încredere mai mică; e în regulă |
+| `cupon-pensie.png` | talon de pensie pentru limită de vârstă, 4.200 lei brut, născut în 1958 | `pensionar` | `pensie_lunara: 4200`, `an_nastere: 1958` | data completă a nașterii **nu** apare în răspuns, doar anul. În flux: CASS pe pensia peste 3.000 → −120 lei/lună |
+| `factura-curent.pdf` | factură Hidroelectrica de energie electrică, client casnic, adresă la sat, total 302,74 lei | `consumator_energie`, `rural` | `furnizor: Hidroelectrica`, `suma_factura: 302.74` | nu propune `consumator_gaz` |
+| `contract-inchiriere.pdf` | contract de închiriere pe 12 luni, chiriașa e studentă, chirie 2.000 lei | `chirias`, `elev_student` | `chirie_lunara: 2000` (nu intră în profil) | nu propune `proprietar` (persoana e chiriașul, nu proprietarul) |
+| `hotarare-dividende.pdf` | hotărârea asociatului unic al unui SRL micro: 24.000 lei dividende din profitul 2025 | `srl_dividende`, `micro` | `dividende_anuale: 24000` | în flux: dividende 16% → −120 lei/lună |
 
 ## Două moduri
 
-- **Demo** (fără `ANTHROPIC_API_KEY`): ruta întoarce răspunsuri pregătite din `lib/demo-analiza.ts`, potrivite după numele fișierului. Merg doar aceste 3 fișiere. Răspunsul are `mod: "demo"` și UI-ul arată eticheta „Mod demo”.
+- **Demo** (fără `ANTHROPIC_API_KEY`): ruta întoarce răspunsuri pregătite din `lib/demo-analiza.ts`, potrivite după numele fișierului. Merg doar aceste 7 fișiere. Răspunsul are `mod: "demo"` și UI-ul arată eticheta „Mod demo”.
 - **Claude** (cu cheia în `.env.local`): aceeași rută trimite documentul la model. Merge orice document.
 
 ## Cum rulezi verificarea

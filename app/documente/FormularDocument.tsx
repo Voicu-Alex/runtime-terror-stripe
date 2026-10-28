@@ -13,6 +13,13 @@ const NUME_TIP: Record<TipDocument, string> = {
   altul: "alt document",
 };
 
+/** valori citite din document care nu intră în profil, dar le arătăm */
+const ETICHETE_ALTELE: Record<string, string> = {
+  furnizor: "furnizor",
+  suma_factura: "total factură",
+  chirie_lunara: "chiria pe lună",
+};
+
 type Stare =
   | { pas: "alegere" }
   | { pas: "analiza" }
@@ -213,7 +220,7 @@ function Confirmare({
             ))}
             {altele.map(([k, v]) => (
               <div key={k} className="flex items-center justify-between gap-2 rounded-lg border border-stone-200 px-3 py-2 text-sm">
-                <dt className="text-stone-600">{k === "furnizor" ? "furnizor" : k === "suma_factura" ? "total factură" : k}</dt>
+                <dt className="text-stone-600">{ETICHETE_ALTELE[k] ?? k}</dt>
                 <dd>{typeof v === "number" ? `${v} lei` : v}</dd>
               </div>
             ))}

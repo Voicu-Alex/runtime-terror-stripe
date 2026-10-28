@@ -15,6 +15,10 @@ const ASTEPTARI = [
   { fisier: "contract-munca.pdf", tip: "application/pdf", taguri: ["angajat", "it"], valori: { salariu_brut: 12000 }, interzise: ["1990101123456", "RO00TEST0000000000000000"] },
   { fisier: "factura-gaz.pdf", tip: "application/pdf", taguri: ["consumator_gaz"], valori: { suma_factura: 553.44 }, nu: ["consumator_energie"] },
   { fisier: "fluturas-salariu.png", tip: "image/png", taguri: ["angajat", "constructii", "pilon3"], valori: { salariu_brut: 6500, salariu_net: 3802 } },
+  { fisier: "cupon-pensie.png", tip: "image/png", taguri: ["pensionar"], valori: { pensie_lunara: 4200, an_nastere: 1958 }, interzise: ["14.03.1958"] },
+  { fisier: "factura-curent.pdf", tip: "application/pdf", taguri: ["consumator_energie", "rural"], valori: { suma_factura: 302.74 }, nu: ["consumator_gaz"] },
+  { fisier: "contract-inchiriere.pdf", tip: "application/pdf", taguri: ["chirias", "elev_student"], valori: { chirie_lunara: 2000 }, nu: ["proprietar"] },
+  { fisier: "hotarare-dividende.pdf", tip: "application/pdf", taguri: ["srl_dividende", "micro"], valori: { dividende_anuale: 24000 } },
 ];
 
 let esecuri = 0;
