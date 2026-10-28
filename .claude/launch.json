@@ -1,0 +1,39 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mockup",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--directory",
+        "mockup"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "descriere",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766"
+      ],
+      "port": 8766
+    },
+    {
+      "name": "mockup-v2",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8767",
+        "--directory",
+        "C:/Users/andre/projects/runtime-terror-stripe-andrei/mockup"
+      ],
+      "port": 8767
+    }
+  ]
+}
