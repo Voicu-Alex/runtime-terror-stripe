@@ -146,8 +146,13 @@ function Confirmare({
           </h2>
           <p className="mt-1 text-sm text-stone-600">{analiza.explicatie_scurta}</p>
         </div>
-        <span className="shrink-0 rounded-full border border-stone-300 px-2 py-0.5 text-xs text-stone-600">
-          Analiză generată cu AI, verifică etichetele
+        <span className="flex shrink-0 flex-col items-end gap-1 text-xs">
+          <span className="rounded-full border border-stone-300 px-2 py-0.5 text-stone-600">Analiză generată cu AI, verifică etichetele</span>
+          {analiza.mod === "demo" ? (
+            <span className="rounded-full border border-amber-400 bg-amber-50 px-2 py-0.5 text-amber-800" title="Răspuns pregătit, fără apel la model. Pune ANTHROPIC_API_KEY în .env.local pentru analiză reală.">
+              Mod demo
+            </span>
+          ) : null}
         </span>
       </div>
 

@@ -19,6 +19,8 @@ export type ValoriExtrase = Valori & {
 };
 
 export type AnalizaDocument = {
+  /** „claude” = analiză reală; „demo” = răspuns pregătit, fără apel la model */
+  mod: "claude" | "demo";
   tip_document: TipDocument;
   etichete_propuse: EtichetaPropusa[];
   valori: ValoriExtrase;

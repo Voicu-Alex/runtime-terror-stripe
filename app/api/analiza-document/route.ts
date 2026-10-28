@@ -8,6 +8,7 @@ import {
   TIPURI_FISIER_ACCEPTATE,
   type AnalizaDocument,
 } from "@/lib/analiza-document";
+import { raspunsDemo } from "@/lib/demo-analiza";
 import { esteTag } from "@/lib/taguri";
 
 export const runtime = "nodejs";
@@ -17,10 +18,6 @@ export const runtime = "nodejs";
  * Pe server nu se scrie nimic: fără log cu conținutul, fără stocare. Cheia stă în .env.local.
  */
 export async function POST(req: Request) {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return NextResponse.json({ eroare: "Lipsește ANTHROPIC_API_KEY în .env.local." }, { status: 503 });
-  }
-
   let fisier: File | null = null;
   try {
     const form = await req.formData();
@@ -37,6 +34,19 @@ export async function POST(req: Request) {
   }
   if (fisier.size > MARIME_MAXIMA) {
     return NextResponse.json({ eroare: "Fișierul are peste 10 MB." }, { status: 413 });
+  }
+
+  // Mod demo: fără cheie, răspunsuri pregătite pentru documentele din test-docs/.
+  if (!process.env.ANTHROPIC_API_KEY) {
+    const demo = raspunsDemo(fisier.name);
+    if (demo) return NextResponse.json(demo, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json(
+      {
+        eroare:
+          "Mod demo (fără ANTHROPIC_API_KEY): merg doar documentele din test-docs/ (contract-munca.pdf, factura-gaz.pdf, fluturas-salariu.png). Pentru orice document, pune cheia în .env.local.",
+      },
+      { status: 503 },
+    );
   }
 
   const data = Buffer.from(await fisier.arrayBuffer()).toString("base64");
@@ -78,6 +88,7 @@ export async function POST(req: Request) {
     const brut = tool.input as AnalizaDocument;
     // Apărare în adâncime: păstrăm doar etichete din taxonomie și mascăm CNP/IBAN din orice text.
     const curat: AnalizaDocument = mascheaza({
+      mod: "claude",
       tip_document: brut.tip_document ?? "altul",
       etichete_propuse: (brut.etichete_propuse ?? []).filter((e) => esteTag(e.tag)),
       valori: brut.valori ?? {},
