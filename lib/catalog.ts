@@ -45,6 +45,8 @@ export type Schimbare = {
   act: string;
   mo_ref: string;
   rezumat: string;
+  /** titlul în engleză, scris de noi (lib/i18n.ts); textele legii rămân în română */
+  rezumat_en?: string;
   status: Status;
   publicat_la: string; // ISO
   in_vigoare_de_la: string; // ISO

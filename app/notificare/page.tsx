@@ -1,3 +1,4 @@
+import { T } from "@/components/Limba";
 import { Notificare } from "@/components/Notificare";
 import { NotificareMea } from "@/components/NotificareMea";
 import { CATALOG } from "@/lib/catalog";
@@ -16,7 +17,9 @@ export default async function PaginaNotificare({ searchParams }: { searchParams:
 
   return (
     <div>
-      <h1 className="m-0 font-head text-2xl font-extrabold tracking-[-.015em] text-v3-ink">Ce înseamnă pentru tine azi</h1>
+      <h1 className="m-0 font-head text-2xl font-extrabold tracking-[-.015em] text-v3-ink">
+        <T k="Ce înseamnă pentru tine azi" />
+      </h1>
       {demo ? <NotificareDemo id={p!} /> : <NotificareMea />}
     </div>
   );
@@ -29,10 +32,16 @@ function NotificareDemo({ id }: { id: string }) {
   return (
     <>
       <p className="mt-1 mb-4 text-sm text-v3-ink-2">
-        Profil demo: <b className="text-v3-ink">{persoana.nume}</b> · {potriviri.length} acte; ăsta e cel cu termenul cel mai aproape sau cu
-        suma cea mai mare.
+        <T k="Profil demo:" /> <b className="text-v3-ink">{persoana.nume}</b> · {potriviri.length}{" "}
+        <T k="acte; ăsta e cel cu termenul cel mai aproape sau cu suma cea mai mare." />
       </p>
-      {aleasa ? <Notificare p={aleasa} valori={persoana.profil.valori} baza={`/flux?p=${id}`} /> : <p>Nimic de arătat.</p>}
+      {aleasa ? (
+        <Notificare p={aleasa} valori={persoana.profil.valori} baza={`/flux?p=${id}`} />
+      ) : (
+        <p>
+          <T k="Nimic de arătat." />
+        </p>
+      )}
     </>
   );
 }

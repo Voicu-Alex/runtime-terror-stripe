@@ -18,7 +18,9 @@ import {
   type Valori,
 } from "@/lib/profil";
 import { aziISO, potriveste } from "@/lib/potrivire";
-import { etichetaTag, FAMILII, tagurileFamiliei, TAGURI, type Familie, type TagId } from "@/lib/taguri";
+import { FAMILII, tagurileFamiliei, TAGURI, type Familie, type TagId } from "@/lib/taguri";
+import { useLimba } from "@/components/Limba";
+import { campL, etichetaTagL, familieL } from "@/lib/i18n";
 
 /**
  * Profilul se completează din documente: încarci, Claude citește, etichetele și cifrele intră
@@ -52,12 +54,15 @@ export function FormularProfil() {
   const [stare, setStare] = useState<Stare>({ pas: "liber" });
   const [citiri, setCitiri] = useState<Citire[]>([]);
   const [manual, setManual] = useState(false);
+  const { t, limba } = useLimba();
+  const eticheta = (x: TagId) => etichetaTagL(limba, x);
+  const camp = (c: CampValoare) => campL(limba, c, CAMPURI_VALORI[c].eticheta);
 
   useEffect(() => setProfil(incarcaProfil()), []);
 
   const nrActe = useMemo(() => (profil ? potriveste(profil, CATALOG, aziISO()).length : 0), [profil]);
 
-  if (profil === null) return <p className="text-sm text-v3-ink-2">Se încarcă profilul de pe dispozitiv…</p>;
+  if (profil === null) return <p className="text-sm text-v3-ink-2">{t("Se încarcă profilul de pe dispozitiv…")}</p>;
 
   function pune(nou: Profil) {
     salveazaProfil(nou);
@@ -69,11 +74,11 @@ export function FormularProfil() {
     let curent = profil!;
     for (const f of Array.from(fisiere)) {
       if (!TIPURI_FISIER_ACCEPTATE.includes(f.type as (typeof TIPURI_FISIER_ACCEPTATE)[number])) {
-        setStare({ pas: "eroare", mesaj: `${f.name}: acceptăm doar PDF, JPG sau PNG.` });
+        setStare({ pas: "eroare", mesaj: `${f.name}: ${t("acceptăm doar PDF, JPG sau PNG.")}` });
         continue;
       }
       if (f.size > MARIME_MAXIMA) {
-        setStare({ pas: "eroare", mesaj: `${f.name}: peste 10 MB.` });
+        setStare({ pas: "eroare", mesaj: `${f.name}: ${t("peste 10 MB.")}` });
         continue;
       }
       setStare({ pas: "analiza", fisier: f.name });
@@ -106,7 +111,7 @@ export function FormularProfil() {
         ]);
         setStare({ pas: "liber" });
       } catch (e) {
-        setStare({ pas: "eroare", mesaj: `${f.name}: ${e instanceof Error ? e.message : "eroare la analiză"}` });
+        setStare({ pas: "eroare", mesaj: `${f.name}: ${e instanceof Error ? e.message : t("eroare la analiză")}` });
       }
     }
   }
@@ -135,11 +140,10 @@ export function FormularProfil() {
         }`}
       >
         <span className="block text-[17px] font-bold text-v3-ink">
-          {stare.pas === "analiza" ? `Claude citește ${stare.fisier}…` : gol ? "Încarcă un document și profilul se completează singur" : "Mai adaugă un document"}
+          {stare.pas === "analiza" ? `${t("Claude citește")} ${stare.fisier}…` : gol ? t("Încarcă un document și profilul se completează singur") : t("Mai adaugă un document")}
         </span>
         <span className="mt-1 block text-sm text-v3-ink-2">
-          Contract de muncă, fluturaș de salariu, cupon de pensie, factură de curent sau gaz, contract de chirie, hotărâre de dividende.
-          PDF, JPG sau PNG, maximum 10 MB. Poți alege mai multe deodată.
+          {t("Contract de muncă, fluturaș de salariu, cupon de pensie, factură de curent sau gaz, contract de chirie, hotărâre de dividende. PDF, JPG sau PNG, maximum 10 MB. Poți alege mai multe deodată.")}
         </span>
         <input
           type="file"
@@ -154,7 +158,7 @@ export function FormularProfil() {
         />
       </label>
       <p className="-mt-3 text-[12.5px] text-v3-ink-2">
-        Documentul e trimis o dată pentru citire și nu îl păstrăm. Acoperă CNP-ul și IBAN-ul înainte, nu avem nevoie de ele.
+        {t("Documentul e trimis o dată pentru citire și nu îl păstrăm. Acoperă CNP-ul și IBAN-ul înainte, nu avem nevoie de ele.")}
       </p>
 
       {stare.pas === "eroare" && (
@@ -169,31 +173,29 @@ export function FormularProfil() {
           {citiri.map((c, i) => (
             <li key={`${c.fisier}-${i}`} className="rounded-[10px] border border-v3-line bg-white p-3 text-sm">
               <p className="m-0 flex flex-wrap items-center gap-x-2 gap-y-1">
-                <b className="text-v3-ink">Am citit {NUME_TIP[c.tip] ?? "documentul"}</b>
+                <b className="text-v3-ink">{t("Am citit")} {t(NUME_TIP[c.tip] ?? "documentul")}</b>
                 <span className="text-v3-ink-2">({c.fisier})</span>
-                <span className="rounded-full border border-v3-line px-2 py-px text-[11.5px] text-v3-ink-2">generat cu AI</span>
+                <span className="rounded-full border border-v3-line px-2 py-px text-[11.5px] text-v3-ink-2">{t("generat cu AI")}</span>
                 {c.mod === "demo" && (
                   <span className="rounded-full border border-amber-400 bg-amber-50 px-2 py-px text-[11.5px] text-amber-800" title="Răspuns pregătit, fără apel la model. Pune ANTHROPIC_API_KEY în .env.local pentru citire reală.">
-                    mod demo
+                    {t("mod demo")}
                   </span>
                 )}
               </p>
               <p className="mt-1 mb-0 text-v3-ink-2">
                 {c.adaugate.length > 0 || c.valori.length > 0 ? (
                   <>
-                    În profil au intrat:{" "}
-                    <b className="text-v3-ink">
-                      {[...c.adaugate.map(etichetaTag), ...c.valori.map((k) => CAMPURI_VALORI[k].eticheta)].join(", ")}
-                    </b>
+                    {t("În profil au intrat:")}{" "}
+                    <b className="text-v3-ink">{[...c.adaugate.map(eticheta), ...c.valori.map(camp)].join(", ")}</b>
                     .
                   </>
                 ) : (
-                  "Nimic nou față de ce aveai."
+                  t("Nimic nou față de ce aveai.")
                 )}
               </p>
               {c.propuse.length > 0 && (
                 <p className="mt-1.5 mb-0 flex flex-wrap items-center gap-1.5 text-v3-ink-2">
-                  Nesigur, bifezi tu dacă e cazul:
+                  {t("Nesigur, bifezi tu dacă e cazul:")}
                   {c.propuse.map((e) => {
                     const are = profil.taguri.includes(e.tag);
                     return (
@@ -206,7 +208,7 @@ export function FormularProfil() {
                         className={`min-h-8 rounded-lg border px-2.5 text-[13px] font-semibold ${are ? "border-v3-ink bg-v3-ink text-white" : "border-v3-line bg-white text-v3-ink"}`}
                       >
                         {are ? "✓ " : "+ "}
-                        {etichetaTag(e.tag)}
+                        {eticheta(e.tag)}
                       </button>
                     );
                   })}
@@ -219,18 +221,18 @@ export function FormularProfil() {
 
       {/* 3. Profilul, așa cum e acum: etichetele cu × și cifrele editabile */}
       <section className="rounded-[10px] border border-v3-line bg-white p-4">
-        <h2 className="m-0 text-[13px] font-extrabold tracking-[.08em] text-v3-ink uppercase">Profilul tău</h2>
+        <h2 className="m-0 text-[13px] font-extrabold tracking-[.08em] text-v3-ink uppercase">{t("Profilul tău")}</h2>
         {gol ? (
-          <p className="mt-2 mb-0 text-[15px] text-v3-ink-2">Gol deocamdată. Încarcă un document sau bifează manual mai jos.</p>
+          <p className="mt-2 mb-0 text-[15px] text-v3-ink-2">{t("Gol deocamdată. Încarcă un document sau bifează manual mai jos.")}</p>
         ) : (
           <>
             {profil.taguri.length > 0 && (
               <ul className="mt-2 mb-0 flex list-none flex-wrap gap-2 p-0">
-                {profil.taguri.map((t) => (
-                  <li key={t} className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-v3-line bg-v3-accent-soft pl-3 text-sm font-semibold text-v3-ink">
-                    <span className="text-[11px] font-bold tracking-[.06em] text-v3-ink-2 uppercase">{FAMILII[TAGURI[t].familie]}</span>
-                    {etichetaTag(t)}
-                    <button type="button" onClick={() => comuta(t)} aria-label={`Scoate ${etichetaTag(t)}`} className="min-h-9 px-2.5 text-v3-ink-2 hover:text-v3-neg">
+                {profil.taguri.map((tag) => (
+                  <li key={tag} className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-v3-line bg-v3-accent-soft pl-3 text-sm font-semibold text-v3-ink">
+                    <span className="text-[11px] font-bold tracking-[.06em] text-v3-ink-2 uppercase">{familieL(limba, TAGURI[tag].familie)}</span>
+                    {eticheta(tag)}
+                    <button type="button" onClick={() => comuta(tag)} aria-label={`${t("Scoate")} ${eticheta(tag)}`} className="min-h-9 px-2.5 text-v3-ink-2 hover:text-v3-neg">
                       ×
                     </button>
                   </li>
@@ -241,17 +243,17 @@ export function FormularProfil() {
               <dl className="mt-3 mb-0 grid gap-2 sm:grid-cols-2">
                 {(Object.keys(profil.valori) as CampValoare[]).map((c) => (
                   <div key={c} className="flex items-center justify-between gap-2 rounded-lg border border-v3-line px-3 py-1.5 text-sm">
-                    <dt className="text-v3-ink-2">{CAMPURI_VALORI[c].eticheta}</dt>
+                    <dt className="text-v3-ink-2">{camp(c)}</dt>
                     <dd className="m-0 flex items-center gap-1">
                       <input
                         type="text"
                         inputMode="numeric"
-                        aria-label={CAMPURI_VALORI[c].eticheta}
+                        aria-label={camp(c)}
                         value={profil.valori[c] ?? ""}
                         onChange={(e) => schimbaValoare(c, e.target.value)}
                         className="w-24 rounded border border-v3-line px-2 py-1 text-right font-semibold tabular-nums"
                       />
-                      <span className="text-v3-ink-2">{CAMPURI_VALORI[c].unitate}</span>
+                      <span className="text-v3-ink-2">{t(CAMPURI_VALORI[c].unitate)}</span>
                     </dd>
                   </div>
                 ))}
@@ -261,7 +263,7 @@ export function FormularProfil() {
         )}
         {campuriLipsa.length > 0 && (
           <label className="mt-3 block text-sm text-v3-ink-2">
-            Adaugă o cifră pe care documentele nu o au:{" "}
+            {t("Adaugă o cifră pe care documentele nu o au:")}{" "}
             <select
               className="min-h-9 rounded-lg border border-v3-line bg-white px-2 text-v3-ink"
               value=""
@@ -270,10 +272,10 @@ export function FormularProfil() {
                 if (c) pune({ ...profil, valori: { ...profil.valori, [c]: 0 } });
               }}
             >
-              <option value="">alege…</option>
+              <option value="">{t("alege…")}</option>
               {campuriLipsa.map((c) => (
                 <option key={c} value={c}>
-                  {CAMPURI_VALORI[c].eticheta}
+                  {camp(c)}
                 </option>
               ))}
             </select>
@@ -289,25 +291,25 @@ export function FormularProfil() {
           onClick={() => setManual(!manual)}
           className="min-h-11 text-sm font-semibold text-v3-ink underline decoration-v3-line underline-offset-2"
         >
-          {manual ? "Ascunde bifatul manual" : "Nu ai documentul la îndemână? Bifează manual"}
+          {manual ? t("Ascunde bifatul manual") : t("Nu ai documentul la îndemână? Bifează manual")}
         </button>
         {manual && (
           <div className="mt-3 space-y-4">
             {(Object.keys(FAMILII) as Familie[]).map((f) => (
               <fieldset key={f} className="m-0 border-0 p-0">
-                <legend className="mb-1.5 text-[12px] font-extrabold tracking-[.08em] text-v3-ink-2 uppercase">{FAMILII[f]}</legend>
+                <legend className="mb-1.5 text-[12px] font-extrabold tracking-[.08em] text-v3-ink-2 uppercase">{familieL(limba, f)}</legend>
                 <div className="flex flex-wrap gap-1.5">
-                  {tagurileFamiliei(f).map((t) => {
-                    const ales = profil.taguri.includes(t);
+                  {tagurileFamiliei(f).map((tag) => {
+                    const ales = profil.taguri.includes(tag);
                     return (
                       <button
-                        key={t}
+                        key={tag}
                         type="button"
                         aria-pressed={ales}
-                        onClick={() => comuta(t)}
+                        onClick={() => comuta(tag)}
                         className={`min-h-9 rounded-lg border px-2.5 text-[13px] font-semibold ${ales ? "border-v3-ink bg-v3-ink text-white" : "border-v3-line bg-white text-v3-ink"}`}
                       >
-                        {etichetaTag(t)}
+                        {eticheta(tag)}
                       </button>
                     );
                   })}
@@ -321,11 +323,11 @@ export function FormularProfil() {
       {/* 5. Bara: profilul se salvează singur la fiecare schimbare */}
       <div className="sticky bottom-0 -mx-4 flex flex-wrap items-center gap-x-4 gap-y-1 border-t-2 border-v3-ink bg-[var(--fundal)] px-4 py-3">
         <span className="text-sm text-v3-ink-2">
-          {profil.taguri.length} etichete · <b className="text-v3-ink">{nrActe} acte te privesc</b> · salvat pe dispozitiv
+          {profil.taguri.length} {t("etichete")} · <b className="text-v3-ink">{nrActe} {t("acte te privesc")}</b> · {t("salvat pe dispozitiv")}
         </span>
         {!gol && (
           <Link href="/flux" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-white no-underline">
-            Vezi fluxul tău →
+            {t("Vezi fluxul tău →")}
           </Link>
         )}
         {!gol && (
@@ -338,7 +340,7 @@ export function FormularProfil() {
             }}
             className="ml-auto min-h-11 text-sm text-v3-ink-2 underline underline-offset-2"
           >
-            Șterge profilul
+            {t("Șterge profilul")}
           </button>
         )}
       </div>

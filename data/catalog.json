@@ -1,6 +1,7 @@
 [
   {
     "id": "tva_21",
+    "rezumat_en": "Standard VAT 21%, single reduced rate 11%",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "TVA standard 21%, cota redusă unică 11%",
@@ -29,6 +30,7 @@
   },
   {
     "id": "dividende_16",
+    "rezumat_en": "Dividend tax rises from 10% to 16%",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "Impozitul pe dividende crește de la 10% la 16%",
@@ -65,6 +67,7 @@
   },
   {
     "id": "cass_pensii",
+    "rezumat_en": "10% health contribution on pensions above 3,000 lei",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "CASS 10% pe pensiile peste 3.000 lei",
@@ -103,6 +106,7 @@
   },
   {
     "id": "energie_plafon",
+    "rezumat_en": "The electricity price cap ended on 1 Jul 2025",
     "act": "OUG 6/2025",
     "mo_ref": "MO 182 / 28 feb 2025",
     "rezumat": "Plafonarea prețului la energia electrică a încetat la 1 iul 2025",
@@ -138,6 +142,7 @@
   },
   {
     "id": "pilon2_plata",
+    "rezumat_en": "Pillar II is paid out differently: up to 30% at once, the rest in instalments or a life annuity",
     "act": "Legea 2/2026",
     "mo_ref": "MO 2 / 5 ian 2026",
     "rezumat": "Pilon II se plătește altfel: până la 30% o dată, restul eșalonat sau rentă viageră",
@@ -174,6 +179,7 @@
   },
   {
     "id": "pilon3_deducere",
+    "rezumat_en": "Pillar III deduction of up to EUR 400/year",
     "act": "Codul fiscal (Legea 227/2015)",
     "mo_ref": "MO 688 / 10 sep 2015 (text de bază)",
     "rezumat": "Deducere Pilon III până la 400 EUR/an",
@@ -209,6 +215,7 @@
   },
   {
     "id": "micro_1",
+    "rezumat_en": "Micro-company: single 1% rate from 2026",
     "act": "OUG 89/2025",
     "mo_ref": "MO 1203 / 24 dec 2025",
     "rezumat": "Microîntreprindere: cotă unică 1% din 2026",
@@ -248,6 +255,7 @@
   },
   {
     "id": "gaz_plafon",
+    "rezumat_en": "The household gas price cap expires on 31 Mar 2027",
     "act": "OUG 12/2026",
     "mo_ref": "MO 178 / 9 mar 2026",
     "rezumat": "Plafonarea prețului la gaz pentru casnici expiră la 31 mar 2027",
@@ -286,6 +294,7 @@
   },
   {
     "id": "it_scutire",
+    "rezumat_en": "The income tax exemption for IT has been removed",
     "act": "OUG 156/2024",
     "mo_ref": "MO 1334 / 31 dec 2024",
     "rezumat": "Scutirea de impozit pe venit din IT a fost eliminată",
@@ -321,6 +330,7 @@
   },
   {
     "id": "constructii_facilitati",
+    "rezumat_en": "Tax breaks in construction, agriculture and the food industry have been removed",
     "act": "OUG 156/2024",
     "mo_ref": "MO 1334 / 31 dec 2024",
     "rezumat": "Facilitățile fiscale din construcții, agricultură și industria alimentară au fost eliminate",
@@ -356,6 +366,7 @@
   },
   {
     "id": "horeca_tva_11",
+    "rezumat_en": "11% VAT on HoReCa services",
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "TVA 11% la serviciile HoReCa",
@@ -391,6 +402,7 @@
   },
   {
     "id": "impozit_cladiri_2026",
+    "rezumat_en": "Building tax: the taxable value rises from 2026",
     "act": "Legea 239/2025 (modificată prin OUG 78/2025)",
     "mo_ref": "MO 1160 / 15 dec 2025; OUG 78: MO 1172 / 17 dec 2025",
     "rezumat": "Impozitul pe clădiri: valoarea impozabilă crește din 2026",
@@ -426,6 +438,7 @@
   },
   {
     "id": "alocatie_copii",
+    "rezumat_en": "State child allowance: 292 lei per month for each child aged 2 to 18",
     "act": "Legea 61/1993 (alocația de stat pentru copii), republicată",
     "mo_ref": "MO 767 / 14 nov 2012 (republicare); art. 3 modificat prin OUG 126/2021, MO 1189 / 15 dec 2021",
     "rezumat": "Alocația de stat pentru copii: 292 lei pe lună pentru fiecare copil între 2 și 18 ani",
@@ -464,6 +477,7 @@
   },
   {
     "id": "alocatie_sustinere_familie",
+    "rezumat_en": "The family support allowance no longer exists since 2024: replaced by the minimum inclusion income",
     "act": "Legea 196/2016 (venitul minim de incluziune), care a înlocuit Legea 277/2010",
     "mo_ref": "MO 882 / 3 nov 2016",
     "rezumat": "Alocația pentru susținerea familiei nu mai există din 2024: a fost înlocuită de venitul minim de incluziune",
@@ -499,6 +513,7 @@
   },
   {
     "id": "varsta_pensionare",
+    "rezumat_en": "The standard retirement age is 65 for women and men, reached gradually",
     "act": "Legea 360/2023 (sistemul public de pensii)",
     "mo_ref": "MO 1089 / 4 dec 2023",
     "rezumat": "Vârsta standard de pensionare este 65 de ani, pentru femei și bărbați, atinsă treptat",
