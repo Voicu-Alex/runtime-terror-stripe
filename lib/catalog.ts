@@ -25,6 +25,15 @@ export type Actiune = {
   one_click: string | null;
 };
 
+/** Un act ulterior care a modificat actul din intrare. Forma la zi = intrarea + aceste modificări. */
+export type Modificare = {
+  act: string;
+  mo_ref: string; // „MO 237 / 26 mar 2026” sau "TODO"
+  data: string | null; // ISO, data publicării; null cât nu o știm
+  ce: string; // ce a schimbat, o propoziție
+  sursa_url: string; // linkul la textul actului modificator; "TODO" până îl găsește cineva
+};
+
 export type Niveluri = {
   zero: string; // o propoziție, fără jargon
   curios: string; // 3–4 propoziții sau "TODO"
@@ -59,7 +68,18 @@ export type Schimbare = {
   sursa_explicativa: string;
   incredere: Incredere;
   verificat_la: string | null;
+  /** actele ulterioare care au modificat acest act, în ordinea publicării (forma la zi) */
+  modificat_prin?: Modificare[];
+  /** id-urile din catalog pe care acest act le înlocuiește; ele ies din flux de la publicarea lui */
+  inlocuieste?: string[];
 };
+
+/** Data formei la zi: publicarea actului sau a ultimei modificări cu dată cunoscută. */
+export function actualizatLa(s: Schimbare): string {
+  let data = s.publicat_la;
+  for (const m of s.modificat_prin ?? []) if (m.data && m.data > data) data = m.data;
+  return data;
+}
 
 export class CatalogInvalid extends Error {}
 
@@ -67,7 +87,7 @@ export class CatalogInvalid extends Error {}
 export function valideazaCatalog(brut: unknown): Schimbare[] {
   if (!Array.isArray(brut)) throw new CatalogInvalid("catalogul trebuie să fie o listă");
   const ids = new Set<string>();
-  return brut.map((s, i) => {
+  const intrari = brut.map((s, i) => {
     const x = s as Record<string, unknown>;
     const unde = `intrarea ${i} (${String(x.id)})`;
     if (typeof x.id !== "string" || !x.id) throw new CatalogInvalid(`${unde}: lipsește id`);
@@ -85,6 +105,11 @@ export function valideazaCatalog(brut: unknown): Schimbare[] {
     }
     return x as unknown as Schimbare;
   });
+  for (const s of intrari) {
+    for (const id of s.inlocuieste ?? [])
+      if (!ids.has(id)) throw new CatalogInvalid(`intrarea ${s.id}: înlocuiește un id care nu există „${id}”`);
+  }
+  return intrari;
 }
 
 export const CATALOG: Schimbare[] = valideazaCatalog(catalogJson);

@@ -31,6 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/flux" className="text-stone-600 hover:text-stone-900">
               Flux
             </Link>
+            <Link href="/profil" className="text-stone-600 hover:text-stone-900">
+              Profil
+            </Link>
             <Link href="/documente" className="text-stone-600 hover:text-stone-900">
               Documente
             </Link>

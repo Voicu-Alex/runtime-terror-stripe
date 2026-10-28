@@ -99,9 +99,14 @@ export function FormularDocument() {
       {stare.pas === "gata" ? (
         <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-900">
           <p className="font-semibold">Adăugat în profil: {stare.adaugate.map(etichetaTag).join(", ") || "nicio etichetă nouă"}</p>
-          <button type="button" className="mt-2 underline" onClick={() => setStare({ pas: "alegere" })}>
-            Încarcă alt document
-          </button>
+          <div className="mt-2 flex flex-wrap gap-4">
+            <a href="/flux" className="font-semibold underline">
+              Vezi fluxul tău →
+            </a>
+            <button type="button" className="underline" onClick={() => setStare({ pas: "alegere" })}>
+              Încarcă alt document
+            </button>
+          </div>
         </div>
       ) : null}
 

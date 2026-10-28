@@ -1,5 +1,6 @@
 // Ce afișează un card din flux, calculat din Potrivire. Pur, testat; componenta doar randează.
 import type { Potrivire } from "./potrivire";
+import { actualizatLa } from "./catalog";
 import { calculeaza } from "./formule";
 import { FAMILII, TAGURI, etichetaTag } from "./taguri";
 import type { Valori } from "./profil";
@@ -91,6 +92,11 @@ export function vedere(p: Potrivire, valori: Valori): VedereCard {
 /** Ordinea din designul de referință (v3 F, „după impact”): suma cea mai mare în modul întâi. */
 export function dupaImpact(a: Potrivire, b: Potrivire): number {
   return Math.abs(b.impact_lei_luna ?? 0) - Math.abs(a.impact_lei_luna ?? 0);
+}
+
+/** Ordinea „cele mai noi”: forma la zi cea mai recentă întâi (publicare sau ultima modificare). */
+export function dupaNoutate(a: Potrivire, b: Potrivire): number {
+  return actualizatLa(b.schimbare).localeCompare(actualizatLa(a.schimbare));
 }
 
 /** Linkul one-click cu parametrii de tracking ceruți în issue #3. */

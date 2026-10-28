@@ -32,6 +32,8 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
   const v = vedere(p, valori);
   const a = s.actiuni.find((x) => x.termen) ?? s.actiuni[0];
   const dep = v.termen?.depasit;
+  const modificari = s.modificat_prin ?? [];
+  const ultima = modificari[modificari.length - 1];
 
   return (
     <li id={`c-${s.id}`} className="border-b border-v3-line">
@@ -71,6 +73,10 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
         <span className="col-span-2 flex flex-wrap items-center gap-1.5 text-[12.5px] text-v3-ink-2">
           <span className={`rounded-full border px-[9px] py-px font-semibold ${PILL[v.stare]}`}>{ETICHETA_STARE[v.stare]}</span>
           <span>{v.act}</span>
+          {ultima && (
+            // Forma la zi: textul citit include modificările ulterioare (legea cea mai nouă câștigă).
+            <span>· la zi: {ultima.data ? `${ultima.act}, ${dataScurta(ultima.data)}` : ultima.act}</span>
+          )}
         </span>
       </button>
 
@@ -162,6 +168,31 @@ export default function CardSchimbare({ p, valori }: { p: Potrivire; valori: Val
               </p>
               <p className="m-0 mb-1 font-medium text-v3-ink-2">{s.articol}</p>
               {!eTODO(s.niveluri.expert) && <p className="m-0 mb-1 text-v3-ink-2">{s.niveluri.expert}</p>}
+              {modificari.length > 0 && (
+                <div className="mt-2 mb-1">
+                  <h5 className="m-0 mb-1 text-xs font-bold tracking-[.05em] text-v3-ink-2 uppercase">Forma la zi</h5>
+                  <p className="m-0 mb-1 text-[12.5px] text-v3-ink-2">
+                    Textul de mai sus ține cont de actele care l-au modificat ulterior. Când apare altul, intrarea se reverifică.
+                  </p>
+                  <ul className="m-0 list-none p-0">
+                    {modificari.map((m) => (
+                      <li key={m.act} className="mb-1">
+                        <span className="font-semibold">{m.act}</span>
+                        {!eTODO(m.mo_ref) && <span className="text-v3-ink-2"> · {m.mo_ref}</span>}
+                        {m.data && <span className="text-v3-ink-2"> · {dataScurta(m.data)}</span>}
+                        <span className="block text-v3-ink-2">{m.ce}</span>
+                        {eTODO(m.sursa_url) ? (
+                          <span className="text-[12.5px] text-v3-ink-2">sursa: de găsit (TODO)</span>
+                        ) : (
+                          <a href={m.sursa_url} target="_blank" rel="noopener" className="text-[13px] font-semibold text-v3-accent">
+                            Textul modificării {"↗︎"}
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <a href={s.sursa_url} target="_blank" rel="noopener" className="flex min-h-11 items-center font-semibold text-v3-accent">
                 Textul legii pe Portal Legislativ {"↗︎"}
               </a>

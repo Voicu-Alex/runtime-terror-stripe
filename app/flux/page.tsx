@@ -1,31 +1,40 @@
-import CardSchimbare from "@/components/CardSchimbare";
+import Link from "next/link";
+import { FluxMeu } from "@/components/FluxMeu";
+import { ListaFlux, sortareDin } from "@/components/ListaFlux";
 import { CATALOG } from "@/lib/catalog";
-import { dupaImpact } from "@/lib/card";
-import { persoanaDemo } from "@/lib/persoane-demo";
+import { PERSOANE_DEMO, persoanaDemo } from "@/lib/persoane-demo";
 import { potriveste } from "@/lib/potrivire";
 
-// Data demo-ului (CLAUDE.md, session-state): fluxul se vede ca pe 28 oct 2026.
+// Data demo-ului (CLAUDE.md, session-state): fluxul persoanelor demo se vede ca pe 28 oct 2026.
 const AZI_DEMO = "2026-10-28";
 
-export default async function Flux({ searchParams }: { searchParams: Promise<{ p?: string }> }) {
-  const { p } = await searchParams;
-  const persoana = persoanaDemo(p);
-  const flux = potriveste(persoana.profil, CATALOG, AZI_DEMO).sort(dupaImpact);
+export const metadata = { title: "Fluxul meu · Ce înseamnă pentru mine" };
+
+export default async function Flux({ searchParams }: { searchParams: Promise<{ p?: string; sort?: string }> }) {
+  const { p, sort } = await searchParams;
+  const sortare = sortareDin(sort);
 
   return (
     <div>
       <h1 className="m-0 font-head text-2xl font-extrabold tracking-[-.015em] text-v3-ink">Fluxul meu</h1>
-      <p className="mt-1 mb-0 text-sm text-v3-ink-2">
-        Profil demo: <b className="text-v3-ink">{persoana.nume}</b> · {flux.length} acte care te privesc
-      </p>
-      <h2 className="mt-5 mb-0 border-b-2 border-v3-ink pb-2 text-[13px] font-extrabold tracking-[.08em] text-v3-ink uppercase">
-        Toate actele care te privesc <small className="text-[13px] font-semibold tracking-normal text-v3-ink-2 normal-case">după impact</small>
-      </h2>
-      <ul className="m-0 list-none p-0">
-        {flux.map((x) => (
-          <CardSchimbare key={x.schimbare.id} p={x} valori={persoana.profil.valori} />
-        ))}
-      </ul>
+      {p && p in PERSOANE_DEMO ? <FluxDemo id={p} sortare={sortare} /> : <FluxMeu sortare={sortare} />}
     </div>
+  );
+}
+
+/** Persoanele fictive din demo (Andrei, Maria, Ion), calculate pe server pentru că nu depind de dispozitiv. */
+function FluxDemo({ id, sortare }: { id: string; sortare: ReturnType<typeof sortareDin> }) {
+  const persoana = persoanaDemo(id);
+  const potriviri = potriveste(persoana.profil, CATALOG, AZI_DEMO);
+  return (
+    <>
+      <p className="mt-1 mb-0 text-sm text-v3-ink-2">
+        Profil demo: <b className="text-v3-ink">{persoana.nume}</b> · {potriviri.length} acte care te privesc ·{" "}
+        <Link href="/flux" className="text-v3-ink underline decoration-v3-line underline-offset-2">
+          profilul meu
+        </Link>
+      </p>
+      <ListaFlux potriviri={potriviri} valori={persoana.profil.valori} sortare={sortare} baza={`/flux?p=${id}`} />
+    </>
   );
 }
