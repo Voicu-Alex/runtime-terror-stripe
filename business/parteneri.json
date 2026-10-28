@@ -1,123 +1,123 @@
 [
   {
     "categorie": "energie_si_gaz",
+    "nume": "Hidroelectrica",
+    "url": "https://www.hidroelectrica.ro/furnizare-energie/",
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program pe 2Performant; redirecționare 100% gratuită pentru credibilitate și cel mai bun preț)",
+    "sursa": "https://www.hidroelectrica.ro/ (furnizor de referință cu cel mai mic tarif la energie; fără monetizare)"
+  },
+  {
+    "categorie": "energie_si_gaz",
     "nume": "Engie România",
     "url": "https://www.engie.ro/gaz-energie/",
-    "program_afiliere": "de negociat",
-    "comision": "50 - 150 lei / contract nou (CPA estimat B2B) sau 15 - 30 lei / lead (CPL)",
-    "sursa": "https://www.engie.ro/gaz-energie/ (nu are program public pe 2Performant/Profitshare; parteneriat direct B2B)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (nu are program public pe 2Performant; link direct gratuit, fără parteneriat direct pentru a evita orice bias)",
+    "sursa": "https://www.engie.ro/gaz-energie/ (opțiune inclusă strict pe baza ofertei de piață OUG 12/2026)"
   },
   {
     "categorie": "energie_si_gaz",
     "nume": "E.ON România",
     "url": "https://www.eon.ro/persoane-fizice/energie-si-gaz",
-    "program_afiliere": "de negociat",
-    "comision": "50 - 150 lei / contract nou (CPA estimat B2B) sau 15 - 30 lei / lead (CPL)",
-    "sursa": "https://www.eon.ro/persoane-fizice/energie-si-gaz (nu are program public deschis; parteneriat direct de lead gen)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (nu are program public pe 2Performant; link direct gratuit)",
+    "sursa": "https://www.eon.ro/persoane-fizice/energie-si-gaz"
   },
   {
     "categorie": "energie_si_gaz",
     "nume": "PPC Energie România (fost Enel)",
     "url": "https://www.ppcenergy.ro/persoane-fizice/oferte/",
-    "program_afiliere": "de negociat",
-    "comision": "50 - 150 lei / contract nou (CPA estimat) sau 15 - 25 lei / lead (CPL)",
-    "sursa": "https://www.ppcenergy.ro/ (fără program public activ în rețele de afiliere; parteneriat direct de negociat)"
-  },
-  {
-    "categorie": "energie_si_gaz",
-    "nume": "Hidroelectrica",
-    "url": "https://www.hidroelectrica.ro/furnizare-energie/",
-    "program_afiliere": "de negociat",
-    "comision": "0 lei (furnizor de stat; preț de referință necomisionat, inclus exclusiv pentru neutralitate)",
-    "sursa": "https://www.hidroelectrica.ro/ (nu practică afiliere comercială; contractare directă de către client)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (nu are program public pe 2Performant; link direct gratuit)",
+    "sursa": "https://www.ppcenergy.ro/"
   },
   {
     "categorie": "telecom",
     "nume": "Orange România",
     "url": "https://www.orange.ro/abonamente/",
     "program_afiliere": "2Performant",
-    "comision": "5 - 25 EUR / abonament nou sau portare (în funcție de tipul contractului)",
-    "sursa": "https://2performant.com/affiliate-programs/orange-romania/"
+    "comision": "5 - 25 EUR / abonament nou sau portare (în funcție de grila publică 2Performant)",
+    "sursa": "https://2performant.com/affiliate-programs/orange-romania/ (program public deschis de afiliere)"
   },
   {
     "categorie": "telecom",
     "nume": "Vodafone România",
     "url": "https://www.vodafone.ro/abonamente/",
-    "program_afiliere": "de negociat",
-    "comision": "5 - 20 EUR / contract activat (istoric 2Performant, în prezent campanii private)",
-    "sursa": "https://www.vodafone.ro/ (campanii in-house / agenții de performanță; de negociat direct)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (nu are program public activ pe 2Performant; link direct gratuit dacă oferta e avantajoasă)",
+    "sursa": "https://www.vodafone.ro/"
   },
   {
     "categorie": "telecom",
     "nume": "Digi (RCS & RDS)",
     "url": "https://www.digi.ro/servicii/telefonie-mobila",
-    "program_afiliere": "de negociat",
-    "comision": "de negociat (canale interne de vânzare, fără afiliere publică)",
-    "sursa": "https://www.digi.ro/ (nu are program public în rețele de afiliere)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (canale interne proprii, fără 2Performant; trimitere directă gratuită)",
+    "sursa": "https://www.digi.ro/"
   },
   {
     "categorie": "pensii_pilon_3",
     "nume": "NN Pensii (NN Optim / NN Activ)",
     "url": "https://www.nn.ro/pensie-facultativa-pilon-3",
-    "program_afiliere": "de negociat",
-    "comision": "de negociat (doar în baza autorizării ASF ca agent/intermediar de pensii private; interzisă afilierea nereglementată)",
-    "sursa": "Legea nr. 204/2006, art. 74^1 (https://asfromania.ro/); de confirmat cu un jurist"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără afiliere; piață strict reglementată ASF; trimitere informativă 100% gratuită)",
+    "sursa": "Legea nr. 204/2006, art. 74^1; de confirmat cu un jurist"
   },
   {
     "categorie": "pensii_pilon_3",
     "nume": "BCR Pensii (BCR Plus)",
     "url": "https://www.bcr.ro/ro/persoane-fizice/pensii-private/pensie-facultativa-pilon-3",
-    "program_afiliere": "de negociat",
-    "comision": "de negociat (condiționat de aviz ASF de distribuție)",
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (trimitere informativă gratuită)",
     "sursa": "Legea nr. 204/2006, art. 74^1; de confirmat cu un jurist"
   },
   {
     "categorie": "pensii_pilon_3",
     "nume": "Allianz-Țiriac Pensii Private (AZT Moderato / AZT Vivace)",
     "url": "https://www.allianztiriacpensii.ro/produse/pensia-facultativa-pilon-3/",
-    "program_afiliere": "de negociat",
-    "comision": "de negociat (condiționat de aviz ASF de distribuție)",
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (trimitere informativă gratuită)",
     "sursa": "Legea nr. 204/2006, art. 74^1; de confirmat cu un jurist"
   },
   {
     "categorie": "pensii_pilon_3",
     "nume": "Metropolitan Life Pensii (Pensia Mea)",
     "url": "https://www.metropolitanlife.ro/produse/pensie/pensii-facultative-pilon-3/",
-    "program_afiliere": "de negociat",
-    "comision": "de negociat (condiționat de aviz ASF de distribuție)",
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (trimitere informativă gratuită)",
     "sursa": "Legea nr. 204/2006, art. 74^1; de confirmat cu un jurist"
   },
   {
     "categorie": "banci",
     "nume": "BCR (Cont și economii George)",
     "url": "https://www.bcr.ro/ro/persoane-fizice/conturi-si-planuri-george",
-    "program_afiliere": "de negociat",
-    "comision": "30 - 70 lei / cont nou deschis și alimentat (CPA) sau 15 - 25 lei / lead (CPL)",
-    "sursa": "https://www.bcr.ro/ (programe directe / rețele de afiliere pe campanii sezoniere de achiziție)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program public permanent pe 2Performant; trimitere directă gratuită)",
+    "sursa": "https://www.bcr.ro/"
   },
   {
     "categorie": "banci",
     "nume": "Banca Transilvania",
     "url": "https://www.bancatransilvania.ro/persoane-fizice/economii-si-investitii",
-    "program_afiliere": "de negociat",
-    "comision": "30 - 70 lei / cont activat (CPA) sau 20 lei / lead (CPL)",
-    "sursa": "https://www.bancatransilvania.ro/ (parteneriat direct de performance marketing)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program pe 2Performant; trimitere directă gratuită)",
+    "sursa": "https://www.bancatransilvania.ro/"
   },
   {
     "categorie": "banci",
     "nume": "ING Bank România",
     "url": "https://ing.ro/persoane-fizice/economii-si-investitii/cont-de-economii",
-    "program_afiliere": "de negociat",
-    "comision": "50 - 100 lei / client nou activat (istoric campanii refer-a-friend / parteneri digitali)",
-    "sursa": "https://ing.ro/ (parteneriat direct / campanii promoționale punctuale)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program pe 2Performant; trimitere directă gratuită)",
+    "sursa": "https://ing.ro/"
   },
   {
     "categorie": "banci",
     "nume": "CEC Bank",
     "url": "https://www.cec.ro/persoane-fizice/depozite-si-economii",
-    "program_afiliere": "de negociat",
-    "comision": "30 - 60 lei / cont online deschis",
-    "sursa": "https://www.cec.ro/ (parteneriat direct de achiziție digitală)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program pe 2Performant; trimitere directă gratuită)",
+    "sursa": "https://www.cec.ro/"
   },
   {
     "categorie": "asigurari",
@@ -125,30 +125,30 @@
     "url": "https://www.pint.ro/",
     "program_afiliere": "2Performant",
     "comision": "0,01% - 3,5% din valoarea primei RCA; până la 10% - 15% la asigurări facultative (PAD, locuință, călătorie)",
-    "sursa": "https://2performant.com/affiliate-programs/pint-ro/"
+    "sursa": "https://2performant.com/affiliate-programs/pint-ro/ (program public deschis de afiliere)"
   },
   {
     "categorie": "asigurari",
     "nume": "Asigurari.ro",
     "url": "https://www.asigurari.ro/",
-    "program_afiliere": "de negociat",
-    "comision": "2% - 4% din prima RCA; 10% - 15% la asigurări de călătorie și locuință",
-    "sursa": "https://www.asigurari.ro/ (comisioane tipice brokeraj de asigurare online)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program pe 2Performant; trimitere directă gratuită)",
+    "sursa": "https://www.asigurari.ro/"
   },
   {
     "categorie": "asigurari",
     "nume": "Allianz-Țiriac Asigurări",
     "url": "https://www.allianztiriac.ro/ro_RO/persoane-fizice.html",
-    "program_afiliere": "de negociat",
-    "comision": "5% - 15% pentru polițe facultative de sănătate, locuință sau viață",
-    "sursa": "https://www.allianztiriac.ro/ (contract direct de colaborare / asistent în brokeraj)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program pe 2Performant; trimitere directă gratuită)",
+    "sursa": "https://www.allianztiriac.ro/"
   },
   {
     "categorie": "asigurari",
     "nume": "Groupama Asigurări",
     "url": "https://www.groupama.ro/",
-    "program_afiliere": "de negociat",
-    "comision": "5% - 15% la polițe non-viață facultative (locuință, CASCO, călătorie)",
-    "sursa": "https://www.groupama.ro/ (parteneriat direct B2B)"
+    "program_afiliere": "fara_afiliere (pro-bono)",
+    "comision": "0 lei (fără program pe 2Performant; trimitere directă gratuită)",
+    "sursa": "https://www.groupama.ro/"
   }
 ]
