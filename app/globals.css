@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
-:root {
-  --fundal: #fff;
-  --text: #111827;
-}
+/* dark: pentru utilitarele care au nevoie explicit de tema închisă (tema e pe <html data-theme>) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Culorile designului de referință: mockup/v3/index.html?v=f (ADR 0001). */
+/* Culorile designului de referință: mockup/v3/index.html?v=f (ADR 0001). Fiecare culoare din interfață trece
+   prin tokenurile astea, ca tema închisă să le schimbe doar aici. */
 @theme {
   --color-v3-ink: #111827;
   --color-v3-ink-2: #4B5563;
+  /* textul lung de citit (lede, paragrafe mari) */
+  --color-v3-ink-soft: #1F2937;
+  /* hover pe butoanele închise */
+  --color-v3-ink-strong: #000000;
+  /* textul de pe butoanele și insignele pline (ink, urg, logo) */
+  --color-v3-on-ink: #FFFFFF;
+  --color-v3-paper: #FFFFFF;
+  /* suprafețele: carduri, butoane secundare, câmpuri */
+  --color-v3-card: #FFFFFF;
   --color-v3-line: #E5E7EB;
   --color-v3-accent: #57534E;
   --color-v3-neg: #C81E1E;
@@ -20,6 +28,7 @@
   --color-v3-urg-soft: #FCEBE9;
   --color-v3-past: #5E6A63;
   --color-v3-past-bg: #E8EBE6;
+  --color-v3-past-line: #C3CAC2;
   /* gri cald: logo, titlurile de secțiune și degradeurile articolului principal */
   --color-v3-logo: #44403C;
   --color-v3-accd: #292524;
@@ -27,11 +36,61 @@
   --color-v3-tint2: #F1F0EE;
   --color-v3-tintb: #D6D3D1;
   --color-v3-stats: #ECEAE8;
+  /* banda închisă din landing („Termenele care se închid acum”) și telefonul din exemple */
+  --color-v3-band: #111827;
+  --color-v3-band-ink: #FFFFFF;
+  --color-v3-band-ink-2: #D1D5DB;
+  --color-v3-band-pos: #86EFAC;
+}
+
+/*
+ * Tema închisă, neutră: gri-negru curat (scara zinc), fără tentă caldă.
+ * - fără negru pur: fundal #18181B; suprafețele mai sus sunt puțin mai deschise (card #1F1F23, degradeuri #27272A);
+ * - text aproape alb (#F4F4F5), text secundar #A1A1AA;
+ * - verde #4ADE80 = bani în plus, roșu #F87171 = bani în minus, mai deschise ca să se citească pe închis;
+ * - toate perechile text/fundal au cel puțin 4,5:1 (WCAG AA); cea mai mică e 5,8:1.
+ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-v3-ink: #F4F4F5;
+  --color-v3-ink-2: #A1A1AA;
+  --color-v3-ink-soft: #D4D4D8;
+  --color-v3-ink-strong: #FFFFFF;
+  --color-v3-on-ink: #18181B;
+  --color-v3-paper: #18181B;
+  --color-v3-card: #1F1F23;
+  --color-v3-line: #303036;
+  --color-v3-accent: #D4D4D8;
+  --color-v3-neg: #F87171;
+  --color-v3-pos: #4ADE80;
+  --color-v3-pos-soft: #132A1C;
+  --color-v3-accent-soft: #27272A;
+  --color-v3-act: #232327;
+  --color-v3-urg: #F87171;
+  --color-v3-urg-soft: #2D1A1A;
+  --color-v3-past: #9CA3AF;
+  --color-v3-past-bg: #27272A;
+  --color-v3-past-line: #3F3F46;
+  --color-v3-logo: #F4F4F5;
+  --color-v3-accd: #E4E4E7;
+  --color-v3-tint1: #27272A;
+  --color-v3-tint2: #1F1F23;
+  --color-v3-tintb: #3F3F46;
+  --color-v3-stats: #232327;
+  --color-v3-band: #232327;
+  --color-v3-band-ink: #F4F4F5;
+  --color-v3-band-ink-2: #A1A1AA;
+  --color-v3-band-pos: #4ADE80;
 }
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-head: "Raleway", system-ui, sans-serif;
+}
+
+:root {
+  --fundal: var(--color-v3-paper);
+  --text: var(--color-v3-ink);
 }
 
 body {

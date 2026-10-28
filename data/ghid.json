@@ -352,22 +352,355 @@
     }
   },
   {
-    "id": "salariu_minim_2026",
-    "pentru": "Pentru cine lucrează cu normă întreagă pe salariul minim",
-    "ce": "salariul de bază minim brut crește la 4.325 lei pe lună din 1 iulie 2026",
+    "id": "salariu_minim_netaxabil_2026",
+    "pentru": "Pentru angajații cu salariul minim",
+    "ce": "200 de lei pe lună fără impozit și contribuții, doar pentru veniturile din 2026",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 996,
+      "cand": "pe_an",
+      "ipoteza": "la 4.325 lei brut, cei 200 lei scutiți înseamnă ≈ 83 lei net pe lună (35% contribuții + 10% impozit); OUG 89/2025 aplică scutirea doar veniturilor din 2026"
+    },
+    "termen": "2026-12-31",
+    "pasi": [
+      "Nu trebuie să faci nimic până la 31 decembrie 2026: angajatorul aplică scutirea automat.",
+      "Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut; până azi nu există un act care să prelungească scutirea."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "concediu_medical_procente",
+    "pentru": "Pentru angajații care iau concediu medical pentru boli obișnuite",
+    "ce": "concediile scurte se plătesc cu 55% (până la 7 zile) sau 65% (8–14 zile), nu cu 75%",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 200,
+      "cand": "o_data",
+      "ipoteza": "5 zile de concediu la o bază de 200 lei pe zi: 550 lei la 55%, față de 750 lei la 75%"
+    },
+    "termen": null,
+    "pasi": [
+      "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat.",
+      "Dacă episodul a trecut de 14 zile, procentul trebuie să fie 75%."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "concediu_medical_prima_zi",
+    "pentru": "Pentru angajații care iau concediu medical",
+    "ce": "o zi din fiecare episod de boală nu se plătește, între 1 februarie 2026 și 31 decembrie 2027",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 110,
+      "cand": "o_data",
+      "ipoteza": "o zi la o bază de 200 lei și 55%"
+    },
+    "termen": "2027-12-31",
+    "pasi": [
+      "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare.",
+      "Maternitatea, riscul maternal, pacienții din programele naționale de sănătate și spitalizarea sunt exceptate: dacă ești în una dintre situații, ziua nu trebuie scăzută."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "cass_intretinere",
+    "pentru": "Pentru cei care au în întreținere soțul, soția sau un părinte fără venituri",
+    "ce": "nu mai sunt asigurați gratuit la sănătate; îi poți asigura cu 2.430 de lei pe an pentru fiecare",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 2430,
+      "cand": "pe_an",
+      "ipoteza": "o persoană în întreținere: 6 salarii minime × 4.050 lei × 10%"
+    },
+    "termen": "2027-05-25",
+    "pasi": [
+      "Decide dacă vrei să-i asiguri: opțiunea e definitivă pentru anul respectiv.",
+      "Depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere.",
+      "Plătește 25% la depunere și restul de 75% până pe 25 mai a anului următor."
+    ],
+    "solutie": {
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
+  },
+  {
+    "id": "cass_somaj",
+    "pentru": "Pentru cei care primesc indemnizație de șomaj",
+    "ce": "10% contribuție la sănătate reținută din indemnizație; indemnizația nu crește în 2026",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 1200,
+      "cand": "pe_an",
+      "ipoteza": "indemnizație de 1.000 lei pe lună, 10% reținut"
+    },
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic: contribuția se reține automat și îți păstrează calitatea de asigurat."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "cass_crestere_copil",
+    "pentru": "Pentru părinții în concediu de creștere a copilului",
+    "ce": "10% contribuție la sănătate reținută din indemnizație, din august 2025",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 2400,
+      "cand": "pe_an",
+      "ipoteza": "indemnizație de 2.000 lei pe lună, 10% reținut"
+    },
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic: reținerea e automată.",
+      "Verifică pe decizia de plată că indemnizația netă corespunde."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "pensie_vpr_2026",
+    "pentru": "Pentru pensionarii din sistemul public",
+    "ce": "pensia nu se indexează în 2026: punctul de referință rămâne 81 de lei",
     "salvezi": null,
     "pierzi": null,
     "termen": null,
     "pasi": [
-      "Verifică fluturașul pe iulie 2026: salariul de bază brut, pentru normă întreagă, trebuie să fie cel puțin 4.325 lei.",
-      "Dacă nu e, întreabă la departamentul de resurse umane sau la contabilitatea angajatorului.",
-      "Dacă angajatorul nu aplică noul salariu minim, poți sesiza Inspecția Muncii."
+      "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare.",
+      "Indexarea anuală revine din 2027."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "pfa_norma_minima_2026",
+    "pentru": "Pentru PFA-urile impozitate la normă de venit",
+    "ce": "norma de venit nu mai poate fi sub 12 salarii minime, adică 48.600 de lei pentru 2026",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": "2027-05-25",
+    "pasi": [
+      "Compară norma de 48.600 lei cu venitul tău real din 2026.",
+      "Discută cu contabilul dacă merită să treci la sistemul real.",
+      "Declară și plătește prin Declarația unică până pe 25 mai 2027."
     ],
     "solutie": {
-      "nume": "Inspecția Muncii",
-      "url": "https://www.inspectiamuncii.ro/",
-      "ce": "Sesizarea e gratuită și nu trece prin nicio firmă."
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
+  },
+  {
+    "id": "pfa_cass_plafon_72",
+    "pentru": "Pentru PFA-urile și profesiile liberale cu venit net de peste 243.000 de lei pe an",
+    "ce": "plafonul CASS crește de la 60 la 72 de salarii minime",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 4860,
+      "cand": "pe_an",
+      "ipoteza": "venit net de peste 291.600 lei: CASS maxim 29.160 lei, față de 24.300 lei"
     },
-    "nota": "Suma e brută: din ea se rețin contribuțiile și impozitul. Înainte de 1 iulie 2026 minimul era 4.050 lei (OUG 89/2025)."
+    "termen": "2027-05-25",
+    "pasi": [
+      "Pune deoparte diferența de CASS pentru Declarația unică pe 2026.",
+      "Plătește până pe 25 mai 2027."
+    ],
+    "solutie": {
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
+  },
+  {
+    "id": "inchiriere_termen_scurt_2026",
+    "pentru": "Pentru proprietarii care închiriază 1–7 camere pe termen scurt (Airbnb, Booking)",
+    "ce": "impozit final de 10% pe 70% din încasări, adică 7%, fără contabilitate",
+    "salvezi": null,
+    "pierzi": {
+      "lei": 2100,
+      "cand": "pe_an",
+      "ipoteza": "30.000 lei încasați într-un an: 10% din 21.000 lei"
+    },
+    "termen": "2027-05-25",
+    "pasi": [
+      "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală.",
+      "Declară venitul din 2026 în Declarația unică și plătește până pe 25 mai 2027.",
+      "Peste 7 camere, venitul devine activitate independentă, cu CAS și CASS."
+    ],
+    "solutie": {
+      "nume": "ANAF, Spațiul privat virtual",
+      "url": "https://www.anaf.ro",
+      "ce": "Declarația unică se depune și se plătește online, gratuit."
+    }
+  },
+  {
+    "id": "salariu_minim_2026",
+    "pentru": "Pentru angajații cu salariul minim",
+    "ce": "salariul minim brut crește la 4.325 de lei de la 1 iulie 2026",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică fluturașul din iulie 2026: salariul de bază la normă întreagă trebuie să fie cel puțin 4.325 lei brut.",
+      "Dacă nu e, cere angajatorului corectarea."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "ajutor_incalzire",
+    "pentru": "Pentru familiile cu venit net de cel mult 1.386 de lei pe membru (2.053 lei pentru o persoană singură)",
+    "ce": "ajutor lunar la încălzire între noiembrie și martie, doar pe bază de cerere",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Calculează venitul net mediu pe membru de familie.",
+      "Cere formularul la primăria de care aparține locuința.",
+      "Termenul general e 15 octombrie; întreabă la primărie dacă mai poți depune și de când se acordă."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "insolventa_persoane_fizice",
+    "pentru": "Pentru cei cu datorii pe care nu le mai pot plăti",
+    "ce": "insolvența personală se poate cere de la 15 salarii minime de datorii, adică 64.875 de lei",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Adună lista datoriilor scadente și a creditorilor.",
+      "Cere informații la comisia de insolvență din județul tău.",
+      "Dacă ai peste vârsta de pensionare și datorii de cel mult 43.250 lei, întreabă de procedura simplificată."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "sere_solare_2026",
+    "pentru": "Pentru cei care au sere, solarii, răsadnițe, ciupercării sau silozuri pentru cereale",
+    "ce": "nu plătesc impozit pe clădiri pentru ele în 2026; din 2027, jumătate",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică pe decizia de impunere de la primărie că aceste clădiri apar ca scutite pentru 2026.",
+      "Dacă nu, cere corectarea la direcția de taxe locale."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "masa_sanatoasa_2026",
+    "pentru": "Pentru părinții cu copii la grădiniță sau școală de stat",
+    "ce": "programul „Masă sănătoasă” continuă în 2026 în unitățile incluse",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Întreabă la grădiniță sau la școală dacă unitatea e în program în 2026."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "saracie_energetica_2026",
+    "pentru": "Pentru familiile cu venit net de cel mult 1.784 de lei pe membru (1.940 lei pentru o persoană singură)",
+    "ce": "50 de lei pe lună la factura de curent, până la 31 decembrie 2026",
+    "salvezi": {
+      "lei": 100,
+      "cand": "o_data",
+      "ipoteza": "50 lei pe lună pentru noiembrie și decembrie 2026, dacă te înscrii în noiembrie"
+    },
+    "pierzi": null,
+    "termen": "2026-12-31",
+    "pasi": [
+      "Calculează venitul net pe membru de familie.",
+      "Înscrie-te prin aplicația EPIDS sau la primărie.",
+      "Sprijinul se acordă din luna înscrierii, deci cu cât te înscrii mai repede, cu atât primești mai mult."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "salarii_stat_inghetate_2026",
+    "pentru": "Pentru salariații de la stat (spitale, școli, administrație)",
+    "ce": "salariul de bază și sporurile rămân în 2026 la nivelul din decembrie 2025",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Orele suplimentare se compensează doar cu timp liber: cere-l în cel mult 90 de zile."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "vouchere_vacanta_stat_2026",
+    "pentru": "Pentru salariații de la stat cu salariul de bază net de cel mult 6.000 de lei",
+    "ce": "800 de lei în vouchere de vacanță în 2026",
+    "salvezi": {
+      "lei": 800,
+      "cand": "o_data",
+      "ipoteza": "vouchere de vacanță acordate în 2026"
+    },
+    "pierzi": null,
+    "termen": "2026-12-31",
+    "pasi": [
+      "Verifică la resurse umane dacă ai primit voucherele pentru 2026."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "handicap_indemnizatie_solidaritate",
+    "pentru": "Pentru pensionarii cu handicap vizual grav, grav sau accentuat",
+    "ce": "indemnizația de solidaritate nu se acordă înainte de 1 ianuarie 2027",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Nu trebuie să faci nimic acum.",
+      "Întreabă la direcția de asistență socială ce documente îți vor trebui din 2027."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "rovinieta_2026",
+    "pentru": "Pentru cei care au mașină",
+    "ce": "rovinieta pe un an costă între 228 și 330 de lei, după norma Euro",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică norma Euro în talon.",
+      "Cumpără rovinieta pe perioada de care ai nevoie: pentru drumuri rare, cea pe 10 sau 30 de zile poate fi mai ieftină decât cea anuală."
+    ],
+    "solutie": {
+      "nume": "CNAIR",
+      "url": "https://www.cnair.ro",
+      "ce": "Rovinieta se cumpără online de la CNAIR."
+    }
+  },
+  {
+    "id": "efactura_5_zile_lucratoare",
+    "pentru": "Pentru PFA-uri și firme care emit facturi",
+    "ce": "facturile se trimit în RO e-Factura în 5 zile lucrătoare de la emitere",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Setează în programul de facturare termenul de 5 zile lucrătoare.",
+      "Trimite și facturile către persoane fizice (B2C) în același termen."
+    ],
+    "solutie": {
+      "nume": "ANAF, RO e-Factura",
+      "url": "https://www.anaf.ro",
+      "ce": "Facturile se trimit prin SPV sau prin programul de facturare conectat la RO e-Factura."
+    }
+  },
+  {
+    "id": "burse_studenti_2026_2027",
+    "pentru": "Pentru studenții la buget",
+    "ce": "bursa socială minimă e 925 de lei în anul universitar 2026–2027",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Află de la secretariat perioada de depunere a dosarelor pentru bursa socială.",
+      "Pregătește actele de venit cerute de universitate și depune dosarul la timp."
+    ],
+    "solutie": null
   }
 ]

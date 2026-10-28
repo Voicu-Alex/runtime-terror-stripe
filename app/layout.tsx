@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Antet, Subsol } from "@/components/Antet";
 import { LimbaProvider } from "@/components/Limba";
+import { SCRIPT_TEMA } from "@/components/Tema";
 import "./globals.css";
 
 // Fonturile designului de referință (v3 F): Inter pentru text și sume, Raleway pentru titluri mari.
@@ -16,8 +17,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ro">
+    // suppressHydrationWarning: SCRIPT_TEMA pune data-theme pe <html> înainte să ajungă React
+    <html lang="ro" suppressHydrationWarning>
       <head>
+        {/* Tema înainte de prima afișare, ca pagina să nu clipească în tema greșită */}
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}

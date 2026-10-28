@@ -1,200 +1,168 @@
-# Modelul de Business: „Ce înseamnă pentru mine”
+# Modelul de business: „Ce înseamnă pentru mine”
 
-**Echipa:** Runtime Terror  
-**Hackathon:** NEXXT AI × Stripe – „Rethinking Financial Futures” (România), 28–29 octombrie 2026  
-**Misiune:** Fiecare lege nouă, tradusă în lei pe lună pentru tine, proactiv, determinist și cu neutralitate absolută.
+*Versiunea unificată, 28 octombrie 2026 (Chris, #5, peste modelul lui Haggy, #4). Înlocuiește versiunea anterioară a acestui fișier (commit `fb77a46`) și `business/monetizare.md`. Fiecare cifră are sursa în `business/bibliografie.md` sau e marcată `TODO`. Punctele marcate **[decizie de echipă]** ating reguli din `CLAUDE.md`.*
 
----
+## Pe scurt
 
-## 1. Direcția 1: Modelul pe bază de Abonament (Trial de 1 lună $\to$ Paid)
+1. **Banii vin din abonamente.** O singură variantă pentru toată lumea, cu **prima lună gratuită**: **299 lei/an (≈ 25 lei/lună) sau 49,99 lei/lună**. Dacă testul de preț arată rezistență, coborâm la limita de jos a intervalului: **19 lei/lună sau 190 lei/an**.
+2. **Fără plan gratuit permanent.** Dacă echipa îl vrea totuși, acesta dă doar știrile care te privesc, fără sumă și fără calcul.
+3. **Notificări în aplicație și un rezumat pe WhatsApp**, pentru cine îl vrea.
+4. **Afilierea nu e o sursă de venit în pitch.** Aplicația arată întâi comparatorul oficial ANRE, apoi furnizorii în ordine alfabetică. Eticheta „partener” apare doar unde există program de afiliere. În 2Performant nu există, în octombrie 2026, nicio categorie de energie sau bănci.
+5. **Specialiștii nu sunt o sursă de venit.** Butonul trimite gratuit la registrul public al profesiei, iar aplicația spune „Nu primim bani de la specialiști” (`business/profesionisti.md`).
+6. **Fără reclame și fără vânzare de date.** Înainte de orice apel la LLM ascundem numele și datele de identificare.
 
-### 1.1 De ce NU facem Freemium perpetuu: Analiza Biziday și Realitatea Pieței
+## 1. Abonamentul
 
-Organizatorul a sugerat un model de abonament de 15 lei „în stilul Biziday”. Înainte de a stabili arhitectura noastră comercială, am analizat factual cum funcționează Biziday:
+### Biziday nu e un reper de preț
 
-* **Biziday în realitate:**  
-  Aplicația mobilă **Biziday este 100% gratuită** pe [Google Play](https://play.google.com/store/apps/details?id=ro.biziday.app) (peste 500.000 de descărcări) și [Apple App Store](https://apps.apple.com/ro/app/biziday/id1183842421). Nu există niciun abonament de 15 lei și niciun paywall obligatoriu în aplicație.
-* **Cum se finanțează Biziday:**  
-  Biziday este susținută exclusiv prin **donații voluntare** ale comunității pe pagina oficială [biziday.ro/sustine](https://www.biziday.ro/sustine/) (cu praguri sugerate de 20 lei, 50 lei, 100 lei, 250 lei, 500 lei/lună sau donație unică), alături de granturi și sponsorizări. Numărul exact al donatorilor lunari este nepublicat (**TODO**).
-* **De ce susțin oamenii Biziday:**  
-  Fără clickbait, sinteză la obiect (economie uriașă de timp), independență față de trusturi politice și alerte critice (cutremur INFP).
+Organizatorul a sugerat „Biziday, 15 lei”. **Biziday e gratuit.** Nu are abonament și nici achiziții în aplicație ([App Store RO](https://apps.apple.com/ro/app/biziday/id1164239111?l=ro)). Se susține din donații voluntare: 10–250 lei o dată sau 20–500 lei pe lună, fără beneficii în schimb ([biziday.ro/sustine](https://www.biziday.ro/sustine/)).
 
-#### Decizia Noastră Strategică: Fără Model Free Perpetuu, doar Free Trial de 1 lună
+Ce ne spune asta: **există oameni care dau de bunăvoie 20 lei pe lună pentru știri esențiale fără să primească nimic.** Noi le dăm în plus suma în lei, termenul și butonul care îi duce unde rezolvă.
 
-Aplicația „Ce înseamnă pentru mine” nu este un canal media generalist, ci un **instrument financiar de precizie** care aduce economii directe în buzunarul fiecărui român.
+### Prețul și intervalul
 
-1. **De ce renunțăm la freemium permanent:**  
-   Un nivel gratuit perpetuu atrage utilizatori pasivi, diluează percepția de valoare și obligă fondatorii să caute monetizări colaterale (reclame sau parteneriate compromise).
-2. **Ce include Trial-ul de 1 lună (30 de zile):**  
-   Fiecare utilizator nou beneficiază de o lună complet gratuită, care acoperă:
-   - **Conceperea și configurarea contului:** Onboarding complet prin dialog cu asistentul AI sau formular rapid;
-   - **Identificarea celor 6 familii de etichete:** Cum câștigi, ce deții, cine depinde de tine, ce conduci, unde locuiești, domeniul tău;
-   - **Acces nerestricționat la motorul de calcul:** Calculul exact al impactului în lei/lună pentru toate actele din Monitorul Oficial;
-   - **Ecranul „Planul meu”:** Comparația pe 12 luni fără acțiuni vs. cu acțiuni alese și numărătoarea inversă pentru termene limită;
-   - **Simulări interactive:** Comutatoare active pe fiecare acțiune.
-3. **Ce se întâmplă după cele 30 de zile de Trial:**  
-   După prima lună (în care utilizatorul a văzut exact câți bani pierde sau câștigă din modificările fiscale), aplicația solicită activarea abonamentului pentru a continua să primească alerte la legile viitoare și pentru a menține recalcularea dinamică a planului financiar.
+| | Preț | Pe lună | Din salariul mediu net (5.688 lei, [INS, aug 2026](https://insse.ro/cms/sites/default/files/com_presa/com_pdf/cs08r26.pdf)) |
+|---|---|---|---|
+| **Anual (varianta principală)** | 299 lei/an | ≈ 25 lei | 0,44% |
+| Lunar (plafonul) | 49,99 lei/lună | 49,99 lei | 0,88% |
+| Limita de jos, dacă testul arată rezistență | 190 lei/an sau 19 lei/lună | ≈ 16–19 lei | ≈ 0,3% |
 
----
+- **Anualul e varianta implicită.** Legile mari care te ating vin de câteva ori pe an. Fără anual, mulți ar plăti o lună când apare o lege și ar anula. Lunarul de 49,99 lei face anualul să pară o afacere.
+- **Reper:** 299 lei/an ≈ 25 lei/lună, cam cât Spotify Premium Individual (26 lei/lună, [spotify.com/ro-ro/premium](https://www.spotify.com/ro-ro/premium/)).
+- **Riscul, spus cinstit:** doar **2,8%** dintre românii care folosesc internetul plătesc un abonament la „alte aplicații” (media UE: 7,0%), iar 10,1% plătesc pentru muzică (UE: 23,0%) ([Eurostat, isoc_ec_ibgs, 2025](https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ec_ibgs?format=JSON&lang=en&geo=RO&geo=EU27_2020&time=2025&ind_type=IND_TOTAL)). De aceea limita de jos (19 lei) rămâne pe masă până la testul de preț.
+- **Alte repere:** abonamentul AvocatNet (în versiunea anterioară: 390 lei + TVA / 6 luni) e `TODO`, pentru că pagina nu se mai încarcă.
 
-### 1.2 Prețul Abonamentului și Justificarea prin ROI
+### De ce aplicație plătită, cu o lună gratuită
 
-* **Preț:** **19 lei / lună** (sau **190 lei / an**, cu 2 luni incluse gratuit la plata anuală).
-* **Comparație de piață în România:**
-  * **Biziday (donație voluntară):** Prag minim recomandat de 20 lei/lună ([biziday.ro/sustine](https://www.biziday.ro/sustine/)).
-  * **Recorder Community:** 4 €/lună (~20 lei) sau 10 €/lună (~50 lei) prin SMS recurent sau card ([recorder.ro/sustine](https://recorder.ro/sustine/)).
-  * **AvocatNet.ro Premium:** Abonamentele Starter pornesc de la 390 lei + TVA / 6 luni (~65–75 lei/lună echivalent) ([abonament.avocatnet.ro](https://abonament.avocatnet.ro/)).
-  * **Ziarul Financiar (Corporate):** 300 €/lună sau ~12 €/lună (~60 lei) prin parteneriat Orange ([zfcorporate.ro](https://zfcorporate.ro/)).
-  * **Abonamente de consum zilnic:** Spotify România (~24–26 lei/lună), YouTube Premium (~26 lei/lună).
-* **Rentabilitatea Investiției (ROI):**  
-  La 19 lei/lună (228 lei/an), o singură acțiune sugerată de aplicație (de pildă, scoaterea dividendelor înainte de majorarea cotei de la 10% la 16% prin Legea 141/2025, sau schimbarea contractului de gaz înainte de expirarea plafonării din OUG 12/2026) generează economii de la câteva sute la mii de lei, acoperind costul pe 5–10 ani.
+Date din [RevenueCat, State of Subscription Apps 2026](https://www.revenuecat.com/state-of-subscription-apps):
+- **Lungimea probei:** cele de 17–32 de zile au cea mai bună conversie, cu mediana de 42,5% de la probă la plată. Pe regiuni, conversia e de 29,7% în Europa de Vest și de **≈ 20–23% în „restul lumii”**, unde intră și România.
+- **Paywall strict sau freemium:** un paywall strict convertește de ~5 ori mai bine la ziua 35 (mediana de 10,7% față de 2,1% de la descărcare la plată). Variația între aplicații e însă mare.
+- **Anulările din prima zi:** la probele de 30 de zile, **31%** dintre anulări au loc în ziua 0 (55% e cifra pentru probele de 3 zile). Prima zi trebuie deci să arate valoarea. La onboarding arătăm schimbările din 2025–2026 care te-au atins deja, cu suma.
 
----
+**Fără card la pornirea probei.** Aproximativ un sfert dintre români evită plățile online de teama furtului de date (`docs/design-research.md`). La final întrebăm o dată și nu taxăm pe nimeni care n-a ales să plătească.
 
-## 2. Direcția 2: Redirecționarea One-Click & Neutralitatea Radicală
+### Ce primești
 
-### 2.1 Principiul Fondator: Nu facem parteneriate directe ca să nu fim părtinitori (No Bias)
+| | Abonament (și în luna gratuită) | Plan gratuit, doar dacă echipa îl vrea |
+|---|---|---|
+| Profil din etichete (asistent, formular sau documente), inclusiv domeniul de lucru | ✓ | ✓ |
+| Știrile care te privesc + link la articolul din lege | ✓ | ✓ |
+| Legi cu efect indirect, marcate „informativ” | ✓ | ✓ |
+| Suma în lei/lună pentru tine (cât pierzi, cât câștigi) | ✓ | – |
+| „Ce poți face” cu termen și butonul care te duce unde rezolvi | ✓ | – |
+| „Planul meu”: 12 luni, cu și fără acțiuni, plus simulare | ✓ | – |
+| Analiza documentelor cu AI (contract, factură, cupon de pensie) | ✓ | – |
+| Remindere înainte de termene, alerte pe proiecte în consultare | ✓ | – |
+| Rezumat pe WhatsApp | ✓ | – |
 
-Dacă am negocia comisioane directe (B2B) cu Engie, PPC sau o anumită bancă:
-- Am deveni captivi interesului lor comercial;
-- Am fi tentați să afișăm partenerul care plătește cel mai mare comision, nu pe cel care are cel mai mic preț pentru cetățean;
-- Utilizatorul ar pierde încrederea în independența calculului nostru.
+## 2. Notificările: destule ca să merite abonamentul
 
-**Regula noastră de integritate:**
-> **Nu negociem parteneriate directe.** Pentru a ne păstra credibilitatea absolută, apelăm exclusiv la companiile care au deja programe publice de afiliere pe rețeaua deschisă **2Performant**. Pentru toate companiile care NU au afiliere pe 2Performant (inclusiv furnizorii cu cele mai bune tarife, cum este Hidroelectrica), **trimitem utilizatorii direct și 100% gratuit, fără ca noi să încasăm niciun ban.**
+1. **Legile care te ating direct**, cu sumă. Acestea primesc notificare push.
+2. **Legile cu efect indirect**, prin prețuri, chirie sau angajator. Apar în flux, marcate „informativ”.
+3. **Domeniul tău de lucru** (IT, construcții, HoReCa…). Partea financiară e deja în aplicație. Schimbările nefinanciare (de exemplu un sistem nou la ANAF) sunt amânate în `CLAUDE.md`. Propunerea e să intre ca știri fără sumă. **[decizie de echipă]**
+4. **Calendarul fiscal anual.** Exemplu: Declarația Unică (formularul 212) se depune și se plătește până pe 25 mai 2026, prin SPV sau e-guvernare ([ANAF, DGRFP Cluj](https://static.anaf.ro/static/3/Cluj/20260522102135_25_%20mai_%202026%20.pdf)). Acest termen primește notificare push.
+5. **Proiectele în consultare publică**, ca avertizare din timp.
 
-### 2.2 Cum funcționează algoritmul de redirecționare:
+### Rezumatul pe WhatsApp
 
-1. **Recomandarea se face strict după interesul utilizatorului:**  
-   Sortarea opțiunilor în ecranul de acțiune este determinată exclusiv de preț/cost (cel mai mic preț pe kWh la gaz/curent, cele mai mici comisioane bancare, cel mai mare randament).
-2. **Monetizare pasivă doar prin 2Performant:**  
-   Dacă oferta optimă aparține unui brand prezent pe 2Performant (ex: Orange în telecom sau Pint.ro la asigurări), aplicația atașează automat linkul de afiliere public pentru a încasa comisionul standard al platformei.
-3. **Trimitere pro-bono pentru restul pieței:**  
-   Dacă oferta optimă este la Hidroelectrica, Engie, o bancă de stat (CEC Bank) sau un fond de pensii fără afiliere pe 2Performant, butonul one-click duce direct pe pagina oficială a furnizorului, cu link curat, necomisionat. **Câștigăm 0 lei, dar ne păstrăm 100% credibilitatea.**
+- **Doar cu acord explicit.** Numărul de telefon ajunge pe serverul nostru, deci promisiunea „profilul rămâne pe telefon” se nuanțează pentru cine alege WhatsApp.
+- **Mesajul nu conține sume sau date personale.** Exemplu: „Ai 2 noutăți, una cu termen pe 25 mai. Deschide aplicația.”
+- **Mesajele trimise de noi după fereastra de 24 de ore folosesc șabloane aprobate de Meta** ([Meta, Message templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)).
+- **Cost:** din 1 octombrie 2026, în România, 0,0712 € per mesaj de marketing și 0,0239 € per mesaj utilitar ([Profit.ro](https://profit.ro/romania-conectata/schimbare-la-whatsapp-apare-plata-pentru-mesajele-de-asistenta-pe-whatsapp-business-api-22793043), sursă secundară; tabelul oficial de prețuri: [Meta, rate cards](https://developers.facebook.com/docs/whatsapp/pricing#rate-cards), `TODO`). La 4 rezumate pe lună: **≈ 0,10–0,28 € per abonat**.
 
----
+## 3. Calculul și butoanele „du-mă unde rezolv”
 
-### 2.3 Tabelul Partenerilor pe Categorii (2Performant vs. Pro-Bono)
+1. **LLM-ul citește legea** și propune etichetele, formula și acțiunile. Un om verifică, apoi actul intră în catalog.
+2. **Suma o calculează codul** (`lib/formule.ts`), nu LLM-ul. Aceeași formulă și aceleași cifre dau același rezultat de fiecare dată, și totul poate fi verificat.
+3. **LLM-ul explică, răspunde la întrebări și citește documentele.** Cifrele extrase din documente le calculează tot codul.
 
-Structura detaliată din fișierul de date [`business/parteneri.json`](file:///C:/Users/andre/Desktop/Examen/runtime-terror-stripe/business/parteneri.json):
+**„Ce poți face” e personalizat pe profil:** îți arătăm care dintre acțiunile prevăzute de lege ți se aplică ție, cu suma și termenul tău. Nu recomandăm produse (`CLAUDE.md`). Atenție la o limită: consultanța fiscală fără înscriere la Camera Consultanților Fiscali e infracțiune ([OG 71/2001, art. 25 alin. 2](https://legislatie.just.ro/Public/DetaliiDocument/30386)). Granița dintre informație și consultanță e de confirmat cu un jurist.
 
-| Categorie | Brand | URL Ofertă Oficială | Mecanism Afiliere | Comision Încasat de Noi | Notă Integritate |
-|---|---|---|:---:|:---:|---|
-| **Energie & Gaz** | **Hidroelectrica** | [hidroelectrica.ro](https://www.hidroelectrica.ro/furnizare-energie/) | **Fără afiliere (pro-bono)** | **0 lei** | **Cel mai mic preț la energie; trimitere 100% gratuită** |
-| **Energie & Gaz** | Engie România | [engie.ro/gaz-energie](https://www.engie.ro/gaz-energie/) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă pe oferta Celsius / OUG 12/2026 |
-| **Energie & Gaz** | E.ON România | [eon.ro/.../energie-si-gaz](https://www.eon.ro/persoane-fizice/energie-si-gaz) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Energie & Gaz** | PPC Energie | [ppcenergy.ro/oferte](https://www.ppcenergy.ro/persoane-fizice/oferte/) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Telecom** | **Orange România** | [orange.ro/abonamente](https://www.orange.ro/abonamente/) | **2Performant** | **5 – 25 € / contract** | [Program public 2Performant](https://2performant.com/affiliate-programs/orange-romania/) |
-| **Telecom** | Vodafone România | [vodafone.ro/abonamente](https://www.vodafone.ro/abonamente/) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Telecom** | Digi (RCS & RDS) | [digi.ro/telefonie-mobila](https://www.digi.ro/servicii/telefonie-mobila) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Asigurări** | **Pint.ro (Broker)** | [pint.ro](https://www.pint.ro/) | **2Performant** | **0,01% – 3,5% RCA; 10%–15% facultative** | [Program public 2Performant](https://2performant.com/affiliate-programs/pint-ro/) |
-| **Asigurări** | Asigurari.ro | [asigurari.ro](https://www.asigurari.ro/) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Asigurări** | Allianz-Țiriac | [allianztiriac.ro](https://www.allianztiriac.ro/ro_RO/persoane-fizice.html) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Asigurări** | Groupama | [groupama.ro](https://www.groupama.ro/) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Bănci** | BCR (George) | [bcr.ro/.../conturi-si-planuri-george](https://www.bcr.ro/ro/persoane-fizice/conturi-si-planuri-george) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Bănci** | Banca Transilvania | [bancatransilvania.ro](https://www.bancatransilvania.ro/persoane-fizice/economii-si-investitii) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Bănci** | ING Bank | [ing.ro/.../cont-de-economii](https://ing.ro/persoane-fizice/economii-si-investitii/cont-de-economii) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Bănci** | CEC Bank | [cec.ro/.../depozite-si-economii](https://www.cec.ro/persoane-fizice/depozite-si-economii) | Fără afiliere (pro-bono) | 0 lei | Trimitere directă gratuită |
-| **Pilon III** | NN Pensii | [nn.ro/pensie-facultativa-pilon-3](https://www.nn.ro/pensie-facultativa-pilon-3) | Fără afiliere (pro-bono) | 0 lei | Trimitere pur educativă / reglementată |
-| **Pilon III** | BCR Pensii | [bcr.ro/.../pensie-facultativa-pilon-3](https://www.bcr.ro/ro/persoane-fizice/pensii-private/pensie-facultativa-pilon-3) | Fără afiliere (pro-bono) | 0 lei | Trimitere pur educativă / reglementată |
-| **Pilon III** | Allianz-Țiriac Pensii | [allianztiriacpensii.ro](https://www.allianztiriacpensii.ro/produse/pensia-facultativa-pilon-3/) | Fără afiliere (pro-bono) | 0 lei | Trimitere pur educativă / reglementată |
-| **Pilon III** | Metropolitan Life | [metropolitanlife.ro](https://www.metropolitanlife.ro/produse/pensie/pensii-facultative-pilon-3/) | Fără afiliere (pro-bono) | 0 lei | Trimitere pur educativă / reglementată |
+| Tipul acțiunii | Unde duce butonul | Exemplu |
+|---|---|---|
+| Depui ceva la stat | Pagina oficială (ANAF SPV, ghișeul.ro) | Declarația Unică |
+| Alegi o opțiune prevăzută de lege | Pagina oficială, cu termenul | Pilon II: cererea la fond |
+| Beneficiu de care nu știai | Unde îl ceri | Deducerea Pilon III |
+| Schimbi furnizorul | Comparatorul ANRE ([energie](https://posf.ro/comparator?comparatorType=electric), [gaz](https://posf.ro/comparator?comparatorType=gas)), apoi furnizorii în ordine alfabetică | Energie |
+| Nu ai nimic de făcut | „Nu trebuie să faci nimic până la {data}” | Gazul, până la 31 martie 2027 |
+| Situație complicată | Registrul public al profesiei, neplătit | Dividende față de salariu |
 
----
+## 4. Afilierea și furnizorii
 
-### 2.4 Cadrul Legal ASF: Pensii Pilon III și Investiții
+**Ce face aplicația acum** (`lib/continut.ts`, `business/parteneri.json`): pentru energie și gaz arată întâi comparatorul oficial, apoi furnizorii **în ordine alfabetică**, nu după preț sau comision. Eticheta „partener” apare doar unde există program de afiliere.
 
-> [!CAUTION]
-> **Aspect critic de reglementare: de confirmat cu un jurist.**  
-> Conform **Legii nr. 204/2006 privind pensiile facultative** (**Art. 74^1**), activitatea de marketing a prospectului schemelor de pensii facultative este rezervată **exclusiv agenților de marketing autorizați sau avizați de ASF**. Este interzisă intermedierea comercială sau acordarea de foloase colaterale pentru aderarea la un fond.
+**Ce am găsit în 2Performant (octombrie 2026):**
+- **Lipsesc categoriile de energie și bănci** ([2Performant, Affiliate Programs](https://2performant.com/affiliate-programs/)).
+- **Orange nu mai apare.** Pagina programului dă 404, iar categoria [Telecom](https://2performant.com/affiliate-programs/telecom/) are doar reincarcareprepay.ro.
+- **Preluarea Profitshare de către 2Performant a fost anulată** în august 2025 ([Business Forum](https://www.businessforum.ro/industry/20250812/2performant-drops-profitshare-deal-2182)).
 
-* **Concluzie:** În aplicație, orice trimitere către Pilonul III rămâne **strict neutră, pro-bono și educativă** (link către pagina administratorului sau registrul APAPR/ASF), fără niciun mecanism de comisionare comercială.
+**Concluzia:** nu punem venit din afiliere în pitch.
 
----
+**Ce excludem de la afiliere, și de ce:**
+- **Asigurări:** după Legea 236/2018, site-urile care compară asigurări fac distribuție de asigurări (art. 3 alin. 1 pct. 9) și trebuie înregistrate la ASF (art. 8 alin. 1) ([legislatie.just.ro](https://legislatie.just.ro/Public/DetaliiDocumentAfis/205851)). Afilierea la brokeri precum Pint.ro intră aici.
+- **Pilon III și investiții:** trimitem doar la [registrul ASF al pensiilor private](https://data.asfromania.ro/scr/rp), neplătit.
+- **Credite:** sunt reglementate. De confirmat cu un jurist.
 
-## 3. Implementarea Tehnică cu Stripe (Sponsorul Challenge-ului)
+**Dacă apar programe pentru energie sau telecom** (**[decizie de echipă]**):
+- ordinea rămâne cea de acum, alfabetică, după comparatorul oficial;
+- linkul plătit e marcat;
+- nu scriem niciodată „cea mai bună ofertă” (`CLAUDE.md`).
 
-```mermaid
-flowchart TD
-    User["Utilizator Nou"] -->|"Înregistrare & Profilare"| Trial["30 Zile Free Trial<br/>(Toate funcțiile deblocate)"]
-    Trial -->|"Ziua 30: Conversie Abonament"| Billing["Stripe Billing<br/>(19 lei / lună)"]
-    Billing -->|"Customer Portal"| Portal["Gestionare card, facturi, anulare"]
-    Billing -->|"Stripe Tax"| Tax["TVA colectat automat"]
-    
-    User -->|"Nevoie de asistență expertă"| Connect["Stripe Connect<br/>(Destination Charges)"]
-    Connect -->|"Comision 15-20%"| PlatformRev["Venit Platformă"]
-    Connect -->|"Restul sumei"| ProAccount["Cont Express Profesionist<br/>(Contabil / Consultant)"]
-```
+## 5. Specialiștii
 
-### 3.1 Stripe Billing pentru Gestionarea Trial-ului și a Abonamentului
-* **Configurare Free Trial nativ:**  
-  Folosim parametrul `subscription_data.trial_period_days: 30` în API-ul Stripe Subscriptions ([stripe.com/docs/billing/subscriptions/overview](https://stripe.com/docs/billing/subscriptions/overview)). Utilizatorul are acces complet timp de o lună.
-* **Stripe Checkout:**  
-  Checkout securizat cu Apple Pay, Google Pay și card bancar ([stripe.com/docs/payments/checkout](https://stripe.com/docs/payments/checkout)).
-* **Stripe Customer Portal:**  
-  Self-service complet pentru utilizatori (actualizare metodă de plată, descărcare facturi, anulare fără fricțiuni) ([stripe.com/docs/customer-management/portal-deep-links](https://stripe.com/docs/customer-management/portal-deep-links)).
-* **Stripe Tax:**  
-  Gestiune fiscală automată pentru cotele de TVA din România ([stripe.com/docs/tax](https://stripe.com/docs/tax)).
-* **Webhooks:**  
-  Monitorizarea evenimentelor `customer.subscription.trial_will_end` (trimitere notificare cu 3 zile înainte de expirarea trial-ului) și `invoice.payment_succeeded` ([stripe.com/docs/billing/subscriptions/webhooks](https://stripe.com/docs/billing/subscriptions/webhooks)).
+Rezumat din `business/profesionisti.md`:
+- Cele mai multe situații se rezolvă cu pașii din card.
+- Când e nevoie de un specialist, butonul duce la registrul public, gratuit.
+- **Nu luăm comision de la profesioniști.** La avocați e interzis explicit: Statutul profesiei, art. 174, interzice plata sau primirea de comision pentru trimiterea de clienți ([Statutul, versiunea din 13.09.2024](https://unbr.ro/wp-content/uploads/2024/09/sintact-statut-din-2011-al-profesiei-de-avocat_2024-09-13.pdf)).
+- Un marketplace de consultanță plătit prin Stripe Connect ar contrazice textul pe care aplicația îl arată deja: „Nu primim bani de la specialiști”.
 
-### 3.2 Stripe Connect pentru Profesioniști (Marketplace de Consultanță)
-În catalogul de acte, când o lege impune o acțiune tehnică complexă (câmpul `"profesionist"`: contabil CECCAR, consultant fiscal CCF):
-* Profesioniștii sunt onboardați prin **Stripe Express Accounts** ([stripe.com/docs/connect/express-accounts](https://stripe.com/docs/connect/express-accounts)), unde Stripe gestionează verificarea identității (KYC) și contul IBAN.
-* Plățile pentru consultații se procesează prin **Destination Charges** ([stripe.com/docs/connect/charges](https://stripe.com/docs/connect/charges)), unde aplicația reține un comision de platformă (*Application Fee*, ex: 15–20%), iar diferența este transferată instant profesionistului prin virament SEPA ([stripe.com/docs/connect/payouts](https://stripe.com/docs/connect/payouts)).
+## 6. Datele personale
 
----
+- **Înainte de orice apel la LLM ascundem:** numele, CNP-ul, adresa, IBAN-ul și angajatorul. Ascunderea se face la noi, nu la furnizorul de AI.
+- **Sumele (salariu, pensie) rămân date personale după GDPR chiar fără nume.** Spunem cinstit: „trimitem cifrele, fără nume și fără date de identificare, și nu le păstrăm”.
+- **Etichetele profilului rămân pe telefon.** Formularul rămâne alternativa pentru cine nu vrea să vorbească cu asistentul.
 
-## 4. Unit Economics: Modelul Financiar
+## 7. Plata
 
-### 4.1 Formula de Calcul (Model Trial $\to$ Paid + Afiliere Pasivă 2Performant)
+- **App Store și Google Play**, pentru abonamentul din aplicație. Nu trebuie cont separat.
+- **Opțional, mai târziu: Stripe Billing**, pentru plata anuală pe web, cu perioadă de probă (`trial_period_days: 30`) și facturi pentru PFA și SRL. Pentru Stripe Connect nu avem nevoie: nu intermediem plăți către specialiști.
 
-Venitul mediu lunar per utilizator activ pe platformă (ARPU):
+## 8. Unit economics (ipoteze)
 
-$$\text{ARPU} = (\text{Preț Abonament} \times \text{Rată Conversie Trial-to-Paid}) + (\text{Comision Mediu 2P} \times \text{Pondere Categorii 2P} \times \text{Rată Click} \times \text{Rată Conversie 2P})$$
+**Venit pe lună ≈ instalări × rata de pornire a probei × conversia după probă × preț net.**
 
-### 4.2 Ipotezele de Calcul și Sursele
+| Ipoteză | Valoare | Sursă |
+|---|---|---|
+| Venit net din anual, după comisionul magazinului (15%) | 299 lei → ≈ 254 lei/an; 190 lei → ≈ 162 lei/an | calcul |
+| Conversia după luna gratuită | ≈ 20–23% (mediana pentru „restul lumii”) | RevenueCat 2026 |
+| Câți pornesc proba din cei care instalează | `TODO` | de măsurat |
+| Onboarding cu LLM (≈ 28k tokeni intrare + 4k ieșire, ipoteză) | Haiku 5.5: $0,10 / $0,50 per milion de tokeni → ≈ 0,02 lei; Sonnet 5.5: $2 / $10 → ≈ 0,45 lei (la 4,5 lei/USD, curs `TODO` BNR) | [claude.com/pricing](https://claude.com/pricing) |
+| WhatsApp, 4 rezumate pe lună | ≈ 0,10–0,28 € per abonat | secțiunea 2 |
+| Costuri fixe: LLM pe Monitorul Oficial + găzduire + verificator fiscal part-time | ≈ 7.500 lei/lună | ipoteză |
 
-| Parametru | Valoare | Sursă / Justificare |
-|---|:---:|---|
-| **Preț Abonament după Trial** | 19 lei / lună | Valoare fixată; sub media pieței |
-| **Durată Free Trial** | 30 zile | Conceperea contului, asistent AI și acces complet |
-| **Rata de conversie Trial $\to$ Paid** | 12,0% | Benchmark industrie SaaS B2C pentru free trial fără card cerut la start (10% – 15% medie; [Recurly Subscription Benchmark Report](https://recurly.com/); dacă se cere card la start, rata crește la 35%–45%) |
-| **Comision mediu per acțiune 2Performant** | 45 lei | Media ponderată între contractele Orange și polițele Pint.ro (Sursă: [2Performant](https://2performant.com/)) |
-| **Ponderea acțiunilor eligibile pe 2Performant** | 15% | Doar ~15% din acțiunile din catalog au acoperire pe 2Performant (Orange, Pint.ro); restul de 85% (energie, bănci, Pilon III) sunt **100% necomisionate (pro-bono)** |
-| **Frecvența oportunităților per utilizator** | 0,25 / lună | Corespunde la 3 evenimente legislative relevante pe an per utilizator |
-| **Rata de click pe acțiune (CTR)** | 8,0% | Notificare ultra-personalizată în funcție de profilul local |
-| **Rata de conversie a click-ului pe 2Performant** | 2,3% | Sursă directă: Rata medie de conversie în rețeaua [2Performant România](https://2performant.com/) este de **2,0% – 2,6%** |
-| **Cost marginal de infrastructură per utilizator** | < 0,02 lei / lună | Rulare locală (local-first pe telefon), descărcare catalog static JSON pe CDN |
+**Pragul de rentabilitate pe costurile fixe:** ≈ 360 de abonați anuali la 299 lei (≈ 560 la 190 lei).
 
-### 4.3 Calculul Efectiv
+## 9. Promovare fără sponsorizări
 
-1. **Venit lunar din Abonament:**  
-   $$V_{\text{abonament}} = 19\text{ lei} \times 12,0\% = \mathbf{2,28\text{ lei / utilizator / lună}}$$
+1. **Un calculator public, gratuit, pentru fiecare lege mare**, ca ușă către luna gratuită.
+2. **Widget gratuit pentru redacții**, cu atribuire.
+3. **Carduri de rezultat de distribuit:** „Noile reguli mă costă −120 lei/lună. Pe tine?”
+4. **„Dă o lună, primești o lună”** între utilizatori reali.
+5. **Prin angajator:** platformele de beneficii flexibile [Edenred Benefit](https://benefit.edenred.ro), [Pluxee MyBenefits](https://www.pluxee.ro/produse/mybenefits-beneficii-flexibile/), [Up MultiBeneficii](https://upromania.ro/companii/up-multibeneficii/). Angajatorul plătește abonamentul, fără acces la date. Merge bine cu etichetele de domeniu.
+6. **Fără postări plătite la influenceri.** Context:
+   - În verificarea internațională ICPEN din 2026, ANPC a constatat că influencerii români nu marchează constant reclamele ([Digi24](https://www.digi24.ro/stiri/sci-tech/lumea-digitala/activitatea-influencerilor-verificata-de-anpc-publicitatea-nu-era-marcata-constant-70-au-creat-continut-cu-ai-fara-a-informa-3844799), sursă secundară).
+   - Din 27 septembrie 2026, creatorii cu peste 100.000 de urmăritori notifică CNA ([CNA, Decizia 116/2026](https://www.cna.ro/a-comunicat-de-presa-decizia-cna-nr-1162026-a-fost-publicata-in-monitorul-oficial-ce-se-schimba-si-ce-nu-se-schimba-in-mediul-online-uymghr17p67ul6wl9iuxjc6h/)).
 
-2. **Venit lunar din Afiliere Pasivă 2Performant:**  
-   $$\text{Click-uri lunare cu link 2Performant} = 0,25 \times 15\% \times 8,0\% = 0,003\text{ click-uri / lună}$$  
-   $$V_{\text{afiliere}} = 45\text{ lei} \times 0,003 \times 2,3\% = \mathbf{0,0031\text{ lei / utilizator / lună}}$$
+## 10. Răspunsuri scurte pentru juriu
 
-3. **ARPU Total Estimativ:**  
-   $$\text{ARPU Total} \approx 2,28 + 0,0031 \approx \mathbf{2,28\text{ lei / utilizator / lună}}\quad (\approx 27,40\text{ lei / an})$$
+- **„De ce nu întreb ChatGPT?”** Noi venim la tine fără să întrebi. Formula e verificată de un om. Cardul are termenul și butonul care te duce unde rezolvi.
+- **„E sfat financiar?”** Arătăm acțiunile prevăzute de lege care ți se aplică ție, cu articolul alături. Nu recomandăm produse.
+- **„Cât de des primesc ceva?”** Legile directe, legile indirecte, domeniul tău, calendarul fiscal și proiectele în consultare (secțiunea 2).
+- **„De ce n-ați luat comision de la furnizori?”** Pentru energie și bănci nu există programe deschise. La asigurări, comparația e distribuție reglementată de ASF. Și oricum, neutralitatea e produsul nostru.
 
-### 4.4 Structura Veniturilor și Concluzia Financiară
+## De confirmat
 
-La o bază activă de **50.000 de utilizatori** care parcurg sau au finalizat onboarding-ul:
-* **Abonați activi plătitori (12%):** 6.000 abonați $\times$ 19 lei = **114.000 lei / lună** (~22.800 EUR / lună);
-* **Venit din comisioane 2Performant:** ~155 lei / lună;
-* **Ponderea abonamentelor în total venituri:** **99,86%**.
-
----
-
-## 5. Concluzie și Recomandare Strategică
-
-Modelul rezultat este curat, robust și etic:
-
-1. **Abonamentul este 99%+ din afacere:**  
-   Utilizatorul este singurul nostru client real. Nu depindem de bunăvoința furnizorilor de energie, a băncilor sau a companiilor de telecomunicații.
-2. **Neutralitatea absolută protejează încrederea:**  
-   Trimițând oamenii gratuit la Hidroelectrica sau CEC Bank dacă acolo au cel mai bun preț, câștigăm un capital uriaș de credibilitate publică. Comisioanele 2Performant sunt doar o optimizare oportunistă pe linkurile deja existente public.
-3. **Conversie naturală generată de valoarea din Trial:**  
-   În cele 30 de zile de probă, utilizatorul își construiește profilul și vede exact câți bani îi sunt protejați. Trecerea la 19 lei/lună este o decizie matematică elementară pentru oricine vrea să-și apere bugetul personal sau afacerea într-un context de volatilitate fiscală extremă.
+- Testul de preț cu 5–10 oameni: hotărăște între 299 lei/an și 190 lei/an.
+- Tabelul oficial de prețuri WhatsApp (Meta) și cursul BNR.
+- Cu un jurist: granița dintre informație și consultanță fiscală.
+- În echipă: planul gratuit (da/nu) și știrile nefinanciare pe domeniu.

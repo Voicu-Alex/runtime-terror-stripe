@@ -42,7 +42,10 @@ describe("catalogul", () => {
 
 describe("potriveste", () => {
   it("fără etichete comune nu întoarce nimic", () => {
-    expect(potriveste(profil({ taguri: ["transport"] }), CATALOG, AZI)).toEqual([]);
+    // o etichetă pe care n-o folosește încă niciun act; catalogul crește, deci nu fixăm una anume
+    const nefolosita = TOATE_TAGURILE.find((t) => !CATALOG.some((s) => s.taguri.includes(t)));
+    expect(nefolosita, "toate etichetele au cel puțin un act: alege alt caz de test").toBeDefined();
+    expect(potriveste(profil({ taguri: [nefolosita!] }), CATALOG, AZI)).toEqual([]);
   });
 
   it("pensionar cu pensia sub 3.000 lei: CASS nu îl atinge", () => {
