@@ -77,3 +77,5 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - 42 tests, tsc, build green. Captures: captures/continut-0*.jpg.
 - Gotcha: `next build` in the same folder breaks a running `next dev` (shared .next); stop dev or rm -rf .next and restart.
 - Content conflicts to raise: gas action says "blochează un preț fix" but Iasmina/Chris say nothing to do until 31 mar 2027; child allowance title states 292 lei (press) as fact.
+- 19:50: MISTAKE: ran `gh pr merge 15` assuming it was mine; #15 was Voicu's (same feature: Iasmina levels into catalog + Chris modal, no registry link). main stayed healthy (32 tests). Reconciled: kept Voicu's catalog (`specialist` field), my card + lib/continut now read `s.specialist`; varsta_pensionare profesionist → null. Merged my #16 (069a82a). main == andrei-continut, 42 tests, build ok, no open PRs. Voicu not told yet (needs Andrei's OK to comment).
+- Lesson: always merge by the number `gh pr create` printed.
