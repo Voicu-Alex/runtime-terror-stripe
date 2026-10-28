@@ -293,6 +293,7 @@ const EN: Record<string, string> = {
   "Modelul nu a întors un rezultat structurat.": "The model did not return a structured result.",
   "Modelul nu a întors JSON valid.": "The model did not return valid JSON.",
   "Eroare la analiză.": "Analysis error.",
+  "Surse și limitări": "Sources and limitations",
 };
 
 /** Are textul intrare în dicționarul EN (chiar dacă traducerea e identică, ca un nume propriu). */
