@@ -530,5 +530,46 @@
       "url": "https://www.anaf.ro",
       "ce": "Declarația unică se depune și se plătește online, gratuit."
     }
+  },
+  {
+    "id": "salariu_minim_2026",
+    "pentru": "Pentru angajații cu salariul minim",
+    "ce": "salariul minim brut crește la 4.325 de lei de la 1 iulie 2026",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică fluturașul din iulie 2026: salariul de bază la normă întreagă trebuie să fie cel puțin 4.325 lei brut.",
+      "Dacă nu e, cere angajatorului corectarea."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "ajutor_incalzire",
+    "pentru": "Pentru familiile cu venit net de cel mult 1.386 de lei pe membru (2.053 lei pentru o persoană singură)",
+    "ce": "ajutor lunar la încălzire între noiembrie și martie, doar pe bază de cerere",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Calculează venitul net mediu pe membru de familie.",
+      "Cere formularul la primăria de care aparține locuința.",
+      "Termenul general e 15 octombrie; întreabă la primărie dacă mai poți depune și de când se acordă."
+    ],
+    "solutie": null
+  },
+  {
+    "id": "insolventa_persoane_fizice",
+    "pentru": "Pentru cei cu datorii pe care nu le mai pot plăti",
+    "ce": "insolvența personală se poate cere de la 15 salarii minime de datorii, adică 64.875 de lei",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Adună lista datoriilor scadente și a creditorilor.",
+      "Cere informații la comisia de insolvență din județul tău.",
+      "Dacă ai peste vârsta de pensionare și datorii de cel mult 43.250 lei, întreabă de procedura simplificată."
+    ],
+    "solutie": null
   }
 ]

@@ -1142,5 +1142,127 @@
     "sursa_explicativa": "https://www.capital.ro/ai-apartament-pe-airbnb-sau-booking-cand-ajungi-sa-platesti-cass-si-ce-taxe-datorezi-in-2026.html",
     "incredere": "ridicata",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "salariu_minim_2026",
+    "rezumat_en": "Gross minimum wage rises to 4,325 lei from 1 July 2026",
+    "act": "HG 146/2026",
+    "mo_ref": "MO 196 / 13 mar 2026",
+    "rezumat": "Salariul minim brut crește la 4.325 lei de la 1 iulie 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2026-03-13",
+    "in_vigoare_de_la": "2026-07-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "salariu_minim"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ești plătit cu salariul minim, de la 1 iulie 2026 brutul tău trebuie să fie cel puțin 4.325 lei pe lună.",
+      "curios": "Salariul minim brut a urcat de la 4.050 la 4.325 lei pe lună, adică 275 lei în plus la brut, pentru un program de 166,667 ore pe lună în medie (25,949 lei pe oră). Creșterea e obligatorie și în firmele private, la normă întreagă. Presa calculează un net de aproximativ 2.699 lei pentru cine primește și scutirea de 200 lei.",
+      "expert": "HG 146/2026, art. 1: 4.325 lei lunar, fără sporuri, pentru 166,667 ore pe lună în medie, adică 25,949 lei/oră, începând cu 1 iulie 2026. Publicată în Monitorul Oficial nr. 196 din 13 martie 2026 (verificat pe Portalul Legislativ). Netul de 2.699 lei e un calcul de presă, nu o cifră din hotărâre. Scutirea de 200 lei pe lună vine separat, din OUG 89/2025 (intrarea salariu_minim_netaxabil_2026)."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică fluturașul de salariu: din iulie 2026, salariul de bază la normă întreagă trebuie să fie cel puțin 4.325 lei brut",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 1",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/308231",
+    "sursa_explicativa": "https://www.avocatnet.ro/articol_70565/",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "ajutor_incalzire",
+    "rezumat_en": "Heating aid for low incomes: up to 1,386 lei per family member",
+    "act": "Legea 226/2021",
+    "mo_ref": "MO 891 / 16 sep 2021",
+    "rezumat": "Ajutor la încălzire dacă venitul e sub 1.386 lei pe membru de familie",
+    "status": "in_vigoare",
+    "publicat_la": "2021-09-16",
+    "in_vigoare_de_la": "2021-11-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "pensionar",
+      "somer",
+      "salariu_minim"
+    ],
+    "conditii": [
+      {
+        "camp": "venit_net_pe_membru",
+        "op": "<=",
+        "valoare": 1386
+      }
+    ],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă venitul net din familie e de cel mult 1.386 lei pe persoană (2.053 lei dacă locuiești singur), poți primi ajutor lunar la încălzire între noiembrie și martie, dar numai dacă depui cererea.",
+      "curios": "Ajutorul se acordă în sezonul rece, de la 1 noiembrie la 31 martie, ca procent dintr-o valoare de referință care scade pe măsură ce venitul crește. Legea fixează valoarea de referință la cel puțin 250 lei pe lună pentru gaze, 500 lei pentru curent electric și 320 lei pentru lemne sau alți combustibili; Guvernul o poate actualiza. Cererea se depune la primăria de care aparține locuința, de regulă până pe 15 octombrie.",
+      "expert": "Legea 226/2021 privind consumatorul vulnerabil de energie (MO nr. 891 din 16 septembrie 2021), forma consolidată: art. 7 alin. (1)-(2), venitul net mediu lunar de cel mult 1.386 lei pe persoană în familie și 2.053 lei pentru persoana singură; art. 7 alin. (3), valorile de referință minime (250 lei gaze, 500 lei energie electrică, 320 lei combustibili solizi sau petrolieri); art. 3 lit. g), sezonul rece de 5 luni, 1 noiembrie - 31 martie; art. 16, cererea se depune de regulă până la 15 octombrie. Procentele pe tranșe de venit și condițiile de excludere (de exemplu bunurile deținute) nu sunt transcrise aici. Ce se întâmplă cu cererile depuse după 15 octombrie: de confirmat la primărie."
+    },
+    "actiuni": [
+      {
+        "text": "Cere la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 3 lit. g), art. 7 alin. (1)-(3), art. 16",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/246430",
+    "sursa_explicativa": "https://primaria-constanta.ro/pagina-dgas/ajutoare-incalzire-sezonul-2026-2027/",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "insolventa_persoane_fizice",
+    "rezumat_en": "Personal insolvency: debt threshold is 64,875 lei from July 2026",
+    "act": "Legea 151/2015",
+    "mo_ref": "MO 464 / 26 iun 2015",
+    "rezumat": "Datorii mari: insolvența personală se poate cere de la 64.875 lei",
+    "status": "in_vigoare",
+    "publicat_la": "2015-06-26",
+    "in_vigoare_de_la": "2018-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "ipoteca"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai datorii pe care nu le mai poți plăti, poți cere insolvența personală; pragul minim e 15 salarii minime, adică 64.875 lei de la 1 iulie 2026.",
+      "curios": "Procedura pe bază de plan de rambursare pornește de la datorii scadente de cel puțin 15 salarii minime. Planul durează cel mult 5 ani, cu o posibilă prelungire de 12 luni. Există și o procedură simplificată pentru cine are datorii de cel mult 10 salarii minime (43.250 lei), nu are bunuri sau venituri urmăribile și a depășit vârsta de pensionare sau și-a pierdut cel puțin jumătate din capacitatea de muncă: după 3 ani, datoriile rămase pot fi șterse.",
+      "expert": "Legea 151/2015 (MO nr. 464 din 26 iunie 2015), forma consolidată: art. 3 pct. 24, valoarea-prag de 15 salarii minime pe economie; art. 4 alin. (1) lit. c); art. 25 alin. (5), planul de rambursare de cel mult 5 ani, prelungibil cu cel mult 12 luni; art. 65, procedura simplificată (cel mult 10 salarii minime, fără bunuri sau venituri urmăribile, peste vârsta standard de pensionare sau capacitate de muncă pierdută cel puțin pe jumătate); art. 69-71, obligațiile pe 3 ani și eliberarea de datoriile reziduale. Sumele în lei sunt calculul nostru la salariul minim de 4.325 lei (HG 146/2026). Nu e sfat juridic: procedura are costuri și efecte asupra bunurilor."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă datoriile tale trec de prag, cere informații la comisia de insolvență din județul tău înainte să depui cererea",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 3 pct. 24, art. 25 alin. (5), art. 65, art. 69-71",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/169194",
+    "sursa_explicativa": "https://www.digi24.ro/stiri/economie/pragul-pentru-insolventa-personala-creste-de-la-1-iulie-odata-cu-majorarea-salariului-minim-ce-se-schimba-pentru-romanii-cu-datorii-3802035",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
   }
 ]
