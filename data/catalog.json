@@ -454,8 +454,8 @@
     "estimare": true,
     "niveluri": {
       "zero": "Pentru fiecare copil primești de la stat o alocație lunară, indiferent de venit. Se cere o singură dată, la primărie sau online.",
-      "curios": "TODO",
-      "expert": "TODO"
+      "curios": "Alocația de stat se acordă pentru fiecare copil, indiferent de venitul părinților, și se cere o singură dată. Suma se indexa în fiecare an, dar în 2026 rămâne la nivelul din decembrie 2025: Legea 141/2025 o menține înghețată tot anul.",
+      "expert": "Legea 61/1993, art. 3, în forma modificată prin OUG 126/2021: cuantum indexat anual din 2023. Legea 141/2025, art. XXV lit. k): în 2026, alocațiile de stat pentru copii reglementate de Legea 61/1993 se mențin în plată la nivelul acordat pentru luna decembrie 2025. Suma de 292 lei pentru copiii între 2 și 18 ani e din presă; cuantumul exact din decembrie 2025 trebuie confirmat într-un act oficial."
     },
     "actiuni": [
       {
@@ -472,7 +472,14 @@
     "incredere": "medie",
     "verificat_la": "2026-10-28",
     "modificat_prin": [
-      {"act": "OUG 126/2021", "mo_ref": "MO 1189 / 15 dec 2021", "data": "2021-12-15", "ce": "art. 3: 243 lei pe lună între 2 și 18 ani din ianuarie 2022 (600 lei sub 2 ani sau cu handicap), indexat anual din 2023", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212"}
+      {"act": "OUG 126/2021", "mo_ref": "MO 1189 / 15 dec 2021", "data": "2021-12-15", "ce": "art. 3: 243 lei pe lună între 2 și 18 ani din ianuarie 2022 (600 lei sub 2 ani sau cu handicap), indexat anual din 2023", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/248212"},
+      {
+        "act": "Legea 141/2025",
+        "mo_ref": "MO 699 / 25 iul 2025",
+        "data": "2025-07-25",
+        "ce": "art. XXV lit. k): în 2026, alocațiile de stat pentru copii rămân la nivelul din decembrie 2025 (nu se indexează)",
+        "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022"
+      }
     ]
   },
   {
@@ -634,7 +641,7 @@
     "termen_actiune": "2026-10-31",
     "directie": "termen",
     "taguri": [
-      "masina"
+      "masina", "transport"
     ],
     "conditii": [],
     "formula": "motorina_acciza",
@@ -1504,6 +1511,88 @@
     "articol": "Legea 141/2025 art. XLVII; Legea 448/2006 art. 58^1, 58^2; OUG 89/2025 art. XXXVIII",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/77815",
     "sursa_explicativa": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "rovinieta_2026",
+    "rezumat_en": "Road vignette now depends on the Euro standard: 228 to 330 lei a year for cars",
+    "act": "Ordinul MTI 888/2026",
+    "mo_ref": "MO 818 / 25 sep 2026",
+    "rezumat": "Rovinieta depinde acum de norma Euro: 228–330 lei pe an pentru autoturisme",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-25",
+    "in_vigoare_de_la": "2026-10-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": [
+      "masina",
+      "transport"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Rovinieta pentru mașină costă acum în funcție de norma de poluare: de la 228 lei pe an pentru electrice la 330 lei pe an pentru mașinile Euro 3 sau mai vechi.",
+      "curios": "Pentru autoturisme (categoria A), rovinieta pe 12 luni costă 228 lei la electrice, 254 lei la Euro 6, 292 lei la Euro 4-5 și 330 lei la Euro 3 sau mai vechi. Rovinieta pe o zi costă între 20 și 29 lei, iar pe 30 de zile între 43 și 62 lei. Mașinile la care nu se poate stabili norma de poluare sunt tratate ca Euro 0. Tarifele se indexează anual, de la 1 ianuarie.",
+      "expert": "Ordinul MTI 888/2026 pentru aprobarea categoriilor de vehicule și a nivelului rovinietei (MO nr. 818 din 25 septembrie 2026), anexa, categoria A (autoturisme cu cel mult 9 locuri, TVA inclus): 1 zi 20/22/26/29 lei, 10 zile 27/30/35/39 lei, 30 de zile 43/48/55/62 lei, 60 de zile 68/76/87/99 lei, 12 luni 228/254/292/330 lei, pentru electrice / Euro VI / Euro V-IV / Euro III-0. Art. 3 alin. (2): tarifele se aplică rovinietelor a căror valabilitate începe la data prevăzută de art. 29 alin. (1) din Legea 226/2023 sau ulterior; data de 1 octombrie 2026 e cea comunicată în presă. Art. 3 alin. (3): indexare anuală de la 1 ianuarie."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică norma Euro din talon (certificatul de înmatriculare) ca să știi ce tarif plătești, apoi cumpără rovinieta de pe site-ul CNAIR",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": "https://www.cnair.ro"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 3 și anexa (categoria A)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314861",
+    "sursa_explicativa": "https://www.fiscalitatea.ro/rovinieta-si-tollro-de-la-1-octombrie-2026-tarife-noi-in-lei-25041/",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "efactura_5_zile_lucratoare",
+    "rezumat_en": "e-Invoicing: invoices must be sent within 5 working days, not calendar days",
+    "act": "OUG 89/2025",
+    "mo_ref": "MO 1203 / 24 dec 2025",
+    "rezumat": "e-Factura: ai 5 zile lucrătoare, nu calendaristice, ca să trimiți factura",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-24",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "pfa",
+      "micro"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă emiți facturi ca PFA sau firmă, din 2026 ai 5 zile lucrătoare, nu 5 zile calendaristice, ca să le trimiți în sistemul RO e-Factura.",
+      "curios": "Termenul de transmitere în RO e-Factura este de 5 zile lucrătoare de la emiterea facturii, dar nu mai târziu de 5 zile lucrătoare de la termenul-limită de emitere. Același termen se aplică și facturilor către persoane fizice (B2C). Persoanele fizice care desfășoară activități economice și se identifică prin CNP trebuie să se înscrie în Registrul RO e-Factura obligatoriu înainte să înceapă activitatea.",
+      "expert": "OUG 89/2025, art. X pct. 2 (art. 10 alin. (7) din OUG 120/2021) și pct. 3 (art. 10^1 alin. (2^1)): termenul-limită este de 5 zile lucrătoare de la emitere, dar nu mai târziu de 5 zile lucrătoare de la data-limită de emitere din art. 319 alin. (16) Cod fiscal, calculat conform Regulamentului (CEE, Euratom) nr. 1182/71; în vigoare la 1 ianuarie 2026 (art. XIV alin. (1)). Art. X pct. 5 (art. 10^10) și art. XI: persoanele fizice care se identifică prin CNP și au obligații de e-Factura se înscriu în Registrul RO e-Factura obligatoriu înainte de a începe activitatea; cele care activau deja trebuiau înscrise înainte de 15 ianuarie 2026."
+    },
+    "actiuni": [
+      {
+        "text": "Setează în programul de facturare un termen de 5 zile lucrătoare pentru trimiterea în RO e-Factura",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": "https://www.anaf.ro"
+      }
+    ],
+    "profesionist": "contabil",
+    "specialist": {
+      "intrebare": "Cum se calculează termenul de 5 zile lucrătoare pentru e-Factura în cazul meu și ce facturi B2C trebuie trimise?",
+      "documente": "Lista facturilor emise lunar, tipul clienților (firme sau persoane fizice), programul de facturare folosit"
+    },
+    "articol": "art. X pct. 2, 3 și 5, art. XI, art. XIV",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
+    "sursa_explicativa": "https://static.anaf.ro/static/10/Anaf/legislatie/OUG_89_2025.pdf",
     "incredere": "ridicata",
     "verificat_la": "2026-10-28"
   }

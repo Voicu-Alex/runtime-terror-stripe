@@ -655,5 +655,39 @@
       "Întreabă la direcția de asistență socială ce documente îți vor trebui din 2027."
     ],
     "solutie": null
+  },
+  {
+    "id": "rovinieta_2026",
+    "pentru": "Pentru cei care au mașină",
+    "ce": "rovinieta pe un an costă între 228 și 330 de lei, după norma Euro",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Verifică norma Euro în talon.",
+      "Cumpără rovinieta pe perioada de care ai nevoie: pentru drumuri rare, cea pe 10 sau 30 de zile poate fi mai ieftină decât cea anuală."
+    ],
+    "solutie": {
+      "nume": "CNAIR",
+      "url": "https://www.cnair.ro",
+      "ce": "Rovinieta se cumpără online de la CNAIR."
+    }
+  },
+  {
+    "id": "efactura_5_zile_lucratoare",
+    "pentru": "Pentru PFA-uri și firme care emit facturi",
+    "ce": "facturile se trimit în RO e-Factura în 5 zile lucrătoare de la emitere",
+    "salvezi": null,
+    "pierzi": null,
+    "termen": null,
+    "pasi": [
+      "Setează în programul de facturare termenul de 5 zile lucrătoare.",
+      "Trimite și facturile către persoane fizice (B2C) în același termen."
+    ],
+    "solutie": {
+      "nume": "ANAF, RO e-Factura",
+      "url": "https://www.anaf.ro",
+      "ce": "Facturile se trimit prin SPV sau prin programul de facturare conectat la RO e-Factura."
+    }
   }
 ]
