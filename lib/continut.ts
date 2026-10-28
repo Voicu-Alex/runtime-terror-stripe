@@ -5,6 +5,7 @@
 import niveluriJson from "@/content/niveluri.json";
 import parteneriJson from "@/business/parteneri.json";
 import type { Niveluri, Schimbare } from "./catalog";
+import type { Limba } from "./i18n";
 import { destinatie } from "./destinatii";
 
 type NivelIasmina = Niveluri & { surse: string[] };
@@ -32,14 +33,24 @@ export function faraTODO(text: string): string {
     .trim();
 }
 
-export type NiveluriCard = { zero: string; curios: string | null; expert: string | null; surse: string[]; autor: "continut" | "catalog" };
+export type NiveluriCard = {
+  zero: string;
+  /** limba propoziției de la Zero: în engleză doar unde catalogul are `zero_en` */
+  limbaZero: Limba;
+  curios: string | null;
+  expert: string | null;
+  surse: string[];
+  autor: "continut" | "catalog";
+};
 
-/** Textele Iasminei au prioritate; unde lipsesc, rămân cele din catalog. */
-export function niveluri(s: Schimbare): NiveluriCard {
+/** Textele Iasminei au prioritate; unde lipsesc, rămân cele din catalog. Curios și Expert rămân în română. */
+export function niveluri(s: Schimbare, limba: Limba = "ro"): NiveluriCard {
   const i = NIVELURI[CHEIE_NIVELURI[s.id]];
+  const en = limba === "en" && s.niveluri.zero_en ? s.niveluri.zero_en : null;
   if (i) {
     return {
-      zero: faraTODO(i.zero) || s.niveluri.zero,
+      zero: en ?? (faraTODO(i.zero) || s.niveluri.zero),
+      limbaZero: en ? "en" : "ro",
       curios: faraTODO(i.curios) || null,
       expert: faraTODO(i.expert) || null,
       surse: i.surse ?? [],
@@ -47,7 +58,8 @@ export function niveluri(s: Schimbare): NiveluriCard {
     };
   }
   return {
-    zero: s.niveluri.zero,
+    zero: en ?? s.niveluri.zero,
+    limbaZero: en ? "en" : "ro",
     curios: eTODO(s.niveluri.curios) ? null : s.niveluri.curios,
     expert: eTODO(s.niveluri.expert) ? null : s.niveluri.expert,
     surse: [],

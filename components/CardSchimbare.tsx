@@ -55,7 +55,7 @@ export default function CardSchimbare({
   const dep = v.termen?.depasit;
   const modificari = s.modificat_prin ?? [];
   const ultima = modificari[modificari.length - 1];
-  const n = niveluri(s);
+  const n = niveluri(s, limba);
   const fz = furnizori(s.id);
   const sp = specialist(s);
   const surseExtra = n.surse.filter((u) => u !== s.sursa_url && !u.startsWith("https://posf.ro"));
@@ -126,7 +126,7 @@ export default function CardSchimbare({
         <div id={`${uid}-d`} className="pb-4">
           {/* Zero: o propoziție, fără jargon */}
           <p className="m-0 mb-2.5 max-w-[60ch] text-[15px] text-v3-ink">
-            <b>{t("Pentru tine:")}</b> <span lang="ro">{n.zero}</span>
+            <b>{t("Pentru tine:")}</b> <span lang={n.limbaZero}>{n.zero}</span>
           </p>
           {s.estimare && v.suma !== null && v.suma !== 0 && (
             <p className="m-0 mb-2.5 text-[13.5px] text-v3-ink-2">{t("Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege.")}</p>

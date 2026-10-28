@@ -156,13 +156,13 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
           </small>
         </p>
       ) : null}
-      <p className="m-0 mb-4 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft" lang={actiune && a?.text_en && limba === "en" ? "en" : "ro"}>
+      <p className="m-0 mb-4 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft" lang={limba === "en" && (actiune && a ? a.text_en : s.niveluri.zero_en) ? "en" : "ro"}>
         {actiune && a ? (
           <>
             <b>{t("Ce poți face:")}</b> {textActiune(a, limba)}.
           </>
         ) : (
-          s.niveluri.zero
+          (limba === "en" && s.niveluri.zero_en) || s.niveluri.zero
         )}
       </p>
       <div className="flex flex-wrap items-center justify-between gap-3.5 border-t border-v3-tintb pt-3.5">

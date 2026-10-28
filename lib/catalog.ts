@@ -52,6 +52,8 @@ export type Modificare = {
 
 export type Niveluri = {
   zero: string; // o propoziție, fără jargon
+  /** traducerea propoziției afișate la Zero (inclusiv când vine din content/niveluri.json), pentru pitch */
+  zero_en?: string;
   curios: string; // 3–4 propoziții sau "TODO"
   expert: string; // articolul și nuanțele sau "TODO"
 };
