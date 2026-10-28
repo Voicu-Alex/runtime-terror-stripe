@@ -48,7 +48,7 @@ describe("vederea cardului", () => {
 
 describe("formatare", () => {
   it("zile în română", () => {
-    expect([1, 5, 19, 20, 154, 100, 101].map(zile)).toEqual([
+    expect([1, 5, 19, 20, 154, 100, 101].map((n) => zile(n))).toEqual([
       "o zi", "5 zile", "19 zile", "20 de zile", "154 de zile", "100 de zile", "101 zile",
     ]);
   });

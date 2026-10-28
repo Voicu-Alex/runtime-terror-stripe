@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FluxMeu } from "@/components/FluxMeu";
+import { T } from "@/components/Limba";
 import { ListaFlux } from "@/components/ListaFlux";
 import { sortareDin, type Sortare } from "@/lib/card";
 import { CATALOG } from "@/lib/catalog";
@@ -17,7 +18,9 @@ export default async function Flux({ searchParams }: { searchParams: Promise<{ p
 
   return (
     <div>
-      <h1 className="m-0 font-head text-2xl font-extrabold tracking-[-.015em] text-v3-ink">Fluxul meu</h1>
+      <h1 className="m-0 font-head text-2xl font-extrabold tracking-[-.015em] text-v3-ink">
+        <T k="Fluxul meu" />
+      </h1>
       {p && p in PERSOANE_DEMO ? <FluxDemo id={p} sortare={sortare} /> : <FluxMeu sortare={sortare} />}
     </div>
   );
@@ -30,9 +33,9 @@ function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
   return (
     <>
       <p className="mt-1 mb-0 text-sm text-v3-ink-2">
-        Profil demo: <b className="text-v3-ink">{persoana.nume}</b> · {potriviri.length} acte care te privesc ·{" "}
+        <T k="Profil demo:" /> <b className="text-v3-ink">{persoana.nume}</b> · {potriviri.length} <T k="acte care te privesc" /> ·{" "}
         <Link href="/flux" className="text-v3-ink underline decoration-v3-line underline-offset-2">
-          profilul meu
+          <T k="profilul meu" />
         </Link>
       </p>
       <ListaFlux potriviri={potriviri} valori={persoana.profil.valori} sortare={sortare} baza={`/flux?p=${id}`} />
