@@ -718,7 +718,7 @@
     "niveluri": {
       "zero": "Din 2026, impozitul pe mașină se calculează după capacitatea cilindrică și după norma de poluare Euro, nu după vechime. La mașinile mici pe benzină sau motorină, suma aproape se dublează.",
       "curios": "Se plătește o sumă pentru fiecare 200 cmc. Până la 1.600 cmc: 19,5 lei la Euro 3 și mai vechi, 18,8 la Euro 4, 17,6 la Euro 5, 16,5 la Euro 6. Între 1.601 și 2.000 cmc: 29,7 / 28,5 / 26,7 / 25,1 lei. Electricele plătesc 40 lei pe an. De exemplu, un motor de 1.400 cmc Euro 5 trece de la 63 la 123 lei pe an. Primăria poate mări sumele, deci cifra exactă e pe decizia ta de impunere.",
-      "expert": "Legea 239/2025, MO 1160 / 15 dec 2025, modificată prin OUG 78/2025, schimbă calculul impozitului pe mijloacele de transport din Codul fiscal: sumă pe fiecare 200 cmc sau fracțiune, pe trepte de cilindree și norme Euro (tabelul din presă: Alba24, Capital). Articolul exact din Codul fiscal: de confirmat. Bonificația de până la 10% la plata integrală până la 31 martie: Codul fiscal art. 472 alin. (2), stabilită prin hotărâre a consiliului local; necitit în text."
+      "expert": "Legea 239/2025, MO 1160 / 15 dec 2025, modificată prin OUG 78/2025, schimbă calculul impozitului pe mijloacele de transport din Codul fiscal: sumă pe fiecare 200 cmc sau fracțiune, pe trepte de cilindree și norme Euro (tabelul din presă: Alba24, Capital). Bonificația de până la 10% la plata integrală până la 31 martie: Codul fiscal art. 472 alin. (2), stabilită prin hotărâre a consiliului local; necitit în text. Verificat în textul legii (Legea 239/2025, art. XII pct. 43–46): tabelul pe norme Euro la art. 470 alin. (2), 40 lei/an pentru vehiculele electrice (alin. (3^1)) și o reducere de cel mult 30% pentru hibridele cu cel mult 50 g CO2/km, stabilită de consiliul local (alin. (3))."
     },
     "actiuni": [
       {
@@ -729,10 +729,418 @@
       }
     ],
     "profesionist": null,
-    "articol": "articol de confirmat (Codul fiscal, impozitul pe mijloacele de transport, modificat prin Legea 239/2025 și OUG 78/2025)",
+    "articol": "art. XII pct. 43–46 (art. 470 alin. (2), (2^1), (2^2), (3) și (3^1) Cod fiscal)",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305208",
     "sursa_explicativa": "https://alba24.ro/impozit-auto-in-functie-de-norma-de-poluare-din-2026-cum-se-calculeaza-mai-transmite-baza-de-date-cu-vehiculele-in-judete-1112191.html",
     "incredere": "medie",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "salariu_minim_netaxabil_2026",
+    "act": "OUG 89/2025",
+    "mo_ref": "MO 1203 / 24 dec 2025",
+    "rezumat": "200 lei netaxabili la salariul minim, doar până la 31 dec 2026",
+    "rezumat_en": "200 lei of the minimum wage tax-free, only until 31 Dec 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-24",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": "2026-12-31",
+    "termen_actiune": null,
+    "directie": "termen",
+    "taguri": [
+      "salariu_minim"
+    ],
+    "conditii": [
+      {
+        "camp": "salariu_brut",
+        "op": "<=",
+        "valoare": 4600
+      }
+    ],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă ai salariul minim, pentru 200 lei din el nu se plătesc taxe până la 31 decembrie 2026; din ianuarie 2027 scutirea se termină dacă nu e prelungită.",
+      "curios": "Între 1 ianuarie și 30 iunie 2026 scutirea a fost de 300 lei pe lună, iar din 1 iulie este de 200 lei. Pentru această sumă nu se plătesc impozit, CAS și CASS. Calculul nostru: la 4.325 lei brut, scutirea îți lasă în mână cam 83 lei în plus pe lună (70 lei contribuții și 13 lei impozit). Condiții: normă întreagă, salariul de bază egal cu minimul și venit brut lunar de cel mult 4.600 lei, fără tichete de masă și vouchere de vacanță.",
+      "expert": "OUG 89/2025, art. III alin. (1)-(6), derogare de la art. 78, 139 alin. (1), 140, 157 alin. (1) și 220^4 alin. (1) din Codul fiscal. Praguri de venit brut: 4.300 lei (ian.-iun. 2026) și 4.600 lei (iul.-dec. 2026). Suma se reduce proporțional pentru fracțiuni de lună, angajări noi sau încetări (alin. (4)). Condiția nu e îndeplinită dacă salariul de bază a fost redus între intrarea în vigoare a OUG și 31 dec 2026 (alin. (2)). Se aplică și raporturilor de serviciu (alin. (3)) și doar veniturilor lunilor ianuarie-decembrie 2026 (alin. (6)). Până la 28.10.2026 nu am găsit un act care să prelungească scutirea în 2027. Suma de 83 lei este calculul nostru, nu o cifră din lege."
+    },
+    "actiuni": [
+      {
+        "text": "Nu trebuie să faci nimic: angajatorul aplică scutirea automat. Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut",
+        "termen": "2026-12-31",
+        "one_click": null,
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. III alin. (1), (2), (4) și (6)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817",
+    "sursa_explicativa": "https://startupcafe.ro/salariul-minim-2026-informatii-anaf-suma-minima-neimpozabila-93358",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "concediu_medical_procente",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Concediul medical scurt se plătește cu 55% sau 65%, nu cu 75%",
+    "rezumat_en": "Short sick leave is paid at 55% or 65% instead of 75%",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": [
+      "angajat"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă stai în concediu medical pentru o boală obișnuită, primești mai puțini bani pentru concediile scurte.",
+      "curios": "Din 1 august 2025, indemnizația depinde de câte zile are episodul de boală: 55% din baza de calcul până la 7 zile, 65% între 8 și 14 zile și 75% de la 15 zile în sus. Înainte era 75% pentru orice durată. Exemplu ilustrativ: la o bază zilnică de 200 lei, 5 zile de concediu înseamnă 550 lei brut, față de 750 lei înainte. Unele boli cardiovasculare rămân la 75%.",
+      "expert": "Legea 141/2025 modifică art. 17 din OUG 158/2005 (cuantumul indemnizației pentru boli obișnuite și accidente în afara muncii). Procentele, pragurile de zile și excepția pentru unele boli cardiovasculare sunt confirmate în materialul DGRFP Ploiești (ANAF). Procentul se stabilește după totalul zilelor din episodul de boală. Modificarea e făcută prin art. IX din Legea 141/2025, în vigoare de la 1 august 2025 (art. X). Măsura se cumulează cu neplata unei zile din OUG 91/2025 (intrare separată: concediu_medical_prima_zi)."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat",
+        "termen": null,
+        "one_click": null,
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "Legea 141/2025, art. IX (art. 17 alin. (1) și (1^1) din OUG 158/2005)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.avocatnet.ro/articol_71174/Concedii-medicale-2026-aspecte-importante-de-retinut-pentru-angajati.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {
+        "act": "OUG 89/2025",
+        "mo_ref": "MO 1203 / 24 dec 2025",
+        "data": "2026-07-01",
+        "ce": "art. VII adaugă alin. (12) la art. 17 din OUG 158/2005: diferențele din recalcularea episoadelor care continuă în luna următoare se declară în luna în care sunt calculate (din 1 iulie 2026, art. VIII alin. (2))",
+        "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305817"
+      }
+    ]
+  },
+  {
+    "id": "concediu_medical_prima_zi",
+    "act": "OUG 91/2025",
+    "mo_ref": "MO 1223 / 31 dec 2025",
+    "rezumat": "Prima zi de concediu medical nu se plătește până la final de 2027",
+    "rezumat_en": "First day of sick leave is unpaid until the end of 2027",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-31",
+    "in_vigoare_de_la": "2026-02-01",
+    "expira_la": "2027-12-31",
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": [
+      "angajat"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Pentru certificatele de concediu medical din 1 februarie 2026 până la 31 decembrie 2027, nu ești plătit pentru o zi din episodul de boală.",
+      "curios": "Indemnizația se calculează cu o zi mai puțin decât durata de pe certificat. Din 18 mai 2026, ziua se scade o singură dată pe episod, chiar dacă primești mai multe certificate. Ziua nu se mai scade la concediile de maternitate și de risc maternal, la pacienții din programele naționale de sănătate și pe perioada spitalizării (conform notei de fundamentare a Ministerului Sănătății; data exactă de aplicare e de confirmat în Legea 64/2026). Exemplu ilustrativ: la o bază zilnică de 200 lei și 55%, 5 zile de concediu se plătesc ca 4 zile, adică 440 lei brut în loc de 550 lei.",
+      "expert": "OUG 91/2025, art. II: certificatele eliberate între 1 feb 2026 și 31 dec 2027 se plătesc prin diminuarea cu o zi; regula și perioada sunt confirmate în nota de fundamentare a Ministerului Sănătății. Legea 64/2026 de aprobare (MO 416 / 15 mai 2026, în vigoare la 18 mai 2026) aplică diminuarea o singură dată pe episod și adaugă excepții de la 1 iunie 2026; aceste detalii le-am găsit doar în surse de specialitate (contzilla.ro, portalcontabilitate.ro), textul oficial trebuie citit. Presa menționează o excepție de neconstituționalitate ridicată de Avocatul Poporului; nu am găsit o decizie CCR. Linkul de pe Portalul Legislativ: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare",
+        "termen": "2027-12-31",
+        "one_click": null,
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. II",
+    "sursa_url": "https://ms.ro/media/documents/NF_OUG_compl._OUG_91_2025_site.pdf",
+    "sursa_explicativa": "https://www.contzilla.ro/legea-64-2026-diminuarea-cu-o-zi-a-indemnizatiei-de-concediumedical-pe-episod-de-boala-nu-pe-fiecare-certificat/",
+    "incredere": "medie",
+    "verificat_la": "2026-10-28",
+    "modificat_prin": [
+      {
+        "act": "Legea 64/2026",
+        "mo_ref": "MO 416 / 15 mai 2026",
+        "data": null,
+        "ce": "aprobă OUG 91/2025: diminuarea se aplică o singură dată pe episod, cu excepții (din surse de specialitate și nota de fundamentare MS; textul legii de confirmat)",
+        "sursa_url": "TODO"
+      }
+    ]
+  },
+  {
+    "id": "cass_intretinere",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Soțul sau părintele fără venit nu mai e asigurat gratuit: 2.430 lei/an",
+    "rezumat_en": "Dependent spouse or parent no longer insured for free: 2,430 lei a year",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": "2027-05-25",
+    "directie": "cost",
+    "taguri": [
+      "intretin_parinti"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai în întreținere soțul, soția sau un părinte fără venituri, ei nu mai sunt asigurați gratuit la sănătate; îi poți asigura plătind 2.430 lei pe an pentru fiecare.",
+      "curios": "Din 1 august 2025, soțul, soția și părinții fără venituri proprii nu mai sunt scutiți de contribuția la sănătate. Poți plăti CASS pentru ei prin Declarația unică: 10% din 6 salarii minime, adică 2.430 lei pentru fiecare persoană în 2026, cam 203 lei pe lună. Plătești 25% când depui declarația și restul de 75% până la 25 mai 2027. Copiii până la 18 ani și elevii sau studenții până la 26 de ani rămân asigurați fără plată.",
+      "expert": "Codul fiscal, art. 182^1, introdus prin Legea 141/2025. Baza: 6 salarii minime brute în vigoare la 1 ianuarie a anului opțiunii. ANAF a confirmat 2.430 lei și tranșele de 25% și 75% pentru 2025 (comunicatul din 4 sep 2025). Pentru 2026 suma rezultă la fel, 6 x 4.050 lei x 10%, pentru că salariul minim la 1 ianuarie 2026 a rămas 4.050 lei (OUG 89/2025, preambul). Termenul de 25 mai 2027 aplică regula ANAF a anului următor opțiunii. Persoana în întreținere poate opta și în nume propriu. Se aplică doar soțului, soției și părinților fără venituri proprii (comunicatul ANAF nr. 882/4.09.2025). Pentru soț sau soție nu există încă o etichetă în profil."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă vrei să-i asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen",
+        "termen": "2027-05-25",
+        "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. II pct. 38 (art. 182^1 Cod fiscal)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://static.anaf.ro/static/3/Anaf/20250904103146_com%20882%20asig%204sept2025.pdf",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "cass_somaj",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Șomerii plătesc 10% CASS din indemnizație, care rămâne înghețată în 2026",
+    "rezumat_en": "Unemployed pay 10% health tax on a benefit frozen through 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": [
+      "somer"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă primești indemnizație de șomaj, din august 2025 ți se reține 10% contribuție la sănătate, iar în 2026 indemnizația nu crește.",
+      "curios": "Șomerii nu mai sunt asigurați la sănătate fără plată: contribuția de 10% se reține direct din indemnizație. Exemplu ilustrativ: la o indemnizație de 1.000 lei, primești 900 lei. În plus, indicatorul social de referință, de care depinde indemnizația, rămâne în 2026 la nivelul din decembrie 2025. Nu trebuie să depui nicio declarație, reținerea e automată.",
+      "expert": "Legea 141/2025: art. II pct. 22 adaugă indemnizațiile de șomaj (Legea 76/2002) la veniturile pentru care se datorează CASS (art. 155 alin. (1) Cod fiscal), aplicabil veniturilor din august 2025 (art. VII alin. (1) lit. e)); art. II pct. 27 obligă plătitorul (ANOFM) să calculeze și să rețină contribuția la sursă; art. VIII pct. 7 îi include printre asigurații prin reținere la sursă. Art. XXXIII: în 2026, indicatorul social de referință rămâne la nivelul din decembrie 2025, prin derogare de la art. 33^2 din Legea 76/2002. Valoarea ISR în lei: TODO."
+    },
+    "actiuni": [
+      {
+        "text": "Nu trebuie să faci nimic: contribuția se reține automat din indemnizație și îți păstrează calitatea de asigurat",
+        "termen": null,
+        "one_click": null,
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. II pct. 22 și 27 (art. 155 alin. (1), art. 168 alin. (1^3) Cod fiscal), art. VIII pct. 7 lit. c); art. XXXIII (ISR în 2026)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.economica.net/asigurarea-la-sanatate-in-noua-lege-fara-scutire-de-la-plata-cass-pentru-coasigurati-cass-retinuta-din-indemnizatia-de-cresterea-copilului-scad-indemnizatiile-de-concediu-medical-pentru-concedii-sc_852758.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "cass_crestere_copil",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Indemnizația de creștere a copilului: se reține 10% CASS din aug 2025",
+    "rezumat_en": "Childcare leave benefit: 10% health tax withheld since Aug 2025",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2025-08-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": [
+      "concediu_crestere"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ești în concediu de creștere a copilului, din august 2025 ți se reține 10% contribuție la sănătate din indemnizație.",
+      "curios": "Până în iulie 2025, părinții în concediu de creștere a copilului erau asigurați la sănătate fără plată. Acum contribuția de 10% se reține direct din indemnizație. Exemplu ilustrativ: la o indemnizație de 2.000 lei, primești 1.800 lei. Se aplică și concediului de acomodare. Reținerea e automată, nu depui nimic.",
+      "expert": "Legea 141/2025: art. II pct. 22 adaugă indemnizațiile lunare pentru creșterea copilului (OUG 111/2010) la veniturile pentru care se datorează CASS, aplicabil veniturilor din august 2025 (art. VII alin. (1) lit. e)); art. VIII pct. 7 lit. a) îi include printre asigurații prin reținere la sursă; contribuția o calculează și o plătește ANPIS (art. 168 alin. (1^5) Cod fiscal). Concediul de acomodare: din surse ANAF (DGRFP Ploiești), articolul de confirmat. Cuantumul indemnizației nu a fost verificat."
+    },
+    "actiuni": [
+      {
+        "text": "Nu trebuie să faci nimic: reținerea e automată. Verifică pe decizia de plată că indemnizația netă corespunde",
+        "termen": null,
+        "one_click": null,
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. II pct. 22 (art. 155 alin. (1) Cod fiscal), art. VIII pct. 7 lit. a)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.economica.net/asigurarea-la-sanatate-in-noua-lege-fara-scutire-de-la-plata-cass-pentru-coasigurati-cass-retinuta-din-indemnizatia-de-cresterea-copilului-scad-indemnizatiile-de-concediu-medical-pentru-concedii-sc_852758.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "pensie_vpr_2026",
+    "act": "Legea 141/2025",
+    "mo_ref": "MO 699 / 25 iul 2025",
+    "rezumat": "Pensiile nu se indexează în 2026: punctul rămâne 81 lei",
+    "rezumat_en": "Pensions are not indexed in 2026: the reference point stays at 81 lei",
+    "status": "in_vigoare",
+    "publicat_la": "2025-07-25",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": "2026-12-31",
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "pensionar"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Pensia ta din sistemul public nu crește în 2026, pentru că valoarea punctului de referință rămâne 81 lei.",
+      "curios": "Pensia se calculează înmulțind punctele tale cu valoarea punctului de referință. Legea 360/2023 prevede indexarea anuală, dar Legea 141/2025 o suspendă pentru 2026 și păstrează valoarea de 81 lei. Exemplu: la 40 de puncte, pensia rămâne 3.240 lei brut. Mecanismul de indexare se aplică din nou începând cu 2027.",
+      "expert": "Legea 141/2025, art. XXXI alin. (1): valoarea punctului de referință de la art. 83 alin. (1) din Legea 360/2023 se menține la 81 lei în 2026; alin. (2): art. 84 alin. (3)-(5), (7) și (8) din Legea 360/2023 se aplică din 2027. Pentru 2025, aceeași valoare a fost menținută prin OUG 156/2024, art. XVII. Pensiile de serviciu nu se actualizează în 2026 (art. XXX, conform Casei Județene de Pensii Cluj). Pentru 2027, ministrul Muncii a declarat că pregătește indexarea, dar nu există încă un act normativ. Sprijinul punctual pentru pensii mici din 2026, menționat în presă, nu a fost verificat."
+    },
+    "actiuni": [
+      {
+        "text": "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare",
+        "termen": null,
+        "one_click": null,
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. XXXI",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
+    "sursa_explicativa": "https://www.avocatnet.ro/t9846/crestere-punct-de-pensie.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "pfa_norma_minima_2026",
+    "act": "Legea 239/2025",
+    "mo_ref": "MO 1160 / 15 dec 2025",
+    "rezumat": "PFA la normă de venit: norma nu mai poate fi sub 48.600 lei/an",
+    "rezumat_en": "Flat-rate sole traders: income norm cannot be below 48,600 lei a year",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-15",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": "2027-05-25",
+    "directie": "cost",
+    "taguri": [
+      "pfa"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai PFA impozitat la normă de venit, pentru 2026 plătești taxe pe cel puțin 48.600 lei, oricât ai câștigat de fapt.",
+      "curios": "Norma de venit pentru fiecare activitate nu poate fi mai mică de 12 salarii minime, adică 48.600 lei pentru 2026. La acest nivel, calculul nostru dă 12.150 lei CAS și 4.860 lei CASS pe an, adică circa 1.418 lei pe lună, plus impozitul de 10%. Dacă norma din județul tău era mai mică, plătești mai mult. Plata și declarația unică sunt până la 25 mai 2027.",
+      "expert": "Legea 239/2025, art. XII pct. 6, modifică art. 69 alin. (3) Cod fiscal: norma de venit nu poate fi mai mică de 12 salarii minime brute în vigoare la 1 ianuarie a anului, inclusiv pentru fiecare membru al unei asocieri. ANAF (prezentarea DGRFP Brașov, 29 ian 2026) confirmă aplicarea pentru veniturile din 2026 și salariul minim de referință de 4.050 lei. CAS se datorează pentru că venitul atinge pragul de 12 salarii (art. 148 alin. (3), care include normele anuale). Sumele de contribuții sunt calculul nostru; baza exactă a impozitului (după deducerea contribuțiilor) nu a fost verificată în această sesiune."
+    },
+    "actiuni": [
+      {
+        "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; poți opta pentru sistemul real până la termenul legal",
+        "termen": "2027-05-25",
+        "one_click": null,
+        "formula_economie": null
+      }
+    ],
+    "profesionist": "contabil",
+    "specialist": {
+      "intrebare": "Pentru PFA-ul meu, în 2027 e mai avantajos să rămân la normă de venit sau să trec la sistem real, după Legea 239/2025?",
+      "documente": "Decizia sau declarația unică pe 2025, încasările pe 2026, cheltuielile cu documente, codul CAEN"
+    },
+    "articol": "art. XII pct. 6 (art. 69 alin. (3) Cod fiscal)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305208",
+    "sursa_explicativa": "https://contapp.ro/blog/taxe-pfa-2026/",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "pfa_cass_plafon_72",
+    "act": "Legea 239/2025",
+    "mo_ref": "MO 1160 / 15 dec 2025",
+    "rezumat": "PFA cu venituri mari: CASS plafonat la 72 de salarii, nu la 60",
+    "rezumat_en": "High-earning sole traders: health tax cap raised from 60 to 72 minimum wages",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-15",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": "2027-05-25",
+    "directie": "cost",
+    "taguri": [
+      "pfa"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă ai PFA sau profesie liberală cu venit net mare, contribuția la sănătate pe 2026 poate fi cu până la 4.860 lei mai mare.",
+      "curios": "CASS de 10% se calculează pe venitul net, dar numai până la un plafon. Plafonul a crescut de la 60 la 72 de salarii minime, adică 291.600 lei pentru 2026. CASS maxim urcă astfel de la 24.300 lei la 29.160 lei pe an, cu 405 lei pe lună în plus. Te afectează doar dacă venitul net depășește 243.000 lei pe an.",
+      "expert": "Legea 239/2025, art. XII pct. 19, modifică art. 170 alin. (1) Cod fiscal: baza anuală pentru CASS pe veniturile din activități independente nu poate depăși 72 de salarii minime brute. ANAF (prezentarea DGRFP Brașov, 29 ian 2026) confirmă creșterea de la 60 la 72 de salarii și aplicarea pentru veniturile din 2026, la salariul minim de 4.050 lei. Același plafon de 72 de salarii apare la contractele de activitate sportivă (art. 174). Diferențele în lei sunt calculul nostru."
+    },
+    "actiuni": [
+      {
+        "text": "Pune deoparte diferența de CASS pentru declarația unică pe 2026, cu plata până la termen",
+        "termen": "2027-05-25",
+        "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. XII pct. 19 (art. 170 alin. (1) Cod fiscal)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305208",
+    "sursa_explicativa": "https://www.capital.ro/lovitura-fiscala-pentru-pfa-uri-cine-poate-plati-cu-4-860-de-lei-mai-mult-la-cass.html",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "inchiriere_termen_scurt_2026",
+    "act": "Legea 239/2025",
+    "mo_ref": "MO 1160 / 15 dec 2025",
+    "rezumat": "Închiriezi camere pe Airbnb sau Booking: impozit final de 7% din încasări",
+    "rezumat_en": "Short-term room rentals: final tax of 7% of gross receipts",
+    "status": "in_vigoare",
+    "publicat_la": "2025-12-15",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": "2027-05-25",
+    "directie": "info",
+    "taguri": [
+      "proprietar"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": false,
+    "niveluri": {
+      "zero": "Dacă închiriezi pe termen scurt între 1 și 7 camere din locuința ta, pentru veniturile din 2026 plătești 10% impozit pe 70% din încasări, adică 7%, fără contabilitate.",
+      "curios": "Pentru 1-7 camere, venitul se impozitează ca cedare a folosinței bunurilor: se scade automat 30% cheltuieli și se aplică 10% impozit final. Comisionul platformei nu intră în venit. Exemplu: la 30.000 lei încasați într-un an, impozitul este 2.100 lei. Peste 7 camere, veniturile devin activitate independentă, cu CAS și CASS. Declari și plătești până la 25 mai 2027.",
+      "expert": "Legea 239/2025, art. XII pct. 7-10, rescrie art. 83-85 Cod fiscal; peste 7 camere se aplică art. 68^3 (activitate independentă, cotă forfetară 30%, impozit 10%). Închirierea pe termen scurt înseamnă aceeași cameră închiriată neîntrerupt aceleiași persoane cel mult 30 de zile. Venitul din 2025 rămâne pe regulile vechi (art. 133 alin. (34)-(35)). Pentru 1-7 camere, CASS se datorează dacă veniturile din aceste categorii ating 6 salarii minime (24.300 lei în 2026), conform ghidului ANAF Galați. Obligatoriu: registrul de evidență fiscală (doar venituri) și fișa de ocupare a capacității de cazare."
+    },
+    "actiuni": [
+      {
+        "text": "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală, apoi declară venitul din 2026 în declarația unică",
+        "termen": "2027-05-25",
+        "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
+        "formula_economie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. XII pct. 7 și 10 (art. 83 și 85 Cod fiscal)",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/305208",
+    "sursa_explicativa": "https://www.capital.ro/ai-apartament-pe-airbnb-sau-booking-cand-ajungi-sa-platesti-cass-si-ce-taxe-datorezi-in-2026.html",
+    "incredere": "ridicata",
     "verificat_la": "2026-10-28"
   }
 ]
