@@ -34,7 +34,9 @@ export async function POST(req: Request) {
                 currency: MONEDA,
                 unit_amount: PRET_BANI,
                 recurring: { interval: "month" },
-                product_data: { name: "Ce înseamnă pentru mine · abonament lunar" },
+                // Codul fiscal e cerut de Managed Payments (Stripe ca vânzător înregistrat, se ocupă de TVA):
+                // „Website Information Services - Personal Use”.
+                product_data: { name: "Ce înseamnă pentru mine · abonament lunar", tax_code: "txcd_10701401" },
               },
             },
       ],

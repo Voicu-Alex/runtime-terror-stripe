@@ -15,4 +15,4 @@ Pe 28 oct 2026, echipa (Matei) a decis să adauge plata prin Stripe. Asta schimb
 - **ID-ul abonamentului e singura dovadă de pe dispozitiv.** Cine îl copiază pe alt telefon are și acolo acces. E acceptabil pentru demo; înainte de lansare trebuie un cont (email) legat de clientul Stripe.
 - **Webhook-ul nu scrie nicăieri.** Înainte de lansare are nevoie de o bază de date (remindere, emailuri, evidență contabilă).
 - **Prețul.** `business/monetizare.md` (Chris) propune 49,99 lei/lună sau 299 lei/an, cu prima lună gratuită. 15 lei e prețul ales acum; perioada de probă nu e activă.
-- **TVA.** Stripe Tax nu e activat. Fără o înregistrare fiscală activă în Stripe, nu se calculează TVA. De decis cu contabilul înainte de modul live.
+- **TVA.** Contul Stripe are **Managed Payments** activat implicit: Stripe e vânzătorul înregistrat și calculează, încasează și plătește TVA-ul. De aceea produsul are codul fiscal `txcd_10701401` („Website Information Services - Personal Use”). Încadrarea trebuie confirmată cu un contabil înainte de modul live; fără Managed Payments, ar trebui Stripe Tax și o înregistrare fiscală proprie.
