@@ -1,6 +1,6 @@
 # Colaborarea cu profesioniști: contabili, consultanți fiscali, notari
 
-*Chris, 28 octombrie 2026, versiunea 2. Issue #5. Feedback-ul organizatorului: „Colaborare cu contabili, notari etc. pentru coaching: CUM să gestionezi aceste situații.” Monetizarea completă e în `business/monetizare.md`.*
+*Chris, 28 octombrie 2026, versiunea 3 (surse verificate în `business/bibliografie.md`). Issue #5. Feedback-ul organizatorului: „Colaborare cu contabili, notari etc. pentru coaching: CUM să gestionezi aceste situații.” Modelul de business complet e în `business/model-de-business.md`.*
 
 ## Recomandarea pe scurt
 
@@ -15,7 +15,7 @@
 |---|---|---|---|---|---|
 | 1 | Plafonarea la energia electrică eliminată (1 iul 2025) | **Da:** compari ofertele și schimbi furnizorul | Niciunul | „Ce ofertă aleg ca să plătesc mai puțin?” | „Cum compari ofertele de energie în 5 minute” |
 | 2 | TVA 21% / cote reduse 11% (Legea 141/2025) | Persoană fizică: **nu ai ce face**. PFA plătitor de TVA: **parțial** | Contabil, pentru PFA sau SRL plătitor de TVA | „Ce cotă pun pe facturile emise după 1 august? Ce fac cu contractele în curs?” | „TVA 2025 pentru PFA: ce verifici pe facturi” |
-| 3 | CASS 10% pe pensiile peste 3.000 lei | **Da**, de obicei | Consultant fiscal, doar dacă pensionarul are și alte venituri | „Mi se reține automat sau trebuie să depun ceva?” (mecanismul reținerii: **de verificat** în Legea 141/2025) | „CASS pe pensie: cum citești cuponul” |
+| 3 | CASS 10% pe pensiile peste 3.000 lei | **Da**, de obicei | Consultant fiscal, doar dacă pensionarul are și alte venituri | „Mi se reține automat sau trebuie să depun ceva?” Răspuns: CASS se aplică doar pe partea care depășește 3.000 lei și **se reține automat de casa de pensii**, pentru veniturile din aug. 2025 – dec. 2027 ([Legea 141/2025](https://legislatie.just.ro/Public/DetaliiDocument/300022), art. II pct. 25–26, art. VII alin. 3). Pentru pensie nu depui nimic | „CASS pe pensie: cum citești cuponul” |
 | 4 | Dividende 10% → 16% (1 ian 2026) | **Parțial:** ghidul compară variantele | Contabil sau consultant fiscal, pentru sume mari | „Mai merită să-mi iau banii din SRL ca dividende sau pe salariu?” | „Ai SRL și dividende în 2026: 3 variante comparate” |
 | 5 | Micro: cotă 1%, plafon 100.000 EUR (1 ian 2026) | **Parțial:** urmărești plafonul | Contabil (oricum îl ai, dacă ai SRL) | „Ce se întâmplă dacă depășesc plafonul la jumătatea anului?” | „Micro în 2026: ce urmărești lunar” |
 | 6 | Pilon II cu plată eșalonată (Legea 2/2026, din 5 ian 2027) | **Da:** alegi opțiunea și depui cererea la fond | Consultant fiscal pentru impozitare. Notar dacă moștenești Pilonul II al cuiva | „Iau 30% odată sau totul eșalonat?” Moștenitor: „Cum recuperez Pilonul II al părintelui?” | „Pilonul II la pensie: ce alegi și până când” |
@@ -29,22 +29,22 @@ Pentru `data/catalog.json`, câmpul `profesionist` poate fi `null`, `"contabil"`
 
 | Profesia | Organismul | Ce am găsit | Ce înseamnă pentru noi |
 |---|---|---|---|
-| Expert contabil / contabil autorizat | CECCAR | Publicitatea e permisă doar membrilor activi care practică independent. Sunt interzise ofertele care acordă „remize din onorariu, comisioane, tarife reduse sau alte avantaje”, precum și publicitatea comparativă. Text preluat dintr-o reproducere a codului, ediția nu e clară ([contabilul.manager.ro](https://contabilul.manager.ro/a/5028/ceccar-cum-are-voie-un-contabil-sa-si-faca-reclama.html), [codul etic, avocatnet](https://www.avocatnet.ro/articol_9226/Codul-etic-national-al-profesionistilor-contabili.html)) | Comisionul per client plătit nouă e riscant. **Nu-l cerem.** Să plătim noi un contabil ca să scrie un ghid e o colaborare obișnuită |
-| Consultant fiscal | Camera Consultanților Fiscali (OG 71/2001) | Are un Cod etic obligatoriu, iar Camera sancționează încălcările ([fiscalitatea.ro](https://www.fiscalitatea.ro/normele-procedurale-privind-monitorizarea-si-controlul-activitatii-consultantilor-fiscali-2829/)). **Regulile despre publicitate și comisioane: `TODO`** | Tratăm la fel ca la CECCAR |
-| Notar public | UNNPR (Legea 36/1995) | Onorariile minime sunt stabilite prin ordin al ministrului justiției. În 2017, după investigația Consiliului Concurenței, UNNPR s-a angajat să elimine restricțiile privind publicitatea individuală și atragerea clienților ([Profit.ro](https://profit.ro/taxe-si-consultanta/consiliul-concurentei-uniunea-notarilor-publici-si-a-asumat-angajamentele-in-vederea-liberalizarii-onorariilor-17504817), [Capital](https://www.capital.ro/consiliul-concurentei-a-finalizat-investigatia.html)) | Doar link la căutarea publică de notari, neplătit |
-| Avocat | UNBR (Legea 51/1995, Statutul profesiei) | Publicitatea e strict limitată ([UNBR, Decizia 125/2024](https://www.unbr.ro/wp-content/uploads/2025/05/01_08_Anexa-08_Decizie-interpretativa-125-2024_publicitate.pdf)). Sunt interzise onorariile din „aporturi din afacere”, conform textului citat pe [avocatnet.ro](https://www.avocatnet.ro/forum/discutie_20503/Pactul-de-quota-litis.html), neverificat în forma curentă | **Nu intră în MVP.** Niciunul din cele 7 acte nu cere avocat |
+| Expert contabil / contabil autorizat | CECCAR | Codul etic în vigoare e ediția a V-a, obligatorie din 1 ian. 2011 ([PDF pe ceccar.ro](https://ceccar.ro/ro/wp-content/uploads/2011/09/Codul_etic_2011.pdf)). Secțiunea 250 cere ca promovarea să nu exagereze calitatea serviciilor și să nu facă comparații nefundamentate. Interdicția explicită a „comisioanelor, remizelor din onorariu” era în ediția 2007, abrogată. Ediția 2011 nu interzice explicit comisioanele de recomandare | Nu cerem comision, din prudență și din principiu (neutralitate). Să plătim noi un contabil ca să scrie un ghid e o colaborare obișnuită |
+| Consultant fiscal | Camera Consultanților Fiscali ([OG 71/2001](https://legislatie.just.ro/Public/DetaliiDocument/30386)) | [Codul de conduită etică din 2007](https://legislatie.just.ro/Public/DetaliiDocument/85547), art. 12 alin. 10: publicitatea e permisă dacă e corectă, fără precizări despre calitatea serviciilor și fără atingeri aduse colegilor. Nu are reguli explicite despre comisioane. Art. 5 alin. 5 lit. b interzice cadourile care influențează. Consultanța fiscală fără înscriere e infracțiune (OG 71/2001, art. 25 alin. 2) | Tratăm la fel ca la CECCAR. Atenție și pentru noi: „ce poți face” nu trebuie să devină consultanță fiscală |
+| Notar public | UNNPR ([Legea 36/1995](https://legislatie.just.ro/Public/DetaliiDocument/159087)) | Consiliul UNNPR propune ministrului justiției onorariile minimale (art. 57 alin. 1 lit. d). Ministrul poate stabili acte cu onorariu liber (art. 67 alin. 2). Atragerea clientelei prin mijloace neloiale e abatere disciplinară (art. 74 lit. l). Investigația Consiliului Concurenței s-a închis cu angajamente obligatorii pentru UNNPR ([Decizia nr. 64/12.12.2017](https://www.consiliulconcurentei.ro/wp-content/uploads/2018/09/decizie_unnpr_pt_publicare.pdf)) | Doar link la [căutarea publică de notari](https://uniuneanotarilor.ro/cauta-notar/), neplătit |
+| Avocat | UNBR ([Legea 51/1995](https://legislatie.just.ro/Public/DetaliiDocument/126008), Statutul profesiei) | [Statutul, versiunea din 13.09.2024](https://unbr.ro/wp-content/uploads/2024/09/sintact-statut-din-2011-al-profesiei-de-avocat_2024-09-13.pdf): **art. 174 interzice plata sau primirea de comision pentru trimiterea de clienți**, iar art. 130 interzice quota litis și onorariile din „aporturi din afacere”. Publicitatea online e limitată ([Decizia UNBR 125/2024](https://www.unbr.ro/wp-content/uploads/2025/05/01_08_Anexa-08_Decizie-interpretativa-125-2024_publicitate.pdf)) | **Nu intră în MVP.** Niciunul din cele 7 acte nu cere avocat, iar comisionul e interzis explicit |
 
 **Variantele pe care le-am cântărit:**
 
 | Varianta | Riscul deontologic | Câți ar folosi-o | Alegem? |
 |---|---|---|---|
-| Comision de la profesionist per client | Mare | Puțini | **Nu** |
+| Comision de la profesionist per client | Mare (la avocați interzis explicit, art. 174) | Puțini | **Nu** |
 | Sesiuni plătite prin aplicație, cu taxă de serviciu | Mic sau mediu, de confirmat | Puțini; majoritatea rezolvă singuri | **Nu** în MVP. Poate mai târziu, dacă utilizatorii o cer |
 | **Ghiduri semnate de profesioniști + link gratuit la registrul public** | Mic | Toți cei care deschid cardul | **Da** |
 
 ## 3. Fluxul utilizatorului (pentru ecranele lui Andrei)
 
-1. **Cardul** (de exemplu „Dividende 16%”) arată pașii „Ce poți face”, fiecare cu butonul lui (vezi `business/monetizare.md`, secțiunea 3).
+1. **Cardul** (de exemplu „Dividende 16%”) arată pașii „Ce poți face”, fiecare cu butonul lui (vezi `business/model-de-business.md`, secțiunea 3).
 2. Dacă actul are ghid, apare **„Cum gestionezi situația · 3 minute”**, cu semnătura: „Verificat de [nume], expert contabil CECCAR nr. …, la [dată]”.
 3. Dacă actul are `profesionist` diferit de `null`, la finalul pașilor apare **„Situația ta e mai complicată?”** cu butonul **„Găsește un {profesionist}”**.
 4. Butonul deschide un modal scurt (`content/modal-specialist.md`):
@@ -74,6 +74,8 @@ Mesajul e în `business/mesaj-contabili.md`. Îl trimite Chris, pe LinkedIn sau 
 
 ## De confirmat
 
-1. Linkurile oficiale la registrele publice: CECCAR, Camera Consultanților Fiscali, UNNPR (`TODO`: URL-urile exacte).
-2. Mecanismul reținerii CASS pe pensii, în textul Legii 141/2025.
-3. Regulile curente CCF și UNBR despre publicitate și comisioane.
+1. **Registrele publice:**
+   - **CCF:** [registrul membrilor](https://www.ccfiscali.ro/registrul-membrilor-ccf/toti-membrii-ccf/), cu căutare după județ și localitate ✓.
+   - **UNNPR:** [caută notar](https://uniuneanotarilor.ro/cauta-notar/) ✓.
+   - **CECCAR:** există doar [verificarea fișei de membru](https://ceccar.ro/ro/?page_id=36750). Pagina [„Tablou membri”](https://ceccar.ro/ro/?page_id=97), folosită acum în `lib/continut.ts`, explică Tabloul, dar nu are căutare după oraș. `TODO`: unde trimitem butonul „Găsește un contabil”.
+2. Un cod etic CECCAR mai nou (traducerea IESBA) și un cod CCF mai nou decât 2007: neconfirmate.
