@@ -27,6 +27,8 @@ export const CINE_APLICA: CineAplica[] = ["tu", "angajator", "furnizor", "stat"]
 
 export type Actiune = {
   text: string;
+  /** traducerea textului, pentru interfața în engleză (pitch-ul); textul verificat rămâne `text` */
+  text_en?: string;
   termen: string | null; // ISO, data până la care merită făcută
   /** economia pe lună dacă o faci; null = nu o estimăm */
   formula_economie: FormulaId | null;
@@ -143,4 +145,9 @@ export const CATALOG: Schimbare[] = valideazaCatalog(catalogJson);
 
 export function gasesteSchimbarea(id: string): Schimbare | undefined {
   return CATALOG.find((s) => s.id === id);
+}
+
+/** Textul acțiunii în limba interfeței; fără traducere, rămâne textul românesc. */
+export function textActiune(a: Pick<Actiune, "text" | "text_en">, limba: "ro" | "en"): string {
+  return limba === "en" && a.text_en ? a.text_en : a.text;
 }

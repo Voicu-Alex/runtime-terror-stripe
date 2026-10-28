@@ -2,6 +2,7 @@
 
 import { useLimba } from "@/components/Limba";
 import { ETICHETA_STARE, cuSemn, dataScurta, mii, vedere, zile, type VedereCard } from "@/lib/card";
+import { textActiune } from "@/lib/catalog";
 import { lunaScurta, type Limba } from "@/lib/i18n";
 import type { Potrivire } from "@/lib/potrivire";
 import type { Valori } from "@/lib/profil";
@@ -45,7 +46,7 @@ export function evenimente(potriviri: Potrivire[], valori: Valori, azi: string, 
     const s = p.schimbare;
     const v = vedere(p, valori, limba);
     const a = s.actiuni.find((x) => x.termen);
-    if (v.termen && !v.termen.depasit && a?.termen) ev.push({ iso: a.termen, zile: v.termen.zile, text: a.text, p, v, termen: true });
+    if (v.termen && !v.termen.depasit && a?.termen) ev.push({ iso: a.termen, zile: v.termen.zile, text: textActiune(a, limba), p, v, termen: true });
     else if (s.in_vigoare_de_la > azi)
       ev.push({ iso: s.in_vigoare_de_la, zile: zileIntre(azi, s.in_vigoare_de_la), text: v.titlu, p, v, termen: false });
   }
@@ -84,7 +85,7 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
             </div>
             <div>
               <a href={`#c-${x.p.schimbare.id}`} className="text-[15px] leading-[1.3] font-bold text-v3-ink no-underline hover:underline">
-                {x.termen ? <span lang="ro">{x.text}</span> : <>{t("Se aplică:")} {x.text}</>}
+                {x.termen ? <span lang={limba}>{x.text}</span> : <>{t("Se aplică:")} {x.text}</>}
               </a>
               <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14.5px] font-bold">
                 {urgent ? (
@@ -155,10 +156,10 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
           </small>
         </p>
       ) : null}
-      <p className="m-0 mb-4 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft" lang="ro">
+      <p className="m-0 mb-4 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft" lang={actiune && a?.text_en && limba === "en" ? "en" : "ro"}>
         {actiune && a ? (
           <>
-            <b>{t("Ce poți face:")}</b> {a.text}.
+            <b>{t("Ce poți face:")}</b> {textActiune(a, limba)}.
           </>
         ) : (
           s.niveluri.zero

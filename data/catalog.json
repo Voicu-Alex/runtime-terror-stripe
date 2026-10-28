@@ -53,7 +53,7 @@
     },
     "actiuni": [
       {
-        "text": "Distribuie dividendele din profitul 2025",
+        "text": "Distribuie dividendele din profitul 2025", "text_en": "Pay out the dividends from your 2025 profit",
         "termen": "2025-12-31",
         "formula_economie": "dividende_economie",
         "one_click": null,
@@ -104,7 +104,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică cuponul de pensie: CASS se aplică doar peste 3.000 lei",
+        "text": "Verifică cuponul de pensie: CASS se aplică doar peste 3.000 lei", "text_en": "Check your pension slip: health contribution (CASS) applies only above 3,000 lei",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -154,7 +154,7 @@
     },
     "actiuni": [
       {
-        "text": "Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix",
+        "text": "Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix", "text_en": "Compare supplier offers on the ANRE comparison tool and switch to a fixed-price contract",
         "termen": null,
         "formula_economie": null,
         "one_click": "https://posf.ro/comparator",
@@ -195,7 +195,7 @@
     },
     "actiuni": [
       {
-        "text": "Decide cum vrei plata: 30% o dată, restul eșalonat",
+        "text": "Decide cum vrei plata: 30% o dată, restul eșalonat", "text_en": "Decide how you want the payout: 30% at once, the rest in instalments",
         "termen": "2027-01-05",
         "formula_economie": null,
         "one_click": null,
@@ -242,7 +242,7 @@
     },
     "actiuni": [
       {
-        "text": "Alimentează Pilon III până la plafonul deductibil de 400 EUR/an",
+        "text": "Alimentează Pilon III până la plafonul deductibil de 400 EUR/an", "text_en": "Pay into Pillar III up to the deductible ceiling of 400 EUR/year",
         "termen": "2026-12-31",
         "formula_economie": "pilon3_economie",
         "one_click": null,
@@ -284,7 +284,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică cifra de afaceri a SRL-ului față de noul prag",
+        "text": "Verifică cifra de afaceri a SRL-ului față de noul prag", "text_en": "Check your SRL's turnover against the new threshold",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -338,7 +338,7 @@
     },
     "actiuni": [
       {
-        "text": "Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix",
+        "text": "Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix", "text_en": "Compare gas offers on the ANRE comparison tool and lock in a fixed price",
         "termen": "2027-03-31",
         "formula_economie": null,
         "one_click": "https://posf.ro/comparator",
@@ -388,7 +388,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică dacă angajatorul a compensat prin brut; cere o simulare la HR",
+        "text": "Verifică dacă angajatorul a compensat prin brut; cere o simulare la HR", "text_en": "Check whether your employer compensated through your gross salary; ask HR for a simulation",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -430,7 +430,7 @@
     },
     "actiuni": [
       {
-        "text": "Cere angajatorului o simulare a salariului net actual",
+        "text": "Cere angajatorului o simulare a salariului net actual", "text_en": "Ask your employer for a simulation of your current net salary",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -471,7 +471,7 @@
     },
     "actiuni": [
       {
-        "text": "Actualizează prețurile de listă și casa de marcat la 11%",
+        "text": "Actualizează prețurile de listă și casa de marcat la 11%", "text_en": "Update your list prices and cash register to 11%",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -512,7 +512,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică decizia de impunere 2026 la primărie; plata integrală până la 31 mar 2027 aduce bonificație 10%",
+        "text": "Verifică decizia de impunere 2026 la primărie; plata integrală până la 31 mar 2027 aduce bonificație 10%", "text_en": "Check your 2026 tax assessment at the town hall; paying in full by 31 Mar 2027 earns a 10% discount",
         "termen": "2027-03-31",
         "formula_economie": "cladiri_bonificatie",
         "one_click": null,
@@ -560,7 +560,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică dacă alocația e cerută și dacă suma de pe extras e cea actuală",
+        "text": "Verifică dacă alocația e cerută și dacă suma de pe extras e cea actuală", "text_en": "Check that the allowance has been applied for and that the amount on your statement is the current one",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -624,7 +624,7 @@
     },
     "actiuni": [
       {
-        "text": "Întreabă la primărie dacă te încadrezi; se depune o cerere cu declarație pe propria răspundere",
+        "text": "Întreabă la primărie dacă te încadrezi; se depune o cerere cu declarație pe propria răspundere", "text_en": "Ask the town hall whether you qualify; you file an application with a sworn statement",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -673,7 +673,7 @@
     },
     "actiuni": [
       {
-        "text": "Cere de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)",
+        "text": "Cere de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)", "text_en": "Request your contribution record from the Pension Office (online, with an account on the CNPP portal)",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -725,7 +725,7 @@
     },
     "actiuni": [
       {
-        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi cere prima de stabilitate",
+        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi cere prima de stabilitate", "text_en": "Register with AJOFM before you sign your first permanent contract, then apply for the stability bonus",
         "termen": null,
         "formula_economie": "prima_stabilitate_economie",
         "one_click": null,
@@ -775,7 +775,7 @@
     ],
     "actiuni": [
       {
-        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), poți cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).",
+        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), poți cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).", "text_en": "If you bought a home at the standard VAT rate between 1 August 2026 and the entry into force of Law 161/2026 (7 August 2026) and you meet the conditions (at most 120 m² of usable area, at most 600,000 lei before VAT, a preliminary contract with a down payment signed by 1 August 2025, no other home bought at reduced VAT since 2023), you can ask ANAF to refund the difference down to 9%, from 1 October 2026. The procedure is in the ANAF order provided for in art. II para. (5) of the law (order number: to be verified).",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -784,7 +784,7 @@
         "destinatie": null
       },
       {
-        "text": "Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025",
+        "text": "Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025", "text_en": "Sign the contract with a down payment and pay 20% of the price by 31 Jul 2025",
         "termen": "2025-07-31",
         "formula_economie": "tva_locuinta_economie",
         "one_click": null,
@@ -826,7 +826,7 @@
     },
     "actiuni": [
       {
-        "text": "Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă",
+        "text": "Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă", "text_en": "Fill up with diesel by 31 Oct 2026, while the excise duty is reduced",
         "termen": "2026-10-31",
         "formula_economie": "motorina_economie",
         "one_click": null,
@@ -867,7 +867,7 @@
     },
     "actiuni": [
       {
-        "text": "Legea permite: deschizi un cont CEI-D din 2027 și scazi din impozit 10% din ce depui",
+        "text": "Legea permite: deschizi un cont CEI-D din 2027 și scazi din impozit 10% din ce depui", "text_en": "The law allows it: open a CEI-D account from 2027 and deduct 10% of what you deposit from your income tax",
         "termen": null,
         "formula_economie": "cei_d_economie",
         "one_click": null,
@@ -908,7 +908,7 @@
     },
     "actiuni": [
       {
-        "text": "Plătește tot impozitul pe 2027 până la 31 mar 2027: primăria dă o bonificație de până la 10%",
+        "text": "Plătește tot impozitul pe 2027 până la 31 mar 2027: primăria dă o bonificație de până la 10%", "text_en": "Pay the full 2027 tax by 31 Mar 2027: the town hall gives a discount of up to 10%",
         "termen": "2027-03-31",
         "formula_economie": "auto_bonificatie",
         "one_click": null,
@@ -955,7 +955,7 @@
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: angajatorul aplică scutirea automat. Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut",
+        "text": "Nu trebuie să faci nimic: angajatorul aplică scutirea automat. Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut", "text_en": "You do not need to do anything: your employer applies the exemption automatically. From January 2027, check your payslip to see whether your net pay went down",
         "termen": "2026-12-31",
         "one_click": null,
         "formula_economie": null,
@@ -996,7 +996,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat",
+        "text": "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat", "text_en": "Check the percentage applied on your payslip: it is set by the total days of the same illness episode, not by each certificate",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1046,7 +1046,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare",
+        "text": "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare", "text_en": "Check on your payslip that the unpaid day was deducted only once per episode, not for each continuation certificate",
         "termen": "2027-12-31",
         "one_click": null,
         "formula_economie": null,
@@ -1097,7 +1097,7 @@
     },
     "actiuni": [
       {
-        "text": "Dacă vrei să-i asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen",
+        "text": "Dacă vrei să-i asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen", "text_en": "If you want to insure them, file the Single Tax Return (Declarația unică), chapter II, section for dependants; pay 25% when you file and the rest by the deadline",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
         "formula_economie": null,
@@ -1138,7 +1138,7 @@
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: contribuția se reține automat din indemnizație și îți păstrează calitatea de asigurat",
+        "text": "Nu trebuie să faci nimic: contribuția se reține automat din indemnizație și îți păstrează calitatea de asigurat", "text_en": "You do not need to do anything: the contribution is withheld automatically from your benefit and keeps you insured",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1179,7 +1179,7 @@
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: reținerea e automată. Verifică pe decizia de plată că indemnizația netă corespunde",
+        "text": "Nu trebuie să faci nimic: reținerea e automată. Verifică pe decizia de plată că indemnizația netă corespunde", "text_en": "You do not need to do anything: the deduction is automatic. Check on the payment decision that the net benefit matches",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1220,7 +1220,7 @@
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare",
+        "text": "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare", "text_en": "You do not need to do anything: in 2026 the pension is not recalculated through indexation",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1261,7 +1261,7 @@
     },
     "actiuni": [
       {
-        "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; poți opta pentru sistemul real până la termenul legal",
+        "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; poți opta pentru sistemul real până la termenul legal", "text_en": "Compare the 48,600 lei income norm with your real income together with your accountant; you can opt for the real-income system by the legal deadline",
         "termen": "2027-05-25",
         "one_click": null,
         "formula_economie": null,
@@ -1306,7 +1306,7 @@
     },
     "actiuni": [
       {
-        "text": "Pune deoparte diferența de CASS pentru declarația unică pe 2026, cu plata până la termen",
+        "text": "Pune deoparte diferența de CASS pentru declarația unică pe 2026, cu plata până la termen", "text_en": "Set aside the health contribution (CASS) difference for your 2026 Single Tax Return, to be paid by the deadline",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
         "formula_economie": null,
@@ -1347,7 +1347,7 @@
     },
     "actiuni": [
       {
-        "text": "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală, apoi declară venitul din 2026 în declarația unică",
+        "text": "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală, apoi declară venitul din 2026 în declarația unică", "text_en": "Fill in the occupancy sheet and the income section of the tax record register, then declare your 2026 income in the Single Tax Return",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
         "formula_economie": null,
@@ -1394,7 +1394,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică fluturașul de salariu pe iulie 2026: salariul de bază brut, pentru normă întreagă, trebuie să fie cel puțin 4.325 lei.",
+        "text": "Verifică fluturașul de salariu pe iulie 2026: salariul de bază brut, pentru normă întreagă, trebuie să fie cel puțin 4.325 lei.", "text_en": "Check your July 2026 payslip: the gross base salary for full-time work must be at least 4,325 lei.",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1403,7 +1403,7 @@
         "destinatie": "angajator_hr"
       },
       {
-        "text": "Dacă angajatorul nu a aplicat noul salariu minim, poți sesiza Inspecția Muncii.",
+        "text": "Dacă angajatorul nu a aplicat noul salariu minim, poți sesiza Inspecția Muncii.", "text_en": "If your employer has not applied the new minimum wage, you can report it to the Labour Inspectorate.",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1460,7 +1460,7 @@
     },
     "actiuni": [
       {
-        "text": "Cere la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă",
+        "text": "Cere la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă", "text_en": "Ask the town hall for the heating aid form; the general deadline was 15 October, so ask whether you can still apply and from when it is paid",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1501,7 +1501,7 @@
     },
     "actiuni": [
       {
-        "text": "Dacă datoriile tale trec de prag, cere informații la comisia de insolvență din județul tău înainte să depui cererea",
+        "text": "Dacă datoriile tale trec de prag, cere informații la comisia de insolvență din județul tău înainte să depui cererea", "text_en": "If your debts exceed the threshold, ask your county insolvency commission for information before you file the application",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1542,7 +1542,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, cere corectarea",
+        "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, cere corectarea", "text_en": "Check on your town hall tax assessment that your greenhouses, polytunnels or silos are listed as exempt for 2026; if not, ask for a correction",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1584,7 +1584,7 @@
     },
     "actiuni": [
       {
-        "text": "Întreabă la grădinița sau școala copilului dacă e inclusă în programul „Masă sănătoasă” în 2026",
+        "text": "Întreabă la grădinița sau școala copilului dacă e inclusă în programul „Masă sănătoasă” în 2026", "text_en": "Ask your child's kindergarten or school whether it is included in the “Healthy Meal” (Masă sănătoasă) programme in 2026",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1631,7 +1631,7 @@
     },
     "actiuni": [
       {
-        "text": "Înscrie-te pentru sprijin prin aplicația EPIDS sau la primărie; primești banii din luna înscrierii, cel mult până în decembrie 2026",
+        "text": "Înscrie-te pentru sprijin prin aplicația EPIDS sau la primărie; primești banii din luna înscrierii, cel mult până în decembrie 2026", "text_en": "Sign up for support through the EPIDS app or at the town hall; you receive the money from the month you sign up, until December 2026 at the latest",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1681,7 +1681,7 @@
     },
     "actiuni": [
       {
-        "text": "Dacă faci ore suplimentare, cere ca timpul liber corespunzător să-ți fie acordat în cel mult 90 de zile",
+        "text": "Dacă faci ore suplimentare, cere ca timpul liber corespunzător să-ți fie acordat în cel mult 90 de zile", "text_en": "If you work overtime, ask for the matching time off to be granted within 90 days at most",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1728,7 +1728,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică la serviciul de resurse umane dacă ai primit cei 800 lei în vouchere pentru 2026",
+        "text": "Verifică la serviciul de resurse umane dacă ai primit cei 800 lei în vouchere pentru 2026", "text_en": "Check with your HR department whether you have received the 800 lei in vouchers for 2026",
         "termen": "2026-12-31",
         "formula_economie": null,
         "one_click": null,
@@ -1769,7 +1769,7 @@
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic acum; verifică la direcția de asistență socială ce documente îți trebuie pentru indemnizația de solidaritate din 2027",
+        "text": "Nu trebuie să faci nimic acum; verifică la direcția de asistență socială ce documente îți trebuie pentru indemnizația de solidaritate din 2027", "text_en": "You do not need to do anything now; check with the social assistance department which documents you need for the 2027 solidarity allowance",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1811,7 +1811,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică norma Euro din talon (certificatul de înmatriculare) ca să știi ce tarif plătești, apoi cumpără rovinieta de pe site-ul CNAIR",
+        "text": "Verifică norma Euro din talon (certificatul de înmatriculare) ca să știi ce tarif plătești, apoi cumpără rovinieta de pe site-ul CNAIR", "text_en": "Check the Euro emission standard on your registration certificate to know which rate you pay, then buy the road vignette (rovinieta) on the CNAIR website",
         "termen": null,
         "formula_economie": null,
         "one_click": "https://www.cnair.ro",
@@ -1853,7 +1853,7 @@
     },
     "actiuni": [
       {
-        "text": "Setează în programul de facturare un termen de 5 zile lucrătoare pentru trimiterea în RO e-Factura",
+        "text": "Setează în programul de facturare un termen de 5 zile lucrătoare pentru trimiterea în RO e-Factura", "text_en": "Set a 5-working-day deadline in your invoicing software for submitting to RO e-Factura",
         "termen": null,
         "formula_economie": null,
         "one_click": "https://www.anaf.ro",
@@ -1898,7 +1898,7 @@
     },
     "actiuni": [
       {
-        "text": "Depune dosarul pentru bursa socială la secretariatul facultății, în perioada anunțată de universitate",
+        "text": "Depune dosarul pentru bursa socială la secretariatul facultății, în perioada anunțată de universitate", "text_en": "Submit your social scholarship application to the faculty office, within the period announced by the university",
         "termen": null,
         "formula_economie": null,
         "one_click": null,

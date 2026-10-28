@@ -3,7 +3,7 @@
 import { useId, useRef, useState } from "react";
 import type { Potrivire } from "@/lib/potrivire";
 import type { CampValoare, Valori } from "@/lib/profil";
-import type { Actiune, CineAplica } from "@/lib/catalog";
+import { textActiune, type Actiune, type CineAplica } from "@/lib/catalog";
 import { destinatie } from "@/lib/destinatii";
 import { useLimba } from "@/components/Limba";
 import { etichetaTagL } from "@/lib/i18n";
@@ -427,8 +427,8 @@ function ActiuneTipizata({ ac, dep, termenDepasit, prima }: { ac: Actiune; dep: 
   return (
     <div className={prima ? "" : "mt-3 border-t border-v3-line pt-3"}>
       <p className={`m-0 text-[13px] font-bold tracking-[.02em] ${dep ? "text-v3-past" : "text-v3-ink-2"}`}>{titlu}</p>
-      <p className="mt-0.5 mb-1.5 font-semibold" lang="ro">
-        {ac.text}
+      <p className="mt-0.5 mb-1.5 font-semibold" lang={limba === "en" && ac.text_en ? "en" : "ro"}>
+        {textActiune(ac, limba)}
       </p>
       {/* butonul one-click duce deja acolo (cu parametrii de tracking), nu îl dublăm */}
       {dest && !dep && !(dest.url && ac.one_click) && (dest.url ? (
