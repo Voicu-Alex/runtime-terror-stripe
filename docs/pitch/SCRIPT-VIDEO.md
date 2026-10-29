@@ -6,8 +6,8 @@ Ritm: ~140 de cuvinte pe minut, deci ~400 de cuvinte în 3 minute.
 
 ## Considerente înainte de filmare
 
-1. Linkul: https://main.d35dxj4gdere6m.amplifyapp.com (doar acolo comutatorul Basic | Premium e pornit; pe site-ul lui Andrei e oprit).
-2. Pregătirea browserului: fereastră incognito (fără profil sau deblocări salvate), limba EN din antet, pe „For you” comutați pe Premium (ca titlurile legilor să nu fie estompate), exemplul afișat e Andrei, 32. Zoom 110–125%, bara de favorite ascunsă.
+1. Linkul: https://main.d35dxj4gdere6m.amplifyapp.com (sau https://descriere.andreidobrin.com, e aceeași aplicație).
+2. Pregătirea browserului: fereastră incognito (fără profil sau deblocări salvate), limba EN, iar din meniul contului (butonul din dreapta sus) porniți „Pro (demo)”, ca titlurile legilor să nu fie estompate, exemplul afișat e Andrei, 32. Zoom 110–125%, bara de favorite ascunsă.
 3. Înregistrarea: OBS sau Win+G, 1080p, pe cât se poate dintr-o singură bucată. Vocea separat, pe telefon, apoi pusă peste imagine.
 4. Lungimea: scriptul colegului avea ~620 de cuvinte; ăsta are ~400.
 5. Afirmații de verificat sau de scos:
