@@ -1,5 +1,5 @@
 import type { CampValoare, Valori } from "./profil";
-import { valoareReferinta, type ReferintaId, type Referinte } from "./referinte";
+import { esteReferinta, valoareReferinta, type ReferintaId, type Referinte } from "./referinte";
 
 /**
  * Formule parametrizate: modelul alege tipul și copiază numerele din lege; calculul îl face codul.
@@ -62,6 +62,9 @@ export const TIPURI_FORMULA = [
   "multiplu_referinta",
 ] as const;
 
+/** Data de azi (YYYY-MM-DD) după calendarul din București, nu UTC. */
+const aziBucuresti = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Bucharest" }).format(new Date());
+
 const peLuna = (x: number, p: Perioada) => (p === "an" ? x / 12 : x);
 const rot = (x: number) => Math.round(x * 100) / 100 + 0; // + 0: fără -0
 
@@ -105,7 +108,7 @@ export function evalueazaTip(
       return rot(semn * peLuna((baza * Math.abs(f.parametri.procent)) / 100, f.parametri.perioada));
     }
     case "multiplu_referinta": {
-      const ref = valoareReferinta(f.parametri.referinta, optiuni.la ?? new Date().toISOString().slice(0, 10), optiuni.referinte);
+      const ref = valoareReferinta(f.parametri.referinta, optiuni.la ?? aziBucuresti(), optiuni.referinte);
       if (ref == null) return null;
       return rot(semn * peLuna((Math.abs(f.parametri.procent) * Math.abs(f.parametri.multiplu) * ref) / 100, f.parametri.perioada));
     }
@@ -176,8 +179,10 @@ export function esteFormulaTip(x: unknown): x is FormulaTip {
   if (!TIPURI_FORMULA.includes(f.tip as (typeof TIPURI_FORMULA)[number]) || !f.parametri || typeof f.parametri !== "object") return false;
   const p = f.parametri;
   const numar = (x: unknown) => typeof x === "number" && Number.isFinite(x);
-  const nr = (k: string) => numar(p[k]);
-  const optional = (k: string) => p[k] == null || numar(p[k]);
+  // mărimile din lege sunt finite și ≥ 0; semnul vine din `directie`
+  const pozitiv = (x: unknown) => numar(x) && (x as number) >= 0;
+  const nr = (k: string) => pozitiv(p[k]);
+  const optional = (k: string) => p[k] == null || pozitiv(p[k]);
   const per = () => p.perioada === "luna" || p.perioada === "an";
   const camp = () => typeof p.camp === "string";
   switch (f.tip) {
@@ -188,9 +193,9 @@ export function esteFormulaTip(x: unknown): x is FormulaTip {
     case "procent_din_camp":
       return camp() && nr("procent") && per() && optional("peste") && optional("plafon");
     case "multiplu_referinta":
-      return typeof p.referinta === "string" && p.referinta.length > 0 && nr("multiplu") && nr("procent") && per();
+      return esteReferinta(p.referinta) && nr("multiplu") && nr("procent") && per();
     case "schimbare_cota": {
-      const amandouaSetate = nr("cota_veche") && typeof p.sursa_veche === "string" && p.sursa_veche.length > 0;
+      const amandouaSetate = pozitiv(p.cota_veche) && typeof p.sursa_veche === "string" && p.sursa_veche.length > 0;
       const amandouaNule = p.cota_veche === null && p.sursa_veche === null;
       return camp() && nr("cota_noua") && per() && (amandouaSetate || amandouaNule);
     }

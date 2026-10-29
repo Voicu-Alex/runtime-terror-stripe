@@ -1,5 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { areAcces, completariDinFormular, esteAdmin } from "./admin";
+import { areAcces, completariDinFormular, esteAdmin, parseazaCota } from "./admin";
+
+describe("parseazaCota", () => {
+  it("acceptă punct sau virgulă, refuză negativ, gol și non-numere", () => {
+    expect(parseazaCota(" 10,5 ")).toBe(10.5);
+    expect(parseazaCota("0")).toBe(0);
+    expect(parseazaCota("-1")).toBeNull();
+    expect(parseazaCota("")).toBeNull();
+    expect(parseazaCota("abc")).toBeNull();
+    expect(parseazaCota("Infinity")).toBeNull();
+  });
+});
 
 describe("esteAdmin", () => {
   it("găsește adresa în listă, fără să conteze majusculele și spațiile", () => {

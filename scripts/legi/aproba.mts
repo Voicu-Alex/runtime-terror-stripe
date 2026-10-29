@@ -6,6 +6,7 @@
  * `id` e interpretari.id. Fără --schimbari se aprobă toate schimbările din interpretare.
  */
 import { parseArgs } from "node:util";
+import { parseazaCota } from "../../lib/admin.ts";
 import { aprobaInterpretare } from "../../lib/aprobare.ts";
 
 const { values: arg, positionals } = parseArgs({
@@ -31,9 +32,13 @@ if (schimbari && schimbari.some((i) => !Number.isInteger(i) || i < 0)) {
 const completari: Record<number, { cota_veche: number; sursa_veche: string }> = {};
 for (const x of arg["cota-veche"] ?? []) {
   const m = /^(\d+):([^:]+):(.+)$/.exec(x);
-  const cota = m ? Number(m[2].trim().replace(",", ".")) : NaN;
-  if (!m || !Number.isFinite(cota) || !m[3].trim()) {
+  const cota = m ? parseazaCota(m[2]) : null;
+  if (!m || cota == null || !m[3].trim()) {
     console.error(`--cota-veche trebuie să fie <indice>:<cota>:<sursa> (primit „${x}”).`);
+    process.exit(1);
+  }
+  if (Number(m[1]) in completari) {
+    console.error(`--cota-veche: indicele ${m[1]} apare de două ori.`);
     process.exit(1);
   }
   completari[Number(m[1])] = { cota_veche: cota, sursa_veche: m[3].trim() };

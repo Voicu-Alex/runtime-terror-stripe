@@ -118,7 +118,7 @@ describe("verificări moi: avertismente și calculabile", () => {
   });
 
   it("`formula` scrisă de mână e destul pentru `calculabil`", () => {
-    const r = rez(cu({ formula: "salariu_minim", formula_tip: null }));
+    const r = rez(cu({ formula: "tva_21", formula_tip: null }));
     expect(r.calculabile).toEqual({ cu_formula: 1, active_cu_bani: 1 });
     expect(r.avertismente).toEqual([]);
   });
@@ -158,8 +158,9 @@ describe("verificări moi: avertismente și calculabile", () => {
     expect(r.ok).toBe(true);
     expect(r.picate).toEqual([]);
     expect(r.avertismente).toEqual([{ cod: "formula_incompleta", mesaj: "cota veche lipsește: o completează un om cu sursa", schimbare: 0 }]);
-    // are formula_tip, deci trece de `calculabil` (completarea o face omul)
-    expect(r.calculabile).toEqual({ cu_formula: 1, active_cu_bani: 1 });
+    // `calculabil` trece, dar cu mesaj propriu, iar schimbarea nu intră în cu_formula până nu completează omul cota
+    expect(r.calculabile).toEqual({ cu_formula: 0, active_cu_bani: 1 });
+    expect(r.trecute.find((x) => x.cod === "calculabil")?.mesaj).toBe("calculabilă după ce un om completează cota veche");
   });
 
   it("o formulă completă nu dă `formula_incompleta`", () => {

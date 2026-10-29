@@ -26,6 +26,7 @@ export function valoareReferinta(id: ReferintaId | string, la: string, referinte
 }
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
+const dataBuna = (x: unknown) => typeof x === "string" && ISO.test(x) && !Number.isNaN(Date.parse(x)) && new Date(x).toISOString().slice(0, 10) === x;
 
 /** Problemele din fișierul de referințe (listă goală = ok). Rulează într-un test. */
 export function valideazaReferinte(referinte: Referinte = REFERINTE): string[] {
@@ -37,8 +38,8 @@ export function valideazaReferinte(referinte: Referinte = REFERINTE): string[] {
     for (const [i, v] of (r.valori ?? []).entries()) {
       const unde = `${id}[${i}]`;
       if (typeof v.valoare !== "number" || !Number.isFinite(v.valoare)) probleme.push(`${unde}: valoarea nu e număr`);
-      if (!ISO.test(v.de_la ?? "")) probleme.push(`${unde}: de_la nu e dată ISO`);
-      if (!ISO.test(v.verificat_la ?? "")) probleme.push(`${unde}: verificat_la nu e dată ISO`);
+      if (!dataBuna(v.de_la)) probleme.push(`${unde}: de_la nu e dată ISO`);
+      if (!dataBuna(v.verificat_la)) probleme.push(`${unde}: verificat_la nu e dată ISO`);
       for (const k of ["act", "sursa", "articol"] as const) if (!v[k]?.trim()) probleme.push(`${unde}: lipsește ${k}`);
     }
   }

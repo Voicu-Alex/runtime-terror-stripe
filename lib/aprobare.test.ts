@@ -165,6 +165,19 @@ describe("aprobaCu: cota veche completată", () => {
     expect(scrise.catalog.at(-1)).not.toHaveProperty("formula_tip.parametri.cota_veche");
   });
 
+  it("refuză o completare pentru o formulă care nu e schimbare_cota", async () => {
+    const { dep } = dependinteCu(structuredClone(interp));
+    await expect(aprobaCu(dep, 7, { revizor: "x", completari: { 0: { cota_veche: 10, sursa_veche: "Legea 227/2015, art. 97" } } })).rejects.toThrow(/doar unei formule/);
+  });
+
+  it("refuză o completare când cota veche e deja setată", async () => {
+    const rez = incompleta();
+    (rez.schimbari[0].formula_tip as any).parametri.cota_veche = 10;
+    (rez.schimbari[0].formula_tip as any).parametri.sursa_veche = "Legea 227/2015, art. 97";
+    const { dep } = dependinteCu(rez);
+    await expect(aprobaCu(dep, 7, { revizor: "x", completari: { 0: { cota_veche: 12, sursa_veche: "alta" } } })).rejects.toThrow(/deja completată/);
+  });
+
   it("respinge o completare fără sursă", async () => {
     const { dep } = dependinteCu(incompleta());
     await expect(aprobaCu(dep, 7, { revizor: "x", completari: { 0: { cota_veche: 10, sursa_veche: "  " } } })).rejects.toThrow(/amândouă/);

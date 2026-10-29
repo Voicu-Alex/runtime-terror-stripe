@@ -111,7 +111,7 @@ export function verificaInterpretare(interp: InterpretareAct, textAct: string, {
       const referinta = p?.referinta;
       const valida =
         esteFormulaTip(s.formula_tip) &&
-        (camp === undefined || (typeof camp === "string" && camp in CAMPURI_VALORI)) &&
+        (camp === undefined || (typeof camp === "string" && Object.prototype.hasOwnProperty.call(CAMPURI_VALORI, camp))) &&
         (referinta === undefined || esteReferinta(referinta));
       verif(valida, "formula_tip", valida ? "formula_tip e validă" : `formula_tip invalidă, cu câmp sau referință necunoscută: ${JSON.stringify(s.formula_tip)}`, i);
       if (valida) {
@@ -125,15 +125,27 @@ export function verificaInterpretare(interp: InterpretareAct, textAct: string, {
     if ((s.directie === "cost" || s.directie === "castig") && (s.pana_la == null || s.pana_la >= azi)) {
       const are = s.formula != null || s.formula_tip != null;
       calculabile.active_cu_bani++;
-      if (are) calculabile.cu_formula++;
-      avert(are, "calculabil", are ? "schimbarea are formulă" : "schimbare activă cu bani fără formulă: suma nu se poate calcula", i);
+      const ft = s.formula_tip;
+      const incompleta = s.formula == null && esteFormulaTip(ft) && !formulaCompleta(ft);
+      const calculabila = (s.formula != null && esteFormula(s.formula)) || (esteFormulaTip(ft) && formulaCompleta(ft));
+      if (calculabila) calculabile.cu_formula++;
+      avert(
+        are,
+        "calculabil",
+        !are
+          ? "schimbare activă cu bani fără formulă: suma nu se poate calcula"
+          : incompleta
+            ? "calculabilă după ce un om completează cota veche"
+            : "schimbarea are formulă",
+        i,
+      );
     }
 
     // condiții
     const conditiiRele: string[] = [];
     const numereLipsa: string[] = [];
     for (const c of s.conditii ?? []) {
-      const campOk = c.camp === "varsta" || c.camp in CAMPURI_VALORI;
+      const campOk = c.camp === "varsta" || Object.prototype.hasOwnProperty.call(CAMPURI_VALORI, c.camp);
       if (!campOk || !OPERATORI.includes(c.op) || typeof c.valoare !== "number" || !Number.isFinite(c.valoare)) conditiiRele.push(JSON.stringify(c));
       else if (!numarInText(c.valoare, textAct)) numereLipsa.push(`${c.camp} ${c.op} ${c.valoare}`);
     }

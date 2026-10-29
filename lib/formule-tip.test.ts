@@ -71,6 +71,7 @@ describe("tipurile noi: suma_fixa, procent_din_camp, multiplu_referinta", () => 
     expect(evalueazaTip({ tip: "suma_fixa", parametri: { lei: 300, perioada: "luna" } }, {}, "castig")).toBe(300);
     expect(evalueazaTip({ tip: "suma_fixa", parametri: { lei: 1200, perioada: "an" } }, {}, "castig")).toBe(100);
     expect(evalueazaTip({ tip: "suma_fixa", parametri: { lei: 1200, perioada: "an" } }, {}, "cost")).toBe(-100);
+    // evalueazaTip rămâne tolerant (Math.abs) pe un obiect deja validat; esteFormulaTip refuză negativul
     expect(evalueazaTip({ tip: "suma_fixa", parametri: { lei: -1200, perioada: "an" } }, {}, "cost")).toBe(-100);
   });
 
@@ -153,6 +154,10 @@ describe("validarea și numerele tipurilor noi", () => {
   it("esteFormulaTip pentru fiecare tip nou", () => {
     expect(esteFormulaTip({ tip: "suma_fixa", parametri: { lei: 1200, perioada: "an" } })).toBe(true);
     expect(esteFormulaTip({ tip: "suma_fixa", parametri: { lei: 1200 } })).toBe(false);
+    expect(esteFormulaTip({ tip: "suma_fixa", parametri: { lei: -1200, perioada: "an" } })).toBe(false);
+    expect(esteFormulaTip({ tip: "procent_din_camp", parametri: { camp: "pret_masina", procent: 1, perioada: "an", plafon: -5 } })).toBe(false);
+    expect(esteFormulaTip({ tip: "schimbare_cota", parametri: { camp: "dividende_anuale", cota_veche: -10, cota_noua: 16, perioada: "an", sursa_veche: "x" } })).toBe(false);
+    expect(esteFormulaTip({ tip: "multiplu_referinta", parametri: { referinta: "nu_exista", multiplu: 6, procent: 10, perioada: "an" } })).toBe(false);
     expect(esteFormulaTip({ tip: "procent_din_camp", parametri: { camp: "pret_masina", procent: 1, perioada: "an" } })).toBe(true);
     expect(esteFormulaTip({ tip: "procent_din_camp", parametri: { camp: "pret_masina", procent: 1, perioada: "an", peste: 100, plafon: 900 } })).toBe(true);
     expect(esteFormulaTip({ tip: "procent_din_camp", parametri: { camp: "pret_masina", procent: 1, perioada: "an", peste: "mult" } })).toBe(false);

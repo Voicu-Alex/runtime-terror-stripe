@@ -17,6 +17,11 @@ describe("data/referinte.json", () => {
   it("valideazaReferinte prinde câmpurile lipsă și datele greșite", () => {
     const rea = { x: { eticheta: "e", unitate: "lei", valori: [{ de_la: "iulie", valoare: 1, act: "", sursa: "s", articol: "a", verificat_la: "ieri" }] } };
     expect(valideazaReferinte(rea)).toEqual(["x[0]: de_la nu e dată ISO", "x[0]: verificat_la nu e dată ISO", "x[0]: lipsește act"]);
+    const v = { valoare: 1, act: "a", sursa: "s", articol: "a" };
+    expect(valideazaReferinte({ x: { eticheta: "e", unitate: "lei", valori: [{ ...v, de_la: "2026-13-45", verificat_la: "2026-02-30" }] } })).toEqual([
+      "x[0]: de_la nu e dată ISO",
+      "x[0]: verificat_la nu e dată ISO",
+    ]);
     expect(valideazaReferinte({ x: { eticheta: "e", unitate: "lei", valori: [] } })).toEqual(["x: nicio valoare"]);
   });
 });

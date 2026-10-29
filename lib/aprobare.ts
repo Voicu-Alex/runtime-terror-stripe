@@ -97,7 +97,9 @@ export async function aprobaCu(dep: Dependinte, id: number, { schimbari, revizor
   for (const i of alese) {
     const f = completate.schimbari[i].formula_tip;
     const c = completari?.[i];
-    if (c && f?.tip === "schimbare_cota" && f.parametri.cota_veche == null) {
+    if (c && f?.tip !== "schimbare_cota") throw new Error(`Schimbarea ${i}: completarea cotei vechi se aplică doar unei formule „schimbare_cota”.`);
+    if (c && f?.tip === "schimbare_cota" && f.parametri.cota_veche != null) throw new Error(`Schimbarea ${i}: cota veche e deja completată; nu o rescriu.`);
+    if (c && f?.tip === "schimbare_cota") {
       const sursa = c.sursa_veche?.trim();
       if (!Number.isFinite(c.cota_veche) || !sursa) throw new Error(`Schimbarea ${i}: cota veche și sursa trebuie completate amândouă.`);
       f.parametri.cota_veche = c.cota_veche;
