@@ -487,10 +487,6 @@ export function Acasa({ azi, deschise }: { azi: string; deschise: TermenDeschis[
             {en ? "See an example: Andrei, 32" : "Vezi un exemplu: Andrei, 32"}
           </Cta>
         </div>
-        <p className="m-0 mt-4 text-[13.5px] text-v3-ink-2">
-          {en ? "Other fictional examples:" : "Alte exemple fictive:"} <Link href="/flux?p=maria">Maria, 45</Link> · <Link href="/flux?p=ion">Ion, 67</Link> ·{" "}
-          <Link href="/flux?p=ioana">Ioana, 23</Link>
-        </p>
       </section>
     </div>
   );
