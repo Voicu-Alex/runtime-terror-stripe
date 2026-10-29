@@ -146,7 +146,8 @@ const azi = new Date().toISOString().slice(0, 10);
 const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
 const erori: string[] = [];
 const contor = { noi: 0, actualizate: 0, lipsa: 0, nemodificate: 0, eroare: 0 };
-const LIPSA_CONSECUTIVE_MAX = 20;
+// Id-urile au goluri (315412–315431 lipsesc, 315641 există), deci pragul e mare: o cădere reală costă 200 × 2 s.
+const LIPSA_CONSECUTIVE_MAX = 200;
 let lipsaConsecutive = 0;
 const dupaTip = new Map<string, number>();
 const dupaStare = new Map<string, number>();
