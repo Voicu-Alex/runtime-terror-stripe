@@ -1,0 +1,72 @@
+{
+  "act": "Ordinul 888/2026",
+  "mo": "MO 818 / 25 sep 2026",
+  "publicat_la": "2026-09-25",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Rovinieta pentru autoturism: tarife noi, de la 20 lei pe zi la 330 lei pe an, după norma Euro",
+      "rezumat_en": "Road toll (rovinieta) for cars: new tariffs, from 20 lei per day to 330 lei per year, by Euro class",
+      "taguri": ["masina"],
+      "in_vigoare_de_la": "2026-09-25",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 1 și anexa, categoria A; art. 3 alin. (2)",
+      "citat": "Se aprobă categoriile de vehicule și nivelul rovinietei, în conformitate cu anexa care face parte integrantă din prezentul ordin.",
+      "niveluri": {
+        "zero": "Rovinieta pentru autoturism are tarife noi, care depind de perioadă și de norma Euro a mașinii.",
+        "curios": "Pentru un autoturism (maximum 9 locuri, cu șoferul), rovinieta pe 12 luni costă 228 lei pentru vehicule electrice, 254 lei pentru Euro VI, 292 lei pentru Euro V-IV și 330 lei pentru Euro III-0. Pe 30 de zile costă 43, 48, 55, respectiv 62 lei. Tarifele includ TVA. Ordinul nu spune cât era rovinieta înainte, deci nu putem spune dacă plătești mai mult sau mai puțin.",
+        "expert": "Anexa, categoria A (autoturism), în lei cu TVA, pe coloanele electric / Euro VI / Euro V-IV / Euro III-0: 1 zi 20/22/26/29; 10 zile 27/30/35/39; 30 de zile 43/48/55/62; 60 de zile 68/76/87/99; 12 luni 228/254/292/330. Nivelul din anexă se aplică rovinietelor a căror valabilitate începe la data prevăzută la art. 29 alin. (1) din Legea 226/2023 sau după ea (art. 3 alin. (2)). Dacă nu există date despre clasa de emisii, vehiculul se încadrează la Euro 0. Vehiculele electrice fără clasă Euro folosesc coloana „Vehicule electrice”."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Află norma Euro a mașinii din cartea de identitate sau certificatul de înmatriculare, apoi cumpără rovinieta pe perioada dorită la tariful din anexă (de exemplu 12 luni: 228, 254, 292 sau 330 lei, după clasă).",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Pagina oficială de cumpărare și verificare a rovinietei, de la CNAIR (Compania Națională de Administrare a Infrastructurii Rutiere)"
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Text fără sumă pe lună și fără tariful vechi, deci nu avem formulă (în lib/formule.ts nu există `rovinieta`) și nici formula_tip. Intrarea în vigoare: antetul spune „necunoscută”; ordin, deci la data publicării (Legea 24/2000, art. 12), dedusă. Data de la care se aplică efectiv tarifele e cea de la art. 29 alin. (1) din Legea 226/2023, care nu e în textul primit: de verificat. Lăsate deoparte: categoriile B (marfă până la 3,5 t), C și D (transport persoane peste 9 locuri), fără etichetă potrivită în listă (`masina` privește autoturismele)."
+    },
+    {
+      "rezumat": "Rovinieta se scumpește sau se ieftinește în fiecare an din 1 ianuarie, după inflație",
+      "rezumat_en": "The road toll is adjusted every year from 1 January, following inflation",
+      "taguri": ["masina"],
+      "in_vigoare_de_la": "2027-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "adoptat",
+      "directie": "termen",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 2 alin. (1) și (2); art. 3 alin. (3)",
+      "citat": "Valoarea rovinietei actualizată anual în conformitate cu prevederile art. 2 alin. (1) se aplică începând cu data de 1 ianuarie a anului următor.",
+      "niveluri": {
+        "zero": "De la 1 ianuarie 2027, rovinieta se actualizează în fiecare an după indicele prețurilor de consum.",
+        "curios": "Tariful de anul viitor se calculează înmulțind tariful de acum cu indicele prețurilor de consum comunicat de INS, împărțit la 100. Rezultatul se rotunjește în jos la un leu întreg. Noul tarif se aplică de la 1 ianuarie. Cât va fi depinde de inflația din octombrie 2026 până în septembrie 2027, deci nu o știm încă.",
+        "expert": "Art. 2 alin. (1): T_apl = T_act x IPC/100, unde IPC este indicele lunar al prețurilor de consum (IPC total) pentru intervalul octombrie a anului anterior - septembrie a anului în care se face calculul. Actualizarea se face până la 31 decembrie. Alin. (2): rotunjire la 1 leu prin neglijarea fracțiunilor de până la 0,99 lei. Art. 3 alin. (3): se aplică de la 1 ianuarie a anului următor."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "După actualizarea de la 1 ianuarie, verifică tariful rovinietei înainte de a o cumpăra: trebuie să fie tariful din anexă înmulțit cu IPC/100, rotunjit în jos la un leu.",
+          "termen": "2027-01-01",
+          "destinatie": null,
+          "destinatie_propusa": "Pagina oficială de cumpărare și verificare a rovinietei, de la CNAIR (Compania Națională de Administrare a Infrastructurii Rutiere)"
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Nu calculăm: IPC pentru octombrie 2026 - septembrie 2027 nu e cunoscut. Formula T_apl = T_act x IPC/100 nu se potrivește cu niciun tip din formule.ts sau formule-tip.ts. Statusul „adoptat” și data 2027-01-01 vin din art. 3 alin. (3): prima actualizare se aplică de la 1 ianuarie 2027, deși ordinul e deja publicat. Cuvântul „termen” la direcție: nu se poate spune dacă tariful crește sau scade, deși un IPC peste 100 înseamnă creștere (nu afirmăm)."
+    }
+  ]
+}

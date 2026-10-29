@@ -1,5 +1,6 @@
 # Session state
 
+Updated: 2026-10-29 05:35
 ## Deploy descriere mutat pe main (29 oct 2026)
 - main fast-forward la deploy-descriere și împins: origin/main = 17e7bd03 (include cele 18 commit-uri legi-ingest + deploy-ul Next.js). Scripturile din deploy/descriere/ spun acum `main`.
 - RĂMAS: pe CT 107 config-ul încă are BRANCH=deploy-descriere (SSH spre Proxmox nu a mers din sesiune). De rulat: `ssh root@192.168.31.63 "pct exec 107 -- sed -i s/^BRANCH=.*/BRANCH=main/ /etc/descriere-deploy/config && pct exec 107 -- descriere-deploy"`. Apoi version.txt trebuie să arate 17e7bd03.
@@ -52,10 +53,14 @@ Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) �
 ### Rulat
 - 12 acte (campanii + alese) aduse cu `--dry-run --dump scratch/acte`; loturi în `scratch/lot/` (Codul fiscal doar art.
   84, 84^1, 97, 155, 156, 170; Legea 239 art. XII–XIII; Legea 76 art. 33^1…76^5). OUG 8/2026 = Portal 307580.
-- 11/12 interpretări Sonnet (subagenți) în `scratch/lot/portal_<id>.json`; poarta: 8 ok, 3 cu schimbări fără etichetă
-  (cripto/titluri, TVA 21% general, asigurare voluntară de șomaj) care rămân neaprobabile. OUG 8/2026 încă rulează.
-- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) în `--dry-run --dump scratch/sweep`, jurnal `scratch/sweep-log.txt`.
-- Paritate API (Haiku) pe 3 loturi: `scratch/lot-api/`. Spot-check Opus pe 5 interpretări: în curs.
+- 12/12 interpretări Sonnet (subagenți), 88 schimbări, 76 cu etichetă; copii în `eval/rezultate/sonnet-subagent-v3/legi/`.
+  Spot-check Opus pe cele 5 campanii → corecturi aplicate, regulile 14–16 în instrucțiuni. Paritate API (Haiku, 0,019 USD)
+  pe 3 loturi: aceeași formă și verificări (`eval/rezultate/haiku-api-v3/legi/`).
+- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) rulează în fundal în `--dry-run --dump scratch/sweep` (jurnal
+  `scratch/sweep-log.txt`); la 05:35: 508 pagini, 0 erori. Triaj Haiku pe primii 125 de candidați: 43 da / 82 nu
+  (`scratch/triaj/verdict-*.json`, aplicate în fișiere). 6 acte din parcurgere interpretate (3 cu schimbări).
+- Rămas: după ce se termină parcurgerea, `legi:triaj --reevalueaza`, `--export` pentru candidații noi, triaj Haiku,
+  `--aplica`; apoi, cu baza: `legi:incarca --din scratch/acte --din scratch/sweep`, `legi:importa`, aprobări în /admin/acte.
 
 ### BLOCAT: baza de date
 `.env.local` are `SUPABASE_DB_URL` comentat, cu `[YOUR-PASSWORD]`. Fără el nu merg `legi:migreaza`, `legi:incarca`,
@@ -68,6 +73,12 @@ Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) �
   oricine la primul job.
 - `cei_d` din catalog e cont de investiții, nu certificat energetic; art. 111 nu mai are prag de 450.000 lei din 2023.
 
+## Final (29 oct 2026, 06:45, limită de utilizare atinsă)
+- Parcurgerea 314500–315900 s-a încheiat în 3 rulări (jurnale în `eval/rezultate/triaj-2026-10-29/`): 1.065 acte, 0 erori,
+  0 reîncercări; după 315411 id-urile au goluri mari (313 lipsă din 469), pragul de oprire e acum 200 la rând.
+- Stări finale în `scratch/sweep`: 723 respinse de reguli, 96 triat_da, 178 triat_nu, 68 candidați netriați (loturile se fac
+  cu `legi:triaj --din scratch/sweep --export scratch/triaj4`). Verdictele Haiku sunt în `eval/rezultate/triaj-2026-10-29/`.
+- Blocat tot pe `SUPABASE_DB_URL`; pașii de după sunt mai sus. Nimic pushuit.
 Updated: 2026-10-28 14:40
 
 ## Context
