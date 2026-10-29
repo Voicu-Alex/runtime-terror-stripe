@@ -3,6 +3,7 @@ import type { Potrivire } from "./potrivire";
 import { actualizatLa } from "./catalog";
 import { calculeaza } from "./formule";
 import { TAGURI } from "./taguri";
+import { sursaAct } from "./traduceri";
 import { etichetaTagL, familieL, lunaScurta, type Limba } from "./i18n";
 import type { Valori } from "./profil";
 
@@ -79,7 +80,7 @@ export function vedere(p: Potrivire, valori: Valori, limba: Limba = "ro"): Veder
     kicker: [familie, ...p.taguri_comune.map((t) => etichetaTagL(limba, t))].join(" · "),
     titlu: limba === "en" && s.rezumat_en ? s.rezumat_en : s.rezumat,
     stare: depasit ? "termen_depasit" : s.status,
-    act: s.act,
+    act: sursaAct(s, limba).act.text,
     suma: p.impact_lei_luna === null ? null : Math.round(p.impact_lei_luna),
     cere: p.impact_lei_luna === null ? (p.valori_lipsa.map((k) => CERE[k]).find(Boolean) ?? null) : null,
     termen:

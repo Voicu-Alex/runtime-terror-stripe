@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLimba } from "@/components/Limba";
 import { dataScurta, mii, zile, ZILE_URGENT } from "@/lib/card";
 import { gasesteSchimbarea } from "@/lib/catalog";
+import { sursaAct } from "@/lib/traduceri";
 import type { Limba } from "@/lib/i18n";
 
 // Landing page după DotCom Secrets (Russell Brunson): cârlig → poveste → ofertă, cu FOMO și urgență.
@@ -183,7 +184,7 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
           <li className="border-l-[3px] border-v3-accent py-1 pl-3 sm:border-t-[3px] sm:border-l-0 sm:pt-3 sm:pl-0">
             <span className="block text-[11px] font-extrabold tracking-[.1em] text-v3-ink-2 uppercase">{en ? "The law appears" : "Apare legea"}</span>
             <b className="block text-[16px]">{d(c.aflat)}</b>
-            <span className="block text-[13px] text-v3-ink-2">{s.mo_ref}</span>
+            <span className="block text-[13px] text-v3-ink-2">{sursaAct(s, limba).mo_ref.text}</span>
           </li>
           <li className="border-l-[3px] border-v3-urg py-1 pl-3 sm:border-t-[3px] sm:border-l-0 sm:pt-3 sm:pl-0">
             <span className="block text-[11px] font-extrabold tracking-[.1em] text-v3-urg uppercase">{en ? "The window" : "Fereastra"}</span>

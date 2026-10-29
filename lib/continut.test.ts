@@ -19,12 +19,19 @@ describe("textele Iasminei (content/niveluri.json)", () => {
     expect(n.surse[0]).toBe("https://legislatie.just.ro/Public/DetaliiDocument/300022");
   });
 
-  it("în engleză, Zero vine din zero_en; Curios și Expert rămân în română", () => {
+  it("în engleză, Zero vine din zero_en, iar Curios și Expert din data/traduceri-en.json", () => {
     const n = niveluri(s("dividende_16"), "en");
     expect(n.zero).toMatch(/from 10% to 16%/);
     expect(n.limbaZero).toBe("en");
-    expect(n.curios).toMatch(/31 decembrie 2025/);
-    expect(niveluri(s("dividende_16")).limbaZero).toBe("ro");
+    expect(n.curios).toMatch(/31 December 2025/);
+    expect(n.limbaDetalii).toBe("en");
+    const ro = niveluri(s("dividende_16"));
+    expect(ro.curios).toMatch(/31 decembrie 2025/);
+    expect([ro.limbaZero, ro.limbaDetalii]).toEqual(["ro", "ro"]);
+  });
+
+  it("în engleză, propoziția cu „Exemplu: TODO” rămâne ascunsă", () => {
+    expect(niveluri(s("gaz_plafon"), "en").curios).not.toMatch(/TODO/);
   });
 
   it("gaz: propoziția cu „Exemplu: TODO” nu se afișează", () => {

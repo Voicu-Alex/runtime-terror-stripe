@@ -3,6 +3,7 @@
 import { useLimba } from "@/components/Limba";
 import { ETICHETA_STARE, cuSemn, dataScurta, mii, vedere, zile, type VedereCard } from "@/lib/card";
 import { textActiune } from "@/lib/catalog";
+import { sursaAct } from "@/lib/traduceri";
 import { lunaScurta, type Limba } from "@/lib/i18n";
 import type { Potrivire } from "@/lib/potrivire";
 import type { Valori } from "@/lib/profil";
@@ -181,9 +182,9 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
             §
           </i>
           <span>
-            <b className="block text-[13px] font-extrabold tracking-[.06em] uppercase">{s.act}</b>
+            <b className="block text-[13px] font-extrabold tracking-[.06em] uppercase" lang={sursaAct(s, limba).act.limba}>{sursaAct(s, limba).act.text}</b>
             <span className="block text-[13px] text-v3-ink-2">
-              {s.mo_ref}
+              {sursaAct(s, limba).mo_ref.text}
               {s.verificat_la && ` · ${t("verificat la")} ${dataScurta(s.verificat_la, limba)}`}
             </span>
           </span>

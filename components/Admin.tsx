@@ -112,11 +112,17 @@ function Propunere({ a, p, index }: { a: ActInbox; p: PropunereModel; index: num
 
       <figure className="m-0 mt-3 rounded-xl border-l-[3px] border-v3-accent bg-v3-accent-soft px-3.5 py-2.5">
         <figcaption className="text-[11px] font-extrabold tracking-[.1em] text-v3-accent uppercase">
-          {en ? "Sentence found word for word in the act" : "Fraza găsită cuvânt cu cuvânt în act"} · {p.articol}
+          {en ? "Sentence found word for word in the act" : "Fraza găsită cuvânt cu cuvânt în act"} · {en && p.en?.articol ? p.en.articol : p.articol}
         </figcaption>
         <blockquote lang="ro" className="m-0 mt-1 text-[14.5px] leading-[1.5] text-v3-ink italic">
           „{p.citat}”
         </blockquote>
+        {/* citatul rămâne în română: el e dovada; dedesubt, traducerea neoficială */}
+        {en && p.en?.citat && (
+          <p className="m-0 mt-1.5 text-[13.5px] leading-[1.5] text-v3-ink-2">
+            <span className="font-semibold">Unofficial translation:</span> “{p.en.citat}”
+          </p>
+        )}
       </figure>
 
       <dl className="m-0 mt-3 grid gap-x-6 gap-y-1.5 text-[14px] sm:grid-cols-[auto_1fr]">

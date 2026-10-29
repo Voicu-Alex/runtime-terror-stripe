@@ -296,6 +296,11 @@ const EN: Record<string, string> = {
   "Surse și limitări": "Sources and limitations",
   "Nou în Monitorul Oficial": "New in the Official Gazette",
   "verificat de un om azi": "checked by a person today",
+  // /legi (components/ArticolLegi.tsx)
+  "a expirat pe": "expired on",
+  "până pe": "until",
+  "o singură dată": "once",
+  "pe an": "a year",
 };
 
 /** Are textul intrare în dicționarul EN (chiar dacă traducerea e identică, ca un nume propriu). */

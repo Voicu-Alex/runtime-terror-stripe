@@ -24,7 +24,8 @@ export type PropunereModel = {
   incredere: Incredere;
   nota: string;
   /** traducerea pentru interfața în engleză, adăugată la revizie */
-  en: { rezumat: string; zero: string; actiuni: string[]; nota: string } | null;
+  /** traducerea la revizie; `citat` e traducerea neoficială a frazei din act */
+  en: { rezumat: string; zero: string; actiuni: string[]; nota: string; articol?: string; citat?: string } | null;
 };
 
 export type ActInbox = {
