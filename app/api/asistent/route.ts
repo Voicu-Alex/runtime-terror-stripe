@@ -6,6 +6,7 @@ import { gasesteSchimbarea } from "@/lib/catalog";
 import { demoLege, demoProfil, type DateCard } from "@/lib/demo-asistent";
 import { GHID } from "@/lib/ghid";
 import { aziISO, potriveste } from "@/lib/potrivire";
+import { proActiv } from "@/lib/pro-server";
 import { normalizeaza } from "@/lib/profil";
 import { TOATE_TAGURILE, esteTag } from "@/lib/taguri";
 
@@ -34,6 +35,7 @@ const NO_STORE = { headers: { "Cache-Control": "no-store" } };
 /**
  * Asistentul: `profil` scoate etichete din textul omului, `lege` răspunde despre un card.
  * Fără stocare și fără log cu conținutul. Fără ANTHROPIC_API_KEY (sau dacă apelul eșuează) răspunde modul demo.
+ * Modul `profil` cere Pro activ (lib/pro-server.ts).
  */
 export async function POST(req: Request) {
   let body: unknown;
@@ -45,6 +47,8 @@ export async function POST(req: Request) {
   if (!esteCerere(body)) return NextResponse.json({ eroare: "cerere invalidă" }, { status: 400 });
 
   if (body.mod === "profil") {
+    // Conversația de profil e pentru abonații Pro (ADR 0002); formularul și documentul rămân libere.
+    if (!(await proActiv())) return NextResponse.json({ eroare: "doar cu abonament Pro" }, { status: 403, ...NO_STORE });
     const raspuns = process.env.ANTHROPIC_API_KEY ? await profilCuModel(body).catch(logEroare) : null;
     return NextResponse.json(raspuns ?? demoProfil(body), NO_STORE);
   }

@@ -1,6 +1,10 @@
 // Stă în lib/ pentru că vitest.config.ts include doar lib/**/*.test.ts.
 // Fără rețea: ANTHROPIC_API_KEY e șters, deci ruta răspunde din modul demo (depinde de lib/demo-asistent.ts și lib/asistent.ts).
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+// Modul profil e doar pentru Pro: sesiunea și starea Stripe sunt simulate (implicit: conectat, cu Pro activ)
+const pro = vi.hoisted(() => ({ activ: true }));
+vi.mock("@/auth", () => ({ auth: async () => ({ user: { email: "test@example.com" } }) }));
+vi.mock("@/lib/stripe", () => ({ stripe: () => ({}), stareDupaEmail: async () => ({ activ: pro.activ }) }));
 import { POST } from "@/app/api/asistent/route";
 import { TOATE_TAGURILE } from "./taguri";
 
@@ -15,6 +19,16 @@ describe("POST /api/asistent (fără cheie)", () => {
   });
   afterEach(() => {
     if (cheie !== undefined) process.env.ANTHROPIC_API_KEY = cheie;
+  });
+
+  it("profil fără Pro activ: 403", async () => {
+    pro.activ = false;
+    try {
+      const r = await cere({ mod: "profil", text: "Sunt programator angajat", pas: 1, taguri: [] });
+      expect(r.status).toBe(403);
+    } finally {
+      pro.activ = true;
+    }
   });
 
   it("profil: 200 și doar etichete din taxonomie", async () => {

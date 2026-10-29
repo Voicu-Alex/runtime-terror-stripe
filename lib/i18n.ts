@@ -54,6 +54,8 @@ const EN: Record<string, string> = {
   "Informare, nu consultanță financiară sau juridică.": "Information, not financial or legal advice.",
   "Asistentul tău": "Your assistant",
   "Asistentul e pentru abonații Pro.": "The assistant is for Pro subscribers.",
+  "Îți descrii situația în cuvintele tale și profilul se completează singur. Formularul și documentul rămân gratuite.": "Describe your situation in your own words and the profile fills itself in. The form and the document upload stay free.",
+  "Folosesc formularul": "Use the form",
   "Întrebi orice despre legile care te privesc și primești răspunsul cu sursa lângă.": "Ask anything about the laws that affect you and get the answer with its source next to it.",
   "Deschide asistentul": "Open the assistant",
   "Asistent": "Assistant",
