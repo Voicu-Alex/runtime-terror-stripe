@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F1 · Clar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+/* F1 · Clar: o singură unitate (lei/lună), o propoziție în loc de articol + bandă de cifre,
+   lista grupată după ce faci cu ea. Fără coloana de termene, care repeta lista. */
+.sum{padding:6px 0 26px;border-bottom:2px solid var(--ink);margin-bottom:26px}
+.sum h1{font:800 clamp(28px,3.4vw,38px)/1.12 var(--head);letter-spacing:-.015em;margin:0 0 12px;max-width:22ch;text-wrap:balance}
+.sum p{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0;max-width:56ch}
+.sum p b{color:var(--ink)}
+.sum .simd{margin-top:10px;font-size:15px;color:var(--pos);font-weight:600}
+@media (max-width:760px){
+  .sum{padding:4px 0 20px;margin-bottom:18px}
+  .sum h1{font-size:27px}
+  .sum p{font-size:15.5px}
+}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr"></header>
+<nav class="nav" id="nav"></nav>
+<div class="page two">
+  <aside class="filters"><h3>Arată</h3><div id="f"></div><p class="fnote">Andrei, 32. Profilul rămâne pe telefon.</p></aside>
+  <main>
+    <div class="chiprow" id="chips"></div>
+    <section class="sum" id="sum" aria-live="polite"></section>
+    <div id="list"></div>
+    <p class="disc">Nu e sfat financiar. Arătăm efectul legii pe profilul tău și ce permite legea.</p>
+  </main>
+</div>
+<nav class="bnav" id="bnav"></nav>
+<script src="../v4/data.js"></script>
+<script src="common.js"></script>
+<script>
+function render(){
+  var now = totalNow(), sg = simGain(), first = ITEMS.filter(openDl).sort(function(a,b){return a.deadline < b.deadline ? -1 : 1;})[0];
+  var s = '<h1>Legile intrate deja te costă <span class="neg">' + lei0(-now) + ' lei pe lună</span>.</h1>';
+  s += '<p>Poți recupera până la <b class="pos">' + lei0(gainAll()) + ' lei pe lună</b> cu ce permite legea, o parte abia din 2027. Primul termen e <b>' + wd(first.deadline) + '</b>: ' + left(U.days(first.deadline)) + '.</p>';
+  if (sg) s += '<p class="simd">Cu ce ai simulat: ' + U.lei(now + sg).replace('lei/lună','lei pe lună') + ' (+' + lei0(sg) + ').</p>';
+  document.getElementById('sum').innerHTML = s;
+
+  var v = visible();
+  var todo = v.filter(openDl).sort(function(a,b){return a.deadline < b.deadline ? -1 : 1;});
+  var cost = v.filter(function(i){ return !openDl(i) && U.inForce(i) && i.impact; }).sort(function(a,b){return a.impact - b.impact;});
+  var next = v.filter(function(i){ return !openDl(i) && !U.inForce(i); });
+  var rest = v.filter(function(i){ return todo.indexOf(i) < 0 && cost.indexOf(i) < 0 && next.indexOf(i) < 0; });
+  var g = function(name, note, arr){ return arr.length ? '<h2 class="grp">' + name + '<span>' + note + '</span></h2><div class="list">' + arr.map(function(i){return row(i);}).join('') + '</div>' : ''; };
+  var c = cost.reduce(function(s,i){return s + i.impact;}, 0);
+  document.getElementById('list').innerHTML =
+    g('De făcut', todo.length + (todo.length === 1 ? ' termen deschis' : ' termene deschise'), todo) +
+    g('Te costă deja', c ? U.lei(c) : '', cost) +
+    g('Urmează', 'adoptate, încă nu se aplică', next) +
+    g('Fără efect în bani', '', rest) ||
+    '<p>Niciun act din această categorie nu te privește acum.</p>';
+  var fh = filters(); document.getElementById('f').innerHTML = fh; document.getElementById('chips').innerHTML = fh;
+}
+shell(); bind(render); render();
+</script>
+</body>
+</html>

@@ -1,5 +1,73 @@
 # Session state
 
+## Deploy descriere mutat pe main (29 oct 2026)
+- main fast-forward la deploy-descriere și împins: origin/main = 17e7bd03 (include cele 18 commit-uri legi-ingest + deploy-ul Next.js). Scripturile din deploy/descriere/ spun acum `main`.
+- RĂMAS: pe CT 107 config-ul încă are BRANCH=deploy-descriere (SSH spre Proxmox nu a mers din sesiune). De rulat: `ssh root@192.168.31.63 "pct exec 107 -- sed -i s/^BRANCH=.*/BRANCH=main/ /etc/descriere-deploy/config && pct exec 107 -- descriere-deploy"`. Apoi version.txt trebuie să arate 17e7bd03.
+
+## Latest (29 oct 2026): cifrele din aplicația Next.js în Geist, nimic commitat
+- Token nou `--font-num` (Geist) în `app/globals.css` (@theme), Geist adăugat în linkul de fonturi din `app/layout.tsx`. Utilitarul `font-num font-semibold tabular-nums` pe: suma din CardSchimbare, totalurile și cifrele din RevistaFlux, bara „Planul meu” (ListaFlux), prețul Pro (Abonare), cifrele din /legi, cazurile și „48.000 de lei” de pe acasă. Titlurile rămân Raleway; „mai ai X zile” rămâne text.
+- tsc curat, 206 teste. Verificat: Geist încărcat (30 de elemente pe /legi), temă întunecată, telefon 375px fără scroll orizontal. Capturi `captures/v8-06-app-*-inainte-dupa.png`.
+
+## Latest (29 oct 2026): cifrele din v6 în Geist, nimic commitat
+- Andrei a ales Geist pentru cifre. `mockup/v6/index.html`: Geist 600, cifre tabulare pe totalurile din bilanț, sumele de pe rânduri și datele din coloanele de termene. Titlurile rămân Raleway, textul Inter. `v5/base.css` neatins (îl folosește și v5).
+- Înainte/după: `captures/v8-05-v6-cifre-inainte-dupa.png`. 21 teste v6 trec. Aplicația Next.js nu e schimbată.
+
+## Latest (29 oct 2026): widgeturi de impact în mockup/v6/widgets.html, nimic commitat
+- Andrei nu vrea cifrele în Raleway („ceva mai profi”) și a cerut widgeturi tip dashboard: impactul și cât poate face, clar și rapid.
+- `mockup/v6/widgets.html`: comparație de fonturi pentru cifre (Raleway acum, Inter Tight, IBM Plex Sans, Geist propus; clic schimbă toată pagina, `?font=`), comutator pe lună / pe an (`?per=an`), 5 widgeturi din datele v6: bilanț net (−784, +90, rămâi −694), termen apropiat (motorina, mereu pe lună), ce poți face după valoare, unde se duc banii, ce urmează (cronologie). Rândurile duc la `index.html?plan=premium&go=<id>`.
+- Capturi: `captures/v8-01-widgeturi-desktop.png`, `captures/v8-02-widgeturi-phone.png`.
+- Neconcordanță veche: `v5/common.js` are TODAY = 2026-10-28, antetul v6 scrie 29 oct.
+- Deschis: Andrei alege fontul și ce widgeturi intră în „Pentru tine”.
+
+## Latest (29 oct 2026): comutator Basic / Premium în mockup/v6, nimic commitat
+- `mockup/v6/index.html`: butoane Basic | Premium în antet (pe telefon, pastilă fixă deasupra barei de jos). Premium = toate actele deblocate (suprascrie `F.getAccess`), fără blur, panoul „Deblocări gratuite” înlocuit cu „Premium activ · 15 lei/lună”. Ținut în localStorage `v6-plan`; `?plan=premium|basic` în URL are prioritate.
+- 21 teste v6 trec (`node --test feed.test.js freemium.test.js`). Verificat în browser: desktop Basic/Premium, rând deschis în Premium, telefon 375px.
+- ATENȚIE: mockup/v4, v5, v6 sunt netrackuite în git, deci nu există pe nicio ramură (nici main).
+
+## Merge legi-ingest → deploy-descriere (29 oct 2026, 05:15)
+- Fast-forward local: deploy-descriere = 89096cf3 (18 commits by Codex: ingestion, /admin/acte). NOT pushed (a push to deploy-descriere deploys live on CT 107).
+- Uncommitted local work (v4-v6 mockups, voice, notifications, supabase, etc.) remains uncommitted; 4 overlapping files resolved by hand: package.json (union of scripts), .env.example (Codex), instructiuni.md (v3 + imperative action wording), this file.
+- Checked: tsc clean, 202 tests, next build ok (in a separate copy; .next is shared with the dev server). The dev server on :3000 was restarted.
+
+Updated: 2026-10-29 05:20
+
+## Branch `legi-ingest` (worktree `.claude/worktrees/legi-ingest`, off `deploy-descriere`)
+
+Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) → /admin/acte → catalog. Planul aprobat:
+`~/.claude/plans/make-a-branch-off-spicy-llama.md`. Documentație: `docs/ingest.md`, `docs/surse-de-date.md` (sondarea).
+
+### Făcut (commitat local, nepushuit)
+- `supabase/acte.sql` (acte, interpretari, rulari, cursor_surse; recenzat de Opus), `scripts/legi/db.mjs`, `migreaza.mjs`
+  (pg, TLS verificat, CA opțional `SUPABASE_DB_CA`).
+- `lib/portal.ts` (parserul paginii de act, 4 fixturi reale), `lib/portal-client.ts` (1 cerere / 2 s, backoff, plafon;
+  id lipsă = HTTP 500 cu pagina „Error”, numărat ca 404), `lib/triaj-reguli.ts`.
+- `scripts/legi/descopera.mts` (`--ids`, `--de-la/--pana-la`, `--dry-run`, `--dump <dir>`, `--cauta-oug`),
+  `export-lot.mts` (`--din <dir>` fără bază), `importa-interpretari.mts` (poarta cu verificări), `aproba.mts`,
+  `respinge.mts`, `export-inbox.mts` (formatul PR #34), `incarca.mts` (dump → acte).
+- `lib/interpretare.ts` (spreSchimbare/spreGhid), `lib/verificari-interpretare.ts`, `lib/aprobare.ts`,
+  instrucțiuni v3 (+ regula 13: data intrării în vigoare dedusă din regula generală).
+- `/admin/acte` (+ `?demo=1`), aprobare pe schimbare. Capturi `captures/legi-admin-0*.png`.
+- 181 teste, tsc curat. Build neverificat.
+
+### Rulat
+- 12 acte (campanii + alese) aduse cu `--dry-run --dump scratch/acte`; loturi în `scratch/lot/` (Codul fiscal doar art.
+  84, 84^1, 97, 155, 156, 170; Legea 239 art. XII–XIII; Legea 76 art. 33^1…76^5). OUG 8/2026 = Portal 307580.
+- 11/12 interpretări Sonnet (subagenți) în `scratch/lot/portal_<id>.json`; poarta: 8 ok, 3 cu schimbări fără etichetă
+  (cripto/titluri, TVA 21% general, asigurare voluntară de șomaj) care rămân neaprobabile. OUG 8/2026 încă rulează.
+- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) în `--dry-run --dump scratch/sweep`, jurnal `scratch/sweep-log.txt`.
+- Paritate API (Haiku) pe 3 loturi: `scratch/lot-api/`. Spot-check Opus pe 5 interpretări: în curs.
+
+### BLOCAT: baza de date
+`.env.local` are `SUPABASE_DB_URL` comentat, cu `[YOUR-PASSWORD]`. Fără el nu merg `legi:migreaza`, `legi:incarca`,
+`legi:importa`, `legi:aproba` și pagina /admin/acte pe date reale. După ce Andrei pune parola (sau lipește
+`supabase/acte.sql` în SQL Editor): `npm run legi:migreaza && npm run legi:incarca -- --din scratch/acte --din scratch/sweep
+&& npm run legi:importa -- --model claude-sonnet-5-5 --driver subagent`.
+
+### Corecturi la campanii (de spus lui Andrei)
+- Prima de stabilitate (OUG 11/2026, art. 76^5) e doar pentru tineri NEET 16–29 ani înregistrați la agenție, nu pentru
+  oricine la primul job.
+- `cei_d` din catalog e cont de investiții, nu certificat energetic; art. 111 nu mai are prag de 450.000 lei din 2023.
+
 Updated: 2026-10-28 14:40
 
 ## Context
@@ -89,3 +157,45 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - Team note: tva_locuinta catalog entry says Legea 141/2025 (expired 2025) while its ghid entry describes the Legea 161 refund; the card header still shows "termen depășit".
 - 23:45: real API test (Andrei asked). Laws via eval/interpreteaza-api.mjs: Haiku 5.5 and Sonnet 5.5 pass every automatic check on 9 acts; measured cost $0.04 vs $0.85. Documents via the real route (Opus 5.5), eval/documente-api.mjs: run 1 11/13 (salariu_net missing on payslips; 0/"" filler values that FormularProfil would have saved into the profile), fixed with nullable-required schema + curataValori; run 2 13/13 but a 0.05 "rural" on the gas bill, fixed with rule 10 + drop < 0.2; run 3 13/13 clean. 97 tests, tsc, build pass. Doc cost not measured (route doesn't log usage), est. ~$0.4/run.
 - 22:10 (29 oct): merged origin/main (#24-#26) into andrei-continut. Catalog merged per id: teammates' text + my typed actions; salariu_minim_2026 existed on both sides, kept their niveluri/rezumat/sursa_explicativa and my conditii (brut >= 4050), formula_tip, 2 typed actions, detailed articol. Ghid = main's. Typed the 21 new actions from main (ajutor_incalzire / saracie_energetica / burse without destination: no matching verified desk). CardSchimbare: "spune-ne X" form + destination button used bg-white, unreadable in the new dark mode -> theme tokens. 97 tests, tsc, build pass.
+
+## Latest (29 oct 2026, direcții v4, main checkout, nimic commitat)
+- Andrei a cerut „mockup-uri diferite desktop/telefon” și a ales „direcții vizuale noi” (nu fluxurile lipsă în stilul F). Doar explorare: referința rămâne v3 F până decide echipa.
+- `mockup/v4/`: `index.html` (prezentare cu cadre desktop 1280 + telefon 375), `a-bon.html` (bon fiscal personal), `b-agenda.html` (foaie de calendar cu termenul, apoi ce urmează pe luni), `c-fir.html` (mesaje de la „prietenul care știe”, pe subiecte). Date comune în `data.js`, copiate din v3 (persona Andrei, 29 oct 2026), notificarea = Legea 202/2026 CEI-D.
+- Parametri: `?notif=0` ascunde notificarea, `?still=1` oprește animația (panoul de browser în fundal o îngheață), `c-fir.html?open=1` deschide firul pe telefon.
+- Servit pe :8765 (preview „mockup”). Capturi: `captures/v4-*.jpg`.
+- Următorul pas: Andrei alege o direcție; apoi aceeași direcție pe tot fluxul (onboarding, paywall Pro → Google → Stripe Checkout, Planul meu, Profil).
+
+## Latest (29 oct 2026, variante F v5, nimic commitat)
+- Andrei: direcțiile v4 (Bon, Agenda, Fir) „arată destul de rău”. A cerut variante care îmbunătățesc designul existent (F) în moduri diferite. v4 rămâne pe disc, nefolosit.
+- `mockup/v5/`: `index.html` (F de azi ca reper + cele trei variante, desktop 1280 și telefon 375), `base.css` + `common.js` (tokenii lui F, rânduri, detaliu, filtre, termene), `f1-clar.html` (o propoziție + listă grupată De făcut / Te costă deja / Urmează, doar lei/lună), `f2-bilant.html` (bilanț pe bară la scară, simularea mută totalul: −784 → −729 cu CEI-D + curent), `f3-prima-pagina.html` (deschide cu IT −520, termenele ca bandă de 3 cartonașe). Date din `mockup/v4/data.js`, cu TODAY suprascris la 28 oct ca în F.
+- Critica lui F: trei unități (lei/an, lei/lună, lei pe 12 luni), articolul principal e cea mai mică sumă (+43 lei/an), etichete multe deasupra titlurilor, banda de cifre greu de citit.
+- `?open=<id>` deschide un rând. Capturi: `captures/v5-*.jpg`. Servit pe :8765.
+- Următorul pas: Andrei alege o variantă (sau combină), apoi se duce în `components/` + restul ecranelor.
+
+## Latest (29 oct 2026, v6 „Pentru tine” + „Noutăți”, nimic commitat)
+- Andrei a ales F2 (bilanțul sus). A cerut: fără simulare, barele roșii/verzi duc la lege și o deschid; panou „Pentru tine” + panou „Noutăți” (general, cu proiecte); filtre de stare (proiect, urmează, în vigoare, expirat) pe lângă categorii; căutare după text sau etichete.
+- `mockup/v6/index.html` (folosește `../v5/base.css`, `../v4/data.js`, `../v5/common.js`) + `mockup/v6/noutati.js`. Parametri: `?tab=nou`, `?go=<id>` (sare la lege), `?open=`, `?nopen=`, `?q=`, `?st=`.
+- Proiecte reale găsite pe 29 oct (doar surse de presă, textul oficial TODO): MF, proiect de HG 26 oct 2026, prelungirea accizei reduse la motorină + adaos plafonat 1 nov 2026–31 ian 2027 (financiarul.ro); Primăria Iași, taxe locale 2027 indexate 7,3%, cota 0,08% (stireadeiasi.ro). Restul „Noutăți” = actele recente din data/catalog.json, cu sursele lor.
+- Proiectul motorinei e și în „Pentru tine” (stare Proiect, +3,5 lei/lună dacă se adoptă, exclus din bilanț).
+- Capturi: `captures/v6-*`. Desktop prin Chrome headless (panoul de browser randa trunchiat cu fereastra ascunsă).
+
+## Latest (29 oct 2026, v6 + niveluri din aplicație, nimic commitat)
+- Andrei a cerut în v6, pe ambele panouri: „De ce?”, „Arată-mi legea” și „Ai o situație mai complicată? / Pregătește discuția cu un contabil”, ca în CardSchimbare.tsx; etichete simple („șofer”, nu „te privește ca șofer”); etichete pe toate legile din Noutăți; în Pentru tine doar etichetele care se aplică.
+- `mockup/v6/continut.js` e generat de scriptul din scratchpad din data/catalog.json + content/niveluri.json + data/destinatii.json (17 acte, 15 cu „De ce?”, specialist la pilon2/dividend/micro). Proiectele (motorina_pr, n_iasi, n_motorina_pr) arată „textul oficial nu e încă publicat (TODO)” + sursa de presă.
+- Noutăți: etichetele lui Andrei negre, restul conturate. Parametri noi: `?why=,law=,spec=<id>` pentru capturi.
+- DE DISCUTAT: Andrei a zis „referral links cu contabili parteneri”. business/profesionisti.md (Chris) a decis fără comision de la profesioniști și link doar la registrul public (CECCAR / CCF); nu există parteneri în date. Am implementat varianta cu registrul; parteneri reali = decizie de echipă.
+- Capturi: `captures/v7-*`.
+
+## Deploy descriere.andreidobrin.com (29 oct 2026, 02:25)
+- Pull-based: CT 107 `descriere` checks `main` every 3 min (systemd timer) and publishes `deploy/descriere/manifest.txt` files atomically. Docs: `deploy/descriere/README.md`.
+- Code is on branch `deploy-descriere` (pushed), NOT merged into main. Local main reset to origin/main; checkout is on deploy-descriere.
+- GitHub access: container key added to Andrei's own account ("descriere-deploy CT107 (homelab)"), read+write to all his repos; remove after hackathon. Tested: deploy pulled from GitHub branch, live = 26da94d, HTML byte-identical.
+- TEMPORARY: server config (`/etc/descriere-deploy/config` on CT 107) has `BRANCH=deploy-descriere`, so pushes to that branch deploy. Live = 641cb7f. After merging into main, set it back: `sed -i s/^BRANCH=.*/BRANCH=main/ /etc/descriere-deploy/config`. Snapshot: `pre-deploy-20261029-021930`.
+
+## Android (29 oct 2026, 05:30, sesiune Fable, nimic commitat)
+- Andrei a întrebat ce unelte îi trebuie ca să implementez și să testez o aplicație Android pe un telefon simulat, apoi a cerut: repară ce lipsește, alege arhitectura care arată cel mai bine în pitch (dacă cea mai rapidă arată ca o aplicație curată cu notificări push, aceea), și scrie planul pentru un orchestrator Codex („Astra”) care folosește agenți mai mici, pe branch-ul `android` din `deploy-descriere`.
+- Mediu reparat și verificat: `ANDROID_HOME`/`ANDROID_SDK_ROOT` + `platform-tools`, `emulator`, `cmdline-tools\latest\bin` pe PATH (utilizator); JDK 21 Temurin instalat (șablonul Capacitor 8 s-a construit cu el; cerința exactă neverificată în docs) și pus `JAVA_HOME` + primul pe PATH (mașină, prin UAC); JDK 17 rămâne; AVD nou `Pixel_6_API36_gpu` (GPU host pe RTX 4050, 3 GB RAM, boot 37 s headless; nu există profil Pixel 8 în SDK). Android Studio 2026.2.2 e în `C:\Program Files\Android\Android Studio`. Terminalele deschise înainte nu văd variabilele noi.
+- Dovezi: `captures/android-emulator-boot.png` (AVD vechi, software), `captures/android-emulator-gpu-home.png` (ecranul de blocare Android 16 după boot pe AVD-ul nou), `.claude/worktrees/android/captures/android-01-capacitor-proba-serverurl.png` (APK Capacitor 8 de probă, construit cu Gradle 8.14.3 în 1 min 42 s, din scratchpad, nu din repo).
+- Decizie propusă (nu adoptată): Capacitor 8 peste Next.js, WebView pe `http://10.0.2.2:3200` (dev server de pe laptop; aplicația nu e publicată nicăieri), notificare locală din `lib/notificari.ts`, FCM ca extindere blocată de Firebase. `docs/adr/0005-android-capacitor.md` (status propus) și `docs/android/plan.md` (tichete T0–T5 pentru Astra) sunt scrise în worktree-ul `.claude/worktrees/android` pe branch-ul `android`, necommitate.
+- Branch-ul `android` a fost creat la 89096cf3 = vârful curent al `deploy-descriere`, care tocmai fusese avansat (fast-forward) pe `legi-ingest` de altă sesiune; include deci cele 18 commit-uri legi-ingest, nu doar deploy-ul (641cb7f1). De confirmat cu Andrei.
+- Limită cunoscută: Google refuză OAuth în WebView; Pro se demonstrează pe web, pe telefon notificare → flux → card.

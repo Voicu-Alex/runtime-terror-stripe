@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   const s = stripe();
   if (!s) return NextResponse.json({ eroare: FARA_CHEIE }, { status: 503 });
 
-  const origine = new URL(req.url).origin;
+  const origine = new URL(process.env.AUTH_URL || req.url).origin;
   // Un preț creat în Dashboard (STRIPE_PRICE_ID) e de preferat; fără el, prețul se descrie aici.
   const pret = process.env.STRIPE_PRICE_ID;
   try {

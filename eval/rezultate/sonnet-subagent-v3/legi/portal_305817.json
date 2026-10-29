@@ -1,0 +1,83 @@
+{
+  "act": "OUG 89/2025",
+  "mo": "MO 1203 / 24 dec 2025",
+  "publicat_la": "2025-12-24",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "SRL-urile microîntreprindere plătesc impozit de 1% pe venituri",
+      "rezumat_en": "Micro-enterprise SRLs pay a 1% tax on revenue",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2025-12-24",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": "micro_1",
+      "formula_tip": null,
+      "articol": "art. I pct. 4 (modifică art. 51 alin. (1) din Codul fiscal)",
+      "citat": "(1) Cota de impozit pe veniturile microîntreprinderilor este de 1%.",
+      "niveluri": {
+        "zero": "Cota de impozit pe veniturile microîntreprinderilor este de 1%.",
+        "curios": "Legea fixează cota de impozit pe veniturile microîntreprinderilor la 1%. Alineatele care prevedeau alte cote (art. 51 alin. (1^1) și (4^1)-(4^3)) sunt abrogate. Suma de plătit depinde de veniturile firmei, deci nu o putem calcula fără cifra de afaceri.",
+        "expert": "Art. I pct. 4 modifică art. 51 alin. (1) din Legea 227/2015: cota de impozit pe veniturile microîntreprinderilor este de 1%. Pct. 5 abrogă art. 51 alin. (1^1) și (4^1)-(4^3). Pct. 6 modifică art. 52 alin. (5): limitele fiscale de la art. 52 alin. (1) se verifică pe veniturile cumulate de la începutul anului fiscal, iar cursul pentru echivalentul în euro este cel de la închiderea exercițiului financiar precedent. Pct. 7 modifică art. 54 alin. (1): pentru încadrarea în nivelul veniturilor de la art. 47 alin. (1) lit. c) și art. 52 alin. (1) se iau în calcul aceleași elemente ca baza impozabilă de la art. 53."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Verifică la următoarea declarație de impozit pe veniturile microîntreprinderii (cu contabilul) că se aplică cota de 1%.",
+          "termen": null,
+          "destinatie": "anaf_formulare",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul primit nu are data intrării în vigoare (Portalul: necunoscută) și nu conține art. 47-48, 51 alin. (1^1) și (4^1)-(4^3) sau art. 52 alin. (1) (pragurile de venit și condițiile despre angajați), deci nu le descriem; de verificat. Cota veche nu e scrisă în text, de aceea direcția e info. Art. 115 alin. (1) (cote de 10% și 16% pe veniturile de la art. 114 alin. (2)) nu e descris: art. 114 nu a fost primit, deci nu se știe care venituri sunt pe fiecare cotă. Art. 18^1 (impozit minim pe cifra de afaceri, cota 0,5% pe 2026) privește firmele cu impozit minim, nu microîntreprinderile din acest text, și nu e descris. Data 2025-12-24 e dedusă din regula generală (ordonanța de urgență intră în vigoare la publicare, Constituția art. 115 alin. (5)), fiindcă textul din art. I nu dă o altă dată de aplicare pentru cota de 1%; de confirmat pe Portal (cota ar putea fi aplicabilă de la 1 ianuarie 2026)."
+    },
+    {
+      "rezumat": "Salariul minim: 200 lei pe lună fără impozit și contribuții, iulie-decembrie 2026",
+      "rezumat_en": "Minimum-wage earners: 200 lei per month free of income tax and contributions, July-December 2026",
+      "taguri": [
+        "angajat",
+        "salariu_minim"
+      ],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": "2026-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [
+        {
+          "camp": "salariu_brut",
+          "op": "<=",
+          "valoare": 4600
+        }
+      ],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. III alin. (1)",
+      "citat": "pentru suma de 200 lei/lună, din veniturile din salarii și asimilate salariilor aferente perioadei 1 iulie-31 decembrie 2026, nu se datorează impozit pe venit și contribuții sociale obligatorii",
+      "niveluri": {
+        "zero": "Dacă ai salariul minim, pe 200 lei din fiecare lună (iulie-decembrie 2026) nu plătești impozit și contribuții.",
+        "curios": "Pe veniturile de salariu din iulie până în decembrie 2026, 200 lei pe lună sunt scutiți de impozit pe venit și de contribuții sociale. Se aplică dacă lucrezi cu normă întreagă la funcția de bază, salariul de bază din contract este egal cu salariul minim brut pe țară, iar venitul brut lunar nu depășește 4.600 lei (fără tichete de masă și vouchere de vacanță). Pentru ianuarie-iunie 2026 suma scutită a fost de 300 lei pe lună, cu plafon de 4.300 lei.",
+        "expert": "Art. III alin. (1): prin derogare de la art. 78, 139 alin. (1), 140, 157 alin. (1) și 220^4 alin. (1) din Legea 227/2015, pentru salariații cu contract individual de muncă cu normă întreagă, la locul funcției de bază, nu se datorează impozit pe venit și contribuții sociale pentru 300 lei/lună (1 ian-30 iun 2026), respectiv 200 lei/lună (1 iul-31 dec 2026). Condiții cumulative: (a) salariul de bază brut lunar din contract, fără sporuri și adaosuri, este egal cu salariul minim brut pe țară garantat în plată în luna respectivă; (b) venitul brut din salarii, fără tichete de masă, vouchere de vacanță sau indemnizație de hrană, nu depășește 4.300 lei (ian-iun) respectiv 4.600 lei (iul-dec). Alin. (2): condiția (a) nu se consideră îndeplinită dacă, între intrarea în vigoare a OUG și 31 decembrie 2026, s-a redus salariul de bază brut din contract. Alin. (3): aceleași reguli pentru veniturile obținute în baza unui raport de serviciu. Alin. (4): suma se diminuează proporțional cu perioada din lună în care salariul e la nivelul minim, cu data angajării la salariul minim, cu fracția din lună și cu data încetării contractului. Alin. (5): pentru art. 146 alin. (5^6)-(5^9) și art. 168 alin. (6^1), salariul minim se diminuează cu 300 lei (ian-iun), respectiv 200 lei (iul-dec); conținutul acelor articole nu e în text. Alin. (6): se aplică veniturilor aferente lunilor ianuarie-decembrie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul de salariu din noiembrie și decembrie 2026 că cei 200 lei nu sunt impozitați și nu au contribuții, dacă salariul tău de bază din contract este egal cu salariul minim brut pe țară.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Beneficiul real este impozitul și contribuțiile care nu se mai rețin din cei 200 lei, nu cei 200 lei întregi; cotele nu sunt în text, deci nu avem formulă (suma_fixa_lunar ar arăta greșit 200 lei câștig). Valoarea salariului minim brut (ex. 4.050 lei) nu e în textul primit; condiția (a) se verifică pe actul care o stabilește. Condiția 4.600 lei este pe venitul brut din salarii fără tichete, aproximat aici cu salariul brut din profil. Textul nu are data intrării în vigoare; art. III se aplică lunilor ianuarie-decembrie 2026. Alin. (3) extinde regula la raporturile de serviciu (funcționari publici), deci poate privi și etichete de tip bugetar; nu am adăugat eticheta, de decis de om. Alin. (5) trimite la art. 146 alin. (5^6)-(5^9) și art. 168 alin. (6^1), neprimite, de verificat. Titlul X (taxa pe construcții) nu apare în textul primit."
+    }
+  ]
+}

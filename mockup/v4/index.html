@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direcții v4</title>
+<style>
+:root{--bg:#F3F4F6;--ink:#111827;--muted:#5B6270;--line:#D9DCE2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 60px}
+h1{font-size:26px;margin:0 0 6px}
+.intro{color:var(--muted);max-width:70ch;margin:0 0 28px}
+.dir{border-top:2px solid var(--ink);padding:22px 0 34px}
+.dir h2{font-size:21px;margin:0 0 4px}
+.dir p{margin:0 0 6px;max-width:80ch}
+.dir .trade{color:var(--muted);font-size:14px}
+.dir a{color:var(--ink);font-weight:600}
+.frames{display:flex;gap:28px;align-items:flex-start;margin-top:16px;flex-wrap:wrap}
+.desk{width:704px;height:440px;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#fff;flex:none}
+.desk iframe{width:1280px;height:800px;border:0;transform:scale(.55);transform-origin:0 0}
+.phone{width:310px;height:640px;border:10px solid #1D1F24;border-radius:38px;overflow:hidden;background:#fff;flex:none}
+.phone iframe{width:375px;height:802px;border:0;transform:scale(.7733);transform-origin:0 0}
+.cap{font-size:12.5px;color:var(--muted);margin-top:6px}
+@media (max-width:760px){.desk{width:100%;height:auto;aspect-ratio:16/10}.desk iframe{transform:scale(.27)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Trei direcții noi pentru „Ce înseamnă pentru mine”</h1>
+  <p class="intro">Același ecran în fiecare: fluxul lui Andrei (32, IT, SRL) pe 29 oct 2026, cu notificarea pentru Legea 202/2026. Actele, sumele și termenele sunt cele din v3 (sursele din <code>docs/research-v2.md</code>). Doar explorare: designul de referință rămâne v3 F până decide echipa. Pe desktop: rândurile se deschid la click. Pe telefon: atinge un rând.</p>
+
+  <section class="dir">
+    <h2>A · Bon</h2>
+    <p>Legile care te privesc, tipărite ca un bon fiscal personal: fiecare act e un rând cu suma lui, iar jos stă totalul. Notificarea iese din „imprimantă”.</p>
+    <p class="trade">Câștigă: totalul se citește dintr-o privire, metafora e românească și oricine știe să citească un bon. Pierde: titlurile lungi devin etichete scurte pe bon, deci titlul complet apare doar în detaliu.</p>
+    <a href="a-bon.html" target="_blank">Deschide A pe tot ecranul</a>
+    <div class="frames">
+      <div><div class="desk"><iframe src="a-bon.html?notif=0" title="A desktop" loading="lazy"></iframe></div><div class="cap">desktop 1280</div></div>
+      <div><div class="phone"><iframe src="a-bon.html?still=1" title="A telefon" loading="lazy"></iframe></div><div class="cap">telefon 375, cu notificarea</div></div>
+    </div>
+  </section>
+
+  <section class="dir">
+    <h2>B · Agenda</h2>
+    <p>Termenul e eroul: o foaie de calendar rupt cu ziua următorului termen și „mai ai 2 zile”, apoi ce urmează, pe luni. Ce e deja în vigoare stă dedesubt, cu totalul.</p>
+    <p class="trade">Câștigă: urgența și acțiunea vin primele, iar legile adoptate dar neintrate în vigoare au un loc firesc. Pierde: legile fără termen (TVA, IT) ajung jos, deși sunt cele mai scumpe.</p>
+    <a href="b-agenda.html" target="_blank">Deschide B pe tot ecranul</a>
+    <div class="frames">
+      <div><div class="desk"><iframe src="b-agenda.html?notif=0" title="B desktop" loading="lazy"></iframe></div><div class="cap">desktop 1280</div></div>
+      <div><div class="phone"><iframe src="b-agenda.html?still=1" title="B telefon" loading="lazy"></iframe></div><div class="cap">telefon 375, cu notificarea</div></div>
+    </div>
+  </section>
+
+  <section class="dir">
+    <h2>C · Fir</h2>
+    <p>Vocea aleasă („prietenul care știe”) devine interfața: legile vin ca mesaje, grupate pe subiecte din viața ta (Mașină, Pensie, Salariu și firmă, Casă și facturi). Butoanele „Ce pot face?”, „Arată-mi legea”, „Nu mă privește” răspund pe loc.</p>
+    <p class="trade">Câștigă: se leagă direct de asistentul din onboarding, iar „Nu mă privește” corectează profilul acolo unde apare greșeala. Pierde: nu vezi toate legile și totalul pe un singur ecran; pe telefon intri pe un subiect.</p>
+    <a href="c-fir.html" target="_blank">Deschide C pe tot ecranul</a>
+    <div class="frames">
+      <div><div class="desk"><iframe src="c-fir.html?notif=0" title="C desktop" loading="lazy"></iframe></div><div class="cap">desktop 1280</div></div>
+      <div><div class="phone"><iframe src="c-fir.html?still=1" title="C telefon" loading="lazy"></iframe></div><div class="cap">telefon 375, cu notificarea push</div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -8,9 +8,9 @@
 >
 > Sunt Chris, din echipa Runtime Terror. La hackathonul NEXXT AI × Stripe construim „Ce înseamnă pentru mine”, o aplicație care îi anunță pe oameni când o lege nouă le atinge banii: cât îi costă în lei pe lună, ce pot face și până când, cu link la articolul din lege.
 >
-> Pentru situațiile mai grele (de exemplu dividendele de 16% sau plafonul la micro) vrem ghiduri scurte „cum gestionezi situația”, verificate și semnate de un profesionist real. Noi plătim ghidul, iar numele dumneavoastră apare pe el.
+> Pentru situațiile mai grele (de exemplu dividendele de 16% sau plafonul la micro) vrem ghiduri scurte „cum gestionezi situația”, verificate și semnate de un profesionist real. Noi plătim ghidul, iar numele tău apare pe el.
 >
-> Ați fi interesat(ă)? Cât ați cere pentru verificarea unui ghid de 5–7 pași? Dacă sunteți de acord, v-am cita într-o frază în prezentare.
+> Ai fi interesat(ă)? Cât ai cere pentru verificarea unui ghid de 5–7 pași? Dacă ești de acord, te-am cita într-o frază în prezentare.
 >
 > Mulțumesc,
 > Chris
@@ -25,15 +25,15 @@
 >
 > **Ce face aplicația:** fiecare utilizator are un profil din etichete (salariat, PFA, SRL cu dividende, pensionar, Pilon II etc.). Când apare în Monitorul Oficial o lege care îi atinge etichetele, primește o notificare cu: ce s-a schimbat, cât îl costă în lei pe lună, ce poate face, până când și link la articolul din lege.
 >
-> **De ce vă scriu:** unele schimbări nu se rezolvă cu o explicație generală. Un PFA care se gândește să treacă la SRL după creșterea impozitului pe dividende are nevoie de pași clari, scriși de cineva care știe. Vrem **ghiduri scurte „Cum gestionezi”** (5–7 pași, 3 minute de citit), verificate și semnate de dumneavoastră. Noi plătim ghidul și revizuirea lui când se schimbă legea. Nu vă cerem comision și nu vindem clienți.
+> **De ce îți scriu:** unele schimbări nu se rezolvă cu o explicație generală. Un PFA care se gândește să treacă la SRL după creșterea impozitului pe dividende are nevoie de pași clari, scriși de cineva care știe. Vrem **ghiduri scurte „Cum gestionezi”** (5–7 pași, 3 minute de citit), verificate și semnate de tine. Noi plătim ghidul și revizuirea lui când se schimbă legea. Nu îți cerem comision și nu vindem clienți.
 >
 > **Întrebările mele:**
-> - V-ar interesa?
-> - Ce preț ați cere pentru verificarea unui ghid? Dar pentru revizuirea lui după o schimbare de lege?
-> - Ce situații din 2025–2026 vă aduc cele mai multe întrebări de la clienți?
-> - Ne permiteți să vă citam într-o frază în prezentarea de la hackathon? (Doar cu acordul dumneavoastră explicit, pe textul exact.)
+> - Te-ar interesa?
+> - Ce preț ai cere pentru verificarea unui ghid? Dar pentru revizuirea lui după o schimbare de lege?
+> - Ce situații din 2025–2026 îți aduc cele mai multe întrebări de la clienți?
+> - Ne permiți să te cităm într-o frază în prezentarea de la hackathon? (Doar cu acordul tău explicit, pe textul exact.)
 >
-> Vă mulțumesc pentru timp,
+> Îți mulțumesc pentru timp,
 > Chris
 > Runtime Terror · [telefon] · [link la demo]
 

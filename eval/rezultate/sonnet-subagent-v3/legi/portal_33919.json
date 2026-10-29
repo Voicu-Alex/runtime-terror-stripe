@@ -1,0 +1,247 @@
+{
+  "act": "Legea 76/2002, forma consolidată",
+  "mo": "MO 103 / 6 feb 2002",
+  "publicat_la": "2002-02-06",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Prima de inserție pentru absolvenți: 3 × valoarea indicatorului social de referință, în două tranșe",
+      "rezumat_en": "Insertion bonus for graduates: 3 × the social reference indicator, paid in two instalments",
+      "taguri": [
+        "caut_primul_job"
+      ],
+      "in_vigoare_de_la": "2002-02-06",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [
+        {
+          "camp": "varsta",
+          "op": ">=",
+          "valoare": 16
+        }
+      ],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 73^1 alin. (1)-(4)",
+      "citat": "o primă de inserție egală cu de 3 ori valoarea indicatorului social de referință în vigoare la data încadrării",
+      "niveluri": {
+        "zero": "Dacă ești absolvent, te înregistrezi la agenția de ocupare în 60 de zile de la absolvire și te angajezi cu normă întreagă pentru mai mult de 12 luni, primești o primă de inserție.",
+        "curios": "Prima este de 3 ori valoarea indicatorului social de referință de la data angajării și vine din bugetul asigurărilor pentru șomaj. Se plătește în două tranșe egale: 50% la angajare și 50% după 12 luni de la angajare. Dacă pierzi primul job în cele 12 luni și te angajezi în 30 de zile la altul, în aceleași condiții, păstrezi prima.",
+        "expert": "Art. 73^1 alin. (1): absolvenți ai instituțiilor de învățământ și ai școlilor speciale, minimum 16 ani, înregistrați la agenția pentru ocuparea forței de muncă în 60 de zile de la absolvire, încadrați cu normă întreagă pentru o perioadă mai mare de 12 luni. Alin. (2): două tranșe de 50%, la angajare și după expirarea celor 12 luni. Alin. (3): nu beneficiază cei care la absolvire aveau raporturi de muncă sau de serviciu; cei încadrați la angajatori cu care au avut raporturi de muncă în ultimii 2 ani (cu excepția cazului în care angajatorul a primit stimulent conform Legii 72/2007); cei pe care angajatorii au obligația legală să îi încadreze; cei admiși între absolvire și solicitarea dreptului într-un nivel de învățământ. Alin. (4): prima se menține la schimbarea angajatorului în 30 de zile, în aceleași condiții."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Înregistrează-te la agenția pentru ocuparea forței de muncă în termen de 60 de zile de la absolvire și cere prima de inserție după angajarea cu normă întreagă pentru mai mult de 12 luni.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        },
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică dacă ai primit prima tranșă (50%) la angajare și a doua tranșă (50%) după 12 luni de la angajare.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": " 33^1 spune 500 lei, dar art. 33^2 cere actualizarea anuală la 1 martie cu inflația; valoarea actuală a indicatorului social de referință și suma în lei a primei trebuie verificate la ANOFM, nu se calculează aici. Textul primit nu include art. 6 din Legea 72/2007 sau alte articole la care se face trimitere. Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Prima de activare pentru șomerii fără indemnizație: 1.000 lei neimpozabili, în două tranșe",
+      "rezumat_en": "Activation bonus for unemployed people without benefit: 1,000 lei, tax-free, in two instalments",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2002-02-06",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 73^2 alin. (1)-(5)",
+      "citat": "beneficiază de o primă de activare în valoare de 1.000 lei, neimpozabilă",
+      "niveluri": {
+        "zero": "Dacă ești șomer înregistrat de cel puțin 30 de zile, fără indemnizație de șomaj, și te angajezi cu normă întreagă peste 3 luni, primești 1.000 lei.",
+        "curios": "Suma de 1.000 lei nu se impozitează. Jumătate o primești la angajare, jumătate după 3 luni de la angajare. Nu o primești dacă te angajezi la un angajator la care ai lucrat în ultimele 12 luni, și nu o poți cumula cu prima de inserție sau cu prima de instalare.",
+        "expert": "Art. 73^2 alin. (1): șomeri înregistrați de cel puțin 30 de zile, fără indemnizație de șomaj, încadrați cu normă întreagă pentru o perioadă mai mare de 3 luni, ulterior înregistrării. Alin. (1^1): 50% la angajare, 50% după 3 luni. Alin. (2): exclus cine se încadrează la un angajator cu care a avut raporturi de muncă în ultimele 12 luni. Alin. (3): menținerea primei la schimbarea angajatorului în 30 de zile, în aceleași condiții. Alin. (4): nu se cumulează cu prima de inserție (art. 73^1 alin. (1)) și cu prima de instalare (art. 75). Alin. (5): se poate cumula cu prima de încadrare (art. 74)."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Fii înregistrat ca șomer la agenția de ocupare cel puțin 30 de zile înainte să te angajezi cu normă întreagă și cere prima de activare.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        },
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică dacă ai primit prima tranșă (50% din cuantumul stabilit) la angajare și a doua tranșă (50%) după expirarea celor 3 luni de la angajare.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": " Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Prima de încadrare pentru șomerii care lucrează la peste 15 km de casă: 0,5 lei/km, maximum 55 lei/zi, 12 luni",
+      "rezumat_en": "Commuting bonus for unemployed people who take a job over 15 km from home: 0.5 lei/km, at most 55 lei/day, for 12 months",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2002-02-06",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 74 alin. (1)-(3)",
+      "citat": "Cuantumul primei prevăzute la alin. (1) se calculează la 0,5 lei/km, dar nu mai mult de 55 lei/zi",
+      "niveluri": {
+        "zero": "Dacă ești șomer înregistrat și te angajezi la peste 15 km de casă, poți primi o primă pentru drum.",
+        "curios": "Prima este neimpozabilă și se calculează la 0,5 lei pe kilometru, cel mult 55 lei pe zi, doar pentru zilele în care lucrezi efectiv la angajator. Se acordă pe 12 luni. Se poate cumula cu prima de activare.",
+        "expert": "Art. 74 alin. (1): șomeri înregistrați, încadrați într-o localitate aflată la peste 15 km de domiciliu sau reședință; prima este neimpozabilă și poate fi acordată (formularea e «pot beneficia»). Alin. (2): 0,5 lei/km, maximum 55 lei/zi, proporțional cu zilele efectiv lucrate. Alin. (3): perioada de acordare este de 12 luni. Art. 73^2 alin. (5) permite cumulul cu prima de activare."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă te angajezi la peste 15 km de domiciliu sau reședință, cere prima de încadrare la agenția de ocupare în care ești înregistrat.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Suma depinde de distanța dusă și de zilele lucrate, deci nu putem da o sumă lunară fără aceste date. Textul spune «pot beneficia», deci acordarea nu e garantată de text. Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Prima de instalare pentru șomerii care se mută la peste 50 km: 12.500 lei, 15.500 lei cu familia, 3.500 lei pentru al doilea soț",
+      "rezumat_en": "Relocation settlement bonus for unemployed people who move over 50 km for a job: 12,500 lei, 15,500 lei with family, 3,500 lei for the second spouse",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2002-02-06",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 75 alin. (1)-(6)",
+      "citat": "a) 12.500 lei pentru persoanele înregistrate ca șomeri la agențiile pentru ocuparea forței de muncă și care se încadrează în muncă",
+      "niveluri": {
+        "zero": "Dacă ești șomer înregistrat și te angajezi la peste 50 km de casă și te muți acolo, poți primi 12.500 lei.",
+        "curios": "Prima este neimpozabilă: 12.500 lei dacă te muți singur, 15.500 lei dacă te muți cu familia. Dacă ambii soți îndeplinesc condițiile, unul primește suma întreagă, celălalt 3.500 lei. Se plătește în două tranșe de 50%: la instalare și după 12 luni de la angajare. Dacă angajatorul sau statul îți asigură locuință sau plătește cheltuielile de locuit, sumele sunt mai mici: 3.500 lei singur, 6.500 lei cu familia, plătite o singură dată.",
+        "expert": "Art. 75 alin. (1): șomeri înregistrați, încadrați la peste 50 km de domiciliu sau reședință, care își schimbă domiciliul sau își stabilesc reședința în localitate sau în localitățile învecinate; prima este neimpozabilă și poate fi acordată (formularea e «pot beneficia»). Alin. (2): lit. a) 12.500 lei; lit. b) 15.500 lei dacă sunt însoțiți de membrii familiei în sensul Codului civil sau, în familia monoparentală, de copiii în întreținere. Alin. (3): dacă ambii soți îndeplinesc condițiile, unul primește suma de la alin. (2) lit. a), celălalt 3.500 lei. Alin. (4): cu locuință de serviciu sau cheltuieli suportate de angajator ori din fonduri publice: 3.500 lei, 6.500 lei, respectiv 3.500 lei pentru fiecare soț. Alin. (5): două tranșe de 50%, la instalare și după 12 luni de la angajare. Alin. (6): sumele de la alin. (4) se plătesc într-o singură tranșă, la instalare. Art. 73^2 alin. (4): nu se cumulează cu prima de activare."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Înainte să te muți pentru un job la peste 50 km, întreabă la agenția de ocupare în care ești înregistrat cum ceri prima de instalare și ce acte trebuie să depui.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Sumele sunt unice, nu lunare, deci formula rămâne null. Textul spune «pot beneficia», deci acordarea nu e garantată de text. Legea 287/2009 (Codul civil) nu e în text, deci definiția familiei se verifică acolo. Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Prima de relocare: 75% din cheltuielile de locuire, până la 900 lei pe lună, cel mult 36 de luni",
+      "rezumat_en": "Relocation bonus: 75% of housing costs, up to 900 lei per month, for up to 36 months",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2002-02-06",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 76^2 alin. (1)-(6)",
+      "citat": "egală cu 75% din suma destinată asigurării cheltuielilor pentru locuire în noul domiciliu sau noua reședință, dar nu mai mult de 900 lei",
+      "niveluri": {
+        "zero": "Dacă ești șomer înregistrat, te angajezi la peste 50 km, te muți acolo și veniturile tale nete (sau ale familiei) nu depășesc 5.000 lei pe lună, statul poate plăti 75% din chirie și utilități, până la 900 lei pe lună.",
+        "curios": "Prima este neimpozabilă și se dă lunar, cel mult 36 de luni, cât timp condițiile rămân îndeplinite. Veniturile tale nete lunare, sau ale familiei, nu trebuie să treacă de 5.000 lei pe lună. Nu o primești dacă angajatorul sau statul îți asigură locuință sau îți plătește chiria.",
+        "expert": "Art. 76^2 alin. (1): șomeri înregistrați, încadrați la peste 50 km, care își schimbă domiciliul sau își stabilesc reședința în localitate sau în localitățile învecinate; 75% din cheltuielile de locuire, maximum 900 lei, din bugetul asigurărilor pentru șomaj. Alin. (2): venituri nete lunare ale persoanei singure sau, împreună cu familia, de cel mult 5.000 lei/lună. Alin. (3): persoana singură și familia se definesc conform art. 6 alin. (1) lit. a) și b) din Legea 196/2016. Alin. (4): cheltuieli pentru locuire sunt chiria și utilitățile. Alin. (5): nu se acordă dacă angajatorul sau autoritățile asigură locuință de serviciu sau suportă chiria. Alin. (6): lunar, cel mult 36 de luni, cât timp condițiile din alin. (1) și (2) sunt respectate. Art. 76^5 alin. (7): nu se cumulează cu prima de stabilitate."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă te muți pentru un job la peste 50 km, cere prima de relocare la agenția de ocupare în care ești înregistrat și pregătește dovada chiriei și a utilităților din noua locuință.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Suma lunară depinde de cheltuielile reale de locuire (75%, maximum 900 lei), deci nu e o sumă fixă; formula rămâne null. Pragul de 5.000 lei se aplică venitului net al persoanei singure sau al familiei, nu pe membru, deci nu l-am pus ca condiție pe venit_net_pe_membru. Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Prima de stabilitate pentru tinerii NEET la primul job: 1.000 lei lunar 12 luni, apoi 1.250 lei lunar 12 luni",
+      "rezumat_en": "Stability bonus for young NEETs in a first job: 1,000 lei per month for 12 months, then 1,250 lei per month for 12 months",
+      "taguri": [
+        "caut_primul_job"
+      ],
+      "in_vigoare_de_la": "2026-03-09",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": {
+        "tip": "suma_fixa_lunar",
+        "parametri": {
+          "lei": 1000
+        }
+      },
+      "articol": "art. 76^5 alin. (1)-(7)",
+      "citat": "a) 1.000 lei lunar, pentru primele 12 luni de la data încadrării în muncă; b) 1.250 lei lunar, pentru următoarele 12 luni consecutive",
+      "niveluri": {
+        "zero": "Dacă ești tânăr NEET înregistrat la agenția de ocupare și te angajezi pentru prima dată cu normă întreagă pe durată nedeterminată, primești o primă lunară timp de 24 de luni.",
+        "curios": "Primești 1.000 lei lunar în primele 12 luni și 1.250 lei lunar în următoarele 12. Prima e neimpozabilă și fără contribuții sociale. Nu se acordă dacă lucrezi la stat sau la o firmă controlată de stat. Dacă ți se termină contractul în mai puțin de 24 de luni din cauza unor motive prevăzute de lege, trebuie să restitui sumele primite.",
+        "expert": "Art. 76^5 alin. (1): tineri NEET înregistrați la agențiile județene sau a municipiului București, încadrați pentru prima dată în muncă, normă întreagă, durată nedeterminată; 1.000 lei lunar pentru primele 12 luni, 1.250 lei lunar pentru următoarele 12; neimpozabilă, fără contribuții sociale obligatorii. Alin. (2): excluși cei angajați la instituții și autorități publice, regii autonome și societăți cu capital majoritar de stat sau al unităților administrativ-teritoriale, autorități autonome ale Parlamentului, institute naționale de cercetare-dezvoltare publice și institute sau comisii finanțate public ai căror conducători sunt ordonatori de credite. Alin. (3): proporțional cu timpul efectiv lucrat, inclusiv concediul de odihnă. Alin. (4): menținerea dreptului la schimbarea angajatorului în maximum 60 de zile, în aceleași condiții; cele 60 de zile nu intră în perioada de acordare. Alin. (5)-(6): restituire integrală dacă raporturile de muncă încetează în mai puțin de 24 de luni în temeiul art. 55 lit. b), art. 61 lit. a) și art. 81 din Legea 53/2003; recuperarea se face prin deciziile agențiilor. Alin. (7): nu se cumulează cu prima de inserție, de activare, de încadrare, de instalare și de relocare."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Înregistrează-te la agenția de ocupare ca tânăr NEET înainte de primul job cu normă întreagă pe durată nedeterminată și cere prima de stabilitate.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        },
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică lunar că primești 1.000 lei în primele 12 luni și 1.250 lei în următoarele 12, proporțional cu zilele lucrate.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Data 2026-03-09 și introducerea articolului prin OUG 11/2026 vin din briefing, nu din textul primit; de verificat pe Portal. formula_tip arată doar prima treaptă (1.000 lei lunar, primele 12 luni); din luna 13 suma e 1.250 lei lunar, iar aplicația nu poate încă reprezenta treptele. Definiția «tânăr NEET» (vârsta) nu e în articolele primite, deci nu există condiție de vârstă. Legea 227/2015, Legea 53/2003 și art. 47 nu sunt în text. Condiția de tânăr NEET (vârsta 16-29 de ani) nu e definită în articolele primite și vine din briefing; de verificat pe Portal. Nu am pus condiție de vârstă."
+    }
+  ]
+}

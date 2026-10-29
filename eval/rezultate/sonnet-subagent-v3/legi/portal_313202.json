@@ -1,0 +1,67 @@
+{
+  "act": "Legea 161/2026",
+  "mo": "MO 642 / 4 aug 2026",
+  "publicat_la": "2026-08-04",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "TVA de 9% la o singură locuință până la 30 septembrie 2026: perioada s-a încheiat",
+      "rezumat_en": "9% VAT on a single home until 30 September 2026: the window has closed",
+      "taguri": [
+        "cumpar_locuinta"
+      ],
+      "in_vigoare_de_la": "2026-08-07",
+      "pana_la": "2026-09-30",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "termen",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I alin. (1)",
+      "citat": "poate achiziționa o singură locuință cu cota redusă de TVA de 9%, dacă se îndeplinesc în mod cumulativ următoarele condiții",
+      "niveluri": {
+        "zero": "Până pe 30 septembrie 2026 se putea cumpăra o singură locuință cu TVA de 9%; termenul a trecut.",
+        "curios": "Legea a permis, până la 30 septembrie 2026 inclusiv, cumpărarea unei singure locuințe cu TVA redus de 9%, dacă avea cel mult 120 mp utili și o valoare de cel mult 600.000 lei fără TVA. Cumpărătorul trebuia să fi încheiat până la 1 august 2025 un act cu plată în avans și să nu fi cumpărat altă locuință cu TVA redus din 1 ianuarie 2023. Livrarea nu putea trece de 30 septembrie 2026.",
+        "expert": "Art. I alin. (1): cota de 9% pentru o singură locuință, cumulativ: suprafață utilă de maximum 120 mp (fără anexe gospodărești), valoare de maximum 600.000 lei fără TVA, locuibilă la livrare, nicio altă achiziție cu cotă redusă din 1 ianuarie 2023 (după Registrul achizițiilor de locuințe cu cota redusă de TVA), act de plată în avans încheiat până la 1 august 2025. Alin. (2): pentru actele din 3-31 iulie 2025, avans de 20% din valoarea fără TVA, plătit integral până la 31 iulie 2025. Alin. (3): notarii verifică și completează registrul. Alin. (4): cota de 9% și pentru clădiri livrate primăriilor pentru locuințe cu chirie subvenționată, până la 1 octombrie 2026."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Data intrării în vigoare (2026-08-07) este dedusă din regula generală (3 zile după publicare, art. 78 din Constituție), fiindcă Portalul spune „necunoscută”; de confirmat pe Portal. Perioada de la art. I s-a încheiat la data de azi. Nu se calculează sume. Lăsate deoparte: art. I alin. (4) și art. II alin. (4), care privesc primăriile, nu persoanele fizice."
+    },
+    {
+      "rezumat": "Ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a legii? Poți cere înapoi diferența până la 9% dacă ai avut antecontract cu avans plătit până la 1 august 2025, iar locuința are cel mult 120 mp și 600.000 lei fără TVA",
+      "rezumat_en": "You can claim back the VAT difference down to 9% on a home bought at the standard rate, from 1 October 2026",
+      "taguri": [
+        "cumpar_locuinta"
+      ],
+      "in_vigoare_de_la": "2026-10-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II alin. (1) și (5)",
+      "citat": "Restituirea sumelor prevăzute la alin. (1) și (4) poate fi solicitată începând cu data de 1 octombrie 2026",
+      "niveluri": {
+        "zero": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a legii, poți cere de la 1 octombrie 2026 diferența până la 9%, dar numai dacă ai încheiat un act cu plată în avans până la 1 august 2025 (pentru cele din 3-31 iulie 2025, cu 20% din valoare plătit până la 31 iulie 2025), iar locuința are cel mult 120 mp utili și 600.000 lei fără TVA.",
+        "curios": "Persoana fizică care a cumpărat o locuință cu TVA standard poate cere restituirea diferenței dintre cota standard și 9%, pentru o singură locuință. Fereastra de cumpărare este de doar câteva zile: de la 1 august 2026 până la intrarea în vigoare a legii (dedusă la 7 august 2026). Mai trebuie un act încheiat până la 1 august 2025 cu plată în avans, fără altă locuință cu TVA redus din 1 ianuarie 2023. Cererea se poate depune din 1 octombrie 2026, după o procedură stabilită prin ordin al președintelui ANAF.",
+        "expert": "Art. II alin. (1): restituirea diferenței dintre cota standard de TVA și cota de 9%, pentru o singură locuință, cumulativ: maximum 120 mp utili (fără anexe), maximum 600.000 lei fără TVA, locuibilă la livrare, fără altă achiziție cu cotă redusă din 1 ianuarie 2023, act de plată în avans încheiat până la 1 august 2025. Alin. (2): pentru actele din 3-31 iulie 2025, dovada unui avans de 20% din valoarea fără TVA, plătit până la 31 iulie 2025. Alin. (3): la mai multe locuințe se restituie pentru cea al cărei fapt generator de TVA a intervenit primul. Alin. (4): și primăriile pot cere restituirea pentru clădiri destinate chiriei subvenționate. Alin. (5): cererea se poate depune de la 1 octombrie 2026, potrivit procedurii aprobate prin ordin al președintelui ANAF, publicat în Monitorul Oficial, Partea I, în 30 de zile de la intrarea în vigoare a legii."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ai cumpărat între 1 august 2026 și intrarea în vigoare a legii o locuință cu TVA standard și îndeplinești condițiile din art. II alin. (1) și (2), depune cererea de restituire a diferenței de TVA, potrivit procedurii din ordinul președintelui ANAF. Păstrează contractul și factura cu TVA.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Pagina ANAF cu procedura de restituire a diferenței de TVA la locuințe (ordinul președintelui ANAF publicat în Monitorul Oficial, Partea I) și formularul cererii de restituire; de verificat de un om."
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Suma restituită depinde de prețul plătit pentru locuință (diferența dintre TVA standard și 9%), deci nu poate fi calculată fără acest preț; niciun id din FORMULE nu se potrivește. Textul nu spune nimic despre un termen limită pentru cerere. Procedura și ordinul ANAF nu sunt în text și sunt de verificat (data publicării, formularul). Data intrării în vigoare a legii nu apare pe Portal; de verificat în Monitorul Oficial. Nicio destinație din lista fixă nu corespunde exact (anaf_formulare e doar portalul general de formulare). Eticheta cumpar_locuinta ajunge la cei care cumpără acum, nu la cei care au cumpărat deja în fereastra de câteva zile; o etichetă pentru „am cumpărat recent o locuință” nu există și ar trebui propusă. În plus, fereastra de cumpărare (1 august 2026 până la intrarea în vigoare, dedusă la 7 august 2026) este foarte scurtă."
+    }
+  ]
+}

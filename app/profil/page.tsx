@@ -11,7 +11,7 @@ export default function PaginaProfil() {
           <T k="Profilul meu" />
         </h1>
         <p className="mt-1 mb-0 text-[15px] text-v3-ink-2">
-          <T k="Încarcă documentele pe care le ai deja și profilul se completează singur: etichete și câteva cifre, nimic altceva. Rămâne pe dispozitivul tău." />
+          <T k="Poți completa profilul manual sau prin analiza unui document cu AI." />
         </p>
       </div>
       <FormularProfil />

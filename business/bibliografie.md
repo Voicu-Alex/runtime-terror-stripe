@@ -1,5 +1,23 @@
 # Bibliografie verificată: monetizare și profesioniști
 
+**Notă de statut, 29 octombrie 2026:** această bibliografie păstrează cercetarea și afirmațiile istorice din 28 octombrie; nu stabilește oferta curentă. Tarifele vechi și modelul cu trial sunt înlocuite de [freemium la 15 lei/lună pentru Pro](model-de-business.md), conform [ADR 0003](../docs/adr/0003-freemium-valoare-verificata.md) și [ADR 0004](../docs/adr/0004-recompense-teasere-notificari.md). Statisticile de trial și vechile calcule de venit nu sunt prognoze pentru noul model. Sursele istorice nu au fost reverificate prin această actualizare; resursele consultate în discuția nouă sunt separate mai jos.
+
+## Surse pentru deciziile de freemium din 29 octombrie 2026
+
+Deciziile de produs provin din confirmările lui Andrei: deblocare suplimentară unică pentru profil complet, cont gratuit la revendicare, teasere verificabile, exemple distincte de profilul real, consum la dezvăluire fără restituire automată, voce opțională și comunicări cu opt-in separat. Prețul de 15 lei/lună provine din ADR 0002; 180 lei este calculul pentru 12 luni, nu o statistică sau un tarif anual nou.
+
+| Întrebare | Resurse primare consultate în discuție | Consecință pentru produs |
+|---|---|---|
+| Ce înseamnă venitul statistic? | [Eurostat EU-SILC: metodologie](https://ec.europa.eu/eurostat/web/income-and-living-conditions/methodology) | Venitul disponibil echivalat al gospodăriei nu se prezintă drept salariul net individual. |
+| Putem folosi o mediană salarială drept venit net lunar? | [Eurostat: median hourly earnings, earn_ses_pub2s](https://ec.europa.eu/eurostat/databrowser/product/view/earn_ses_pub2s?category=labour.earn.earn_ses_main.earn_ses_pub.earn_ses_pub2) | Seria despre câștiguri orare brute nu este direct un salariu lunar net; nu facem conversii fără ipoteze verificate. |
+| Cheltuielile sunt medii sau mediane? | [Eurostat: household expenditure, hbs_exp_t111](https://ec.europa.eu/eurostat/databrowser/view/hbs_exp_t111%24defaultview/default/table?lang=en) | Media cheltuielilor gospodăriei/adultului echivalent nu se numește mediană individuală. |
+| Emailuri după un cont gratuit | [Portal Legislativ: cadrul comunicărilor electronice](https://legislatie.just.ro/Public/DetaliiDocument/288598), [CJUE: sinteza din noiembrie 2025, Inteligo Media, pp. 9–12](https://curia.europa.eu/site/upload/docs/application/pdf/2025-12/monthly_case-law_digest_en_-_november_2025.pdf), [EDPB: ghidul consimțământului](https://www.edpb.europa.eu/documents/guideline/guidelines-052020-on-consent-under-regulation-2016679_en) | Alegem explicit opt-in separat, fără a afirma că orice cont gratuit este exclus din toate excepțiile legale. Digestul nu este considerat automat mesaj tranzacțional doar fiindcă include informații. |
+| Procesarea conversației vocale | [ElevenLabs: privacy controls](https://elevenlabs.io/docs/agents-platform/customization/privacy), [termenii agenților](https://elevenlabs.io/agents-terms) | Informare înainte de interacțiune, configurare deliberată a retenției și formular manual alternativ. Nu promitem procesare locală sau absența păstrării fără verificare. |
+
+Nu a fost verificată o pereche actuală, cu definiții compatibile, de mediane românești pentru salariu net lunar și cheltuieli personale. Accesarea directă a PDF-urilor INS a eșuat în această verificare. **Valorile numerice pentru exemple rămân TODO** până la confirmarea populației, perioadei, monedei și unității fiecărei serii. Nu le transferăm în profilul real și nu le folosim pentru pragul Pro.
+
+## Cercetarea istorică din 28 octombrie 2026
+
 *Verificat pe 28 octombrie 2026 de Chris (cu Claude). Acoperă `business/monetizare.md` (v3) și `business/profesionisti.md` (v2). Corecturile de mai jos sunt aplicate în `business/model-de-business.md` (versiunea unificată, care înlocuiește `monetizare.md`), în `business/slide-cum-facem-bani.md` și în `business/profesionisti.md` (v3).*
 
 **Metoda.** Am deschis fiecare link de mai jos în ziua verificării și am comparat ce scrie pe pagină cu afirmația din document. Am folosit sursa primară (site-ul autorității, al organismului profesional, textul legii pe legislatie.just.ro, pagina oficială de prețuri sau raportul original). Presa apare doar acolo unde nu am găsit sursa primară și e marcată ca „sursă secundară”. Ce nu am găsit rămâne `TODO`, conform regulii „Nimic inventat” din `CLAUDE.md`.

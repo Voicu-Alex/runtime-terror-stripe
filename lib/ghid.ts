@@ -11,6 +11,8 @@ export type Suma = {
   lei: number;
   /** o_data = o singură dată; pe_an = în fiecare an */
   cand: "o_data" | "pe_an";
+  /** Etichetă mai precisă pentru un plin, primul an sau o perioadă limitată. */
+  perioada?: string;
   /** cazul de referință pentru care e calculată suma */
   ipoteza: string;
 };

@@ -44,7 +44,7 @@ Am comparat tiparele de la Stripe, Wise, Revolut, Monzo, N26, Mercury, Ramp, Qon
 - **Disclaimerul stă lângă cifra pe care o califică**, nu în footer, nu gri pe gri, nu minuscul.
 - **Proiecțiile sunt etichetate ca proiecții**, cu ipotezele scrise inline.
 - **Riscul are cel puțin aceeași vizibilitate ca beneficiul.**
-- **Mesaje despre date lângă CTA:** „fără cont", „nu legi banca", „datele rămân pe telefon".
+- **Mesaje despre date lângă CTA:** „Nu conectezi banca”; lângă încărcare, explică trimiterea documentului la server și Anthropic. Promisiunea generală de procesare locală a fost retrasă la 29 octombrie 2026; vezi [Date personale](date-personale.md).
 - **Fără stări mute.** O pauză de două secunde fără feedback după un click pe ceva cu bani îl sperie pe utilizator.
 
 ## Ce spune cercetarea despre credibilitate
@@ -72,7 +72,7 @@ Am comparat tiparele de la Stripe, Wise, Revolut, Monzo, N26, Mercury, Ramp, Qon
 | Proiecțiile etichetate ca atare | Cardurile simulate au o stare vizuală distinctă („simulare") față de impactul sigur |
 | Disclaimer lângă cifră | „Scenariu educațional, nu consultanță" lângă total, nu doar în footer |
 | Surse vizibile (pagina de securitate Plaid) | Fiecare card are sursa + „verificat la <dată>"; o pagină „De unde vin cifrele" |
-| Securitate lângă CTA | „Fără cont · fără bancă · rămâne pe telefonul tău" chiar sub buton |
+| Securitate lângă CTA | „Nu conectezi banca”, plus explicația procesării externe lângă încărcarea documentelor |
 | Mișcare reținută | O singură animație: recalcularea barei când pornești un comutator (scurtă, cu fallback reduced-motion) |
 | Limbaj simplu | Fiecare regulă are o frază „de ce" pe înțelesul oricui; termenul tehnic doar ca etichetă secundară |
 | Onestitate (transparența Ramify, Nalo) | „Termen depășit" rămâne vizibil, estompat. E un diferențiator, păstrăm |

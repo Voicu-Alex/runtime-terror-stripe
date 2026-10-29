@@ -14,7 +14,7 @@ When a new act touches one of your tags, you get a notification. You open it and
 
 Your feed is chronological. Each item has a status: draft (in consultation, may change), adopted (published, not yet in force), in force, deadline passed. The "Planul meu" (My plan) bar shows the 12-month impact without actions and with the chosen actions, plus the next deadline.
 
-You need no bank login and connect nothing. The profile stays on your phone.
+You do not connect bank accounts. The manual profile is saved in the browser, but uploaded documents go to the app server and, for AI analysis, to Anthropic. See the [verified data flows](date-personale.md).
 
 ## Audience, financial need, product experience
 
@@ -71,7 +71,7 @@ Romania reportedly ranks 35th of 39 in the OECD/INFE 2023 adult financial litera
 **Regulation**
 - Educational scenarios, not financial or legal advice. Information alone should need no ASF or BNR licence (to be confirmed by a lawyer).
 - No account data, no PSD2.
-- GDPR: the profile stays on the device; notifications are computed locally from downloaded rules.
+- Personal data: local profile storage does not mean all processing is local. Documents, authentication and payments have external data flows; voice and email remain proposed features. See [Personal data](date-personale.md). Notification previews are computed locally; background delivery is not implemented.
 
 **Limitations**
 - Curated rule set in the demo.

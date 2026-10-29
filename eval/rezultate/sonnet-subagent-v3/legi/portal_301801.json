@@ -1,0 +1,184 @@
+{
+  "act": "OUG 22/2025",
+  "mo": "MO 806 / 29 aug 2025",
+  "publicat_la": "2025-08-29",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "taguri": [
+        "pfa",
+        "pfa_norma",
+        "micro",
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2025-09-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "Plafonul de scutire de TVA pentru firmele mici a crescut la 395.000 lei din 1 septembrie 2025",
+      "rezumat_en": "The VAT exemption threshold for small businesses rose to 395,000 lei from 1 September 2025",
+      "directie": "info",
+      "articol": "art. 310 alin. (1) Cod fiscal, modificat prin art. I pct. 11; art. II",
+      "citat": "a cărei cifră de afaceri anuală, declarată sau realizată, nu depășește plafonul de 395.000 lei, poate aplica scutirea de taxă",
+      "niveluri": {
+        "zero": "Poți rămâne neînregistrat în scopuri de TVA până la o cifră de afaceri anuală de 395.000 lei.",
+        "curios": "Persoana impozabilă stabilită în România a cărei cifră de afaceri anuală nu depășește 395.000 lei poate aplica scutirea de TVA, adică nu adaugă TVA pe facturi și nu deduce TVA pe achiziții. Vechiul plafon, pomenit în art. III alin. (1), era de 300.000 lei. Dacă rămâi sub plafon, nu mai ai decont de TVA, dar nici nu poți scădea TVA-ul de pe cumpărături.",
+        "expert": "Art. I pct. 11 modifică art. 310 alin. (1), (2) și (6) din Codul fiscal: plafonul este 395.000 lei, iar cifra de afaceri de referință se calculează conform alin. (2), fără livrările de active fixe corporale și cesiunea de active necorporale. Regimul normal se aplică din data depășirii plafonului, începând cu tranzacția care îl depășește (alin. (6)). Intră în vigoare la 1 septembrie 2025 (art. II)."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Urmărește cifra de afaceri a anului calendaristic, calculată după art. 310 alin. (2). Plafonul este 395.000 lei; când îl depășești, trebuie să ceri înregistrarea în scopuri de TVA cel târziu la data depășirii.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Pagina ANAF despre regimul special de scutire și înregistrarea în scopuri de TVA (ANAF, informații pentru persoane impozabile)"
+        }
+      ],
+      "nota": "Economia depinde de cifra de afaceri și de clienți: scutirea ajută mai ales dacă vinzi persoanelor fizice, care nu deduc TVA; cu clienți plătitori de TVA, neînregistrarea poate fi dezavantajoasă. Cifra de afaceri nu este câmp din profil, deci nu punem condiții. Nu există formulă potrivită, formula este null. Eticheta srl_dividende e pusă doar pentru că SRL-urile mici intră sub regim; de decis la verificare."
+    },
+    {
+      "taguri": [
+        "pfa",
+        "pfa_norma",
+        "micro",
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2025-09-01",
+      "pana_la": "2025-09-10",
+      "termen_actiune": "2025-09-10",
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "ridicata",
+      "rezumat": "Dacă ai depășit 300.000 lei în august 2025, te înregistrai la TVA doar peste 395.000 lei",
+      "rezumat_en": "Businesses that passed 300,000 lei in August 2025 had to register for VAT only if they also passed 395,000 lei",
+      "directie": "termen",
+      "articol": "art. III alin. (1)",
+      "citat": "Dacă în luna august 2025 a fost depășit și plafonul de 395.000 lei, persoana impozabilă trebuie să solicite înregistrarea în scopuri de TVA cel târziu în data de 10 septembrie 2025",
+      "niveluri": {
+        "zero": "Cine a trecut de 300.000 lei în august 2025 nu a trebuit să se înregistreze la TVA dacă a rămas sub 395.000 lei.",
+        "curios": "Regula de tranziție: cine a depășit în august 2025 vechiul plafon de 300.000 lei nu trebuia să ceară înregistrarea în scopuri de TVA decât la depășirea plafonului de 395.000 lei. Cine a depășit în august 2025 și 395.000 lei trebuia să ceară înregistrarea cel târziu la 10 septembrie 2025 și aplica TVA de la această dată.",
+        "expert": "Art. III alin. (1) derogă de la regula veche pentru depășirea din august 2025; în cazul depășirii și a 395.000 lei, înregistrarea este valabilă de la 10 septembrie 2025. Alin. (5): cine a depășit 300.000 lei înainte de 1 august 2025 și nu a cerut înregistrarea în termen rămâne sub regulile în vigoare la data depășirii."
+      },
+      "actiuni": [],
+      "nota": "Termenul din 10 septembrie 2025 a trecut. Pentru cine a rămas înregistrat la TVA fără să fie nevoie, vezi schimbarea despre scoaterea din evidență."
+    },
+    {
+      "taguri": [
+        "pfa",
+        "pfa_norma",
+        "micro",
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2025-09-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "Te poți scoate din evidența TVA dacă te-ai înregistrat până la 1 septembrie 2025 doar pentru că ai trecut de 300.000 lei",
+      "rezumat_en": "You can ask to be removed from the VAT register if you registered by 1 September 2025 only because you passed 300,000 lei",
+      "directie": "info",
+      "articol": "art. III alin. (2)-(4)",
+      "citat": "pot solicita, începând cu data de 1 septembrie 2025, scoaterea din evidența persoanelor înregistrate în scopuri de TVA",
+      "niveluri": {
+        "zero": "Dacă te-ai înregistrat la TVA doar pentru că ai trecut de 300.000 lei și ești sub 395.000 lei, poți cere să fii scos din evidență.",
+        "curios": "Cine s-a înregistrat în scopuri de TVA până la 1 septembrie 2025 inclusiv, ca urmare a depășirii a 300.000 lei, poate cere scoaterea din evidență și trecerea la scutire, dacă nu a depășit 395.000 lei până la cerere. Pentru firmele înființate înainte de 2025 se cere în plus să nu fi depășit 300.000 lei în 2024. Cererea se depune între 1 și 10 ale lunii, iar ANAF răspunde până la sfârșitul lunii. Până la decizie ai toate obligațiile unui plătitor de TVA.",
+        "expert": "Alin. (2): firmele înființate înainte de 2025, fără depășirea a 300.000 lei în 2024. Alin. (3): firmele înființate în 2025. Alin. (4): cererea între 1 și 10 ale lunii următoare perioadei fiscale, anularea valabilă de la comunicarea deciziei, ultimul decont până la 25 ale lunii următoare comunicării, cu toate ajustările."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă te încadrezi, depune la ANAF cererea de scoatere din evidența persoanelor înregistrate în scopuri de TVA, între 1 și 10 ale lunii următoare perioadei tale fiscale. Până la decizie rămâi plătitor de TVA, apoi depui ultimul decont până la 25 ale lunii următoare deciziei.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Cererea de scoatere din evidența persoanelor înregistrate în scopuri de TVA, prin Spațiul Privat Virtual sau portalul de formulare ANAF (formularul exact de verificat)"
+        }
+      ],
+      "nota": "Textul primit nu dă un termen final pentru aceste cereri. Formularul exact nu e în text; de verificat de un om. Nu putem calcula economia: depinde de clienți și de TVA-ul dedus pe achiziții."
+    },
+    {
+      "taguri": [
+        "pfa",
+        "pfa_norma",
+        "micro",
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2025-09-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "Dacă treci de 395.000 lei, ceri înregistrarea la TVA cel târziu în ziua depășirii; întârzierea înseamnă TVA retroactiv",
+      "rezumat_en": "If you pass 395,000 lei you must apply for VAT registration by the day you pass it; late registration means back-dated VAT",
+      "directie": "cost",
+      "articol": "art. 310 alin. (6) și (6^1)",
+      "citat": "trebuie să solicite înregistrarea în scopuri de TVA, conform art. 316, cel târziu la data depășirii plafonului",
+      "niveluri": {
+        "zero": "Când treci de 395.000 lei, ceri înregistrarea la TVA chiar în ziua depășirii.",
+        "curios": "Dacă aplici scutirea și cifra ta de afaceri depășește plafonul, trebuie să ceri înregistrarea în scopuri de TVA cel târziu la data depășirii. TVA normal se aplică din tranzacția care a dus la depășire. Dacă ceri târziu, ANAF te poate înregistra din oficiu de la data depășirii și stabili TVA de plată pentru perioada respectivă.",
+        "expert": "Alin. (6): regimul normal de taxare din data depășirii, începând cu tranzacția care îl depășește. Alin. (6^1): organul fiscal înregistrează din oficiu sau modifică data înregistrării și stabilește taxa de plată (colectată minus deductibilă) sau suma negativă. Alin. (6^2)-(6^3): același calcul îl faci tu singur și îl treci în primul decont după înregistrare."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă depășești plafonul, cere înregistrarea în scopuri de TVA cel târziu la data depășirii. Dacă ai întârziat, ceri tu modificarea datei înregistrării la data depășirii și treci sumele în primul decont depus după înregistrare.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Formularul de înregistrare în scopuri de TVA (art. 316) pe portalul ANAF; formularul exact nu e în text, de verificat"
+        }
+      ],
+      "nota": "Cuantumul depinde de cifra de afaceri și de TVA-ul dedus, nu poate fi estimat din profil. Art. 316 nu e inclus integral în textul primit; nu descriem procedura de înregistrare."
+    },
+    {
+      "taguri": [
+        "pfa",
+        "pfa_norma",
+        "micro",
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2025-09-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "scazuta",
+      "rezumat": "Poți aplica scutirea de TVA și în alte state UE dacă ai sub 100.000 euro cifră de afaceri în Uniune",
+      "rezumat_en": "You can apply the VAT exemption in other EU states if your EU turnover is under 100,000 euro",
+      "directie": "info",
+      "articol": "art. 310^1 alin. (1)-(3)",
+      "citat": "cifra de afaceri anuală la nivelul Uniunii Europene a respectivei persoane impozabile nu depășește 100.000 euro",
+      "niveluri": {
+        "zero": "Dacă vinzi în alte țări UE și ai sub 100.000 euro cifră de afaceri în UE, poți cere scutirea de TVA și acolo.",
+        "curios": "O persoană impozabilă stabilită în România poate aplica regimul de scutire și în alte state membre dacă cifra de afaceri din UE nu depășește 100.000 euro (în anul cererii și în cel precedent) și dacă livrările în acel stat nu trec de plafonul lui. Trebuie depusă o notificare prealabilă la ANAF.",
+        "expert": "Art. 310^1 alin. (1) lit. a)-b), (2) definiția cifrei de afaceri la nivelul UE, (3) notificarea prealabilă. Art. 310^2 reglementează situația inversă: firme din alte state membre care aplică scutirea în România."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă vinzi în alt stat UE și vrei scutirea acolo, depune la ANAF notificarea prealabilă cerută de art. 310^1 alin. (3).",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": "Notificarea prealabilă pentru scutirea de TVA în alte state membre, pe pagina ANAF despre regimul special pentru întreprinderi mici (de verificat)"
+        }
+      ],
+      "nota": "Am citit doar începutul art. 310^1; restul alineatelor, conținutul notificării și ordinele ANAF din art. IV trebuie verificate. Relevant doar pentru cine vinde în alt stat UE. Art. V suspendă până la 31 decembrie 2025 unele reguli din OUG 70/2024 (RO e-TVA), iar art. VI schimbă aplicarea unor puncte din Legea 141/2025; conținutul acelor texte nu e în actul primit, deci nu le descriem."
+    }
+  ]
+}

@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pentru tine · v6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800&family=Geist:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../v5/base.css?v=8">
+<style>
+/* v6: F2 „Bilanț” dus mai departe. Fără simulare: barele te duc la lege.
+   Două panouri: „Pentru tine” (profilul tău) și „Noutăți” (tot ce e nou, inclusiv proiecte). */
+.srch{max-width:300px;width:100%;padding:0 4px 0 0}
+.srch input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:14px;color:var(--ink);padding:0 0 0 12px;height:38px}
+.srch input::placeholder{color:var(--ink-2)}
+.srch input:focus{outline:none}
+.srch:focus-within{border-color:var(--accent);background:#fff}
+.nav a{cursor:pointer}
+.nav a .n{font-size:11px;background:var(--ink);color:#fff;border-radius:999px;padding:1px 6px;margin-left:5px;letter-spacing:0;vertical-align:1px}
+.filters h3+div{margin-bottom:18px}
+.fbtn[disabled]{opacity:.45;cursor:default}
+.fbtn[disabled]:hover{background:none}
+.st.proiect{background:#FEF3E2;color:#8A4B08}
+.st.adoptat,.st.urmeaza{background:#EEF1F6;color:#374151}
+.st.expirat{background:#F3F4F6;color:var(--past)}
+
+/* bilanțul */
+.bil{background:linear-gradient(180deg,var(--tint2),#fff 70%);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px 18px;margin-bottom:26px}
+.bil h1{font:800 22px/1.2 var(--head);margin:0 0 16px}
+.nums{display:flex;flex-wrap:wrap;gap:12px 44px;align-items:flex-end;margin-bottom:18px}
+.nums span{display:block;font-size:13.5px;color:var(--ink-2);margin-bottom:4px}
+.nums b{font:800 40px/1 var(--head);letter-spacing:-.02em}
+.nums b small{font:600 14px var(--sans);color:var(--ink-3);margin-left:4px;letter-spacing:0}
+.amt{white-space:normal}
+.amt b{white-space:nowrap}
+.amt .qualifier{display:block;max-width:200px;margin:3px 0 0 auto;line-height:1.2}
+.track{display:flex;gap:2px;height:30px;border-radius:8px;overflow:hidden;margin:0 0 8px}
+.track.g{height:20px;width:var(--w);min-width:120px;border-radius:6px}
+.seg{border:0;padding:0;min-width:8px;cursor:pointer;transition:filter .15s}
+.seg:hover,.seg:focus-visible{filter:brightness(.85)}
+.seg.neg{background:var(--neg)}
+.seg.pos{background:var(--pos)}
+.leg{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 14px}
+.leg button{border:0;background:none;padding:2px 0;display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--ink-2)}
+.leg button:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.leg i{width:10px;height:10px;border-radius:3px;background:var(--neg)}
+.leg i.p{background:var(--pos)}
+.leg b{color:var(--ink);font-weight:600}
+.cap{font-size:13px;color:var(--ink-3);margin:0}
+
+/* căutare după etichete */
+.tagbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 16px;font-size:13.5px;color:var(--ink-2)}
+.tagbar button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;font-size:13px;color:var(--ink-2)}
+.tagbar button:hover{border-color:var(--tintb);color:var(--ink)}
+.tagbar button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.lh{font:800 19px/1.2 var(--head);margin:0 0 4px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.lh span{font:500 13.5px var(--sans);color:var(--ink-3)}
+.empty{padding:28px 0;color:var(--ink-2)}
+.empty button{border:0;background:none;padding:0;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.it.flash{animation:flash 1.4s ease-out}
+@keyframes flash{from{background:var(--tint2)}to{background:transparent}}
+.ph-search{display:none}
+.freemium{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:0 0 22px;background:#fff}
+.freemium-compact{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.freemium-compact h2{font-size:16px;margin:0}
+.freemium-compact p{margin:3px 0;color:var(--ink-2);font-size:13px}
+.freemium details{margin-top:10px}
+.freemium summary{cursor:pointer;font-weight:700;text-decoration:underline;text-underline-offset:3px;min-height:42px;display:flex;align-items:center}
+.freemium h2{font:800 19px/1.2 var(--head);margin:0 0 6px}
+.freemium p{margin:6px 0;color:var(--ink-2);font-size:14px}
+.demo-note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--tint2);font-size:13px;color:var(--ink-2)}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:14px 0}
+.review-grid label{display:grid;gap:5px;font-size:13px;color:var(--ink-2)}
+.review-grid select,.account-row input{min-height:42px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;background:#fff;font:inherit;color:var(--ink)}
+.freemium button{min-height:42px;border:1px solid var(--ink);border-radius:9px;background:var(--ink);color:#fff;padding:0 14px;font-weight:700;margin:3px 6px 3px 0}
+.freemium button.secondary{background:#fff;color:var(--ink)}
+.account-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.account-row input{flex:1;min-width:180px}
+.scenario-card{border-top:1px solid var(--line);padding:12px 0;margin-top:10px}
+.scenario-card h3{font-size:15px;margin:0 0 4px}
+.scenario-meta{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}
+.scenario-meta span{border:1px solid var(--line);border-radius:999px;padding:3px 8px;font-size:12px}
+.freemium [role=status]{min-height:20px;margin:6px 0;color:var(--ink-2);font-size:13px}
+.candidate{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:22px;background:linear-gradient(180deg,var(--tint2),#fff 65%)}
+.candidate h2{font:800 19px/1.2 var(--head);margin:0 0 8px}
+.candidate h3{font-size:15px;margin:14px 0 4px}
+.candidate .meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.candidate .meta span{border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:12px;background:#fff}
+.candidate details{margin-top:10px}
+.candidate summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+.candidate select{min-height:42px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;background:#fff;font:inherit;color:var(--ink);width:100%;margin:5px 0 10px}
+.candidate .guide{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+.candidate .guide li{margin:0 0 8px}
+.tagset{border:0;border-top:1px solid var(--line);padding:10px 0;margin:10px 0}
+.tagset legend{font-weight:700;font-size:13px;padding-top:8px}
+.tagset .tagchoice{display:inline-flex;align-items:center;gap:5px;margin:3px 10px 3px 0;font-size:13px}
+.tagset input{width:18px;height:18px;accent-color:var(--ink)}
+.candidate button[disabled]{opacity:.5;cursor:not-allowed}
+.masked-copy{filter:blur(5px);user-select:none;pointer-events:none;display:inline-block}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.mask-panel{position:relative;border:1px solid var(--line);border-radius:9px;padding:12px;margin:10px 0;overflow:hidden;max-width:62ch}
+.mask-panel .masked-copy{display:block;line-height:1.55}
+.mask-panel .mask-label{position:relative;display:inline-block;margin-top:8px;padding:5px 9px;border-radius:6px;background:#fff;border:1px solid var(--line);font-weight:700;font-size:13px}
+.teaser-note{font-size:13px;color:var(--ink-2)}
+.candidate-facts{margin-top:10px}
+.feed-guide{padding:12px 0}
+.feed-guide ol{padding-left:22px}
+.feed-guide li{margin:0 0 8px}
+.feed-guide button{min-height:42px;border:1px solid var(--ink);border-radius:9px;background:var(--ink);color:#fff;padding:0 14px;font-weight:700}
+.feed-guide button.secondary{background:#fff;color:var(--ink)}
+.feed-guide details summary{cursor:pointer;min-height:42px;display:flex;align-items:center;font-weight:700}
+.feed-guide select{min-height:42px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 9px;width:100%;font:inherit}
+.feed-guide [role=status]{font-size:13px;color:var(--ink-2)}
+.st.action-past{background:#f3f4f6;color:var(--past)}
+.leg .masked-copy,.dt .masked-copy{filter:blur(4px)}
+body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+.freemium button:disabled{opacity:.5;cursor:not-allowed}
+
+/* noutăți */
+.intro h1{font:800 clamp(26px,3vw,34px)/1.12 var(--head);letter-spacing:-.01em;margin:4px 0 8px}
+.intro p{color:var(--ink-2);font-size:16px;margin:0 0 22px;max-width:60ch}
+.nw{border-bottom:1px solid var(--line)}
+.nh{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:4px 16px;width:100%;border:0;background:none;text-align:left;padding:15px 0}
+.nh:hover .tt{text-decoration:underline;text-decoration-color:var(--tintb)}
+.nd{text-align:center;line-height:1;padding-top:2px}
+.nd b{display:block;font:800 24px/1 var(--head)}
+.nd small{font-size:11.5px;color:var(--ink-3)}
+.nh .rh .mt{grid-column:1/-1}
+.nh .rh{min-width:0;width:auto}
+.me{font-size:12.5px;font-weight:600;border-radius:999px;padding:1px 8px;background:var(--ink);color:#fff}
+.me.maybe{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.go{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600;white-space:nowrap;align-self:start}
+.go:hover{border-color:var(--ink)}
+.nb{padding:0 0 18px 72px;max-width:calc(64ch + 72px)}
+.nb p{margin:0 0 10px}
+.gap{font-size:13.5px;background:var(--accent-soft);border-radius:10px;padding:10px 12px}
+
+/* etichete simple */
+.tg{font-size:12.5px;border-radius:999px;padding:1px 9px;background:var(--ink);color:#fff;font-weight:600}
+.tg.o{background:#fff;color:var(--ink-2);border:1px solid var(--line);font-weight:500}
+/* De ce? / Arată-mi legea / specialist, ca în cardul din aplicație */
+.lv{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 0}
+.lv button{min-height:44px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:0 16px;font-size:14px;font-weight:600}
+.lv button:hover{border-color:var(--tintb)}
+.lv button[aria-expanded="true"]{border-color:var(--ink)}
+.cur,.det .cur,.nb .cur{margin:12px 0 0;max-width:62ch;font-size:15px}
+.law{margin:12px 0 0;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px;background:#fff;max-width:68ch}
+.law h4{margin:0 0 4px;font-size:13px;color:var(--ink-2)}
+.law p{margin:0 0 6px}
+.law .k2{font-weight:600}
+.law .x{color:var(--ink-2)}
+.law a{display:flex;align-items:center;min-height:36px;font-weight:600;color:var(--accd)}
+.law small{display:block;font-size:12.5px;color:var(--ink-2)}
+.cx{margin:14px 0 12px;border-top:1px solid var(--line);padding-top:12px}
+.cx p{margin:0 0 6px;font-size:14.5px;font-weight:600}
+.cx>button{min-height:44px;border:1px solid var(--ink);background:#fff;border-radius:10px;padding:0 16px;font-size:14px;font-weight:600}
+.sp{margin:14px 0 0;border-top:1px solid var(--line);padding-top:14px;max-width:62ch}
+.sp h4{font:800 20px/1.2 var(--head);margin:0 0 8px}
+.sp .lbl{font-size:13px;font-weight:700;color:var(--ink-2);margin:10px 0 2px}
+.sp p{margin:0 0 6px;font-size:15px}
+.sp .fine{font-size:13px;color:var(--ink-2);margin:12px 0}
+.sp .row2{display:flex;flex-wrap:wrap;gap:8px}
+.sp .pri{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:10px;background:var(--ink);color:#fff;font-weight:700;text-decoration:none}
+.sp .sec2,.sp .cp{min-height:44px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:0 14px;font-weight:600;font-size:14px}
+.sp .ok{font-size:13px;color:var(--ink-2);min-height:18px;margin:4px 0 0}
+[hidden]{display:none!important}
+@media (max-width:760px){
+  .bil{padding:18px 16px 14px;margin-bottom:20px}
+  .bil h1{font-size:19px;margin-bottom:12px}
+  .nums{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+  .nums span{font-size:12.5px}
+  .nums b{font-size:30px}
+  .nums b{white-space:nowrap}
+  .nums b small{display:inline;margin-left:4px;font-size:12.5px}
+  .leg{gap:2px 12px;margin-bottom:10px}
+  .leg button{font-size:12.5px}
+  .cap{font-size:12.5px}
+  .track{height:24px}
+  .ph-search{display:flex;max-width:none;margin:0 0 12px;height:44px}
+  .nh{grid-template-columns:46px minmax(0,1fr)}
+  .go{grid-column:2;justify-self:start;margin-top:4px}
+  .nb{padding-left:0}
+  .bnav{grid-template-columns:repeat(4,1fr)}
+  .bnav a{cursor:pointer}
+}
+@media (max-width:600px){
+  .list .rh{grid-template-columns:minmax(0,1fr);gap:5px}
+  .list .rh .tt,.list .rh .amt,.list .rh .mt,.list .rh .bar{grid-column:1/-1}
+  .list .rh .tt .masked-copy{max-width:100%}
+  .list .rh .amt{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 7px;text-align:left;white-space:normal}
+  .list .rh .amt b{font-size:20px}
+  .list .rh .amt small{font-size:11px;line-height:1.25}
+  .list .rh .amt .qualifier{max-width:none;margin:0}
+}
+/* comutator Basic / Premium (doar pentru demo) */
+.planswitch{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--card,#fff);font-size:12px;font-weight:700}
+.planswitch button{border:0;background:none;padding:5px 11px;border-radius:999px;color:var(--ink-2);font:inherit;cursor:pointer}
+.planswitch button[aria-pressed="true"]{background:var(--ink);color:#fff}
+body.premium .masked-copy{filter:none;user-select:auto;pointer-events:auto}
+body.premium .mask-label{display:none}
+@media (max-width:760px){.planswitch{position:fixed;right:12px;bottom:76px;z-index:6;box-shadow:0 2px 10px rgba(0,0,0,.12)}}
+.premium-note{margin:0}
+.premium-note h2{margin:0 0 4px;font-size:17px}.premium-note p{margin:0;color:var(--ink-2);font-size:14px}
+/* cifrele în Geist (ales pe widgets.html); titlurile rămân Raleway */
+:root{--num:'Geist',system-ui,sans-serif}
+.nums b,.amt b,.dt .d b,.nd b{font-family:var(--num);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums lining-nums}
+.leg b,.bil .num{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <label class="srch"><input id="q" type="search" placeholder="Caută o lege sau o etichetă" aria-label="Caută o lege sau o etichetă"><i id="qi"></i></label>
+  <button class="menu" aria-label="Meniu" id="mbtn"></button>
+  <div class="brand"><b>Ce înseamnă pentru mine</b><small>LEGEA, PE BANII TĂI</small></div>
+  <div class="hr"><span class="planswitch" role="group" aria-label="Tip cont (demo)"><button data-plan="basic">Basic</button><button data-plan="premium">Premium</button></span><span class="demo">scenariu demonstrativ · date 29 oct 2026</span><span class="av" aria-label="Profil demonstrativ" id="avi"></span></div>
+</header>
+<nav class="nav" id="nav"></nav>
+
+<div class="page" id="p-tine">
+  <aside class="filters" id="f-tine"></aside>
+  <main>
+    <label class="srch ph-search"><input data-q type="search" placeholder="Caută o lege sau o etichetă" aria-label="Caută"><i></i></label>
+    <div class="chiprow" id="c-tine"></div>
+    <section class="freemium" id="freemium"></section>
+    <section class="bil" id="bil"></section>
+    <div class="tagbar" id="tags"></div>
+    <h2 class="lh" id="lh"></h2>
+    <div class="list" id="list"></div>
+    <p class="disc">Nu e sfat financiar. Arătăm efectul legii pe profilul tău și ce permite legea.</p>
+  </main>
+  <aside class="aside" id="aside"></aside>
+</div>
+
+<div class="page two" id="p-nou" hidden>
+  <aside class="filters" id="f-nou"></aside>
+  <main>
+    <label class="srch ph-search"><input data-q type="search" placeholder="Caută în noutăți" aria-label="Caută"><i></i></label>
+    <div class="chiprow" id="c-nou"></div>
+    <section class="intro"><h1>Noutăți din legislație</h1><p>Tot ce s-a publicat recent, nu doar ce te privește. Proiectele pot să se schimbe sau să nu fie adoptate.</p></section>
+    <div class="list" id="nlist"></div>
+  </main>
+</div>
+<nav class="bnav" id="bnav"></nav>
+
+<script src="../v4/data.js?v=8"></script>
+<script src="../v5/common.js?v=8"></script>
+<script src="noutati.js?v=9"></script>
+<script src="continut.js?v=8"></script>
+<script src="freemium.js?v=1"></script>
+<script src="prima.js?v=1"></script>
+<script>
+var Q = new URLSearchParams(location.search);
+var V = { tab: Q.get('tab') === 'nou' ? 'nou' : 'tine', cat: 'all', st: 'all', q: '', tag: null, open: Q.get('open'), nst: 'all', nrel: 'all', nopen: Q.get('nopen'), browseAll:false };
+var F;
+try { F = FreemiumV6.create(window.localStorage); } catch (_) { F = FreemiumV6.create(null); }
+var PREMIUM = (function(){ var q = Q.get('plan'); if (q === 'premium' || q === 'basic') return q === 'premium'; try { return localStorage.getItem('v6-plan') === 'premium'; } catch (_) { return false; } })();
+(function(){ var real = F.getAccess; F.getAccess = function(id){ return PREMIUM ? 'unlocked' : real(id); }; })();
+function setPlan(p){ PREMIUM = p === 'premium'; try { localStorage.setItem('v6-plan', p); } catch (_) {} render(); }
+var FM_STATUS = '';
+var FM_ACCOUNT_LABEL = '';
+var PROFILE_DETAILS_OPEN = false;
+var PRIMA_DETAILS_OPEN = false;
+var PROFILE_DRAFT = null;
+var CANDIDATE_DRAFT = null;
+var PRIMA = PRIMA_STABILITATE_V6;
+var PRIMA_FEED = {id:PRIMA.id,title:PRIMA.detailTitle,short:PRIMA.teaserCategory,act:'OUG 11/2026',status:'in_vigoare',effective:'2026-03-09',published:'2026-03-09',impact:0,gain:0,deadline:null,tags:PRIMA.tags,why:PRIMA.teaser.conditions,action:PRIMA.teaser.action};
+var FEED_ITEMS = [PRIMA_FEED].concat(ITEMS);
+var PROFILE_LABELS = {angajat:['angajat'],angajat_it:['angajat IT','angajat'],caut_primul_job:['caut primul job','angajare'],pfa:['PFA'],srl_dividende:['SRL cu dividende'],chiriaș:['chiriaș'],cumpar_locuinta:['cumpăr locuință'],sofer:['șofer'],consumator_energie:['consumator energie'],consumator_gaz:['consumator gaz'],pilon2:['Pilon II'],pilon3:['angajat'],elev_student:['elev','student']};
+FAM[PRIMA.id]='Venit';
+var PILL = { proiect: 'proiect', urmeaza: 'urmează', in_vigoare: 'în vigoare', expirat: 'expirat' };
+var STARE = { proiect: 'Proiect', urmeaza: 'Urmează', in_vigoare: 'În vigoare', expirat: 'Acțiune încheiată' };
+function stare(i){ return i.status === 'proiect' ? 'proiect' : i.status === 'adoptat' ? 'urmeaza' : 'in_vigoare'; }
+function actionPast(i){ return i.status === 'termen_depasit' || !!(i.deadline && U.days(i.deadline)<0); }
+function visibleTags(){var s=F.getState();return s.profileConfirmed ? s.profileTags.reduce(function(a,k){return a.concat(PROFILE_LABELS[k]||[]);},[]) : null;}
+function relevant(i){var tags=visibleTags();return V.browseAll || tags===null || i.tags.some(function(t){return tags.indexOf(t)>=0;});}
+function stateFilter(i,k){return k==='expirat'?actionPast(i):stare(i)===k;}
+function maskedTitle(title){return '<span class="masked-copy" aria-hidden="true">'+U.esc(title)+'</span><span class="sr-only">Titlu detaliat ascuns</span>';}
+function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+function hit(fields){ if (!V.q) return true; var h = norm(fields.join(' ')); return norm(V.q).split(/\s+/).every(function(w){ return h.indexOf(w) >= 0; }); }
+
+/* ---------- niveluri: De ce? / Arată-mi legea / specialist ---------- */
+V.why = {}; V.law = {}; V.spec = {}; V.copy = {};
+var DRAFT_SRC = { motorina_pr: { act: 'Proiect de hotărâre a Guvernului (Ministerul Finanțelor)', url: 'https://financiarul.ro/economie/finantele-propun-pastrarea-accizei-reduse-pentru-motorina/', src: 'Financiarul, 26 oct 2026' } };
+function levels(key, draft){
+  /* key = id-ul din continut.js; draft = {act, url, src} pentru proiectele fără text oficial */
+  var L = LEVELS[key], uid = key, s = '';
+  if (L && L.prof){
+    s += '<div class="cx"><p>Ai o situație mai complicată?</p><button data-spec="' + uid + '" aria-expanded="' + !!V.spec[uid] + '" aria-controls="sp-' + uid + '">Pregătește discuția cu un ' + L.prof + '</button></div>';
+  }
+  s += '<div class="lv">' + (L && L.curios ? '<button data-why="' + uid + '" aria-expanded="' + !!V.why[uid] + '" aria-controls="c-' + uid + '">De ce?</button>' : '') +
+    '<button data-law="' + uid + '" aria-expanded="' + !!V.law[uid] + '" aria-controls="e-' + uid + '">Arată-mi legea</button></div>';
+  if (V.why[uid] && L) s += '<p class="cur" id="c-' + uid + '" lang="ro">' + U.esc(L.curios) + '</p>';
+  if (V.law[uid]){
+    s += '<div class="law" id="e-' + uid + '"><h4>Sursa legală</h4>';
+    if (L){
+      s += '<p class="k2">' + U.esc(L.act) + ' · ' + U.esc(L.mo) + '</p><p class="x" lang="ro">' + U.esc(L.expert || L.articol) + '</p>';
+      s += '<a href="' + L.sursa + '" target="_blank" rel="noopener">' + (L.sursa.indexOf('legislatie.just.ro') >= 0 ? 'Textul legii pe Portal Legislativ' : 'Textul actului') + ' ↗</a>';
+      if (L.explic) s += '<a href="' + L.explic + '" target="_blank" rel="noopener">Explicație (ANAF / presă) ↗</a>';
+      s += '<small>verificat la ' + U.date(L.verificat) + (L.incredere === 'scazuta' ? ' · sursă de încredere scăzută' : '') + '</small>';
+    } else if (draft){
+      s += '<p class="k2">' + U.esc(draft.act) + '</p><p class="x">E un proiect. Textul oficial nu e încă publicat (TODO).</p><a href="' + draft.url + '" target="_blank" rel="noopener">Sursa: ' + draft.src + ' ↗</a><small>găsit la 29 oct 2026 · sursă de presă</small>';
+    }
+    s += '</div>';
+  }
+  if (L && L.prof && V.spec[uid]){
+    var r = REG[L.prof];
+    s += '<section class="sp" id="sp-' + uid + '"><h4>Când merită un ' + L.prof + '</h4><p>Pașii de mai sus ajung pentru cei mai mulți oameni. Un ' + L.prof + ' te poate ajuta când răspunsul depinde de cifrele tale și suma este mare.</p>';
+    if (L.intrebare) s += '<p class="lbl">Ce poți întreba</p><p lang="ro">' + U.esc(L.intrebare) + '</p><button class="cp" data-copy="' + uid + '">Copiază întrebarea</button><p class="ok" role="status">' + (V.copy[uid] === 1 ? 'Copiat' : V.copy[uid] === 2 ? 'Nu am putut copia. Selectează întrebarea și copiaz-o manual.' : '') + '</p>';
+    if (L.documente) s += '<p class="lbl">Ce documente să pregătești</p><p lang="ro">' + U.esc(L.documente) + '</p>';
+    s += '<p class="fine">Linkul deschide registrul public al profesiei. Nu primim bani de la specialiști și nu transmitem date din profilul tău.</p><div class="row2">' + (r ? '<a class="pri" href="' + r.url + '" target="_blank" rel="noopener">Deschide registrul ↗</a>' : '') + '<button class="sec2" data-spec="' + uid + '">Închide</button></div></section>';
+  }
+  return s;
+}
+function tagChips(labels, mineSet){
+  var seen = {};
+  return labels.filter(function(l){ if (seen[l]) return false; seen[l] = 1; return true; }).map(function(l){ return '<span class="tg' + (mineSet && !mineSet[l] ? ' o' : '') + '">' + U.esc(l) + '</span>'; }).join('');
+}
+
+/* ---------- Pentru tine ---------- */
+function tineMatch(i, skip){
+  return (skip === 'cat' || V.cat === 'all' || FAM[i.id] === V.cat || (i.id === 'motorina_pr' && V.cat === 'Altele')) &&
+    (skip === 'st' || V.st === 'all' || stateFilter(i,V.st)) &&
+    relevant(i) &&
+    (!V.tag || i.tags.indexOf(V.tag) >= 0) &&
+    hit([i.title, i.short, i.act, i.why, i.tags.join(' '), STATUS[i.status] || 'proiect']);
+}
+FAM.motorina_pr = 'Altele';
+function fb(group, val, label, n){ var on = V[group] === val; return '<button class="fbtn' + (on ? ' on' : '') + '" data-' + group + '="' + val + '"' + (!n && !on && val !== 'all' ? ' disabled' : '') + '>' + label + ' <em>' + n + '</em></button>'; }
+function tineFilters(){
+  var c = function(f){ return FEED_ITEMS.filter(function(i){ return (f === 'all' || FAM[i.id] === f) && tineMatch(i, 'cat'); }).length; };
+  var s = function(f){ return FEED_ITEMS.filter(function(i){ return (f === 'all' || stateFilter(i,f)) && tineMatch(i, 'st'); }).length; };
+  var a = '<h3>Categorie</h3><div>' + fb('cat', 'all', 'Toate', c('all'));
+  FAMS.forEach(function(f){ a += fb('cat', f, f, c(f)); });
+  a += '</div><h3>Stare</h3><div>' + fb('st', 'all', 'Toate', s('all'));
+  ['proiect', 'urmeaza', 'in_vigoare', 'expirat'].forEach(function(k){ a += fb('st', k, STARE[k], s(k)); });
+  return a + '</div>'+(F.getState().profileConfirmed?'<p class="fnote"><button '+(V.browseAll?'data-mine>Arată etichetele mele':'data-all>Explorează tot catalogul')+'</button></p>':'');
+}
+function tineChips(){
+  var subset=FEED_ITEMS.filter(relevant),a = fb('cat', 'all', 'Toate', subset.length);
+  ['proiect', 'urmeaza', 'in_vigoare', 'expirat'].forEach(function(k){ a += fb('st', k, STARE[k], subset.filter(function(i){ return stateFilter(i,k); }).length); });
+  FAMS.forEach(function(f){ a += fb('cat', f, f, subset.filter(function(i){ return FAM[i.id] === f; }).length); });
+  return a;
+}
+function profileValues(){
+  var saved=F.getState(), answers={}, tags=[];
+  FreemiumV6.categories.forEach(function(k){var el=document.getElementById('review-'+k); answers[k]=el?el.value:(PROFILE_DRAFT?PROFILE_DRAFT.answers[k]:saved.profileAnswers[k]||'');});
+  document.querySelectorAll('[data-profile-tag]:checked').forEach(function(el){tags.push(el.dataset.profileTag);});
+  if(!document.querySelector('[data-profile-tag]'))tags=PROFILE_DRAFT?PROFILE_DRAFT.tags:(saved.profileTags||[]);
+  return {answers:answers,tags:tags};
+}
+function candidateAnswers(){var out={},saved=F.getState().candidateAnswers[PRIMA.id]||{}; PRIMA.facts.forEach(function(f){var el=document.getElementById('fact-'+f.key);out[f.key]=el?el.value:(CANDIDATE_DRAFT?CANDIDATE_DRAFT[f.key]:saved[f.key]||'');});return out;}
+function draftFocusKey(el){if(el.id)return {id:el.id};if(el.hasAttribute('data-profile-tag'))return {tag:el.getAttribute('data-profile-tag')};return null;}
+function restoreDraftFocus(key,x,y){if(!key)return;requestAnimationFrame(function(){var el=key.id?document.getElementById(key.id):document.querySelector('[data-profile-tag="'+key.tag+'"]');if(!el||!el.isConnected||!el.getClientRects().length||el.disabled)return;try{el.focus({preventScroll:true});}catch(_){el.focus();}window.scrollTo(x,y);});}
+function freemiumPanel(){
+  var s=F.getState(),credits=F.credits(), cats=[['work','Muncă / domeniu'],['business','Activitate independentă / firmă'],['housing','Locuință'],['transport','Transport'],['savings','Economii / pensie'],['energy','Energie'],['other','Alte situații']];
+  var options=[['','Alege răspunsul'],['yes','Da'],['no','Nu'],['not_applicable','Nu se aplică'],['prefer_not_to_say','Prefer să nu spun']];
+  var profileAnswers=PROFILE_DRAFT?PROFILE_DRAFT.answers:s.profileAnswers;
+  var grid=cats.map(function(c){return '<label>'+c[1]+'<select id="review-'+c[0]+'" aria-label="Revizuiește: '+c[1]+'">'+options.map(function(o){return '<option value="'+o[0]+'"'+(profileAnswers[c[0]]===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select></label>';}).join('');
+  var tagNames={angajat:'Angajat',angajat_it:'Angajat IT',caut_primul_job:'Caut primul job',pfa:'PFA',srl_dividende:'SRL / dividende',chiriaș:'Chiriaș',cumpar_locuinta:'Cumpăr locuință',sofer:'Șofer',consumator_energie:'Consumator de energie',consumator_gaz:'Consumator de gaz',pilon2:'Pilon II',pilon3:'Pilon III',elev_student:'Elev / student'};
+  var activeTags=PROFILE_DRAFT?PROFILE_DRAFT.tags:s.profileTags;
+  var tags=FreemiumV6.profileTags.map(function(k){return '<label class="tagchoice"><input type="checkbox" data-profile-tag="'+k+'"'+(activeTags.indexOf(k)>=0?' checked':'')+'> '+tagNames[k]+'</label>';}).join('');
+  var account=s.rewardClaimed?'':'<div class="account-row"><label for="demo-account">Cont demonstrativ la revendicare</label><input id="demo-account" type="text" placeholder="Ex.: Cont demo Andrei" value="'+U.esc(FM_ACCOUNT_LABEL)+'"><button data-claim'+(!s.rewardEarned?' disabled':'')+'>Revendică deblocarea unică</button></div>';
+  var status=s.rewardClaimed?(s.rewardAvailable?'Recompensa a fost revendicată; ai încă o deblocare disponibilă.':'Recompensa a fost revendicată și folosită.') : s.rewardEarned?'Ai câștigat recompensa unică. Revendic-o cu un cont demonstrativ.':s.initialAvailable?'Ai deblocarea inițială disponibilă.':'Revizuiește și confirmă profilul pentru recompensa unică.';
+  var next=s.rewardAvailable&&!F.eligibleCandidates([PRIMA]).length?'<p>Următorul ghid complet e din partea noastră când găsim o altă oportunitate verificată pentru tine. Deblocarea nu expiră în acest prototip.</p>':'';
+  return '<div class="freemium-compact"><div><h2>Deblocări gratuite · '+credits+' disponibile</h2><p>'+status+'</p>'+next+'<p>Contul și deblocările sunt simulate și salvate doar în acest browser.</p></div></div><details id="profile-details"'+(PROFILE_DETAILS_OPEN?' open':'')+'><summary>Completează profilul · revendică recompensa unică</summary><p>Alege un răspuns în fiecare categorie. „Nu se aplică” și „Prefer să nu spun” sunt valide.</p><div class="review-grid">'+grid+'</div><fieldset class="tagset"><legend>Etichete (opțional)</legend>'+tags+'</fieldset><button data-complete-profile>Confirmă profilul și marchează-l complet</button>'+account+'<div role="status" id="fm-status">'+U.esc(FM_STATUS)+'</div></details>';
+}
+function candidateCard(){
+  var state=F.getState(), unlocked=F.getAccess(PRIMA.id)==='unlocked', saved=state.candidateAnswers[PRIMA.id]||{}, verified=F.eligibleCandidates([PRIMA]).length>0;
+  var facts=candidateAnswers();
+  var factFields=PRIMA.facts.map(function(f){var help=f.key==='eligible_employer'?'<small>'+U.esc(f.help)+'</small><ul>'+PRIMA.excludedEmployers.map(function(x){return '<li>'+U.esc(x)+'</li>';}).join('')+'</ul><small>Dacă rămâne neclar, nu confirma eligibilitatea; cere AJOFM să verifice angajatorul.</small>':'<small>'+U.esc(f.help)+'</small>';return '<label>'+U.esc(f.prompt)+help+'<select id="fact-'+f.key+'" aria-label="'+U.esc(f.prompt)+'"><option value="">Alege</option><option value="yes"'+(facts[f.key]==='yes'?' selected':'')+'>Da</option><option value="no"'+(facts[f.key]==='no'?' selected':'')+'>Nu</option><option value="unsure"'+(facts[f.key]==='unsure'?' selected':'')+'>Nu sunt sigur(ă)</option></select></label>';}).join('');
+  var sources=PRIMA.sources.map(function(x){return '<a href="'+x.url+'" target="_blank" rel="noopener">'+x.label+' ↗</a>';}).join(' · ');
+  var details=unlocked?'<div class="guide"><h3>Ce prevede legea</h3><p>'+U.esc(PRIMA.notAdvice)+'</p><ol>'+PRIMA.guide.map(function(x){return '<li>'+U.esc(x)+'</li>';}).join('')+'</ol><p>'+U.esc(PRIMA.limits)+'</p><p><button class="secondary" data-notapp="'+PRIMA.id+'">Raportează: nu mi se aplică</button> <span role="status">'+U.esc(FM_STATUS)+'</span></p></div>':'<div><div class="mask-panel"><div class="masked-copy" aria-hidden="true">'+U.esc(PRIMA.detailTitle)+'<br>Pașii ghidului complet se deschid după verificarea condițiilor și folosirea unei deblocări gratuite.</div><span class="mask-label">Ghidul complet este ascuns</span></div><details id="prima-details"'+(PRIMA_DETAILS_OPEN?' open':'')+'><summary>Verifică-mi criteriile pentru ghidul complet</summary><p>Răspunsurile sunt declarațiile tale, nu confirmarea AJOFM. Toate trebuie să fie „Da” pentru deschiderea acestui ghid.</p><div class="review-grid candidate-facts">'+factFields+'</div><button class="secondary" data-confirm-eligibility>Salvează și verifică aceste răspunsuri</button><div role="status">'+U.esc(FM_STATUS)+'</div>'+(verified?'<p>Răspunsurile declarate corespund condițiilor pe care le-ai confirmat. Nicio autoritate nu le-a verificat.</p><button data-unlock="'+PRIMA.id+'"'+(!F.credits()?' disabled':'')+'>Deschide ghidul complet'+(!F.credits()?' · nu ai deblocări disponibile':'')+'</button>':'<p>Nu am confirmat toate condițiile pentru acest ghid. Deblocarea gratuită rămâne disponibilă.</p>')+'</details></div>';
+  return '<div class="det feed-guide" id="d-'+PRIMA.id+'"><p><b>Condiții esențiale:</b> '+U.esc(PRIMA.teaser.conditions)+'</p><p><b>Cuantum prevăzut:</b> '+U.esc(PRIMA.teaser.amount)+'</p><p><b>Certitudine:</b> '+U.esc(PRIMA.teaser.certainty)+'</p><p><b>Acțiune disponibilă:</b> numai înainte de semnarea primului contract. Nu este confirmat un termen ulterior de cerere.</p><p><b>Sursă verificată ('+PRIMA.checked+'):</b> '+sources+'</p>'+details+'</div>';
+}
+function primaRow(){
+  var o=V.open===PRIMA.id,unlocked=F.getAccess(PRIMA.id)==='unlocked';
+  var title=unlocked?U.esc(PRIMA.detailTitle):U.esc(PRIMA.teaserCategory)+' · '+maskedTitle(PRIMA.detailTitle);
+  var s='<div class="it" id="r-'+PRIMA.id+'"><button class="rh" data-open="'+PRIMA.id+'" aria-expanded="'+o+'" aria-label="'+(unlocked?'Deschide ghidul de angajare':'Deschide condițiile pentru sprijinul de angajare')+'"><span class="tt">'+title+'</span><span class="amt"><b class="pos">1.000<small class="unit"> lei/lună</small></b><small class="qualifier">primul an · eligibilitate de verificat</small></span><span class="mt"><span class="st in_vigoare">în vigoare</span><span>Acțiune: înainte de primul contract</span><span>OUG 11/2026</span>'+tagChips(PRIMA.tags)+'</span></button>';
+  return s+(o?candidateCard():'')+'</div>';
+}
+function bilant(){
+  var now = totalNow(), all = gainAll();
+  var cost = ITEMS.filter(function(i){ return U.inForce(i) && i.impact < 0; }).sort(function(a,b){ return a.impact - b.impact; });
+  var gain = ITEMS.filter(function(i){ return i.gain && i.status !== 'termen_depasit'; }).sort(function(a,b){ return b.gain - a.gain; });
+  var s = '<h1>Bilanț lunar · scenariu demonstrativ Andrei, 32</h1><div class="nums">';
+  s += '<div><span>Costuri în scenariul Andrei</span><b class="neg">−' + lei0(-now) + '<small>lei/lună</small></b></div>';
+  s += '<div><span>Acțiuni ilustrative din scenariu</span><b class="pos">+' + lei0(all) + '<small>lei/lună</small></b></div></div>';
+  s += '<div class="track" role="group" aria-label="Costuri în scenariul demonstrativ">' + cost.map(function(i){ return '<button class="seg neg" style="flex:' + (-i.impact) + '" data-go="' + i.id + '" aria-label="Scenariu '+U.esc(FAM[i.id]||'altă categorie')+', ' + U.lei(i.impact) + '. Deschide detaliile"></button>'; }).join('') + '</div>';
+  s += '<div class="leg">' + cost.map(function(i){ return '<button data-go="' + i.id + '" aria-label="Deschide scenariul '+U.esc(FAM[i.id]||'altă categorie')+'"><i></i><span class="masked-copy" aria-hidden="true">' + U.esc(i.short) + '</span> <b>−' + lei0(-i.impact) + ' lei/lună</b></button>'; }).join('') + '</div>';
+  s += '<div class="track g" style="--w:' + (all / -now * 100) + '%" role="group" aria-label="Acțiuni posibile în scenariul demonstrativ">' + gain.map(function(i){ return '<button class="seg pos" style="flex:' + i.gain + '" data-go="' + i.id + '" aria-label="Scenariu '+U.esc(FAM[i.id]||'altă categorie')+', +' + U.num(i.gain) + ' lei/lună. Deschide detaliile"></button>'; }).join('') + '</div>';
+  s += '<div class="leg">' + gain.map(function(i){ return '<button data-go="' + i.id + '" aria-label="Deschide scenariul '+U.esc(FAM[i.id]||'altă categorie')+'"><i class="p"></i><span class="masked-copy" aria-hidden="true">' + U.esc(i.short) + '</span> <b>+' + U.num(i.gain) + ' lei/lună</b></button>'; }).join('') + '</div>';
+  return s;
+}
+function amountV6(i){
+  var past=actionPast(i),v=i.impact||i.gain||0;
+  var value=(v>0?'+':v<0?'−':'')+U.num(v);
+  var kind=past?'':v>0?'pos':v<0?'minus':'zero';
+  var qualifier=i.status==='proiect'?'scenariu dacă se adoptă':i.impact===0&&i.gain?'exemplu Andrei · condiționat':'exemplu Andrei';
+  return '<b class="'+kind+'">'+value+'<small class="unit"> lei/lună</small></b><small class="qualifier">'+qualifier+'</small>';
+}
+function detailV6(i){
+  var past = i.status === 'termen_depasit', s = '<div class="det" id="d-' + i.id + '"><p>' + U.esc(i.why) + '</p>';
+  if (i.est) s += '<p class="est">Suma este un calcul pentru scenariul demonstrativ Andrei, nu pentru profilul tău și nu o cifră scrisă în lege. ' + U.esc(i.note) + '</p>';
+  if (i.action){
+    s += '<div class="act' + (openDl(i) && U.days(i.deadline) < 30 ? ' urg' : '') + '"><b>' + (past ? 'Termen depășit: ' + U.date(i.deadline) : i.deadline ? 'Acțiunea din scenariu până la ' + U.date(i.deadline) : 'Acțiunea din scenariu') + '</b>' + U.esc(i.action) + '.' + (past && i.gain ? ' În exemplul Andrei, suma ar fi fost ' + U.lei(i.gain) + '.' : '') + '</div>';
+  }
+  s += levels(i.id, DRAFT_SRC[i.id]);
+  return s + '</div>';
+}
+function rowV6(i){
+  if(i.id===PRIMA.id)return primaRow();
+  var o = V.open === i.id, past = i.status === 'termen_depasit', unlocked = F.getAccess(i.id) === 'unlocked';
+  var meta2 = meta(i).replace('<span class="st ' + i.status + '">' + STATUS[i.status] + '</span>', '<span class="st ' + stare(i) + '">' + PILL[stare(i)] + '</span>');
+  meta2 += '<span>Acțiune: '+(past?'termen depășit':i.status==='proiect'?'proiect, indisponibilă':i.action?'de verificat':'fără acțiune disponibilă')+'</span>'+tagChips(i.tags);
+  var s = '<div class="it' + (past ? ' past' : '') + '" id="r-' + i.id + '"><button class="rh" data-open="' + i.id + '" aria-expanded="' + o + '" aria-label="Deschide informațiile despre '+U.esc(FAM[i.id]||'această lege')+'">';
+  s += '<span class="tt">' + U.esc(FAM[i.id] || 'Altele')+' · '+(unlocked?U.esc(i.title):maskedTitle(i.title)) + '</span><span class="amt">' + amountV6(i) + '</span><span class="mt">' + meta2 + '</span>';
+  var v = Math.abs(i.impact || i.gain);
+  if (v) s += '<span class="bar"><i style="width:' + Math.max(2, v / 520 * 100) + '%;background:' + (past ? 'var(--past)' : i.impact < 0 ? 'var(--neg)' : 'var(--pos)') + '"></i></span>';
+  var source = LEVELS[i.id] && LEVELS[i.id].sursa ? '<p><a href="' + LEVELS[i.id].sursa + '" target="_blank" rel="noopener">Sursa consultată · ' + U.esc(LEVELS[i.id].act) + ' ↗</a> · verificat la '+U.date(LEVELS[i.id].verificat)+'</p>' : DRAFT_SRC[i.id]?'<p><a href="'+DRAFT_SRC[i.id].url+'" target="_blank" rel="noopener">Sursă de presă · '+U.esc(DRAFT_SRC[i.id].src)+' ↗</a> · text oficial TODO</p>':'<p>Sursa: TODO · verificare necesară.</p>';
+  var teaser = '<div class="det" id="d-' + i.id + '">' + (i.est && i.note ? '<p>Ipoteza sumei: ' + U.esc(i.note) + '</p>' : '') + '<p>Acțiune: ' + (past ? 'termen depășit'+(i.deadline?' la '+U.date(i.deadline):'') : i.status==='proiect'?'proiect, indisponibilă':i.action?'de verificat':'nu există') + '. Sursă: ' + U.esc(LEVELS[i.id] && LEVELS[i.id].incredere || 'neconfirmată') + '.</p>' + source + '<div class="mask-panel"><div class="masked-copy" aria-hidden="true">'+U.esc(i.title)+'<br>'+U.esc(i.why||'')+(i.action?'<br>'+U.esc(i.action):'')+'</div><span class="mask-label">Detalii ascunse</span></div><p class="teaser-note">Eligibilitatea și economia ta nu sunt confirmate. Deblocarea gratuită rămâne disponibilă.</p></div>';
+  s += '</button>' + (o ? (unlocked ? detailV6(i) : teaser) : '') + '</div>';
+  return s;
+}
+function asideV6(){
+  var ev=ITEMS.filter(function(i){return i.status!=='proiect'&&(openDl(i)||!U.inForce(i));}).map(function(i){return {i:i,d:openDl(i)?i.deadline:i.effective,t:openDl(i)};});
+  ev.sort(function(a,b){return a.d<b.d?-1:1;});
+  return '<h3>Termene și ce urmează</h3>'+ev.map(function(e){var x=U.d(e.d),n=U.days(e.d);return '<button class="dt" data-open="'+e.i.id+'" aria-label="Deschide scenariul '+U.esc(FAM[e.i.id]||'altă categorie')+'"><span class="d'+(e.t&&n<30?' urg':'')+'"><b>'+x.getDate()+'</b><small>'+U.MONTHS[x.getMonth()]+' '+x.getFullYear()+'</small></span><span class="w"><span class="masked-copy" aria-hidden="true">'+U.esc(e.t?e.i.action:'Se aplică: '+e.i.title)+'</span><span>'+(e.t?left(n):'din '+U.date(e.d))+(e.i.gain?' · <b class="pos">+'+U.num(e.i.gain)+' lei/lună · exemplu</b>':'')+'</span></span></button>';}).join('');
+}
+function renderTine(){
+  var pd=document.getElementById('profile-details'), cd=document.getElementById('prima-details');
+  if(pd)PROFILE_DETAILS_OPEN=pd.open; if(cd)PRIMA_DETAILS_OPEN=cd.open;
+  var plan=V.tab==='plan';
+  document.getElementById('f-tine').innerHTML = plan?'':tineFilters();
+  document.getElementById('c-tine').innerHTML = plan?'':tineChips();
+  document.getElementById('freemium').innerHTML = plan?'':PREMIUM?'<div class="premium-note"><h2>Premium activ · 15 lei/lună</h2><p>Vezi toate legile, sumele și ghidurile complete. Abonamentul e simulat în această machetă.</p></div>':freemiumPanel();
+  document.getElementById('bil').innerHTML = plan?'<h1>Planul meu</h1><p class="cap">Aici găsești ghidurile pe care le-ai deschis. Acțiunile salvate și reminderele nu sunt disponibile în această machetă.</p>':F.getState().profileConfirmed?'<h1>Profilul tău</h1><p class="cap">Actele de mai jos sunt filtrate după etichetele confirmate. Nu avem încă datele necesare pentru a calcula un bilanț personal; sumele marcate ca scenariu aparțin exemplului Andrei.</p>':bilant();
+  var shownTags=visibleTags()||PERSON.tags;
+  document.getElementById('tags').innerHTML = plan?'':'Caută după etichetă:' + shownTags.filter(function(t,idx){return shownTags.indexOf(t)===idx&&FEED_ITEMS.some(function(i){return i.tags.indexOf(t)>=0;});}).map(function(t){ return '<button data-tag="' + t + '" class="' + (V.tag === t ? 'on' : '') + '" aria-pressed="' + (V.tag === t) + '">' + t + '</button>'; }).join('');
+  var v = FEED_ITEMS.filter(function(i){ return plan?F.getAccess(i.id)==='unlocked':tineMatch(i); }).sort(function(a,b){ return (a.id===PRIMA.id?-1:b.id===PRIMA.id?1:Math.abs(b.impact || b.gain) - Math.abs(a.impact || a.gain)); });
+  var any = V.cat !== 'all' || V.st !== 'all' || V.tag || V.q;
+  document.getElementById('lh').innerHTML = (plan?'Ghiduri deschise':any ? 'Rezultate' : F.getState().profileConfirmed?'Acte pe etichetele tale':'Acte și scenarii de explorat') + '<span>' + v.length + (v.length === 1 ? ' act' : ' acte') + '</span>';
+  document.getElementById('list').innerHTML = v.length ? v.map(rowV6).join('') :
+    (plan?'<p class="empty">Nu ai deschis încă un ghid complet. <button data-tab="tine">Explorează actele pentru tine</button>.</p>':'<p class="empty">Nu am găsit o oportunitate verificată pentru etichetele confirmate. Deblocările gratuite rămân disponibile pentru un ghid viitor. Poți explora <button data-reset>toate actele din catalog</button>.</p>');
+  document.getElementById('aside').innerHTML = plan||F.getState().profileConfirmed?'':asideV6();
+}
+
+/* ---------- Noutăți ---------- */
+var NEWS_PROFILE_KEYS={angajat:['angajat'],angajat_it:['angajat_it','angajat'],caut_primul_job:['caut_primul_job'],pfa:['pfa'],srl_dividende:['srl_dividende'],chiriaș:['chirias'],cumpar_locuinta:['proprietar'],sofer:['masina','transport'],consumator_energie:['consumator_energie'],consumator_gaz:['consumator_gaz'],pilon2:['pilon2'],pilon3:['pilon3'],elev_student:['elev_student']};
+function newsTags(){var s=F.getState();if(!s.profileConfirmed)return MY_TAGS;var out={};s.profileTags.forEach(function(k){(NEWS_PROFILE_KEYS[k]||[]).forEach(function(key){out[key]=TAG_LABEL[key]||MY_TAGS[key]||key.replace(/_/g,' ');});});return out;}
+function mine(n){ var m=newsTags(),t = n.tags.filter(function(x){ return m[x]; }); return t.length ? m[t[0]] : null; }
+function nMatch(n, skip){
+  var m = mine(n);
+  return (skip === 'nst' || V.nst === 'all' || n.status === V.nst) &&
+    (skip === 'nrel' || V.nrel === 'all' || (V.nrel === 'eu' ? !!m : !m)) &&
+    hit([n.title, n.body || '', n.act, n.from, n.tags.map(function(t){ return MY_TAGS[t] || TAG_LABEL[t] || t; }).join(' '), STATUS[n.status]]);
+}
+function nouFilters(chips){
+  var c = function(g, f, test){ return NEWS.filter(function(n){ return (f === 'all' || test(n)) && nMatch(n, g); }).length; };
+  var b = function(g, f, label, test){ var n = c(g, f, test); var on = V[g] === f; return '<button class="fbtn' + (on ? ' on' : '') + '" data-' + g + '="' + f + '"' + (!n && !on && f !== 'all' ? ' disabled' : '') + '>' + label + ' <em>' + n + '</em></button>'; };
+  var st = function(k){ return function(n){ return n.status === k; }; };
+  var a = (chips ? '' : '<h3>Stare</h3><div>') + b('nst', 'all', 'Toate', null) + b('nst', 'proiect', 'Proiect', st('proiect')) + b('nst', 'adoptat', 'Adoptat', st('adoptat')) + b('nst', 'in_vigoare', 'În vigoare', st('in_vigoare'));
+  a += (chips ? '' : '</div><h3>Arată</h3><div>') + b('nrel', 'eu', 'Te privesc', function(n){ return !!mine(n); }) + b('nrel', 'rest', 'Restul', function(n){ return !mine(n); });
+  return a + (chips ? '' : '</div><p class="fnote">Proiectele au doar surse de presă până apare textul oficial.</p>');
+}
+function nTags(n){
+  var m=newsTags(),mineSet = {}, labels = n.tags.map(function(t){ var l = m[t] || TAG_LABEL[t] || MY_TAGS[t] || t.replace(/_/g, ' '); if (m[t]) mineSet[l] = 1; return l; });
+  return tagChips(labels, mineSet);
+}
+function nrow(n){
+  var o = V.nopen === n.id, x = U.d(n.date);
+  var s = '<div class="nw" id="n-' + n.id + '"><div class="nh"><span class="nd"><b>' + x.getDate() + '</b><small>' + U.MONTHS[x.getMonth()] + ' ' + x.getFullYear() + '</small></span>';
+  s += '<button class="rh" style="padding:0;grid-template-columns:1fr" data-nopen="' + n.id + '" aria-expanded="' + o + '"><span class="tt">' + U.esc(n.title) + '</span>';
+  s += '<span class="mt"><span class="st ' + n.status + '">' + (n.status === 'proiect' ? 'proiect' : STATUS[n.status]) + '</span><span>' + n.act + '</span><span>' + n.from + '</span>' + nTags(n) + '</span></button>';
+  s += n.feed ? '<button class="go" data-feed="' + n.feed + '">Vezi în Pentru tine</button>' : '<span></span>';
+  s += '</div>';
+  if (o){
+    var key = LEVELS[n.id] ? n.id : n.id;
+    s += '<div class="nb">' + (n.body ? '<p>' + U.esc(n.body) + '</p>' : '') + (n.eff ? '<p>Se aplică de la ' + U.date(n.eff) + '.</p>' : '') + (n.gap ? '<p class="gap">' + U.esc(n.gap) + '</p>' : '');
+    s += levels(key, LEVELS[key] ? null : { act: n.act, url: n.url, src: n.srcName });
+    s += '</div>';
+  }
+  return s + '</div>';
+}
+function renderNou(){
+  document.getElementById('f-nou').innerHTML = nouFilters(false);
+  document.getElementById('c-nou').innerHTML = nouFilters(true);
+  var v = NEWS.filter(function(n){ return nMatch(n); });
+  document.getElementById('nlist').innerHTML = v.length ? v.map(nrow).join('') : '<p class="empty">Nimic nou care să se potrivească. <button data-reset>Arată tot</button></p>';
+}
+
+/* ---------- cadru ---------- */
+function render(){
+  if (document.body) document.body.classList.toggle('premium', PREMIUM);
+  document.querySelectorAll('[data-plan]').forEach(function(b){ b.setAttribute('aria-pressed', String((b.dataset.plan === 'premium') === PREMIUM)); });
+  document.getElementById('p-tine').hidden = V.tab === 'nou';
+  document.getElementById('p-nou').hidden = V.tab !== 'nou';
+  var np = NEWS.filter(function(n){ return n.status === 'proiect'; }).length;
+  document.getElementById('nav').innerHTML = '<a href="#pentru-tine" data-tab="tine" class="' + (V.tab === 'tine' ? 'on' : '') + '">PENTRU TINE</a><a href="#noutati" data-tab="nou" class="' + (V.tab === 'nou' ? 'on' : '') + '">NOUTĂȚI<span class="n">' + np + '</span></a><a href="#planul-meu" data-tab="plan" class="' + (V.tab === 'plan' ? 'on' : '') + '">PLANUL MEU</a><a href="#profil" data-profile>PROFILUL MEU</a>';
+  document.getElementById('bnav').innerHTML = '<a href="#pentru-tine" data-tab="tine" class="' + (V.tab === 'tine' ? 'on' : '') + '">' + ic('user') + 'Pentru tine</a><a href="#noutati" data-tab="nou" class="' + (V.tab === 'nou' ? 'on' : '') + '">' + ic('news') + 'Noutăți</a><a href="#planul-meu" data-tab="plan" class="' + (V.tab === 'plan' ? 'on' : '') + '">' + ic('chart') + 'Planul meu</a><a href="#profil" data-profile>' + ic('doc') + 'Profil</a>';
+  if (V.tab === 'nou') renderNou(); else renderTine();
+}
+function goTo(id){
+  V.tab = 'tine'; V.open = id;
+  var i = FEED_ITEMS.filter(function(x){return x.id===id;})[0]; if(!i)return;
+  if (!relevant(i)) V.browseAll=true;
+  if (!tineMatch(i)) { V.cat = 'all'; V.st = 'all'; V.tag = null; V.q = ''; syncQ(); }
+  render();
+  var el = document.getElementById('r-' + id);
+  if (el){ scrollTo(0, el.getBoundingClientRect().top + scrollY - 16); el.classList.add('flash'); }
+}
+function syncQ(){ document.querySelectorAll('#q,[data-q]').forEach(function(x){ x.value = V.q; }); }
+document.addEventListener('click', function(e){
+  var pb = e.target.closest('[data-plan]'); if (pb){ setPlan(pb.dataset.plan); return; }
+  var t = e.target.closest('[data-tab],[data-profile],[data-go],[data-open],[data-cat],[data-st],[data-tag],[data-nopen],[data-nst],[data-nrel],[data-feed],[data-reset],[data-all],[data-mine],[data-why],[data-law],[data-spec],[data-copy],[data-complete-profile],[data-claim],[data-unlock],[data-notapp],[data-confirm-eligibility]'); if (!t) return;
+  if(t.tagName==='A')e.preventDefault();
+  var d = t.dataset;
+  if (d.completeProfile !== undefined){
+    var profile=profileValues(); PROFILE_DRAFT=profile;
+    var result=F.completeProfile(profile.answers,true,profile.tags);
+    if(result.ok){V.browseAll=false;V.cat=V.st='all';V.tag=null;V.q='';syncQ();}
+    if(result.ok)PROFILE_DRAFT=null;
+    FM_STATUS=result.ok?'Profil confirmat. Recompensa unică este disponibilă pentru revendicare.':'Revizuiește toate categoriile și confirmă fiecare răspuns.';
+    render(); return;
+  }
+  if (d.claim !== undefined){
+    var account = document.getElementById('demo-account');
+    FM_ACCOUNT_LABEL=account?account.value:'';
+    var claim=F.claimProfileReward(FM_ACCOUNT_LABEL);
+    FM_STATUS=claim.ok?(claim.alreadyClaimed?'Revendicarea a fost deja făcută.':'Recompensa a fost adăugată în acest cont demonstrativ.'):(claim.reason==='account_required'?'Introdu un nume pentru contul demonstrativ.':'Revizuiește și confirmă profilul înainte de revendicare.');
+    render(); return;
+  }
+  if (d.confirmEligibility !== undefined){
+    CANDIDATE_DRAFT=candidateAnswers();
+    var eligibility=F.confirmEligibility(PRIMA,CANDIDATE_DRAFT);
+    FM_STATUS=eligibility.ok?(eligibility.eligible?'Condițiile declarate corespund criteriilor din act; eligibilitatea nu este confirmată de AJOFM.':'Răspunsurile declarate nu corespund tuturor criteriilor. Creditele rămân disponibile.'):(eligibility.reason==='profile_incomplete'?'Confirmă profilul înainte de verificarea condițiilor.':'Completează fiecare condiție cu Da, Nu sau Nu sunt sigur(ă).');
+    render(); return;
+  }
+  if (d.unlock){
+    CANDIDATE_DRAFT=candidateAnswers();
+    var result=F.unlock(PRIMA,new Date(),CANDIDATE_DRAFT);
+    FM_STATUS=result.ok?(result.alreadyUnlocked?'Ghidul este deja deblocat.':'Ghidul complet a fost deschis; o deblocare gratuită a fost folosită.'):(result.reason==='no_credit'?'Nu mai ai deblocări gratuite disponibile.':result.reason==='action_unavailable'?'Acțiunea nu mai este disponibilă potrivit datei curente. Nicio deblocare nu a fost folosită.':result.reason==='answers_changed'?'Răspunsurile s-au schimbat; verifică din nou condițiile. Nicio deblocare nu a fost folosită.':'Condițiile confirmate nu corespund; nicio deblocare nu a fost folosită.');
+    render(); return;
+  }
+  if (d.notapp){ var report=F.reportNotApplicable(d.notapp); FM_STATUS=report.ok?'Raportul „nu mi se aplică” a fost salvat local. Deblocarea nu se restituie automat.':'Nu s-a găsit o deblocare pentru raportare.'; render(); return; }
+  if (d.why){ V.why[d.why] = !V.why[d.why]; render(); return; }
+  if (d.law){ V.law[d.law] = !V.law[d.law]; render(); return; }
+  if (d.spec){ V.spec[d.spec] = !V.spec[d.spec]; V.copy[d.spec] = 0; render(); return; }
+  if (d.copy){ var k = d.copy; navigator.clipboard.writeText(LEVELS[k].intrebare).then(function(){ V.copy[k] = 1; render(); }, function(){ V.copy[k] = 2; render(); }); return; }
+  if (d.profile!==undefined){V.tab='tine';render();PROFILE_DETAILS_OPEN=true;var panel=document.getElementById('profile-details');if(panel){panel.open=true;if(panel.scrollIntoView)panel.scrollIntoView({block:'start'});if(panel.querySelector){var summary=panel.querySelector('summary');if(summary)summary.focus();}}return;}
+  if (d.tab){ V.tab = d.tab; render(); scrollTo(0, 0); return; }
+  if (d.go){ goTo(d.go); return; }
+  if (d.feed){ goTo(d.feed); return; }
+  if (d.open){ V.open = V.open === d.open ? null : d.open; render(); return; }
+  if (d.nopen){ V.nopen = V.nopen === d.nopen ? null : d.nopen; render(); return; }
+  if (d.cat){ V.cat = d.cat; render(); return; }
+  if (d.st){ V.st = V.st === d.st && d.st !== 'all' ? 'all' : d.st; render(); return; }
+  if (d.nst){ V.nst = d.nst; render(); return; }
+  if (d.nrel){ V.nrel = V.nrel === d.nrel ? 'all' : d.nrel; render(); return; }
+  if (d.tag){ V.tag = V.tag === d.tag ? null : d.tag; render(); return; }
+  if (d.all!==undefined){V.browseAll=true;render();return;}
+  if (d.mine!==undefined){V.browseAll=false;V.cat=V.st='all';V.tag=null;render();return;}
+  if ('reset' in d){ V.browseAll=true;V.cat = V.st = V.nst = V.nrel = 'all'; V.tag = null; V.q = ''; syncQ(); render(); }
+});
+document.addEventListener('change',function(e){
+  if((e.target.id&&e.target.id.indexOf('review-')===0)||e.target.hasAttribute('data-profile-tag')){
+    var focusKey=draftFocusKey(e.target),scrollX=window.scrollX,scrollY=window.scrollY;
+    PROFILE_DRAFT=profileValues();
+    var current=F.getState();
+    if(JSON.stringify(PROFILE_DRAFT.answers)!==JSON.stringify(current.profileAnswers)||JSON.stringify(PROFILE_DRAFT.tags)!==JSON.stringify(current.profileTags)){
+      F.invalidateProfile(); FM_STATUS='Profilul s-a schimbat. Confirmă-l din nou înainte de verificarea eligibilității.'; render(); restoreDraftFocus(focusKey,scrollX,scrollY);
+    }
+    return;
+  }
+  if(e.target.id&&e.target.id.indexOf('fact-')===0){
+    var focusKey=draftFocusKey(e.target),scrollX=window.scrollX,scrollY=window.scrollY;
+    CANDIDATE_DRAFT=candidateAnswers(); F.invalidateEligibility(PRIMA.id);
+    FM_STATUS='Răspunsul s-a schimbat. Verifică din nou toate condițiile înainte de deschidere.'; render(); restoreDraftFocus(focusKey,scrollX,scrollY);
+  }
+});
+document.addEventListener('input', function(e){ if (e.target.id === 'q' || e.target.hasAttribute('data-q')){ V.q = e.target.value.trim(); syncQ(); render(); } });
+document.getElementById('qi').innerHTML = ic('search');
+document.querySelectorAll('.ph-search i').forEach(function(x){ x.innerHTML = ic('search'); });
+document.getElementById('mbtn').innerHTML = ic('menu');
+document.getElementById('avi').innerHTML = ic('user');
+if (Q.get('q')){ V.q = Q.get('q'); syncQ(); }
+if (Q.get('st')) V.st = Q.get('st');
+['why','law','spec'].forEach(function(k){ (Q.get(k) || '').split(',').filter(Boolean).forEach(function(id){ V[k][id] = 1; }); });
+render();
+if (Q.get('go')) goTo(Q.get('go'));
+</script>
+</body>
+</html>

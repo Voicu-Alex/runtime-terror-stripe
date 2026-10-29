@@ -20,3 +20,14 @@ next-env.d.ts
 # python (scripturi și servere locale)
 __pycache__/
 *.pyc
+
+# loturile de interpretare (texte de lege exportate pentru agenți, răspunsurile lor)
+scratch/
+
+# macheta v6 copiată în public/ la build (scripts/publica-mockup-v6.mjs); sursa e mockup/
+/public/v4/
+/public/v5/
+/public/v6/
+
+# build local (Vite)
+/dist/

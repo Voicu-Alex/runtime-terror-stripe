@@ -1,0 +1,360 @@
+{
+  "act": "Legea 141/2025",
+  "mo": "MO 699 / 25 iul 2025",
+  "publicat_la": "2025-07-25",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Dividendele distribuite din 2026 se impozitează cu 16%, impozitul fiind final",
+      "rezumat_en": "Dividends distributed from 2026 are taxed at 16%, and the tax is final",
+      "taguri": ["srl_dividende"],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": "dividende_16",
+      "formula_tip": null,
+      "articol": "art. II pct. 5 (art. 97 alin. (7)) și art. VII alin. (1) lit. c)",
+      "citat": "se impozitează cu o cotă de 16% din suma acestora, impozitul fiind final",
+      "niveluri": {
+        "zero": "Dividendele distribuite de la 1 ianuarie 2026 se impozitează cu 16%.",
+        "curios": "Impozitul pe dividende este de 16% din suma dividendului, iar impozitul este final. Îl reține și îl virează firma care plătește dividendul, până pe 25 a lunii următoare plății. Se aplică dividendelor distribuite începând cu 1 ianuarie 2026.",
+        "expert": "Art. 97 alin. (7) din Codul fiscal fixează cota la 16% pentru dividende și pentru câștigul din titluri de participare la organisme de plasament colectiv, impozit final. Obligația de calcul și reținere revine persoanei juridice plătitoare, cu virare până la 25 inclusiv a lunii următoare plății. Dividendele distribuite, dar neplătite până la sfârșitul anului aprobării, se impozitează până la 25 ianuarie a anului următor. Aplicare: dividende distribuite de la 1 ianuarie 2026 (art. VII alin. (1) lit. c) și h)); pentru contribuabilii cu an fiscal modificat, din prima zi a anului fiscal modificat care începe în 2026. Același 16% apare la art. 224 alin. (4) lit. b)."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "La fiecare plată de dividende din 2026, firma calculează 16% și virează impozitul până pe 25 a lunii următoare. Dacă dividendele au fost distribuite, dar nu plătite până la sfârșitul anului, impozitul se plătește până pe 25 ianuarie a anului următor.",
+          "termen": null,
+          "destinatie": "anaf_formulare",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Vechea cotă (10%) apare în text doar la art. VII alin. (2), pentru dividendele din situații interimare 2025. Formula dividende_16 presupune 6 puncte în plus față de 10%."
+    },
+    {
+      "rezumat": "Dividendele din situații interimare 2025 rămân la 10%, fără recalculare",
+      "rezumat_en": "Dividends paid on 2025 interim accounts stay at 10%, with no recalculation",
+      "taguri": ["srl_dividende"],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. VII alin. (2)",
+      "citat": "cota de impozit pe dividende este de 10%, fără recalcularea impozitului pe dividendele respective",
+      "niveluri": {
+        "zero": "Dividendele plătite în 2025 pe baza situațiilor interimare rămân impozitate cu 10%.",
+        "curios": "Dacă ai distribuit dividende în 2025 pe baza unor situații financiare interimare, cota rămâne 10%. Impozitul nu se recalculează nici după ce se aprobă situațiile financiare anuale pe 2025.",
+        "expert": "Art. VII alin. (2): pentru dividendele distribuite pe baza situațiilor financiare interimare întocmite în 2025 (sau în anul fiscal modificat care începe în 2025), cota este 10%, fără recalcularea impozitului după regularizarea pe baza situațiilor anuale aferente exercițiului 2025, aprobate potrivit legii."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Dacă ai primit dividende în 2025 pe baza unor situații interimare, verifică în evidența firmei că impozitul reținut a fost de 10% și că nu s-a făcut o recalculare la aprobarea bilanțului pe 2025.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Regula privește dividende deja distribuite în 2025. Suma nu se calculează, fiindcă depinde de dividendele distribuite pe baza situațiilor interimare."
+    },
+    {
+      "rezumat": "TVA standard este 21%",
+      "rezumat_en": "Standard VAT rate is 21%",
+      "taguri": [],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": "tva_21",
+      "formula_tip": null,
+      "articol": "art. II pct. 42 (art. 291 alin. (1)) și art. VII alin. (1)",
+      "citat": "Cota standard se aplică asupra bazei de impozitare pentru operațiunile impozabile care nu sunt scutite de taxă sau care nu sunt supuse cotei reduse, iar nivelul acesteia este 21%",
+      "niveluri": {
+        "zero": "Cota standard de TVA este 21% din 1 august 2025.",
+        "curios": "Tot ce nu este scutit de TVA și nu are cotă redusă se taxează cu 21%. Legea intră în vigoare la 1 august 2025, deci prețurile cu cota standard au la bază 21%.",
+        "expert": "Art. 291 alin. (1) din Codul fiscal: cota standard este 21%, pentru operațiunile impozabile care nu sunt scutite și nu sunt supuse cotei reduse. Art. VII alin. (1): art. II-VI intră în vigoare la 1 august 2025."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică pe bon sau pe factură că TVA este 21% la produsele și serviciile fără cotă redusă.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Vechea cotă (19%) nu apare în articolele primite. Nicio etichetă din listă nu se potrivește, fiindcă schimbarea privește orice cumpărător. Formula tva_21 estimează impactul din cheltuielile lunare."
+    },
+    {
+      "rezumat": "Cota redusă de TVA este 11% la alimente, medicamente, apă, cărți și alte categorii",
+      "rezumat_en": "The reduced VAT rate is 11% for food, medicines, water, books and other listed items",
+      "taguri": [],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II pct. 42 (art. 291 alin. (2)) și art. VII alin. (1)",
+      "citat": "Cota redusă de 11% se aplică asupra bazei de impozitare pentru următoarele prestări de servicii și/sau livrări de bunuri",
+      "niveluri": {
+        "zero": "Cota redusă de TVA este 11% din 1 august 2025, pentru o listă de produse și servicii.",
+        "curios": "Medicamentele, alimentele (cu excepții), apa și canalizarea, cărțile, ziarele și revistele, accesul la muzee și castele, cazarea și restaurantele au TVA de 11%. Alcoolul, băuturile nealcoolice de la codul NC 2202 și alimentele cu minimum 10 g zahăr la 100 g produs sunt excluse din cota redusă.",
+        "expert": "Art. 291 alin. (2) lit. a)-n) din Codul fiscal, cu cota redusă de 11%: medicamente de uz uman; alimente și băuturi pentru consum uman și animal, cu excepția băuturilor alcoolice, a celor de la codul NC 2202, a alimentelor cu zahăr adăugat (minimum 10 g/100 g produs, altele decât laptele praf pentru nou-născuți, sugari și copii mici) și a suplimentelor alimentare; apă și canalizare; apă pentru irigații; îngrășăminte, pesticide și semințe agricole; manuale, cărți, ziare și reviste; acces la castele, muzee și monumente; lemn de foc și peleți; energie termică în sezonul rece (1 noiembrie - 31 martie) pentru populație și alte categorii; locuințe ca politică socială; cazare; restaurante și catering. Alin. (3) a fost abrogat."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică pe bon sau pe factură că produsele din lista cotei reduse (medicamente, alimente, apă, cărți) au TVA de 11%.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Cotele reduse anterioare (5% și 9%) nu apar în articolele primite, deci nu spunem dacă prețul crește sau scade și nu calculăm suma. Formula tva_21 nu se potrivește. Nicio etichetă din listă nu se potrivește, fiindcă schimbarea privește orice cumpărător. Codurile NC se stabilesc prin normele metodologice, care nu sunt în text."
+    },
+    {
+      "rezumat": "Cazarea și restaurantele au TVA de 11%",
+      "rezumat_en": "Accommodation and restaurant services carry 11% VAT",
+      "taguri": ["horeca"],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": "horeca_tva_11",
+      "formula_tip": null,
+      "articol": "art. II pct. 42 (art. 291 alin. (2) lit. m) și n))",
+      "citat": "serviciile de restaurant și de catering, cu excepția băuturilor alcoolice, precum și a băuturilor nealcoolice care se încadrează la codul NC 2202",
+      "niveluri": {
+        "zero": "Cazarea, restaurantele și cateringul au TVA de 11%, fără băuturile alcoolice.",
+        "curios": "Serviciile de restaurant și catering, fără băuturile alcoolice și fără băuturile nealcoolice de la codul NC 2202, au cota redusă de 11%. La fel și cazarea în hoteluri și în unități similare, inclusiv închirierea terenurilor de camping.",
+        "expert": "Art. 291 alin. (2) lit. m) cazarea în sectorul hotelier sau în sectoare cu funcție similară, inclusiv închirierea terenurilor amenajate pentru camping; lit. n) serviciile de restaurant și de catering, cu excepția băuturilor alcoolice și a băuturilor nealcoolice de la codul NC 2202. Aplicare de la 1 august 2025."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Dacă ai o unitate de cazare sau un restaurant, verifică în casa de marcat și în facturi că serviciile au TVA de 11%, iar băuturile alcoolice rămân la cota standard.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Formula horeca_tva_11 nu estimează un impact direct. Cota anterioară nu apare în articolele primite."
+    },
+    {
+      "rezumat": "Lemnul de foc are TVA de 11% până la 31 decembrie 2029",
+      "rezumat_en": "Firewood carries 11% VAT until 31 December 2029",
+      "taguri": [],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": "2029-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II pct. 44 (art. 291 alin. (3^4)) și alin. (2) lit. i)",
+      "citat": "Prevederile alin. (2) lit. i) și j) se aplică până la data de 31 decembrie 2029 inclusiv",
+      "niveluri": {
+        "zero": "Lemnul de foc și peleții au TVA de 11% până la 31 decembrie 2029.",
+        "curios": "Livrarea către persoane fizice de lemn de foc, peleți, brichete și rumeguș are cota redusă de 11%. Pentru rumegușul și resturile de lemn neaglomerate folosite drept combustibil, beneficiarul dă o declarație pe propria răspundere.",
+        "expert": "Art. 291 alin. (2) lit. i) și j) din Codul fiscal: cota redusă de 11% pentru lemn de foc (NC 4401 11 00 și 4401 12 00) și pentru peleți, brichete și forme similare (NC 4401 31 00 și 4401 32 00); pentru rumeguș, deșeuri și resturi de lemn neaglomerate (NC 4401 41 00 și 4401 49 00) folosite drept combustibil, pe baza declarației pe propria răspundere a beneficiarului. Alin. (3^4): se aplică până la 31 decembrie 2029 inclusiv."
+      },
+      "actiuni": [
+        {
+          "tip": "nimic_pana_la",
+          "cine_aplica": "stat",
+          "text": "Nu ai nimic de făcut până la 31 decembrie 2029. La rumegușul neaglomerat folosit drept combustibil, dă furnizorului declarația pe propria răspundere.",
+          "termen": "2029-12-31",
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Cota anterioară nu apare în articolele primite, deci nu calculăm suma. Nicio etichetă din listă nu se potrivește."
+    },
+    {
+      "rezumat": "Îngrășămintele și pesticidele chimice au TVA de 11% până la 31 decembrie 2031",
+      "rezumat_en": "Chemical fertilisers and pesticides carry 11% VAT until 31 December 2031",
+      "taguri": ["agricultura"],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": "2031-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II pct. 44 (art. 291 alin. (3^3)) și alin. (2) lit. f)",
+      "citat": "Prevederile alin. (2) lit. f) se aplică până la data de 31 decembrie 2031 inclusiv",
+      "niveluri": {
+        "zero": "Îngrășămintele și pesticidele chimice au TVA de 11% până la 31 decembrie 2031.",
+        "curios": "Livrarea de îngrășăminte chimice și pesticide chimice folosite în mod normal în agricultură are cota redusă de 11%. Cota se aplică până la 31 decembrie 2031.",
+        "expert": "Art. 291 alin. (2) lit. f): livrarea de îngrășăminte chimice și pesticide chimice de tipul celor folosite în mod normal în producția agricolă, prevăzute prin ordin comun al ministrului finanțelor și al ministrului agriculturii și dezvoltării rurale. Alin. (3^3): se aplică până la 31 decembrie 2031 inclusiv."
+      },
+      "actiuni": [
+        {
+          "tip": "nimic_pana_la",
+          "cine_aplica": "stat",
+          "text": "Nu ai nimic de făcut până la 31 decembrie 2031. Verifică pe factură că îngrășămintele și pesticidele chimice din ordinul comun au TVA de 11%.",
+          "termen": "2031-12-31",
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Lista produselor se dă prin ordin comun al ministrului finanțelor și al ministrului agriculturii, care nu e în text. Cota anterioară nu apare în articolele primite."
+    },
+    {
+      "rezumat": "Energia termică din sezonul rece (1 noiembrie - 31 martie) are TVA de 11%",
+      "rezumat_en": "Heat supplied in the cold season (1 November to 31 March) carries 11% VAT",
+      "taguri": [],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II pct. 42 și 44 (art. 291 alin. (2) lit. k) și alin. (3^2))",
+      "citat": "livrarea de energie termică în sezonul rece, destinată următoarelor categorii de consumatori",
+      "niveluri": {
+        "zero": "Energia termică pentru populație are TVA de 11% în sezonul rece.",
+        "curios": "Livrarea de energie termică pentru populație are cota redusă de 11% în sezonul rece. Sezonul rece are 5 luni, de la 1 noiembrie până la 31 martie anul următor, deci următorul începe la 1 noiembrie 2026.",
+        "expert": "Art. 291 alin. (2) lit. k): cota redusă de 11% pentru energia termică în sezonul rece, pentru populație, spitale, unități de învățământ, organizații neguvernamentale, unități de cult și furnizori de servicii sociale acreditați. Alin. (3^2): sezonul rece este perioada de 5 luni dintre 1 noiembrie a anului curent și 31 martie a anului următor."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Din 1 noiembrie, verifică pe factura de căldură că TVA este 11% la energia termică livrată în sezonul rece.",
+          "termen": "2026-11-01",
+          "destinatie": "furnizor",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Cota anterioară nu apare în articolele primite, deci nu calculăm suma. Nicio etichetă din listă nu se potrivește cu încălzirea centralizată."
+    },
+    {
+      "rezumat": "Pensionarii cu pensia peste 3.000 lei plătesc CASS pe partea care depășește 3.000 lei, până la 31 decembrie 2027",
+      "rezumat_en": "Pensioners with a pension above 3,000 lei pay health insurance (CASS) on the part above 3,000 lei, until 31 December 2027",
+      "taguri": ["pensionar"],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": "2027-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [{ "camp": "pensie_lunara", "op": ">", "valoare": 3000 }],
+      "formula": "cass_pensii",
+      "formula_tip": null,
+      "articol": "art. II pct. 25 (art. 157^6), pct. 18 (art. 154 alin. (1) lit. h^2)) și art. VII alin. (1) lit. e), alin. (3)",
+      "citat": "se stabilește prin deducerea din venitul din pensie a sumei lunare de 3.000 lei, pentru fiecare drept de pensie",
+      "niveluri": {
+        "zero": "Dacă pensia ta e peste 3.000 lei pe lună, plătești CASS doar pe ce depășește 3.000 lei.",
+        "curios": "Pensia intră printre veniturile pentru care se datorează CASS. Baza de calcul este pensia minus 3.000 lei lunar, pentru fiecare drept de pensie. Pensionarii cu pensia de cel mult 3.000 lei lunar nu datorează CASS. Contribuția se reține de casa de pensii și se aplică din august 2025 până la 31 decembrie 2027, iar de la 1 ianuarie 2028 pensionarii sunt exceptați.",
+        "expert": "Art. 155 alin. (1) lit. a^2) adaugă veniturile din pensii (definite la art. 99) la veniturile pentru care se datorează CASS. Art. 157^6: baza lunară este pensia minus 3.000 lei, pentru fiecare drept de pensie. Art. 154 alin. (1) lit. h^2): nu se datorează CASS pentru pensii de până la 3.000 lei lunar inclusiv. Art. 153 alin. (1) lit. f^7) și art. 168 alin. (1): Casa Națională de Pensii Publice, prin casele teritoriale și sectoriale, calculează și reține contribuția. Art. VII alin. (3): se aplică veniturilor dintre 1 august 2025 și 31 decembrie 2027; art. 220^8 alin. (4): pensionarii sunt exceptați pentru veniturile din pensii realizate de la 1 ianuarie 2028. Art. 100 stabilește o sumă neimpozabilă lunară de 3.000 lei pentru impozitul pe venit din pensii."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică pe talonul de pensie că CASS este calculată doar pe partea de pensie care depășește 3.000 lei și că, la pensie de până la 3.000 lei, nu se reține nimic.",
+          "termen": null,
+          "destinatie": "cnpp",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Cota CASS (art. 156) nu e în articolele primite; formula cass_pensii folosește 10%, de verificat pe art. 156. Pensiile din străinătate au reguli proprii (art. 130 alin. (2^1), art. 169^2) care nu sunt descrise aici."
+    },
+    {
+      "rezumat": "Indemnizațiile de șomaj, de creștere a copilului și ajutorul de incluziune intră printre veniturile cu CASS",
+      "rezumat_en": "Unemployment benefits, child-raising allowances and the inclusion aid are added to the incomes that carry health insurance (CASS)",
+      "taguri": ["somer", "concediu_crestere"],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II pct. 22 (art. 155 alin. (1) lit. j)-m)) și pct. 25 (art. 157^7-157^9)",
+      "citat": "indemnizații de șomaj acordate potrivit Legii nr. 76/2002 privind sistemul asigurărilor pentru șomaj",
+      "niveluri": {
+        "zero": "Indemnizația de șomaj și cea de creștere a copilului intră în baza pentru CASS.",
+        "curios": "Indemnizațiile de șomaj, indemnizațiile pentru adopție și creșterea copilului, ajutorul de incluziune și ajutorul pentru familia cu copii se adaugă printre veniturile pentru care se calculează CASS. Baza de calcul este cuantumul fiecărui drept. Se aplică veniturilor din august 2025.",
+        "expert": "Art. 155 alin. (1) lit. j)-m): indemnizații de șomaj (Legea 76/2002), indemnizații lunare conform art. 50 alin. (1) din Legea 273/2004 și art. 2 alin. (1) și art. 31 alin. (2) din OUG 111/2010, ajutorul de incluziune și ajutorul pentru familia cu copii (Legea 196/2016) și drepturile bănești din actele de la art. 153 alin. (1) lit. f^9). Art. 157^7-157^9: baza lunară este cuantumul drepturilor. Plătitorii calculează, rețin sau plătesc contribuția (art. 168 alin. (1^3), (1^5), (1^6)): ANOFM, ANPIS și plătitorii din lit. f^9). Aplicare: veniturile din august 2025 (art. VII alin. (1) lit. e))."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică pe decizia sau pe talonul de plată al indemnizației cum este calculată CASS pe cuantumul drepturilor.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Articolele primite nu spun ce regulă era înainte, nici cota CASS (art. 156) sau dacă vreo categorie rămâne scutită după abrogările de la art. 154. Suma depinde de cuantumul indemnizației și de cotă. De verificat înainte de publicare."
+    },
+    {
+      "rezumat": "Dobânzile la obligațiunile unor firme românești emise în afara țării se impozitează cu 10%",
+      "rezumat_en": "Interest on bonds of Romanian companies issued abroad is taxed at 10%",
+      "taguri": [],
+      "in_vigoare_de_la": "2025-08-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II pct. 6 (art. 97^1) și art. VII alin. (1) lit. d)",
+      "citat": "veniturile sub formă de dobânzi plătite de societatea emitentă și înregistrate în contul contribuabilului în cursul anului fiscal se impun cu o cotă de 10% din suma acestora",
+      "niveluri": {
+        "zero": "Dobânzile la obligațiunile unor firme românești emise în străinătate se impozitează cu 10%.",
+        "curios": "Dobânzile plătite de firme românești la obligațiunile emise pe piețe de capital din afara României se impun cu 10%. Impozitul îl calculezi tu în Declarația unică. Regula se aplică dobânzilor plătite de la 1 august 2025, indiferent când au fost emise obligațiunile.",
+        "expert": "Art. 97^1 alin. (1): prin excepție de la art. 97 alin. (2), pentru obligațiunile emise de societăți rezidente în România pe piețe de capital din afara României, dobânzile plătite de emitent și înregistrate în contul contribuabilului în anul fiscal se impun cu 10%. Alin. (2): impozitul se calculează pe baza declarației unice depuse conform art. 122. Art. VII alin. (1) lit. d): se aplică veniturilor plătite de la 1 august 2025, indiferent de data emiterii."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ai primit dobânzi de acest fel, declară-le în Declarația unică și calculează impozitul de 10%.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Nicio etichetă din listă nu se potrivește. Termenul de depunere al Declarației unice (art. 122) nu e în articolele primite. Suma depinde de dobânzile primite."
+    }
+  ]
+}

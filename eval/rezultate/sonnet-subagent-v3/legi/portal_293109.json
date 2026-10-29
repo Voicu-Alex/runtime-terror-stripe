@@ -1,0 +1,437 @@
+{
+  "act": "OUG 156/2024",
+  "mo": "MO 1334 / 31 dec 2024",
+  "publicat_la": "2024-12-31",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": "it_scutire",
+      "formula_tip": null,
+      "rezumat": "Scutirea de impozit pe venit de la art. 60 pct. 2 din Codul fiscal se abrogă din ianuarie 2025",
+      "rezumat_en": "Income-tax exemption under art. 60 point 2 of the Fiscal Code is repealed from January 2025",
+      "taguri": [
+        "it",
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "cost",
+      "articol": "art. LXIV pct. 7 și art. LXV alin. (3)",
+      "citat": "La articolul 60, punctele 2, 5 și 7 se abrogă.",
+      "niveluri": {
+        "zero": "Din ianuarie 2025, venitul care intra la art. 60 pct. 2 din Codul fiscal nu mai e scutit de impozit pe venit.",
+        "curios": "Ordonanța abrogă art. 60 pct. 2, 5 și 7 din Codul fiscal, adică scutirile de impozit pe venit de acolo, și abrogarea se aplică veniturilor din ianuarie 2025. Pentru venitul care intra la pct. 2, impozitul pe venit se reține deci din tot venitul impozabil, iar salariul net scade. Cât scade depinde de salariul tău.",
+        "expert": "Art. LXIV pct. 7 abrogă art. 60 pct. 2, 5 și 7 din Codul fiscal; art. LXV alin. (3) le aplică începând cu veniturile aferente lunii ianuarie 2025. Tot atunci se abrogă art. 60^1 (pct. 8) și art. 138^1, 138^2, 138^4 și 138^5 (pct. 10-13), fără ca textul să spună ce prevedeau. Ce acoperea pct. 2 trebuie verificat în Codul fiscal."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul din ianuarie 2025 că impozitul pe venit se calculează fără scutirea abrogată; aplicarea o face angajatorul.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul OUG spune doar că art. 60 pct. 2, 5 și 7 din Codul fiscal se abrogă (art. LXIV pct. 7), cu aplicare de la veniturile aferente lunii ianuarie 2025 (art. LXV alin. (3)); nu spune ce acoperă fiecare punct. De verificat: pct. 2 = IT, pct. 5 = construcții, pct. 7 = agricultură/industria alimentară, după catalog; etichetele sunt ipoteza de public. Se abrogă odată cu el art. 60^1 (pct. 8) și art. 138^1, 138^2, 138^4, 138^5 (pct. 10-13), al căror conținut nu e în text; legătura lor cu Pilonul II nu rezultă din acest text, deci nu am pus eticheta pilon2. Formula din registru (it_scutire) este o estimare scrisă de mână, ale cărei numere nu sunt în text; nu am pus formula_tip."
+    },
+    {
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": "constructii_facilitati",
+      "formula_tip": null,
+      "rezumat": "Scutirea de impozit pe venit de la art. 60 pct. 5 din Codul fiscal se abrogă din ianuarie 2025",
+      "rezumat_en": "Income-tax exemption under art. 60 point 5 of the Fiscal Code is repealed from January 2025",
+      "taguri": [
+        "constructii",
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "cost",
+      "articol": "art. LXIV pct. 7 și art. LXV alin. (3)",
+      "citat": "La articolul 60, punctele 2, 5 și 7 se abrogă.",
+      "niveluri": {
+        "zero": "Din ianuarie 2025, venitul care intra la art. 60 pct. 5 din Codul fiscal nu mai e scutit de impozit pe venit.",
+        "curios": "Ordonanța abrogă art. 60 pct. 2, 5 și 7 din Codul fiscal, adică scutirile de impozit pe venit de acolo, și abrogarea se aplică veniturilor din ianuarie 2025. Pentru venitul care intra la pct. 5, impozitul pe venit se reține deci din tot venitul impozabil, iar salariul net scade. Cât scade depinde de salariul tău.",
+        "expert": "Art. LXIV pct. 7 abrogă art. 60 pct. 2, 5 și 7 din Codul fiscal; art. LXV alin. (3) le aplică începând cu veniturile aferente lunii ianuarie 2025. Tot atunci se abrogă art. 60^1 (pct. 8) și art. 138^1, 138^2, 138^4 și 138^5 (pct. 10-13), fără ca textul să spună ce prevedeau. Ce acoperea pct. 5 trebuie verificat în Codul fiscal."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul din ianuarie 2025 că impozitul pe venit se calculează fără scutirea abrogată; aplicarea o face angajatorul.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul OUG spune doar că art. 60 pct. 2, 5 și 7 din Codul fiscal se abrogă (art. LXIV pct. 7), cu aplicare de la veniturile aferente lunii ianuarie 2025 (art. LXV alin. (3)); nu spune ce acoperă fiecare punct. De verificat: pct. 2 = IT, pct. 5 = construcții, pct. 7 = agricultură/industria alimentară, după catalog; etichetele sunt ipoteza de public. Se abrogă odată cu el art. 60^1 (pct. 8) și art. 138^1, 138^2, 138^4, 138^5 (pct. 10-13), al căror conținut nu e în text; legătura lor cu Pilonul II nu rezultă din acest text, deci nu am pus eticheta pilon2. Formula din registru (constructii_facilitati) este o estimare scrisă de mână, ale cărei numere nu sunt în text; nu am pus formula_tip."
+    },
+    {
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Scutirea de impozit pe venit de la art. 60 pct. 7 din Codul fiscal se abrogă din ianuarie 2025",
+      "rezumat_en": "Income-tax exemption under art. 60 point 7 of the Fiscal Code is repealed from January 2025",
+      "taguri": [
+        "agricultura",
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "cost",
+      "articol": "art. LXIV pct. 7 și art. LXV alin. (3)",
+      "citat": "La articolul 60, punctele 2, 5 și 7 se abrogă.",
+      "niveluri": {
+        "zero": "Din ianuarie 2025, venitul care intra la art. 60 pct. 7 din Codul fiscal nu mai e scutit de impozit pe venit.",
+        "curios": "Ordonanța abrogă art. 60 pct. 2, 5 și 7 din Codul fiscal, adică scutirile de impozit pe venit de acolo, și abrogarea se aplică veniturilor din ianuarie 2025. Pentru venitul care intra la pct. 7, impozitul pe venit se reține deci din tot venitul impozabil, iar salariul net scade. Cât scade depinde de salariul tău.",
+        "expert": "Art. LXIV pct. 7 abrogă art. 60 pct. 2, 5 și 7 din Codul fiscal; art. LXV alin. (3) le aplică începând cu veniturile aferente lunii ianuarie 2025. Tot atunci se abrogă art. 60^1 (pct. 8) și art. 138^1, 138^2, 138^4 și 138^5 (pct. 10-13), fără ca textul să spună ce prevedeau. Ce acoperea pct. 7 trebuie verificat în Codul fiscal."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul din ianuarie 2025 că impozitul pe venit se calculează fără scutirea abrogată; aplicarea o face angajatorul.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul OUG spune doar că art. 60 pct. 2, 5 și 7 din Codul fiscal se abrogă (art. LXIV pct. 7), cu aplicare de la veniturile aferente lunii ianuarie 2025 (art. LXV alin. (3)); nu spune ce acoperă fiecare punct. De verificat: pct. 2 = IT, pct. 5 = construcții, pct. 7 = agricultură/industria alimentară, după catalog; etichetele sunt ipoteza de public. Se abrogă odată cu el art. 60^1 (pct. 8) și art. 138^1, 138^2, 138^4, 138^5 (pct. 10-13), al căror conținut nu e în text; legătura lor cu Pilonul II nu rezultă din acest text, deci nu am pus eticheta pilon2. Fără formulă: textul nu dă sume, iar registrul nu are o formulă pentru agricultură."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Impozitul pe dividende e 10% pentru dividendele distribuite după 1 ianuarie 2025",
+      "rezumat_en": "Dividend tax is 10% for dividends distributed after 1 January 2025",
+      "taguri": [
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "cost",
+      "articol": "art. LXIV pct. 9 (art. 97 alin. (7) Cod fiscal) și art. LXV alin. (4)",
+      "citat": "(7) Veniturile sub formă de dividende, inclusiv câștigul obținut ca urmare a deținerii de titluri de participare definite de legislația în materie la organisme de plasament colectiv, se impozitează cu o cotă de 10% din suma acestora, impozitul fiind final.",
+      "niveluri": {
+        "zero": "Din 2025, din dividendele pe care le primești se reține impozit de 10%.",
+        "curios": "Impozitul pe dividende este de 10%, iar impozitul este final, adică nu mai ai de plătit altceva pe ele. Îl calculează și îl reține firma care plătește dividendul și îl virează până pe 25 a lunii următoare. Se aplică dividendelor distribuite după 1 ianuarie 2025.",
+        "expert": "Art. LXIV pct. 1, 9 și 15 modifică art. 43 alin. (2), art. 97 alin. (7) și art. 224 alin. (4) lit. b) din Codul fiscal la 10%; art. LXV alin. (4) le aplică dividendelor distribuite după 1 ianuarie 2025. Art. LXV alin. (5): pentru dividendele distribuite în 2024 pe baza situațiilor interimare cota rămâne 8%, fără recalculare. Dividendele distribuite, dar neplătite până la sfârșitul anului, se impozitează până pe 25 ianuarie anul următor."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Verifică pe extras că firma a reținut 10%.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "pana_la 2025-12-31 vine din Legea 141/2025 (cota de 16% din 2026), nu din acest text; de verificat. Fără formula_tip: singura cotă veche scrisă în text este 8%, dar doar ca excepție pentru dividendele din 2024 distribuite pe situații interimare (art. LXV alin. (5)), nu cota generală dinainte; cota generală veche nu e în text. Formula dividende_16 din registru e pentru cota de 16%, nu pentru 10%."
+    },
+    {
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Plafonul de venituri al microîntreprinderilor scade la 100.000 euro din 1 ianuarie 2026",
+      "rezumat_en": "Micro-enterprise revenue cap falls to 100,000 euro from 1 January 2026",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "directie": "cost",
+      "articol": "art. LXIV pct. 2 (art. 47 alin. (1) lit. c) Cod fiscal)",
+      "citat": "c) a realizat venituri care nu au depășit echivalentul în lei a 250.000 euro, respectiv 100.000 euro începând cu 1 ianuarie 2026.",
+      "niveluri": {
+        "zero": "Din 2026, un SRL micro nu mai poate trece de 100.000 euro venituri pe an, altfel plătește impozit pe profit.",
+        "curios": "Limita de venituri pentru un SRL micro este de 250.000 euro, iar de la 1 ianuarie 2026 devine 100.000 euro. Dacă o depășești în cursul anului, datorezi impozit pe profit din trimestrul în care ai depășit-o și nu mai poți opta pentru micro în perioada următoare. Pentru anul fiscal 2025/2026 limita se verifică pe veniturile de la 31 decembrie 2024, respectiv 31 decembrie 2025.",
+        "expert": "Art. LXIV pct. 2 modifică art. 47 alin. (1) lit. c) (250.000 euro, respectiv 100.000 euro din 1 ianuarie 2026), pct. 5 modifică art. 52 alin. (1) și (5^1) (verificare cumulată cu întreprinderile legate), pct. 6 adaugă art. 54 alin. (3)-(4). Pct. 3 abrogă art. 47 alin. (1) lit. f). Pct. 4 (art. 51 alin. (1^1)) și pct. 6 (art. 54 alin. (4)) adaugă coduri CAEN, din 1 ianuarie 2025; lista nu e reluată aici. Cursul pentru echivalentul în euro este cel de la închiderea exercițiului financiar."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Verifică dacă veniturile firmei, cumulate cu cele ale întreprinderilor legate, pot depăși 100.000 euro în 2026; peste limită se datorează impozit pe profit din trimestrul depășirii.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Impactul în lei depinde de cifra de afaceri și de profitul firmei; nu putem calcula. Textul nu spune ce plafon era înainte de modificare."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [
+        {
+          "camp": "salariu_brut",
+          "op": "<=",
+          "valoare": 4300
+        }
+      ],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Pe salariul minim, 300 lei pe lună rămân fără impozit și contribuții în 2025",
+      "rezumat_en": "On the minimum wage, 300 lei a month stay free of income tax and contributions in 2025",
+      "taguri": [
+        "angajat",
+        "salariu_minim"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "info",
+      "articol": "art. LXVI alin. (1)",
+      "citat": "nu se datorează impozit pe venit și nu se cuprinde în baza lunară de calcul al contribuțiilor sociale obligatorii suma de 300 lei/lună",
+      "niveluri": {
+        "zero": "Dacă ai salariul minim cu normă întreagă, 300 lei din salariu nu sunt impozitați în 2025.",
+        "curios": "Pentru salariații cu normă întreagă la locul de bază, al căror salariu de bază brut este egal cu salariul minim brut pe țară, suma de 300 lei pe lună nu se impozitează și nu intră în baza contribuțiilor. Venitul brut din salarii, fără tichete de masă și vouchere de vacanță, nu poate depăși 4.300 lei. Se aplică lunilor ianuarie-decembrie 2025.",
+        "expert": "Art. LXVI alin. (1) cere cumulativ: salariu de bază brut egal cu minimul brut pe țară (lit. a) și venit brut lunar de cel mult 4.300 lei inclusiv (lit. b). Alin. (2): condiția lit. a) nu e îndeplinită dacă salariul de bază e redus între intrarea în vigoare și 31 decembrie 2025. Alin. (4): suma de 300 lei se diminuează după perioada din lună, data angajării sau a încetării contractului. Alin. (5): pentru art. 146 alin. (5^6) și art. 168 alin. (6^1), minimul brut se diminuează cu 300 lei în 2025. Alin. (6): lunile ianuarie-decembrie 2025."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Scutirea are termenul trecut (31 decembrie 2025); actiuni goale. Nu e o sumă netă fixă de 300 lei, ci o parte din venit scutită, deci fără formulă. Condiția salariu_brut <= 4300 este pragul de venit brut; condiția de a fi la salariul minim nu poate fi exprimată ca prag."
+    },
+    {
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Salariul minim brut din construcții este 4.582 lei pe lună din ianuarie 2025",
+      "rezumat_en": "Construction minimum gross wage is 4,582 lei a month from January 2025",
+      "taguri": [
+        "constructii",
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "castig",
+      "articol": "art. LXIX alin. (1)",
+      "citat": "pentru sectorul construcții, salariul de bază minim brut pe țară garantat în plată se stabilește în bani, fără a include indemnizațiile, sporurile și alte adaosuri, la suma de 4.582 lei lunar",
+      "niveluri": {
+        "zero": "În construcții, salariul de bază brut nu poate fi sub 4.582 lei pe lună din 2025.",
+        "curios": "Pentru sectorul construcții, salariul de bază minim brut garantat în plată este de 4.582 lei pe lună, fără sporuri și alte adaosuri. Firmele care nu respectă această sumă primesc contravenție și pierd facilitățile fiscale. Ordonanța abrogă și OUG 93/2023, care stabilise înainte minimul pentru construcții, agricultură și industria alimentară.",
+        "expert": "Art. LXIX alin. (1): 4.582 lei lunar, pentru un program normal de 165,334 ore pe lună, în medie 27,714 lei/oră, prin derogare de la art. 164 alin. (1) din Codul muncii. Alin. (2): nerespectarea este contravenție conform art. 260 alin. (1) lit. a) din Codul muncii și atrage anularea acordării facilităților fiscale. Art. LXVIII abrogă OUG 93/2023 de la intrarea în vigoare."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică în contract și pe fluturaș că salariul de bază brut din construcții, fără sporuri, este cel puțin 4.582 lei pe lună.",
+          "termen": null,
+          "destinatie": "inspectia_muncii",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Câștigul net nu poate fi calculat din text; abrogarea scutirii de impozit din construcții este o schimbare separată. Fără condiții pe profil: minimul legal exclude sporurile, iar salariu_brut le include; cardul cere verificare umană pe anul curent. Destinația inspectia_muncii e pentru cazul în care angajatorul nu respectă minimul; textul nu spune cum se sesizează."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Salariile din sectorul public rămân la nivelul din noiembrie 2024 pe tot 2025",
+      "rezumat_en": "Public-sector salaries stay at the November 2024 level throughout 2025",
+      "taguri": [
+        "bugetar"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "info",
+      "articol": "art. I alin. (1)",
+      "citat": "cuantumul brut al salariilor de bază/soldelor de funcție/salariilor de funcție/indemnizațiilor de încadrare lunară de care beneficiază personalul plătit din fonduri publice se menține la același nivel cu cel ce se acordă pentru luna noiembrie 2024",
+      "niveluri": {
+        "zero": "Dacă lucrezi la stat, salariul brut nu crește în 2025 față de noiembrie 2024.",
+        "curios": "În 2025, de la 1 ianuarie, salariile de bază din sectorul public se mențin la nivelul din noiembrie 2024, dacă ocupi aceeași funcție în aceleași condiții. Același lucru se aplică indemnizațiilor demnitarilor și salariilor funcționarilor din primării și consilii.",
+        "expert": "Art. I alin. (1)-(3) derogă de la art. 12 alin. (2), art. 13 alin. (1) și art. 11 alin. (1) din Legea-cadru 153/2017. Art. LXII menține la nivelul din noiembrie 2024 și alte drepturi de natură salarială din legi speciale; art. II privește sporurile și celelalte elemente salariale, al căror conținut exact nu a fost detaliat aici."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut (31 decembrie 2025). Nu putem calcula un cost în lei: lipsește creșterea care nu se mai acordă. Art. II-V (sporuri, muncă suplimentară, militari) nu au fost descrise separat."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [
+        {
+          "camp": "salariu_net",
+          "op": "<=",
+          "valoare": 8000
+        }
+      ],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Instituțiile publice dau vouchere de vacanță de 800 lei în 2025 celor cu salariu de bază net până la 8.000 lei",
+      "rezumat_en": "Public institutions give 800 lei holiday vouchers in 2025 to staff with net base pay up to 8,000 lei",
+      "taguri": [
+        "bugetar"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "castig",
+      "articol": "art. LII (art. 1 alin. (2) din OUG 8/2009)",
+      "citat": "acordă vouchere de vacanță în cuantum de 800 lei, în perioada 1 ianuarie 2025-31 decembrie 2025, personalului ale cărui salarii de bază nete din luna anterioară acordării acestora sunt de până la 8.000 lei",
+      "niveluri": {
+        "zero": "Dacă lucrezi la stat și salariul de bază net e până la 8.000 lei, primești vouchere de vacanță de 800 lei în 2025.",
+        "curios": "Instituțiile publice acordă în 2025 vouchere de vacanță de 800 lei personalului cu salariul de bază net de până la 8.000 lei în luna anterioară. Voucherele plătesc cel mult 50% din valoarea pachetelor turistice, deci 800 lei se folosesc pentru pachete de cel puțin 1.600 lei.",
+        "expert": "Art. LII reformulează art. 1 alin. (2) din OUG 8/2009. Art. XXXVIII extinde regula 2025 și la operatorii economici din OG 26/2013. Voucherele emise în 2025 acoperă cel mult 50% din contravaloarea pachetelor turistice."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut (31 decembrie 2025). Suma e de 800 lei pe an, nu pe lună, deci fără formula_tip. Condiția salariu_net folosește salariul net din profil ca aproximare a salariului de bază net."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Valoarea punctului de referință rămâne 81 lei în 2025",
+      "rezumat_en": "The value of the reference point stays at 81 lei in 2025",
+      "taguri": [
+        "pensionar"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "info",
+      "articol": "art. XVII alin. (1)",
+      "citat": "În anul 2025 valoarea punctului de referință prevăzut la art. 83 alin. (1) din Legea nr. 360/2023 privind sistemul public de pensii se menține la nivelul de 81 lei.",
+      "niveluri": {
+        "zero": "În 2025, valoarea punctului de referință din Legea 360/2023 se menține la 81 lei.",
+        "curios": "În 2025, valoarea punctului de referință prevăzut la art. 83 alin. (1) din Legea 360/2023 se menține la 81 lei. Art. 84 alin. (3)-(5), (7) și (8) din Legea 360/2023 se aplică abia din 2026.",
+        "expert": "Art. XVII alin. (1): valoarea punctului de referință este menținută la 81 lei în 2025. Alin. (2): art. 84 alin. (3)-(5), (7), (8) din Legea 360/2023 se aplică din 2026; ce prevăd nu e în text."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut (31 decembrie 2025). Textul nu spune cât ar fi crescut punctul fără această regulă, deci fără formulă. Art. X și LXII mențin și alte indemnizații la nivelul din noiembrie 2024."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Studenții au reducere de 90% la transportul intern în 2025",
+      "rezumat_en": "Students get a 90% discount on domestic transport in 2025",
+      "taguri": [
+        "elev_student"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "info",
+      "articol": "art. XXIX alin. (1)",
+      "citat": "studenții înmatriculați la forma de învățământ cu frecvență în instituțiile de învățământ superior acreditate beneficiază de tarif redus cu 90% pentru transportul intern auto și pentru transportul intern feroviar",
+      "niveluri": {
+        "zero": "Studenții la zi plătesc cu 90% mai puțin la transportul intern în 2025.",
+        "curios": "În 2025, studenții la forma cu frecvență au tarif redus cu 90% la transportul intern auto și feroviar (clasa a II-a), doar între domiciliu și localitatea facultății. Reducerea de 90% se aplică și la transportul local în comun și la metrou, în localitatea facultății.",
+        "expert": "Art. XXIX alin. (1) și (2) derogă de la art. 128 alin. (3) din Legea 199/2023 pentru anul 2025: 90% pe auto și feroviar la toate categoriile de trenuri clasa a II-a, pe ruta domiciliu-facultate, și 90% pe transport local în comun și metrou în localitatea instituției."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut (31 decembrie 2025). Valoarea în lei depinde de cât călătorește studentul; fără formulă."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Indicatorul social de referință rămâne la nivelul din noiembrie 2024 pe tot 2025",
+      "rezumat_en": "The social reference indicator stays at its November 2024 level throughout 2025",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "info",
+      "articol": "art. XIX",
+      "citat": "în anul 2025 valoarea indicatorului social de referință se menține la nivelul stabilit pentru luna noiembrie 2024",
+      "niveluri": {
+        "zero": "În 2025, indicatorul social de referință nu se schimbă față de noiembrie 2024.",
+        "curios": "Prin derogare de la art. 33^2 din Legea 76/2002, în 2025 valoarea indicatorului social de referință se menține la nivelul din noiembrie 2024.",
+        "expert": "Art. XIX derogă de la art. 33^2 din Legea 76/2002 (șomaj și stimularea ocupării). Textul nu spune ce prestații se calculează din indicator."
+      },
+      "actiuni": [],
+      "incredere": "medie",
+      "nota": "Termenul a trecut (31 decembrie 2025). Textul nu spune ce plăți depind de indicator; eticheta somer e ipoteză de public, de verificat în Legea 76/2002. Fără formulă."
+    },
+    {
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Salariul minim special din construcții, agricultură și industria alimentară (OUG 93/2023) se abrogă",
+      "rezumat_en": "The special minimum wage for construction, agriculture and food industry (GEO 93/2023) is repealed",
+      "taguri": [
+        "agricultura",
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "info",
+      "articol": "art. LXVIII",
+      "citat": "se abrogă Ordonanța de urgență a Guvernului nr. 93/2023 pentru stabilirea salariului de bază minim brut pe țară garantat în plată pentru sectoarele construcții, agricol și industria alimentară",
+      "niveluri": {
+        "zero": "Minimul special de salariu pentru agricultură și industria alimentară dispare odată cu OUG 93/2023.",
+        "curios": "Ordonanța abrogă OUG 93/2023, care stabilea salariul minim brut pentru sectoarele construcții, agricol și industria alimentară. Pentru construcții, art. LXIX stabilește un minim nou de 4.582 lei. Pentru agricultură și industria alimentară, textul nu stabilește alt minim.",
+        "expert": "Art. LXVIII abrogă OUG 93/2023 la data intrării în vigoare a OUG 156/2024. Art. LXIX dă un minim nou doar pentru construcții. Valoarea minimului abrogat nu e în text."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică în contract ce salariu minim se aplică acum în agricultură și industria alimentară; textul nu stabilește un minim sectorial nou.",
+          "termen": null,
+          "destinatie": "inspectia_muncii",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Intrarea în vigoare nu e dată separat în text; am pus 2025-01-01 ca restul actului. Ce minim se aplică acum în agricultură nu e în text, de verificat. Impactul în lei nu poate fi calculat."
+    },
+    {
+      "pana_la": "2025-12-31",
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "rezumat": "Reducerile și gratuitățile de transport pe tren, pentru unele categorii, merg doar până la 3 călătorii dus-întors în 2025",
+      "rezumat_en": "Some train fare discounts and free travel are limited to 3 return trips in 2025",
+      "taguri": [],
+      "in_vigoare_de_la": "2025-01-01",
+      "directie": "cost",
+      "articol": "art. XII",
+      "citat": "În anul 2025 se acordă reduceri de tarife sau, după caz, gratuități, numai în limita a 3 călătorii dus-întors sau 6 călătorii simple",
+      "niveluri": {
+        "zero": "În 2025, unele reduceri și gratuități de transport se limitează la 3 călătorii dus-întors.",
+        "curios": "În 2025, reducerile de tarif sau gratuitățile prevăzute de articolele enumerate (Legea 341/2004, Legea 303/2022, OG 112/1999) se acordă doar pentru cel mult 3 călătorii dus-întors sau 6 călătorii simple.",
+        "expert": "Art. XII trimite la art. 5 alin. (1) lit. f) din Legea 341/2004, art. 210 alin. (3) din Legea 303/2022 și mai multe articole din OG 112/1999 (călătorii pe căile ferate). Cine beneficiază de ele nu e în text."
+      },
+      "actiuni": [],
+      "incredere": "scazuta",
+      "nota": "Termenul a trecut (31 decembrie 2025). Publicul nu are etichetă potrivită: textul nu spune că sunt pensionari, deci taguri goale (regula 15); propun o etichetă nouă pentru beneficiarii facilităților de transport, după ce un om verifică legile citate. Fără formulă."
+    }
+  ]
+}

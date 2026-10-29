@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { dataScurta, mii, zile, ZILE_URGENT } from "@/lib/card";
+import { bani, dataScurta, zile, ZILE_URGENT } from "@/lib/card";
 import { CATALOG, gasesteSchimbarea } from "@/lib/catalog";
 import { GHID, ordoneaza } from "@/lib/ghid";
 import { aziISO } from "@/lib/potrivire";
@@ -112,7 +112,7 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
     <article className="grid gap-6 border-t border-v3-line py-9 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10">
       <div>
         <p className="m-0 mb-2 flex items-center gap-3 text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">
-          <span className="font-head text-[40px] leading-none text-v3-tint1">{String(nr).padStart(2, "0")}</span>
+          <span className="font-num font-semibold tabular-nums lining-nums text-[40px] leading-none text-v3-tint1">{String(nr).padStart(2, "0")}</span>
           {c.eticheta}
         </p>
         <h3 className="m-0 font-head text-[clamp(24px,5vw,32px)] leading-[1.15] font-extrabold tracking-[-.015em] text-v3-ink">{c.titlu}</h3>
@@ -146,7 +146,7 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
         <div className="mt-5 rounded-2xl border border-v3-neg/20 bg-v3-urg-soft p-4">
           <p className="m-0 text-[11px] font-extrabold tracking-[.1em] text-v3-neg uppercase">Cine a pierdut</p>
           <p className="m-0 mt-1 flex flex-wrap items-baseline gap-x-3">
-            <span className="font-head text-[44px] leading-none font-extrabold tracking-[-.02em] text-v3-neg">−{c.suma}</span>
+            <span className="font-num font-semibold tabular-nums lining-nums text-[44px] leading-none tracking-[-.03em] text-v3-neg">−{c.suma}</span>
             <span className="text-[15px] font-semibold text-v3-neg">lei</span>
           </p>
           <p className="m-0 mt-2 max-w-[60ch] text-[16px] leading-[1.5] font-semibold text-v3-ink">{c.aPierdut}</p>
@@ -199,7 +199,7 @@ export default function Acasa() {
           )}
         </p>
         <h1 className="m-0 max-w-[18ch] font-head text-[clamp(34px,7.4vw,60px)] leading-[1.04] font-extrabold tracking-[-.025em] text-v3-ink">
-          Legea ți-a dat 6 zile să păstrezi <span className="text-v3-pos">48.000 de lei</span>. Ai aflat?
+          Legea ți-a dat 6 zile să păstrezi <span className="font-num font-bold tracking-[-.035em] text-v3-pos">48.000 de lei</span>. Ai aflat?
         </h1>
         <p className="m-0 mt-5 max-w-[56ch] text-[19px] leading-[1.55] text-v3-ink-soft">
           Pe 25 iulie 2025, o lege a scumpit locuințele noi cu 12%. Cine plătea un avans în următoarele 6 zile scăpa. Cine a aflat după a
@@ -211,7 +211,7 @@ export default function Acasa() {
             Toate legile, după cât poți salva
           </Cta>
         </div>
-        <p className="m-0 mt-4 text-[13.5px] text-v3-ink-2">Fără cont. Profilul rămâne pe telefonul tău. Fiecare sumă are legea și articolul lângă ea.</p>
+        <p className="m-0 mt-4 text-[13.5px] text-v3-ink-2">Nu conectezi banca. Poți completa profilul manual sau cu AI. Fiecare sumă are legea și articolul lângă ea.</p>
       </section>
 
       {/* STORY: trei cazuri reale */}
@@ -251,7 +251,7 @@ export default function Acasa() {
                 </p>
                 {a.salvezi && (
                   <p className="m-0 mt-1.5 text-[14px] font-bold text-v3-band-pos">
-                    păstrezi până la {mii(a.salvezi.lei)} lei {a.salvezi.cand === "o_data" ? "o dată" : "pe an"}
+                    păstrezi până la {bani(a.salvezi.lei)} lei {a.salvezi.perioada ?? (a.salvezi.cand === "o_data" ? "o dată" : "pe an")}
                   </p>
                 )}
               </li>
@@ -271,7 +271,7 @@ export default function Acasa() {
         <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
           {[
             ["Profilul din documente", "Încarci un fluturaș, un contract sau o factură. Etichetele și cifrele se completează singure; tu scoți ce nu e cazul."],
-            ["Fluxul tău, în lei pe lună", "Fiecare lege care te atinge, cu suma pentru tine: cât pierzi, cât câștigi."],
+            ["Fluxul tău, în lei pe an", "Fiecare lege care te atinge, cu suma pentru tine: cât pierzi, cât câștigi."],
             ["Ce poți face și până când", "Pașii permiși de lege și termenul, cu numărătoarea calculată din data din act."],
             ["Planul meu", "Bifezi ce faci și vezi cât păstrezi pe an. Bara de jos se schimbă pe loc."],
             ["Sursa lângă fiecare sumă", "Actul, Monitorul Oficial, articolul și linkul la Portalul Legislativ. Ce nu am verificat scrie „de confirmat”."],

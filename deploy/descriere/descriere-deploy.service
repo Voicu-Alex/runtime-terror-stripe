@@ -1,0 +1,9 @@
+[Unit]
+Description=Publică aplicația și descrierea din main (GitHub)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/descriere-deploy
+TimeoutStartSec=900

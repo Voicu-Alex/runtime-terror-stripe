@@ -2,10 +2,23 @@
 
 *Chris, 28 octombrie 2026.*
 
+## Proiect configurat
+
+- Nume: `ce-inseamna-pentru-mine`.
+- [Dashboard](https://supabase.com/dashboard/project/ngzfoucfmnpvtdjctlkr).
+- URL API: `https://ngzfoucfmnpvtdjctlkr.supabase.co`.
+- Regiune: Frankfurt (`eu-central-1`), organizația existentă pe Free.
+- Configurat și verificat la 29 octombrie 2026: 42 rânduri în `schimbari`,
+  42 în `ghid`; importul local și citirea cu cheia publică funcționează, iar
+  datele citite sunt identice cu fișierele din repo.
+- RLS activ pe ambele tabele; `anon` și `authenticated` pot citi, dar nu pot
+  insera, modifica sau șterge. Scriptul local de import folosește cheia
+  `service_role` existentă, păstrată numai în `.env.local`.
+
 ## Ce stă în Supabase și ce nu
 
 - **Da:** catalogul de acte (`data/catalog.json`, tabelul `schimbari`) și ghidul general (`data/ghid.json`, tabelul `ghid`).
-- **Nu:** profilurile. Profilul rămâne pe telefon (`localStorage`), cum promite produsul (`CLAUDE.md`). Mutarea profilurilor pe server ar cere o decizie de echipă și o analiză GDPR.
+- **Nu, în implementarea curentă:** profilurile. Salvarea lor folosește `localStorage`; aceasta nu înseamnă că documentele sau alte date nu sunt transmise extern. Promisiunea generală de procesare exclusiv locală a fost retrasă de Andrei la 29 octombrie 2026. Fluxurile actuale sunt în [Date personale](date-personale.md); stocarea pentru viitoarele alerte personalizate rămâne de proiectat.
 
 Aplicația citește în continuare fișierele JSON. Supabase e locul unde editezi actele, iar `npm run supabase:sync` le aduce în fișiere. Așa demo-ul merge și fără internet, iar validarea și testele rămân aceleași.
 
@@ -30,9 +43,16 @@ Aplicația citește în continuare fișierele JSON. Supabase e locul unde editez
 - **Ai modificat direct fișierele JSON** (de exemplu printr-un PR al unui coleg): rulezi `npm run supabase:import`, ca baza să fie la zi.
 - **Prima sincronizare** rescrie fișierele JSON într-o formatare uniformă (`JSON.stringify`). Diff-ul arată mare o singură dată, iar conținutul rămâne același.
 
-## Pe Vercel
+## Rulare locală
 
-Deocamdată aplicația nu citește din Supabase în timpul rulării, deci pe Vercel nu trebuie nicio cheie Supabase. Când vom citi catalogul direct din Supabase (pasul următor), se adaugă în Project → Settings → Environment Variables doar `NEXT_PUBLIC_SUPABASE_URL` și `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. Cheia secretă nu merge pe Vercel.
+Aplicația rulează în continuare cu `npm run dev`, la `http://127.0.0.1:3000`.
+Conexiunea pentru scripturi stă în `.env.local`. Baza este în Supabase;
+aplicația citește fișierele JSON sincronizate și funcționează și când baza nu răspunde.
+Cheia secretă este folosită numai de scriptul local de import.
+
+La crearea proiectului se poate dezactiva „Automatically expose new tables” și
+activa „Enable automatic RLS”. Schema acordă explicit citire pe cele două tabele
+rolurilor `anon` și `authenticated`, iar scriere numai rolului `service_role`.
 
 ## Pasul următor (după hackathon)
 

@@ -1,14 +1,15 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { Potrivire } from "@/lib/potrivire";
 import type { CampValoare, Valori } from "@/lib/profil";
 import type { Actiune, CineAplica } from "@/lib/catalog";
 import { destinatie } from "@/lib/destinatii";
 import { useLimba } from "@/components/Limba";
 import { etichetaTagL } from "@/lib/i18n";
-import { ETICHETA_STARE, cuSemn, cuTracking, dataScurta, mii, vedere, zile, type StareCard } from "@/lib/card";
+import { ETICHETA_STARE, bani, cuSemn, cuTracking, dataScurta, vedere, zile, type StareCard } from "@/lib/card";
 import { furnizori, niveluri, specialist } from "@/lib/continut";
+import { comparatieAct } from "@/lib/voce";
 
 // Aspectul urmează rândul din lista „Toate actele care te privesc” din mockup/v3/index.html?v=f.
 // Cele 3 niveluri din issue #3, cu textele din content/niveluri.json (Iasmina):
@@ -19,7 +20,7 @@ import { furnizori, niveluri, specialist } from "@/lib/continut";
 const PILL: Record<StareCard, string> = {
   proiect: "border-dashed border-v3-ink-2 bg-v3-card text-v3-ink-2",
   adoptat: "border-v3-accent bg-v3-accent-soft text-v3-accent",
-  in_vigoare: "border-v3-pos bg-v3-pos-soft text-v3-pos",
+  in_vigoare: "border-v3-line bg-v3-accent-soft text-v3-ink-2",
   termen_depasit: "border-v3-past-line bg-v3-past-bg text-v3-past",
 };
 
@@ -43,19 +44,29 @@ export default function CardSchimbare({
   const [deschis, setDeschis] = useState(false);
   const [curios, setCurios] = useState(false);
   const [lege, setLege] = useState(false);
-  const [copiat, setCopiat] = useState(false);
-  const dialog = useRef<HTMLDialogElement>(null);
+  const [specialistDeschis, setSpecialistDeschis] = useState(false);
+  const [copiere, setCopiere] = useState<'liber' | 'copiat' | 'eroare'>('liber');
+  const butonSpecialist = useRef<HTMLButtonElement>(null);
   const uid = useId();
   const { t, limba } = useLimba();
   const d = (iso: string) => dataScurta(iso, limba);
 
   const s = p.schimbare;
+  useEffect(() => {
+    const deschideTinta = () => {
+      if (window.location.hash === `#c-${s.id}`) setDeschis(true);
+    };
+    deschideTinta();
+    window.addEventListener('hashchange', deschideTinta);
+    return () => window.removeEventListener('hashchange', deschideTinta);
+  }, [s.id]);
   const v = vedere(p, valori, limba);
   const a = s.actiuni.find((x) => x.termen) ?? s.actiuni[0];
   const dep = v.termen?.depasit;
   const modificari = s.modificat_prin ?? [];
   const ultima = modificari[modificari.length - 1];
   const n = niveluri(s);
+  const comparatie = comparatieAct(s, limba);
   const fz = furnizori(s.id);
   const sp = specialist(s);
   const surseExtra = n.surse.filter((u) => u !== s.sursa_url && !u.startsWith("https://posf.ro"));
@@ -66,24 +77,29 @@ export default function CardSchimbare({
   const casetaExpirata = !!dep && s.actiuni.every((x) => x.termen);
 
   return (
-    <li id={`c-${s.id}`} className="border-b border-v3-line">
+    <li id={`c-${s.id}`} className="scroll-mt-20 border-b border-v3-line">
       {/* Zero */}
       <button
         type="button"
         aria-expanded={deschis}
         aria-controls={`${uid}-d`}
-        onClick={() => setDeschis(!deschis)}
+        onClick={() => {
+          if (deschis && window.location.hash === `#c-${s.id}`) {
+            window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
+          }
+          setDeschis(!deschis);
+        }}
         className="grid w-full grid-cols-[1fr_auto] items-start gap-x-3.5 gap-y-1.5 py-4 text-left"
       >
-        <span className="col-start-1 text-[11.5px] font-extrabold tracking-[.1em] text-v3-accent uppercase">{v.kicker}</span>
+        <span className="col-start-1 text-sm font-medium text-v3-accent">{v.kicker}</span>
         <span
-          className={`col-start-2 row-span-2 row-start-1 text-right font-sans text-xl font-extrabold tracking-[-.02em] whitespace-nowrap tabular-nums lining-nums ${
+          className={`col-start-2 row-span-2 row-start-1 text-right font-num text-xl font-semibold tracking-[-.03em] whitespace-nowrap tabular-nums lining-nums ${
             dep ? "text-v3-past" : v.suma === null || v.suma === 0 ? "text-v3-ink" : v.suma < 0 ? "text-v3-neg" : "text-v3-pos"
           }`}
         >
           {v.suma === null ? "—" : cuSemn(v.suma)}
           <small className="block text-[12.5px] font-semibold tracking-normal text-v3-ink-2">
-            {v.suma === null ? t("de calculat") : v.suma === 0 ? t("lei/lună acum") : brut ? t("lei/lună brut") : t("lei/lună")}
+            {v.suma === null ? t("de calculat") : v.suma === 0 ? t("lei acum") : brut ? t("lei/an brut") : t("lei/an")}
           </small>
         </span>
         <span className={`col-start-1 text-[17px] leading-[1.3] font-bold ${dep ? "text-v3-past" : "text-v3-ink"}`}>{v.titlu}</span>
@@ -128,8 +144,15 @@ export default function CardSchimbare({
           <p className="m-0 mb-2.5 max-w-[60ch] text-[15px] text-v3-ink">
             <b>{t("Pentru tine:")}</b> <span lang="ro">{n.zero}</span>
           </p>
+          {comparatie && (
+            <dl aria-label={t("Înainte și acum")} className="m-0 mb-3 grid grid-cols-[1fr_auto_1fr] items-start gap-3 rounded-[10px] border border-v3-line bg-v3-card p-3 text-[14px]">
+              <div><dt className="mb-1 font-bold text-v3-ink-2">{t("Înainte")}</dt><dd className="m-0 break-words">{comparatie.inainte}</dd></div>
+              <span aria-hidden="true" className="self-center text-v3-ink-2">→</span>
+              <div><dt className="mb-1 font-bold text-v3-ink-2">{t("Acum")}</dt><dd className="m-0 break-words">{comparatie.acum}</dd></div>
+            </dl>
+          )}
           {s.estimare && v.suma !== null && v.suma !== 0 && (
-            <p className="m-0 mb-2.5 text-[13.5px] text-v3-ink-2">{t("Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege.")}</p>
+            <p className="m-0 mb-2.5 text-[13.5px] text-v3-ink-2">{t("Suma este calculată pe profilul tău; nu este o cifră scrisă în lege.")}</p>
           )}
           {v.cere && p.valori_lipsa[0] && onValoare ? (
             // Cardul cere valoarea care îi lipsește; ListaFlux o păstrează pe dispozitiv și recalculează toate cardurile.
@@ -142,7 +165,7 @@ export default function CardSchimbare({
               }}
             >
               <label htmlFor={`${uid}-v`} className="mb-1.5 block text-[14px] font-semibold text-v3-ink">
-                {t("Ca să vezi suma,")} {t(v.cere)}:
+                {t("Pentru a calcula suma,")} {t(v.cere)}:
               </label>
               <div className="flex gap-2">
                 <input
@@ -157,7 +180,7 @@ export default function CardSchimbare({
                   {t("Calculează")}
                 </button>
               </div>
-              <p className="mt-1.5 mb-0 text-[12.5px] text-v3-ink-2">{t("Rămâne doar pe acest dispozitiv.")}</p>
+              <p className="mt-1.5 mb-0 text-[12.5px] text-v3-ink-2">{t("Valoarea se salvează în acest browser.")}</p>
             </form>
           ) : (
             v.cere && <p className="m-0 mb-2.5 text-[13.5px] font-semibold text-v3-ink">{t("Ca să calculăm suma:")} {t(v.cere)}.</p>
@@ -177,23 +200,23 @@ export default function CardSchimbare({
                 casetaExpirata
                   ? "bg-v3-past-bg text-v3-past"
                   : v.termen?.urgent
-                    ? "bg-v3-urg-soft shadow-[inset_3px_0_0_var(--color-v3-urg)]"
+                    ? "bg-v3-urg-soft"
                     : "bg-v3-act"
               }`}
             >
               {s.actiuni.map((ac, i) => (
                 <ActiuneTipizata key={i} ac={ac} dep={!!dep && ac === a} termenDepasit={v.termen?.text} prima={i === 0} />
               ))}
-              {v.economieAn !== null && !dep && (
+              {v.economie !== null && !dep && (
                 <p className="m-0 mb-1.5 text-[14.5px]">
-                  {t("Dacă o faci, păstrezi până la")} <b className="whitespace-nowrap">{mii(v.economieAn)} {t("lei/an")}</b>.
+                  {t("Prin această acțiune poți păstra până la")} <b>{bani(v.economie.suma)} {t(v.economie.unitate)}</b>.
                 </p>
               )}
               {onBifeaza && !dep && (
                 // Planul meu: bifa intră în bara de jos (ListaFlux); economia se adună doar dacă acțiunea are formulă.
                 <label className="mb-1.5 flex min-h-11 cursor-pointer items-center gap-2 text-[14.5px] font-semibold">
                   <input type="checkbox" checked={bifata} onChange={onBifeaza} className="size-5 accent-v3-ink" />
-                  {bifata ? t("În planul meu") : t("O fac, pune-o în planul meu")}
+                  {bifata ? t("În planul meu") : t("Adaug în planul meu")}
                 </label>
               )}
               {a.one_click && !dep && (
@@ -205,7 +228,7 @@ export default function CardSchimbare({
                   rel="noopener"
                   className="mt-1.5 inline-flex min-h-[46px] items-center gap-2 rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline"
                 >
-                  {t("Compară oferte pe comparatorul ANRE")}
+                  {t("Compară ofertele pe comparatorul ANRE")}
                   <Sageata />
                   <span className="sr-only">{t("(se deschide într-un tab nou)")}</span>
                 </a>
@@ -238,13 +261,16 @@ export default function CardSchimbare({
               {/* și după termen: întrebarea specialistului privește situația de acum */}
               {sp && (
                 <div className="mt-3 border-t border-v3-line pt-3">
-                  <p className="m-0 mb-1.5 text-[14.5px] font-semibold">{t("Situația ta e mai complicată?")}</p>
+                  <p className="m-0 mb-1.5 text-[14.5px] font-semibold">{t("Ai o situație mai complicată?")}</p>
                   <button
                     type="button"
-                    onClick={() => dialog.current?.showModal()}
+                    ref={butonSpecialist}
+                    aria-expanded={specialistDeschis}
+                    aria-controls={`${uid}-specialist`}
+                    onClick={() => { setSpecialistDeschis(!specialistDeschis); setCopiere('liber'); }}
                     className="min-h-11 rounded-[10px] border border-v3-ink bg-v3-card px-4 text-sm font-semibold text-v3-ink"
                   >
-                    {t("Găsește un")} {t(sp.profesie)}
+                    {t("Pregătește discuția cu un")} {t(sp.profesie)}
                   </button>
                 </div>
               )}
@@ -284,7 +310,7 @@ export default function CardSchimbare({
           {/* Expert */}
           {lege && (
             <div id={`${uid}-e`} className="mt-3 rounded-[10px] border border-v3-line bg-v3-card p-3 text-sm">
-              <h5 className="m-0 mb-1 text-xs font-bold tracking-[.05em] text-v3-ink-2 uppercase">{t("Sursa legală")}</h5>
+              <h3 className="m-0 mb-1 text-sm font-bold text-v3-ink-2">{t("Sursa legală")}</h3>
               <p className="m-0 mb-1 font-semibold">
                 {s.act} · {s.mo_ref}
               </p>
@@ -293,7 +319,7 @@ export default function CardSchimbare({
               </p>
               {modificari.length > 0 && (
                 <div className="mt-2 mb-1">
-                  <h5 className="m-0 mb-1 text-xs font-bold tracking-[.05em] text-v3-ink-2 uppercase">{t("Forma la zi")}</h5>
+                  <h4 className="m-0 mb-1 text-sm font-bold text-v3-ink-2">{t("Forma la zi")}</h4>
                   <p className="m-0 mb-1 text-[12.5px] text-v3-ink-2">
                     {t("Textul de mai sus ține cont de actele care l-au modificat ulterior. Când apare altul, intrarea se reverifică.")}
                   </p>
@@ -344,45 +370,51 @@ export default function CardSchimbare({
         </div>
       )}
 
-      {sp && (
+      {sp && deschis && specialistDeschis && (
         // Textele din content/modal-specialist.md și business/profesionisti.md (Chris, #5).
-        <dialog
-          ref={dialog}
+        <section
+          id={`${uid}-specialist`}
           aria-labelledby={`${uid}-t`}
-          className="m-auto w-[min(420px,calc(100%-32px))] rounded-2xl border border-v3-line bg-v3-card p-5 text-v3-ink backdrop:bg-black/60"
+          className="mb-4 border-t border-v3-line pt-4 text-v3-ink"
         >
-          <h4 id={`${uid}-t`} className="m-0 mb-2 font-head text-xl font-extrabold">
+          <h3 id={`${uid}-t`} className="m-0 mb-2 font-head text-xl font-extrabold">
             {t("Când merită un")} {t(sp.profesie)}
-          </h4>
+          </h3>
           <p className="m-0 mb-3 text-[15px]">
             {t("Pașii de mai sus ajung pentru cei mai mulți oameni. Un")} {t(sp.profesie)}{" "}
-            {t("te ajută când răspunsul depinde de cifrele tale și suma e mare.")}
+            {t("te poate ajuta când răspunsul depinde de cifrele tale și suma este mare.")}
           </p>
           {sp.intrebare && (
             <>
-              <p className="m-0 text-[13px] font-bold text-v3-ink-2">{t("Ce să întrebi")}</p>
+              <p className="m-0 text-[13px] font-bold text-v3-ink-2">{t("Ce poți întreba")}</p>
               <p className="m-0 mb-1.5 text-[15px]" lang="ro">
                 {sp.intrebare}
               </p>
               <button
                 type="button"
-                onClick={() => navigator.clipboard?.writeText(sp.intrebare!).then(() => setCopiat(true), () => {})}
+                onClick={async () => {
+                  try { await navigator.clipboard.writeText(sp.intrebare!); setCopiere('copiat'); }
+                  catch { setCopiere('eroare'); }
+                }}
                 className="mb-3 min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-3 text-sm font-semibold"
               >
-                {copiat ? t("Copiat") : t("Copiază întrebarea")}
+                {t("Copiază întrebarea")}
               </button>
+              <p role="status" className="m-0 mb-3 text-sm text-v3-ink-2">
+                {copiere === 'copiat' ? t("Copiat") : copiere === 'eroare' ? t("Nu am putut copia. Selectează întrebarea și copiaz-o manual.") : ''}
+              </p>
             </>
           )}
           {sp.documente && (
             <>
-              <p className="m-0 text-[13px] font-bold text-v3-ink-2">{t("Ce să ai pregătit")}</p>
+              <p className="m-0 text-[13px] font-bold text-v3-ink-2">{t("Ce documente să pregătești")}</p>
               <p className="m-0 mb-3 text-[15px]" lang="ro">
                 {sp.documente}
               </p>
             </>
           )}
           <p className="m-0 mb-4 text-[13px] text-v3-ink-2">
-            {t("Te trimitem la registrul public al profesiei. Nu primim bani de la specialiști și nu trimitem nimic din profilul tău.")}
+            {t("Linkul deschide registrul public al profesiei. Nu primim bani de la specialiști și nu transmitem date din profilul tău.")}
           </p>
           {sp.registru && (
             <a
@@ -396,10 +428,8 @@ export default function CardSchimbare({
               <span className="sr-only">({sp.registru.nume}, {t("(se deschide într-un tab nou)")})</span>
             </a>
           )}
-          <form method="dialog">
-            <button className="min-h-11 w-full rounded-[10px] border border-v3-line bg-v3-card font-semibold">{t("Mă descurc singur")}</button>
-          </form>
-        </dialog>
+          <button type="button" onClick={() => { setSpecialistDeschis(false); butonSpecialist.current?.focus(); }} className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-4 font-semibold">{t("Închide")}</button>
+        </section>
       )}
     </li>
   );
@@ -418,9 +448,9 @@ function ActiuneTipizata({ ac, dep, termenDepasit, prima }: { ac: Actiune; dep: 
   const titlu = dep
     ? `${t("Termen depășit:")} ${termenDepasit}`
     : ac.tip === "nimic_pana_la" && ac.termen
-      ? `${t("Nu trebuie să faci nimic până la")} ${dataScurta(ac.termen, limba)}`
+      ? `${t("Nu este necesară nicio acțiune până la")} ${dataScurta(ac.termen, limba)}`
       : ac.tip === "verifica"
-        ? `${t("Ce verifici")}${ac.cine_aplica && ac.cine_aplica !== "tu" ? ` · ${t("aplică")} ${t(CINE[ac.cine_aplica])}` : ""}`
+        ? `${t("Ce poți verifica")}${ac.cine_aplica && ac.cine_aplica !== "tu" ? ` · ${t("aplică")} ${t(CINE[ac.cine_aplica])}` : ""}`
         : ac.termen
           ? `${t("Ce poți face până la")} ${dataScurta(ac.termen, limba)}`
           : t("Ce poți face, oricând:");

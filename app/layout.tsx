@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Antet, Subsol } from "@/components/Antet";
+import { Antet, Subsol, SariLaContinut } from "@/components/Antet";
 import { LimbaProvider } from "@/components/Limba";
 import { SCRIPT_TEMA } from "@/components/Tema";
 import "./globals.css";
@@ -8,11 +8,11 @@ import "./globals.css";
 // Le încărcăm cu <link>, nu cu next/font: next/font le descarcă la build și build-ul pică
 // când descărcarea de la Google eșuează (s-a întâmplat de 2 ori din 4 local).
 const FONTURI =
-  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Raleway:wght@700;800&display=swap";
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Raleway:wght@700;800&family=Geist:wght@500;600;700&display=swap";
 
 export const metadata: Metadata = {
   title: "Ce înseamnă pentru mine",
-  description: "Fiecare lege nouă, tradusă în lei pe lună pentru tine.",
+  description: "Fiecare lege nouă, tradusă în lei pe an pentru tine.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -29,8 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen antialiased">
         <LimbaProvider>
+          <SariLaContinut />
           <Antet />
-          <main className="mx-auto max-w-[1080px] px-4 py-6">{children}</main>
+          <main id="continut" tabIndex={-1} className="mx-auto max-w-[1080px] px-4 py-6">{children}</main>
           <Subsol />
         </LimbaProvider>
       </body>

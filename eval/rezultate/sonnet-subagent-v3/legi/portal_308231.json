@@ -1,0 +1,50 @@
+{
+  "act": "HG 146/2026",
+  "mo": "MO 196 / 13 mar 2026",
+  "publicat_la": "2026-03-13",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Salariul minim brut urcă la 4.325 lei pe lună din 1 iulie 2026",
+      "rezumat_en": "The minimum gross wage rises to 4,325 lei per month from 1 July 2026",
+      "taguri": [
+        "salariu_minim",
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": {
+        "tip": "diferenta_prag",
+        "parametri": {
+          "camp": "salariu_brut",
+          "prag": 4325,
+          "perioada": "luna"
+        }
+      },
+      "articol": "art. 1",
+      "citat": "se stabilește în bani, fără a include sporuri și alte adaosuri, la suma de 4.325 lei lunar",
+      "niveluri": {
+        "zero": "Din 1 iulie 2026, salariul de bază brut nu poate fi mai mic de 4.325 lei pe lună pentru un program normal de lucru.",
+        "curios": "Hotărârea stabilește salariul minim brut garantat în plată la 4.325 lei lunar, începând cu 1 iulie 2026, pentru un program normal de lucru în medie de 166,667 ore pe lună, adică 25,949 lei pe oră. Suma nu include sporurile și alte adaosuri. Dacă salariul tău de bază brut era sub această sumă, angajatorul trebuie să îl ridice la 4.325 lei.",
+        "expert": "Art. 1: de la 1 iulie 2026, salariul de bază minim brut pe țară garantat în plată (art. 164 alin. (1) din Legea nr. 53/2003) este de 4.325 lei lunar, fără sporuri și alte adaosuri, pentru 166,667 ore în medie pe lună, adică 25,949 lei/oră. Art. 2: la aceeași dată se abrogă HG nr. 1.506/2024."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică fluturașul de salariu începând cu iulie 2026: salariul de bază brut, fără sporuri, trebuie să fie de cel puțin 4.325 lei lunar pentru un program normal de lucru.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Valoarea veche a salariului minim (din HG 1.506/2024) nu e în text, deci câștigul se măsoară doar prin diferența până la 4.325 lei față de salariul brut din profil. Pe Portal data intrării în vigoare e necunoscută; data de 1 iulie 2026 vine din art. 1. Nu se calculează sume aici."
+    }
+  ]
+}

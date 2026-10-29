@@ -1,0 +1,382 @@
+{
+  "act": "Codul fiscal (Legea 227/2015), forma consolidată",
+  "mo": "MO 688 / 10 sep 2015",
+  "publicat_la": "2015-09-10",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Dividendele te pot costa CASS: 6, 12 sau 24 de salarii minime, după cât ai încasat pe an",
+      "rezumat_en": "Dividends can trigger health contribution (CASS) at 6, 12 or 24 minimum wages, depending on yearly income",
+      "taguri": [
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 170 alin. (2)-(4)",
+      "citat": "datorează contribuția de asigurări sociale de sănătate la o bază de calcul stabilită potrivit alin. (3), dacă în anul de realizare a veniturilor valoarea cumulată a acestora este cel puțin egală cu 6 salarii minime brute pe țară",
+      "niveluri": {
+        "zero": "Dacă într-un an încasezi dividende și alte venituri decât salariul de cel puțin 6 salarii minime brute, plătești CASS, în trepte.",
+        "curios": "Celelalte venituri decât salariul, din art. 155, se adună pe an: dividende, chirii, drepturi de autor, dobânzi și altele. Dacă totalul ajunge la 6 salarii minime brute, CASS se calculează cu 10% pe o bază fixă: 6 salarii minime între 6 și 12, 12 salarii minime între 12 și 24, 24 de salarii minime de la 24 în sus. La dividende se iau în calcul sumele plătite, diminuate cu impozitul reținut.",
+        "expert": "Art. 170 alin. (2): obligația apare dacă valoarea cumulată a veniturilor de la art. 155 alin. (1) lit. c)-h) este cel puțin egală cu 6 salarii minime brute pe țară. Alin. (3): baza anuală este 6 salarii minime pentru venituri între 6 (inclusiv) și 12, 12 pentru venituri între 12 (inclusiv) și 24, 24 pentru venituri cel puțin egale cu 24. Alin. (4) lit. d): la dividende se iau în calcul dividendele plătite, diminuate cu impozitul reținut, distribuite începând cu anul 2018. Art. 156: cota CASS este de 10%. Alin. (5): veniturile neimpozabile de la art. 93 și 105 nu intră în plafon."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "După ce se încheie anul, adună tot ce ai încasat din dividende și din celelalte venituri decât salariul din art. 155 și vezi în ce treaptă (6, 12 sau 24 de salarii minime) intri; CASS se declară prin Declarația unică privind impozitul pe venit și contribuțiile sociale, depusă pentru acel an fiscal.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul primit conține doar art. 84, 84^1, 97, 155, 156 și 170. Valoarea salariului minim brut nu apare în text, deci pragurile în lei și suma nu se pot calcula (formula null; ar trebui salariul minim brut aplicabil). Anul de referință al salariului minim (cel în vigoare la 1 ianuarie al anului de venit) NU apare în articolele primite și nu e afirmat aici; de verificat în art. 153 sau în actul care îl stabilește. Termenul de depunere al declarației trimite la art. 122, neprimit: termen null. Gradul de aplicabilitate al art. 170 alin. (2)-(4) la persoana concretă depinde și de art. 153 (neprimit). in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Chiria încasată intră în plafonul CASS: se adună cu dividendele și alte venituri decât salariul",
+      "rezumat_en": "Rental income counts toward the CASS thresholds, added to dividends and other non-salary income",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 170 alin. (4) lit. c)",
+      "citat": "venitul net pentru veniturile din cedarea folosinței bunurilor, stabilite potrivit art. 84-85",
+      "niveluri": {
+        "zero": "Venitul net din chirie se adună cu celelalte venituri decât salariul când se verifică dacă datorezi CASS.",
+        "curios": "La chirie se ia în calcul venitul net, adică chiria brută fără cheltuiala forfetară de 20% din art. 84. Dacă împreună cu dividende, dobânzi sau alte venituri decât salariul ajunge la 6 salarii minime brute pe an, datorezi CASS în trepte de 6, 12 sau 24 de salarii minime, cu cota de 10%.",
+        "expert": "Art. 155 alin. (1) lit. e) include veniturile din cedarea folosinței bunurilor. Art. 170 alin. (2): plafonul se aplică veniturilor de la lit. c)-h), cumulate. Alin. (4) lit. c): se cumulează venitul net stabilit potrivit art. 84-85. Alin. (3): trepte de 6, 12 și 24 de salarii minime brute. Art. 156: cota este de 10%."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă încasezi chirie, trece venitul net din chirie în Declarația unică pentru anul respectiv și vezi, împreună cu celelalte venituri decât salariul, dacă ajungi la 6 salarii minime brute.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul primit conține doar art. 84, 84^1, 97, 155, 156 și 170. Salariul minim brut nu e în text, deci nu calculăm suma (formula null). Anul de referință al salariului minim nu apare în articolele primite și nu e afirmat aici. Art. 85 (la care trimite art. 170 alin. (4) lit. c) nu a fost primit; nu e descris. Termenul declarației (art. 122) nu e în text. Eticheta proprietar privește proprietarul care închiriază; nu există o etichetă mai precisă în listă. etichetă de adăugat: inchiriez (dau în chirie o locuință). in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Chiria: impozitul se ia după ce scazi 20% din chirie ca cheltuieli, fără acte",
+      "rezumat_en": "Rent: taxable income is gross rent minus a flat 20% expense allowance",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 84 alin. (3)",
+      "citat": "se stabilește prin deducerea din venitul brut a cheltuielilor determinate prin aplicarea cotei de 20% asupra venitului brut",
+      "niveluri": {
+        "zero": "La chirie, legea scade automat 20% din chiria brută; impozitul se calculează pe restul.",
+        "curios": "Venitul net din chirie este chiria brută minus o cheltuială forfetară de 20% din chirie. Chiria brută se stabilește după contract, pentru fiecare an fiscal, indiferent de momentul încasării. Dacă chiria e în valută, se evaluează în lei la cursul mediu anual al BNR din anul venitului. Nu trebuie să ții Registrul de evidență fiscală.",
+        "expert": "Art. 84 alin. (1)-(3): venitul brut este totalitatea sumelor în bani și/sau echivalentul în lei al veniturilor în natură stabilite prin contract, pentru fiecare an fiscal, indiferent de momentul încasării; se majorează cu cheltuielile care cad în sarcina proprietarului dar sunt făcute de cealaltă parte. Alin. (3): venitul net se obține prin deducerea cotei de 20% din brut. Alin. (3^1): chirie în valută, curs mediu anual BNR. Alin. (10): fără Registrul de evidență fiscală. Alin. (4)-(9) privesc arenda și nu sunt descrise aici."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Când declari chiria, pornește de la chiria din contract pe tot anul fiscal, indiferent de când ai încasat-o; cheltuiala de 20% se scade automat, deci nu ai nevoie de acte pentru ea.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Cota de impozit pe venitul net din chirie plătită de persoane fizice nu apare în articolele primite (art. 84 alin. (8) cu 10% privește arenda; art. 84^1 alin. (5) privește chiriile plătite de persoane juridice). Impozitul pe chirie de la persoane fizice, art. 83 și art. 85 și termenul declarației (art. 122) nu au fost primite și nu sunt descrise; de verificat. Suma depinde de chiria și de cota aplicabilă, deci formula e null. etichetă de adăugat: inchiriez (dau în chirie o locuință). in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Dacă chiria ți-o plătește o firmă, ea îți reține la sursă 10% din chirie după scăderea a 20%",
+      "rezumat_en": "If a company pays your rent, it withholds 10% of the rent after the 20% allowance",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 84^1 alin. (3)-(6)",
+      "citat": "Impozitul se calculează prin aplicarea cotei de 10% asupra venitului net și se reține la sursă, de către plătitorii de venituri prevăzuți la alin. (4), la momentul plății veniturilor.",
+      "niveluri": {
+        "zero": "Când chiriașul e o firmă, ea scade 20% din chirie, reține 10% din rest ca impozit și îl plătește la stat; impozitul e final.",
+        "curios": "Dacă plătitorul chiriei este o persoană juridică sau altă entitate care ține contabilitate, ea stabilește la fiecare plată venitul net (chiria minus 20%), reține 10% din el și îl virează la buget până pe 25 a lunii următoare. Impozitul reținut este final, iar tu poți cere un document care arată cât s-a reținut. Excepție: dacă chiria e plătită exclusiv în natură sau e vorba de garanția folosită pentru chirie, calculezi și plătești tu impozitul prin Declarația unică.",
+        "expert": "Art. 84^1 alin. (3): venitul net se stabilește la fiecare plată de către plătitor, prin deducerea cotei de 20% din brut. Alin. (4): plătitorul calculează, reține, declară și plătește impozitul și eliberează, la solicitarea proprietarului, un document care atestă impozitul reținut și plătit. Alin. (5): cota de 10% asupra venitului net, reținere la sursă. Alin. (6): impozit final, plătit până la data de 25 inclusiv a lunii următoare. Alin. (7): fără Registrul de evidență fiscală. Alin. (8): excepție pentru venit plătit exclusiv în natură și pentru sume reprezentând garanție utilizată pentru plata chiriei: proprietarul stabilește venitul net (20% deducere), calculează și plătește impozitul, prin Declarația unică, până la termenul din art. 122 alin. (3). Alin. (9): plătitorul declară aceste venituri în declarația din art. 132 alin. (2)."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ai nevoie de dovadă pentru ce s-a reținut, cere firmei care îți plătește chiria documentul care atestă impozitul pe venit reținut și plătit (art. 84^1 alin. (4)).",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        },
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă primești chiria exclusiv în natură sau vorbim de garanția folosită pentru plata chiriei, calculează tu impozitul și declară-l prin Declarația unică pentru anul respectiv.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Se aplică doar când plătitorul este persoană juridică sau altă entitate care ține evidență contabilă; nu se aplică arendei agricole și închirierii pe termen scurt a camerelor din locuințe proprietate personală (excluse în titlul articolului). Termenul din art. 122 alin. (3) nu e în text: termen null. Nu calculăm suma (depinde de chiria încasată), formula null. etichetă de adăugat: inchiriez (dau în chirie o locuință). in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "rezumat": "Dividendele se impozitează cu 16%, impozit final, reținut de firmă la plată",
+      "rezumat_en": "Dividends are taxed at 16%, a final tax withheld by the company when it pays them out",
+      "taguri": [
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 97 alin. (7)",
+      "citat": "Veniturile sub formă de dividende, inclusiv câștigul obținut ca urmare a deținerii de titluri de participare definite de legislația în materie la organisme de plasament colectiv, se impozitează cu o cotă de 16% din suma acestora, impozitul fiind final.",
+      "niveluri": {
+        "zero": "Din dividende se reține 16% impozit, final, iar firma care le plătește îl virează la stat.",
+        "curios": "Firma care plătește dividendele calculează și reține impozitul de 16% odată cu plata și îl virează până pe 25 a lunii următoare. Dacă dividendele au fost aprobate, dar nu plătite până la sfârșitul anului, impozitul se plătește până la 25 ianuarie al anului următor. Impozitul de 16% nu include CASS, care se poate adăuga separat (art. 170).",
+        "expert": "Art. 97 alin. (7): cotă de 16%, impozit final; obligația de calcul și reținere revine persoanei juridice, odată cu plata; virare până la data de 25 inclusiv a lunii următoare plății; pentru dividende distribuite, dar neplătite până la sfârșitul anului în care s-a aprobat distribuirea, până la 25 ianuarie inclusiv a anului următor. Se aplică și câștigului din titluri de participare la organisme de plasament colectiv."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Verifică pe extras că firma a reținut 16% la plata dividendelor.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Formula existentă dividende_16 măsoară creșterea de la 10% la 16% față de cota veche; cota veche nu apare în textul primit și textul consolidat nu arată ce s-a schimbat, deci nu o folosim (formula null) și nu folosim schimbare_cota. Textul nu spune cine, în firmă, face concret reținerea. in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "Pensia poate fi supusă CASS de 10%",
+      "rezumat_en": "Pension income can be subject to 10% health contribution (CASS)",
+      "taguri": [
+        "pensionar"
+      ],
+      "articol": "art. 155 alin. (1) lit. a^2)",
+      "citat": "a^2) venituri din pensii, definite conform art. 99",
+      "niveluri": {
+        "zero": "Veniturile din pensii sunt printre cele pentru care se poate datora CASS, cu cota de 10%.",
+        "curios": "Art. 155 enumeră veniturile pentru care se datorează CASS, după caz, și include pensiile (definite în art. 99). Cota CASS este de 10% (art. 156). Cât din pensie e supus contribuției nu se vede în articolele primite.",
+        "expert": "Art. 155 alin. (1) lit. a^2): veniturile din pensii, definite conform art. 99, sunt categorie supusă CASS pentru contribuabilii de la art. 153 alin. (1) lit. a)-d). Art. 156: cota este de 10%. Pragul sau partea din pensie supusă contribuției nu e în articolele primite."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică pe decizia de pensie sau pe talon dacă și cât se reține CASS din pensie.",
+          "termen": null,
+          "destinatie": "cnpp",
+          "destinatie_propusa": null
+        }
+      ],
+      "nota": "Textul primit conține doar art. 84, 84^1, 97, 155, 156 și 170; art. 153 (cine datorează CASS) nu a fost primit. Salariul minim și pragurile în lei nu sunt în text, deci suma nu se calculează (formula null). Formula cass_pensii există, dar pragul de 3.000 lei nu apare în text, deci nu o folosim. in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "Indemnizația de concediu medical intră în veniturile supuse CASS",
+      "rezumat_en": "Sick-leave pay is among the income types subject to CASS",
+      "taguri": [
+        "angajat"
+      ],
+      "articol": "art. 155 alin. (1) lit. i)",
+      "citat": "indemnizațiile de asigurări sociale de sănătate, acordate în baza art. 2 alin. (1) lit. a) și b) din Ordonanța de urgență a Guvernului nr. 158/2005",
+      "niveluri": {
+        "zero": "Indemnizația de concediu medical este un venit pentru care se datorează CASS.",
+        "curios": "Art. 155 include indemnizațiile de asigurări sociale de sănătate pentru concedii medicale (coduri de indemnizație 01, 07 și 10). Cota CASS este de 10% (art. 156).",
+        "expert": "Art. 155 alin. (1) lit. i): indemnizațiile din OUG 158/2005 art. 2 alin. (1) lit. a) și b), pentru codurile de indemnizație 01, 07 și 10 din ordinul comun 1.192/745/2020. Art. 156: cota de 10%."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul din luna concediului medical că indemnizația a fost tratată ca venit supus CASS.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "nota": "Textul primit conține doar art. 84, 84^1, 97, 155, 156 și 170; art. 153 (cine datorează CASS) nu a fost primit. Salariul minim și pragurile în lei nu sunt în text, deci suma nu se calculează (formula null). Cum se calculează concret contribuția pe indemnizație nu e în articolele primite. in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "Indemnizația de șomaj intră în veniturile supuse CASS",
+      "rezumat_en": "Unemployment benefit is among the income types subject to CASS",
+      "taguri": [
+        "somer"
+      ],
+      "articol": "art. 155 alin. (1) lit. j)",
+      "citat": "indemnizații de șomaj acordate potrivit Legii nr. 76/2002 privind sistemul asigurărilor pentru șomaj și stimularea ocupării forței de muncă",
+      "niveluri": {
+        "zero": "Indemnizația de șomaj este un venit pentru care se datorează CASS.",
+        "curios": "Art. 155 include indemnizațiile de șomaj acordate potrivit Legii 76/2002. Cota CASS este de 10% (art. 156).",
+        "expert": "Art. 155 alin. (1) lit. j): indemnizații de șomaj, Legea 76/2002. Art. 156: cota de 10%."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică în deciziile primite de la agenția de ocupare cum apare CASS la indemnizația de șomaj.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "nota": "Textul primit conține doar art. 84, 84^1, 97, 155, 156 și 170; art. 153 (cine datorează CASS) nu a fost primit. Salariul minim și pragurile în lei nu sunt în text, deci suma nu se calculează (formula null). Cum se calculează contribuția pe indemnizație nu e în articolele primite. in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "Indemnizațiile lunare din Legea 273/2004 și OUG 111/2010 intră în veniturile supuse CASS",
+      "rezumat_en": "Monthly allowances under Law 273/2004 and GEO 111/2010 are among the income types subject to CASS",
+      "taguri": [
+        "concediu_crestere"
+      ],
+      "articol": "art. 155 alin. (1) lit. k)",
+      "citat": "indemnizații lunare acordate potrivit art. 50 alin. (1) din Legea nr. 273/2004, republicată, cu modificările și completările ulterioare, respectiv potrivit art. 2 alin. (1) și art. 31 alin. (2) din Ordonanța de urgență a Guvernului nr. 111/2010",
+      "niveluri": {
+        "zero": "Indemnizațiile lunare din Legea 273/2004 și OUG 111/2010 sunt venituri pentru care se datorează CASS.",
+        "curios": "Art. 155 include aceste indemnizații lunare în lista veniturilor supuse CASS, cu cota de 10% (art. 156).",
+        "expert": "Art. 155 alin. (1) lit. k): indemnizații lunare acordate potrivit art. 50 alin. (1) din Legea 273/2004 și art. 2 alin. (1) și art. 31 alin. (2) din OUG 111/2010. Art. 156: cota de 10%."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică în decizia de acordare a indemnizației dacă s-a reținut CASS.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "nota": "Textul primit conține doar art. 84, 84^1, 97, 155, 156 și 170; art. 153 (cine datorează CASS) nu a fost primit. Salariul minim și pragurile în lei nu sunt în text, deci suma nu se calculează (formula null). Textul primit nu spune ce acoperă acele articole din alte acte; asocierea cu concediul de creștere a copilului (eticheta concediu_crestere) vine din sarcină și e de verificat în actele citate. in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "medie",
+      "rezumat": "PFA: CASS se calculează pe venitul net anual, cel mult 72 de salarii minime",
+      "rezumat_en": "Self-employed: CASS is calculated on yearly net income, capped at 72 minimum wages",
+      "taguri": [
+        "pfa"
+      ],
+      "articol": "art. 170 alin. (1)",
+      "citat": "care nu poate fi mai mare decât cea corespunzătoare unei baze anuale de calcul egale cu nivelul de 72 de salarii minime brute pe țară",
+      "niveluri": {
+        "zero": "Dacă ai venituri din activități independente, CASS se calculează pe venitul tău anual, dar baza nu poate trece de 72 de salarii minime brute.",
+        "curios": "Pentru veniturile din activități independente, baza de calcul este venitul net anual (sau norma de venit), cumulat din toate sursele, cu plafon de 72 de salarii minime brute pe țară. Pierderile fiscale anuale nu se iau în calcul. Cota CASS este de 10% (art. 156).",
+        "expert": "Art. 170 alin. (1): baza anuală este suma dintre venitul net anual realizat/brut sau norma anuală de venit (art. 68, 68^1, 68^3 și 69), cumulată din una sau mai multe surse, cel mult 72 de salarii minime brute pe țară. Pierderile fiscale anuale de la art. 118 nu se iau în considerare. Art. 156: cota de 10%."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Verifică în Declarația unică pentru anul respectiv baza de calcul a CASS și că nu depășește 72 de salarii minime brute.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "nota": "Textul primit conține doar art. 84, 84^1, 97, 155, 156 și 170; art. 153 (cine datorează CASS) nu a fost primit. Salariul minim și pragurile în lei nu sunt în text, deci suma nu se calculează (formula null). Art. 68, 68^1, 68^3, 69 și 118 nu au fost primite și nu sunt descrise. in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    },
+    {
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "incredere": "ridicata",
+      "rezumat": "Dobânzile se impozitează cu 10%, impozit final, reținut de bancă",
+      "rezumat_en": "Interest income is taxed at 10%, a final tax withheld by the payer",
+      "taguri": [],
+      "articol": "art. 97 alin. (1)-(2)",
+      "citat": "Veniturile sub formă de dobânzi pentru depozitele la termen constituite, instrumentele de economisire dobândite, contractele civile încheiate se impun cu o cotă de 10% din suma acestora, impozitul fiind final",
+      "niveluri": {
+        "zero": "Dobânda de la depozite și conturi este impozitată cu 10%, impozit final, reținut de cine o plătește.",
+        "curios": "Dobânzile la conturi curente și depozite la vedere, la depozite la termen, instrumente de economisire și împrumuturi pe contracte civile se impun cu 10%, impozit final. Plătitorul calculează și reține impozitul la momentul înregistrării în cont (sau al răscumpărării, ori al plății dobânzii la contractele civile) și îl virează lunar până pe 25 a lunii următoare.",
+        "expert": "Art. 97 alin. (1): dobânzi la depozite la vedere/conturi curente și la depozitele pentru economisire și creditare în sistem colectiv pentru domeniul locativ, 10%, impozit final, indiferent de data constituirii raportului juridic. Alin. (2): depozite la termen, instrumente de economisire, contracte civile, 10%, impozit final; reținere la înregistrarea în cont, răscumpărare sau plata dobânzii; plata lunară până la 25 inclusiv a lunii următoare. Alin. (4): diferențele de impozit se regularizează de plătitor începând cu luna constatării."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică pe extrasul de cont că banca a reținut 10% impozit din dobândă.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "nota": "etichetă de adăugat: investitor. Lăsate deoparte din art. 97, fără etichetă potrivită: alin. (3) dobânzi la valori mobiliare împrumutate, alin. (5) lichidare și reducere de capital, alin. (8) dividende și dobânzi la valori mobiliare împrumutate, alin. (8^1)-(8^5) câștiguri din titluri de valoare (3% și 6%) și instrumente derivate. Din art. 84 sunt lăsate deoparte alin. (4)-(9) (arenda agricolă); art. 84^1 alin. (8) e descris în schimbarea despre chirie. in_vigoare_de_la 2026-01-01: data din sarcină; forma consolidată poate avea altă dată, de verificat pe Portal."
+    }
+  ]
+}

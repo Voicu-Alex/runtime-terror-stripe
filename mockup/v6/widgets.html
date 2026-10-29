@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Widgeturi impact · v6</title>
+<!-- Machetă: widgeturi de tip dashboard pentru impactul legilor pe banii tăi.
+     Cifrele vin din ../v4/data.js + noutati.js (scenariul demonstrativ Andrei), aceleași ca în v6/index.html.
+     Titluri Raleway și text Inter rămân din designul F; se schimbă doar fontul cifrelor (comutator sus). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800&family=Geist:wght@500;600;700&family=Inter+Tight:wght@600;700&family=IBM+Plex+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../v5/base.css?v=8">
+<style>
+:root{--num:'Geist',system-ui,sans-serif;--num-w:600;--num-track:-.03em;--page:#F1F0EE}
+body{background:var(--page)}
+.wrap{max-width:1120px;margin:0 auto;padding:24px 20px 64px}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}
+.top h1{font:800 clamp(24px,3vw,32px)/1.15 var(--head);margin:0;letter-spacing:-.01em}
+.top p{margin:6px 0 0;color:var(--ink-2);font-size:14px;max-width:60ch}
+.ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--tintb);border-radius:999px;padding:2px;background:#fff}
+.seg button{border:0;background:none;padding:6px 12px;border-radius:999px;font:600 13px var(--sans);color:var(--ink-2);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.seg button:focus-visible,.w a:focus-visible,.row:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* comparația de fonturi */
+.fonts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.fonts button{all:unset;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.fonts button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.fonts button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.fonts small{display:block;font:500 12px var(--sans);color:var(--ink-3);margin-bottom:4px}
+.fonts span{font-size:30px;line-height:1;font-variant-numeric:tabular-nums lining-nums}
+.fonts .n{color:var(--neg)} .fonts .p{color:var(--pos);margin-left:10px}
+
+/* numerele: un singur loc unde se alege fontul */
+.num{font-family:var(--num);font-weight:var(--num-w);letter-spacing:var(--num-track);font-variant-numeric:tabular-nums lining-nums}
+.u{font:500 14px var(--sans);color:var(--ink-3);letter-spacing:0;margin-left:4px}
+
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.w{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.w h2{font:800 18px/1.25 var(--head);margin:0 0 4px;letter-spacing:-.005em}
+.w .sub{margin:0 0 16px;color:var(--ink-2);font-size:14px}
+.a{grid-column:span 7} .c{grid-column:span 5} .d{grid-column:span 6} .b{grid-column:span 6} .f{grid-column:span 12}
+
+/* A: bilanț net */
+.a .big{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:6px 0 18px}
+.a .big div{border-left:3px solid var(--line);padding-left:12px}
+.a .big div.neg-b{border-color:var(--neg)} .a .big div.pos-b{border-color:var(--pos)}
+.a .big small{display:block;font-size:13px;color:var(--ink-2);margin-bottom:6px}
+.a .big b{font-size:clamp(30px,4vw,44px);line-height:1}
+.a .big .net b{color:var(--ink)}
+.bar{position:relative;height:14px;border-radius:7px;background:var(--neg);overflow:hidden}
+.bar i{position:absolute;right:0;top:0;bottom:0;background:var(--pos)}
+.barl{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-3);margin-top:6px}
+
+/* C: termen apropiat */
+.c{background:var(--neg-soft);border-color:#F5C9C9;display:flex;flex-direction:column}
+.c .cd{display:flex;align-items:baseline;gap:8px;margin:4px 0 10px}
+.c .cd b{font-size:64px;line-height:.9;color:var(--neg)}
+.c .cd span{font:600 16px var(--sans);color:var(--neg)}
+.c p{margin:0 0 6px;font-size:15px}
+.c .gain{font-weight:700;color:var(--pos)}
+.c .next{margin-top:auto;padding-top:14px;border-top:1px solid #F5C9C9;font-size:13px;color:var(--ink-2)}
+.c .next b{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:10px;background:var(--ink);color:#fff;font:600 14px var(--sans);text-decoration:none;margin-top:10px;align-self:flex-start}
+
+/* B și D: liste cu bare */
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:11px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.row:first-child{border-top:0;padding-top:2px}
+.row .t{font-weight:600;font-size:14.5px}
+.row .m{grid-column:1;font-size:12.5px;color:var(--ink-3)}
+.row .m .urg{color:var(--neg);font-weight:600}
+.row .v{grid-row:1 / span 2;grid-column:2;text-align:right;font-size:22px;align-self:center}
+.row .v.neg{color:var(--neg)} .row .v.pos{color:var(--pos)}
+.row .mini{grid-column:1 / -1;height:6px;border-radius:3px;background:var(--tint2);overflow:hidden}
+.row .mini i{display:block;height:100%;border-radius:3px}
+.row:hover .t{text-decoration:underline}
+.tot{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);margin-top:4px;padding-top:10px;font-size:14px;font-weight:600}
+.tot b{font-size:22px}
+
+/* F: ce urmează */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:8px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.ev{position:relative;padding:28px 16px 0 0}
+.ev::before{content:"";position:absolute;left:0;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--ink-3)}
+.ev.neg::before{border-color:var(--neg)} .ev.pos::before{border-color:var(--pos)} .ev.pr::before{border-style:dashed}
+.ev .dd{font:600 13px var(--sans);color:var(--ink-2)}
+.ev .dd em{font-style:normal;color:var(--ink-3);font-weight:500}
+.ev .t{font-weight:600;font-size:14.5px;margin:4px 0 6px}
+.ev .v{font-size:20px} .ev .v.neg{color:var(--neg)} .ev .v.pos{color:var(--pos)} .ev .v.zero{color:var(--ink-3);font-size:15px}
+.st{display:inline-block;font:600 11.5px var(--sans);border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+.st.proiect{background:#FEF3E2;color:#8A4B08} .st.adoptat{background:var(--accent-soft);color:var(--accd)}
+
+.disc{margin:22px 0 0;font-size:12.5px;color:var(--ink-3)}
+
+@media (max-width:900px){
+  .a,.c,.d,.b{grid-column:span 12}
+  .fonts{grid-template-columns:repeat(2,1fr)}
+  .tl{grid-template-columns:1fr;padding-left:4px}
+  .tl::before{left:10px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .ev{padding:0 0 18px 30px}
+  .ev::before{left:3px;top:2px}
+}
+@media (max-width:520px){
+  .wrap{padding:16px 16px 48px}
+  .a .big{grid-template-columns:1fr 1fr}
+  .a .big .net{grid-column:1 / -1}
+  .c .cd b{font-size:52px}
+  .w{padding:18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Impactul pe banii tăi, dintr-o privire</h1>
+      <p>Machetă de widgeturi pentru „Pentru tine”. Sumele sunt pentru scenariul demonstrativ Andrei, 32 de ani, și vin din aceleași date ca v6. Data demonstrativă: <span id="azi"></span>.</p>
+    </div>
+    <div class="ctl">
+      <span class="seg" role="group" aria-label="Perioada"><button data-per="luna" aria-pressed="true">pe lună</button><button data-per="an" aria-pressed="false">pe an</button></span>
+    </div>
+  </div>
+
+  <div class="fonts" role="group" aria-label="Fontul cifrelor" id="fonts"></div>
+
+  <div class="grid">
+    <section class="w a" id="wa" aria-labelledby="ha"></section>
+    <section class="w c" id="wc" aria-labelledby="hc"></section>
+    <section class="w b" id="wb" aria-labelledby="hb"></section>
+    <section class="w d" id="wd" aria-labelledby="hd"></section>
+    <section class="w f" id="wf" aria-labelledby="hf"></section>
+  </div>
+  <p class="disc">Nu e sfat financiar. Arătăm efectul legii în scenariul demonstrativ și ce permite legea. Sumele sunt calculul nostru, nu cifre scrise în lege.</p>
+</div>
+
+<script src="../v4/data.js?v=8"></script>
+<script src="../v5/common.js?v=8"></script>
+<script src="noutati.js?v=9"></script>
+<script>
+var FONTS = [
+  {id:'raleway', name:'Raleway (acum)', fam:"'Raleway',system-ui,sans-serif", w:800, tr:'-.02em'},
+  {id:'intertight', name:'Inter Tight', fam:"'Inter Tight',system-ui,sans-serif", w:700, tr:'-.03em'},
+  {id:'plex', name:'IBM Plex Sans', fam:"'IBM Plex Sans',system-ui,sans-serif", w:600, tr:'-.02em'},
+  {id:'geist', name:'Geist (propus)', fam:"'Geist',system-ui,sans-serif", w:600, tr:'-.03em'}
+];
+var Q = new URLSearchParams(location.search);
+var S = { font: Q.get('font') || 'geist', per: Q.get('per') === 'an' ? 'an' : 'luna' };
+
+function k(n){ return S.per === 'an' ? n * 12 : n; }
+function fmt(n){ var a = Math.abs(k(n)); var r = a >= 10 ? Math.round(a) : Math.round(a * 10) / 10; return r.toLocaleString('ro-RO'); }
+function unit(){ return S.per === 'an' ? 'lei/an' : 'lei/lună'; }
+function money(n, sign){ return '<span class="num">' + (sign ? (n > 0 ? '+' : n < 0 ? '−' : '') : '') + fmt(n) + '</span><span class="u">' + unit() + '</span>'; }
+function esc(s){ return U.esc(s); }
+function zile(d){ var n = U.days(d); return n === 0 ? 'azi' : n === 1 ? 'mâine' : 'în ' + n + ' zile'; }
+function link(id){ return 'index.html?plan=premium&go=' + encodeURIComponent(id); }
+
+var COST = ITEMS.filter(function(i){ return i.status !== 'proiect' && U.inForce(i) && i.impact < 0; }).sort(function(a,b){ return a.impact - b.impact; });
+var GAIN = ITEMS.filter(function(i){ return i.gain > 0 && i.status !== 'termen_depasit' && i.status !== 'proiect' && (!i.deadline || U.days(i.deadline) >= 0); }).sort(function(a,b){ return b.gain - a.gain; });
+var COSTS = -COST.reduce(function(s,i){ return s + i.impact; }, 0);
+var GAINS = GAIN.reduce(function(s,i){ return s + i.gain; }, 0);
+
+function renderFonts(){
+  document.getElementById('fonts').innerHTML = FONTS.map(function(f){
+    return '<button data-font="' + f.id + '" aria-pressed="' + (S.font === f.id) + '"><small>' + f.name + '</small><span style="font-family:' + f.fam + ';font-weight:' + f.w + ';letter-spacing:' + f.tr + '"><b class="n" style="font-weight:inherit">−784</b><b class="p" style="font-weight:inherit">+90</b></span></button>';
+  }).join('');
+  var f = FONTS.filter(function(x){ return x.id === S.font; })[0] || FONTS[3];
+  var r = document.documentElement.style;
+  r.setProperty('--num', f.fam); r.setProperty('--num-w', f.w); r.setProperty('--num-track', f.tr);
+}
+
+function wA(){
+  var net = GAINS - COSTS, share = GAINS / COSTS * 100;
+  return '<h2 id="ha">Legile în vigoare te costă <span class="num">' + fmt(COSTS) + '</span> ' + unit() + '. Poți recupera <span class="num">' + fmt(GAINS) + '</span>.</h2>' +
+    '<p class="sub">Recuperezi doar cu pașii pe care îi permite legea, fiecare cu termenul lui.' + (S.per === 'an' ? ' Pe an înseamnă suma lunară înmulțită cu 12; unele măsuri durează mai puțin de un an.' : '') + '</p>' +
+    '<div class="big"><div class="neg-b"><small>Te costă</small><b class="neg">' + money(-COSTS, true) + '</b></div>' +
+    '<div class="pos-b"><small>Poți recupera</small><b class="pos">' + money(GAINS, true) + '</b></div>' +
+    '<div class="net"><small>Rămâi cu</small><b>' + money(net, true) + '</b></div></div>' +
+    '<div class="bar" role="img" aria-label="Din costuri poți recupera ' + Math.round(share) + '%"><i style="width:' + share + '%"></i></div>' +
+    '<div class="barl"><span>Costuri, ' + COST.length + ' legi</span><span>' + Math.round(share) + '% recuperabil</span></div>';
+}
+
+function wC(){
+  var dl = GAIN.filter(function(i){ return i.deadline; }).sort(function(a,b){ return U.d(a.deadline) - U.d(b.deadline); });
+  var i = dl[0]; if (!i) return '<h2 id="hc">Niciun termen apropiat</h2>';
+  var n = U.days(i.deadline), nx = dl[1];
+  return '<h2 id="hc">Termen apropiat</h2>' +
+    '<div class="cd"><b class="num">' + n + '</b><span>' + (n === 1 ? 'zi' : 'zile') + ' rămase</span></div>' +
+    '<p>' + esc(i.action) + '.</p>' +
+    '<p>Păstrezi <span class="gain"><span class="num">+' + U.num(i.gain) + '</span><span class="u">lei/lună</span></span> până pe ' + U.date(i.deadline) + '. ' + esc(i.act) + '.</p>' +
+    '<a class="btn" href="' + link(i.id) + '">Arată pașii</a>' +
+    (nx ? '<p class="next">Următorul: <b>' + esc(nx.short) + '</b>, până pe ' + U.date(nx.deadline) + ' (' + zile(nx.deadline) + ').</p>' : '');
+}
+
+function wB(){
+  var max = GAIN[0] ? GAIN[0].gain : 1;
+  return '<h2 id="hb">Ce poți face, după cât păstrezi</h2><p class="sub">Pași permiși de lege. Deschide unul ca să vezi condițiile.</p><div class="rows">' +
+    GAIN.map(function(i){
+      var when = i.deadline ? '<span class="' + (U.days(i.deadline) <= 14 ? 'urg' : '') + '">până pe ' + U.date(i.deadline) + ', ' + zile(i.deadline) + '</span>' : !U.inForce(i) ? 'de la ' + U.date(i.effective) : 'oricând';
+      return '<a class="row" href="' + link(i.id) + '"><span class="t">' + esc(i.short) + '</span><span class="v pos">' + money(i.gain, true) + '</span><span class="m">' + when + ' · ' + esc(i.act) + '</span><span class="mini"><i style="width:' + (i.gain / max * 100) + '%;background:var(--pos)"></i></span></a>';
+    }).join('') + '</div><div class="tot"><span>Dacă le faci pe toate</span><b class="pos">' + money(GAINS, true) + '</b></div>';
+}
+
+function wD(){
+  var max = COST[0] ? -COST[0].impact : 1;
+  return '<h2 id="hd">Unde se duc banii</h2><p class="sub">Legile în vigoare care te costă, de la cea mai mare.</p><div class="rows">' +
+    COST.map(function(i){
+      var pct = Math.round(-i.impact / COSTS * 100);
+      return '<a class="row" href="' + link(i.id) + '"><span class="t">' + esc(i.short) + '</span><span class="v neg">' + money(i.impact, true) + '</span><span class="m">' + pct + '% din total · ' + esc(i.act) + '</span><span class="mini"><i style="width:' + (-i.impact / max * 100) + '%;background:var(--neg)"></i></span></a>';
+    }).join('') + '</div><div class="tot"><span>Total</span><b class="neg">' + money(-COSTS, true) + '</b></div>';
+}
+
+function wF(){
+  var ev = ITEMS.filter(function(i){ return !U.inForce(i); }).sort(function(a,b){ return U.d(a.effective) - U.d(b.effective); }).slice(0, 4);
+  return '<h2 id="hf">Ce urmează</h2><p class="sub">Legi și proiecte care încep să se aplice în următoarele luni.</p><div class="tl">' +
+    ev.map(function(i){
+      var v = i.impact || i.gain || 0, cls = i.status === 'proiect' ? (v > 0 ? 'pos pr' : 'neg pr') : (i.impact < 0 ? 'neg' : i.gain > 0 ? 'pos' : '');
+      var val = i.impact < 0 ? '<span class="v num neg">' + money(i.impact, true) + '</span>' :
+                i.status === 'proiect' && v ? '<span class="v pos">' + money(v, true) + '</span><div class="m" style="font-size:12.5px;color:var(--ink-3)">dacă se adoptă</div>' :
+                i.gain > 0 ? '<span class="v pos">' + money(i.gain, true) + '</span><div class="m" style="font-size:12.5px;color:var(--ink-3)">dacă faci pasul</div>' :
+                '<span class="v zero">Fără efect lunar acum</span>';
+      var st = i.status === 'proiect' ? '<span class="st proiect">proiect</span>' : i.status === 'adoptat' ? '<span class="st adoptat">adoptat</span>' : '';
+      return '<a class="ev ' + cls + '" href="' + link(i.id) + '" style="text-decoration:none;color:inherit"><div class="dd">' + U.date(i.effective) + ' <em>' + zile(i.effective) + '</em>' + st + '</div><div class="t">' + esc(i.short) + '</div>' + val + '</a>';
+    }).join('') + '</div>';
+}
+
+function render(){
+  renderFonts();
+  document.getElementById('azi').textContent = U.date(TODAY);
+  document.querySelectorAll('[data-per]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.per === S.per)); });
+  document.getElementById('wa').innerHTML = wA();
+  document.getElementById('wc').innerHTML = wC();
+  document.getElementById('wb').innerHTML = wB();
+  document.getElementById('wd').innerHTML = wD();
+  document.getElementById('wf').innerHTML = wF();
+}
+document.addEventListener('click', function(e){
+  var f = e.target.closest('[data-font]'), p = e.target.closest('[data-per]');
+  if (f){ S.font = f.dataset.font; render(); }
+  if (p){ S.per = p.dataset.per; render(); }
+});
+render();
+</script>
+</body>
+</html>

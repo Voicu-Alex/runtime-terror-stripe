@@ -5,6 +5,7 @@
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "TVA standard 21%, cota redusă unică 11%",
+    "comparatie": {"inainte": "19% (cota standard)", "acum": "21% (cota standard)", "inainte_en": "19% (standard rate)", "acum_en": "21% (standard rate)", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022", "articol": "art. II pct. 42 (Codul fiscal art. 291 alin. 1-2)", "verificat_la": "2026-10-28"},
     "status": "in_vigoare",
     "publicat_la": "2025-07-25",
     "in_vigoare_de_la": "2025-08-01",
@@ -34,6 +35,7 @@
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "Impozitul pe dividende crește de la 10% la 16%",
+    "comparatie": {"inainte": "10%", "acum": "16%", "inainte_en": "10%", "acum_en": "16%", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022", "articol": "art. II pct. 1 (Codul fiscal art. 43 alin. 2); pct. 5 (art. 97 alin. 7)", "verificat_la": "2026-10-28"},
     "status": "in_vigoare",
     "publicat_la": "2025-07-25",
     "in_vigoare_de_la": "2026-01-01",
@@ -47,8 +49,8 @@
     "formula": "dividende_16",
     "estimare": false,
     "niveluri": {
-      "zero": "Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu 10%. Pe dividendele tale, diferența apare în cifra lunară.",
-      "curios": "Creșterea face parte din același pachet de măsuri fiscal-bugetare, Legea 141/2025. Te atinge dacă ai un SRL și îți plătești profitul ca dividende. Contează data la care sunt distribuite, nu data plății: ce s-a distribuit până la 31 decembrie 2025 a rămas la 10%. Exemplu: la 10.000 lei dividende, impozitul crește de la 1.000 lei la 1.600 lei.",
+      "zero": "Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu 10%. Pe dividendele tale, diferența apare în cifra anuală.",
+      "curios": "Creșterea face parte din același pachet de măsuri fiscal-bugetare, Legea 141/2025. Te privește dacă ai un SRL și îți plătești profitul ca dividende. Contează data la care sunt distribuite, nu data plății: ce s-a distribuit până la 31 decembrie 2025 a rămas la 10%. Exemplu: la 10.000 lei dividende, impozitul crește de la 1.000 lei la 1.600 lei.",
       "expert": "Legea 141/2025, art. II pct. 5, modifică art. 97 alin. (7) din Codul fiscal (persoane fizice: 16%, impozit final); pct. 1 modifică art. 43 alin. (2) (persoane juridice). Publicată în Monitorul Oficial nr. 699 din 25 iulie 2025; se aplică dividendelor distribuite începând cu 1 ianuarie 2026 (art. VII alin. (1)). Nuanță: dividendele distribuite pe baza situațiilor financiare interimare din 2025 rămân la 10%, fără recalculare la regularizare (art. VII alin. (2)). Nuanță: pentru firmele cu an fiscal modificat, data este prima zi a anului fiscal care începe în 2026."
     },
     "actiuni": [
@@ -65,7 +67,7 @@
     "profesionist": "contabil",
     "specialist": {
       "intrebare": "Mai merită să îmi iau banii din SRL ca dividende sau pe salariu, cu impozitul de 16%?",
-      "documente": "Profitul estimat pe anul acesta și cât ai vrea să scoți din firmă."
+      "documente": "Profitul estimat pe anul acesta și cât vrei să scoți din firmă."
     },
     "articol": "art. II pct. 1 (Codul fiscal art. 43 alin. 2); pct. 5 (art. 97 alin. 7)",
     "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022",
@@ -149,7 +151,7 @@
     "estimare": true,
     "niveluri": {
       "zero": "Plafonul a acoperit 1 apr–30 iun 2025 și a încetat la 1 iul 2025; de atunci factura urmează prețul pieței.",
-      "curios": "Între 1 aprilie și 30 iunie 2025, statul a limitat prețul curentului pentru casnici, după consum: 0,68, 0,80 sau 1,3 lei/kWh cu TVA. De la 1 iulie 2025 schema s-a încheiat, iar prețul depinde doar de oferta furnizorului. Te atinge dacă ai contract de curent pe numele tău. Exemplu: la 200 kWh pe lună, cu plafonul de 0,80 lei/kWh plăteai cel mult 160 lei; acum suma depinde de prețul din contractul tău.",
+      "curios": "Între 1 aprilie și 30 iunie 2025, statul a limitat prețul curentului pentru casnici, după consum: 0,68, 0,80 sau 1,3 lei/kWh cu TVA. De la 1 iulie 2025 schema s-a încheiat, iar prețul depinde doar de oferta furnizorului. Te privește dacă ai contract de curent pe numele tău. Exemplu: la 200 kWh pe lună, cu plafonul de 0,80 lei/kWh plăteai cel mult 160 lei; acum suma depinde de prețul din contractul tău.",
       "expert": "OUG 6/2025, art. 1 alin. (1): prețul final plafonat pentru consumul dintre 1 aprilie și 30 iunie 2025 era maximum 0,68 lei/kWh (consum de până la 100 kWh/lună și categoriile vulnerabile de la lit. a)), maximum 0,80 lei/kWh (între 100,01 și 255 kWh/lună) și maximum 1,3 lei/kWh pentru ceilalți casnici. Publicată în Monitorul Oficial nr. 182 din 28 februarie 2025. Încetarea schemei la 1 iulie 2025 este confirmată de ANRE (comunicat din 11 iunie 2025). Nuanță: peste 300 kWh pe lună, tot consumul se factura la 1,3 lei/kWh. Nuanță: ANRE recomandă compararea ofertelor pe comparatorul oficial (posf.ro); schimbarea furnizorului e fără costuri."
     },
     "actiuni": [
@@ -190,7 +192,7 @@
     "estimare": false,
     "niveluri": {
       "zero": "Legea nouă schimbă felul în care primești banii din Pilon II: doar o parte deodată, restul în rate. Azi nu pierzi nimic, dar pensia privată se planifică altfel.",
-      "curios": "Legea 2/2026 stabilește cum îți primești banii din Pilonul II și III când ieși la pensie. Poți cere o singură dată maximum 30% din suma strânsă, iar restul vine în rate lunare sau ca pensie viageră. Exemplu: dacă ai strâns 100.000 lei, poți lua deodată cel mult 30.000 lei, iar 70.000 lei îi primești eșalonat. Regulile noi pornesc abia după ce ASF autorizează primul fond care plătește în rate; până atunci se aplică regulile vechi.",
+      "curios": "Legea 2/2026 stabilește cum îți primești banii din Pilonul II și III la pensionare. Poți cere o singură dată maximum 30% din suma strânsă, iar restul vine în rate lunare sau ca pensie viageră. Exemplu: dacă ai strâns 100.000 lei, poți lua deodată cel mult 30.000 lei, iar 70.000 lei îi primești eșalonat. Regulile noi pornesc abia după ce ASF autorizează primul fond care plătește în rate; până atunci se aplică regulile vechi.",
       "expert": "Legea 2/2026 privind plata pensiilor private, publicată în Monitorul Oficial nr. 2 din 5 ianuarie 2026; intră în vigoare la un an de la publicare, adică pe 5 ianuarie 2027 (art. 113). Art. 55 alin. (1): maximum 30% din activ, la cerere, o singură dată, înainte de plățile lunare. Art. 60: rata lunară este egală cu indemnizația socială pentru pensionari; dacă astfel plata ar dura peste 8 ani, rata poate crește, dar plata durează cel puțin 8 ani. Nuanță: până când ASF autorizează cel puțin un fond de plată prin retragere programată, plata se face exclusiv după legile vechi (411/2004, 204/2006, 1/2020), conform art. 111 alin. (1). Nuanță: dacă suma strânsă nu depășește de 12 ori indemnizația socială pentru pensionari, primești totul o dată sau în maximum 12 luni (art. 50 alin. (3))."
     },
     "actiuni": [
@@ -279,7 +281,7 @@
     "estimare": false,
     "niveluri": {
       "zero": "Cotă unică de 1% pentru microîntreprinderi (cota de 3% eliminată). Plafonul de 100.000 EUR și condiția de un angajat: de verificat.",
-      "curios": "Cota de 3% a dispărut: din 2026, toate microîntreprinderile plătesc 1% din venituri. În schimb, plafonul de venituri a coborât de la 250.000 la 100.000 euro pe an. Te atinge dacă ai un SRL micro; ca să rămână micro, firma trebuie să aibă cel puțin un salariat și să nu treacă de plafon. Exemplu: la 50.000 lei venituri într-un trimestru, impozitul este 500 lei.",
+      "curios": "Cota de 3% a dispărut: din 2026, toate microîntreprinderile plătesc 1% din venituri. În schimb, plafonul de venituri a coborât de la 250.000 la 100.000 euro pe an. Te privește dacă ai un SRL micro; ca să rămână micro, firma trebuie să aibă cel puțin un salariat și să nu treacă de plafon. Exemplu: la 50.000 lei venituri într-un trimestru, impozitul este 500 lei.",
       "expert": "OUG 89/2025, art. I pct. 4, modifică art. 51 alin. (1) din Codul fiscal: „Cota de impozit pe veniturile microîntreprinderilor este de 1%.” Publicată în Monitorul Oficial nr. 1203 din 24 decembrie 2025, aplicabilă de la 1 ianuarie 2026 (art. II alin. (1)). Plafonul de 100.000 euro nu vine din OUG 89/2025, ci din art. 47 alin. (1) lit. c) din Codul fiscal, introdus prin OUG 156/2024 și rescris prin OUG 8/2026 (Monitorul Oficial nr. 147 din 25 februarie 2026). Nuanță: la plafon se adună și veniturile întreprinderilor legate, inclusiv ale PFA-urilor asociaților care dețin peste 25% (art. 47 alin. (1^1), art. 52 alin. (5^1)). Nuanță: o firmă nou înființată are 90 de zile să angajeze primul salariat (OUG 8/2026)."
     },
     "actiuni": [
@@ -333,7 +335,7 @@
     "estimare": true,
     "niveluri": {
       "zero": "Până la 31 martie 2027 prețul la gaz e plafonat. De la 1 aprilie 2027 factura urmează prețul pieței.",
-      "curios": "Plafonul fix de 0,31 lei/kWh s-a terminat la 31 martie 2026. De la 1 aprilie 2026, OUG 12/2026 a pus în loc o formulă: gazul de la producători are preț fix, iar adaosul furnizorului e limitat. Te atinge dacă ești client casnic de gaz, inclusiv în bloc sau cartier rezidențial. Exemplu: TODO, avem nevoie de un preț final oficial în lei/kWh calculat după formulă.",
+      "curios": "Plafonul fix de 0,31 lei/kWh s-a terminat la 31 martie 2026. De la 1 aprilie 2026, OUG 12/2026 a pus în loc o formulă: gazul de la producători are preț fix, iar adaosul furnizorului e limitat. Te privește dacă ești client casnic de gaz, inclusiv în bloc sau cartier rezidențial. Exemplu: TODO, avem nevoie de un preț final oficial în lei/kWh calculat după formulă.",
       "expert": "OUG 12/2026, art. 1 alin. (2): prețul facturat clienților casnici între 1 aprilie 2026 și 31 martie 2027 este cel mai mic dintre prețul contractual și prețul final calculat. Art. 3: componenta de furnizare este de maximum 15 lei/MWh. Art. 6 alin. (1): producătorii livrează cu 110 lei/MWh. Publicată în Monitorul Oficial nr. 178 din 9 martie 2026; modificată prin OUG 19/2026 (Monitorul Oficial nr. 237 din 26 martie 2026). Nuanță: cifra de 0,31 lei/kWh vine din OUG 6/2025 și s-a aplicat doar între 1 aprilie 2025 și 31 martie 2026. Nuanță: producătorii de energie termică pentru populație beneficiază doar pentru consumul dintre 1 noiembrie 2026 și 31 martie 2027 (modificare prin OUG 19/2026)."
     },
     "actiuni": [
@@ -369,6 +371,7 @@
     "act": "OUG 156/2024",
     "mo_ref": "MO 1334 / 31 dec 2024",
     "rezumat": "Scutirea de impozit pe venit din IT a fost eliminată",
+    "comparatie": {"inainte": "scutire de impozit pe venit, cu condiții", "acum": "fără scutire", "inainte_en": "conditional income-tax exemption", "acum_en": "no exemption", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/293109", "articol": "art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2)", "verificat_la": "2026-10-28"},
     "status": "in_vigoare",
     "publicat_la": "2024-12-30",
     "in_vigoare_de_la": "2025-01-01",
@@ -388,7 +391,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică dacă angajatorul a compensat prin brut; cere o simulare la HR",
+        "text": "Verifică dacă angajatorul a compensat prin brut; solicită o simulare la HR",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -430,7 +433,7 @@
     },
     "actiuni": [
       {
-        "text": "Cere angajatorului o simulare a salariului net actual",
+        "text": "Solicită angajatorului o simulare a salariului net actual",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -452,6 +455,7 @@
     "act": "Legea 141/2025",
     "mo_ref": "MO 699 / 25 iul 2025",
     "rezumat": "TVA 11% la serviciile HoReCa",
+    "comparatie": {"inainte": null, "acum": "11% (cota redusă)", "acum_en": "11% (reduced rate)", "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/300022", "articol": "art. II pct. 42 (Codul fiscal art. 291 alin. 2)", "verificat_la": "2026-10-28"},
     "status": "in_vigoare",
     "publicat_la": "2025-07-25",
     "in_vigoare_de_la": "2025-08-01",
@@ -624,7 +628,7 @@
     },
     "actiuni": [
       {
-        "text": "Întreabă la primărie dacă te încadrezi; se depune o cerere cu declarație pe propria răspundere",
+        "text": "Întreabă la primărie dacă te încadrezi; dacă da, depune cererea cu declarație pe propria răspundere",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -673,7 +677,7 @@
     },
     "actiuni": [
       {
-        "text": "Cere de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)",
+        "text": "Solicită de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -720,12 +724,12 @@
     "estimare": false,
     "niveluri": {
       "zero": "Dacă ai sub 30 de ani, nu lucrezi și nu ești la școală, primul contract cu normă întreagă și pe durată nedeterminată îți aduce de la stat 1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea. Condiția: să fii în evidența AJOFM înainte de angajare.",
-      "curios": "Prima vine pe lângă salariu, nu se impozitează și se plătește 24 de luni, în total 27.000 lei. Contează ordinea: întâi te înregistrezi la agenția pentru ocuparea forței de muncă, apoi semnezi contractul. Nu se acordă dacă angajatorul e o instituție publică sau o firmă de stat. Nu se cumulează cu prima de inserție pentru absolvenți, care e de 3 ori ISR (1.980 lei, după comunicatul ANOFM din iulie 2026), deci contează pe care o ceri. Dacă în primii 2 ani contractul se încheie prin demisie, prin acordul părților sau prin concediere disciplinară, banii se dau înapoi.",
+      "curios": "Prima vine pe lângă salariu, nu se impozitează și se plătește 24 de luni, în total 27.000 lei. Contează ordinea: întâi te înregistrezi la agenția pentru ocuparea forței de muncă, apoi semnezi contractul. Nu se acordă dacă angajatorul e o instituție publică sau o firmă de stat. Nu se cumulează cu prima de inserție pentru absolvenți, care e de 3 ori ISR (1.980 lei, după comunicatul ANOFM din iulie 2026), deci contează pe care o soliciți. Dacă în primii 2 ani contractul se încheie prin demisie, prin acordul părților sau prin concediere disciplinară, banii se dau înapoi.",
       "expert": "OUG 11/2026, art. I pct. 15, introduce art. 76^5 în Legea 76/2002. Alin. (1): tinerii NEET înregistrați la agenția pentru ocuparea forței de muncă, încadrați pentru prima dată cu normă întreagă și pe durată nedeterminată; 1.000 lei/lună în primele 12 luni și 1.250 lei/lună în următoarele 12; neimpozabilă, fără contribuții sociale. Alin. (2): nu se acordă la instituții publice, regii, companii naționale și societăți cu capital majoritar de stat sau al UAT. Alin. (4): dreptul se păstrează dacă te angajezi în maximum 60 de zile la alt angajator, în aceleași condiții. Alin. (5): restituire integrală dacă raportul de muncă încetează în primele 24 de luni în temeiul art. 55 lit. b), art. 61 lit. a) sau art. 81 din Codul muncii. Alin. (7): nu se cumulează cu prima de inserție (art. 73^1 alin. (1)), prima de activare, primele de mobilitate și prima de relocare. NEET: între 16 ani și împlinirea a 30 de ani, fără loc de muncă, fără școală sau formare profesională (preambulul OUG). TODO: termenul de depunere a cererii din normele aprobate prin HG 570/2026 (presa: 90 de zile de la angajare); necitit în text."
     },
     "actiuni": [
       {
-        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi cere prima de stabilitate",
+        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi solicită prima de stabilitate",
         "termen": null,
         "formula_economie": "prima_stabilitate_economie",
         "one_click": null,
@@ -775,7 +779,7 @@
     ],
     "actiuni": [
       {
-        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), poți cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).",
+        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -867,7 +871,7 @@
     },
     "actiuni": [
       {
-        "text": "Legea permite: deschizi un cont CEI-D din 2027 și scazi din impozit 10% din ce depui",
+        "text": "Legea permite: deschide un cont CEI-D din 2027 și scade din impozit 10% din ce depui",
         "termen": null,
         "formula_economie": "cei_d_economie",
         "one_click": null,
@@ -1097,7 +1101,7 @@
     },
     "actiuni": [
       {
-        "text": "Dacă vrei să-i asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen",
+        "text": "Dacă vrei să îi asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
         "formula_economie": null,
@@ -1261,7 +1265,7 @@
     },
     "actiuni": [
       {
-        "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; poți opta pentru sistemul real până la termenul legal",
+        "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; dacă vrei sistemul real, optează pentru el până la termenul legal",
         "termen": "2027-05-25",
         "one_click": null,
         "formula_economie": null,
@@ -1342,7 +1346,7 @@
     "estimare": false,
     "niveluri": {
       "zero": "Dacă închiriezi pe termen scurt între 1 și 7 camere din locuința ta, pentru veniturile din 2026 plătești 10% impozit pe 70% din încasări, adică 7%, fără contabilitate.",
-      "curios": "Pentru 1-7 camere, venitul se impozitează ca cedare a folosinței bunurilor: se scade automat 30% cheltuieli și se aplică 10% impozit final. Comisionul platformei nu intră în venit. Exemplu: la 30.000 lei încasați într-un an, impozitul este 2.100 lei. Peste 7 camere, veniturile devin activitate independentă, cu CAS și CASS. Declari și plătești până la 25 mai 2027.",
+      "curios": "Pentru 1-7 camere, venitul se impozitează ca cedare a folosinței bunurilor: se scade automat 30% cheltuieli și se aplică 10% impozit final. Comisionul platformei nu intră în venit. Exemplu: la 30.000 lei încasați într-un an, impozitul este 2.100 lei. Peste 7 camere, veniturile devin activitate independentă, cu CAS și CASS. Declară și plătește până la 25 mai 2027.",
       "expert": "Legea 239/2025, art. XII pct. 7-10, rescrie art. 83-85 Cod fiscal; peste 7 camere se aplică art. 68^3 (activitate independentă, cotă forfetară 30%, impozit 10%). Închirierea pe termen scurt înseamnă aceeași cameră închiriată neîntrerupt aceleiași persoane cel mult 30 de zile. Venitul din 2025 rămâne pe regulile vechi (art. 133 alin. (34)-(35)). Pentru 1-7 camere, CASS se datorează dacă veniturile din aceste categorii ating 6 salarii minime (24.300 lei în 2026), conform ghidului ANAF Galați. Obligatoriu: registrul de evidență fiscală (doar venituri) și fișa de ocupare a capacității de cazare."
     },
     "actiuni": [
@@ -1403,7 +1407,7 @@
         "destinatie": "angajator_hr"
       },
       {
-        "text": "Dacă angajatorul nu a aplicat noul salariu minim, poți sesiza Inspecția Muncii.",
+        "text": "Dacă angajatorul nu a aplicat noul salariu minim, sesizează Inspecția Muncii.",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1460,7 +1464,7 @@
     },
     "actiuni": [
       {
-        "text": "Cere la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă",
+        "text": "Solicită la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1501,7 +1505,7 @@
     },
     "actiuni": [
       {
-        "text": "Dacă datoriile tale trec de prag, cere informații la comisia de insolvență din județul tău înainte să depui cererea",
+        "text": "Dacă datoriile tale trec de prag, solicită informații la comisia de insolvență din județul tău înainte să depui cererea",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1542,7 +1546,7 @@
     },
     "actiuni": [
       {
-        "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, cere corectarea",
+        "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, solicită corectarea",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1626,7 +1630,7 @@
     "estimare": false,
     "niveluri": {
       "zero": "Dacă venitul net din familie e de cel mult 1.784 lei pe persoană (1.940 lei dacă locuiești singur), poți primi 50 lei pe lună la factura de curent până la sfârșitul lui 2026, dar numai dacă te înscrii.",
-      "curios": "Sprijinul pentru consumatorii casnici de energie electrică aflați în sărăcie energetică este de 50 lei pe lună, pentru un singur loc de consum. Se acordă familiilor cu venit net de cel mult 1.784 lei pe membru și persoanelor singure cu cel mult 1.940 lei. Măsura a fost prelungită până la 31 decembrie 2026. Te înscrii online, prin aplicația EPIDS, sau prin poștă ori primărie; cine se înscrie mai târziu primește sprijinul din luna înscrierii.",
+      "curios": "Sprijinul pentru consumatorii casnici de energie electrică afli în sărăcie energetică este de 50 lei pe lună, pentru un singur loc de consum. Se acordă familiilor cu venit net de cel mult 1.784 lei pe membru și persoanelor singure cu cel mult 1.940 lei. Măsura a fost prelungită până la 31 decembrie 2026. Te înscrii online, prin aplicația EPIDS, sau prin poștă ori primărie; cine se înscrie mai târziu primește sprijinul din luna înscrierii.",
       "expert": "OUG 35/2025 (MO nr. 612 din 30 iunie 2025), forma consolidată: art. 4 alin. (1), pragurile de venit (1.940 lei persoana singură, 1.784 lei pe membru de familie); art. 6 alin. (1) și (3), 50 lei pe lună pentru un singur loc de consum; art. 6 alin. (1) și (4), cererea prin EPIDS sau prin reprezentanții poștei ori ai primăriei; art. 7 alin. (8), sprijinul se acordă din luna înregistrării pentru cererile ulterioare. Art. 1 alin. (2), modificat prin OUG 89/2025 art. XXXIV: măsurile se aplică între 1 iulie 2025 și 31 decembrie 2026."
     },
     "actiuni": [
@@ -1681,7 +1685,7 @@
     },
     "actiuni": [
       {
-        "text": "Dacă faci ore suplimentare, cere ca timpul liber corespunzător să-ți fie acordat în cel mult 90 de zile",
+        "text": "Dacă faci ore suplimentare, solicită ca timpul liber corespunzător să îți fie acordat în cel mult 90 de zile",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1892,7 +1896,7 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ești student la buget, în anul universitar 2026–2027 bursa socială e de cel puțin 925 lei; o primești doar dacă o ceri la facultate.",
+      "zero": "Dacă ești student la buget, în anul universitar 2026–2027 bursa socială e de cel puțin 925 lei; o primești doar dacă o soliciți la facultate.",
       "curios": "Pentru anul universitar 2026–2027, cuantumul minim al bursei sociale, gândit să acopere cheltuielile minime de masă și cazare, este 925 lei. Studenții la programele didactice (licență cu dublă specializare sau master didactic) primesc o bursă de 2.165 lei, iar doctoranzii la buget 3.700 lei. Universitățile pot da mai mult, dar nu mai puțin decât aceste minime.",
       "expert": "Ordinul ministrului educației și cercetării nr. 5.732 din 25 septembrie 2026 (MO nr. 831 din 30 septembrie 2026), pentru studenții la programe finanțate de la bugetul de stat, anul universitar 2026–2027: art. 1, bursa de doctorat 3.700 lei, indiferent de anul de studiu; art. 2, bursa pentru licența didactică cu dublă specializare sau masterul didactic 2.165 lei; art. 3, cuantumul minim al bursei sociale 925 lei. Ordinul nu precizează perioada (lunar) și nici dacă bursele se plătesc și în vacanțe. Regulile de acordare și pragul de venit pentru bursa socială sunt stabilite de fiecare universitate: TODO."
     },

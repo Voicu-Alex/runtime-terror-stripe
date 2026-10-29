@@ -60,7 +60,7 @@ export function ComutatorTema() {
       aria-pressed={inchisa}
       aria-label={t("Temă închisă")}
       title={inchisa ? t("Treci la tema deschisă") : t("Treci la tema închisă")}
-      className="inline-flex size-8 items-center justify-center rounded-lg border border-v3-line bg-v3-card text-v3-ink hover:border-v3-accent"
+      className="inline-flex size-11 items-center justify-center rounded-lg border border-v3-line bg-v3-card text-v3-ink hover:border-v3-accent"
     >
       {/* Iconița arată tema în care treci: lună în tema deschisă, soare în cea închisă. Până la hidratare, nimic. */}
       {tema && (

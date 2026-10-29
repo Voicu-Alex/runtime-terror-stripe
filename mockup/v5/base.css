@@ -1,0 +1,124 @@
+/* v5: variante de îmbunătățire pe designul F „Revistă gri” (mockup/v3/index.html?v=f).
+   Tokenii sunt cei din F: hârtie albă, cerneală #111827, accent gri cald #57534E,
+   roșu pentru bani în minus, verde pentru bani în plus, Raleway pentru titluri, Inter pentru text. */
+:root{
+  --paper:#FFFFFF; --ink:#111827; --ink-2:#4B5563; --ink-3:#6B7280; --line:#E5E7EB;
+  --accent:#57534E; --accent-soft:#F5F5F4; --logo:#44403C; --accd:#292524;
+  --tint1:#DEDBD8; --tint2:#F1F0EE; --tintb:#D6D3D1; --srch:#E7E5E4;
+  --neg:#C81E1E; --neg-soft:#FDF0F0; --pos:#15803D; --pos-soft:#EEF8F1; --past:#8A8F98;
+  --head:'Raleway',system-ui,sans-serif; --sans:'Inter',system-ui,sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:15px/1.5 var(--sans);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+::selection{background:var(--tint1);color:var(--ink)}
+a{color:inherit;text-underline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accd);outline-offset:2px;border-radius:4px}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.neg{color:var(--neg)} .pos{color:var(--pos)} .zero{color:var(--ink-3)}
+
+/* antet, la fel ca în F */
+.hdr{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;max-width:1240px;margin:0 auto;padding:14px 28px 10px}
+.srch{display:flex;align-items:center;background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;max-width:260px;height:40px;padding:0 4px 0 12px;color:var(--ink-3);font-size:14px}
+.srch span{flex:1}
+.srch i{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--srch);color:var(--ink-2)}
+.brand{text-align:center}
+.brand b{display:block;font:800 25px/1.1 var(--head);color:var(--logo);letter-spacing:-.01em}
+.brand small{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--ink-2);font-weight:600;margin-top:3px}
+.hr{display:flex;justify-content:flex-end;align-items:center;gap:10px}
+.demo{font-size:12px;color:var(--ink-2);border:1px dashed var(--tintb);border-radius:999px;padding:3px 10px}
+.av{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
+.menu{display:none}
+.nav{display:flex;justify-content:center;gap:34px;border-bottom:1px solid var(--line)}
+.nav a{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-decoration:none;padding:10px 2px 11px;color:var(--ink-2)}
+.nav a.on{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+
+/* pagina pe trei coloane, ca în F */
+.page{max-width:1240px;margin:0 auto;padding:24px 28px 80px;display:grid;grid-template-columns:180px minmax(0,1fr) 270px;gap:32px;align-items:start}
+.page.two{grid-template-columns:180px minmax(0,760px)}
+.filters{position:sticky;top:16px;font-size:14px}
+.filters h3,.aside h3{font:700 13px/1.3 var(--sans);color:var(--ink-2);margin:0 0 10px}
+.fbtn{display:flex;justify-content:space-between;width:100%;border:0;background:none;padding:7px 10px;border-radius:8px;text-align:left}
+.fbtn:hover{background:var(--accent-soft)}
+.fbtn.on{background:var(--ink);color:#fff}
+.fbtn em{font-style:normal;color:var(--ink-3);font-size:12.5px}
+.fbtn.on em{color:#C7CBD1}
+.fnote{color:var(--ink-3);font-size:12.5px;margin:14px 10px 0}
+.chiprow{display:none}
+
+/* rândul unui act, folosit în toate variantele */
+.list{border-top:1px solid var(--line)}
+.grp{font:800 19px/1.2 var(--head);margin:30px 0 4px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.grp span{font:500 13.5px var(--sans);color:var(--ink-3)}
+.grp:first-child{margin-top:0}
+.it{border-bottom:1px solid var(--line)}
+.rh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 18px;width:100%;border:0;background:none;text-align:left;padding:15px 4px 15px 0}
+.rh:hover .tt{text-decoration:underline;text-decoration-color:var(--tintb)}
+.tt{font-weight:600;font-size:16px;line-height:1.35;text-wrap:pretty}
+.amt{text-align:right;white-space:nowrap;line-height:1.05}
+.amt b{display:block;font:800 22px/1 var(--head);letter-spacing:-.01em}
+.amt small{font-size:12px;color:var(--ink-3)}
+.mt{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:13px;color:var(--ink-3)}
+.dl{font-weight:700;color:var(--ink)}
+.dl.urg{color:var(--neg)}
+.st{font-size:12px;font-weight:600;border-radius:999px;padding:1px 8px;background:var(--accent-soft);color:var(--ink-2)}
+.st.in_vigoare{background:var(--pos-soft);color:#14532D}
+.st.termen_depasit{background:#F3F4F6;color:var(--past)}
+.it.past .tt,.it.past .amt b{color:var(--past)}
+.bar{grid-column:1/-1;height:4px;border-radius:2px;background:var(--line);overflow:hidden;margin-top:2px}
+.bar i{display:block;height:100%;border-radius:3px}
+
+/* detaliul deschis */
+.det{padding:2px 0 20px;max-width:64ch}
+.det p{margin:0 0 12px}
+.est{font-size:13px;color:var(--ink-3)}
+.act{background:var(--accent-soft);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+.act b{display:block;margin-bottom:4px}
+.act.urg{background:var(--neg-soft)}
+.act .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;font-size:14px}
+.sim{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--tintb);background:#fff;border-radius:999px;padding:5px 12px 5px 6px;font-size:13.5px;font-weight:600}
+.sim i{width:30px;height:18px;border-radius:9px;background:var(--tintb);position:relative;transition:background .2s}
+.sim i::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s cubic-bezier(.2,.8,.2,1)}
+.sim[aria-pressed="true"]{border-color:var(--pos);color:var(--pos)}
+.sim[aria-pressed="true"] i{background:var(--pos)}
+.sim[aria-pressed="true"] i::after{transform:translateX(12px)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.tag{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--ink-2)}
+.src{font-size:13px;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start}
+.src a{font-weight:600;color:var(--ink)}
+
+/* coloana de termene din F */
+.aside{position:sticky;top:16px}
+.aside .note{font-size:12.5px;color:var(--ink-3);margin:-6px 0 10px}
+.dt{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line);width:100%;border-left:0;border-right:0;border-bottom:0;background:none;text-align:left}
+.dt .d{text-align:center;line-height:1}
+.dt .d b{display:block;font:800 26px/1 var(--head)}
+.dt .d small{font-size:11px;color:var(--ink-3)}
+.dt .d.urg b{color:var(--neg)}
+.dt .w{font-size:14px;font-weight:600;line-height:1.3}
+.dt .w span{display:block;font-weight:500;color:var(--ink-3);font-size:13px;margin-top:3px}
+
+.bnav{display:none}
+.disc{font-size:12.5px;color:var(--ink-3);margin-top:28px}
+
+@media (max-width:1100px){.page{grid-template-columns:170px minmax(0,1fr)}.aside{display:none}}
+@media (max-width:760px){
+  .hdr{grid-template-columns:44px 1fr 44px;padding:10px 14px}
+  .srch,.demo{display:none}
+  .menu{display:grid;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);place-items:center;background:none}
+  .brand b{font-size:17px;white-space:nowrap}
+  .brand small{font-size:10px}
+  .nav,.filters{display:none}
+  .page,.page.two{grid-template-columns:minmax(0,1fr);padding:12px 16px 96px;gap:0}
+  .chiprow{display:flex;gap:6px;overflow-x:auto;margin:0 -16px 14px;padding:2px 16px;scrollbar-width:none}
+  .chiprow .fbtn{width:auto;flex:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;gap:6px}
+  .chiprow .fbtn.on{border-color:var(--ink)}
+  .tt{font-size:15.5px}
+  .amt b{font-size:20px}
+  .bnav{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:8px 0 10px;z-index:5}
+  .bnav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;font-weight:600;color:var(--ink-3);text-decoration:none}
+  .bnav a.on{color:var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

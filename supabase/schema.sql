@@ -5,12 +5,14 @@
 -- ca validarea din lib/catalog.ts și lib/ghid.ts să rămână aceeași. `ordine` păstrează ordinea din fișiere.
 -- Profilurile NU stau aici: profilul rămâne pe telefon (CLAUDE.md).
 
+begin;
+
 create table if not exists public.schimbari (
   id text primary key,
   ordine integer not null,
   date jsonb not null,
   actualizat_la timestamptz not null default now(),
-  constraint schimbari_id_in_date check (date->>'id' = id)
+  constraint schimbari_id_in_date check (jsonb_typeof(date) = 'object' and date ? 'id' and date->>'id' = id)
 );
 
 create table if not exists public.ghid (
@@ -18,12 +20,18 @@ create table if not exists public.ghid (
   ordine integer not null,
   date jsonb not null,
   actualizat_la timestamptz not null default now(),
-  constraint ghid_id_in_date check (date->>'id' = id)
+  constraint ghid_id_in_date check (jsonb_typeof(date) = 'object' and date ? 'id' and date->>'id' = id)
 );
 
 -- Oricine poate citi (catalogul e public); scrie doar cheia secretă (scripturile) sau dashboard-ul.
 alter table public.schimbari enable row level security;
 alter table public.ghid enable row level security;
+
+-- Funcționează și când proiectul nu expune automat tabelele noi.
+grant usage on schema public to anon, authenticated, service_role;
+revoke all on public.schimbari, public.ghid from anon, authenticated;
+grant select on public.schimbari, public.ghid to anon, authenticated;
+grant all on public.schimbari, public.ghid to service_role;
 
 drop policy if exists "citire publica" on public.schimbari;
 create policy "citire publica" on public.schimbari for select using (true);
@@ -47,3 +55,5 @@ create trigger schimbari_actualizat before update on public.schimbari
 drop trigger if exists ghid_actualizat on public.ghid;
 create trigger ghid_actualizat before update on public.ghid
   for each row execute function public.marcheaza_actualizarea();
+
+commit;
