@@ -52,7 +52,7 @@ let urcate = 0;
 let picate = 0;
 for (const f of fisiere.sort()) {
   const cheie = f.replace(/\.json$/, "");
-  const actId = cheie.replace(/^portal-/, "portal:");
+  const actId = cheie.replace(/^portal[-_]/, "portal:");
   let interp: InterpretareAct;
   try {
     interp = JSON.parse(await readFile(path.join(dirRaspunsuri, f), "utf8"));
