@@ -1,0 +1,109 @@
+{
+  "act": "Ordinul MMFTSS 1.277/2026",
+  "mo": "MO 787 / 16 sep 2026",
+  "publicat_la": "2026-09-16",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Alocația de plasament continuă după 18 ani cât timp tânărul învață",
+      "rezumat_en": "Foster placement allowance continues after age 18 while the young person keeps studying",
+      "taguri": ["elev_student"],
+      "in_vigoare_de_la": "2026-09-16",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [{ "camp": "varsta", "op": ">=", "valoare": 18 }],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 3 (art. 9 alin. (3) și (4) din procedură)",
+      "citat": "Alocația se acordă și după împlinirea de către copil a vârstei de 18 ani, numai în cazul plasamentului, dacă această măsură se continuă și după această dată",
+      "niveluri": {
+        "zero": "Dacă ești în plasament și împlinești 18 ani, primești în continuare alocația cât timp îți continui studiile.",
+        "curios": "Alocația de plasament nu se oprește la 18 ani, dacă măsura de plasament continuă. Se plătește pe toată durata studiilor, o singură dată în fiecare formă de învățământ, sau până la 2 ani dacă tânărul cere continuarea plasamentului. Dacă în cei 2 ani începe o formă de învățământ, poate cere alocația până termină studiile, dar nu după 26 de ani.",
+        "expert": "Art. 9 alin. (3) lit. a): pe toată durata continuării studiilor, o singură dată în fiecare formă de învățământ prevăzută de lege. Lit. b): până la 2 ani în care tânărul poate solicita continuarea plasamentului. Alin. (4): cine are lit. b) și începe o formă de învățământ care prelungește plasamentul poate cere alocația până la finalizarea studiilor, fără a depăși 26 de ani. Cuantumul alocației nu e în ordin."
+      },
+      "actiuni": [
+        { "tip": "fa", "cine_aplica": "tu", "text": "Atașează la cerere copia dovezii că îți continui studiile, eliberată de unitatea de învățământ (art. 11 alin. (5)).", "termen": null, "destinatie": "scoala", "destinatie_propusa": "Direcția generală de asistență socială și protecția copilului (DGASPC) sau agenția județeană pentru plăți și inspecție socială, unde se depune cererea; nu e în lista de destinații." },
+        { "tip": "fa", "cine_aplica": "tu", "text": "Prezintă din 6 în 6 luni de la decizia de acordare adeverința de la școală sau facultate că îți continui studiile (art. 15 alin. (3)).", "termen": null, "destinatie": "scoala", "destinatie_propusa": null }
+      ],
+      "incredere": "medie",
+      "nota": "Inventar art. 9, 11, 15. Ordinul nu spune cuantumul alocației, de aceea fără sumă. Eticheta elev_student acoperă pe cine primește alocația pe durata studiilor; publicul exact (tineri din sistemul de protecție specială) nu are etichetă, se propune o etichetă nouă, de exemplu tanar_protectie_speciala. Textul se aplică doar dacă plasamentul continuă după 18 ani."
+    },
+    {
+      "rezumat": "Alocația nu se oprește înainte de sfârșitul anului școlar dacă ai depus actele",
+      "rezumat_en": "Allowance is not suspended before the end of the school year if the documents are submitted",
+      "taguri": ["elev_student"],
+      "in_vigoare_de_la": "2026-09-16",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [{ "camp": "varsta", "op": ">=", "valoare": 18 }],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 6 (art. 16 alin. (6) din procedură)",
+      "citat": "plata alocației și, după caz, a indemnizației lunare de sprijin nu se suspendă",
+      "niveluri": {
+        "zero": "Dacă ai 18 ani și înveți și ai depus actele cerute, plata nu se suspendă înainte de sfârșitul anului școlar.",
+        "curios": "Tânărul de peste 18 ani care urmează o formă de învățământ și prezintă documentele de la art. 15 alin. (2) și (3) nu își pierde plata alocației și, după caz, a indemnizației de sprijin, chiar dacă anul școlar nu s-a terminat.",
+        "expert": "Art. 16 alin. (6): în situația în care, înainte de terminarea anului școlar, se prezintă documentele prevăzute la art. 15 alin. (2) și (3), plata alocației și, după caz, a indemnizației lunare de sprijin nu se suspendă. Conținutul art. 15 alin. (2) nu e în text."
+      },
+      "actiuni": [
+        { "tip": "verifica", "cine_aplica": "stat", "text": "Verifică că plata a continuat în lunile de după depunerea adeverinței de la școală.", "termen": null, "destinatie": null, "destinatie_propusa": null }
+      ],
+      "incredere": "medie",
+      "nota": "Inventar art. 16 alin. (6). Nu știm ce cere art. 15 alin. (2), nu e în text."
+    },
+    {
+      "rezumat": "Tinerii sub 26 de ani care învață sau muncesc primesc indemnizația pentru tineri",
+      "rezumat_en": "Young people under 26 who study or work receive the youth allowance",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-09-16",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [{ "camp": "varsta", "op": "<", "valoare": 26 }],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 7-11 (art. 17^1 și 17^2 din procedură)",
+      "citat": "se acordă tinerilor care fac dovada că urmează o formă de învățământ prevăzută de lege sau au un loc de muncă și nu au împlinit vârsta de 26 de ani",
+      "niveluri": {
+        "zero": "Dacă ai ieșit din protecția specială, ai sub 26 de ani și înveți sau muncești, poți cere indemnizația lunară pentru tineri.",
+        "curios": "Indemnizația se acordă în două cazuri: tânărul care alege în scris să încheie măsura de protecție specială, după o consiliere obligatorie, și tânărul care a ieșit deja din sistem. Cererea se poate depune electronic sau pe hârtie la agenția teritorială. Cine a ieșit deja din sistem primește indemnizația din luna în care depune cererea și actele.",
+        "expert": "Art. 17^1 alin. (1)-(2): categoriile lit. a) (optează în scris pentru încetarea măsurii) și lit. b) (au ieșit din sistem). Alin. (3): consiliere și raport, anexa 4. Art. 17^2 alin. (1): cerere cu acte doveditoare, electronic sau letric la agenția teritorială. Alin. (2) lit. a): dreptul începe în luna următoare celei în care a încetat măsura, la solicitare. Alin. (8)-(9): pentru lit. b), cerere și acte, fără raportul de consiliere; dreptul începe cu luna depunerii. Art. 17^5 alin. (4) lit. a): agenția constată că tânărul nu mai urmează o formă de învățământ; efectul exact al acestui punct nu e în text. Anexa 4 menționează 4,8 ISR, valoarea ISR nu e în text."
+      },
+      "actiuni": [
+        { "tip": "fa", "cine_aplica": "tu", "text": "Depune cererea, în format electronic sau letric, la agenția teritorială, cu actele doveditoare (dovada că înveți sau ai loc de muncă; adeverința de la direcția generală pentru cei ieșiți din sistem).", "termen": null, "destinatie": null, "destinatie_propusa": "Agenția județeană pentru plăți și inspecție socială (sau a municipiului București), pagina sau ghișeul pentru indemnizația pentru tineri; autoritate: ANPIS." }
+      ],
+      "incredere": "medie",
+      "nota": "Inventar art. 17^1, 17^2, 17^5. Eticheta potrivită lipsește (nu e elev_student, pentru că include și tineri cu loc de muncă, nici somer). Se propune eticheta tanar_protectie_speciala. Cuantumul nu e în articolele ordinului; anexa 4 spune 4,8 ISR, dar ISR nu e în text, deci fără sumă. Lăsate deoparte: art. 1 și 2 (aprobarea procedurii și cine o aplică), anexele 1-3 (modele de cereri și raport)."
+    },
+    {
+      "rezumat": "Indemnizația pentru tineri se poate primi retroactiv de la 10 aprilie 2026 dacă ceri la timp",
+      "rezumat_en": "Youth allowance can be paid retroactively from 10 April 2026 if you apply in time",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-09-16",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [{ "camp": "varsta", "op": "<", "valoare": 26 }],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. II alin. (1)-(3)",
+      "citat": "dacă cererea este depusă în termen de maximum 60 de zile lucrătoare de la data intrării în vigoare a prezentului ordin",
+      "niveluri": {
+        "zero": "Dacă ai ieșit deja din sistem și ceri indemnizația în 60 de zile lucrătoare de la intrarea în vigoare a ordinului, o primești cu efect din 10 aprilie 2026.",
+        "curios": "Cine a ieșit din sistemul de protecție specială și îndeplinea condițiile la 10 aprilie 2026 poate primi indemnizația de la acea dată, dacă depune cererea în 60 de zile lucrătoare. Pentru luna aprilie se plătește proporțional cu zilele de la 10 aprilie. Dacă ceri mai târziu, indemnizația începe din luna depunerii cererii.",
+        "expert": "Art. II alin. (1): indemnizația de la art. 129 alin. (4^2) din Legea 272/2004 se acordă cu data intrării în vigoare a Legii 49/2026, 10 aprilie 2026, pentru tinerii de la art. 17^1 alin. (2) lit. b), dacă cererea e depusă în maximum 60 de zile lucrătoare de la intrarea în vigoare a ordinului și dacă la 10 aprilie 2026 îndeplineau condițiile. Alin. (2): modificările ulterioare nu fac să se piardă drepturile pentru perioada în care condițiile au fost îndeplinite; pentru aprilie, cuantumul se împarte la numărul de zile din lună și se înmulțește cu zilele de la 10 aprilie. Alin. (3): cererea tardivă dă dreptul din luna depunerii."
+      },
+      "actiuni": [
+        { "tip": "fa", "cine_aplica": "tu", "text": "Depune cererea în maximum 60 de zile lucrătoare de la intrarea în vigoare a ordinului, ca să primești indemnizația retroactiv de la 10 aprilie 2026.", "termen": null, "destinatie": null, "destinatie_propusa": "Agenția județeană pentru plăți și inspecție socială (sau a municipiului București), ANPIS; pagina sau ghișeul pentru cereri de indemnizație pentru tineri." }
+      ],
+      "incredere": "medie",
+      "nota": "Termenul de 60 de zile lucrătoare nu e transformat în dată (fără calcule, depinde de zilele libere). Ordinul nu spune data intrării în vigoare, iar antetul spune necunoscută: dedusă din regula generală, la data publicării (Legea 24/2000, art. 12), 2026-09-16. Eticheta potrivită lipsește, se propune tanar_protectie_speciala. Cuantumul nu e în text."
+    }
+  ]
+}

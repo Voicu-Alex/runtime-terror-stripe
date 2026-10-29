@@ -52,10 +52,14 @@ Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) �
 ### Rulat
 - 12 acte (campanii + alese) aduse cu `--dry-run --dump scratch/acte`; loturi în `scratch/lot/` (Codul fiscal doar art.
   84, 84^1, 97, 155, 156, 170; Legea 239 art. XII–XIII; Legea 76 art. 33^1…76^5). OUG 8/2026 = Portal 307580.
-- 11/12 interpretări Sonnet (subagenți) în `scratch/lot/portal_<id>.json`; poarta: 8 ok, 3 cu schimbări fără etichetă
-  (cripto/titluri, TVA 21% general, asigurare voluntară de șomaj) care rămân neaprobabile. OUG 8/2026 încă rulează.
-- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) în `--dry-run --dump scratch/sweep`, jurnal `scratch/sweep-log.txt`.
-- Paritate API (Haiku) pe 3 loturi: `scratch/lot-api/`. Spot-check Opus pe 5 interpretări: în curs.
+- 12/12 interpretări Sonnet (subagenți), 88 schimbări, 76 cu etichetă; copii în `eval/rezultate/sonnet-subagent-v3/legi/`.
+  Spot-check Opus pe cele 5 campanii → corecturi aplicate, regulile 14–16 în instrucțiuni. Paritate API (Haiku, 0,019 USD)
+  pe 3 loturi: aceeași formă și verificări (`eval/rezultate/haiku-api-v3/legi/`).
+- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) rulează în fundal în `--dry-run --dump scratch/sweep` (jurnal
+  `scratch/sweep-log.txt`); la 05:35: 508 pagini, 0 erori. Triaj Haiku pe primii 125 de candidați: 43 da / 82 nu
+  (`scratch/triaj/verdict-*.json`, aplicate în fișiere). 6 acte din parcurgere interpretate (3 cu schimbări).
+- Rămas: după ce se termină parcurgerea, `legi:triaj --reevalueaza`, `--export` pentru candidații noi, triaj Haiku,
+  `--aplica`; apoi, cu baza: `legi:incarca --din scratch/acte --din scratch/sweep`, `legi:importa`, aprobări în /admin/acte.
 
 ### BLOCAT: baza de date
 `.env.local` are `SUPABASE_DB_URL` comentat, cu `[YOUR-PASSWORD]`. Fără el nu merg `legi:migreaza`, `legi:incarca`,
@@ -199,3 +203,10 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - Decizie propusă (nu adoptată): Capacitor 8 peste Next.js, WebView pe `http://10.0.2.2:3200` (dev server de pe laptop; aplicația nu e publicată nicăieri), notificare locală din `lib/notificari.ts`, FCM ca extindere blocată de Firebase. `docs/adr/0005-android-capacitor.md` (status propus) și `docs/android/plan.md` (tichete T0–T5 pentru Astra) sunt scrise în worktree-ul `.claude/worktrees/android` pe branch-ul `android`, necommitate.
 - Branch-ul `android` a fost creat la 89096cf3 = vârful curent al `deploy-descriere`, care tocmai fusese avansat (fast-forward) pe `legi-ingest` de altă sesiune; include deci cele 18 commit-uri legi-ingest, nu doar deploy-ul (641cb7f1). De confirmat cu Andrei.
 - Limită cunoscută: Google refuză OAuth în WebView; Pro se demonstrează pe web, pe telefon notificare → flux → card.
+
+## Final (29 oct 2026, 06:45, limită de utilizare atinsă)
+- Parcurgerea 314500–315900 s-a încheiat în 3 rulări (jurnale în `eval/rezultate/triaj-2026-10-29/`): 1.065 acte, 0 erori,
+  0 reîncercări; după 315411 id-urile au goluri mari (313 lipsă din 469), pragul de oprire e acum 200 la rând.
+- Stări finale în `scratch/sweep`: 723 respinse de reguli, 96 triat_da, 178 triat_nu, 68 candidați netriați (loturile se fac
+  cu `legi:triaj --din scratch/sweep --export scratch/triaj4`). Verdictele Haiku sunt în `eval/rezultate/triaj-2026-10-29/`.
+- Blocat tot pe `SUPABASE_DB_URL`; pașii de după sunt mai sus. Nimic pushuit.

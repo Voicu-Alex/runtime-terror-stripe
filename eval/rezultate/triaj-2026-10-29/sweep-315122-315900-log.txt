@@ -1,0 +1,77 @@
+Rulare interval (dry-run): 315122..315900, max 1500 cereri, pauză 2000 ms
+[25 cereri] la id 315146: 24 noi, 0 actualizate, 1 lipsă, 0 erori
+[50 cereri] la id 315171: 49 noi, 0 actualizate, 1 lipsă, 0 erori
+[75 cereri] la id 315196: 74 noi, 0 actualizate, 1 lipsă, 0 erori
+[100 cereri] la id 315221: 99 noi, 0 actualizate, 1 lipsă, 0 erori
+[125 cereri] la id 315246: 124 noi, 0 actualizate, 1 lipsă, 0 erori
+[150 cereri] la id 315271: 149 noi, 0 actualizate, 1 lipsă, 0 erori
+[175 cereri] la id 315296: 174 noi, 0 actualizate, 1 lipsă, 0 erori
+[200 cereri] la id 315321: 199 noi, 0 actualizate, 1 lipsă, 0 erori
+[225 cereri] la id 315346: 224 noi, 0 actualizate, 1 lipsă, 0 erori
+[250 cereri] la id 315371: 249 noi, 0 actualizate, 1 lipsă, 0 erori
+[275 cereri] la id 315396: 272 noi, 0 actualizate, 3 lipsă, 0 erori
+[300 cereri] la id 315421: 287 noi, 0 actualizate, 13 lipsă, 0 erori
+OPRIT: Portalul nu răspunde la https://legislatie.just.ro/Public/DetaliiDocument/315431: 20 id-uri lipsă la rând
+
+Rezumat (oprit: portal)
+cereri 310 | 200: 289 | 404: 21 | alte: 0
+acte noi 287 | actualizate 0 | nemodificate 0 | lipsă 23 | erori 0
+
+după tip_act
+     71  DECIZIE
+     68  ORDIN
+     36  HOTĂRÂRE
+     20  DECRET
+     14  DECIZIA
+      9  LEGE
+      8  RAPORT
+      7  RECTIFICARE
+      3  ANEXĂ din 4 mai 2021
+      2  REGLEMENTARE TEHNICĂ din 17 septembrie 2026
+      2  ANEXE din 29 septembrie 2026
+      2  CONTRACT DE FINANȚARE din 20 aprilie 2021
+      2  CIRCULARĂ
+      2  REGULAMENT din 28 iunie 2007
+      2  CRITERIILE ȘI PROCEDURILE din 28 iunie 2007
+      2  NORME METODOLOGICE din 4 mai 2021
+      1  ORDINUL
+      1  CRITERIILE ȘI METODOLOGIA din 24 noiembrie 2011 (*republicate*)
+      1  PROCEDURĂ din 23 septembrie 2026
+      1  PROCEDURĂ din 15 septembrie 2026
+      1  LISTA din 15 iunie 2026
+      1  DECLARAȚIE
+      1  REGULAMENT din 7 octombrie 2026
+      1  NORME METODOLOGICE din 9 octombrie 2026
+      1  ANEXE din 18 septembrie 2026
+      1  AMENDAMENT
+      1  PROCEDURA din 29 septembrie 2026
+      1  ANEXE din 24 septembrie 2026
+      1  INSTRUCȚIUNEA TEHNICĂ din 14 octombrie 2026
+      1  PLANUL NAȚIONAL DE MONITORIZARE ȘI VERIFICARE din 15 octombrie 2026
+      1  PLANUL DE MĂSURI din 15 octombrie 2026
+      1  ANEXE din 14 august 2026
+      1  ANEXE din 31 august 2026
+      1  PROCEDURĂ din 24 septembrie 2026
+      1  PROCEDURĂ din 9 octombrie 2026
+      1  REGULAMENT
+      1  METODOLOGIE-CADRU din 15 octombrie 2026
+      1  LISTĂ din 3 septembrie 2026
+      1  ANEXE din 20 iulie 2026
+      1  ORDONANȚĂ DE URGENȚĂ
+      1  ACORD din 19 august 2026
+      1  HOTĂRÂREA
+      1  ANEXĂ din 28 iunie 2007
+      1  ACORD din 18 august 2023
+      1  NORME TEHNICE din 30 martie 2022
+      1  NORME MINIME din 31 august 2010
+      1  CODUL FISCAL din 8 septembrie 2015
+      1  STATUTUL din 14 septembrie 2009
+      1  ANEXE din 9 ianuarie 2017
+      1  NORME TEHNICE din 31 martie 2022
+      1  METODOLOGIE din 18 noiembrie 2024
+      1  NORME METODOLOGICE din 7 mai 2018
+      1  REGULAMENT din 30 ianuarie 2025
+
+după stare_procesare
+    209  respins_reguli
+     78  candidat

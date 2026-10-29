@@ -1,0 +1,22 @@
+{
+  "portal:314875": {
+    "atinge_banii": false,
+    "motiv": "Modifică doar regulile de repartizare a elevilor la liceu (admitere, evaluare națională, probe de aptitudini), fără efect direct asupra taxelor, burselor sau costurilor pentru familie."
+  },
+  "portal:314890": {
+    "atinge_banii": true,
+    "motiv": "Suplimentează cu 51,75 mii lei sumele de despăgubire pentru proprietarii privați ai imobilelor expropriate pentru Autostrada Târgu Mureș - Târgu-Neamț (secțiunea III); textul e tăiat înainte de partea operativă, de citit integral."
+  },
+  "portal:314891": {
+    "atinge_banii": true,
+    "motiv": "Stabilește cine derulează expropierea imobilelor private din coridorul Autostrăzii Târgu Mureș - Târgu-Neamț (secțiunea II) și actualizează despăgubirile, deci afectează banii proprietarilor expropriați; textul e tăiat în anexe, de citit integral."
+  },
+  "portal:314892": {
+    "atinge_banii": false,
+    "motiv": "Aprobă plata unor contribuții voluntare ale statului către OCDE din bugetul de stat, adică bugetul unei instituții publice, fără efect asupra persoanelor fizice sau a micilor firme."
+  },
+  "portal:314893": {
+    "atinge_banii": true,
+    "motiv": "Aprobă o schemă de ajutor de minimis (buget 2.000.000 euro) care finanțează evaluări de conformitate cu Cyber Resilience Act pentru IMM-uri, deci poate ajuta microîntreprinderi și SRL-uri mici; condițiile și beneficiarii sunt în anexa netrunchiată, de citit integral."
+  }
+}
