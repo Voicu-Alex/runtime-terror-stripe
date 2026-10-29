@@ -36,7 +36,7 @@ export function useLimba(): Ctx {
   return useContext(LimbaContext);
 }
 
-/** Comutatorul RO | EN din antet. */
+/** Comutatorul RO | EN (în meniul contului). */
 export function ComutatorLimba() {
   const { limba, setLimba } = useLimba();
   return (

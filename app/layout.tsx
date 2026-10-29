@@ -10,8 +10,13 @@ import "./globals.css";
 const FONTURI =
   "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Raleway:wght@700;800&family=Geist:wght@500;600;700&display=swap";
 
-// Adresa publică, pentru linkurile absolute din previzualizare (Open Graph). Vercel o dă singur la build.
-const ADRESA = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000";
+// Adresa publică, pentru linkurile absolute din previzualizare (Open Graph). Pe AWS Amplify e AUTH_URL
+// (setată în consolă, ajunge la server prin amplify.yml); fără ea, imaginea de previzualizare ar arăta spre localhost.
+const ADRESA = process.env.AUTH_URL
+  ? new URL(process.env.AUTH_URL).origin
+  : process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(ADRESA),
