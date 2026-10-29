@@ -15,7 +15,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import type { InterpretareAct } from "../../lib/interpretare.ts";
-import { verificaInterpretare } from "../../lib/verificari-interpretare.ts";
+import { liniiVerificare, pregatesteRand, urcaInterpretare } from "../../lib/importa-interpretare.ts";
 import { clientSupabase, verifica } from "./db.mjs";
 
 const { values: arg } = parseArgs({
@@ -36,12 +36,6 @@ const dirTexte = arg.dir!;
 const dirRaspunsuri = arg.raspunsuri ?? dirTexte;
 const azi = new Date().toISOString().slice(0, 10);
 const sb = arg["dry-run"] ? null : clientSupabase({ scriere: true });
-
-/** Din antetul lotului: ce articole a primit modelul (dacă nu tot actul). */
-function articolePrimite(text: string): string[] | null {
-  const m = text.match(/Textul primit conține doar articolele: (.+)$/m);
-  return m ? m[1].split(",").map((s) => s.trim()).filter(Boolean) : null;
-}
 
 const fisiere = (await readdir(dirRaspunsuri)).filter((f) => f.endsWith(".json") && f !== "manifest.json");
 if (!fisiere.length) {
@@ -67,20 +61,12 @@ for (const f of fisiere.sort()) {
     console.log(`✗ ${cheie}: lipsește textul ${cheie}.txt din ${dirTexte}`);
     continue;
   }
-  const v = verificaInterpretare(interp, text, { azi });
-  const nr = interp.schimbari?.length ?? 0;
-  const rezumat = v.ok ? `${nr} schimbări, verificări ok (${v.trecute.length})` : `${nr} schimbări, ${v.picate.length} verificări picate: ${v.picate.map((p) => p.cod + (p.schimbare !== undefined ? `#${p.schimbare}` : "")).join(", ")}`;
-  console.log(`${v.ok ? "✓" : "!"} ${cheie}: ${interp.atinge_banii ? "atinge banii" : "nu atinge banii"}, ${rezumat}`);
-  if (!v.ok) {
-    picate++;
-    for (const p of v.picate) console.log(`    - ${p.mesaj}`);
-  }
+  const { verificari: v, rand } = pregatesteRand({ actId, model: arg.model!, driver: arg.driver!, versiune: arg.versiune!, interpretare: interp, text, azi });
+  for (const linie of liniiVerificare(cheie, interp, v)) console.log(linie);
+  if (!v.ok) picate++;
   if (!sb) continue;
 
-  const lot = { articole: articolePrimite(text), text_hash: createHash("sha256").update(text).digest("hex"), lungime: text.length };
-  const rand = { act_id: actId, model: arg.model, driver: arg.driver, instructiuni_versiune: arg.versiune, rezultat: interp, verificari: v, lot, stare: "propus" };
-  verifica(await sb.from("interpretari").upsert(rand, { onConflict: "act_id,model,driver,instructiuni_versiune" }), `interpretari (${actId})`);
-  verifica(await sb.from("acte").update({ stare_procesare: "interpretat" }).eq("id", actId).in("stare_procesare", ["candidat", "triat_da", "nou"]), `acte (${actId})`);
+  await urcaInterpretare(sb, rand, actId, verifica);
   urcate++;
 }
 console.log(`\n${fisiere.length} răspunsuri, ${picate} cu verificări picate${sb ? `, ${urcate} urcate în interpretari (propus)` : " (dry-run, nimic urcat)"}`);

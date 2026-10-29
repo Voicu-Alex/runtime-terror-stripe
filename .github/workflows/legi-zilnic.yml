@@ -1,0 +1,61 @@
+# Rularea zilnică a ingestiei de legi (scripts/legi/zilnic.mts): descoperă acte noi pe Portalul Legislativ,
+# le triază (Haiku), le interpretează și lasă propunerile pentru /admin/acte. Detalii: docs/ingest.md, „Rularea zilnică”.
+#
+# Secrete de adăugat în GitHub -> Settings -> Secrets and variables -> Actions:
+#   ANTHROPIC_API_KEY          cheia API Anthropic (triaj și interpretare)
+#   NEXT_PUBLIC_SUPABASE_URL   adresa proiectului Supabase
+#   SUPABASE_SECRET_KEY        cheia secretă (service role) Supabase; scrie în acte, rulari, cursor_surse
+#
+# Prima rulare TREBUIE să fie manuală, cu dry_run bifat (Actions -> legi-zilnic -> Run workflow, de_la = un id recent,
+# de ex. 315770): arată dacă Portalul (legislatie.just.ro) acceptă adresele IP ale runner-elor GitHub. Rețeaua unui coleg
+# a primit 403. Dacă și aici primim 403/429, scriptul se oprește cu codul 2 și un mesaj clar; atunci cron-ul se mută pe
+# serverul echipei (CT 107) sau pe un laptop (`npm run legi:zilnic`), iar acest workflow rămâne doar manual.
+name: legi-zilnic
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # 04:00 UTC = 06:00/07:00 București
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry-run: nu scrie în Supabase, doar citește câteva pagini de pe Portal (cere de_la)'
+        type: boolean
+        default: true
+      de_la:
+        description: 'Primul id de pe Portal (obligatoriu când dry_run este bifat)'
+        type: string
+        required: false
+
+concurrency:
+  group: legi-zilnic
+  cancel-in-progress: false
+
+jobs:
+  zilnic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Rulare zilnică
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          DE_LA: ${{ inputs.de_la }}
+        run: |
+          # Fără .env.local în CI: cheile vin din mediu. Intrările trec prin variabile de mediu, nu prin text interpolat în shell.
+          if [ "$DRY_RUN" = "true" ]; then
+            if ! echo "$DE_LA" | grep -Eq '^[0-9]+$'; then
+              echo "dry_run cere de_la (un număr, de ex. 315770)." >&2
+              exit 1
+            fi
+            node --import tsx scripts/legi/zilnic.mts --dry-run --de-la "$DE_LA" --pas-ids 5 --max-cereri 5
+          else
+            node --import tsx scripts/legi/zilnic.mts
+          fi

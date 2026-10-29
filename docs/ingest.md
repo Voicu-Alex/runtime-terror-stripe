@@ -49,10 +49,50 @@ npm run legi:export-lot -- --stare candidat --max 20                        # te
 npm run legi:importa                                                        # verificări automate, apoi interpretari (propus)
 # /admin/acte: un om aprobă sau respinge
 npm run legi:aproba -- <id> --revizor <email>                               # alternativa din linia de comandă
+npm run legi:zilnic                                                         # toți pașii dintr-o trecere: descoperă, triază, interpretează
 ```
 
 Fără API: descoperirea citește paginile direct, iar interpretarea o fac subagenții Claude Code. Cheia Anthropic se
 folosește doar pentru verificarea de paritate pe 3–5 acte (`eval/interpreteaza-api.mjs`).
+
+## Rularea zilnică
+
+`npm run legi:zilnic` (`scripts/legi/zilnic.mts`) face într-o singură comandă, fără om, ce se făcea pe pași: descoperă
+actele noi pe Portal (`descopera --reia`), le triază cu Haiku (`triaj --api`) și le interpretează (`interpreteaza`),
+apoi lasă propunerile pentru `/admin/acte`. Pașii rulează ca procese separate, în ordinea asta; jurnalul lor curge pe
+ecran, iar la sfârșit `zilnic` scrie un rezumat (pași, coduri de ieșire, durată, diferențele pe `stare_procesare`) și un
+rând în `rulari` (sursa `zilnic`, în `erori`: `{ pasi: [{ pas, cod_iesire, secunde }], oprit_la? }`).
+
+| Opțiune | Implicit | Ce face |
+|---|---|---|
+| `--pas-ids` | 400 | câte id-uri după cursor încercăm (≈ 13 zile de Portal, la ≈ 31 de id-uri pe zi); `pana_la = cursor + pas` |
+| `--max-cereri` | 400 | plafonul de cereri către Portal |
+| `--max-triaj` | 100 | câte acte triem |
+| `--max-interpretari` | 20 | câte acte interpretăm |
+| `--buget-usd` | 2 | plafonul de cost la interpretare |
+| `--dry-run` | oprit | trece `--dry-run` fiecărui pas; nu citește cursorul, nu scrie `rulari`; cere `--de-la <id>` (descoperirea merge cu `--de-la/--pana-la`, nu cu `--reia`) |
+| `--de-la` | - | primul id; obligatoriu cu `--dry-run`, altfel doar când nu există încă un cursor |
+| `--sari` | - | pași de sărit, separați prin virgulă: `descopera`, `triaj`, `interpreteaza` |
+
+Coduri de ieșire ale pașilor și ce face `zilnic` cu ele:
+
+| Pas | Cod | Înseamnă | `zilnic` |
+|---|---|---|---|
+| orice | 0 | ok | trece la pasul următor |
+| orice | 1 (sau orice altceva) | eroare | se oprește („Oprit la <pas>”), iese cu 1 |
+| `descopera` | 2 | Portalul ne-a oprit (403/429/5xx după reîncercări) | se oprește cu mesaj clar, iese cu 2 |
+| `interpreteaza` | 2 | bugetul a oprit rularea | nu e eroare: se raportează, „Rulare completă” |
+
+**Unde rulează.** În GitHub Actions: `.github/workflows/legi-zilnic.yml`, zilnic la 04:00 UTC (06:00/07:00 la București),
+plus rulare manuală (`workflow_dispatch`, cu `dry_run` și `de_la`). Workflow-ul rulează `node --import tsx
+scripts/legi/zilnic.mts` direct, nu scriptul npm, pentru că în CI nu există `.env.local`. Secretele de adăugat în GitHub,
+Settings, Secrets and variables, Actions: `ANTHROPIC_API_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SECRET_KEY`.
+
+**Prima rulare e manuală, cu `dry_run`** (de_la = un id recent, de ex. 315770): arată dacă Portalul acceptă adresele IP
+ale runner-elor GitHub. Rețeaua unui coleg a primit 403. Dacă runner-ul primește și el 403/429, `zilnic` iese cu codul 2;
+planul de rezervă e un cron pe serverul echipei (CT 107) sau pe un laptop, cu `npm run legi:zilnic`.
+
+Neverificat încă: rularea cu baza de date (tabelele nu există încă la scrierea acestui text) și rularea pe runner-ul GitHub.
 
 ## Volum și ce a dat prima rulare (29 oct 2026, noaptea)
 

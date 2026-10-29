@@ -9,10 +9,8 @@
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
-import { articolDupaNumar, type ActParsat } from "../../lib/portal.ts";
+import { textPentruModel } from "../../lib/lot.ts";
 import { clientSupabase, verifica } from "./db.mjs";
-
-const LIMITA_TEXT_INTEGRAL = 120_000;
 
 const { values: arg } = parseArgs({
   options: {
@@ -57,36 +55,11 @@ await mkdir(dir, { recursive: true });
 const manifest: Record<string, unknown>[] = [];
 
 for (const a of acte) {
-  const cerute: string[] = a.triaj?.articole_cerute ?? [];
-  const antet = `${String(a.titlu).replace(/\s+/g, " ").trim()}\n${a.url}\nPublicat în: ${a.mo_ref ?? "necunoscut"}${a.publicat_la ? ` (${a.publicat_la})` : ""}\nData intrării în vigoare (Portal): ${a.data_vigoare ?? "necunoscută"}\n\n`;
-  const text: string = a.text ?? "";
-  let corp: string;
-  let avertisment: string | undefined;
-
-  if (cerute.length === 0 && (a.lungime ?? text.length) <= LIMITA_TEXT_INTEGRAL) {
-    corp = text;
-  } else if (cerute.length === 0) {
-    corp = text;
-    avertisment = `text integral de ${text.length} caractere, peste ${LIMITA_TEXT_INTEGRAL}, fără articole cerute`;
-    console.error(`! ${a.id}: ${avertisment}`);
-  } else {
-    const parti: string[] = [];
-    const gasite: string[] = [];
-    for (const nr of cerute) {
-      const bucata = articolDupaNumar({ text, articole: a.articole ?? [] } as ActParsat, nr);
-      if (bucata === null) {
-        console.error(`! ${a.id}: articolul ${nr} nu a fost găsit`);
-        continue;
-      }
-      gasite.push(nr);
-      parti.push(`Art. ${nr}\n${bucata}`);
-    }
-    corp = `${parti.join("\n\n")}\n\nTextul primit conține doar articolele: ${gasite.join(", ")}`;
-    if (gasite.length < cerute.length) avertisment = `articole negăsite: ${cerute.filter((n) => !gasite.includes(n)).join(", ")}`;
-  }
+  const { text, corp, articoleCerute: cerute, avertisment } = textPentruModel(a);
+  if (avertisment) console.error(`! ${a.id}: ${avertisment}`);
 
   const fisier = `${a.id.replace(/[^A-Za-z0-9._-]/g, "_")}.txt`;
-  await writeFile(path.join(dir, fisier), `${antet}${corp}\n`);
+  await writeFile(path.join(dir, fisier), text);
   manifest.push({ id: a.id, fisier, titlu: a.titlu, lungime: a.lungime, articole_cerute: cerute, ...(avertisment ? { avertisment } : {}) });
   console.error(`✓ ${a.id} → ${fisier} (${corp.length} caractere)`);
 }

@@ -1,5 +1,15 @@
 # Session state
 
+## Latest (29 oct 2026): branch `legi-pipeline` (worktree `.claude/worktrees/legi-pipeline`), pipeline-ul de ingestie fără om
+- Branch nou din `main` (e74eb78d) cu `legi-ingest` inclus (merge 4c17e28d). Planul a ce lipsea: `docs/ingest-urmatorii-pasi.md`.
+- Construit de 3 builderi (Sonnet), inspectat, nimic pushuit:
+  - `legi:triaj --api` (Haiku, `lib/triaj-model.ts`): triajul candidaților din bază sau din fișiere, scrie `triaj.model` + `triat_da/triat_nu`.
+  - `legi:interpreteaza` (`lib/lot.ts`, `lib/interpretare-api.ts`, `lib/importa-interpretare.ts`): interpretare prin API cu cache, verificări, upsert în `interpretari (propus)`; mod pe fișiere `--din/--out`; `--buget-usd`. Model implicit Sonnet 5.5 (`LEGI_MODEL_INTERPRETARE`).
+  - `legi:zilnic` (`lib/zilnic.ts`): descopera `--reia` → triaj → interpreteaza, rând în `rulari` (sursa `zilnic`); `.github/workflows/legi-zilnic.yml` (cron 04:00 UTC, dispatch cu dry-run). Secretele le pune Andrei în GitHub.
+- Verificat: tsc curat, 245 teste; lanțul pe fișiere cu Portalul real (7 id-uri, 1 candidat → Haiku „nu”, corect) și 2 acte interpretate prin API (ambele „nu atinge banii”, corect: HG de siguranță pe rețea, ordin a cărui schemă e în anexă lipsă).
+- BLOCAT la fel: tabelele `acte/interpretari/rulari/cursor_surse` NU există în Supabase (404 la 29 oct), `SUPABASE_DB_URL` are `[YOUR-PASSWORD]`, pagina Supabase cere login. Andrei: SQL Editor → `supabase/acte.sql` → Run, sau parola + `npm run legi:migreaza`. Apoi pașii D din `docs/ingest-urmatorii-pasi.md` (incarca sweep din `../legi-ingest/scratch`, importa cele 18 interpretări, cursor 315776) și prima rulare `legi:zilnic`.
+- Capăt deschis (decizie de echipă): aprobarea scrie `data/catalog.json` pe disc; aplicația nu citește din Supabase, deci un act aprobat ajunge la utilizatori doar prin `supabase:sync` + commit + push pe main.
+
 ## Deploy descriere mutat pe main (29 oct 2026)
 - main fast-forward la deploy-descriere și împins: origin/main = 17e7bd03 (include cele 18 commit-uri legi-ingest + deploy-ul Next.js). Scripturile din deploy/descriere/ spun acum `main`.
 - RĂMAS: pe CT 107 config-ul încă are BRANCH=deploy-descriere (SSH spre Proxmox nu a mers din sesiune). De rulat: `ssh root@192.168.31.63 "pct exec 107 -- sed -i s/^BRANCH=.*/BRANCH=main/ /etc/descriere-deploy/config && pct exec 107 -- descriere-deploy"`. Apoi version.txt trebuie să arate 17e7bd03.
