@@ -303,6 +303,7 @@ const EN: Record<string, string> = {
   Întreabă: "Ask",
   "Nu am putut răspunde acum. Încearcă din nou.": "I could not answer right now. Try again.",
   "Textul legii pe Portalul Legislativ": "The law's text on the Legislative Portal",
+  "cel mai apropiat termen": "nearest deadline",
   "Ce înseamnă legile pentru tine": "What the laws mean for you",
 };
 

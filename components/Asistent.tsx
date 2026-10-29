@@ -22,6 +22,7 @@ import {
 import { incarcaProfil, PROFIL_GOL, salveazaProfil, scoateDinProfil, type Profil } from "@/lib/profil";
 import { PERSOANE_DEMO } from "@/lib/persoane-demo";
 import { aziISO, potriveste } from "@/lib/potrivire";
+import { dataScurta, zile } from "@/lib/card";
 import type { TagId } from "@/lib/taguri";
 import { etichetaTagL } from "@/lib/i18n";
 import { useLimba } from "@/components/Limba";
@@ -192,7 +193,19 @@ function AsistentProfil() {
   }, []);
 
   const intrebare = intrebareaCurenta(stare);
-  const nrActe = useMemo(() => potriveste(inProfil(stare, baza), CATALOG, aziISO()).length, [stare, baza]);
+  const { nrActe, termen } = useMemo(() => {
+    const p = potriveste(inProfil(stare, baza), CATALOG, aziISO());
+    const urmatorul = p
+      .filter((x) => x.zile_pana_la_termen !== null && x.zile_pana_la_termen >= 0 && x.schimbare.termen_actiune)
+      .sort((a, b) => (a.zile_pana_la_termen ?? 0) - (b.zile_pana_la_termen ?? 0))[0];
+    return {
+      nrActe: p.length,
+      termen: urmatorul ? { data: urmatorul.schimbare.termen_actiune as string, zile: urmatorul.zile_pana_la_termen as number } : null,
+    };
+  }, [stare, baza]);
+  const liniaTermen = termen
+    ? `${t("cel mai apropiat termen")} ${dataScurta(termen.data, limba)} (${t("mai ai")} ${zile(termen.zile, limba)})`
+    : null;
 
   useEffect(() => {
     if (stare.mesaje.length > 1) sfarsit.current?.scrollIntoView({ block: "end", behavior: "smooth" });
@@ -278,6 +291,7 @@ function AsistentProfil() {
           ) : (
             <>
               {t("Până acum:")} <b className="text-lg">{nrActe}</b> {t(nrActe === 1 ? "act te privește" : "acte te privesc")}
+              {liniaTermen && <> · {liniaTermen}</>}
             </>
           )}
         </div>
@@ -325,7 +339,7 @@ function AsistentProfil() {
         )}
 
         {intrebare && !stare.terminat && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 pt-1">
             {intrebare.raspunsuri.map((r) => {
               const pe = alegeri.includes(r.eticheta);
               return (
@@ -360,7 +374,10 @@ function AsistentProfil() {
             <p className="m-0 mb-1 font-head text-lg font-extrabold text-v3-ink">
               {t("Am găsit")} {nrActe} {t(nrActe === 1 ? "act care te privește." : "acte care te privesc.")}
             </p>
-            <p className="m-0 mb-3 text-[14px] text-v3-ink-2">{t("Le poți vedea pe toate, cu link la articolul din lege.")}</p>
+            <p className="m-0 mb-3 text-[14px] text-v3-ink-2">
+              {liniaTermen && <>{liniaTermen.charAt(0).toUpperCase() + liniaTermen.slice(1)}. </>}
+              {t("Le poți vedea pe toate, cu link la articolul din lege.")}
+            </p>
             <button type="button" onClick={vezi} className="min-h-12 w-full rounded-[10px] bg-v3-ink px-4 font-bold text-v3-on-ink">
               {t("Vezi ce te privește")}
             </button>
