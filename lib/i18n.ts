@@ -53,6 +53,8 @@ const EN: Record<string, string> = {
   "Întreabă despre o lege sau descrie situația ta…": "Ask about a law or describe your situation…",
   "Informare, nu consultanță financiară sau juridică.": "Information, not financial or legal advice.",
   "Asistentul tău": "Your assistant",
+  "Asistentul e pentru abonații Pro.": "The assistant is for Pro subscribers.",
+  "Întrebi orice despre legile care te privesc și primești răspunsul cu sursa lângă.": "Ask anything about the laws that affect you and get the answer with its source next to it.",
   "Deschide asistentul": "Open the assistant",
   "Asistent": "Assistant",
   "Deschide conversația": "Open chat",

@@ -1,7 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const { create } = vi.hoisted(() => ({ create: vi.fn() }));
+const { create, pro } = vi.hoisted(() => ({ create: vi.fn(), pro: { activ: true } }));
 vi.mock("@anthropic-ai/sdk", () => ({ default: class { static APIError = class extends Error {}; messages = { create }; } }));
+// Asistentul e doar pentru Pro: sesiunea și starea Stripe sunt simulate (implicit: conectat, cu Pro activ)
+vi.mock("@/auth", () => ({ auth: async () => ({ user: { email: "test@example.com" } }) }));
+vi.mock("@/lib/stripe", () => ({ stripe: () => ({}), stareDupaEmail: async () => ({ activ: pro.activ }) }));
 import { POST } from "@/app/api/asistent/chat/route";
 
 const body = (mesaj: string, extra: Record<string, unknown> = {}) => ({ mod: "chat", mesaj, istoric: [], profil: { taguri: [], valori: {} }, ...extra });
@@ -11,6 +14,18 @@ describe("POST /api/asistent/chat chat", () => {
   const cheie = process.env.ANTHROPIC_API_KEY;
   beforeEach(() => { delete process.env.ANTHROPIC_API_KEY; create.mockReset(); });
   afterEach(() => { if (cheie === undefined) delete process.env.ANTHROPIC_API_KEY; else process.env.ANTHROPIC_API_KEY = cheie; });
+
+  it("fără Pro activ refuză cu 403 și nu apelează modelul", async () => {
+    process.env.ANTHROPIC_API_KEY = "test-only";
+    pro.activ = false;
+    try {
+      const r = await cere(body("Ce este TVA?"));
+      expect(r.status).toBe(403);
+      expect(create).not.toHaveBeenCalled();
+    } finally {
+      pro.activ = true;
+    }
+  });
 
   it("fără cheie răspunde demo, cu sursă verificată, fără persistența profilului", async () => {
     const r = await cere(body("Ce este Pilonul II?"));
