@@ -35,7 +35,10 @@ export function Antet() {
           <Link href="/" className="flex min-w-0 items-center gap-2.5 no-underline">
             <SemnBuzunar className="h-8 lg:h-9" />
             <span className="min-w-0">
-              <b className="block font-head text-[22px] leading-none font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-logo lg:text-[26px]">{t("Buzunar")}</b>
+              <b className="block font-head text-[22px] leading-none font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-logo lg:text-[26px]">
+                {t("Buzunar")}
+                {stare?.activ && <ChipPro />}
+              </b>
               <span className="mt-1 hidden text-[10.5px] font-semibold tracking-[.14em] whitespace-nowrap text-v3-ink-2 uppercase min-[400px]:block">
                 {t("Legea, pe banii tăi")}
               </span>
@@ -65,7 +68,18 @@ export function Antet() {
   );
 }
 
-/** „Upgrade la Pro” cât timp n-ai Pro; după plată dispare (starea e în meniul contului). Duce la /abonament. */
+/** Pro activ: un chip mic „PRO” lipit de numele aplicației (decizia din 29 oct: statutul stă lângă marcă, nu în slotul butonului). */
+function ChipPro() {
+  const { t } = useLimba();
+  return (
+    <span className="ml-1.5 inline-block rounded-[4px] bg-v3-pos-soft px-[5px] py-[2px] align-top font-sans text-[10px] leading-[1.2] font-extrabold tracking-[.08em] text-v3-pos">
+      PRO
+      <span className="sr-only"> · {t("abonament activ")}</span>
+    </span>
+  );
+}
+
+/** „Upgrade la Pro” cât timp n-ai Pro; după plată dispare, iar statutul apare ca ChipPro lângă nume. Duce la /abonament. */
 function ButonPro({ stare }: { stare: StareAbonament | null }) {
   const { t } = useLimba();
   if (stare?.demo)
