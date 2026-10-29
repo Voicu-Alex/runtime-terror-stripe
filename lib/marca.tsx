@@ -7,7 +7,7 @@ export const CULORI = {
   tenta: "#DEDBD8",
   tenta2: "#F1F0EE",
   cerneala: "#111827",
-  verde: "#15803D",
+  verde: "#00853A",
   gri: "#57534E",
 } as const;
 
