@@ -24,6 +24,8 @@ export function Antet() {
   const { t } = useLimba();
   const cale = usePathname();
   const stare = useAbonament();
+  // Pe landing (/) nu apar: pagina are bara ei minimală (components/Acasa.tsx).
+  if (cale === "/") return null;
   // Bara de secțiuni e în afara <header>: sticky se oprește la marginea părintelui,
   // iar în <header> s-ar fi oprit imediat sub ea. Ca frate al lui <main>, rămâne sus pe tot scroll-ul.
   return (
@@ -90,6 +92,8 @@ export function SariLaContinut() {
 
 export function Subsol() {
   const { t, limba } = useLimba();
+  const cale = usePathname();
+  if (cale === "/") return null;
   return (
     <footer className="mx-auto max-w-[1080px] border-t border-v3-line px-4 pt-4 pb-24 text-[12.5px] text-v3-ink-2">
       {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}

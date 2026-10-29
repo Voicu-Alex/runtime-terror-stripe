@@ -32,3 +32,6 @@ scratch/
 
 # build local (Vite)
 /dist/
+
+# machete temporare din brainstorming (superpowers)
+.superpowers/
