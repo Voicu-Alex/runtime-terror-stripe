@@ -7,6 +7,7 @@ import { signOut } from "next-auth/react";
 import { ComutatorLimba, useLimba } from "@/components/Limba";
 import { ComutatorTema } from "@/components/Tema";
 import type { StareAbonament } from "@/lib/abonament";
+import { seteazaProDemo } from "@/components/useAbonament";
 
 // Meniul din dreapta sus: contul, profilul (etichete, documente, planul), asistentul de pe /profil și setările (temă, limbă).
 // Un panou simplu care se deschide sub buton; Escape, clic în afară sau schimbarea paginii îl închid.
@@ -153,6 +154,25 @@ export function MeniuProfil({ stare }: { stare: StareAbonament | null }) {
             <span className="text-[14.5px] font-semibold text-v3-ink">{t("Limba")}</span>
             <ComutatorLimba />
           </div>
+          {/* Demo: arată aplicația cu Pro, fără plată. Ascuns când ai Pro plătit. */}
+          {!(stare?.activ && !stare.demo) && (
+            <div className="flex min-h-12 items-center justify-between gap-3 px-3">
+              <span className="text-[14.5px] font-semibold text-v3-ink">
+                {t("Pro (demo)")}
+                <small className="block text-[12px] font-normal text-v3-ink-2">{t("fără plată, doar pe acest dispozitiv")}</small>
+              </span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={!!stare?.demo}
+                aria-label={t("Pro (demo)")}
+                onClick={() => seteazaProDemo(!stare?.demo)}
+                className="relative inline-flex h-7 w-12 flex-none items-center rounded-full border border-v3-line bg-v3-accent-soft p-0.5 aria-checked:border-v3-pos aria-checked:bg-v3-pos"
+              >
+                <span aria-hidden="true" className={`size-6 rounded-full bg-v3-card shadow transition-transform ${stare?.demo ? "translate-x-5" : ""}`} />
+              </button>
+            </div>
+          )}
 
           <div className="mt-1 border-t border-v3-line pt-1.5">
             <Link href="/abonament" onClick={inchide} className={rand}>
@@ -160,6 +180,7 @@ export function MeniuProfil({ stare }: { stare: StareAbonament | null }) {
               {stare?.activ ? (
                 <>
                   {t("Pro activ")} <span className="text-v3-pos">✓</span>
+                  {stare.demo && <span className="text-[12px] font-normal text-v3-ink-2">· {t("demo")}</span>}
                 </>
               ) : (
                 t("Upgrade la Pro")
