@@ -427,6 +427,9 @@ const EN: Record<string, string> = {
   "Cât poți salva": "Most you can save",
   // Contul (app/conectare, lib/conectare.ts)
   "Intră în cont": "Sign in",
+  Intră: "Sign in",
+  Cont: "Account",
+  "Contul meu": "My account",
   "Ești în cont": "You’re signed in",
   "Ieși din cont": "Sign out",
   Abonament: "Subscription",
