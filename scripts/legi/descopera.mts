@@ -55,7 +55,8 @@ const intreg = (v: string | undefined, nume: string) => {
 };
 
 const max = intreg(arg.max, "max");
-const client = new ClientPortal({ max, pauzaMs: intreg(arg.pauza, "pauza"), esteLipsa });
+// clientul dă (status, text); parserul vrea (html, status)
+const client = new ClientPortal({ max, pauzaMs: intreg(arg.pauza, "pauza"), esteLipsa: (status, text) => esteLipsa(text, status) });
 
 // ---------------------------------------------------------------- --cauta-oug 8/2026
 if (arg["cauta-oug"]) {
