@@ -146,7 +146,7 @@ export function ChatPanel({ modal = false, open = true, onClose, action }: { mod
       <div className="max-w-[36ch] rounded-2xl border border-v3-line bg-v3-card p-5 text-center shadow-xl">
         <p className="m-0 font-head text-[19px] leading-tight font-extrabold text-v3-ink">{t("Asistentul e pentru abonații Pro.")}</p>
         <p className="m-0 mt-2 text-[14px] leading-relaxed text-v3-ink-2">{t("Întrebi orice despre legile care te privesc și primești răspunsul cu sursa lângă.")}</p>
-        <Link href="/abonament" onClick={onClose} className="mt-4 inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
+        <Link href="/abonament" onClick={onClose} className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
           {t("Upgrade la Pro")} · {PRET_BANI / 100} {t("lei/lună")}
         </Link>
       </div>

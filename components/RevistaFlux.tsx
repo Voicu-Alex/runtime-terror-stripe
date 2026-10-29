@@ -192,7 +192,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
       </div>
       <a
         href={`#c-${s.id}`}
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-[10px] bg-v3-ink px-6 py-3 text-center leading-6 font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong sm:w-auto"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-v3-ink px-6 py-3 text-center leading-6 font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong sm:w-auto"
       >
         {t("Vezi ce înseamnă și sursa")}
       </a>

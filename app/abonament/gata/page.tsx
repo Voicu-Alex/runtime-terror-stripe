@@ -52,7 +52,7 @@ export default function PaginaGata() {
             <p className="m-0 mt-3 text-[16px] text-v3-ink-2">
               {t("Dacă ai plătit, confirmarea poate dura câteva minute. Reîncarcă pagina; dacă tot nu merge, încearcă din nou de pe pagina Pro.")}
             </p>
-            <Link href="/abonament" className="mt-5 inline-flex min-h-11 items-center rounded-[10px] border border-v3-line px-[18px] font-semibold text-v3-ink no-underline">
+            <Link href="/abonament" className="mt-5 inline-flex min-h-11 items-center rounded-xl border border-v3-line px-[18px] font-semibold text-v3-ink no-underline">
               {t("Înapoi la Pro")}
             </Link>
           </>

@@ -327,10 +327,10 @@ function AsistentProfil() {
             <p className="m-0 font-head text-[19px] leading-tight font-extrabold text-v3-ink">{t("Asistentul e pentru abonații Pro.")}</p>
             <p className="m-0 mt-2 text-[14px] leading-relaxed text-v3-ink-2">{t("Îți descrii situația în cuvintele tale și profilul se completează singur. Formularul și documentul rămân gratuite.")}</p>
             <div className="mt-4 flex flex-wrap justify-center gap-2">
-              <Link href="/abonament" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
+              <Link href="/abonament" className="inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
                 {t("Upgrade la Pro")} · {PRET_BANI / 100} {t("lei/lună")}
               </Link>
-              <button type="button" onClick={() => setFormular(true)} className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-ink bg-v3-card px-4 text-[14px] font-bold text-v3-ink">
+              <button type="button" onClick={() => setFormular(true)} className="inline-flex min-h-11 items-center rounded-xl border border-v3-ink bg-v3-card px-4 text-[14px] font-bold text-v3-ink">
                 {t("Folosesc formularul")}
               </button>
             </div>
@@ -442,7 +442,7 @@ function AsistentProfil() {
               {liniaTermen && <>{liniaTermen.charAt(0).toUpperCase() + liniaTermen.slice(1)}. </>}
               {t("Le poți vedea pe toate, cu link la articolul din lege.")}
             </p>
-            <button type="button" onClick={vezi} className="min-h-12 w-full rounded-[10px] bg-v3-ink px-4 font-bold text-v3-on-ink">
+            <button type="button" onClick={vezi} className="min-h-12 w-full rounded-xl bg-v3-ink px-4 font-bold text-v3-on-ink">
               {t("Vezi ce te privește")}
             </button>
           </div>

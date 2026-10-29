@@ -9,9 +9,9 @@ const CHEIE = "cipm.tema.v1";
 
 /**
  * Rulează în <head>, înainte de prima afișare: pune tema pe <html data-theme>, ca pagina să nu clipească
- * în tema greșită. Ce a ales omul (localStorage) câștigă; altfel, tema sistemului.
+ * în tema greșită. Ce a ales omul (localStorage) câștigă; altfel, tema închisă (29 oct: tot site-ul arată ca landing-ul).
  */
-export const SCRIPT_TEMA = `(function(){try{var t=localStorage.getItem("${CHEIE}");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="light"}})()`;
+export const SCRIPT_TEMA = `(function(){try{var t=localStorage.getItem("${CHEIE}");if(t!=="light"&&t!=="dark")t="dark";document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}})()`;
 
 function alesa(): Tema | null {
   try {
@@ -29,16 +29,6 @@ export function ComutatorTema() {
 
   useEffect(() => {
     setTema(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
-    // Cât timp omul n-a ales, urmăm tema sistemului și când se schimbă (de exemplu seara).
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const laSchimbare = (e: MediaQueryListEvent) => {
-      if (alesa()) return;
-      const t: Tema = e.matches ? "dark" : "light";
-      document.documentElement.dataset.theme = t;
-      setTema(t);
-    };
-    mq.addEventListener("change", laSchimbare);
-    return () => mq.removeEventListener("change", laSchimbare);
   }, []);
 
   function comuta() {

@@ -13,7 +13,7 @@ export default async function PaginaAdminActe({ searchParams }: { searchParams: 
 
   if (!areAcces(email, process.env.ADMIN_EMAILS, process.env.NODE_ENV === "production")) {
     return (
-      <div className="rounded-[10px] border border-v3-line bg-v3-card p-5">
+      <div className="rounded-[18px] border border-v3-line bg-v3-card p-5">
         <h1 className="m-0 font-head text-[24px] font-extrabold text-v3-ink">Pagina e doar pentru echipă.</h1>
         <form
           className="m-0 mt-3"
@@ -22,7 +22,7 @@ export default async function PaginaAdminActe({ searchParams }: { searchParams: 
             await signIn("google", { redirectTo: "/admin/acte" });
           }}
         >
-          <button type="submit" className="min-h-11 rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink hover:bg-v3-ink-strong">
+          <button type="submit" className="min-h-11 rounded-xl bg-v3-ink px-[18px] font-bold text-v3-on-ink hover:bg-v3-ink-strong">
             Continuă cu Google
           </button>
         </form>

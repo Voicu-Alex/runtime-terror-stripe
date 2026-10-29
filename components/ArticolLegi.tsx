@@ -120,7 +120,7 @@ export function ArticolLegi({ a: ro, inLista = false }: { a: ArticolGhid; inList
                   href={a.solutie.url}
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex min-h-[46px] items-center gap-2 rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline"
+                  className="inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline"
                 >
                   {t("Deschide")} <span aria-hidden="true">↗︎</span>
                   <span className="sr-only">{t("(se deschide într-un tab nou)")}</span>

@@ -50,7 +50,7 @@ export function Antet() {
           </span>
         </div>
       </header>
-      <nav aria-label={t("Secțiuni")} className="sticky top-0 z-20 border-t border-b border-v3-line bg-[var(--fundal)]">
+      <nav aria-label={t("Secțiuni")} className="nav-sectiuni sticky top-0 z-20 border-t border-b border-v3-line bg-[var(--fundal)]">
         <div className="mx-auto flex max-w-[1080px] gap-6 overflow-x-auto px-4">
           {SECTIUNI.map((s) => (
             <Link
@@ -118,5 +118,22 @@ export function Subsol() {
         Pro
       </Link>
     </footer>
+  );
+}
+
+/**
+ * Fundalul landing-ului (components/Acasa.tsx) pe tot site-ul: granulație și două lumini difuze, verde (bani în plus)
+ * și roșie (bani în minus), fixe în spatele conținutului. Se vede doar în tema închisă (app/globals.css, .fundal-ld);
+ * pe landing (/) nu e nevoie, fiecare ecran îl are pe al lui.
+ */
+export function FundalLanding() {
+  const cale = usePathname();
+  if (cale === "/") return null;
+  return (
+    <div aria-hidden="true" className="fundal-ld">
+      <div className="ld-grain" />
+      <div className="ld-glow" style={{ width: "44vw", height: "44vw", left: "-10vw", top: "-14vh", background: "#00853A", "--o": 0.2 } as React.CSSProperties} />
+      <div className="ld-glow" style={{ width: "26vw", height: "26vw", right: "-6vw", top: "42vh", background: "#E0101E", "--o": 0.16, animationDelay: "-4s" } as React.CSSProperties} />
+    </div>
   );
 }

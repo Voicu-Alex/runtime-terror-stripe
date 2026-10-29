@@ -32,13 +32,13 @@ export function Conectare({ email, inapoi, eroare }: Props) {
           {t("Conectat ca")} <b className="text-v3-ink">{email}</b>
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
-          <Link href="/flux" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
+          <Link href="/flux" className="inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
             {t("Fluxul meu")}
           </Link>
-          <Link href="/abonament" className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-line bg-v3-card px-[18px] font-semibold text-v3-ink no-underline">
+          <Link href="/abonament" className="inline-flex min-h-11 items-center rounded-xl border border-v3-line bg-v3-card px-[18px] font-semibold text-v3-ink no-underline">
             {t("Abonament")}
           </Link>
-          <button type="button" onClick={() => signOut({ redirectTo: "/conectare" })} className="min-h-11 rounded-[10px] px-3 font-semibold text-v3-ink underline decoration-v3-line underline-offset-2">
+          <button type="button" onClick={() => signOut({ redirectTo: "/conectare" })} className="min-h-11 rounded-xl px-3 font-semibold text-v3-ink underline decoration-v3-line underline-offset-2">
             {t("Ieși din cont")}
           </button>
         </div>

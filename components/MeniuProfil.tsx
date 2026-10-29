@@ -120,7 +120,7 @@ export function MeniuProfil({ stare }: { stare: StareAbonament | null }) {
             ) : (
               <>
                 <p className="m-0 text-[14.5px] font-bold text-v3-ink">{t("Nu ești în cont")}</p>
-                <Link href="/conectare" onClick={inchide} className="mt-2 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
+                <Link href="/conectare" onClick={inchide} className="mt-2 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
                   {t("Intră în cont")}
                 </Link>
               </>

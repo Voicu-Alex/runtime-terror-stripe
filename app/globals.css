@@ -269,3 +269,13 @@ html.ld-blocat { overflow: hidden }
   .ld-h2 { margin-bottom: 20px }
   .ld-ecran { padding-top: 80px; padding-bottom: 28px }
 }
+
+/*
+ * Tot site-ul arată ca landing-ul (29 oct): tema închisă e implicită (components/Tema.tsx), iar în spatele paginilor
+ * stă același fundal (components/Antet.tsx, FundalLanding): granulație și lumini verde/roșie. În tema deschisă nu apare.
+ */
+.fundal-ld { display: none; position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+[data-theme="dark"] .fundal-ld { display: block }
+.fundal-ld .ld-grain, .fundal-ld .ld-glow { z-index: auto }
+/* bara de secțiuni lasă luminile să se vadă prin ea */
+[data-theme="dark"] .nav-sectiuni { background: color-mix(in srgb, var(--fundal) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px) }

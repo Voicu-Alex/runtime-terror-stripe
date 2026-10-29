@@ -85,13 +85,13 @@ export function Abonare() {
             <p className="m-0 text-[16px] font-bold text-v3-pos">{t("Ai Pro (demo).")}</p>
             <p className="m-0 mt-1 text-[14.5px] text-v3-ink">{t("Vezi aplicația ca un abonat, fără plată. Ține doar pe acest dispozitiv.")}</p>
             <div className="mt-3 flex flex-wrap gap-2">
-              <Link href="/aplicatie" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
+              <Link href="/aplicatie" className="inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
                 {t("Pentru tine")}
               </Link>
               <button
                 type="button"
                 onClick={() => seteazaProDemo(false)}
-                className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-[18px] font-semibold text-v3-ink"
+                className="min-h-11 rounded-xl border border-v3-line bg-v3-card px-[18px] font-semibold text-v3-ink"
               >
                 {t("Oprește Pro (demo)")}
               </button>
@@ -118,14 +118,14 @@ export function Abonare() {
               </p>
             )}
             <div className="mt-3 flex flex-wrap gap-2">
-              <Link href="/flux" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
+              <Link href="/flux" className="inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
                 {t("Fluxul meu")}
               </Link>
               <button
                 type="button"
                 disabled={lucreaza}
                 onClick={() => mergiLa("/api/abonament/portal")}
-                className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-[18px] font-semibold text-v3-ink disabled:opacity-60"
+                className="min-h-11 rounded-xl border border-v3-line bg-v3-card px-[18px] font-semibold text-v3-ink disabled:opacity-60"
               >
                 {t("Gestionează sau anulează")}
               </button>

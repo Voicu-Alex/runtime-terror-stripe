@@ -318,14 +318,14 @@ function Freemium({ premium, ramase, profilCompletat }: { premium: boolean; rama
         {!profilCompletat && (
           <Link
             href="/profil"
-            className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-ink px-4 py-2 text-[14px] leading-snug font-bold text-v3-ink no-underline hover:bg-v3-accent-soft"
+            className="inline-flex min-h-11 items-center rounded-xl border border-v3-ink px-4 py-2 text-[14px] leading-snug font-bold text-v3-ink no-underline hover:bg-v3-accent-soft"
           >
             {t("Completează profilul sau încarcă un document · +1 deblocare")}
           </Link>
         )}
         <Link
           href="/abonament"
-          className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong"
+          className="inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong"
         >
           {t("Upgrade la Pro")} · {PRET_BANI / 100} {t("lei/lună")}
         </Link>
@@ -366,11 +366,11 @@ function RandBlocat({ r, ramase, onDeblocheaza }: { r: Rand; ramase: number; onD
       </div>
       <div className="mt-2.5 flex flex-wrap items-center gap-2">
         {ramase > 0 ? (
-          <button type="button" onClick={onDeblocheaza} className="min-h-10 rounded-[10px] border border-v3-ink px-3.5 text-[14px] font-bold text-v3-ink">
+          <button type="button" onClick={onDeblocheaza} className="min-h-10 rounded-xl border border-v3-ink px-3.5 text-[14px] font-bold text-v3-ink">
             {t("Deschide gratuit")} · {ramase} {ramase === 1 ? t("deblocare rămasă") : t("deblocări rămase")}
           </button>
         ) : (
-          <Link href="/abonament" className="inline-flex min-h-10 items-center rounded-[10px] bg-v3-ink px-3.5 text-[14px] font-bold text-v3-on-ink no-underline">
+          <Link href="/abonament" className="inline-flex min-h-10 items-center rounded-xl bg-v3-ink px-3.5 text-[14px] font-bold text-v3-on-ink no-underline">
             {t("Vezi detaliile cu Pro")}
           </Link>
         )}

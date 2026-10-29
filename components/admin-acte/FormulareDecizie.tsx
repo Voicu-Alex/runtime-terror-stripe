@@ -4,7 +4,7 @@ import { useActionState, useState } from "react";
 import { aproba, respinge, type StareActiune } from "@/app/admin/acte/actiuni";
 
 const initial: StareActiune = {};
-const BUTON = "min-h-11 rounded-[10px] px-[18px] font-bold disabled:cursor-not-allowed disabled:opacity-50";
+const BUTON = "min-h-11 rounded-xl px-[18px] font-bold disabled:cursor-not-allowed disabled:opacity-50";
 
 function Mesaj({ s }: { s: StareActiune }) {
   if (s.eroare)
@@ -29,7 +29,7 @@ export function FormularAproba({ id, optiuni, blocatAct }: { id: number; optiuni
   const niciuna = !bifate.some((b, i) => b && !optiuni[i].picate.length);
   const blocat = blocatAct || niciuna || lucreaza;
   return (
-    <form action={actiune} className="m-0 rounded-[10px] border border-v3-line bg-v3-card p-3">
+    <form action={actiune} className="m-0 rounded-[18px] border border-v3-line bg-v3-card p-3">
       <input type="hidden" name="id" value={id} />
       <p className="m-0 mb-2 text-[12px] font-extrabold tracking-[.1em] text-v3-accent uppercase">Schimbări de aprobat</p>
       <div className="grid gap-2">
@@ -59,7 +59,7 @@ export function FormularAproba({ id, optiuni, blocatAct }: { id: number; optiuni
                       disabled={!bifate[i]}
                       aria-label={`cota veche (%), schimbarea ${i + 1}`}
                       placeholder="cota veche (%)"
-                      className="min-h-11 w-36 rounded-[10px] border border-v3-line bg-transparent px-3 text-[14px] text-v3-ink"
+                      className="min-h-11 w-36 rounded-xl border border-v3-line bg-transparent px-3 text-[14px] text-v3-ink"
                     />
                     <input
                       type="text"
@@ -67,7 +67,7 @@ export function FormularAproba({ id, optiuni, blocatAct }: { id: number; optiuni
                       disabled={!bifate[i]}
                       aria-label={`sursa cotei vechi (act, articol), schimbarea ${i + 1}`}
                       placeholder="sursa (act, articol)"
-                      className="min-h-11 min-w-48 flex-1 rounded-[10px] border border-v3-line bg-transparent px-3 text-[14px] text-v3-ink"
+                      className="min-h-11 min-w-48 flex-1 rounded-xl border border-v3-line bg-transparent px-3 text-[14px] text-v3-ink"
                     />
                   </div>
                   <p className="m-0 text-[12.5px] text-v3-ink-2">
@@ -100,7 +100,7 @@ export function FormularAproba({ id, optiuni, blocatAct }: { id: number; optiuni
 export function FormularRespinge({ id }: { id: number }) {
   const [stare, actiune, lucreaza] = useActionState(respinge, initial);
   return (
-    <form action={actiune} className="m-0 rounded-[10px] border border-v3-line bg-v3-card p-3">
+    <form action={actiune} className="m-0 rounded-[18px] border border-v3-line bg-v3-card p-3">
       <input type="hidden" name="id" value={id} />
       <label htmlFor={`nota-${id}`} className="mb-1.5 block text-[12px] font-extrabold tracking-[.1em] text-v3-accent uppercase">
         De ce respingi
@@ -110,7 +110,7 @@ export function FormularRespinge({ id }: { id: number }) {
         name="nota"
         required
         rows={3}
-        className="w-full rounded-[10px] border border-v3-ink-2 bg-transparent p-3 text-[15px] text-v3-ink"
+        className="w-full rounded-xl border border-v3-ink-2 bg-transparent p-3 text-[15px] text-v3-ink"
       />
       <button type="submit" disabled={lucreaza} className={`${BUTON} mt-3 border border-v3-urg bg-v3-card text-v3-urg`}>
         {lucreaza ? "Se respinge…" : "Respinge"}

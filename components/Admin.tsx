@@ -183,7 +183,7 @@ function Propunere({ a, p, index }: { a: ActInbox; p: PropunereModel; index: num
       <div className="mt-4 flex flex-wrap items-center gap-3">
         {aprobata ? (
           <>
-            <span className="inline-flex min-h-11 items-center gap-2 rounded-[10px] bg-v3-pos-soft px-4 font-bold text-v3-pos">
+            <span className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-v3-pos-soft px-4 font-bold text-v3-pos">
               ✓ {en ? "Approved, now in the matching feeds" : "Aprobat, acum în fluxurile potrivite"}
             </span>
             <button type="button" onClick={anuleaza} className="min-h-11 text-sm text-v3-ink-2 underline underline-offset-2">
@@ -196,7 +196,7 @@ function Propunere({ a, p, index }: { a: ActInbox; p: PropunereModel; index: num
               type="button"
               onClick={aproba}
               disabled={taguri.length === 0}
-              className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-[18px] font-bold text-v3-on-ink disabled:cursor-not-allowed disabled:opacity-50"
             >
               {en ? "Approve and publish" : "Aprobă și publică"}
             </button>

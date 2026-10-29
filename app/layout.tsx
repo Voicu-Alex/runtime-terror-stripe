@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Antet, Subsol, SariLaContinut } from "@/components/Antet";
+import { Antet, FundalLanding, Subsol, SariLaContinut } from "@/components/Antet";
 import { LimbaProvider } from "@/components/Limba";
 import { SCRIPT_TEMA } from "@/components/Tema";
 import { AsistentProvider } from "@/components/AsistentProvider";
@@ -55,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LimbaProvider>
           <AsistentProvider>
           <SariLaContinut />
+          <FundalLanding />
           <Antet />
           <main id="continut" tabIndex={-1} className="mx-auto max-w-[1080px] px-4 py-6">{children}</main>
           <Subsol />

@@ -172,7 +172,7 @@ export function FormularProfil() {
       </p>
 
       {erori.length > 0 && (
-        <div role="alert" className="rounded-[10px] border border-v3-neg/30 bg-v3-urg-soft p-3 text-sm text-v3-neg">
+        <div role="alert" className="rounded-[18px] border border-v3-neg/30 bg-v3-urg-soft p-3 text-sm text-v3-neg">
           <p className="m-0 font-semibold">{t("Unele documente nu au putut fi citite. Verifică fișierele și încearcă din nou.")}</p>
           <ul className="mt-2 mb-0 space-y-1 pl-5">{erori.map((mesaj, i) => <li key={i} className="break-words">{mesaj}</li>)}</ul>
         </div>
@@ -182,7 +182,7 @@ export function FormularProfil() {
       {citiri.length > 0 && (
         <ul className="m-0 list-none space-y-2 p-0" aria-live="polite">
           {citiri.map((c, i) => (
-            <li key={`${c.fisier}-${i}`} className="break-words rounded-[10px] border border-v3-line bg-v3-card p-3 text-sm">
+            <li key={`${c.fisier}-${i}`} className="break-words rounded-[18px] border border-v3-line bg-v3-card p-3 text-sm">
               <p className="m-0 flex flex-wrap items-center gap-x-2 gap-y-1">
                 <b className="text-v3-ink">{t("Am citit")} {t(NUME_TIP[c.tip] ?? "documentul")}</b>
                 <span className="text-v3-ink-2">({c.fisier})</span>
@@ -267,7 +267,7 @@ export function FormularProfil() {
       </section>
 
       {/* 3. Profilul, așa cum e acum: etichetele cu × și cifrele editabile */}
-      <section id="etichete" className="scroll-mt-20 rounded-[10px] border border-v3-line bg-v3-card p-4">
+      <section id="etichete" className="scroll-mt-20 rounded-[18px] border border-v3-line bg-v3-card p-4">
         <h2 className="m-0 text-[13px] font-extrabold tracking-[.08em] text-v3-ink uppercase">{t("Profilul tău")}</h2>
         {gol ? (
           <p className="mt-2 mb-0 text-[15px] text-v3-ink-2">{t("Gol deocamdată. Încarcă un document sau folosește formularul.")}</p>
@@ -336,7 +336,7 @@ export function FormularProfil() {
           {profil.taguri.length} {t("etichete")} · <b className="text-v3-ink">{nrActe} {t("acte te privesc")}</b> · {t("salvat pe dispozitiv")}
         </span>
         {!gol && (
-          <Link href="/flux" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
+          <Link href="/flux" className="inline-flex min-h-11 items-center rounded-xl bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
             {t("Vezi fluxul tău →")}
           </Link>
         )}

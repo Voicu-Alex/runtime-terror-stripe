@@ -43,7 +43,7 @@ export function AdminActe({ randuri, demo }: { randuri: RandInterpretare[]; demo
         </p>
       </header>
       {randuri.length === 0 ? (
-        <p className="m-0 rounded-[10px] border border-v3-line bg-v3-card p-4 text-[15px] text-v3-ink-2">Nu e nimic de aprobat acum.</p>
+        <p className="m-0 rounded-[18px] border border-v3-line bg-v3-card p-4 text-[15px] text-v3-ink-2">Nu e nimic de aprobat acum.</p>
       ) : (
         <div className="grid gap-10">
           {randuri.map((r) => (
@@ -57,7 +57,7 @@ export function AdminActe({ randuri, demo }: { randuri: RandInterpretare[]; demo
 
 export function StareGoala({ titlu, text, cod }: { titlu: string; text: string; cod?: string }) {
   return (
-    <div className="rounded-[10px] border border-v3-line bg-v3-card p-5">
+    <div className="rounded-[18px] border border-v3-line bg-v3-card p-5">
       <h1 className="m-0 font-head text-[24px] font-extrabold text-v3-ink">{titlu}</h1>
       <p className="m-0 mt-2 text-[15px] text-v3-ink-2">
         {text} {cod && <code className="rounded bg-v3-accent-soft px-1.5 py-0.5 text-[13.5px] text-v3-ink">{cod}</code>}
@@ -131,7 +131,7 @@ function PanouVerificari({ v }: { v: Verificari | null }) {
   const avertismente = v.avertismente ?? [];
   return (
     <div className="mt-3 grid gap-2.5 md:grid-cols-2">
-      <div className="rounded-[10px] border border-v3-pos/30 bg-v3-pos-soft p-3">
+      <div className="rounded-[18px] border border-v3-pos/30 bg-v3-pos-soft p-3">
         <p className="m-0 mb-1 text-[11px] font-extrabold tracking-[.1em] text-v3-pos uppercase">Verificări trecute ({v.trecute.length})</p>
         <ul className="m-0 list-none space-y-1 p-0 text-[13.5px] text-v3-ink">
           {v.trecute.map((x, i) => (
@@ -142,7 +142,7 @@ function PanouVerificari({ v }: { v: Verificari | null }) {
           ))}
         </ul>
       </div>
-      <div className={`rounded-[10px] border p-3 ${v.picate.length ? "border-v3-urg/40 bg-v3-urg-soft" : "border-v3-line bg-v3-card"}`}>
+      <div className={`rounded-[18px] border p-3 ${v.picate.length ? "border-v3-urg/40 bg-v3-urg-soft" : "border-v3-line bg-v3-card"}`}>
         <p className={`m-0 mb-1 text-[11px] font-extrabold tracking-[.1em] uppercase ${v.picate.length ? "text-v3-urg" : "text-v3-ink-2"}`}>
           Verificări picate ({v.picate.length})
         </p>
@@ -163,7 +163,7 @@ function PanouVerificari({ v }: { v: Verificari | null }) {
         )}
       </div>
       {avertismente.length > 0 && (
-        <div className="rounded-[10px] border border-amber-300 bg-amber-50 p-3 md:col-span-2">
+        <div className="rounded-[18px] border border-amber-300 bg-amber-50 p-3 md:col-span-2">
           <p className="m-0 mb-1 text-[11px] font-extrabold tracking-[.1em] text-amber-800 uppercase">Avertismente ({avertismente.length})</p>
           <ul className="m-0 list-none space-y-1 p-0 text-[13.5px] text-v3-ink">
             {avertismente.map((x, i) => (
