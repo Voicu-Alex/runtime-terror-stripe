@@ -1,0 +1,42 @@
+Rulare interval (dry-run): 315432..315900, max 1500 cereri, pauză 2000 ms
+[25 cereri] la id 315456: 0 noi, 0 actualizate, 25 lipsă, 0 erori
+[50 cereri] la id 315481: 0 noi, 0 actualizate, 50 lipsă, 0 erori
+[75 cereri] la id 315506: 0 noi, 0 actualizate, 75 lipsă, 0 erori
+[100 cereri] la id 315531: 0 noi, 0 actualizate, 100 lipsă, 0 erori
+[125 cereri] la id 315556: 0 noi, 0 actualizate, 125 lipsă, 0 erori
+[150 cereri] la id 315581: 0 noi, 0 actualizate, 150 lipsă, 0 erori
+[175 cereri] la id 315606: 0 noi, 0 actualizate, 175 lipsă, 0 erori
+[200 cereri] la id 315631: 12 noi, 0 actualizate, 188 lipsă, 0 erori
+[225 cereri] la id 315656: 37 noi, 0 actualizate, 188 lipsă, 0 erori
+[250 cereri] la id 315681: 62 noi, 0 actualizate, 188 lipsă, 0 erori
+[275 cereri] la id 315706: 86 noi, 0 actualizate, 189 lipsă, 0 erori
+[300 cereri] la id 315731: 111 noi, 0 actualizate, 189 lipsă, 0 erori
+[325 cereri] la id 315756: 136 noi, 0 actualizate, 189 lipsă, 0 erori
+[350 cereri] la id 315781: 156 noi, 0 actualizate, 194 lipsă, 0 erori
+[375 cereri] la id 315806: 156 noi, 0 actualizate, 219 lipsă, 0 erori
+[400 cereri] la id 315831: 156 noi, 0 actualizate, 244 lipsă, 0 erori
+[425 cereri] la id 315856: 156 noi, 0 actualizate, 269 lipsă, 0 erori
+[450 cereri] la id 315881: 156 noi, 0 actualizate, 294 lipsă, 0 erori
+
+Rezumat (complet)
+cereri 469 | 200: 156 | 404: 313 | alte: 0
+acte noi 156 | actualizate 0 | nemodificate 0 | lipsă 313 | erori 0
+
+după tip_act
+     74  ORDIN
+     24  DECIZIE
+     19  RAPORT
+     15  DECIZIA
+     13  HOTĂRÂRE
+      3  DECRET
+      2  RECTIFICARE
+      1  LEGE
+      1  ANEXĂ din 8 octombrie 2026
+      1  ANEXĂ din 14 octombrie 2026
+      1  ACORD DE PARTENERIAT din 15 noiembrie 2023
+      1  CUANTUM TOTAL din 27 octombrie 2026
+      1  REGULAMENT din 16 octombrie 2026
+
+după stare_procesare
+     88  respins_reguli
+     68  candidat

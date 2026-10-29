@@ -1,0 +1,126 @@
+{
+  "portal:315010": {
+    "atinge_banii": false,
+    "motiv": "Actualizează valoarea de inventar a unui imobil al MAI (UM 0412 Slobozia) după reevaluare; evidență contabilă a statului, fără efect asupra banilor persoanelor."
+  },
+  "portal:315011": {
+    "atinge_banii": false,
+    "motiv": "Trece 24.102 mp teren agricol din domeniul public în cel privat al statului, în administrarea ANDS, pentru reconstituirea dreptului de proprietate; transfer de proprietate publică, fără efect direct asupra banilor unei persoane fizice."
+  },
+  "portal:315023": {
+    "atinge_banii": false,
+    "motiv": "Actualizează valorile de inventar ale unor imobile din subordinea MADR; evidență contabilă a instituțiilor publice."
+  },
+  "portal:315028": {
+    "atinge_banii": true,
+    "motiv": "Modifică regulile de recoltare a ursului brun și regimul craniilor și blănilor; articolele de după art. 3^3 sunt tăiate, de citit integral pentru eventuale efecte asupra gestionarilor sau despăgubirilor."
+  },
+  "portal:315035": {
+    "atinge_banii": false,
+    "motiv": "Actualizează valorile de inventar și comasează numerele MF ale unor bunuri ale AJPIS Brașov; evidență contabilă a statului."
+  },
+  "portal:315038": {
+    "atinge_banii": true,
+    "motiv": "Stabilește procedura prin care furnizorii de energie și gaze depun cererile de decontare și primesc sumele pentru compensația clienților finali (OUG 6/2025, perioadele 2025-2026); textul e tăiat la art. 2."
+  },
+  "portal:315040": {
+    "atinge_banii": true,
+    "motiv": "Republică ordinul 1.205/1.449/2026 privind decontarea compensației pentru clienții finali de energie și gaze; în fișier apare doar antetul, deci de citit integral."
+  },
+  "portal:315044": {
+    "atinge_banii": false,
+    "motiv": "Actualizează datele de inventar ale sediului Unității Fiscale Salonta, înscrie și comasează alte bunuri ale statului; operațiuni de inventar și administrare publică."
+  },
+  "portal:315046": {
+    "atinge_banii": true,
+    "motiv": "Aprobă o schemă de ajutor de minimis (garanție combinată cu grant, PoCIDIF) pentru microîntreprinderi și IMM-uri, deci le dă acces la finanțare; sumele și eligibilitatea sunt în anexa publicată separat, de citit integral."
+  },
+  "portal:315047": {
+    "atinge_banii": true,
+    "motiv": "Modifică declarația anuală a consultanților fiscali persoane fizice și a societăților de consultanță fiscală cu privire la venituri și cotizații; necompletarea câmpurilor cu valoarea 0 se asimilează cu nedepunerea declarației."
+  },
+  "portal:315048": {
+    "atinge_banii": false,
+    "motiv": "Regulament intern al Camerei Consultanților Fiscali privind comunicarea documentelor prin portal; procedură internă a unui organism profesional, fără sume sau plăți."
+  },
+  "portal:315050": {
+    "atinge_banii": false,
+    "motiv": "Instituie anul 2026 ca Anul Grigore Constantin Moisil; manifestări culturale, fără obligații sau drepturi financiare pentru persoane."
+  },
+  "portal:315052": {
+    "atinge_banii": false,
+    "motiv": "Instituie anul 2026 ca Anul Centenar al Partidului Național Țărănesc; manifestări culturale și educative, fără efect asupra banilor persoanelor."
+  },
+  "portal:315054": {
+    "atinge_banii": true,
+    "motiv": "Creează garanții împotriva cererilor civile abuzive îndreptate împotriva persoanelor implicate în mobilizare publică, ceea ce poate schimba riscul lor financiar în procese; măsurile concrete sunt tăiate după definiții, de citit integral."
+  },
+  "portal:315056": {
+    "atinge_banii": false,
+    "motiv": "Modifică anexa Legii 2/1968 privind satele componente ale comunei Bâra (Neamț); organizare administrativă a teritoriului."
+  },
+  "portal:315058": {
+    "atinge_banii": false,
+    "motiv": "Acceptă o decizie a Consiliului UE privind alegerea europarlamentarilor prin vot direct; fără efect asupra banilor persoanelor."
+  },
+  "portal:315060": {
+    "atinge_banii": false,
+    "motiv": "Aprobă contul de execuție al bugetului Camerei Deputaților pe 2025; buget al unei instituții publice."
+  },
+  "portal:315070": {
+    "atinge_banii": false,
+    "motiv": "Prelungește până la 31 decembrie 2027 aplicarea unui ordin privind transmiterea electronică de documente către Ministerul Finanțelor și Trezorerie; procedură instituțională."
+  },
+  "portal:315071": {
+    "atinge_banii": false,
+    "motiv": "Aprobă modelul steagului comunei Albești (Constanța); simbolic, fără efect financiar."
+  },
+  "portal:315078": {
+    "atinge_banii": true,
+    "motiv": "Modifică anexa cu tarifele unitare de trecere pe kilometru pe drumurile naționale, plătite de transportatorii de marfă (camioane peste 3,5 t), pe categorii de emisii; rotunjirea la ban se schimbă."
+  },
+  "portal:315079": {
+    "atinge_banii": true,
+    "motiv": "Modifică anexa 2 a listei medicamentelor din programele naționale de sănătate (prețuri de decontare); a treia coloană numerică poate fi diferența suportată de pacient la farmacie, iar anexa e tăiată, de citit integral."
+  },
+  "portal:315080": {
+    "atinge_banii": true,
+    "motiv": "Duplicat al ordinului 1.728/1.769/2026 (portal:315079); în fișier apare doar antetul, deci aceeași modificare a prețurilor de decontare, de citit integral."
+  },
+  "portal:315083": {
+    "atinge_banii": false,
+    "motiv": "Modifică normele de reconstituire din bugetul de stat a plăților CNAIR pentru hotărâri judecătorești; procedură între instituții publice."
+  },
+  "portal:315097": {
+    "atinge_banii": true,
+    "motiv": "Procedura-cadru prin care furnizorii de energie și gaze soluționează plângerile clienților finali, inclusiv cele privind facturile, cu intrare în vigoare la 1 ianuarie 2027; anexa cu procedura e goală în fișier, de citit integral."
+  },
+  "portal:315113": {
+    "atinge_banii": true,
+    "motiv": "Condiționează avizul anual și autorizația de liberă practică a fizioterapeuților de reatestarea competenței atunci când este necesară, deci o obligație cu cost pentru persoane fizice; restul articolelor e tăiat, de citit integral."
+  },
+  "portal:315114": {
+    "atinge_banii": false,
+    "motiv": "Modifică scutirile colegiilor teritoriale de la taxele de acreditare EMC și abrogă alin. (7) al art. 2, al cărui conținut nu apare în text; nu se vede un efect asupra persoanelor fizice."
+  },
+  "portal:315115": {
+    "atinge_banii": false,
+    "motiv": "Stabilește măsuri operative de pompare și transfer de apă pentru debitul Dunării la CNE Cernavodă, între IGSU, Apele Române și un canal; nu atinge banii, obligațiile sau drepturile unei persoane fizice, PFA sau micro-SRL."
+  },
+  "portal:315116": {
+    "atinge_banii": false,
+    "motiv": "Numește un prefect al județului Constanța; funcție publică, fără efect asupra banilor persoanelor."
+  },
+  "portal:315117": {
+    "atinge_banii": false,
+    "motiv": "Aprobă indicatorii tehnico-economici ai unui obiectiv feroviar de investiții finanțat din fonduri publice și europene; investiție publică, fără efect asupra banilor persoanelor."
+  },
+  "portal:315118": {
+    "atinge_banii": false,
+    "motiv": "Aprobă un act adițional la licența de concesiune a unei cariere de calcar din Medgidia, între stat și o societate mare; nu atinge banii persoanelor fizice sau micilor SRL."
+  },
+  "portal:315119": {
+    "atinge_banii": true,
+    "motiv": "Dă gratuit din rezerva de stat produse de 18,87 mil. lei serviciilor sociale pentru persoane cu dizabilități, copii, vârstnici și persoane fără adăpost, adică ajutor în natură pentru beneficiari."
+  }
+}

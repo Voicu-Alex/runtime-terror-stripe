@@ -1,0 +1,110 @@
+{
+  "act": "HG 738/2026",
+  "mo": "MO 800 / 21 sep 2026",
+  "publicat_la": "2026-09-21",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Bursa de merit din școală: 450 lei pe lună din anul școlar 2026-2027",
+      "rezumat_en": "Merit school scholarship: 450 lei per month from the 2026-2027 school year",
+      "taguri": [
+        "elev_student"
+      ],
+      "in_vigoare_de_la": "2026-09-21",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 6 alin. (1) lit. a)",
+      "citat": "pentru bursa de merit - 450 lei/lună",
+      "niveluri": {
+        "zero": "Bursa de merit are cuantumul de 450 lei pe lună din anul școlar 2026-2027.",
+        "curios": "Hotărârea 738/2026 schimbă art. 6 alin. (1) din metodologia-cadru a burselor. Din anul școlar 2026-2027, bursa de merit este de 450 lei pe lună. Textul nu spune cât era înainte, așa că nu putem arăta diferența.",
+        "expert": "HG 738/2026 înlocuiește art. 6 alin. (1) din Anexa la HG 732/2025: bursa de merit 450 lei/lună, bursa socială 300 lei/lună, bursa tehnologică 300 lei/lună. Cuantumurile anterioare și condițiile de acordare nu sunt în textul primit, deci nu sunt descrise."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Dacă primești bursa de merit, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 450 lei pe lună.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul dă doar cuantumurile noi, nu și pe cele vechi din HG 732/2025, deci nu putem calcula diferența (formula e null). Intrarea în vigoare dedusă: HG intră în vigoare la data publicării (Legea 24/2000, art. 12); Portalul spune necunoscută. Nu e în text cine și în ce condiții primește fiecare bursă. Art. 18 alin. (3) (definiția termenului „reintegrare”) lăsat deoparte: nu schimbă o sumă, un prag sau un termen."
+    },
+    {
+      "rezumat": "Bursa socială din școală: 300 lei pe lună din anul școlar 2026-2027",
+      "rezumat_en": "Social school scholarship: 300 lei per month from the 2026-2027 school year",
+      "taguri": [
+        "elev_student"
+      ],
+      "in_vigoare_de_la": "2026-09-21",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 6 alin. (1) lit. b)",
+      "citat": "pentru bursa socială - 300 lei/lună",
+      "niveluri": {
+        "zero": "Bursa socială are cuantumul de 300 lei pe lună din anul școlar 2026-2027.",
+        "curios": "Hotărârea 738/2026 schimbă art. 6 alin. (1) din metodologia-cadru a burselor. Din anul școlar 2026-2027, bursa socială este de 300 lei pe lună. Textul nu spune cât era înainte, așa că nu putem arăta diferența.",
+        "expert": "HG 738/2026 înlocuiește art. 6 alin. (1) din Anexa la HG 732/2025: bursa de merit 450 lei/lună, bursa socială 300 lei/lună, bursa tehnologică 300 lei/lună. Cuantumurile anterioare și condițiile de acordare nu sunt în textul primit, deci nu sunt descrise."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Dacă primești bursa socială, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 300 lei pe lună.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul dă doar cuantumurile noi, nu și pe cele vechi din HG 732/2025, deci nu putem calcula diferența (formula e null). Intrarea în vigoare dedusă: HG intră în vigoare la data publicării (Legea 24/2000, art. 12); Portalul spune necunoscută. Nu e în text cine și în ce condiții primește fiecare bursă. Art. 18 alin. (3) (definiția termenului „reintegrare”) lăsat deoparte: nu schimbă o sumă, un prag sau un termen."
+    },
+    {
+      "rezumat": "Bursa tehnologică din școală: 300 lei pe lună din anul școlar 2026-2027",
+      "rezumat_en": "Technological school scholarship: 300 lei per month from the 2026-2027 school year",
+      "taguri": [
+        "elev_student"
+      ],
+      "in_vigoare_de_la": "2026-09-21",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 6 alin. (1) lit. c)",
+      "citat": "pentru bursa tehnologică - 300 lei/lună",
+      "niveluri": {
+        "zero": "Bursa tehnologică are cuantumul de 300 lei pe lună din anul școlar 2026-2027.",
+        "curios": "Hotărârea 738/2026 schimbă art. 6 alin. (1) din metodologia-cadru a burselor. Din anul școlar 2026-2027, bursa tehnologică este de 300 lei pe lună. Textul nu spune cât era înainte, așa că nu putem arăta diferența.",
+        "expert": "HG 738/2026 înlocuiește art. 6 alin. (1) din Anexa la HG 732/2025: bursa de merit 450 lei/lună, bursa socială 300 lei/lună, bursa tehnologică 300 lei/lună. Cuantumurile anterioare și condițiile de acordare nu sunt în textul primit, deci nu sunt descrise."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Dacă primești bursa tehnologică, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 300 lei pe lună.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul dă doar cuantumurile noi, nu și pe cele vechi din HG 732/2025, deci nu putem calcula diferența (formula e null). Intrarea în vigoare dedusă: HG intră în vigoare la data publicării (Legea 24/2000, art. 12); Portalul spune necunoscută. Nu e în text cine și în ce condiții primește fiecare bursă. Art. 18 alin. (3) (definiția termenului „reintegrare”) lăsat deoparte: nu schimbă o sumă, un prag sau un termen."
+    }
+  ]
+}

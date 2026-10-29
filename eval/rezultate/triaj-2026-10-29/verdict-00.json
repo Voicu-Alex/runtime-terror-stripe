@@ -1,0 +1,82 @@
+{
+  "portal:314518": {
+    "atinge_banii": false,
+    "motiv": "Înscrie în inventarul public și dă în administrare MTI un teren de 1.020 mp pentru un punct de lucru CNAIR; este organizare instituțională și transfer de proprietate publică, fără efect asupra banilor persoanelor fizice sau micilor firme."
+  },
+  "portal:314519": {
+    "atinge_banii": false,
+    "motiv": "Trece bunuri feroviare din domeniul public în cel privat al statului pentru scoaterea din funcțiune, valorificare și casare; este transfer de bunuri ale statului și inventar, fără obligații pentru persoane fizice sau mici firme."
+  },
+  "portal:314520": {
+    "atinge_banii": false,
+    "motiv": "Înscrie un imobil în inventarul centralizat al domeniului public și actualizează anexa de inventar a Ministerului Muncii; este evidență contabilă a statului."
+  },
+  "portal:314541": {
+    "atinge_banii": false,
+    "motiv": "Aprobă contul de execuție bugetară al Senatului pe 2025; este bugetul unei instituții publice, fără efect asupra persoanelor fizice sau firmelor mici."
+  },
+  "portal:314542": {
+    "atinge_banii": false,
+    "motiv": "Suplimentează bugetul Consiliului Economic și Social din fondul de rezervă și aprobă normative de cheltuieli pentru un forum la București; sunt cheltuieli ale instituțiilor publice, fără efect asupra banilor persoanelor fizice sau micilor firme."
+  },
+  "portal:314543": {
+    "atinge_banii": false,
+    "motiv": "Schimbă un senator din componența unei comisii permanente a Senatului; este organizare internă a Parlamentului."
+  },
+  "portal:314546": {
+    "atinge_banii": true,
+    "motiv": "Modifică schema de ajutor de minimis pentru întreprinderi sociale (de regulă mici SRL-uri) care primesc sprijin pentru echipamente și locuri de muncă; partea vizibilă modifică doar cheltuielile eligibile, iar restul operativ e tăiat, de citit integral."
+  },
+  "portal:314547": {
+    "atinge_banii": false,
+    "motiv": "Consemnează alegerea conducerii și a auditorului statutar al Camerei Auditorilor Financiari; este organizare internă a unei corporații profesionale, fără efect asupra banilor persoanelor fizice sau micilor firme."
+  },
+  "portal:314561": {
+    "atinge_banii": false,
+    "motiv": "Actualizează valoarea de inventar și descrierea unui imobil al AJPIS Tulcea; este evidență patrimonială a unei instituții publice."
+  },
+  "portal:314562": {
+    "atinge_banii": false,
+    "motiv": "Modifică valoarea de inventar a unui imobil al AJPIS Buzău; este evidență patrimonială a unei instituții publice."
+  },
+  "portal:314563": {
+    "atinge_banii": true,
+    "motiv": "Aprobă închirierea prin licitație publică a unor terenuri și pavilioane ale MApN, cu chirie minimă plătită de chiriaș pe 5 ani, deci creează obligații de plată pentru cine câștigă licitația (inclusiv persoane fizice sau mici firme)."
+  },
+  "portal:314564": {
+    "atinge_banii": false,
+    "motiv": "Modifică valorile de inventar ale unor imobile ale MApN după reevaluare și cadastru; este evidență patrimonială a statului, fără efect asupra persoanelor."
+  },
+  "portal:314565": {
+    "atinge_banii": false,
+    "motiv": "Actualizează descrierea, adresa și valoarea de inventar a unei clădiri a ANIF; este evidență patrimonială a unei instituții publice."
+  },
+  "portal:314566": {
+    "atinge_banii": false,
+    "motiv": "Actualizează descrierea tehnică, adresa și valoarea de inventar a două bunuri imobile ale ANIF; este evidență patrimonială a unei instituții publice."
+  },
+  "portal:314567": {
+    "atinge_banii": false,
+    "motiv": "Actualizează valoarea de inventar și adresa unui imobil al DSVSA Dolj; este evidență patrimonială a unei instituții publice."
+  },
+  "portal:314568": {
+    "atinge_banii": false,
+    "motiv": "Completează Clasificarea ocupațiilor din România cu noi coduri COR și redenumește o ocupație; este nomenclator statistic, fără efect direct asupra banilor."
+  },
+  "portal:314569": {
+    "atinge_banii": false,
+    "motiv": "Conține doar antetul ordinului nr. 1.003/611 privind completarea COR, același act ca portal:314568; este nomenclator statistic, fără efect direct asupra banilor."
+  },
+  "portal:314573": {
+    "atinge_banii": true,
+    "motiv": "Modifică procedura pentru alocația lunară de plasament, indemnizația de sprijin și indemnizația pentru tineri: alocația se poate acorda după 18 ani, până la 26 de ani, dacă tânărul continuă studiile, iar cererea cere acum copia dovezii de școlarizare."
+  },
+  "portal:314583": {
+    "atinge_banii": false,
+    "motiv": "Desemnează autoritățile publice responsabile pentru infrastructurile critice naționale; este organizare administrativă, fără efect asupra banilor persoanelor fizice sau micilor firme."
+  },
+  "portal:314589": {
+    "atinge_banii": false,
+    "motiv": "Aprobă retragerea autorizației unui broker de asigurare (SRL) și radierea din Registrul intermediarilor principali; privește autorizarea unei companii de brokeraj, nu banii persoanelor fizice sau ai micilor firme."
+  }
+}
