@@ -1,9 +1,10 @@
 import { CINE_APLICA, TIPURI_ACTIUNE } from "./catalog";
 import { esteDestinatie } from "./destinatii";
 import { esteFormula } from "./formule";
-import { esteFormulaTip, formeNumar, parametriInText } from "./formule-tip";
+import { esteFormulaTip, formeNumar, formulaCompleta, parametriInText } from "./formule-tip";
 import type { InterpretareAct, SchimbareInterpretata } from "./interpretare";
 import { CAMPURI_VALORI } from "./profil";
+import { esteReferinta } from "./referinte";
 import { esteTag } from "./taguri";
 
 /**
@@ -13,7 +14,15 @@ import { esteTag } from "./taguri";
  */
 
 export type Verificare = { cod: string; mesaj: string; schimbare?: number };
-export type RezultatVerificari = { trecute: Verificare[]; picate: Verificare[]; ok: boolean };
+export type RezultatVerificari = {
+  trecute: Verificare[];
+  picate: Verificare[];
+  /** avertismente: nu schimbă `ok` (formula incompletă, schimbare activă cu bani fără formulă) */
+  avertismente: Verificare[];
+  /** din schimbările active cu direcția cost sau câștig, câte au formulă (scrisă de mână sau parametrizată) */
+  calculabile: { cu_formula: number; active_cu_bani: number };
+  ok: boolean;
+};
 
 const STATUSURI = ["proiect", "adoptat", "in_vigoare"];
 const DIRECTII = ["cost", "castig", "termen", "info"];
@@ -52,9 +61,15 @@ function numarInText(n: number, text: string): boolean {
 export function verificaInterpretare(interp: InterpretareAct, textAct: string, { azi }: { azi: string }): RezultatVerificari {
   const trecute: Verificare[] = [];
   const picate: Verificare[] = [];
+  const avertismente: Verificare[] = [];
+  const calculabile = { cu_formula: 0, active_cu_bani: 0 };
   const verif = (ok: boolean, cod: string, mesaj: string, schimbare?: number) => {
     const v: Verificare = schimbare === undefined ? { cod, mesaj } : { cod, mesaj, schimbare };
     (ok ? trecute : picate).push(v);
+  };
+  // verificare moale: trece în `trecute`, iar când pică devine avertisment și nu schimbă `ok`
+  const avert = (ok: boolean, cod: string, mesaj: string, schimbare: number) => {
+    (ok ? trecute : avertismente).push({ cod, mesaj, schimbare });
   };
   const textNorm = normalizeaza(textAct);
   const schimbari = interp.schimbari ?? [];
@@ -91,21 +106,46 @@ export function verificaInterpretare(interp: InterpretareAct, textAct: string, {
     // sumă: formula scrisă de mână sau formula parametrizată
     if (s.formula != null) verif(esteFormula(s.formula), "formula", esteFormula(s.formula) ? "formula există" : `formulă inexistentă: ${s.formula}`, i);
     if (s.formula_tip != null) {
-      const p = (s.formula_tip as { parametri?: { camp?: unknown } }).parametri;
+      const p = (s.formula_tip as { parametri?: { camp?: unknown; referinta?: unknown } }).parametri;
       const camp = p?.camp;
-      const valida = esteFormulaTip(s.formula_tip) && (camp === undefined || (typeof camp === "string" && camp in CAMPURI_VALORI));
-      verif(valida, "formula_tip", valida ? "formula_tip e validă" : `formula_tip invalidă sau cu câmp necunoscut: ${JSON.stringify(s.formula_tip)}`, i);
+      const referinta = p?.referinta;
+      const valida =
+        esteFormulaTip(s.formula_tip) &&
+        (camp === undefined || (typeof camp === "string" && Object.prototype.hasOwnProperty.call(CAMPURI_VALORI, camp))) &&
+        (referinta === undefined || esteReferinta(referinta));
+      verif(valida, "formula_tip", valida ? "formula_tip e validă" : `formula_tip invalidă, cu câmp sau referință necunoscută: ${JSON.stringify(s.formula_tip)}`, i);
       if (valida) {
         const r = parametriInText(s.formula_tip, textAct);
         verif(r.ok, "formula_tip_text", r.ok ? "numerele formulei sunt în text" : `numere negăsite în text: ${r.lipsa.join(", ")}`, i);
+        avert(formulaCompleta(s.formula_tip), "formula_incompleta", formulaCompleta(s.formula_tip) ? "formula e completă" : "cota veche lipsește: o completează un om cu sursa", i);
       }
+    }
+
+    // calculabil: o schimbare activă cu bani trebuie să aibă o formulă, altfel nu putem spune câți lei
+    if ((s.directie === "cost" || s.directie === "castig") && (s.pana_la == null || s.pana_la >= azi)) {
+      const are = s.formula != null || s.formula_tip != null;
+      calculabile.active_cu_bani++;
+      const ft = s.formula_tip;
+      const incompleta = s.formula == null && esteFormulaTip(ft) && !formulaCompleta(ft);
+      const calculabila = (s.formula != null && esteFormula(s.formula)) || (esteFormulaTip(ft) && formulaCompleta(ft));
+      if (calculabila) calculabile.cu_formula++;
+      avert(
+        are,
+        "calculabil",
+        !are
+          ? "schimbare activă cu bani fără formulă: suma nu se poate calcula"
+          : incompleta
+            ? "calculabilă după ce un om completează cota veche"
+            : "schimbarea are formulă",
+        i,
+      );
     }
 
     // condiții
     const conditiiRele: string[] = [];
     const numereLipsa: string[] = [];
     for (const c of s.conditii ?? []) {
-      const campOk = c.camp === "varsta" || c.camp in CAMPURI_VALORI;
+      const campOk = c.camp === "varsta" || Object.prototype.hasOwnProperty.call(CAMPURI_VALORI, c.camp);
       if (!campOk || !OPERATORI.includes(c.op) || typeof c.valoare !== "number" || !Number.isFinite(c.valoare)) conditiiRele.push(JSON.stringify(c));
       else if (!numarInText(c.valoare, textAct)) numereLipsa.push(`${c.camp} ${c.op} ${c.valoare}`);
     }
@@ -146,5 +186,5 @@ export function verificaInterpretare(interp: InterpretareAct, textAct: string, {
     verif(!interzisa, "interzise", interzisa ? `formulare interzisă: ${interzisa}` : "fără formulări interzise", i);
   });
 
-  return { trecute, picate, ok: picate.length === 0 };
+  return { trecute, picate, avertismente, calculabile, ok: picate.length === 0 };
 }

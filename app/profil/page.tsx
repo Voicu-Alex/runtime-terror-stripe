@@ -1,10 +1,11 @@
-import { FormularProfil } from "@/components/FormularProfil";
+import Asistent from "@/components/Asistent";
 import { T } from "@/components/Limba";
 import { PlanulMeu } from "@/components/PlanulMeu";
 
 export const metadata = { title: "Profilul meu · Buzunar" };
 
-// Profilul (din document sau manual) și, dedesubt, Planul meu: ce ai bifat și ghidurile deschise.
+// Profilul: asistentul cu cele 6 întrebări (components/Asistent.tsx), cu formularul și încărcarea documentului
+// la un clic; dedesubt, Planul meu (ce ai bifat și ghidurile deschise).
 export default function PaginaProfil() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
@@ -14,10 +15,10 @@ export default function PaginaProfil() {
             <T k="Profilul meu" />
           </h1>
           <p className="mt-1 mb-0 text-[15px] text-v3-ink-2">
-            <T k="Poți completa profilul manual sau prin analiza unui document cu AI." />
+            <T k="Răspunzi la 6 întrebări scurte, cu o atingere sau în cuvintele tale, și vezi ce legi te privesc. Preferi un formular? E mai jos." />
           </p>
         </div>
-        <FormularProfil />
+        <Asistent mod="profil" />
       </div>
       <PlanulMeu />
     </div>

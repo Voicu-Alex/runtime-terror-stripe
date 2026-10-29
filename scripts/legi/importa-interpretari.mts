@@ -10,12 +10,11 @@
  * Lotul: <dir>/<id>.txt (textul primit de model, cu antetul din export-lot) și <id>.json (obiectul întors de model).
  * Un răspuns cu verificări picate se urcă totuși (ca omul să vadă de ce), dar pagina /admin/acte nu lasă aprobarea.
  */
-import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import type { InterpretareAct } from "../../lib/interpretare.ts";
-import { verificaInterpretare } from "../../lib/verificari-interpretare.ts";
+import { liniiVerificare, pregatesteRand, textCalculabile, urcaInterpretare } from "../../lib/importa-interpretare.ts";
 import { clientSupabase, verifica } from "./db.mjs";
 
 const { values: arg } = parseArgs({
@@ -24,7 +23,7 @@ const { values: arg } = parseArgs({
     raspunsuri: { type: "string" },
     model: { type: "string" },
     driver: { type: "string" },
-    versiune: { type: "string", default: "v3" },
+    versiune: { type: "string", default: "v4" },
     "dry-run": { type: "boolean", default: false },
   },
 });
@@ -37,12 +36,6 @@ const dirRaspunsuri = arg.raspunsuri ?? dirTexte;
 const azi = new Date().toISOString().slice(0, 10);
 const sb = arg["dry-run"] ? null : clientSupabase({ scriere: true });
 
-/** Din antetul lotului: ce articole a primit modelul (dacă nu tot actul). */
-function articolePrimite(text: string): string[] | null {
-  const m = text.match(/Textul primit conține doar articolele: (.+)$/m);
-  return m ? m[1].split(",").map((s) => s.trim()).filter(Boolean) : null;
-}
-
 const fisiere = (await readdir(dirRaspunsuri)).filter((f) => f.endsWith(".json") && f !== "manifest.json");
 if (!fisiere.length) {
   console.error(`Niciun răspuns .json în ${dirRaspunsuri}.`);
@@ -50,6 +43,7 @@ if (!fisiere.length) {
 }
 let urcate = 0;
 let picate = 0;
+const calc = { cu_formula: 0, active_cu_bani: 0 };
 for (const f of fisiere.sort()) {
   const cheie = f.replace(/\.json$/, "");
   const actId = cheie.replace(/^portal[-_]/, "portal:");
@@ -67,20 +61,15 @@ for (const f of fisiere.sort()) {
     console.log(`✗ ${cheie}: lipsește textul ${cheie}.txt din ${dirTexte}`);
     continue;
   }
-  const v = verificaInterpretare(interp, text, { azi });
-  const nr = interp.schimbari?.length ?? 0;
-  const rezumat = v.ok ? `${nr} schimbări, verificări ok (${v.trecute.length})` : `${nr} schimbări, ${v.picate.length} verificări picate: ${v.picate.map((p) => p.cod + (p.schimbare !== undefined ? `#${p.schimbare}` : "")).join(", ")}`;
-  console.log(`${v.ok ? "✓" : "!"} ${cheie}: ${interp.atinge_banii ? "atinge banii" : "nu atinge banii"}, ${rezumat}`);
-  if (!v.ok) {
-    picate++;
-    for (const p of v.picate) console.log(`    - ${p.mesaj}`);
-  }
+  const { verificari: v, rand } = pregatesteRand({ actId, model: arg.model!, driver: arg.driver!, versiune: arg.versiune!, interpretare: interp, text, azi });
+  for (const linie of liniiVerificare(cheie, interp, v)) console.log(linie);
+  if (!v.ok) picate++;
+  calc.cu_formula += v.calculabile.cu_formula;
+  calc.active_cu_bani += v.calculabile.active_cu_bani;
   if (!sb) continue;
 
-  const lot = { articole: articolePrimite(text), text_hash: createHash("sha256").update(text).digest("hex"), lungime: text.length };
-  const rand = { act_id: actId, model: arg.model, driver: arg.driver, instructiuni_versiune: arg.versiune, rezultat: interp, verificari: v, lot, stare: "propus" };
-  verifica(await sb.from("interpretari").upsert(rand, { onConflict: "act_id,model,driver,instructiuni_versiune" }), `interpretari (${actId})`);
-  verifica(await sb.from("acte").update({ stare_procesare: "interpretat" }).eq("id", actId).in("stare_procesare", ["candidat", "triat_da", "nou"]), `acte (${actId})`);
-  urcate++;
+  const rez = await urcaInterpretare(sb, rand, actId, verifica);
+  if (rez.urcat) urcate++;
+  else console.log(`  ${actId}: sărit, ${rez.motiv}`);
 }
-console.log(`\n${fisiere.length} răspunsuri, ${picate} cu verificări picate${sb ? `, ${urcate} urcate în interpretari (propus)` : " (dry-run, nimic urcat)"}`);
+console.log(`\n${fisiere.length} răspunsuri, ${picate} cu verificări picate, ${textCalculabile(calc)}${sb ? `, ${urcate} urcate în interpretari (propus)` : " (dry-run, nimic urcat)"}`);

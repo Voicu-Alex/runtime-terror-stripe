@@ -1,0 +1,17 @@
+{
+  "salariu_minim_brut": {
+    "eticheta": "salariul minim brut pe economie, pe lună",
+    "unitate": "lei",
+    "valori": [
+      {
+        "de_la": "2026-07-01",
+        "valoare": 4325,
+        "act": "HG 146/2026",
+        "sursa": "https://legislatie.just.ro/Public/DetaliiDocument/308231",
+        "articol": "art. 1",
+        "verificat_la": "2026-10-29"
+      }
+    ],
+    "nota": "TODO: valoarea de dinainte de 1 iulie 2026 nu e sursată în repo"
+  }
+}

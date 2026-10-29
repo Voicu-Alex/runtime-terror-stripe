@@ -125,7 +125,7 @@ describe("spreGhid", () => {
   const s = spreSchimbare(interp, 0, act, { verificat_la: AZI, existente: CATALOG.map((x) => x.id) });
   const g = spreGhid(s, interp, 0);
 
-  it("mapează etichetele, rezumatul, pașii și nota", () => {
+  it("mapează etichetele, rezumatul și pașii; nota modelului nu ajunge în ghid", () => {
     expect(g.id).toBe(s.id);
     expect(g.pentru).toContain("salariu");
     expect(g.pentru).toContain("pe salariul minim");
@@ -135,7 +135,7 @@ describe("spreGhid", () => {
     expect(g.solutie).toBeNull();
     expect(g.termen).toBeNull();
     expect(g.pasi).toEqual(s.actiuni.map((a) => a.text));
-    expect(g.nota).toBe(interp.schimbari[0].nota);
+    expect(g.nota).toBeUndefined();
   });
 
   it("fără acțiuni, pasul e niveluri.zero (niciodată „nimic de făcut”)", () => {
