@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { aproba, respinge, type StareActiune } from "@/app/admin/acte/actiuni";
 
 const initial: StareActiune = {};
@@ -17,25 +17,51 @@ function Mesaj({ s }: { s: StareActiune }) {
   return null;
 }
 
-/** Aprobă: bifezi ce schimbări intră (implicit toate). Dezactivat când verificările automate au picat. */
-export function FormularAproba({ id, rezumate, verificariOk }: { id: number; rezumate: string[]; verificariOk: boolean }) {
+export type OptiuneAprobare = { rezumat: string; picate: string[] };
+
+/**
+ * Aprobă, schimbare cu schimbare: una cu verificări picate pe ea e debifată și dezactivată, cu mesajele dedesubt.
+ * `blocatAct` = o verificare la nivel de act a picat: tot formularul e dezactivat.
+ */
+export function FormularAproba({ id, optiuni, blocatAct }: { id: number; optiuni: OptiuneAprobare[]; blocatAct: boolean }) {
   const [stare, actiune, lucreaza] = useActionState(aproba, initial);
+  const [bifate, setBifate] = useState<boolean[]>(() => optiuni.map((o) => !o.picate.length));
+  const niciuna = !bifate.some((b, i) => b && !optiuni[i].picate.length);
+  const blocat = blocatAct || niciuna || lucreaza;
   return (
     <form action={actiune} className="m-0 rounded-[10px] border border-v3-line bg-v3-card p-3">
       <input type="hidden" name="id" value={id} />
       <p className="m-0 mb-2 text-[12px] font-extrabold tracking-[.1em] text-v3-accent uppercase">Schimbări de aprobat</p>
-      <div className="grid gap-1.5">
-        {rezumate.map((r, i) => (
-          <label key={i} className="flex items-start gap-2 text-[14px] text-v3-ink">
-            <input type="checkbox" name="schimbare" value={i} defaultChecked className="mt-1 size-4 accent-[var(--color-v3-pos)]" />
-            <span>{r}</span>
-          </label>
-        ))}
+      <div className="grid gap-2">
+        {optiuni.map((o, i) => {
+          const picat = blocatAct || o.picate.length > 0;
+          return (
+            <div key={i}>
+              <label className={`flex items-start gap-2 text-[14px] ${picat ? "text-v3-ink-2" : "text-v3-ink"}`}>
+                <input
+                  type="checkbox"
+                  name="schimbare"
+                  value={i}
+                  disabled={picat}
+                  checked={!picat && bifate[i]}
+                  onChange={(e) => setBifate(bifate.map((b, j) => (j === i ? e.target.checked : b)))}
+                  className="mt-1 size-4 accent-[var(--color-v3-pos)]"
+                />
+                <span>{o.rezumat}</span>
+              </label>
+              {o.picate.map((m, k) => (
+                <p key={k} className="m-0 mt-0.5 ml-6 text-[12.5px] text-v3-urg">
+                  ✕ {m}
+                </p>
+              ))}
+            </div>
+          );
+        })}
       </div>
       <button
         type="submit"
-        disabled={!verificariOk || lucreaza}
-        title={verificariOk ? undefined : "Verificările automate au picat"}
+        disabled={blocat}
+        title={blocatAct ? "Verificările automate au picat" : niciuna ? "Bifează cel puțin o schimbare" : undefined}
         className={`${BUTON} mt-3 bg-v3-ink text-v3-on-ink hover:bg-v3-ink-strong`}
       >
         {lucreaza ? "Se aprobă…" : "Aprobă"}

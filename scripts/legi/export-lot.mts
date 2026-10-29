@@ -58,7 +58,7 @@ const manifest: Record<string, unknown>[] = [];
 
 for (const a of acte) {
   const cerute: string[] = a.triaj?.articole_cerute ?? [];
-  const antet = `${String(a.titlu).replace(/\s+/g, " ").trim()}\n${a.url}\nData intrării în vigoare (Portal): ${a.data_vigoare ?? "necunoscută"}\n\n`;
+  const antet = `${String(a.titlu).replace(/\s+/g, " ").trim()}\n${a.url}\nPublicat în: ${a.mo_ref ?? "necunoscut"}${a.publicat_la ? ` (${a.publicat_la})` : ""}\nData intrării în vigoare (Portal): ${a.data_vigoare ?? "necunoscută"}\n\n`;
   const text: string = a.text ?? "";
   let corp: string;
   let avertisment: string | undefined;

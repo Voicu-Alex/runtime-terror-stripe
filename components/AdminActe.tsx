@@ -67,7 +67,8 @@ export function StareGoala({ titlu, text, cod }: { titlu: string; text: string; 
 
 function SectiuneAct({ r }: { r: RandInterpretare }) {
   const { act, rezultat, verificari } = r;
-  const ok = verificari ? verificari.ok : true;
+  const picate = verificari?.picate ?? [];
+  const blocatAct = picate.some((x) => typeof x.schimbare !== "number");
   return (
     <section aria-labelledby={`act-${r.id}`}>
       <div className="border-b-2 border-v3-ink pb-3">
@@ -106,7 +107,11 @@ function SectiuneAct({ r }: { r: RandInterpretare }) {
 
       {rezultat.schimbari.length > 0 && (
         <div className="mt-4 grid gap-3 md:grid-cols-2">
-          <FormularAproba id={r.id} rezumate={rezultat.schimbari.map((s) => s.rezumat)} verificariOk={ok} />
+          <FormularAproba
+            id={r.id}
+            blocatAct={blocatAct}
+            optiuni={rezultat.schimbari.map((s, i) => ({ rezumat: s.rezumat, picate: picate.filter((x) => x.schimbare === i).map((x) => x.mesaj) }))}
+          />
           <FormularRespinge id={r.id} />
         </div>
       )}

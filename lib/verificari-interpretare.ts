@@ -20,7 +20,7 @@ const DIRECTII = ["cost", "castig", "termen", "info"];
 const INCREDERI = ["ridicata", "medie", "scazuta"];
 const OPERATORI = [">", ">=", "<", "<=", "=="];
 // „garantat” e interzis ca promisiune, dar „garantat în plată” e termenul din lege
-const INTERZISE = [/recomand/i, /cel mai bun/i, /garantat(?! în plată)/i];
+const INTERZISE = [/recomand/i, /cel mai bun/i, /garantat[eăi]?\b(?!\s+în plată)/i];
 
 /** Pentru căutarea citatului: fără diacritice (ș/ş/s), ghilimele și cratime unificate, spații comprimate, litere mici. */
 export function normalizeaza(s: string): string {
