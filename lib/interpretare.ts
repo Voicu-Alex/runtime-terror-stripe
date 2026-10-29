@@ -181,6 +181,7 @@ export function spreGhid(schimbare: Schimbare, interp: InterpretareAct, i: numbe
     pasi: pasi.length ? pasi : [schimbare.niveluri.zero],
     solutie: null,
   };
-  if (s.nota) g.nota = s.nota;
+  // `s.nota` e pentru revizor (ce e de verificat, de ce lipsește formula); rămâne în `interpretari` și în /admin/acte,
+  // nu în ghidul citit de utilizatori.
   return g;
 }

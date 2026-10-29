@@ -714,8 +714,7 @@
     "pasi": [
       "Urmărește cifra de afaceri a anului calendaristic, calculată după art. 310 alin. (2). Plafonul este 395.000 lei; când îl depășești, trebuie să ceri înregistrarea în scopuri de TVA cel târziu la data depășirii."
     ],
-    "solutie": null,
-    "nota": "Economia depinde de cifra de afaceri și de clienți: scutirea ajută mai ales dacă vinzi persoanelor fizice, care nu deduc TVA; cu clienți plătitori de TVA, neînregistrarea poate fi dezavantajoasă. Cifra de afaceri nu este câmp din profil, deci nu punem condiții. Nu există formulă potrivită, formula este null. Eticheta srl_dividende e pusă doar pentru că SRL-urile mici intră sub regim; de decis la verificare."
+    "solutie": null
   },
   {
     "id": "te_poti_scoate_2025",
@@ -727,8 +726,7 @@
     "pasi": [
       "Dacă te încadrezi, depune la ANAF cererea de scoatere din evidența persoanelor înregistrate în scopuri de TVA, între 1 și 10 ale lunii următoare perioadei tale fiscale. Până la decizie rămâi plătitor de TVA, apoi depui ultimul decont până la 25 ale lunii următoare deciziei."
     ],
-    "solutie": null,
-    "nota": "Textul primit nu dă un termen final pentru aceste cereri. Formularul exact nu e în text; de verificat de un om. Nu putem calcula economia: depinde de clienți și de TVA-ul dedus pe achiziții."
+    "solutie": null
   },
   {
     "id": "daca_treci_lei_2025",
@@ -740,8 +738,7 @@
     "pasi": [
       "Dacă depășești plafonul, cere înregistrarea în scopuri de TVA cel târziu la data depășirii. Dacă ai întârziat, ceri tu modificarea datei înregistrării la data depășirii și treci sumele în primul decont depus după înregistrare."
     ],
-    "solutie": null,
-    "nota": "Cuantumul depinde de cifra de afaceri și de TVA-ul dedus, nu poate fi estimat din profil. Art. 316 nu e inclus integral în textul primit; nu descriem procedura de înregistrare."
+    "solutie": null
   },
   {
     "id": "srl_ul_pierde_2026",
@@ -753,8 +750,7 @@
     "pasi": [
       "Urmărește pe parcursul anului veniturile firmei (cifra de afaceri, împreună cu cele ale firmelor legate) față de 100.000 euro; dacă le depășești, impozitul pe profit se datorează din trimestrul depășirii. Dacă ai comunicat ANAF aplicarea sau ieșirea din regimul micro între 1 ianuarie 2026 și intrarea în vigoare a ordonanței, depune o nouă declarație de mențiuni (art. 10 alin. (4))."
     ],
-    "solutie": null,
-    "nota": "Textul nu spune care era pragul înainte, deci direcția e info. Impactul în lei depinde de veniturile și profitul firmei, iar cota impozitului pe profit nu e în text, deci nu avem formulă. Art. 47 alin. (1) lit. d), g), h), i) și art. 51 nu sunt în text. De verificat dacă ne trebuie un câmp cu veniturile firmei în profil. Data 2026-01-01 vine din art. 10 alin. (3) și (5) (aplicare din anul fiscal 2026, trimestrul I 2026); ordonanța a intrat în vigoare la publicare."
+    "solutie": null
   },
   {
     "id": "srl_ul_nou_2026",
@@ -766,8 +762,7 @@
     "pasi": [
       "Dacă ai un SRL nou care aplică regimul micro, angajează primul salariat în cel mult 90 de zile de la data înregistrării în registrul comerțului."
     ],
-    "solutie": null,
-    "nota": "Conținutul art. 47 alin. (1) lit. d), g), h) nu este în text; deducem că lit. g) înseamnă salariat din art. 48 alin. (3^1) și (3^3). Textul nu spune cum era înainte, de aceea direcția e termen. Fără sumă în lei. Data intrării în vigoare e cea a publicării (25 februarie 2026), art. 10 nu prevede altă aplicare pentru pct. 18."
+    "solutie": null
   },
   {
     "id": "daca_singurul_salariat_2026",
@@ -779,8 +774,7 @@
     "pasi": [
       "Dacă singurul tău salariat pleacă, angajează un înlocuitor în cel mult 30 de zile (contract pe durată nedeterminată sau de cel puțin 12 luni)."
     ],
-    "solutie": null,
-    "nota": "Textul nu spune cum era înainte, de aceea direcția e termen. Fără sumă în lei."
+    "solutie": null
   },
   {
     "id": "bonificatie_impozitul_veniturile_2026",
@@ -792,8 +786,7 @@
     "pasi": [
       "Verifică în Spațiul Privat Virtual al firmei decizia prin care ANAF a constatat bonificația de 3% și că suma a intrat în evidența fiscală; ea se compensează cu alte obligații, nu se restituie."
     ],
-    "solutie": null,
-    "nota": "Suma depinde de impozitul pe veniturile microîntreprinderii plătit pe 2025, pe care nu îl avem în profil, deci nu avem formulă. Termenul legal de depunere a declarației pe trimestrul IV 2025 nu e în text. De verificat dacă decizia a fost deja emisă. Textul nu explică rolul art. 53 alin. (1) lit. p)."
+    "solutie": null
   },
   {
     "id": "pfa_contributiile_pilon_2026",
@@ -805,8 +798,7 @@
     "pasi": [
       "Păstrează dovezile plății contribuțiilor la fondul de pensii facultative, ocupațional sau PEPP și cere extrasul fondului; ia-le în calcul la completarea declarației unice pentru veniturile din 2026, în limita de 400 euro pe an pentru fiecare tip."
     ],
-    "solutie": null,
-    "nota": "Textul art. 68 alin. (5) arată doar elementul din listă; ce reprezintă lista (deduceri din venitul net) nu e în text, de verificat. Formula pilon3_deducere dă 0, câștigul concret e în acțiunea Pilon III. Termenul declarației unice pentru 2026 nu e în text. Data 2026-03-01 vine din art. 10 alin. (10) pentru ocupaționale și PEPP; pentru pensiile facultative se aplică veniturilor din tot anul 2026 (alin. (6), (9))."
+    "solutie": null
   },
   {
     "id": "pfa_sumele_platite_2026",
@@ -818,8 +810,7 @@
     "pasi": [
       "Păstrează documentele justificative de la intermediar pentru tranzacțiile ETF decontate de la 1 martie 2026 (datele tale, data decontării, instrumentele și valoarea) și ia-le în calcul în declarația unică pe 2026, până la 400 euro pe an."
     ],
-    "solutie": null,
-    "nota": "Entitățile de la art. 96^1 alin. (1) nu sunt descrise în text. Nu avem formulă pentru ETF. Ce reprezintă lista de la art. 68 alin. (5) nu e în text."
+    "solutie": null
   },
   {
     "id": "salariat_contributiile_pilon_2026",
@@ -831,8 +822,7 @@
     "pasi": [
       "Dacă plătești contribuții la Pilon III, pensie ocupațională sau PEPP, verifică pe fluturașul din fiecare lună că angajatorul a luat în calcul deducerea, în limita de 400 euro pe an."
     ],
-    "solutie": null,
-    "nota": "Textul nu spune cum ajunge angajatorul să cunoască contribuția (documente, procedură); acțiunea e doar de verificare. Formula pilon3_deducere dă 0, câștigul concret e în acțiunea Pilon III. Alin. (2) lit. a) din art. 78 nu e prezentat integral, deci nu știm din ce se face deducerea."
+    "solutie": null
   },
   {
     "id": "salariat_sumele_platite_2026",
@@ -844,8 +834,7 @@
     "pasi": [
       "Păstrează documentele justificative de la intermediar pentru tranzacțiile ETF decontate de la 1 martie 2026, cu datele cerute de lege, pentru deducerea din salariu; la schimbarea angajatorului ia documentul cu deducerile acordate."
     ],
-    "solutie": null,
-    "nota": "Textul nu spune cine depune documentele la angajator. Entitățile de la art. 96^1 alin. (1) nu sunt descrise. Nu avem formulă pentru ETF."
+    "solutie": null
   },
   {
     "id": "bursa_merit_scoala_2026",
@@ -857,8 +846,7 @@
     "pasi": [
       "Dacă primești bursa de merit, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 450 lei pe lună."
     ],
-    "solutie": null,
-    "nota": "Textul dă doar cuantumurile noi, nu și pe cele vechi din HG 732/2025, deci nu putem calcula diferența (formula e null). Intrarea în vigoare dedusă: HG intră în vigoare la data publicării (Legea 24/2000, art. 12); Portalul spune necunoscută. Nu e în text cine și în ce condiții primește fiecare bursă. Art. 18 alin. (3) (definiția termenului „reintegrare”) lăsat deoparte: nu schimbă o sumă, un prag sau un termen."
+    "solutie": null
   },
   {
     "id": "bursa_sociala_scoala_2026",
@@ -870,8 +858,7 @@
     "pasi": [
       "Dacă primești bursa socială, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 300 lei pe lună."
     ],
-    "solutie": null,
-    "nota": "Textul dă doar cuantumurile noi, nu și pe cele vechi din HG 732/2025, deci nu putem calcula diferența (formula e null). Intrarea în vigoare dedusă: HG intră în vigoare la data publicării (Legea 24/2000, art. 12); Portalul spune necunoscută. Nu e în text cine și în ce condiții primește fiecare bursă. Art. 18 alin. (3) (definiția termenului „reintegrare”) lăsat deoparte: nu schimbă o sumă, un prag sau un termen."
+    "solutie": null
   },
   {
     "id": "bursa_tehnologica_scoala_2026",
@@ -883,8 +870,7 @@
     "pasi": [
       "Dacă primești bursa tehnologică, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 300 lei pe lună."
     ],
-    "solutie": null,
-    "nota": "Textul dă doar cuantumurile noi, nu și pe cele vechi din HG 732/2025, deci nu putem calcula diferența (formula e null). Intrarea în vigoare dedusă: HG intră în vigoare la data publicării (Legea 24/2000, art. 12); Portalul spune necunoscută. Nu e în text cine și în ce condiții primește fiecare bursă. Art. 18 alin. (3) (definiția termenului „reintegrare”) lăsat deoparte: nu schimbă o sumă, un prag sau un termen."
+    "solutie": null
   },
   {
     "id": "prima_activare_somerii_2002",
@@ -897,8 +883,7 @@
       "Fii înregistrat ca șomer la agenția de ocupare cel puțin 30 de zile înainte să te angajezi cu normă întreagă și cere prima de activare.",
       "Verifică dacă ai primit prima tranșă (50% din cuantumul stabilit) la angajare și a doua tranșă (50%) după expirarea celor 3 luni de la angajare."
     ],
-    "solutie": null,
-    "nota": " Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    "solutie": null
   },
   {
     "id": "prima_incadrare_somerii_2002",
@@ -910,8 +895,7 @@
     "pasi": [
       "Dacă te angajezi la peste 15 km de domiciliu sau reședință, cere prima de încadrare la agenția de ocupare în care ești înregistrat."
     ],
-    "solutie": null,
-    "nota": "Suma depinde de distanța dusă și de zilele lucrate, deci nu putem da o sumă lunară fără aceste date. Textul spune «pot beneficia», deci acordarea nu e garantată de text. Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    "solutie": null
   },
   {
     "id": "prima_instalare_somerii_2002",
@@ -923,8 +907,7 @@
     "pasi": [
       "Înainte să te muți pentru un job la peste 50 km, întreabă la agenția de ocupare în care ești înregistrat cum ceri prima de instalare și ce acte trebuie să depui."
     ],
-    "solutie": null,
-    "nota": "Sumele sunt unice, nu lunare, deci formula rămâne null. Textul spune «pot beneficia», deci acordarea nu e garantată de text. Legea 287/2009 (Codul civil) nu e în text, deci definiția familiei se verifică acolo. Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    "solutie": null
   },
   {
     "id": "prima_relocare_cheltuielile_2002",
@@ -936,8 +919,7 @@
     "pasi": [
       "Dacă te muți pentru un job la peste 50 km, cere prima de relocare la agenția de ocupare în care ești înregistrat și pregătește dovada chiriei și a utilităților din noua locuință."
     ],
-    "solutie": null,
-    "nota": "Suma lunară depinde de cheltuielile reale de locuire (75%, maximum 900 lei), deci nu e o sumă fixă; formula rămâne null. Pragul de 5.000 lei se aplică venitului net al persoanei singure sau al familiei, nu pe membru, deci nu l-am pus ca condiție pe venit_net_pe_membru. Forma consolidată; data ultimei modificări nu e în textul primit, de verificat pe Portal."
+    "solutie": null
   },
   {
     "id": "motorina_agricultura_rambursare_2026",
@@ -949,8 +931,7 @@
     "pasi": [
       "Verifică în decontul sau în decizia de rambursare că suma pe litru corespunde nivelului de diminuare a accizei din perioada în care ai cumpărat motorina: 2,557 lei/l la 5%, 2,417 la 10%, 2,277 la 15%, 2,137 la 20%, 1,996 la 25%."
     ],
-    "solutie": null,
-    "nota": "Textul nu spune cât durează situația de criză și nici ce nivel de diminuare e în vigoare acum; de verificat în Legea 162/2026 și în actele care o aplică. Intrarea în vigoare (18 sep 2026) e dedusă: Portalul spune „necunoscută”, iar o hotărâre a Guvernului intră în vigoare la data publicării (Legea 24/2000, art. 12). Suma depinde de litrii cumpărați și de nivelul de diminuare, deci nu o calculăm; ar trebui consumul de motorină. Cine e eligibil, rata de la alin. (2^6), cererea de rambursare și termenele sunt în HG 1.174/2014, care nu ne-a fost dată, deci nu le descriem. Lăsat deoparte: art. 10 alin. (1^6) și (13) (suma totală a schemei, 863.666,00 mii lei, e un plafon bugetar, nu un drept al unei persoane). Eticheta potrivită ar fi una pentru fermieri; „agricultura” e doar domeniul."
+    "solutie": null
   },
   {
     "id": "grant_pana_lei_2026",
@@ -968,8 +949,7 @@
       "Verifică în cont dacă ai primit grantul până la 31 decembrie 2026. Suma corectă este 333 lei/ha înmulțit cu gradul de afectare din procesul-verbal și împărțit la 100 (sau 333 lei/ha întreg, peste 90% afectare), pe suprafața din procesul-verbal, dar nu mai mare decât cea din cererea de plată 2025. Poate fi mai mică dacă bugetul nu ajunge. Dacă primești notificare de respingere, o poți contesta conform Legii 554/2004. Înainte de instanță, cere revocarea actului în 30 de zile de la comunicare.",
       "Păstrează 10 ani, de la data încasării sumei, toate documentele care atestă acordarea sprijinului."
     ],
-    "solutie": null,
-    "nota": "Portalul nu are data intrării în vigoare; am dedus-o din art. 24 (ziua următoare publicării în MO din 24 sep 2026, deci 25 sep 2026). Termenul de depunere nu e o dată fixă: art. 17 alin. (3) dă 20 de zile lucrătoare de la expirarea celor 10 zile lucrătoare de la intrarea în vigoare (art. 15 alin. (1)). Calculat din 25 sep 2026, iese în jur de 6 noiembrie 2026, fără sărbători legale în interval; de verificat la APIA, de aceea termen_actiune e null. Suma în lei depinde de hectarele afectate și de gradul de afectare din procesul-verbal, care nu sunt în profil, deci formula e null. pana_la 2026-12-31 este termenul limită al plăților (art. 3 alin. (1)). Etichetă: am folosit doar agricultura; publicul (persoane fizice, PFA, întreprinderi individuale/familiale, firme agricole) nu are etichetă potrivită pentru „producător agricol cu porumb sau floarea-soarelui”, se poate propune. Inventar: într-o singură schimbare sunt cuprinse art. 1-9 (grantul), art. 10 (preluare prin transfer, contul), art. 12-14 (asigurări, plafon 80%), art. 17-18 (cerere, respingere), art. 21-22 (restituire, păstrarea documentelor). Lăsate deoparte, fiind pur administrative: art. 2, 11, 15, 16, 19, 20, 23, 25 și anexele de model nr. 2, 4, 5, 6. Conținutul altor acte la care trimite (Ordinul 97/63/2020, OUG 66/2011, Legea 554/2004, Regulamentul UE 2026/1.698) nu l-am descris. Nu există destinație potrivită în listă pentru APIA sau direcția pentru agricultură; se propun a fi adăugate."
+    "solutie": null
   },
   {
     "id": "tichetul_masa_poate_2026",
@@ -981,8 +961,7 @@
     "pasi": [
       "Dacă primești tichete de masă, verifică pe fluturaș sau pe cardul de masă că valoarea unui tichet nu depășește 45 lei pentru lunile la care se aplică ordinul (din octombrie 2026, plus februarie și martie 2027). Dacă depășește, cere explicații angajatorului."
     ],
-    "solutie": null,
-    "nota": "Data intrării în vigoare e necunoscută pe Portal. Am folosit din text aplicarea de la octombrie 2026 (art. 1); ordinul a fost publicat pe 30 sep 2026. Textul nu dă valoarea anterioară a tichetului, deci nu știm dacă e o creștere, iar direcția e `info` și nu am calculat nicio sumă. Ar trebui valoarea veche și numărul de tichete pe lună. 45 lei e un plafon, nu o sumă obligatorie, iar angajatorul poate da mai puțin. Textul nu spune ce se aplică în ianuarie 2027. Data `pana_la` (2027-03-31) vine din art. 2 (februarie și martie 2027). Regimul fiscal al tichetelor și art. 33 din HG 1.045/2018 nu sunt în text și sunt de verificat. Eticheta `angajat` e largă, pentru că nu toți angajații primesc tichete. Propun o etichetă nouă, de exemplu `tichete_masa` (primesc tichete de masă). Angajatorii SRL mici sunt vizați indirect, dar nu există o etichetă potrivită."
+    "solutie": null
   },
   {
     "id": "tarife_noi_kilometru_2026",
@@ -994,8 +973,7 @@
     "pasi": [
       "Verifică tariful pe kilometru care ți se aplică: caută în anexă categoria vehiculului după MTMA și clasa EURO din certificatul de înmatriculare, apoi tipul de drum (autostradă sau drum național). Compară cu ce ți se taxează la un drum."
     ],
-    "solutie": null,
-    "nota": "Data intrării în vigoare e dedusă: antetul spune „necunoscută”, iar un ordin intră în vigoare la data publicării (Legea 24/2000, art. 12); art. II spune doar că se publică în MO. Tarifele vechi din anexa Ordinului 1.925/2025 și art. 1 alin. (3) (actualizarea tarifului) nu sunt în text, deci nu știm dacă tariful a crescut sau a scăzut; de aceea direcția e „info” și nu calculăm suma în lei (depinde și de kilometrii parcurși). Tabelul a ajuns aplatizat în text; coloanele sunt citite în ordinea: vehicule electrice, EURO VI, EURO V-IV, EURO III-0. Unele cifre nu se obțin exact din coloana EURO VI rotunjită cu +15% sau +30% (ex. cat. I, autostrăzi: 0,17 dă 0,20, dar tabelul are 0,19), așa că un om trebuie să verifice cifrele în anexa oficială. Eticheta `transport` e doar domeniul larg; actul privește doar vehiculele de marfă de peste 3,5 t. Se propune eticheta nouă `camion_marfa` (vehicul de marfă de peste 3,5 tone). Lăsate deoparte: anexa pct. 1, 2, 5 și 6 (descriu felul tarifului și principiile de calcul, nu schimbă sume). Pct. 7 și 9 din anexă sunt tratate în schimbarea despre vehiculele electrice, iar art. I pct. 1 în cea despre rotunjire."
+    "solutie": null
   },
   {
     "id": "camioanele_electrice_platesc_2026",
@@ -1007,8 +985,7 @@
     "pasi": [
       "Dacă ai un vehicul electric de marfă de peste 3,5 tone, verifică în certificatul de înmatriculare (rubrica P.3) că apare sursa de energie electrică. Atunci ți se aplică tariful din coloana „Vehicule electrice”."
     ],
-    "solutie": null,
-    "nota": "Data intrării în vigoare e dedusă la data publicării (Legea 24/2000, art. 12), ca la prima schimbare. Nu există etichetă pentru proprietarii de vehicule electrice de marfă; rămâne `transport`, iar eticheta propusă `camion_marfa` ar trebui completată cu o condiție sau o etichetă pentru electric. Nu știm dacă reducerea de 75% exista și în anexa veche, deci direcția „castig” se referă la tariful actual față de cel EURO VI, nu la o schimbare față de trecut. Verifică cifrele din coloana electrică în anexa oficială (tabelul din text e aplatizat)."
+    "solutie": null
   },
   {
     "id": "ajutorul_crescatorii_porci_2026",
@@ -1020,7 +997,6 @@
     "pasi": [
       "Dacă firma ta crește porci, citește condițiile de la art. 4 din Legea 175/2026 și depune cererea pentru ajutorul de stat în 10 zile lucrătoare de la intrarea în vigoare a legii."
     ],
-    "solutie": null,
-    "nota": "Textul și antetul nu dau data intrării în vigoare. 2026-10-18 e dedusă: lege publicată pe 15 oct 2026, în vigoare la 3 zile de la publicare (Constituția, art. 78). Termenul 2026-10-30 e calculat din ea (10 zile lucrătoare, fără sărbători legale în perioadă), deci un om trebuie să-l verifice. Nu sunt în text: suma ajutorului, condițiile de la art. 4 din Legea 175/2026 și autoritatea la care se depune cererea (de verificat în Legea 175/2026). Art. I (abrogarea art. 5 alin. (5) din Legea 175/2026) e lăsat deoparte: conținutul alineatului abrogat nu e în text. Lipsește o etichetă pentru crescători de animale sau pentru administratori de SRL agricol, de propus."
+    "solutie": null
   }
 ]
