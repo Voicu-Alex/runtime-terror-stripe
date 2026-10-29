@@ -13,7 +13,7 @@ set -euo pipefail
 CONFIG=/etc/descriere-deploy/config
 STATE=/var/lib/descriere-deploy
 REPO_URL="git@github.com:Voicu-Alex/runtime-terror-stripe.git"
-BRANCH=deploy-descriere
+BRANCH=main
 WEBROOT=/var/www/descriere
 APP_ROOT=/opt/descriere-app
 APP_ENV=/etc/descriere-app/.env.local

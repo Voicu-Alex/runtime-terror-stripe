@@ -1,5 +1,5 @@
 [Unit]
-Description=Publică aplicația și descrierea din deploy-descriere (GitHub)
+Description=Publică aplicația și descrierea din main (GitHub)
 Wants=network-online.target
 After=network-online.target
 

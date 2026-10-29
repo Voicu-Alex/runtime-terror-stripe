@@ -7,7 +7,7 @@ Pagina statică de descriere rămâne la `/descriere.html` (și `/index.html`), 
 
 - Serviciu: `descriere-app.service`, utilizator fără login `descriere-app`; pornește automat la boot.
 - Cod: `/opt/descriere-app/current` → `/opt/descriere-app/releases/<commit>`.
-  Aplicația și descrierea urmăresc **`deploy-descriere`**, nu `main`. La fiecare 3 minute,
+  Aplicația și descrierea urmăresc **`main`**. La fiecare 3 minute,
   poller-ul descarcă branch-ul, instalează dependențele ca utilizatorul aplicației, rulează testele
   și build-ul, apoi schimbă versiunea activă și repornește serviciul. Un build eșuat păstrează
   versiunea curentă și curăță candidatul; un health check eșuat restaurează versiunea anterioară.
@@ -44,11 +44,11 @@ Există și snapshotul Proxmox `pre-next-app-20261029-051639` (înaintea instal�
 Același timer reconstruiește aplicația Next.js și publică fișierele din manifest după health check.
 
 Pagina de descriere (`mockup/descriere.html` + PDF-ul provocării) se publică singură: la fiecare
-3 minute containerul verifică `deploy-descriere` și, dacă e un commit nou, construiește aplicația
+3 minute containerul verifică `main` și, dacă e un commit nou, construiește aplicația
 și pune fișierele din `manifest.txt` pe site. Publicarea durează și timpul necesar testelor și build-ului.
 
 ```
-GitHub deploy-descriere <--(git ls-remote / fetch)--> CT 107 "descriere"
+GitHub main <--(git ls-remote / fetch)--> CT 107 "descriere"
                                                   /opt/descriere-app/current (Next.js)
                                                   /var/www/descriere (fișiere statice)
 Cloudflare -> Nginx Proxy Manager (CT 101, TLS) -> CT 107:80
@@ -69,17 +69,17 @@ nu e al nostru (fără drept de admin, deci fără secrete în Actions).
 
 ## Operare
 
-- **Ce se publică:** codul commitat pe `deploy-descriere`; `manifest.txt` descrie suplimentar fișierele statice.
+- **Ce se publică:** codul commitat pe `main`; `manifest.txt` descrie suplimentar fișierele statice.
 - **Instalare / actualizarea scripturilor:** `./deploy/descriere/install.sh` de pe un calculator
   din rețeaua de acasă, după configurarea runtime-ului și a secretelor descrise mai sus.
-  Păstrează cheia și setează branch-ul din config la `deploy-descriere`. Scripturile de pe server nu se
+  Păstrează cheia și setează branch-ul din config la `main`. Scripturile de pe server nu se
   actualizează singure din git, doar fișierele site-ului.
 - **Publicare imediată:** `ssh root@192.168.31.63 'pct exec 107 -- descriere-deploy'`
   (cu `FORCE=1` republică același commit).
 - **Log:** `pct exec 107 -- journalctl -u descriere-deploy -n 20`.
 - **Testul poller-ului:** `python3 deploy/descriere/test-poll.py` pe Linux; verifică izolarea
   metadatelor, no-op, curățarea unui build eșuat și revenirea după un health check eșuat.
-- **Rollback:** dai revert pe `deploy-descriere`, sau alegi versiunea precedentă din `/opt/descriere-app/releases`
+- **Rollback:** dai revert pe `main`, sau alegi versiunea precedentă din `/opt/descriere-app/releases`
   și repornești `descriere-app`. Snapshotul Proxmox poate restaura configurația inițială.
 
 ## Accesul la GitHub

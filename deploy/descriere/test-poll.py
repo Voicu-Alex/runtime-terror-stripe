@@ -14,7 +14,7 @@ tool = pathlib.Path(sys.argv[0]).name
 args = sys.argv[1:]
 if tool == 'git':
     if args[0] == '-C': args = args[2:]
-    if args[0] == 'ls-remote': print('a' * 40 + '\trefs/heads/deploy-descriere')
+    if args[0] == 'ls-remote': print('a' * 40 + '\trefs/heads/main')
     elif args[0] == 'init': pathlib.Path(args[-1], '.git').mkdir(parents=True)
     elif args[0] == 'rev-parse': print('a' * 40)
     elif args[0] == 'archive': sys.stdout.buffer.write(pathlib.Path(os.environ['TEST_ARCHIVE']).read_bytes())
