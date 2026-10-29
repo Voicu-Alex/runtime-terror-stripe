@@ -24,6 +24,25 @@ Motorul promite că „citește Monitorul Oficial” și spune fiecărui om ce l
 - **`Text` e forma de bază, nu cea consolidată.** Exemplu: pentru Legea 61/1993 `Text` are cuantumul din 1993 (3.500 lei); forma consolidată de pe portal (DetaliiDocument/248212) are art. 3 modificat prin OUG 126/2021 (243 lei din 2022, indexat anual). Pentru modificări și abrogări trebuie citită și pagina actului (istoricul consolidărilor și nota de abrogare).
 - Exemplu de abrogare prinsă așa: **Legea 277/2010 (alocația pentru susținerea familiei) e abrogată din 1 ian 2024** prin art. 96 lit. b) din Legea 196/2016 (venitul minim de incluziune). Catalogul a fost corectat.
 
+## Sondat pe 29 oct 2026 (Andrei cu Claude, 9 cereri)
+
+- **Serviciul SOAP nu e bun pentru descoperire.** `RezultatePagina` e plafonat la 10 (am cerut 100, am primit 10) și
+  `NumarPagina` e ignorat: pagina 0 și pagina 1 întorc aceleași 10 acte, atât pentru căutarea pe an, cât și pe an + număr.
+  `Publicatie` e literal „Monitorul Oficial”, fără număr. Un răspuns are ≈ 216 KB pentru că vine și `Text`.
+  Căutarea `SearchTitlu=impozit` pe 2026 a dat un singur act. Rămâne util pentru a afla id-ul unui act după an și număr.
+- **Pagina actului e sursa.** `https://legislatie.just.ro/Public/DetaliiDocument/<id>` e randată pe server (fără
+  `__VIEWSTATE`), 54 KB pentru Legea 204/2026, 200 ms. Conține „LEGE 204 22/10/2026” în titlu, „EMITENT PARLAMENTUL
+  ROMÂNIEI”, „Publicat în MONITORUL OFICIAL nr. 886 din 22 octombrie 2026” și articolele. Id-urile cresc în ordinea
+  publicării: 306250 pe 5 ian 2026, 315641 pe 22 oct 2026, deci ≈ 31 de acte pe zi, ≈ 11.000 pe an, toate tipurile
+  (LISTĂ, DECIZIE, DECRET, ORDIN, HOTĂRÂRE, LEGE, CIRCULARĂ, NORMĂ…).
+- **Termeni** (`/Public/Termeni`): textele oficiale nu sunt protejate de drept de autor; formele consolidate sunt
+  neoficiale. Nu există robots.txt (302 spre /Error) și nicio limită de cereri documentată.
+- **Proiecte:** singura listă oficială citibilă din script e `sgg.gov.ro/1/anunturi-proiecte-de-acte-normative/` (titlu,
+  PDF, dată, termen de consultare). mfinante.gov.ro, anaf.ro, anre.ro și mmuncii.ro nu răspund scripturilor (403, 404,
+  conexiune refuzată). cdep.ro are lista proiectelor de lege pe ORDS; senat.ro cere postback.
+
+Implementarea: `docs/ingest.md`.
+
 ## Neconfirmat
 
 - Limita de cereri a API-ului: nu am făcut decât câteva zeci de apeluri.
