@@ -140,7 +140,10 @@ export function verificaInterpretare(interp: InterpretareAct, textAct: string, {
     // text: fără URL-uri scrise de model, fără formulări interzise
     const tot = JSON.stringify(s);
     verif(!/https?:\/\//i.test(tot), "url", /https?:\/\//i.test(tot) ? "modelul a scris un URL" : "fără URL-uri scrise de model", i);
-    const interzisa = INTERZISE.find((re) => re.test(tot));
+    // formulările interzise se caută doar în textele care ajung la om; `nota` e pentru revizor și poate spune „nu e garantat”
+    const pentruOm = [s.rezumat, s.rezumat_en, s.niveluri?.zero, s.niveluri?.curios, s.niveluri?.expert, ...(s.actiuni ?? []).map((a) => a.text)].filter(Boolean).join("
+");
+    const interzisa = INTERZISE.find((re) => re.test(pentruOm));
     verif(!interzisa, "interzise", interzisa ? `formulare interzisă: ${interzisa}` : "fără formulări interzise", i);
   });
 
