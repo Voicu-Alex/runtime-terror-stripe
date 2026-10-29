@@ -192,8 +192,8 @@ export function AsistentProvider({ children }: { children: ReactNode }) {
   return <Context.Provider value={value}>
     <Suspense fallback={null}><RouteIdentity personal={personal} onChange={switchRoute} /></Suspense>
     {children}
-    {["/", "/legi", "/flux"].includes(pathname) && <button type="button" onClick={() => openChat()} aria-label={t("Deschide asistentul")}
-      className={`fixed right-4 z-30 flex min-h-12 items-center gap-2 rounded-full bg-v3-ink px-4 text-sm font-bold text-v3-on-ink shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-v3-ink ${pathname === "/flux" || pathname === "/" ? "bottom-[calc(10rem+env(safe-area-inset-bottom))]" : "bottom-[calc(1rem+env(safe-area-inset-bottom))]"}`}>
+    {["/", "/legi", "/flux", "/profil"].includes(pathname) && <button type="button" onClick={() => openChat()} aria-label={t("Deschide asistentul")}
+      className={`fixed right-4 z-30 flex min-h-12 items-center gap-2 rounded-full bg-v3-ink px-4 text-sm font-bold text-v3-on-ink shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-v3-ink ${pathname === "/flux" ? "bottom-[calc(10rem+env(safe-area-inset-bottom))]" : "bottom-[calc(1rem+env(safe-area-inset-bottom))]"}`}>
       <svg aria-hidden="true" viewBox="0 0 24 24" className="size-[18px] fill-none stroke-current stroke-[1.8]" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H7l-3 2v-5.5A7.5 7.5 0 0 1 11.5 4h1A7.5 7.5 0 0 1 20 11.5Z" />
         <path d="M8 11.5h8M8 14.5h5" />
