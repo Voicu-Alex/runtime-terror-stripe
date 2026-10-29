@@ -135,14 +135,14 @@ export function ListaFlux({
           <span className="text-[11.5px] font-extrabold tracking-[.1em] text-v3-accent uppercase">{t("Planul meu")}</span>
           <span className="text-[15px] text-v3-ink">
             {t("Acum:")}{" "}
-            <b className={`tabular-nums ${plan.fara_actiuni < 0 ? "text-v3-neg" : plan.fara_actiuni > 0 ? "text-v3-pos" : ""}`}>
+            <b className={`font-num font-semibold tabular-nums ${plan.fara_actiuni < 0 ? "text-v3-neg" : plan.fara_actiuni > 0 ? "text-v3-pos" : ""}`}>
               {cuSemn(plan.fara_actiuni * 12)} {t("lei/an")}
             </b>
           </span>
           {plan.economii !== 0 || plan.economii_punctuale !== 0 ? (
             <span className="text-[15px] text-v3-ink">
               {t("Cu ce ai bifat:")}{" "}
-              <b className={`tabular-nums ${plan.cu_actiuni < 0 ? "text-v3-neg" : "text-v3-pos"}`}>
+              <b className={`font-num font-semibold tabular-nums ${plan.cu_actiuni < 0 ? "text-v3-neg" : "text-v3-pos"}`}>
                 {cuSemn(plan.cu_actiuni * 12)} {t(plan.unitate)}
               </b>
               {plan.economii !== 0 && <span className="text-v3-ink-2">

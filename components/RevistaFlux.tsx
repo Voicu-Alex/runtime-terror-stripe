@@ -78,7 +78,7 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
         return (
           <li key={x.p.schimbare.id + x.iso} className="grid grid-cols-[46px_1fr] gap-2.5 border-b border-v3-line py-3.5">
             <div className="text-center leading-none">
-              <b className={`block font-head text-2xl font-extrabold ${urgent ? "text-v3-urg" : ""}`}>{d}</b>
+              <b className={`block font-num font-semibold tabular-nums lining-nums text-2xl tracking-[-.03em] ${urgent ? "text-v3-urg" : ""}`}>{d}</b>
               <span className="mt-[3px] block text-[11px] font-extrabold tracking-[.1em] text-v3-accent uppercase">{lunaScurta(limba, m - 1)}</span>
               <small className="mt-0.5 block text-[10.5px] text-v3-ink-2">{y}</small>
             </div>
@@ -143,12 +143,12 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
       <p className="mt-0 mb-2 text-sm font-medium text-v3-accent">{v.kicker}</p>
       <h2 className="m-0 mb-2.5 font-head text-[clamp(25px,6.6vw,36px)] leading-[1.16] font-extrabold tracking-[-.015em]">{v.titlu}</h2>
       {actiune && v.economie ? (
-        <p className="m-0 mb-3 font-head text-[clamp(30px,8vw,40px)] font-extrabold tracking-[-.02em] text-v3-pos">
+        <p className="m-0 mb-3 font-num font-semibold tabular-nums lining-nums text-[clamp(30px,8vw,40px)] tracking-[-.03em] text-v3-pos">
           <span className="font-sans text-[15px] font-semibold tracking-normal">{limba === "en" ? "up to" : "până la"}</span> +{bani(v.economie.suma)}
           <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">{t(v.economie.unitate)}</small>
         </p>
       ) : v.suma !== null ? (
-        <p className={`m-0 mb-3 font-head text-[clamp(30px,8vw,40px)] font-extrabold tracking-[-.02em] ${culoare(v.suma)}`}>
+        <p className={`m-0 mb-3 font-num font-semibold tabular-nums lining-nums text-[clamp(30px,8vw,40px)] tracking-[-.03em] ${culoare(v.suma)}`}>
           {cuSemn(v.suma)}
           <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">
             {v.suma === 0 ? t("lei acum") : t("lei/an")}
@@ -222,13 +222,13 @@ export function Cifre({ potriviri, valori, ev, azi }: { potriviri: Potrivire[]; 
       className="mb-[18px] grid overflow-hidden rounded-2xl border border-v3-line bg-linear-135 from-v3-stats to-v3-card to-70% lg:grid-cols-[150px_minmax(0,1fr)]"
     >
       <div className="flex items-baseline gap-2.5 border-b border-v3-line px-[18px] py-4 lg:flex-col lg:justify-center lg:border-r lg:border-b-0">
-        <b className="font-head text-[30px] font-extrabold text-v3-accd">{azi.slice(0, 4)}</b>
+        <b className="font-num font-semibold tabular-nums lining-nums text-[30px] tracking-[-.03em] text-v3-accd">{azi.slice(0, 4)}</b>
         <span className="text-sm font-medium text-v3-ink-2">{t("pentru tine, în cifre")}</span>
       </div>
       <ul className="m-0 grid list-none grid-cols-2 gap-x-3.5 gap-y-4 px-[18px] py-3.5 lg:grid-cols-4 lg:gap-x-[22px]">
         {cifre.map(([b, text]) => (
           <li key={text} className="before:mb-2 before:block before:h-0.5 before:w-4 before:bg-v3-logo">
-            <b className="block font-head text-[22px] font-extrabold tracking-[-.01em] lg:text-xl">{b}</b>
+            <b className="block font-num font-semibold tabular-nums lining-nums text-[22px] tracking-[-.03em] lg:text-xl">{b}</b>
             <span className="mt-1 block text-sm leading-snug text-v3-ink-2">{text}</span>
           </li>
         ))}

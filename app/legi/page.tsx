@@ -26,7 +26,7 @@ function Bani({ tip, s }: { tip: "salvezi" | "pierzi"; s: Suma | null }) {
       </p>
       {s ? (
         <>
-          <p className={`m-0 mt-1 font-head text-[30px] leading-none font-extrabold tracking-[-.02em] ${salvezi ? "text-v3-pos" : "text-v3-neg"}`}>
+          <p className={`m-0 mt-1 font-num font-semibold tabular-nums lining-nums text-[30px] leading-none tracking-[-.03em] ${salvezi ? "text-v3-pos" : "text-v3-neg"}`}>
             {salvezi ? "+" : "−"}
             {bani(s.lei)}
             <small className="ml-1.5 font-sans text-[14px] font-semibold tracking-normal text-v3-ink-2">lei {cand(s)}</small>
@@ -188,7 +188,7 @@ export default function PaginaLegi() {
             [deschise, "cu termen încă deschis"],
           ].map(([n, t]) => (
             <li key={t as string} className="before:mb-2 before:block before:h-0.5 before:w-4 before:bg-v3-logo">
-              <b className="block font-head text-[26px] font-extrabold">{n}</b>
+              <b className="block font-num font-semibold tabular-nums lining-nums text-[26px] tracking-[-.03em]">{n}</b>
               <span className="mt-0.5 block text-[11px] font-extrabold tracking-[.08em] text-v3-ink-2 uppercase">
                 <T k={t as string} />
               </span>

@@ -62,7 +62,7 @@ export function Abonare() {
         {t("Vezi cât te costă fiecare lege")}
       </h1>
       <p className="m-0 mt-4 flex items-baseline gap-2">
-        <span className="font-head text-[48px] leading-none font-extrabold tracking-[-.02em] text-v3-ink">{pret}</span>
+        <span className="font-num font-semibold tabular-nums lining-nums text-[48px] leading-none tracking-[-.03em] text-v3-ink">{pret}</span>
         <span className="text-[17px] font-semibold text-v3-ink-2">{t("lei/lună")}</span>
       </p>
       <ul className="m-0 mt-5 list-none space-y-2.5 p-0">

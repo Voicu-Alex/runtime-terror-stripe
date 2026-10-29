@@ -93,7 +93,7 @@ export default function CardSchimbare({
       >
         <span className="col-start-1 text-sm font-medium text-v3-accent">{v.kicker}</span>
         <span
-          className={`col-start-2 row-span-2 row-start-1 text-right font-sans text-xl font-extrabold tracking-[-.02em] whitespace-nowrap tabular-nums lining-nums ${
+          className={`col-start-2 row-span-2 row-start-1 text-right font-num text-xl font-semibold tracking-[-.03em] whitespace-nowrap tabular-nums lining-nums ${
             dep ? "text-v3-past" : v.suma === null || v.suma === 0 ? "text-v3-ink" : v.suma < 0 ? "text-v3-neg" : "text-v3-pos"
           }`}
         >
