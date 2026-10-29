@@ -277,5 +277,5 @@ html.ld-blocat { overflow: hidden }
 .fundal-ld { display: none; position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
 [data-theme="dark"] .fundal-ld { display: block }
 .fundal-ld .ld-grain, .fundal-ld .ld-glow { z-index: auto }
-/* bara de secțiuni lasă luminile să se vadă prin ea */
-[data-theme="dark"] .nav-sectiuni { background: color-mix(in srgb, var(--fundal) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px) }
+/* bara de secțiuni nu e o bandă neagră peste lumini: aproape transparentă, cu blur, fără linia de sus */
+[data-theme="dark"] .nav-sectiuni { background: transparent; backdrop-filter: blur(18px) saturate(1.2); -webkit-backdrop-filter: blur(18px) saturate(1.2); border-top-color: transparent; border-bottom-color: color-mix(in srgb, var(--color-v3-line) 60%, transparent) }
