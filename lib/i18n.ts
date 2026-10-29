@@ -425,6 +425,16 @@ const EN: Record<string, string> = {
   Ordine: "Order",
   "Cele mai noi": "Newest",
   "Cât poți salva": "Most you can save",
+  // Contul (app/conectare, lib/conectare.ts)
+  "Intră în cont": "Sign in",
+  "Ești în cont": "You’re signed in",
+  "Ieși din cont": "Sign out",
+  Abonament: "Subscription",
+  "Prima conectare cu Google îți face contul. Contul ține abonamentul și deblocările tale pe orice telefon.":
+    "Your first Google sign-in creates your account. It keeps your subscription and unlocks on any phone.",
+  "Conectarea cu Google a fost anulată.": "Google sign-in was cancelled.",
+  "Conectarea nu e configurată corect. Mai încearcă mai târziu.": "Sign-in isn’t set up correctly. Try again later.",
+  "Conectarea cu Google n-a mers. Mai încearcă o dată.": "Google sign-in didn’t work. Try once more.",
 };
 
 /** Are textul intrare în dicționarul EN (chiar dacă traducerea e identică, ca un nume propriu). */
