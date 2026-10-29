@@ -294,6 +294,15 @@ const EN: Record<string, string> = {
   Trimite: "Send",
   din: "from",
   "Asistentul pentru această lege vine în curând.": "The assistant for this law is coming soon.",
+  "Răspunsurile vin din textul legii și din datele cardului. Nu e sfat financiar.":
+    "Answers come from the text of the law and the card data. This is not financial advice.",
+  "De ce mă privește?": "Why does it affect me?",
+  "Ce trebuie să fac?": "What do I have to do?",
+  "Ce se întâmplă dacă nu fac nimic?": "What happens if I do nothing?",
+  "Întreabă despre această lege…": "Ask about this law…",
+  Întreabă: "Ask",
+  "Nu am putut răspunde acum. Încearcă din nou.": "I could not answer right now. Try again.",
+  "Textul legii pe Portalul Legislativ": "The law's text on the Legislative Portal",
   "Ce înseamnă legile pentru tine": "What the laws mean for you",
 };
 

@@ -205,7 +205,9 @@ export function raspundeLiber(s: Stare, textOm: string, extrase: Extrasa[]): Sta
 
 export function sarPeste(s: Stare): Stare {
   if (s.terminat) return copie(s);
-  return avanseaza(s);
+  const n = copie(s);
+  n.mesaje.push({ rol: "om", text: SAR_PESTE });
+  return avanseaza(n);
 }
 
 /** Scoate eticheta din `extrase` și din toate mesajele „etichete”. */
@@ -228,6 +230,18 @@ export function rezumat(s: Stare): string {
 
 export function inProfil(s: Stare, existent: Profil): Profil {
   return adaugaInProfil(existent, s.extrase.map((e) => e.tag));
+}
+
+/** Reia conversația din etichete (demo, capturi): la fiecare întrebare alege răspunsurile rapide ale căror etichete sunt toate în listă. */
+export function redaDinTaguri(taguri: TagId[]): Stare {
+  let s = porneste();
+  while (!s.terminat) {
+    const q = intrebareaCurenta(s);
+    if (!q) break;
+    const alese = q.raspunsuri.filter((r) => r.taguri.length > 0 && r.taguri.every((t) => taguri.includes(t)));
+    s = alese.length > 0 ? raspundeRapid(s, alese) : sarPeste(s);
+  }
+  return s;
 }
 
 /* ---------- Contract API: /api/asistent ---------- */

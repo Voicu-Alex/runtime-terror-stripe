@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { TOATE_TAGURILE, type TagId } from "./taguri";
 import { PROFIL_GOL } from "./profil";
+import { PERSOANE_DEMO } from "./persoane-demo";
 import {
   INTREBARI,
   MESAJ_NEINTELES,
@@ -9,6 +10,7 @@ import {
   inProfil,
   intrebareaCurenta,
   porneste,
+  redaDinTaguri,
   raspundeLiber,
   raspundeRapid,
   rezumat,
@@ -158,5 +160,32 @@ describe("asistentul de profil", () => {
     expect(esteCerere(lege)).toBe(true);
     expect(esteCerere({ ...lege, id: "" })).toBe(false);
     expect(esteCerere({ ...lege, istoric: [{ rol: "robot", text: "x" }] })).toBe(false);
+  });
+});
+
+describe("redaDinTaguri", () => {
+  const exprimabile = new Set(INTREBARI.flatMap((q) => q.raspunsuri.flatMap((x) => x.taguri)));
+
+  it("Andrei: terminat, cu exact etichetele pe care răspunsurile rapide le pot spune", () => {
+    const taguri = PERSOANE_DEMO.andrei.profil.taguri as TagId[];
+    const s = redaDinTaguri(taguri);
+    expect(s.terminat).toBe(true);
+    const asteptat = taguri.filter((t) => exprimabile.has(t)).sort();
+    expect(s.extrase.map((e) => e.tag).sort()).toEqual(asteptat);
+    expect(asteptat.length).toBeGreaterThan(0);
+  });
+
+  it("Ion: pasul 3 e sărit", () => {
+    const s = redaDinTaguri(PERSOANE_DEMO.ion.profil.taguri as TagId[]);
+    expect(s.terminat).toBe(true);
+    expect(s.mesaje.some((m) => m.rol === "asistent" && m.text === INTREBARI[2].text)).toBe(false);
+  });
+
+  it("nu scoate nicio etichetă din afara listei", () => {
+    const dat: TagId[] = ["it", "pilon2"];
+    const s = redaDinTaguri(dat);
+    expect(s.terminat).toBe(true);
+    expect(toateTagurile(s).every((t) => dat.includes(t))).toBe(true);
+    expect(redaDinTaguri([]).extrase).toEqual([]);
   });
 });

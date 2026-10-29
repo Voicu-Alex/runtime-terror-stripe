@@ -9,45 +9,161 @@ import {
   porneste,
   raspundeLiber,
   raspundeRapid,
+  redaDinTaguri,
   SAR_PESTE,
   sarPeste,
   scoate,
   type Extrasa,
+  type MesajIstoric,
+  type RaspunsLege,
   type RaspunsProfil,
   type Stare,
 } from "@/lib/asistent";
 import { incarcaProfil, PROFIL_GOL, salveazaProfil, scoateDinProfil, type Profil } from "@/lib/profil";
+import { PERSOANE_DEMO } from "@/lib/persoane-demo";
 import { aziISO, potriveste } from "@/lib/potrivire";
 import type { TagId } from "@/lib/taguri";
 import { etichetaTagL } from "@/lib/i18n";
 import { useLimba } from "@/components/Limba";
 import { FormularProfil } from "@/components/FormularProfil";
 
-type Props = { mod: "profil" } | { mod: "lege"; id: string; titlu: string; onInchide: () => void };
+type Props = { mod: "profil" } | { mod: "lege"; id: string; titlu: string; onInchide: () => void; profil?: Profil };
 
 export default function Asistent(props: Props) {
   return props.mod === "profil" ? <AsistentProfil /> : <AsistentLege {...props} />;
 }
 
-/** Mod „lege”: doar carcasa dialogului; conținutul vine într-o felie următoare. */
-function AsistentLege({ titlu, onInchide }: { id: string; titlu: string; onInchide: () => void }) {
+type BulaLege = { rol: "asistent" | "om"; text: string; sursa?: RaspunsLege["sursa"] };
+
+const INTREBARI_LEGE = ["De ce mă privește?", "Ce trebuie să fac?", "Ce se întâmplă dacă nu fac nimic?"];
+const EROARE_LEGE = "Nu am putut răspunde acum. Încearcă din nou.";
+
+/** Mod „lege”: întrebări despre un singur act, într-un dialog; răspunsurile vin din /api/asistent. */
+function AsistentLege({ id, titlu, onInchide, profil }: { id: string; titlu: string; onInchide: () => void; profil?: Profil }) {
   const { t } = useLimba();
   const ref = useRef<HTMLDialogElement>(null);
+  const sfarsit = useRef<HTMLDivElement>(null);
+  const [bule, setBule] = useState<BulaLege[]>([]);
+  const [text, setText] = useState("");
+  const [seTrimite, setSeTrimite] = useState(false);
+
   useEffect(() => {
     const d = ref.current;
     if (d && !d.open) d.showModal();
   }, []);
+
+  useEffect(() => {
+    if (bule.length > 0) sfarsit.current?.scrollIntoView({ block: "end", behavior: "smooth" });
+  }, [bule.length, seTrimite]);
+
+  async function intreaba(intrebare: string) {
+    const q = intrebare.trim();
+    if (!q || seTrimite) return;
+    const istoric: MesajIstoric[] = bule.map((b) => ({ rol: b.rol, text: b.text }));
+    setBule((b) => [...b, { rol: "om", text: q }]);
+    setText("");
+    setSeTrimite(true);
+    let raspuns: BulaLege;
+    try {
+      const r = await fetch("/api/asistent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mod: "lege", id, profil: profil ?? incarcaProfil(), istoric, intrebare: q }),
+      });
+      if (!r.ok) throw new Error(String(r.status));
+      const json = (await r.json()) as RaspunsLege;
+      if (typeof json.text !== "string") throw new Error("raspuns");
+      raspuns = { rol: "asistent", text: json.text, sursa: json.sursa };
+    } catch {
+      raspuns = { rol: "asistent", text: EROARE_LEGE };
+    }
+    setBule((b) => [...b, raspuns]);
+    setSeTrimite(false);
+  }
+
+  const bula = "m-0 max-w-[85%] rounded-2xl border px-4 py-2.5 text-[15.5px] leading-snug";
+
   return (
     <dialog
       ref={ref}
       onClose={onInchide}
+      aria-label={titlu}
       className="m-auto w-[min(92vw,34rem)] rounded-2xl border border-v3-line bg-v3-card p-5 text-v3-ink backdrop:bg-black/50"
     >
-      <h2 className="m-0 mb-3 font-head text-xl font-extrabold">{titlu}</h2>
-      <p className="m-0 mb-4 text-[15px] text-v3-ink-2">{t("Asistentul pentru această lege vine în curând.")}</p>
-      <button type="button" onClick={onInchide} className="min-h-11 rounded-[10px] bg-v3-ink px-4 font-bold text-v3-on-ink">
-        {t("Închide")}
-      </button>
+      <div className="mb-2 flex items-start justify-between gap-3">
+        <h2 className="m-0 font-head text-xl font-extrabold">{titlu}</h2>
+        <button
+          type="button"
+          onClick={() => ref.current?.close()}
+          aria-label={t("Închide")}
+          className="grid size-11 shrink-0 place-items-center rounded-full text-xl font-bold text-v3-ink-2 hover:text-v3-ink"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <p className="m-0 mb-3 text-[13.5px] text-v3-ink-2">{t("Răspunsurile vin din textul legii și din datele cardului. Nu e sfat financiar.")}</p>
+
+      <div className="mb-3 flex flex-wrap gap-2">
+        {INTREBARI_LEGE.map((q) => (
+          <button
+            key={q}
+            type="button"
+            disabled={seTrimite}
+            onClick={() => void intreaba(q)}
+            className="min-h-11 rounded-full border-2 border-v3-ink bg-v3-card px-4 text-[14.5px] font-bold text-v3-ink disabled:opacity-50"
+          >
+            {t(q)}
+          </button>
+        ))}
+      </div>
+
+      <div className="max-h-[45vh] space-y-3 overflow-y-auto" aria-live="polite">
+        {bule.map((b, i) => (
+          <div key={i} className={b.rol === "om" ? "flex justify-end" : "flex"}>
+            <p className={`${bula} ${b.rol === "om" ? "border-v3-ink bg-v3-ink text-v3-on-ink" : "border-v3-line bg-v3-card text-v3-ink"}`}>
+              {b.rol === "asistent" && b.text === EROARE_LEGE ? t(b.text) : b.text}
+              {b.sursa?.url && (
+                <span className="mt-1.5 block text-[13.5px]">
+                  <a href={b.sursa.url} target="_blank" rel="noopener" className="font-semibold text-v3-accent underline underline-offset-2">
+                    {t("Textul legii pe Portalul Legislativ")} {"↗︎"}
+                  </a>
+                </span>
+              )}
+            </p>
+          </div>
+        ))}
+        {seTrimite && (
+          <div className="flex">
+            <p className={`${bula} border-v3-line bg-v3-card text-v3-ink`}>…</p>
+          </div>
+        )}
+        <div ref={sfarsit} />
+      </div>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          void intreaba(text);
+        }}
+        className="mt-3 flex gap-2"
+      >
+        <input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          disabled={seTrimite}
+          placeholder={t("Întreabă despre această lege…")}
+          aria-label={t("Întreabă despre această lege…")}
+          className="min-h-12 min-w-0 flex-1 rounded-full border border-v3-ink-2 bg-v3-card px-4 text-[15px] text-v3-ink disabled:opacity-50"
+        />
+        <button
+          type="submit"
+          disabled={seTrimite || !text.trim()}
+          aria-label={t("Trimite")}
+          className="grid size-12 shrink-0 place-items-center rounded-full bg-v3-ink text-lg font-bold text-v3-on-ink disabled:opacity-40"
+        >
+          <span aria-hidden="true">↑</span>
+        </button>
+      </form>
     </dialog>
   );
 }
@@ -64,6 +180,16 @@ function AsistentProfil() {
   const sfarsit = useRef<HTMLDivElement>(null);
 
   useEffect(() => setBaza(incarcaProfil()), []);
+
+  // /profil?p=andrei: arată conversația terminată pentru o persoană demo (nu se salvează nimic).
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search).get("p");
+    if (p && Object.prototype.hasOwnProperty.call(PERSOANE_DEMO, p)) {
+      const persoana = PERSOANE_DEMO[p as keyof typeof PERSOANE_DEMO];
+      setStare(redaDinTaguri(persoana.profil.taguri as TagId[]));
+      setBaza(persoana.profil as Profil);
+    }
+  }, []);
 
   const intrebare = intrebareaCurenta(stare);
   const nrActe = useMemo(() => potriveste(inProfil(stare, baza), CATALOG, aziISO()).length, [stare, baza]);
@@ -217,7 +343,12 @@ function AsistentProfil() {
               );
             })}
             {intrebare.multiple && (
-              <button type="button" onClick={gata} className="min-h-11 rounded-full bg-v3-ink px-5 text-[15px] font-bold text-v3-on-ink">
+              <button
+                type="button"
+                onClick={gata}
+                disabled={alegeri.length === 0}
+                className="min-h-11 rounded-full bg-v3-ink px-5 text-[15px] font-bold text-v3-on-ink disabled:opacity-40"
+              >
                 {t("Gata")}
               </button>
             )}
@@ -238,6 +369,7 @@ function AsistentProfil() {
 
         <div ref={sfarsit} />
 
+        {!stare.terminat && (
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -262,6 +394,7 @@ function AsistentProfil() {
             <span aria-hidden="true">↑</span>
           </button>
         </form>
+        )}
       </div>
     </div>
   );
