@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { ComutatorLimba, useLimba } from "@/components/Limba";
 import { ComutatorTema } from "@/components/Tema";
 import { useAbonament } from "@/components/useAbonament";
+import type { StareAbonament } from "@/lib/abonament";
 
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
 // Trei secțiuni: Pentru tine (macheta v6), Toate legile (noutățile și ghidul) și Profil (cu Planul meu).
@@ -36,12 +37,12 @@ export function Antet() {
             <b className="block font-head text-[clamp(15px,4.4vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] text-balance text-v3-logo lg:whitespace-nowrap lg:text-[34px]">
               {t("Buzunar")}
             </b>
-            <span className="mt-[3px] hidden text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase min-[400px]:block lg:text-[11.5px]">
+            <span className="mt-[3px] hidden text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase min-[480px]:block lg:text-[11.5px]">
               {t("Legea, pe banii tăi")}
             </span>
           </Link>
           <span className="flex items-center justify-end gap-1.5 sm:gap-2">
-            <ButonPro />
+            <ButoaneCont />
             <ComutatorLimba />
           </span>
         </div>
@@ -65,13 +66,44 @@ export function Antet() {
   );
 }
 
-/** „Upgrade la Pro” cât timp n-ai Pro; după plată, o insignă discretă. Duce la /abonament (conectare, apoi plată). */
-function ButonPro() {
-  const { t } = useLimba();
+const butonSecundar =
+  "inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg border border-v3-line bg-v3-card px-2.5 text-xs font-bold whitespace-nowrap text-v3-ink no-underline hover:border-v3-ink";
+
+/** Contul și Pro, cu o singură citire a stării (useAbonament spune și dacă ești conectat). */
+function ButoaneCont() {
   const stare = useAbonament();
+  return (
+    <>
+      <ButonCont stare={stare} />
+      <ButonPro stare={stare} />
+    </>
+  );
+}
+
+/** „Intră” cât nu ești conectat; „Cont” după. Ambele duc la /conectare (Google; acolo e și „Ieși din cont”). */
+function ButonCont({ stare }: { stare: StareAbonament | null }) {
+  const { t } = useLimba();
+  const conectat = !!stare?.conectat;
+  return (
+    <Link href="/conectare" className={butonSecundar} aria-label={conectat ? t("Contul meu") : t("Intră în cont")} title={conectat && stare?.email ? stare.email : undefined}>
+      {conectat ? (
+        <>
+          <span aria-hidden="true" className="size-2 rounded-full bg-v3-pos" />
+          {t("Cont")}
+        </>
+      ) : (
+        t("Intră")
+      )}
+    </Link>
+  );
+}
+
+/** „Upgrade la Pro” cât timp n-ai Pro; după plată, o insignă discretă. Duce la /abonament (conectare, apoi plată). */
+function ButonPro({ stare }: { stare: StareAbonament | null }) {
+  const { t } = useLimba();
   if (stare?.activ)
     return (
-      <Link href="/abonament" className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg border border-v3-line bg-v3-card px-2.5 text-xs font-bold text-v3-ink no-underline">
+      <Link href="/abonament" className={butonSecundar}>
         Pro <span className="text-v3-pos">✓</span>
       </Link>
     );
