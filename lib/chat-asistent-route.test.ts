@@ -51,6 +51,16 @@ describe("POST /api/asistent chat", () => {
     expect(j.propuneri).toEqual({ adauga: [], scoate: [] });
   });
 
+  it("rezervă bugetul scurt pentru răspuns, fără raționament intern care îl poate epuiza", async () => {
+    process.env.ANTHROPIC_API_KEY = "test-only";
+    create.mockImplementation(async (params) => params.thinking?.type === "disabled"
+      ? { stop_reason: "end_turn", content: [{ type: "text", text: "CASS sunt banii plătiți pentru sănătate." }] }
+      : { stop_reason: "max_tokens", content: [{ type: "thinking", thinking: "" }] });
+    const j = await (await cere(body("Ce este CASS?"))).json();
+    expect(j.mod).toBe("model");
+    expect(j.text).toBe("CASS sunt banii plătiți pentru sănătate.");
+  });
+
   it("păstrează starea și data legii chiar dacă parafraza modelului le omite", async () => {
     process.env.ANTHROPIC_API_KEY = "test-only";
     create.mockResolvedValueOnce({ stop_reason: "end_turn", content: [{ type: "text", text: "Legea privește plata pensiei private." }] });
