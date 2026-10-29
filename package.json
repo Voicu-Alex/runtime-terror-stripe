@@ -11,7 +11,10 @@
     "test:watch": "vitest",
     "legi:migreaza": "node --env-file=.env.local scripts/legi/migreaza.mjs",
     "legi:descopera": "node --env-file=.env.local --import tsx scripts/legi/descopera.mts",
-    "legi:export-lot": "node --env-file=.env.local --import tsx scripts/legi/export-lot.mts"
+    "legi:export-lot": "node --env-file=.env.local --import tsx scripts/legi/export-lot.mts",
+    "legi:aproba": "node --env-file=.env.local --import tsx scripts/legi/aproba.mts",
+    "legi:respinge": "node --env-file=.env.local --import tsx scripts/legi/respinge.mts",
+    "legi:export-inbox": "node --env-file=.env.local --import tsx scripts/legi/export-inbox.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.3.0",
