@@ -36,3 +36,6 @@ scratch/
 # Playwright
 /test-results/
 /playwright-report/
+
+# machete temporare din brainstorming (superpowers)
+.superpowers/
