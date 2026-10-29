@@ -37,7 +37,8 @@ describe("construiesteSistem", () => {
     expect(parti[0]).toBe("Azi e 2026-10-29. 2026-10-29");
     expect(parti[1]).toBe("## Fișierele la care trimit instrucțiunile");
     expect(s).toContain("### lib/taguri.ts\n\n```\ncontinut lib/taguri.ts\n```");
-    expect(s.endsWith("### data/destinatii.json\n\n```\ncontinut data/destinatii.json\n```")).toBe(true);
+    expect(s).toContain("### data/destinatii.json\n\n```\ncontinut data/destinatii.json\n```");
+    expect(s.endsWith("### data/referinte.json\n\n```\ncontinut data/referinte.json\n```")).toBe(true);
   });
 });
 
