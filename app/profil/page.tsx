@@ -1,4 +1,4 @@
-import { FormularProfil } from "@/components/FormularProfil";
+import Asistent from "@/components/Asistent";
 import { T } from "@/components/Limba";
 
 export const metadata = { title: "Profilul meu · Ce înseamnă pentru mine" };
@@ -11,10 +11,10 @@ export default function PaginaProfil() {
           <T k="Profilul meu" />
         </h1>
         <p className="mt-1 mb-0 text-[15px] text-v3-ink-2">
-          <T k="Încarcă documentele pe care le ai deja și profilul se completează singur: etichete și câteva cifre, nimic altceva. Rămâne pe dispozitivul tău." />
+          <T k="Răspunzi la 6 întrebări scurte, cu o atingere sau în cuvintele tale, și vezi ce legi te privesc. Preferi un formular? E mai jos." />
         </p>
       </div>
-      <FormularProfil />
+      <Asistent mod="profil" />
     </div>
   );
 }

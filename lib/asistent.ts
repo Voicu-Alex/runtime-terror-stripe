@@ -5,8 +5,8 @@
  * Regula produsului (CLAUDE.md): modelul nu inventează etichete și nu calculează sume.
  * Etichetele vin doar din lib/taguri.ts; sumele vin doar din motor (lib/potrivire.ts).
  */
-import type { Familie, TagId } from "./taguri";
-import type { Profil } from "./profil";
+import { esteTag, etichetaTag, type Familie, type TagId } from "./taguri";
+import { adaugaInProfil, normalizeaza, type Profil } from "./profil";
 
 /** O etichetă extrasă, cu cuvântul din care a venit („IT din «programator»”). `din` lipsește la butoane. */
 export type Extrasa = { tag: TagId; din?: string };
@@ -121,50 +121,113 @@ export type Stare = {
 };
 
 export function porneste(): Stare {
-  throw new Error("TODO");
+  return {
+    pas: 1,
+    extrase: [],
+    mesaje: [
+      { rol: "asistent", text: MESAJ_START },
+      { rol: "asistent", text: INTREBARI[0].text },
+    ],
+    terminat: false,
+  };
 }
 
 export function intrebareaCurenta(s: Stare): Intrebare | null {
-  void s;
-  throw new Error("TODO");
+  if (s.terminat || s.pas < 1 || s.pas > INTREBARI.length) return null;
+  return INTREBARI[s.pas - 1];
+}
+
+/** Adaugă etichetele noi (fără duplicate pe tag; rămâne primul `din`). Întoarce lista nouă și ce s-a adăugat. */
+function adauga(existente: Extrasa[], noi: Extrasa[]): { extrase: Extrasa[]; adaugate: Extrasa[] } {
+  const extrase = existente.map((e) => ({ ...e }));
+  const adaugate: Extrasa[] = [];
+  for (const n of noi) {
+    if (extrase.some((e) => e.tag === n.tag)) continue;
+    const e: Extrasa = n.din ? { tag: n.tag, din: n.din } : { tag: n.tag };
+    extrase.push(e);
+    adaugate.push({ ...e });
+  }
+  return { extrase, adaugate };
+}
+
+function copie(s: Stare): Stare {
+  return {
+    pas: s.pas,
+    extrase: s.extrase.map((e) => ({ ...e })),
+    mesaje: s.mesaje.map((m) => (m.rol === "etichete" ? { rol: "etichete", etichete: m.etichete.map((e) => ({ ...e })) } : { ...m })),
+    terminat: s.terminat,
+  };
+}
+
+/** Trece la următorul pas (sare pasul 3 fără firmă) și pune întrebarea sau rezumatul. */
+function avanseaza(s: Stare): Stare {
+  const n = copie(s);
+  let pas = n.pas + 1;
+  if (pas === 3 && !n.extrase.some((e) => TAGURI_FIRMA.includes(e.tag))) pas = 4;
+  n.pas = pas;
+  if (pas > INTREBARI.length) {
+    n.pas = INTREBARI.length + 1;
+    n.terminat = true;
+    n.mesaje.push({ rol: "asistent", text: rezumat(n) });
+  } else {
+    n.mesaje.push({ rol: "asistent", text: INTREBARI[pas - 1].text });
+  }
+  return n;
 }
 
 export function raspundeRapid(s: Stare, r: RaspunsRapid[]): Stare {
-  void s;
-  void r;
-  throw new Error("TODO");
+  if (s.terminat) return copie(s);
+  const n = copie(s);
+  const { extrase, adaugate } = adauga(
+    n.extrase,
+    r.flatMap((x) => x.taguri.map((tag) => ({ tag }))),
+  );
+  n.extrase = extrase;
+  n.mesaje.push({ rol: "om", text: r.map((x) => x.eticheta).join(", ") });
+  if (adaugate.length > 0) n.mesaje.push({ rol: "etichete", etichete: adaugate });
+  return avanseaza(n);
 }
 
 /** După ce API-ul a extras etichetele din textul liber. Dacă `extrase` e gol, rămâne pe același pas cu MESAJ_NEINTELES. */
 export function raspundeLiber(s: Stare, textOm: string, extrase: Extrasa[]): Stare {
-  void s;
-  void textOm;
-  void extrase;
-  throw new Error("TODO");
+  if (s.terminat) return copie(s);
+  const n = copie(s);
+  n.mesaje.push({ rol: "om", text: textOm });
+  if (extrase.length === 0) {
+    n.mesaje.push({ rol: "asistent", text: MESAJ_NEINTELES });
+    return n;
+  }
+  const rez = adauga(n.extrase, extrase);
+  n.extrase = rez.extrase;
+  if (rez.adaugate.length > 0) n.mesaje.push({ rol: "etichete", etichete: rez.adaugate });
+  return avanseaza(n);
 }
 
 export function sarPeste(s: Stare): Stare {
-  void s;
-  throw new Error("TODO");
+  if (s.terminat) return copie(s);
+  return avanseaza(s);
 }
 
 /** Scoate eticheta din `extrase` și din toate mesajele „etichete”. */
 export function scoate(s: Stare, tag: TagId): Stare {
-  void s;
-  void tag;
-  throw new Error("TODO");
+  const n = copie(s);
+  n.extrase = n.extrase.filter((e) => e.tag !== tag);
+  n.mesaje = n.mesaje.flatMap((m): Mesaj[] => {
+    if (m.rol !== "etichete") return [m];
+    const etichete = m.etichete.filter((e) => e.tag !== tag);
+    return etichete.length > 0 ? [{ rol: "etichete", etichete }] : [];
+  });
+  return n;
 }
 
 /** „Gata. Am notat: salariu, IT, …. Le poți schimba oricând din Profil.” (parcurs.md §2, mesajul de final) */
 export function rezumat(s: Stare): string {
-  void s;
-  throw new Error("TODO");
+  if (s.extrase.length === 0) return "Gata. Nu am notat nicio etichetă. Le poți adăuga oricând din Profil.";
+  return "Gata. Am notat: " + s.extrase.map((e) => etichetaTag(e.tag)).join(", ") + ". Le poți schimba oricând din Profil.";
 }
 
 export function inProfil(s: Stare, existent: Profil): Profil {
-  void s;
-  void existent;
-  throw new Error("TODO");
+  return adaugaInProfil(existent, s.extrase.map((e) => e.tag));
 }
 
 /* ---------- Contract API: /api/asistent ---------- */
@@ -182,6 +245,35 @@ export type CerereAsistent = CerereProfil | CerereLege;
 
 /** Validare la runtime: mod, câmpuri, taguri ∈ TOATE_TAGURILE, profil prin normalizeaza(). */
 export function esteCerere(x: unknown): x is CerereAsistent {
-  void x;
-  throw new Error("TODO");
+  if (typeof x !== "object" || x === null) return false;
+  const o = x as Record<string, unknown>;
+  if (o.mod === "profil") {
+    return (
+      typeof o.text === "string" &&
+      typeof o.pas === "number" &&
+      Number.isFinite(o.pas) &&
+      o.pas >= 1 &&
+      o.pas <= 6 &&
+      Array.isArray(o.taguri) &&
+      o.taguri.every(esteTag)
+    );
+  }
+  if (o.mod === "lege") {
+    if (typeof o.id !== "string" || o.id.length === 0) return false;
+    if (typeof o.intrebare !== "string") return false;
+    if (!Array.isArray(o.istoric)) return false;
+    const istoricBun = o.istoric.every((m) => {
+      if (typeof m !== "object" || m === null) return false;
+      const r = m as Record<string, unknown>;
+      return (r.rol === "asistent" || r.rol === "om") && typeof r.text === "string";
+    });
+    if (!istoricBun) return false;
+    try {
+      normalizeaza(o.profil);
+    } catch {
+      return false;
+    }
+    return true;
+  }
+  return false;
 }
