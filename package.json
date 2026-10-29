@@ -9,7 +9,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "legi:migreaza": "node --env-file=.env.local scripts/legi/migreaza.mjs"
+    "legi:migreaza": "node --env-file=.env.local scripts/legi/migreaza.mjs",
+    "legi:descopera": "node --env-file=.env.local --import tsx scripts/legi/descopera.mts",
+    "legi:export-lot": "node --env-file=.env.local --import tsx scripts/legi/export-lot.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.3.0",
@@ -19,6 +21,7 @@
     "pg": "^8.23.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
     "stripe": "23.0.1"
   },
   "devDependencies": {
