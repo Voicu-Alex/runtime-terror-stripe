@@ -145,6 +145,8 @@ const azi = new Date().toISOString().slice(0, 10);
 const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
 const erori: string[] = [];
 const contor = { noi: 0, actualizate: 0, lipsa: 0, nemodificate: 0, eroare: 0 };
+const LIPSA_CONSECUTIVE_MAX = 20;
+let lipsaConsecutive = 0;
 const dupaTip = new Map<string, number>();
 const dupaStare = new Map<string, number>();
 const numara = (m: Map<string, number>, k: string) => m.set(k, (m.get(k) ?? 0) + 1);
@@ -162,8 +164,12 @@ async function proceseaza(idNum: number) {
 
   if (r.status === 404 || esteLipsa(r.text, r.status)) {
     contor.lipsa++;
+    // Id-urile sunt dense (0 lipsă în primele 500). Un șir lung de „lipsă” înseamnă că Portalul răspunde cu pagina de
+    // eroare la orice, nu că actele nu există: ne oprim ca la o cădere a serverului.
+    if (++lipsaConsecutive >= LIPSA_CONSECUTIVE_MAX) throw new PortalIndisponibil(url, `${LIPSA_CONSECUTIVE_MAX} id-uri lipsă la rând`);
     return;
   }
+  lipsaConsecutive = 0;
 
   let act: ActParsat | null = null;
   let motivEroare = r.status !== 200 ? `HTTP ${r.status}` : "";

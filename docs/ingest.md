@@ -63,8 +63,8 @@ folosește doar pentru verificarea de paritate pe 3–5 acte (`eval/interpreteaz
 | Numere din Monitorul Oficial, Partea I | ≈ 1.130–1.300 | numerele din decembrie 2024 și 2025 |
 
 **Parcurgerea ultimelor 6 săptămâni** (id 314500 → 315900, `--dry-run --dump scratch/sweep`, 1 cerere / 2 s): la ora
-scrierii 508 pagini, 508 răspunsuri 200, 0 lipsă, 0 erori, 0 reîncercări (jurnal: `scratch/sweep-log.txt`). Rularea
-continuă singură și se reia cu `--reia` sau cu `--de-la <ultimul id>`.
+scrierii 508 pagini, 508 răspunsuri 200, 0 lipsă, 0 erori, 0 reîncercări (jurnal: `scratch/sweep-log.txt`, copiat la final în `eval/rezultate/triaj-2026-10-29/`). În `--dry-run` nu există
+cursor, deci reluarea se face cu `--de-la <ultimul id văzut>`; `--reia` merge doar cu baza de date.
 
 | Pasul | Rezultat pe primele 508 acte |
 |---|---|

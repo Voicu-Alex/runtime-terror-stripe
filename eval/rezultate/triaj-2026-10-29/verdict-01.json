@@ -1,0 +1,82 @@
+{
+  "portal:314590": {
+    "atinge_banii": false,
+    "motiv": "Decizie ASF despre retragerea autorizației unui broker de asigurare și radierea acestuia din registru; privește o companie intermediară, nu obligațiile sau drepturile unei persoane fizice, PFA sau SRL mici."
+  },
+  "portal:314591": {
+    "atinge_banii": false,
+    "motiv": "Decizie ASF de autorizare a unui broker de asigurare ca intermediar principal; reglementează accesul unei companii la activitate, fără impact direct asupra banilor persoanelor fizice."
+  },
+  "portal:314592": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre a Camerei Deputaților care mută deputați între comisiile permanente; este organizare internă a Parlamentului."
+  },
+  "portal:314598": {
+    "atinge_banii": false,
+    "motiv": "Ordin de acreditare a unei unități de învățământ de stat; privește organizarea instituțiilor, nu banii sau obligațiile persoanelor (titlul conține cuvântul „salariu” doar ca potrivire de cuvinte cheie)."
+  },
+  "portal:314606": {
+    "atinge_banii": true,
+    "motiv": "De citit integral: ordin privind metodologia de raportare a informațiilor pentru verificarea măsurilor de protejare a economiei și populației în situația de criză pe piața carburanților (benzină și motorină), care ține de prețurile plătite de oameni; dispozitivul operativ este tăiat."
+  },
+  "portal:314608": {
+    "atinge_banii": true,
+    "motiv": "De citit integral: același ordin privind raportarea pentru măsurile de criză pe piața carburanților (benzină și motorină), înregistrat sub alt număr; textul din fișier este tăiat după antet."
+  },
+  "portal:314610": {
+    "atinge_banii": true,
+    "motiv": "De citit integral: același ordin privind raportarea pentru măsurile de criză pe piața carburanților (benzină și motorină), înregistrat sub alt număr; textul din fișier este tăiat după antet."
+  },
+  "portal:314613": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre internă a Camerei Auditorilor Financiari privind alegerea vicepreședinților Consiliului; organizare instituțională."
+  },
+  "portal:314669": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre a Senatului cu opinie asupra unei comunicări a Comisiei Europene privind rezilienta sănătății globale; nu modifică drepturi sau obligații ale persoanelor."
+  },
+  "portal:314670": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre a Senatului cu opinie asupra planului UE pentru îngrășăminte; document de poziție, fără efect normativ asupra banilor persoanelor."
+  },
+  "portal:314671": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre a Senatului cu opinie asupra unei comunicări UE despre simplificarea reglementărilor; document de poziție fără efect normativ direct."
+  },
+  "portal:314672": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre a Senatului cu opinie asupra Strategiei UE pentru combaterea sărăciei; document de poziție, fără modificarea prestațiilor sau a obligațiilor cuiva."
+  },
+  "portal:314673": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre a Senatului cu opinie asupra Garanției europene pentru copii; document de poziție, fără efect normativ direct asupra banilor familiilor."
+  },
+  "portal:314674": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre a Senatului cu opinie asupra Strategiei UE privind drepturile persoanelor cu dizabilități; document de poziție, fără modificarea drepturilor financiare."
+  },
+  "portal:314677": {
+    "atinge_banii": false,
+    "motiv": "Ordin de aprobare a bugetului de venituri și cheltuieli al unei societăți de stat (S.A.); privește bugetul unei companii publice, nu obligațiile sau drepturile persoanelor."
+  },
+  "portal:314678": {
+    "atinge_banii": false,
+    "motiv": "Același ordin de aprobare a bugetului unei societăți de stat, înregistrat sub alt număr; bugetul unei companii publice, nu afectează persoane fizice."
+  },
+  "portal:314679": {
+    "atinge_banii": true,
+    "motiv": "De citit integral: modifică schema de ajutor de minimis pentru înființarea întreprinderilor sociale (sprijin pentru creștere și locuri de muncă, Tranziția Justă), care poate ajunge la firme mici și SRL-uri; dispozitivul cu condițiile schemei este tăiat."
+  },
+  "portal:314684": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre de revocare și numire a unui membru în consiliul director al unui fond; numire în organ de conducere, fără impact direct asupra banilor persoanelor."
+  },
+  "portal:314685": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre de aprobare a unui act adițional la o licență de exploatare minieră a unei companii de stat; nu modifică obligațiile sau drepturile persoanelor fizice sau ale micilor firme."
+  },
+  "portal:314686": {
+    "atinge_banii": false,
+    "motiv": "Hotărâre de numire a unui consul general; ține de activitatea diplomatică."
+  }
+}
