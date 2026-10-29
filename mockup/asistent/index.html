@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Profil prin conversație</title>
+<!--
+  Mockup: asistentul de profil, refăcut ca „interviu de revistă”.
+  Persoana fictivă Andrei, 29 oct 2026. Cifrele (9 / 13 / 14 legi, termenul 31 oct 2026,
+  Legea 162/2026) sunt calculate cu motorul aplicației (lib/potrivire.ts) pe etichetele arătate.
+  Parametri: ?stare=pas4 (implicit) | final   ?tema=dark
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111827; --ink-2:#4B5563; --ink-3:#9CA3AF; --on-ink:#fff; --paper:#fff; --card:#fff;
+  --line:#E5E7EB; --soft:#F5F5F4; --tint:#F1F0EE; --band:#111827; --band-ink:#fff; --band-ink-2:#D1D5DB;
+  --urg:#B42318; --urg-soft:#FCEBE9;
+  --sans:'Inter',system-ui,sans-serif; --head:'Raleway','Inter',sans-serif;
+}
+:root[data-theme="dark"]{
+  --ink:#F4F4F5; --ink-2:#A1A1AA; --ink-3:#71717A; --on-ink:#18181B; --paper:#18181B; --card:#1F1F23;
+  --line:#303036; --soft:#27272A; --tint:#1F1F23; --band:#232327; --band-ink:#F4F4F5; --band-ink-2:#A1A1AA;
+  --urg:#F87171; --urg-soft:#2D1A1A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+/* antetul aplicației, simplificat, doar ca context */
+.top{border-bottom:1px solid var(--line)}
+.top .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+@media(min-width:900px){.top .in{flex-direction:row;justify-content:space-between;text-align:left}}
+.logo{font:800 17px/1.1 var(--head)} .logo small{display:block;font:600 10.5px var(--sans);letter-spacing:.18em;color:var(--ink-2);margin-top:2px}
+.nav{display:flex;gap:22px;font-size:13px;font-weight:700;letter-spacing:.06em}
+.nav span{padding:6px 0;color:var(--ink-2)} .nav .on{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 120px;display:grid;gap:48px}
+@media(min-width:900px){.wrap{grid-template-columns:minmax(0,620px) 340px;justify-content:center;padding-bottom:64px}}
+
+/* capul interviului */
+.kick{display:flex;align-items:baseline;justify-content:space-between;margin:28px 0 10px}
+.kick b{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.kick a{font-size:14px;font-weight:600;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+.prog{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:6px}
+.prog i{height:3px;border-radius:2px;background:var(--line)} .prog i.f{background:var(--ink)} .prog i.c{background:linear-gradient(90deg,var(--ink) 50%,var(--line) 50%)}
+.pnum{font-size:13px;color:var(--ink-2);margin:0 0 6px}
+
+/* răspunsurile date: Î / R, ca într-un interviu tipărit */
+.qa{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.qa li{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:0 8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.qa .n{font:800 12px/1.7 var(--head);color:var(--ink-3)}
+.qa .q{margin:0;font-size:13px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qa .r{margin:2px 0 0;font-weight:600;font-size:15px}
+.qa .quote{margin:2px 0 0;font-size:14px;font-weight:500;font-style:italic;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qa .quote::before{content:"„"} .qa .quote::after{content:"”"}
+.qa .skip{color:var(--ink-3);font-weight:500}
+.qa .ed{align-self:start;border:0;background:none;font-size:12.5px;font-weight:600;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;padding:2px 0}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;background:var(--tint);border-radius:7px;padding:2px 2px 2px 8px;white-space:nowrap}
+.tag em{font-style:normal;font-weight:500;font-size:12px;color:var(--ink-2)}
+.tag button{border:0;background:none;width:24px;height:24px;border-radius:6px;color:var(--ink-2);font-size:15px;line-height:1}
+.tag button:hover{background:var(--line)}
+@media(max-width:420px){.qa .tag em{display:none}}
+
+/* întrebarea curentă */
+.cur{padding-top:22px}
+.cur .n{font:800 13px var(--head);letter-spacing:.1em;color:var(--ink-2)}
+.cur h1{font:800 clamp(28px,7.4vw,38px)/1.12 var(--head);letter-spacing:-.015em;margin:6px 0 4px}
+.cur .hint{margin:0 0 18px;color:var(--ink-2);font-size:15px}
+.opts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:58px;padding:0 4px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;font-size:17px;font-weight:600}
+.opt .box{flex:none;width:24px;height:24px;border:2px solid var(--ink);border-radius:6px;display:grid;place-items:center}
+.opt[aria-pressed="true"] .box{background:var(--ink)}
+.opt[aria-pressed="true"] .box::after{content:"";width:6px;height:11px;border:solid var(--on-ink);border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.opt:hover{background:var(--soft)}
+.free{display:flex;align-items:center;gap:10px;margin-top:14px;border:1.5px solid var(--line);border-radius:12px;padding:4px 4px 4px 14px;background:var(--card)}
+.free:focus-within{border-color:var(--ink)}
+.free input{flex:1;min-width:0;border:0;background:none;color:var(--ink);font:500 16px var(--sans);padding:10px 0;outline:0}
+.free input::placeholder{color:var(--ink-3)}
+.free button{width:42px;height:42px;border:0;border-radius:9px;background:var(--soft);font-size:18px;font-weight:700}
+.go{display:flex;align-items:center;gap:18px;margin-top:22px}
+.primary,.link{white-space:nowrap}
+.primary{min-height:52px;padding:0 26px;border:0;border-radius:12px;background:var(--ink);color:var(--on-ink);font-weight:700;font-size:16px}
+.primary:disabled{opacity:.35;cursor:default}
+.link{border:0;background:none;font-weight:600;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+.note{margin:26px 0 0;font-size:13px;color:var(--ink-3)}
+
+/* finalul */
+.done h1{font:800 clamp(30px,8vw,44px)/1.08 var(--head);letter-spacing:-.02em;margin:10px 0 10px}
+.done h1 b{display:block}
+.done p{margin:0 0 20px;font-size:16px;color:var(--ink-2);max-width:34em}
+.deadline{display:flex;gap:12px;align-items:flex-start;background:var(--urg-soft);border-radius:12px;padding:14px 16px;margin:0 0 22px}
+.deadline .d{flex:none;font:800 13px/1.3 var(--head);color:var(--urg);text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+.deadline .t{font-size:15px;font-weight:600}
+.deadline .t span{display:block;font-weight:500;font-size:13.5px;color:var(--ink-2);margin-top:2px}
+
+/* ce am notat: coloană pe desktop, bandă jos pe telefon */
+.side{display:none}
+@media(min-width:900px){
+  .side{display:block;position:sticky;top:24px;align-self:start;margin-top:28px;border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card)}
+  .side h2{margin:0 0 4px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+  .side .big{font:800 44px/1 var(--head);margin:14px 0 2px}
+  .side .big small{font:600 15px var(--sans);color:var(--ink-2);margin-left:6px}
+  .side .delta{font-size:13.5px;color:var(--ink-2);margin:0 0 14px}
+  .fam{border-top:1px solid var(--line);padding:10px 0}
+  .fam p{margin:0 0 6px;font-size:12.5px;color:var(--ink-2)}
+  .fam .tags{margin-top:0}
+  .fam.empty p{margin:0;color:var(--ink-3)}
+  .band{display:none}
+}
+.band{position:fixed;left:0;right:0;bottom:0;background:var(--band);color:var(--band-ink);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.band .in{max-width:620px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.band b{font:800 26px/1 var(--head)}
+.band .l{font-size:14px} .band .l span{display:block;color:var(--band-ink-2);font-size:12.5px;margin-top:2px}
+.band .up{font-size:12.5px;font-weight:700;border:1px solid var(--band-ink-2);border-radius:999px;padding:3px 9px;white-space:nowrap}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <div class="logo">Ce înseamnă pentru mine<small>LEGEA, PE BANII TĂI</small></div>
+  <nav class="nav" aria-label="Meniu"><span>FLUX</span><span>TOATE LEGILE</span><span class="on">PROFIL</span></nav>
+</div></header>
+
+<div class="wrap">
+<main>
+  <div class="kick"><b>Profilul tău</b><a href="#">Prefer formularul</a></div>
+  <div class="prog" id="prog" aria-hidden="true"></div>
+  <p class="pnum" id="pnum"></p>
+
+  <ol class="qa" id="qa" aria-label="Ce ai răspuns până acum"></ol>
+
+  <!-- întrebarea curentă -->
+  <section class="cur" id="cur" aria-labelledby="qh">
+    <span class="n">ÎNTREBAREA 4</span>
+    <h1 id="qh">Ce ai pe numele tău?</h1>
+    <p class="hint">Poți alege mai multe.</p>
+    <ul class="opts" id="opts"></ul>
+    <label class="free">
+      <input placeholder="Sau spune în cuvintele tale…" aria-label="Răspunde în cuvintele tale">
+      <button type="button" aria-label="Trimite">→</button>
+    </label>
+    <div class="go">
+      <button class="primary" id="cont">Continuă</button>
+      <button class="link">Sar peste</button>
+    </div>
+    <p class="note">Nu îți cerem venitul exact, CNP sau banca. Răspunsurile rapide rămân pe dispozitivul tău.</p>
+  </section>
+
+  <!-- finalul -->
+  <section class="done cur" id="done" hidden>
+    <span class="n">GATA</span>
+    <h1>14 legi îți schimbă banii.<b>Prima are termen poimâine.</b></h1>
+    <div class="deadline">
+      <span class="d">31 oct</span>
+      <span class="t">Motorina e mai ieftină cu aproximativ 0,85 lei/l până la 31 oct 2026
+        <span>Legea 162/2026 · peste 2 zile</span></span>
+    </div>
+    <p>Am notat 7 etichete din ce mi-ai spus. Le poți schimba oricând de aici, și fluxul se schimbă cu ele.</p>
+    <div class="go"><button class="primary">Vezi cele 14 legi</button></div>
+  </section>
+</main>
+
+<aside class="side" aria-label="Ce am notat">
+  <h2>Ce am notat</h2>
+  <div class="big" id="sbig"></div>
+  <p class="delta" id="sdelta"></p>
+  <div id="fams"></div>
+</aside>
+</div>
+
+<div class="band" role="status"><div class="in">
+  <div class="l"><b id="bnum"></b> <strong id="blab"></strong><span id="bsub"></span></div>
+  <span class="up" id="bup"></span>
+</div></div>
+
+<script>
+const P = new URLSearchParams(location.search);
+if (P.get("tema") === "dark") document.documentElement.dataset.theme = "dark";
+let FINAL = P.get("stare") === "final";
+// Pentru capturi (panoul de previzualizare pierde parametrii): mock("final", "dark")
+window.mock = (stare, tema) => { FINAL = stare === "final"; document.documentElement.dataset.theme = tema || "light"; render(); };
+
+// Ce a răspuns Andrei (fictiv). „din” = cuvântul din textul lui.
+const raspunsuri = [
+  { q: "Din ce îți vin banii în fiecare lună?", quote: "Sunt programator angajat și am un SRL din care iau dividende",
+    tags: [["salariu","angajat"],["dividende SRL","SRL"],["IT","programator"]] },
+  { q: "În ce domeniu lucrezi?", r: "IT, notat din răspunsul 1", tags: [] },
+  { q: "Ai o firmă sau un PFA pe numele tău?", skip: true },
+];
+const final = [
+  { q: "Ce ai pe numele tău?", r: "Mașină, Pilon II", tags: [["mașină"],["Pilon II"]] },
+  { q: "Unde stai și cu ce te încălzești?", r: "Chirie, încălzire pe gaz", tags: [["chirie"],["încălzire pe gaz"]] },
+  { q: "Ai pe cineva în grijă?", skip: true },
+];
+const opts = ["Apartament sau casă", "Mașină", "Pilon II", "Pilon III"];
+const ales = new Set(["Mașină", "Pilon II"]);
+
+const tagHTML = ([l, din]) => `<span class="tag">${l}${din ? ` <em>«${din}»</em>` : ""}<button aria-label="Scoate ${l}">×</button></span>`;
+function qa(list) {
+  return list.map((a, i) => `<li><span class="n">0${i + 1}</span><div>
+    <p class="q">${a.q}</p>
+    ${a.quote ? `<p class="quote">${a.quote}</p>` : a.skip ? `<p class="r skip">Sărit</p>` : a.tags && a.tags.length ? "" : `<p class="r">${a.r}</p>`}
+    ${a.tags && a.tags.length ? `<div class="tags">${a.tags.map(tagHTML).join("")}</div>` : ""}
+  </div><button class="ed">Schimbă</button></li>`).join("");
+}
+
+function render() {
+  const done = FINAL ? 6 : 3;
+  document.getElementById("prog").innerHTML = Array.from({ length: 6 }, (_, i) => `<i class="${i < done ? "f" : i === done ? "c" : ""}"></i>`).join("");
+  document.getElementById("pnum").textContent = FINAL ? "6 din 6 întrebări" : `${done} din 6 întrebări · mai durează cam un minut`;
+  document.getElementById("qa").innerHTML = qa(FINAL ? raspunsuri.concat(final) : raspunsuri);
+  document.getElementById("cur").hidden = FINAL;
+  document.getElementById("done").hidden = !FINAL;
+
+  document.getElementById("opts").innerHTML = opts.map((o) =>
+    `<li><button class="opt" aria-pressed="${ales.has(o)}" data-o="${o}"><span class="box"></span>${o}</button></li>`).join("");
+  document.getElementById("cont").disabled = ales.size === 0;
+  document.getElementById("cont").textContent = ales.size ? `Continuă (${ales.size})` : "Continuă";
+  document.querySelector(".band").hidden = FINAL;
+
+  // Cifrele: motorul aplicației pe etichetele notate (9), plus Mașină + Pilon II (13), la final (14).
+  const preview = !FINAL && ales.has("Mașină") && ales.has("Pilon II") && ales.size === 2;
+  const n = FINAL ? 14 : preview ? 13 : 9;
+  const sub = FINAL || preview ? "primul termen: 31 oct, în 2 zile" : "primul termen: 31 dec";
+  document.getElementById("bnum").textContent = n;
+  document.getElementById("bsub").textContent = sub;
+  document.getElementById("blab").textContent = "legi te privesc";
+  document.getElementById("bup").textContent = preview ? "+4 cu ce ai bifat" : FINAL ? "gata" : "până acum";
+  document.getElementById("sbig").innerHTML = `${n}<small>legi te privesc</small>`;
+  document.getElementById("sdelta").textContent = preview ? "9 până acum, +4 cu Mașină și Pilon II. Cel mai apropiat termen: 31 oct 2026." :
+    FINAL ? "Cel mai apropiat termen: 31 oct 2026, peste 2 zile." : "Cel mai apropiat termen: 31 dec 2026.";
+
+  const fam = [
+    ["Cum câștig", [["salariu"],["dividende SRL"]]],
+    ["Domeniul meu", [["IT"]]],
+    ["Ce dețin", FINAL ? [["mașină"],["Pilon II"]] : [...ales].filter((x) => x !== "Apartament sau casă").map((x) => [x === "Mașină" ? "mașină" : x])],
+    ["Unde locuiesc", FINAL ? [["chirie"],["încălzire pe gaz"]] : []],
+    ["Cine depinde de mine", []],
+  ];
+  document.getElementById("fams").innerHTML = fam.map(([f, t]) => t.length
+    ? `<div class="fam"><p>${f}</p><div class="tags">${t.map(tagHTML).join("")}</div></div>`
+    : `<div class="fam empty"><p>${f}: încă nimic</p></div>`).join("");
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".opt"); if (!b) return;
+  const o = b.dataset.o; ales.has(o) ? ales.delete(o) : ales.add(o); render();
+});
+render();
+</script>
+</body>
+</html>
