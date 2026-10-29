@@ -9,14 +9,14 @@ import { useAbonament } from "@/components/useAbonament";
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
 // Trei secțiuni: Pentru tine (macheta v6), Toate legile (noutățile și ghidul) și Profil (cu Planul meu).
 const SECTIUNI = [
-  { href: "/", text: "Pentru tine" },
+  { href: "/aplicatie", text: "Pentru tine" },
   { href: "/legi", text: "Toate legile" },
   { href: "/profil", text: "Profil" },
 ];
 
-/** „/” e activ doar pe pagina principală și pe fluxul vechi; restul, după prefix. */
+/** „Pentru tine” (/aplicatie) e activ și pe fluxul vechi; restul, după prefix. Pe landing (/) nu e activ nimic. */
 function activ(cale: string, href: string): boolean {
-  return href === "/" ? cale === "/" || cale.startsWith("/flux") : cale.startsWith(href);
+  return href === "/aplicatie" ? cale.startsWith("/aplicatie") || cale.startsWith("/flux") : cale.startsWith(href);
 }
 
 export function Antet() {

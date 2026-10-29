@@ -8,6 +8,7 @@ import { sursaAct } from "@/lib/traduceri";
 import type { Limba } from "@/lib/i18n";
 
 // Landing page după DotCom Secrets (Russell Brunson): cârlig → poveste → ofertă, cu FOMO și urgență.
+// E pagina principală (app/page.tsx); aplicația, macheta v6 a lui Andrei, e la /aplicatie. Aspectul urmează v6.
 // Regulile din docs/echipa/design-brief.md: doar urgență reală (termene din lege, calculate față de azi),
 // fără „locuri limitate”, fără testimoniale inventate, fără preț (abonamentul e încă decizie de echipă).
 // Textul e în română și engleză (pitch-ul e în engleză); engleza traduce aceleași fapte, fără cifre noi.
@@ -138,12 +139,17 @@ function zileIntre(deLa: string, panaLa: string): number {
   return Math.round((ms(panaLa) - ms(deLa)) / 86_400_000);
 }
 
+// Stilul machetei v6 a lui Andrei (mockup/v6/index.html, mockup/v5/base.css): carduri cu bordură fină și colțuri de 14 px,
+// degradeu de la gri cald la alb, titluri Raleway 800, cifre în Geist, butoane închise cu colțuri de 10 px.
+const CARD = "rounded-[14px] border border-v3-line bg-v3-card";
+const BILANT = "rounded-[14px] border border-v3-line bg-linear-to-b from-v3-tint2 to-v3-card to-70%";
+
 function Cta({ href, children, secundar }: { href: string; children: React.ReactNode; secundar?: boolean }) {
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-[52px] items-center justify-center rounded-[12px] px-6 text-[16px] font-bold no-underline ${
-        secundar ? "border border-v3-line bg-v3-card text-v3-ink" : "bg-v3-ink text-v3-on-ink hover:bg-v3-ink-strong"
+      className={`inline-flex min-h-[46px] items-center justify-center rounded-[10px] border px-[18px] text-[15px] font-bold no-underline ${
+        secundar ? "border-v3-ink bg-v3-card text-v3-ink" : "border-v3-ink bg-v3-ink text-v3-on-ink hover:bg-v3-ink-strong"
       }`}
     >
       {children}
@@ -151,11 +157,28 @@ function Cta({ href, children, secundar }: { href: string; children: React.React
   );
 }
 
-function Titlu({ eticheta, children }: { eticheta: string; children: React.ReactNode }) {
+/** Titlul unei secțiuni, ca „lh” din v6: Raleway 800, cu o notă mică în dreapta. */
+function Titlu({ children, nota }: { children: React.ReactNode; nota?: string }) {
   return (
-    <div className="mb-6">
-      <p className="m-0 mb-2 text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">{eticheta}</p>
-      <h2 className="m-0 font-head text-[clamp(26px,5.6vw,38px)] leading-[1.12] font-extrabold tracking-[-.015em] text-v3-ink">{children}</h2>
+    <h2 className="m-0 mb-1 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 font-head text-[clamp(22px,4.4vw,28px)] leading-[1.2] font-extrabold tracking-[-.01em] text-v3-ink">
+      {children}
+      {nota && <span className="font-sans text-[13.5px] font-medium tracking-normal text-v3-ink-2">{nota}</span>}
+    </h2>
+  );
+}
+
+/** Data ca în calendarul din v6: ziua mare în Geist, luna și anul mici dedesubt. */
+function Zi({ iso, limba, rosu }: { iso: string; limba: Limba; rosu?: boolean }) {
+  const zi = Number(iso.slice(8, 10));
+  const [, luna, an] = dataScurta(iso, limba).split(" ");
+  return (
+    <div className="w-[52px] flex-none pt-0.5 text-center leading-none">
+      <b className={`block font-num text-[26px] font-semibold tracking-[-.03em] tabular-nums lining-nums ${rosu ? "text-v3-urg" : "text-v3-ink"}`}>{zi}</b>
+      <small className="mt-1 block text-[11.5px] leading-tight text-v3-ink-2">
+        {luna}
+        <br />
+        {an}
+      </small>
     </div>
   );
 }
@@ -167,55 +190,57 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
   const fereastra = c.termen ? zileIntre(c.aflat, c.termen) : null;
   const d = (iso: string) => dataScurta(iso, limba);
   return (
-    <article className="grid gap-6 border-t border-v3-line py-9 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10">
+    <article className="grid gap-6 border-b border-v3-line py-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10">
       <div>
-        <p className="m-0 mb-2 flex items-center gap-3 text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">
-          <span className="font-num font-semibold tabular-nums lining-nums text-[40px] leading-none text-v3-tint1">{String(nr).padStart(2, "0")}</span>
-          {c.eticheta[limba]}
+        <p className="m-0 mb-2 flex flex-wrap items-center gap-2 text-[13px] text-v3-ink-2">
+          <span className="font-num text-[15px] font-semibold tabular-nums text-v3-ink-2">{String(nr).padStart(2, "0")}</span>
+          <span className="font-semibold">{c.eticheta[limba]}</span>
         </p>
-        <h3 className="m-0 font-head text-[clamp(24px,5vw,32px)] leading-[1.15] font-extrabold tracking-[-.015em] text-v3-ink">{c.titlu[limba]}</h3>
-        <p className="m-0 mt-2.5 inline-flex flex-wrap items-center gap-2 rounded-full bg-v3-accent-soft px-3 py-1 text-[13.5px] font-semibold text-v3-ink">
-          <span className="text-[11px] font-extrabold tracking-[.1em] text-v3-accent uppercase">{en ? "Affected" : "Afectați"}</span>
-          {c.afectati[limba]}
+        <h3 className="m-0 font-head text-[clamp(22px,4.6vw,28px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink">{c.titlu[limba]}</h3>
+        <p className="m-0 mt-2.5 flex flex-wrap items-center gap-1.5 text-[13.5px] text-v3-ink-2">
+          {en ? "Affects:" : "Îi privește pe:"}
+          <span className="rounded-full bg-v3-ink px-2.5 py-0.5 text-[12.5px] font-semibold text-v3-on-ink">{c.afectati[limba]}</span>
         </p>
 
         {/* Linia timpului: când se putea afla, până când se putea face ceva */}
-        <ol className="m-0 mt-5 grid list-none gap-0 p-0 sm:grid-cols-3">
-          <li className="border-l-[3px] border-v3-accent py-1 pl-3 sm:border-t-[3px] sm:border-l-0 sm:pt-3 sm:pl-0">
-            <span className="block text-[11px] font-extrabold tracking-[.1em] text-v3-ink-2 uppercase">{en ? "The law appears" : "Apare legea"}</span>
-            <b className="block text-[16px]">{d(c.aflat)}</b>
-            <span className="block text-[13px] text-v3-ink-2">{sursaAct(s, limba).mo_ref.text}</span>
+        <ol className="m-0 mt-5 grid list-none gap-3 p-0 sm:grid-cols-3">
+          <li className={`${CARD} px-3.5 py-3`}>
+            <span className="block text-[12.5px] font-semibold text-v3-ink-2">{en ? "The law appears" : "Apare legea"}</span>
+            <b className="block font-num text-[17px] font-semibold tabular-nums">{d(c.aflat)}</b>
+            <span className="block text-[12.5px] text-v3-ink-2">{sursaAct(s, limba).mo_ref.text}</span>
           </li>
-          <li className="border-l-[3px] border-v3-urg py-1 pl-3 sm:border-t-[3px] sm:border-l-0 sm:pt-3 sm:pl-0">
-            <span className="block text-[11px] font-extrabold tracking-[.1em] text-v3-urg uppercase">{en ? "The window" : "Fereastra"}</span>
-            <b className="block text-[16px] text-v3-urg">{fereastra !== null ? zile(fereastra, limba) : en ? "until you sign" : "până semnezi"}</b>
-            <span className="block text-[13px] text-v3-ink-2">{c.termenText[limba]}</span>
+          <li className="rounded-[14px] border border-v3-urg/30 bg-v3-urg-soft px-3.5 py-3">
+            <span className="block text-[12.5px] font-semibold text-v3-urg">{en ? "The window" : "Fereastra"}</span>
+            <b className="block font-num text-[17px] font-semibold tabular-nums text-v3-urg">
+              {fereastra !== null ? zile(fereastra, limba) : en ? "until you sign" : "până semnezi"}
+            </b>
+            <span className="block text-[12.5px] text-v3-ink-2">{c.termenText[limba]}</span>
           </li>
-          <li className="border-l-[3px] border-v3-past py-1 pl-3 sm:border-t-[3px] sm:border-l-0 sm:pt-3 sm:pl-0">
-            <span className="block text-[11px] font-extrabold tracking-[.1em] text-v3-past uppercase">{en ? "After" : "După"}</span>
-            <b className="block text-[16px] text-v3-past">
+          <li className="rounded-[14px] border border-v3-line bg-v3-past-bg px-3.5 py-3">
+            <span className="block text-[12.5px] font-semibold text-v3-past">{en ? "After" : "După"}</span>
+            <b className="block text-[15px] font-semibold text-v3-past">
               {c.termen ? (en ? "nothing can be done" : "nu se mai poate face nimic") : en ? "the bonus is lost" : "prima e pierdută"}
             </b>
-            <span className="block text-[13px] text-v3-ink-2">
+            <span className="block text-[12.5px] text-v3-ink-2">
               {c.termen ? (en ? `from ${d(c.termen)}` : `din ${d(c.termen)}`) : en ? "if you signed first" : "dacă ai semnat întâi"}
             </span>
           </li>
         </ol>
 
-        <p className="m-0 mt-5 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-soft">
+        <p className="m-0 mt-5 max-w-[62ch] text-[16px] leading-[1.6] text-v3-ink-soft">
           <b>{en ? "What you had to do:" : "Ce trebuia făcut:"}</b> {c.ceTrebuia[limba]}
         </p>
-        <div className="mt-5 rounded-2xl border border-v3-neg/20 bg-v3-urg-soft p-4">
-          <p className="m-0 text-[11px] font-extrabold tracking-[.1em] text-v3-neg uppercase">{en ? "Who lost out" : "Cine a pierdut"}</p>
-          <p className="m-0 mt-1 flex flex-wrap items-baseline gap-x-3">
-            <span className="font-num font-semibold tabular-nums lining-nums text-[44px] leading-none tracking-[-.03em] text-v3-neg">−{suma(c.suma, limba)}</span>
-            <span className="text-[15px] font-semibold text-v3-neg">lei</span>
-          </p>
-          <p className="m-0 mt-2 max-w-[60ch] text-[16px] leading-[1.5] font-semibold text-v3-ink">{c.aPierdut[limba]}</p>
+        <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <span className="text-[13.5px] text-v3-ink-2">{en ? "Who lost out" : "Cine a pierdut"}</span>
+          <span className="font-num text-[40px] leading-none font-semibold tracking-[-.03em] tabular-nums lining-nums text-v3-neg">
+            −{suma(c.suma, limba)}
+            <small className="ml-1 font-sans text-[14px] font-semibold tracking-normal text-v3-ink-2">lei</small>
+          </span>
         </div>
-        <p className="m-0 mt-1 text-[13px] text-v3-ink-2">
+        <p className="m-0 mt-2 max-w-[62ch] text-[15px] leading-[1.5] font-semibold text-v3-ink">{c.aPierdut[limba]}</p>
+        <p className="m-0 mt-2 text-[13px] text-v3-ink-2">
           {en ? "Our calculation:" : "Calculul nostru:"} {c.ipoteza[limba]}.{" "}
-          <a href={s.sursa_url} target="_blank" rel="noopener" className="font-semibold text-v3-accent">
+          <a href={s.sursa_url} target="_blank" rel="noopener" className="font-semibold text-v3-accd">
             {en ? "The law text (RO) ↗︎" : "Textul legii ↗︎"}
           </a>
         </p>
@@ -223,19 +248,19 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
 
       {/* Ce ar fi făcut aplicația: notificarea din ziua în care a apărut legea */}
       <aside aria-label={en ? "What the app would have done" : "Ce ar fi făcut aplicația"} className="self-start">
-        <p className="m-0 mb-2 text-[11px] font-extrabold tracking-[.1em] text-v3-pos uppercase">{en ? "What we would have told you that day" : "Ce ți-am fi spus în ziua aceea"}</p>
-        <div className="rounded-[22px] bg-v3-band p-3 shadow-[0_18px_40px_-18px_rgba(17,24,39,.55)] ring-1 ring-white/10">
-          <p className="m-0 mb-2 text-center text-[12px] font-semibold text-v3-band-ink-2">{d(c.aflat)} · 09:41</p>
-          <div className="rounded-2xl bg-v3-card p-3.5">
-            <p className="m-0 flex items-center gap-2 text-[12px] font-bold text-v3-ink-2">
+        <p className="m-0 mb-2 text-[13px] font-semibold text-v3-pos">{en ? "What we would have told you that day" : "Ce ți-am fi spus în ziua aceea"}</p>
+        <div className={`${BILANT} p-4`}>
+          <p className="m-0 flex items-center justify-between gap-2 text-[12.5px] text-v3-ink-2">
+            <span className="flex items-center gap-2 font-semibold">
               <span className="inline-flex size-5 items-center justify-center rounded-md bg-v3-logo text-[10px] font-extrabold text-v3-on-ink">B</span>
-              {en ? "Pocket · now" : "Buzunar · acum"}
-            </p>
-            <p className="m-0 mt-2 text-[14.5px] leading-[1.45] font-semibold text-v3-ink">{c.notificare[limba]}</p>
-            <p className="m-0 mt-2 text-[12.5px] font-bold text-v3-pos">
-              {en ? `You keep up to ${suma(c.suma, limba)} lei` : `Păstrezi până la ${suma(c.suma, limba)} lei`}
-            </p>
-          </div>
+              {en ? "Pocket" : "Buzunar"}
+            </span>
+            <span className="font-num tabular-nums">{d(c.aflat)}</span>
+          </p>
+          <p className="m-0 mt-2.5 text-[14.5px] leading-[1.45] font-semibold text-v3-ink">{c.notificare[limba]}</p>
+          <p className="m-0 mt-2.5 text-[13px] font-semibold text-v3-pos">
+            {en ? `You keep up to ${suma(c.suma, limba)} lei` : `Păstrezi până la ${suma(c.suma, limba)} lei`}
+          </p>
         </div>
       </aside>
     </article>
@@ -251,7 +276,7 @@ const CE_PRIMESTI: [Text, Text][] = [
     },
   ],
   [
-    { ro: "Fluxul tău, în lei pe an", en: "Your feed, in lei per year" },
+    { ro: "Ce te privește, în lei pe an", en: "What affects you, in lei per year" },
     { ro: "Fiecare lege care te atinge, cu suma pentru tine: cât pierzi, cât câștigi.", en: "Every law that affects you, with your amount: what you lose, what you gain." },
   ],
   [
@@ -263,7 +288,7 @@ const CE_PRIMESTI: [Text, Text][] = [
   ],
   [
     { ro: "Planul meu", en: "My plan" },
-    { ro: "Bifezi ce faci și vezi cât păstrezi pe an. Bara de jos se schimbă pe loc.", en: "Tick what you do and see how much you keep per year. The bar updates instantly." },
+    { ro: "Bifezi ce faci și vezi cât păstrezi pe an.", en: "Tick what you do and see how much you keep per year." },
   ],
   [
     { ro: "Sursa lângă fiecare sumă", en: "The source next to every amount" },
@@ -281,6 +306,7 @@ const CE_PRIMESTI: [Text, Text][] = [
   ],
 ];
 
+// Răspunsul despre date urmează docs/date-personale.md (fluxurile verificate în cod), nu promisiunea veche „nimic nu pleacă de pe telefon”.
 const INTREBARI: [Text, Text][] = [
   [
     { ro: "E sfat financiar?", en: "Is this financial advice?" },
@@ -292,8 +318,8 @@ const INTREBARI: [Text, Text][] = [
   [
     { ro: "Ce date îmi luați?", en: "What data do you take?" },
     {
-      ro: "Profilul stă pe telefonul tău. Documentele sunt citite o dată și nu le păstrăm; acoperă CNP-ul și IBAN-ul înainte.",
-      en: "Your profile stays on your phone. Documents are read once and never stored; cover your personal ID number and IBAN first.",
+      ro: "Nu conectăm banca. Profilul completat de mână e salvat în browser. Dacă încarci un document, fișierul ajunge la serverul aplicației și, pentru analiza AI, la Anthropic; îți spunem asta înainte, iar formularul manual rămâne alternativa.",
+      en: "We never connect to your bank. A profile filled in by hand is saved in your browser. If you upload a document, the file goes to our server and, for the AI analysis, to Anthropic; we tell you before you upload, and the manual form remains an alternative.",
     },
   ],
   [
@@ -305,6 +331,9 @@ const INTREBARI: [Text, Text][] = [
   ],
 ];
 
+/** Aplicația (macheta v6 a lui Andrei), servită la /aplicatie (next.config.ts). */
+const APLICATIA = "/aplicatie";
+
 export function Acasa({ azi, deschise }: { azi: string; deschise: TermenDeschis[] }) {
   const { limba } = useLimba();
   const en = limba === "en";
@@ -315,181 +344,183 @@ export function Acasa({ azi, deschise }: { azi: string; deschise: TermenDeschis[
 
   return (
     <div className="mx-auto max-w-[980px]">
-      {/* HOOK */}
-      <section className="rounded-3xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-5 py-9 sm:px-10 sm:py-12">
-        <p className="m-0 mb-4 inline-flex flex-wrap items-center gap-2 text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">
-          {en ? "The law, in your money" : "Legea, pe banii tăi"}
+      {/* CÂRLIG: ca „bilanțul” din v6 */}
+      <section className={`${BILANT} px-5 py-8 sm:px-9 sm:py-10`}>
+        <p className="m-0 mb-4 flex flex-wrap items-center gap-2 text-[13px] text-v3-ink-2">
+          <span className="font-semibold">{en ? "The law, in your money" : "Legea, pe banii tăi"}</span>
           {primul && (
-            <span className={`rounded-full px-2.5 py-1 tracking-normal normal-case ${primul.zile < ZILE_URGENT ? "bg-v3-urg text-v3-on-ink" : "bg-v3-card text-v3-ink"}`}>
+            <span
+              className={`rounded-full px-2.5 py-0.5 text-[12.5px] font-semibold ${
+                primul.zile < ZILE_URGENT ? "bg-v3-urg text-v3-on-ink" : "border border-v3-line bg-v3-card text-v3-ink"
+              }`}
+            >
               {en ? `A deadline in the law closes in ${zile(primul.zile, limba)}` : `Un termen din lege se închide peste ${zile(primul.zile)}`}
             </span>
           )}
         </p>
-        <h1 className="m-0 max-w-[18ch] font-head text-[clamp(34px,7.4vw,60px)] leading-[1.04] font-extrabold tracking-[-.025em] text-v3-ink">
+        <h1 className="m-0 max-w-[19ch] font-head text-[clamp(32px,6.6vw,54px)] leading-[1.06] font-extrabold tracking-[-.02em] text-v3-ink">
           {en ? (
             <>
-              The law gave you 6 days to keep <span className="font-num font-bold tracking-[-.035em] text-v3-pos">48,000 lei</span>. Did you know?
+              The law gave you 6 days to keep <span className="font-num font-semibold tracking-[-.035em] text-v3-pos">48,000 lei</span>. Did you know?
             </>
           ) : (
             <>
-              Legea ți-a dat 6 zile să păstrezi <span className="font-num font-bold tracking-[-.035em] text-v3-pos">48.000 de lei</span>. Ai aflat?
+              Legea ți-a dat 6 zile să păstrezi <span className="font-num font-semibold tracking-[-.035em] text-v3-pos">48.000 de lei</span>. Ai aflat?
             </>
           )}
         </h1>
-        <p className="m-0 mt-5 max-w-[56ch] text-[19px] leading-[1.55] text-v3-ink-soft">
+        <p className="m-0 mt-5 max-w-[58ch] text-[18px] leading-[1.55] text-v3-ink-soft">
           {en ? (
             <>
-              On 25 July 2025, a law made new homes 12% more expensive. Anyone who paid a down payment in the next 6 days escaped it. Anyone who
+              On 25 July 2025, a law raised VAT on new homes from 9% to 21%. Anyone who paid a down payment in the next 6 days kept 9%. Anyone who
               found out later paid the difference. <b>We tell you on the day the law appears: what it costs you, what you can do and by when.</b>
             </>
           ) : (
             <>
-              Pe 25 iulie 2025, o lege a scumpit locuințele noi cu 12%. Cine plătea un avans în următoarele 6 zile scăpa. Cine a aflat după a
-              plătit diferența. <b>Noi îți spunem în ziua în care apare legea: cât te costă, ce poți face și până când.</b>
+              Pe 25 iulie 2025, o lege a crescut TVA-ul la locuințele noi de la 9% la 21%. Cine plătea un avans în următoarele 6 zile păstra 9%.
+              Cine a aflat după a plătit diferența. <b>Noi îți spunem în ziua în care apare legea: cât te costă, ce poți face și până când.</b>
             </>
           )}
         </p>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <Cta href="/profil">{en ? "See what affects you" : "Vezi ce te privește"}</Cta>
+        <div className="mt-7 flex flex-wrap gap-2.5">
+          <Cta href={APLICATIA}>{en ? "See what affects you" : "Vezi ce te privește"}</Cta>
           <Cta href="/legi" secundar>
             {en ? "All laws, by how much you can save" : "Toate legile, după cât poți salva"}
           </Cta>
         </div>
-        <p className="m-0 mt-4 text-[13.5px] text-v3-ink-2">
+        <p className="m-0 mt-4 text-[13px] text-v3-ink-2">
           {en
             ? "No bank login. Fill in your profile by hand or with AI. Every amount has the law and the article next to it."
             : "Nu conectezi banca. Poți completa profilul manual sau cu AI. Fiecare sumă are legea și articolul lângă ea."}
         </p>
       </section>
 
-      {/* STORY: trei cazuri reale */}
-      <section className="mt-14">
-        <Titlu eticheta={en ? "Three real cases from the past year" : "Trei cazuri reale din ultimul an"}>
+      {/* POVESTEA: trei cazuri reale */}
+      <section className="mt-12">
+        <Titlu nota={en ? "three real cases from the past year" : "trei cazuri reale din ultimul an"}>
           {en ? "The money was there. The deadline passed." : "Banii erau acolo. Termenul a trecut."}
         </Titlu>
-        <p className="m-0 max-w-[62ch] text-[17px] leading-[1.6] text-v3-ink-2">
+        <p className="m-0 max-w-[62ch] text-[16px] leading-[1.6] text-v3-ink-2">
           {en
             ? "You do not need to know the law. You just need to find out in time. Here is what happened, and what we would have told you on the day the act appeared in the Official Gazette (Monitorul Oficial)."
             : "Nu e nevoie să cunoști legea. Trebuie doar să afli la timp. Iată ce s-a întâmplat și ce ți-am fi spus în ziua în care a apărut actul în Monitorul Oficial."}
         </p>
-        <div className="mt-4">
+        <div className="mt-4 border-t border-v3-line">
           {CAZURI.map((c, i) => (
             <CazReal key={c.id} c={c} nr={i + 1} />
           ))}
         </div>
       </section>
 
-      {/* URGENȚA REALĂ: termenele deschise acum */}
-      <section className="mt-6 rounded-3xl bg-v3-band px-5 py-9 text-v3-band-ink sm:px-10">
-        <p className="m-0 mb-2 text-xs font-extrabold tracking-[.12em] text-v3-band-ink-2 uppercase">
-          {en ? "Today" : "Azi"}, {d(azi)}
-        </p>
-        <h2 className="m-0 font-head text-[clamp(26px,5.6vw,38px)] leading-[1.12] font-extrabold tracking-[-.015em]">
-          {en ? "Deadlines closing now" : "Termenele care se închid acum"}
-        </h2>
-        <p className="m-0 mt-3 max-w-[60ch] text-[16px] text-v3-band-ink-2">
+      {/* URGENȚA REALĂ: termenele deschise acum, ca lista de noutăți din v6 */}
+      <section className="mt-12">
+        <Titlu nota={`${en ? "today" : "azi"}, ${d(azi)}`}>{en ? "Deadlines closing now" : "Termenele care se închid acum"}</Titlu>
+        <p className="m-0 max-w-[62ch] text-[16px] leading-[1.6] text-v3-ink-2">
           {en
             ? "No made-up countdowns: every date is written in the law and the days are counted from today."
             : "Nu sunt numărători inventate: fiecare dată e scrisă în lege și zilele se calculează față de azi."}
         </p>
-        <ul className="m-0 mt-6 grid list-none gap-3 p-0 sm:grid-cols-2">
+        <ul className="m-0 mt-4 list-none border-t border-v3-line p-0">
           {deschise.map((a) => {
             const urgent = a.zile < ZILE_URGENT;
             return (
-              <li key={a.id} className="rounded-2xl bg-white/[.06] p-4 ring-1 ring-white/15">
-                <p className="m-0 flex flex-wrap items-center gap-2 text-[12.5px] font-bold">
-                  <span className={`rounded-full px-2.5 py-0.5 ${urgent ? "bg-v3-urg text-v3-on-ink" : "bg-white/15"}`}>
-                    {en ? `${zile(a.zile, limba)} left` : `mai ai ${zile(a.zile)}`}
-                  </span>
-                  <span className="text-v3-band-ink-2">{en ? `until ${d(a.termen)}` : `până pe ${d(a.termen)}`}</span>
-                </p>
-                <p className="m-0 mt-2 text-[15px] leading-[1.4] font-semibold">
-                  {en ? (
-                    linie(a)
-                  ) : (
-                    <>
-                      <span className="text-v3-band-ink-2">{a.pentru}:</span> {a.ce}
-                    </>
-                  )}
-                </p>
-                {a.salvezi && (
-                  <p className="m-0 mt-1.5 text-[14px] font-bold text-v3-band-pos">
-                    {en
-                      ? `keep up to ${suma(a.salvezi.lei, limba)} lei ${a.salvezi.cand === "o_data" ? "once" : "per year"}`
-                      : `păstrezi până la ${suma(a.salvezi.lei, limba)} lei ${a.salvezi.perioada ?? (a.salvezi.cand === "o_data" ? "o dată" : "pe an")}`}
+              <li key={a.id} className="flex gap-4 border-b border-v3-line py-4">
+                <Zi iso={a.termen} limba={limba} rosu={urgent} />
+                <div className="min-w-0 flex-1">
+                  <p className="m-0 text-[15.5px] leading-[1.4] font-semibold text-v3-ink">
+                    {en ? (
+                      linie(a)
+                    ) : (
+                      <>
+                        <span className="font-medium text-v3-ink-2">{a.pentru}:</span> {a.ce}
+                      </>
+                    )}
                   </p>
-                )}
+                  <p className="m-0 mt-1.5 flex flex-wrap items-center gap-2 text-[13px]">
+                    <span
+                      className={`rounded-full px-2.5 py-0.5 font-semibold ${
+                        urgent ? "bg-v3-urg text-v3-on-ink" : "border border-v3-line bg-v3-card text-v3-ink"
+                      }`}
+                    >
+                      {en ? `${zile(a.zile, limba)} left` : `mai ai ${zile(a.zile)}`}
+                    </span>
+                    {a.salvezi && (
+                      <span className="font-semibold text-v3-pos">
+                        {en
+                          ? `keep up to ${suma(a.salvezi.lei, limba)} lei ${a.salvezi.cand === "o_data" ? "once" : "per year"}`
+                          : `păstrezi până la ${suma(a.salvezi.lei, limba)} lei ${a.salvezi.perioada ?? (a.salvezi.cand === "o_data" ? "o dată" : "pe an")}`}
+                      </span>
+                    )}
+                  </p>
+                </div>
               </li>
             );
           })}
         </ul>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <Link href="/profil" className="inline-flex min-h-[52px] items-center rounded-[12px] bg-v3-band-ink px-6 text-[16px] font-bold text-v3-band no-underline">
-            {en ? "Find out which ones affect you" : "Află care dintre ele te privesc"}
-          </Link>
+        <div className="mt-5">
+          <Cta href={APLICATIA}>{en ? "Find out which ones affect you" : "Află care dintre ele te privesc"}</Cta>
         </div>
       </section>
 
-      {/* OFFER: ce primești */}
-      <section className="mt-14">
-        <Titlu eticheta={en ? "What you get" : "Ce primești"}>
-          {en ? "One place that tells you what to do with your money, before it is too late" : "Un singur loc care îți spune ce faci cu banii, înainte să fie târziu"}
-        </Titlu>
-        <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
+      {/* OFERTA: ce primești */}
+      <section className="mt-12">
+        <Titlu>{en ? "One place that tells you what to do with your money, before it is too late" : "Un singur loc care îți spune ce faci cu banii, înainte să fie târziu"}</Titlu>
+        <ul className="m-0 mt-4 grid list-none gap-3 p-0 sm:grid-cols-2">
           {CE_PRIMESTI.map(([t, desc]) => (
-            <li key={t.ro} className="rounded-2xl border border-v3-line bg-v3-card p-5">
-              <p className="m-0 flex items-center gap-2 text-[17px] font-bold text-v3-ink">
-                <span aria-hidden="true" className="inline-flex size-6 items-center justify-center rounded-full bg-v3-pos-soft text-[13px] text-v3-pos">
+            <li key={t.ro} className={`${CARD} p-4`}>
+              <p className="m-0 flex items-center gap-2 text-[16px] font-bold text-v3-ink">
+                <span aria-hidden="true" className="inline-flex size-[22px] items-center justify-center rounded-full bg-v3-pos-soft text-[12px] text-v3-pos">
                   ✓
                 </span>
                 {t[limba]}
               </p>
-              <p className="m-0 mt-1.5 text-[15px] leading-[1.5] text-v3-ink-2">{desc[limba]}</p>
+              <p className="m-0 mt-1.5 text-[14.5px] leading-[1.5] text-v3-ink-2">{desc[limba]}</p>
             </li>
           ))}
         </ul>
       </section>
 
       {/* OBIECȚII */}
-      <section className="mt-14">
-        <Titlu eticheta={en ? "Questions" : "Întrebări"}>{en ? "Before you start" : "Înainte să începi"}</Titlu>
-        <dl className="m-0 grid gap-x-8 gap-y-6 sm:grid-cols-3">
+      <section className="mt-12">
+        <Titlu>{en ? "Before you start" : "Înainte să începi"}</Titlu>
+        <dl className="m-0 mt-4 grid gap-x-8 gap-y-5 border-t border-v3-line pt-5 sm:grid-cols-3">
           {INTREBARI.map(([q, a]) => (
             <div key={q.ro}>
-              <dt className="text-[17px] font-bold text-v3-ink">{q[limba]}</dt>
-              <dd className="m-0 mt-1.5 text-[15px] leading-[1.55] text-v3-ink-2">{a[limba]}</dd>
+              <dt className="text-[16px] font-bold text-v3-ink">{q[limba]}</dt>
+              <dd className="m-0 mt-1.5 text-[14.5px] leading-[1.55] text-v3-ink-2">{a[limba]}</dd>
             </div>
           ))}
         </dl>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="mt-14 rounded-3xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-5 py-10 text-center sm:px-10">
-        <h2 className="m-0 mx-auto max-w-[22ch] font-head text-[clamp(28px,6vw,42px)] leading-[1.1] font-extrabold tracking-[-.02em] text-v3-ink">
+      {/* ÎNDEMNUL FINAL */}
+      <section className={`${BILANT} mt-12 px-5 py-9 text-center sm:px-9`}>
+        <h2 className="m-0 mx-auto max-w-[24ch] font-head text-[clamp(26px,5.4vw,38px)] leading-[1.12] font-extrabold tracking-[-.015em] text-v3-ink">
           {en ? "The next law with a deadline will not announce itself." : "Următoarea lege cu termen nu te va anunța singură."}
         </h2>
         {primul && (
-          <p className="m-0 mt-3 text-[17px] text-v3-ink-soft">
+          <p className="m-0 mt-3 text-[16px] text-v3-ink-soft">
             {en ? (
               <>
-                The nearest deadline closes on <b>{d(primul.termen)}</b>: you have <b className="text-v3-urg">{zile(primul.zile, limba)}</b> left.
+                The nearest deadline closes on <b className="font-num">{d(primul.termen)}</b>: you have{" "}
+                <b className="font-num text-v3-urg">{zile(primul.zile, limba)}</b> left.
               </>
             ) : (
               <>
-                Cel mai apropiat termen se închide pe <b>{d(primul.termen)}</b>: mai ai <b className="text-v3-urg">{zile(primul.zile)}</b>.
+                Cel mai apropiat termen se închide pe <b className="font-num">{d(primul.termen)}</b>: mai ai{" "}
+                <b className="font-num text-v3-urg">{zile(primul.zile)}</b>.
               </>
             )}
           </p>
         )}
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Cta href="/profil">{en ? "Fill in your profile" : "Completează profilul"}</Cta>
-          <Cta href="/flux?p=andrei" secundar>
-            {en ? "See an example: Andrei, 32" : "Vezi un exemplu: Andrei, 32"}
+        <div className="mt-6 flex flex-wrap justify-center gap-2.5">
+          <Cta href={APLICATIA}>{en ? "Open the app" : "Deschide aplicația"}</Cta>
+          <Cta href="/legi" secundar>
+            {en ? "All laws" : "Toate legile"}
           </Cta>
         </div>
-        <p className="m-0 mt-4 text-[13.5px] text-v3-ink-2">
-          {en ? "Other fictional examples:" : "Alte exemple fictive:"} <Link href="/flux?p=maria">Maria, 45</Link> · <Link href="/flux?p=ion">Ion, 67</Link> ·{" "}
-          <Link href="/flux?p=ioana">Ioana, 23</Link>
+        <p className="m-0 mt-4 text-[13px] text-v3-ink-2">
+          {en ? "Not financial advice. We show the effect of the law and what the law allows." : "Nu e sfat financiar. Arătăm efectul legii și ce permite legea."}
         </p>
       </section>
     </div>
