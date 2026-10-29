@@ -302,46 +302,34 @@ function Pastila({ on, n, onClick, children }: { on: boolean; n: number; onClick
   );
 }
 
+/** Fără Pro: cardul cu deblocările gratuite și upgrade. Cu Pro nu apare nimic (statutul e chip-ul din antet). */
 function Freemium({ premium, ramase, profilCompletat }: { premium: boolean; ramase: number; profilCompletat: boolean }) {
   const { t } = useLimba();
+  if (premium) return null;
   return (
     <section className="mt-4 rounded-2xl border border-v3-line bg-v3-card p-5">
       <h2 className="m-0 font-head text-[18px] font-extrabold text-v3-ink">
-        {premium ? (
-          <>
-            {t("Pro activ")} · {PRET_BANI / 100} {t("lei/lună")}
-          </>
-        ) : (
-          <>
-            {t("Deblocări gratuite")} · {ramase} {ramase === 1 ? t("disponibilă") : t("disponibile")}
-          </>
-        )}
+        {t("Deblocări gratuite")} · {ramase} {ramase === 1 ? t("disponibilă") : t("disponibile")}
       </h2>
-      {premium ? (
-        <p className="m-0 mt-1.5 text-[14.5px] text-v3-ink-2">{t("Vezi toate legile, sumele și ghidurile complete.")}</p>
-      ) : (
-        <>
-          <p className="m-0 mt-1.5 text-[14.5px] text-v3-ink-2">
-            {t("Prima lege o deschizi gratuit, cu tot ghidul. Celelalte îți arată categoria, suma și sursa; detaliile se deschid cu o deblocare sau cu Pro.")}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {!profilCompletat && (
-              <Link
-                href="/profil"
-                className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-ink px-4 py-2 text-[14px] leading-snug font-bold text-v3-ink no-underline hover:bg-v3-accent-soft"
-              >
-                {t("Completează profilul sau încarcă un document · +1 deblocare")}
-              </Link>
-            )}
-            <Link
-              href="/abonament"
-              className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong"
-            >
-              {t("Upgrade la Pro")} · {PRET_BANI / 100} {t("lei/lună")}
-            </Link>
-          </div>
-        </>
-      )}
+      <p className="m-0 mt-1.5 text-[14.5px] text-v3-ink-2">
+        {t("Prima lege o deschizi gratuit, cu tot ghidul. Celelalte îți arată categoria, suma și sursa; detaliile se deschid cu o deblocare sau cu Pro.")}
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {!profilCompletat && (
+          <Link
+            href="/profil"
+            className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-ink px-4 py-2 text-[14px] leading-snug font-bold text-v3-ink no-underline hover:bg-v3-accent-soft"
+          >
+            {t("Completează profilul sau încarcă un document · +1 deblocare")}
+          </Link>
+        )}
+        <Link
+          href="/abonament"
+          className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong"
+        >
+          {t("Upgrade la Pro")} · {PRET_BANI / 100} {t("lei/lună")}
+        </Link>
+      </div>
     </section>
   );
 }
