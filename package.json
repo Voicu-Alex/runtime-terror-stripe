@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/publica-mockup-v6.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/publica-mockup-v6.mjs",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
