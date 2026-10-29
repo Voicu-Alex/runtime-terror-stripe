@@ -13,22 +13,16 @@ import type { Limba } from "@/lib/i18n";
 // fără „locuri limitate”, fără testimoniale inventate, fără preț (abonamentul e încă decizie de echipă).
 // Textul e în română și engleză (pitch-ul e în engleză); engleza traduce aceleași fapte, fără cifre noi.
 
-/** Un termen deschis acum, din pagina „Toate legile”, calculat pe server (app/page.tsx). */
-export type TermenDeschis = {
-  id: string;
-  zile: number;
-  termen: string;
-  pentru: string;
-  ce: string;
-  salvezi: { lei: number; cand: string; perioada?: string } | null;
-};
+/** Cel mai apropiat termen deschis acum, din pagina „Toate legile”, calculat pe server (app/page.tsx). */
+export type TermenDeschis = { zile: number; termen: string };
 
 type Text = Record<Limba, string>;
 
 type Caz = {
   id: string;
   eticheta: Text;
-  titlu: Text;
+  /** cine a pierdut, la începutul titlului: „Cumpărătorii de apartamente noi care n-au aflat la timp” */
+  cine: Text;
   suma: number;
   /** ziua în care s-a putut afla (publicarea în Monitorul Oficial) */
   aflat: string;
@@ -38,10 +32,8 @@ type Caz = {
   ceTrebuia: Text;
   notificare: Text;
   ipoteza: Text;
-  /** categoria de persoane afectată, scurt, sub titlu */
+  /** categoria de persoane afectată, cu condițiile din lege, sub titlu */
   afectati: Text;
-  /** propoziția „cine a pierdut cât”, cu categoria exactă */
-  aPierdut: Text;
 };
 
 // Trei cazuri reale, din catalog (data/catalog.json) și din pagina „Toate legile” (data/ghid.json).
@@ -49,7 +41,7 @@ const CAZURI: Caz[] = [
   {
     id: "tva_locuinta",
     eticheta: { ro: "Cazul 1 · Locuința", en: "Case 1 · Your home" },
-    titlu: { ro: "6 zile ca să păstrezi 48.000 de lei", en: "6 days to keep 48,000 lei" },
+    cine: { ro: "Cumpărătorii de apartamente noi care n-au aflat la timp", en: "Buyers of new flats who did not find out in time" },
     suma: 48000,
     aflat: "2025-07-25",
     termen: "2025-07-31",
@@ -70,15 +62,11 @@ const CAZURI: Caz[] = [
       ro: "Cumpărătorii de locuințe noi de până la 120 mp și 600.000 lei",
       en: "Buyers of new homes up to 120 m² and 600,000 lei",
     },
-    aPierdut: {
-      ro: "Cumpărătorii de locuințe noi care n-au plătit avansul de 20% până pe 31 iulie 2025 au pierdut 48.000 de lei la un apartament de 400.000 lei.",
-      en: "Buyers of new homes who did not pay the 20% down payment by 31 July 2025 lost 48,000 lei on a 400,000 lei flat.",
-    },
   },
   {
     id: "dividende_16",
     eticheta: { ro: "Cazul 2 · Firma ta", en: "Case 2 · Your company" },
-    titlu: { ro: "5 luni ca să nu dai statului încă 6.000 de lei", en: "5 months to avoid paying the state another 6,000 lei" },
+    cine: { ro: "Asociații de SRL care n-au distribuit dividendele la timp", en: "SRL owners who did not pay out their dividends in time" },
     suma: 6000,
     aflat: "2025-07-25",
     termen: "2025-12-31",
@@ -93,15 +81,11 @@ const CAZURI: Caz[] = [
     },
     ipoteza: { ro: "100.000 lei dividende × 6 puncte; Legea 141/2025, art. II", en: "100,000 lei in dividends × 6 points; Law 141/2025, art. II" },
     afectati: { ro: "Asociații de SRL care își plătesc dividende", en: "Owners of limited companies (SRL) who pay themselves dividends" },
-    aPierdut: {
-      ro: "Asociații de SRL care n-au distribuit dividendele din 2025 până pe 31 decembrie au pierdut 6.000 de lei la fiecare 100.000 de lei de dividende.",
-      en: "SRL owners who did not pay out their 2025 dividends by 31 December lost 6,000 lei for every 100,000 lei of dividends.",
-    },
   },
   {
     id: "prima_stabilitate",
     eticheta: { ro: "Cazul 3 · Primul job", en: "Case 3 · First job" },
-    titlu: { ro: "27.000 de lei care depind de ordinea în care semnezi", en: "27,000 lei that depend on the order you sign in" },
+    cine: { ro: "Tinerii angajați prima dată fără să treacă pe la AJOFM", en: "Young people hired for the first time without going to AJOFM" },
     suma: 27000,
     aflat: "2026-03-09",
     termen: null,
@@ -118,10 +102,6 @@ const CAZURI: Caz[] = [
     afectati: {
       ro: "Tinerii sub 30 de ani la primul contract pe durată nedeterminată",
       en: "People under 30 signing their first permanent contract",
-    },
-    aPierdut: {
-      ro: "Tinerii sub 30 de ani angajați prima dată pe durată nedeterminată fără să fie înscriși la AJOFM înainte au pierdut 27.000 de lei.",
-      en: "People under 30 hired on their first permanent contract without registering with AJOFM first lost 27,000 lei.",
     },
   },
 ];
@@ -167,22 +147,6 @@ function Titlu({ children, nota }: { children: React.ReactNode; nota?: string })
   );
 }
 
-/** Data ca în calendarul din v6: ziua mare în Geist, luna și anul mici dedesubt. */
-function Zi({ iso, limba, rosu }: { iso: string; limba: Limba; rosu?: boolean }) {
-  const zi = Number(iso.slice(8, 10));
-  const [, luna, an] = dataScurta(iso, limba).split(" ");
-  return (
-    <div className="w-[52px] flex-none pt-0.5 text-center leading-none">
-      <b className={`block font-num text-[26px] font-semibold tracking-[-.03em] tabular-nums lining-nums ${rosu ? "text-v3-urg" : "text-v3-ink"}`}>{zi}</b>
-      <small className="mt-1 block text-[11.5px] leading-tight text-v3-ink-2">
-        {luna}
-        <br />
-        {an}
-      </small>
-    </div>
-  );
-}
-
 function CazReal({ c, nr }: { c: Caz; nr: number }) {
   const { limba } = useLimba();
   const en = limba === "en";
@@ -196,7 +160,12 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
           <span className="font-num text-[15px] font-semibold tabular-nums text-v3-ink-2">{String(nr).padStart(2, "0")}</span>
           <span className="font-semibold">{c.eticheta[limba]}</span>
         </p>
-        <h3 className="m-0 font-head text-[clamp(22px,4.6vw,28px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink">{c.titlu[limba]}</h3>
+        <h3 className="m-0 font-head text-[clamp(22px,4.6vw,30px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink">
+          {c.cine[limba]} {en ? "lost" : "au pierdut"}{" "}
+          <span className="font-num font-semibold tracking-[-.03em] whitespace-nowrap text-v3-neg">
+            {suma(c.suma, limba)} {en ? "lei" : "de lei"}
+          </span>
+        </h3>
         <p className="m-0 mt-2.5 flex flex-wrap items-center gap-1.5 text-[13.5px] text-v3-ink-2">
           {en ? "Affects:" : "Îi privește pe:"}
           <span className="rounded-full bg-v3-ink px-2.5 py-0.5 text-[12.5px] font-semibold text-v3-on-ink">{c.afectati[limba]}</span>
@@ -210,16 +179,16 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
             <span className="block text-[12.5px] text-v3-ink-2">{sursaAct(s, limba).mo_ref.text}</span>
           </li>
           <li className="rounded-[14px] border border-v3-urg/30 bg-v3-urg-soft px-3.5 py-3">
-            <span className="block text-[12.5px] font-semibold text-v3-urg">{en ? "The window" : "Fereastra"}</span>
+            <span className="block text-[12.5px] font-semibold text-v3-urg">{en ? "Deadline" : "Termen"}</span>
             <b className="block font-num text-[17px] font-semibold tabular-nums text-v3-urg">
               {fereastra !== null ? zile(fereastra, limba) : en ? "until you sign" : "până semnezi"}
             </b>
             <span className="block text-[12.5px] text-v3-ink-2">{c.termenText[limba]}</span>
           </li>
           <li className="rounded-[14px] border border-v3-line bg-v3-past-bg px-3.5 py-3">
-            <span className="block text-[12.5px] font-semibold text-v3-past">{en ? "After" : "După"}</span>
+            <span className="block text-[12.5px] font-semibold text-v3-past">{en ? "Action closed" : "Acțiune încheiată"}</span>
             <b className="block text-[15px] font-semibold text-v3-past">
-              {c.termen ? (en ? "nothing can be done" : "nu se mai poate face nimic") : en ? "the bonus is lost" : "prima e pierdută"}
+              {c.termen ? (en ? "nothing left to do" : "nu se mai poate face nimic") : en ? "the bonus is lost" : "prima e pierdută"}
             </b>
             <span className="block text-[12.5px] text-v3-ink-2">
               {c.termen ? (en ? `from ${d(c.termen)}` : `din ${d(c.termen)}`) : en ? "if you signed first" : "dacă ai semnat întâi"}
@@ -228,16 +197,8 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
         </ol>
 
         <p className="m-0 mt-5 max-w-[62ch] text-[16px] leading-[1.6] text-v3-ink-soft">
-          <b>{en ? "What you had to do:" : "Ce trebuia făcut:"}</b> {c.ceTrebuia[limba]}
+          <b>{en ? "What the law allowed:" : "Ce permitea legea:"}</b> {c.ceTrebuia[limba]}
         </p>
-        <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-          <span className="text-[13.5px] text-v3-ink-2">{en ? "Who lost out" : "Cine a pierdut"}</span>
-          <span className="font-num text-[40px] leading-none font-semibold tracking-[-.03em] tabular-nums lining-nums text-v3-neg">
-            −{suma(c.suma, limba)}
-            <small className="ml-1 font-sans text-[14px] font-semibold tracking-normal text-v3-ink-2">lei</small>
-          </span>
-        </div>
-        <p className="m-0 mt-2 max-w-[62ch] text-[15px] leading-[1.5] font-semibold text-v3-ink">{c.aPierdut[limba]}</p>
         <p className="m-0 mt-2 text-[13px] text-v3-ink-2">
           {en ? "Our calculation:" : "Calculul nostru:"} {c.ipoteza[limba]}.{" "}
           <a href={s.sursa_url} target="_blank" rel="noopener" className="font-semibold text-v3-accd">
@@ -259,7 +220,7 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
           </p>
           <p className="m-0 mt-2.5 text-[14.5px] leading-[1.45] font-semibold text-v3-ink">{c.notificare[limba]}</p>
           <p className="m-0 mt-2.5 text-[13px] font-semibold text-v3-pos">
-            {en ? `You keep up to ${suma(c.suma, limba)} lei` : `Păstrezi până la ${suma(c.suma, limba)} lei`}
+            {en ? `What you could keep: ${suma(c.suma, limba)} lei` : `Ce puteai păstra: ${suma(c.suma, limba)} lei`}
           </p>
         </div>
       </aside>
@@ -334,13 +295,10 @@ const INTREBARI: [Text, Text][] = [
 /** Aplicația (macheta v6 a lui Andrei), servită la /aplicatie (next.config.ts). */
 const APLICATIA = "/aplicatie";
 
-export function Acasa({ azi, deschise }: { azi: string; deschise: TermenDeschis[] }) {
+export function Acasa({ primul }: { primul: TermenDeschis | null }) {
   const { limba } = useLimba();
   const en = limba === "en";
-  const primul = deschise[0];
   const d = (iso: string) => dataScurta(iso, limba);
-  // În engleză, termenele deschise folosesc titlul actului în engleză (textele din ghid sunt în română).
-  const linie = (a: TermenDeschis) => (en ? gasesteSchimbarea(a.id)?.rezumat_en ?? a.ce : null);
 
   return (
     <div className="mx-auto max-w-[980px]">
@@ -412,55 +370,6 @@ export function Acasa({ azi, deschise }: { azi: string; deschise: TermenDeschis[
         </div>
       </section>
 
-      {/* URGENȚA REALĂ: termenele deschise acum, ca lista de noutăți din v6 */}
-      <section className="mt-12">
-        <Titlu nota={`${en ? "today" : "azi"}, ${d(azi)}`}>{en ? "Deadlines closing now" : "Termenele care se închid acum"}</Titlu>
-        <p className="m-0 max-w-[62ch] text-[16px] leading-[1.6] text-v3-ink-2">
-          {en
-            ? "No made-up countdowns: every date is written in the law and the days are counted from today."
-            : "Nu sunt numărători inventate: fiecare dată e scrisă în lege și zilele se calculează față de azi."}
-        </p>
-        <ul className="m-0 mt-4 list-none border-t border-v3-line p-0">
-          {deschise.map((a) => {
-            const urgent = a.zile < ZILE_URGENT;
-            return (
-              <li key={a.id} className="flex gap-4 border-b border-v3-line py-4">
-                <Zi iso={a.termen} limba={limba} rosu={urgent} />
-                <div className="min-w-0 flex-1">
-                  <p className="m-0 text-[15.5px] leading-[1.4] font-semibold text-v3-ink">
-                    {en ? (
-                      linie(a)
-                    ) : (
-                      <>
-                        <span className="font-medium text-v3-ink-2">{a.pentru}:</span> {a.ce}
-                      </>
-                    )}
-                  </p>
-                  <p className="m-0 mt-1.5 flex flex-wrap items-center gap-2 text-[13px]">
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 font-semibold ${
-                        urgent ? "bg-v3-urg text-v3-on-ink" : "border border-v3-line bg-v3-card text-v3-ink"
-                      }`}
-                    >
-                      {en ? `${zile(a.zile, limba)} left` : `mai ai ${zile(a.zile)}`}
-                    </span>
-                    {a.salvezi && (
-                      <span className="font-semibold text-v3-pos">
-                        {en
-                          ? `keep up to ${suma(a.salvezi.lei, limba)} lei ${a.salvezi.cand === "o_data" ? "once" : "per year"}`
-                          : `păstrezi până la ${suma(a.salvezi.lei, limba)} lei ${a.salvezi.perioada ?? (a.salvezi.cand === "o_data" ? "o dată" : "pe an")}`}
-                      </span>
-                    )}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="mt-5">
-          <Cta href={APLICATIA}>{en ? "Find out which ones affect you" : "Află care dintre ele te privesc"}</Cta>
-        </div>
-      </section>
 
       {/* OFERTA: ce primești */}
       <section className="mt-12">
