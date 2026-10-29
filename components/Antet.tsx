@@ -79,15 +79,12 @@ function ChipPro() {
   );
 }
 
-/** „Upgrade la Pro” cât timp n-ai Pro; după plată dispare, iar statutul apare ca ChipPro lângă nume. Duce la /abonament. */
+/**
+ * „Upgrade la Pro” cât timp n-ai Pro; cu Pro (plătit sau din comutatorul de demo) dispare, iar statutul apare o singură
+ * dată, ca ChipPro lângă nume. Că e demo se vede doar în meniul contului. Duce la /abonament.
+ */
 function ButonPro({ stare }: { stare: StareAbonament | null }) {
   const { t } = useLimba();
-  if (stare?.demo)
-    return (
-      <Link href="/abonament" className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-v3-pos px-3 text-[12.5px] font-bold whitespace-nowrap text-v3-pos no-underline">
-        Pro <span className="font-semibold text-v3-ink-2">· {t("demo")}</span>
-      </Link>
-    );
   if (stare?.activ) return null;
   return (
     <Link
