@@ -1,0 +1,386 @@
+{
+  "consultanti": {
+    "bdo": {
+      "nume": "BDO România",
+      "serviciu": "Consultanță fiscală",
+      "url": "https://www.bdo.ro/ro-ro/servicii/consultanta-fiscala",
+      "verificat_la": "2026-10-29",
+      "sponsorizat": false
+    },
+    "crowe": {
+      "nume": "Crowe România",
+      "serviciu": "Contabilitate",
+      "url": "https://www.crowe.com/ro/services/contabilitate",
+      "verificat_la": "2026-10-29",
+      "sponsorizat": true
+    },
+    "crowe_payroll": {
+      "nume": "Crowe România",
+      "serviciu": "Salarizare pentru angajatori",
+      "url": "https://www.crowe.com/ro/services/salarizare",
+      "verificat_la": "2026-10-29",
+      "sponsorizat": true
+    },
+    "bmlaw": {
+      "nume": "BMLaw",
+      "serviciu": "Asistență juridică",
+      "url": "https://www.crowe.com/ro/services/bmlaw",
+      "verificat_la": "2026-10-29",
+      "sponsorizat": false
+    },
+    "engie_gaz": {
+      "nume": "ENGIE România",
+      "serviciu": "Furnizare gaze naturale",
+      "url": "https://www.engie.ro/gaze-naturale/",
+      "verificat_la": "2026-10-29",
+      "sponsorizat": true
+    },
+    "engie_curent": {
+      "nume": "ENGIE România",
+      "serviciu": "Furnizare electricitate",
+      "url": "https://www.engie.ro/electricitate/",
+      "verificat_la": "2026-10-29",
+      "sponsorizat": true
+    },
+    "pint_rovinieta": {
+      "nume": "Pint.ro",
+      "serviciu": "Rovinietă online",
+      "url": "https://pint.ro/rovinieta-online",
+      "verificat_la": "2026-10-29",
+      "sponsorizat": true
+    }
+  },
+  "legi": {
+    "dividende_16": {
+      "text": "Verifică împreună cu un contabil data distribuirii dividendelor și cota care se aplică documentelor tale. Pregătește hotărârea de distribuire și situațiile financiare relevante; cere un calcul înainte de următoarea distribuire.",
+      "consultanti": [
+        "bdo",
+        "crowe"
+      ],
+      "categorie": "fiscalitate",
+      "oficiale": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "micro_1": {
+      "text": "Pregătește veniturile firmei de la începutul anului și situația salariaților. Un contabil te poate ajuta să verifici dacă firma îndeplinește condițiile pentru regimul micro și ce ai de făcut dacă situația se schimbă.",
+      "consultanti": [
+        "bdo",
+        "crowe"
+      ],
+      "categorie": "fiscalitate",
+      "oficiale": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "tva_21": {
+      "text": "Dacă emiți facturi prin PFA sau SRL, verifică împreună cu un contabil cota de TVA aplicabilă și contractele în derulare. Dacă ești doar consumator, nu este nevoie să contactezi un consultant pentru această schimbare.",
+      "consultanti": [
+        "bdo",
+        "crowe"
+      ],
+      "categorie": "fiscalitate",
+      "oficiale": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "pfa_norma_minima_2026": {
+      "categorie": "fiscalitate",
+      "text": "Pregătește evidența veniturilor și cheltuielilor PFA. Cere unui contabil să verifice modul de calcul al obligațiilor tale și declarația pe care trebuie să o depui.",
+      "oficiale": [
+        "anaf_declaratia_unica"
+      ],
+      "consultanti": [
+        "crowe",
+        "bdo"
+      ],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "pfa_cass_plafon_72": {
+      "categorie": "fiscalitate",
+      "text": "Pregătește evidența veniturilor și cheltuielilor PFA. Cere unui contabil să verifice modul de calcul al obligațiilor tale și declarația pe care trebuie să o depui.",
+      "oficiale": [
+        "anaf_declaratia_unica"
+      ],
+      "consultanti": [
+        "crowe",
+        "bdo"
+      ],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "horeca_tva_11": {
+      "categorie": "fiscalitate",
+      "text": "Verifică încadrarea produselor și serviciilor facturate împreună cu un contabil. Pregătește lista de produse și facturile, apoi actualizează cotele în sistemul de vânzare după confirmare.",
+      "oficiale": [],
+      "consultanti": [
+        "crowe",
+        "bdo"
+      ],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "efactura_5_zile_lucratoare": {
+      "categorie": "fiscalitate",
+      "text": "Verifică împreună cu contabilul cum sunt trimise facturile și urmărite confirmările din sistem. Pregătește accesul la SPV și un exemplu de factură pentru verificarea fluxului.",
+      "oficiale": [
+        "anaf_spv_ghid"
+      ],
+      "consultanti": [
+        "crowe"
+      ],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "it_scutire": {
+      "categorie": "munca",
+      "text": "Cere departamentului de salarizare o explicație a modificării pe fluturașul tău. Dacă ești angajator, un serviciu de salarizare te poate ajuta să actualizezi calculul și documentele.",
+      "oficiale": [
+        "angajator_hr"
+      ],
+      "consultanti": [
+        "crowe_payroll"
+      ],
+      "introducere": "Pentru salarizarea firmei, poți discuta, de exemplu, cu:"
+    },
+    "constructii_facilitati": {
+      "categorie": "munca",
+      "text": "Cere departamentului de salarizare o explicație a modificării pe fluturașul tău. Dacă ești angajator, un serviciu de salarizare te poate ajuta să actualizezi calculul și documentele.",
+      "oficiale": [
+        "angajator_hr"
+      ],
+      "consultanti": [
+        "crowe_payroll"
+      ],
+      "introducere": "Pentru salarizarea firmei, poți discuta, de exemplu, cu:"
+    },
+    "salariu_minim_netaxabil_2026": {
+      "categorie": "munca",
+      "text": "Cere departamentului de salarizare o explicație a modificării pe fluturașul tău. Dacă ești angajator, un serviciu de salarizare te poate ajuta să actualizezi calculul și documentele.",
+      "oficiale": [
+        "angajator_hr"
+      ],
+      "consultanti": [
+        "crowe_payroll"
+      ],
+      "introducere": "Pentru salarizarea firmei, poți discuta, de exemplu, cu:"
+    },
+    "salariu_minim_2026": {
+      "categorie": "munca",
+      "text": "Cere departamentului de salarizare o explicație a modificării pe fluturașul tău. Dacă ești angajator, un serviciu de salarizare te poate ajuta să actualizezi calculul și documentele.",
+      "oficiale": [
+        "angajator_hr"
+      ],
+      "consultanti": [
+        "crowe_payroll"
+      ],
+      "introducere": "Pentru salarizarea firmei, poți discuta, de exemplu, cu:"
+    },
+    "concediu_medical_procente": {
+      "categorie": "munca",
+      "text": "Pregătește certificatul medical și fluturașul de salariu, apoi cere departamentului de salarizare să explice calculul indemnizației. Dacă administrezi firma, poți solicita verificarea calculului.",
+      "oficiale": [
+        "angajator_hr"
+      ],
+      "consultanti": [
+        "crowe_payroll"
+      ],
+      "introducere": "Pentru salarizarea firmei, poți discuta, de exemplu, cu:"
+    },
+    "concediu_medical_prima_zi": {
+      "categorie": "munca",
+      "text": "Pregătește certificatul medical și fluturașul de salariu, apoi cere departamentului de salarizare să explice calculul indemnizației. Dacă administrezi firma, poți solicita verificarea calculului.",
+      "oficiale": [
+        "angajator_hr"
+      ],
+      "consultanti": [
+        "crowe_payroll"
+      ],
+      "introducere": "Pentru salarizarea firmei, poți discuta, de exemplu, cu:"
+    },
+    "tva_locuinta": {
+      "categorie": "locuinta",
+      "text": "Înainte de semnare, verifică antecontractul, avansurile și prețul final cu TVA împreună cu notarul sau consultantul fiscal. Dacă există neclarități contractuale, cere și o verificare juridică.",
+      "oficiale": [],
+      "consultanti": [
+        "bdo",
+        "bmlaw"
+      ],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "inchiriere_termen_scurt_2026": {
+      "categorie": "locuinta",
+      "text": "Centralizează încasările și contractele de închiriere. Un contabil poate verifica încadrarea veniturilor și declarațiile necesare în situația ta.",
+      "oficiale": [
+        "anaf_declaratia_unica"
+      ],
+      "consultanti": [
+        "crowe",
+        "bdo"
+      ],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "impozit_cladiri_2026": {
+      "categorie": "locuinta",
+      "text": "Verifică decizia de impunere și datele imobilului la direcția locală de taxe. Dacă observi o diferență, pregătește actele de proprietate și cere clarificarea calculului.",
+      "oficiale": [
+        "primaria"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "gaz_plafon": {
+      "categorie": "energie",
+      "text": "Ia ultima factură și verifică oferta, prețul final și condițiile contractului în comparatorul ANRE. Poți apoi cere furnizorului ales o ofertă pentru consumul tău.",
+      "oficiale": [
+        "anre_comparator"
+      ],
+      "consultanti": [
+        "engie_gaz"
+      ],
+      "introducere": "Poți consulta și oferta unui furnizor, de exemplu:"
+    },
+    "energie_plafon": {
+      "categorie": "energie",
+      "text": "Compară ofertele folosind consumul din ultima factură și prețul final, inclusiv condițiile contractuale. Înainte de schimbare, verifică oferta completă direct la furnizor.",
+      "oficiale": [
+        "anre_comparator"
+      ],
+      "consultanti": [
+        "engie_curent"
+      ],
+      "introducere": "Poți consulta și oferta unui furnizor, de exemplu:"
+    },
+    "pilon2_plata": {
+      "categorie": "pensii",
+      "text": "Cere administratorului fondului o explicație a opțiunilor de plată și a documentelor necesare în situația ta. Verifică informațiile oficiale înainte să iei o decizie.",
+      "oficiale": [
+        "fond_pensii",
+        "asf_registru"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "pilon3_deducere": {
+      "categorie": "pensii",
+      "text": "Pregătește dovada contribuțiilor și cere departamentului de salarizare să verifice aplicarea deducerii în situația ta. Pentru detalii despre contract, contactează administratorul fondului.",
+      "oficiale": [
+        "angajator_hr",
+        "fond_pensii",
+        "asf_registru"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "cass_pensii": {
+      "categorie": "pensii",
+      "text": "Verifică decizia și talonul de pensie. Cere casei de pensii explicația calculului și lista documentelor necesare dacă datele tale trebuie corectate.",
+      "oficiale": [
+        "cnpp"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "varsta_pensionare": {
+      "categorie": "pensii",
+      "text": "Verifică decizia și talonul de pensie. Cere casei de pensii explicația calculului și lista documentelor necesare dacă datele tale trebuie corectate.",
+      "oficiale": [
+        "cnpp"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "pensie_vpr_2026": {
+      "categorie": "pensii",
+      "text": "Verifică decizia și talonul de pensie. Cere casei de pensii explicația calculului și lista documentelor necesare dacă datele tale trebuie corectate.",
+      "oficiale": [
+        "cnpp"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "prima_stabilitate": {
+      "categorie": "beneficii",
+      "text": "Înainte de semnarea primului contract, contactează AJOFM și verifică eligibilitatea, documentele și pașii cererii pentru situația ta.",
+      "oficiale": [
+        "anofm"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "ajutor_incalzire": {
+      "categorie": "beneficii",
+      "text": "Contactează serviciul de asistență socială al primăriei pentru verificarea condițiilor și a documentelor. Pregătește dovezile de venit și informațiile despre gospodărie.",
+      "oficiale": [
+        "primaria"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "saracie_energetica_2026": {
+      "categorie": "beneficii",
+      "text": "Contactează serviciul de asistență socială al primăriei pentru verificarea condițiilor și a documentelor. Pregătește dovezile de venit și informațiile despre gospodărie.",
+      "oficiale": [
+        "primaria"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "alocatie_sustinere_familie": {
+      "categorie": "beneficii",
+      "text": "Contactează serviciul de asistență socială al primăriei pentru verificarea condițiilor și a documentelor. Pregătește dovezile de venit și informațiile despre gospodărie.",
+      "oficiale": [
+        "primaria"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "burse_studenti_2026_2027": {
+      "categorie": "beneficii",
+      "text": "Cere secretariatului instituției de învățământ condițiile aplicabile și documentele necesare. Verifică situația ta înainte de a pregăti o cerere.",
+      "oficiale": [
+        "scoala"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "masa_sanatoasa_2026": {
+      "categorie": "beneficii",
+      "text": "Cere secretariatului instituției de învățământ condițiile aplicabile și documentele necesare. Verifică situația ta înainte de a pregăti o cerere.",
+      "oficiale": [
+        "scoala"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "impozit_auto_2026": {
+      "categorie": "auto",
+      "text": "Verifică datele mașinii și decizia de impunere la direcția locală de taxe. Dacă există o neconcordanță, prezintă actele vehiculului și cere verificarea calculului.",
+      "oficiale": [
+        "primaria"
+      ],
+      "consultanti": [],
+      "introducere": "Poți discuta, de exemplu, cu:"
+    },
+    "rovinieta_2026": {
+      "categorie": "auto",
+      "text": "Verifică valabilitatea rovinietei și categoria vehiculului înainte de drum. La cumpărare, verifică numărul de înmatriculare, perioada și confirmarea emisă.",
+      "oficiale": [],
+      "consultanti": [
+        "pint_rovinieta"
+      ],
+      "introducere": "Poți cumpăra rovinieta, de exemplu, de la:"
+    }
+  },
+  "aliasuri_v6": {
+    "dividend": "dividende_16",
+    "micro": "micro_1",
+    "tva": "tva_21",
+    "gaz": "gaz_plafon",
+    "curent": "energie_plafon",
+    "it": "it_scutire",
+    "pilon2": "pilon2_plata",
+    "pilon3": "pilon3_deducere",
+    "burse": "burse_studenti_2026_2027",
+    "rovinieta": "rovinieta_2026",
+    "sal_min": "salariu_minim_2026",
+    "prima": "prima_stabilitate",
+    "cm_zi1": "concediu_medical_prima_zi",
+    "netax": "salariu_minim_netaxabil_2026",
+    "imp_auto": "impozit_auto_2026"
+  }
+}

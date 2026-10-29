@@ -4,6 +4,75 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 
+test('opening a dividend guide shows a short solution and direct consultant sites',()=>{
+  const p=page(), c=p.context;
+  c.PREMIUM=true;c.V.open='dividend';c.render();
+  const html=p.elements.get('list').innerHTML;
+  assert.match(html,/Ce poți face acum/);
+  assert.match(html,/★ Sponsorizat/);
+  assert.ok(html.indexOf('Crowe România') < html.indexOf('BDO România'));
+  assert.match(html,/Poți discuta, de exemplu, cu/);
+  assert.match(html,/href="https:\/\/www\.crowe\.com\/ro\/services\/contabilitate"/);
+  assert.match(html,/href="https:\/\/www\.bdo\.ro\/ro-ro\/servicii\/consultanta-fiscala"/);
+  assert.doesNotMatch(html,/Echipa Contabilă|data-spec="dividend"/);
+  c.V.open=null;c.render();
+  assert.doesNotMatch(p.elements.get('list').innerHTML,/Poți discuta, de exemplu, cu/);
+});
+
+test('locked guides and unrelated laws do not expose the consultant solution',()=>{
+  const p=page(),c=p.context;
+  c.V.open='dividend';c.render();
+  assert.doesNotMatch(p.elements.get('list').innerHTML,/crowe\.com|bdo\.ro/);
+  c.PREMIUM=true;c.V.open='gaz';c.render();
+  assert.doesNotMatch(p.elements.get('list').innerHTML,/crowe\.com|bdo\.ro/);
+});
+
+test('an unlocked micro-company law in news has the same short solution',()=>{
+  const p=page(),c=p.context;
+  c.PREMIUM=true;c.V.tab='nou';c.V.nopen='micro';c.render();
+  assert.match(p.elements.get('nlist').innerHTML,/Ce poți face acum/);
+  assert.match(p.elements.get('nlist').innerHTML,/crowe\.com/);
+  c.PREMIUM=false;c.render();
+  assert.doesNotMatch(p.elements.get('nlist').innerHTML,/crowe\.com/);
+});
+
+test('browser solution data matches the shared registry and proposals have no referral',()=>{
+  const p=page(),c=p.context;
+  const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../../data/solutii.json'),'utf8'));
+  assert.deepEqual(JSON.parse(JSON.stringify(c.SOLUTII_DATE)),data);
+  assert.equal(c.solutieHtmlV6('dividend','proiect'),'');
+  assert.equal(c.solutieHtmlV6('necunoscut','in_vigoare'),'');
+  assert.match(c.solutieHtmlV6('dividend','in_vigoare'),/rel="noopener noreferrer" referrerpolicy="no-referrer"/);
+});
+
+test('energy, pensions and benefits show relevant routes and sponsorship labels',()=>{
+  const p=page(),c=p.context;
+  c.PREMIUM=true;c.V.open='gaz';c.render();
+  const gas=p.elements.get('list').innerHTML;
+  assert.match(gas,/https:\/\/posf.ro\/comparator/);
+  assert.match(gas,/https:\/\/www.engie.ro\/gaze-naturale\//);
+  assert.match(gas,/★ Sponsorizat/);
+  assert.ok(gas.indexOf('https://posf.ro/comparator') < gas.indexOf('https://www.engie.ro/gaze-naturale/'));
+  assert.doesNotMatch(c.solutieHtmlV6('gaz','in_vigoare'),/demo|simulat|crowe|bdo/i);
+  assert.match(c.solutieHtmlV6('pilon2','adoptat'),/asfromania.ro/);
+  assert.doesNotMatch(c.solutieHtmlV6('pilon2','adoptat'),/sponsored|Sponsorizat/);
+  c.V.open='prima_stabilitate';c.render();
+  assert.match(p.elements.get('list').innerHTML,/aria-label="Soluție și servicii"/);
+  c.PREMIUM=false;c.render();
+  assert.doesNotMatch(p.elements.get('list').innerHTML,/aria-label="Soluție și servicii"/);
+});
+
+test('news service links remain inside unlocked details for each added category',()=>{
+  const p=page(),c=p.context;
+  for(const [id,site] of [['rovinieta','https://pint.ro/rovinieta-online'],['sal_min','https://www.crowe.com/ro/services/salarizare'],['prima','https://www.anofm.ro/']]) {
+    c.PREMIUM=true;c.V.tab='nou';c.V.nopen=id;c.render();
+    assert.ok(p.elements.get('nlist').innerHTML.includes(site),id);
+    c.PREMIUM=false;c.render();
+    assert.doesNotMatch(p.elements.get('nlist').innerHTML,/aria-label="Soluție și servicii"/,id);
+  }
+  assert.doesNotMatch(c.solutieHtmlV6('imp_auto','in_vigoare'),/href="null"|Sponsorizat|pint.ro/);
+});
+
 function page() {
   const elements = new Map();
   const listeners = {};
@@ -22,7 +91,7 @@ function page() {
     scrollTo(){}, scrollY:0, requestAnimationFrame:fn=>fn()};
   context.window = context;
   vm.createContext(context);
-  for (const file of ['../v4/data.js','../v5/common.js','noutati.js','continut.js','freemium.js','prima.js']) {
+  for (const file of ['../v4/data.js','../v5/common.js','noutati.js','continut.js','solutii-date.js','solutii.js','freemium.js','prima.js']) {
     vm.runInContext(fs.readFileSync(path.join(__dirname,file),'utf8'),context,{filename:file});
   }
   const html = fs.readFileSync(path.join(__dirname,'index.html'),'utf8');

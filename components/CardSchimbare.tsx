@@ -12,6 +12,8 @@ import Asistent from "@/components/Asistent";
 import { furnizori, niveluri, specialist } from "@/lib/continut";
 import { comparatieAct } from "@/lib/voce";
 import { modificari as modificariPeLimba, numeDestinatie, sursaAct } from "@/lib/traduceri";
+import { SolutieScurta } from "@/components/SolutieScurta";
+import { solutieScurta } from "@/lib/solutii";
 
 // Aspectul urmează rândul din lista „Toate actele care te privesc” din mockup/v3/index.html?v=f.
 // Cele 3 niveluri din issue #3, cu textele din content/niveluri.json (Iasmina):
@@ -237,7 +239,7 @@ export default function CardSchimbare({
                   <span className="sr-only">{t("(se deschide într-un tab nou)")}</span>
                 </a>
               )}
-              {fz.length > 0 && !dep && (
+              {fz.length > 0 && !dep && !solutieScurta(s.id, s.status) && (
                 <div className="mt-3">
                   <p className="m-0 mb-1 text-[13px] text-v3-ink-2">
                     {t("Sau direct la un furnizor. În ordine alfabetică")}
@@ -263,7 +265,7 @@ export default function CardSchimbare({
                 </div>
               )}
               {/* și după termen: întrebarea specialistului privește situația de acum */}
-              {sp && (
+              {sp && !solutieScurta(s.id, s.status) && (
                 <div className="mt-3 border-t border-v3-line pt-3">
                   <p className="m-0 mb-1.5 text-[14.5px] font-semibold">{t("Ai o situație mai complicată?")}</p>
                   <button
@@ -281,6 +283,7 @@ export default function CardSchimbare({
             </div>
           )}
 
+          <SolutieScurta id={s.id} status={s.status} />
           <div className="flex flex-wrap gap-2">
             {n.curios && (
               <button

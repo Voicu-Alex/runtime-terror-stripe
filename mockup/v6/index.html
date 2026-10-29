@@ -8,6 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800&family=Geist:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../v5/base.css?v=8">
 <style>
+.solutie-scurta{margin:16px 0;border-top:1px solid var(--line);padding-top:12px}
+.solutie-scurta h4{margin:0 0 6px;font-size:15px}
+.solutie-scurta p{margin:6px 0;font-size:14px;line-height:1.6}
+.solutie-scurta ul{list-style:none;padding:0;margin:6px 0}
+.solutie-scurta a{display:inline-flex;align-items:center;flex-wrap:wrap;gap:5px;min-height:44px;font-size:14px}
+.solutie-scurta small{display:block;color:var(--ink-2);font-size:12px}
+.solutie-scurta .sponsor-badge{border:1px solid var(--line);border-radius:4px;padding:2px 6px;font-size:11px;font-weight:600}
+.solutie-scurta .solutie-contact{display:inline-flex;align-items:center;min-height:44px;font-size:14px}
 /* v6: F2 „Bilanț” dus mai departe. Fără simulare: barele te duc la lege.
    Două panouri: „Pentru tine” (profilul tău) și „Noutăți” (tot ce e nou, inclusiv proiecte). */
 .srch{max-width:300px;width:100%;padding:0 4px 0 0}
@@ -247,6 +255,8 @@ body.premium .mask-label{display:none}
 <script src="../v5/common.js?v=8"></script>
 <script src="noutati.js?v=9"></script>
 <script src="continut.js?v=8"></script>
+<script src="solutii-date.js?v=1"></script>
+<script src="solutii.js?v=1"></script>
 <script src="freemium.js?v=1"></script>
 <script src="prima.js?v=1"></script>
 <script>
@@ -285,7 +295,7 @@ var DRAFT_SRC = { motorina_pr: { act: 'Proiect de hotărâre a Guvernului (Minis
 function levels(key, draft){
   /* key = id-ul din continut.js; draft = {act, url, src} pentru proiectele fără text oficial */
   var L = LEVELS[key], uid = key, s = '';
-  if (L && L.prof){
+  if (L && L.prof && !solutieV6(key)){
     s += '<div class="cx"><p>Ai o situație mai complicată?</p><button data-spec="' + uid + '" aria-expanded="' + !!V.spec[uid] + '" aria-controls="sp-' + uid + '">Pregătește discuția cu un ' + L.prof + '</button></div>';
   }
   s += '<div class="lv">' + (L && L.curios ? '<button data-why="' + uid + '" aria-expanded="' + !!V.why[uid] + '" aria-controls="c-' + uid + '">De ce?</button>' : '') +
@@ -371,7 +381,7 @@ function candidateCard(){
   var factFields=PRIMA.facts.map(function(f){var help=f.key==='eligible_employer'?'<small>'+U.esc(f.help)+'</small><ul>'+PRIMA.excludedEmployers.map(function(x){return '<li>'+U.esc(x)+'</li>';}).join('')+'</ul><small>Dacă rămâne neclar, nu confirma eligibilitatea; cere AJOFM să verifice angajatorul.</small>':'<small>'+U.esc(f.help)+'</small>';return '<label>'+U.esc(f.prompt)+help+'<select id="fact-'+f.key+'" aria-label="'+U.esc(f.prompt)+'"><option value="">Alege</option><option value="yes"'+(facts[f.key]==='yes'?' selected':'')+'>Da</option><option value="no"'+(facts[f.key]==='no'?' selected':'')+'>Nu</option><option value="unsure"'+(facts[f.key]==='unsure'?' selected':'')+'>Nu sunt sigur(ă)</option></select></label>';}).join('');
   var sources=PRIMA.sources.map(function(x){return '<a href="'+x.url+'" target="_blank" rel="noopener">'+x.label+' ↗</a>';}).join(' · ');
   var details=unlocked?'<div class="guide"><h3>Ce prevede legea</h3><p>'+U.esc(PRIMA.notAdvice)+'</p><ol>'+PRIMA.guide.map(function(x){return '<li>'+U.esc(x)+'</li>';}).join('')+'</ol><p>'+U.esc(PRIMA.limits)+'</p><p><button class="secondary" data-notapp="'+PRIMA.id+'">Raportează: nu mi se aplică</button> <span role="status">'+U.esc(FM_STATUS)+'</span></p></div>':'<div><div class="mask-panel"><div class="masked-copy" aria-hidden="true">'+U.esc(PRIMA.detailTitle)+'<br>Pașii ghidului complet se deschid după verificarea condițiilor și folosirea unei deblocări gratuite.</div><span class="mask-label">Ghidul complet este ascuns</span></div><details id="prima-details"'+(PRIMA_DETAILS_OPEN?' open':'')+'><summary>Verifică-mi criteriile pentru ghidul complet</summary><p>Răspunsurile sunt declarațiile tale, nu confirmarea AJOFM. Toate trebuie să fie „Da” pentru deschiderea acestui ghid.</p><div class="review-grid candidate-facts">'+factFields+'</div><button class="secondary" data-confirm-eligibility>Salvează și verifică aceste răspunsuri</button><div role="status">'+U.esc(FM_STATUS)+'</div>'+(verified?'<p>Răspunsurile declarate corespund condițiilor pe care le-ai confirmat. Nicio autoritate nu le-a verificat.</p><button data-unlock="'+PRIMA.id+'"'+(!F.credits()?' disabled':'')+'>Deschide ghidul complet'+(!F.credits()?' · nu ai deblocări disponibile':'')+'</button>':'<p>Nu am confirmat toate condițiile pentru acest ghid. Deblocarea gratuită rămâne disponibilă.</p>')+'</details></div>';
-  return '<div class="det feed-guide" id="d-'+PRIMA.id+'"><p><b>Condiții esențiale:</b> '+U.esc(PRIMA.teaser.conditions)+'</p><p><b>Cuantum prevăzut:</b> '+U.esc(PRIMA.teaser.amount)+'</p><p><b>Certitudine:</b> '+U.esc(PRIMA.teaser.certainty)+'</p><p><b>Acțiune disponibilă:</b> numai înainte de semnarea primului contract. Nu este confirmat un termen ulterior de cerere.</p><p><b>Sursă verificată ('+PRIMA.checked+'):</b> '+sources+'</p>'+details+'</div>';
+  return '<div class="det feed-guide" id="d-'+PRIMA.id+'"><p><b>Condiții esențiale:</b> '+U.esc(PRIMA.teaser.conditions)+'</p><p><b>Cuantum prevăzut:</b> '+U.esc(PRIMA.teaser.amount)+'</p><p><b>Certitudine:</b> '+U.esc(PRIMA.teaser.certainty)+'</p><p><b>Acțiune disponibilă:</b> numai înainte de semnarea primului contract. Nu este confirmat un termen ulterior de cerere.</p><p><b>Sursă verificată ('+PRIMA.checked+'):</b> '+sources+'</p>'+details+(unlocked?solutieHtmlV6(PRIMA.id,'in_vigoare'):'')+'</div>';
 }
 function primaRow(){
   var o=V.open===PRIMA.id,unlocked=F.getAccess(PRIMA.id)==='unlocked';
@@ -405,6 +415,7 @@ function detailV6(i){
   if (i.action){
     s += '<div class="act' + (openDl(i) && U.days(i.deadline) < 30 ? ' urg' : '') + '"><b>' + (past ? 'Termen depășit: ' + U.date(i.deadline) : i.deadline ? 'Acțiunea din scenariu până la ' + U.date(i.deadline) : 'Acțiunea din scenariu') + '</b>' + U.esc(i.action) + '.' + (past && i.gain ? ' În exemplul Andrei, suma ar fi fost ' + U.lei(i.gain) + '.' : '') + '</div>';
   }
+  s += solutieHtmlV6(i.id, i.status);
   s += levels(i.id, DRAFT_SRC[i.id]);
   return s + '</div>';
 }
@@ -477,6 +488,7 @@ function nrow(n){
   if (o){
     var key = LEVELS[n.id] ? n.id : n.id;
     s += '<div class="nb">' + (n.body ? '<p>' + U.esc(n.body) + '</p>' : '') + (n.eff ? '<p>Se aplică de la ' + U.date(n.eff) + '.</p>' : '') + (n.gap ? '<p class="gap">' + U.esc(n.gap) + '</p>' : '');
+    if (F.getAccess(n.id === 'prima' ? PRIMA.id : (n.feed || n.id)) === 'unlocked') s += solutieHtmlV6(key, n.status);
     s += levels(key, LEVELS[key] ? null : { act: n.act, url: n.url, src: n.srcName });
     s += '</div>';
   }

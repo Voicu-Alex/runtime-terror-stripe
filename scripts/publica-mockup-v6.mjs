@@ -1,6 +1,7 @@
 // Copiază macheta v6 („Pentru tine” + „Noutăți”) în public/, ca aplicația Next.js s-o servească la /v6/.
 // Rulează înainte de build și de dev (package.json: prebuild, predev). Sursa rămâne mockup/; copiile din public/ sunt în .gitignore.
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import './genereaza-solutii.mjs';
 
 const fisiere = [
   ["mockup/v6", "public/v6"],
