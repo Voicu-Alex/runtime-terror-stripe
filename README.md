@@ -5,7 +5,7 @@
 Hackathonul Nexxt × Stripe „Rethinking Financial Futures”, echipa Runtime Terror.
 
 - Aplicația: https://main.d35dxj4gdere6m.amplifyapp.com (și https://descriere.andreidobrin.com)
-- Scriptul video de 3 minute: [docs/pitch/SCRIPT-VIDEO.md](docs/pitch/SCRIPT-VIDEO.md)
+
 
 ## Pe scurt
 
