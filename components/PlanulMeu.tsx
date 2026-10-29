@@ -93,7 +93,7 @@ export function PlanulMeu() {
       ) : (
         <p className="py-6 text-[15px] text-v3-ink-2">
           {t("Nu ai deschis încă un ghid complet.")}{" "}
-          <Link href="/" className="font-semibold text-v3-ink underline underline-offset-2">
+          <Link href="/aplicatie" className="font-semibold text-v3-ink underline underline-offset-2">
             {t("Explorează actele pentru tine")}
           </Link>
           {!pro && (
