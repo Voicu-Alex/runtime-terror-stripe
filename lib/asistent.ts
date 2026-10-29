@@ -159,11 +159,22 @@ function copie(s: Stare): Stare {
   };
 }
 
-/** Trece la următorul pas (sare pasul 3 fără firmă) și pune întrebarea sau rezumatul. */
+/** O întrebare la care omul a răspuns deja (în cuvintele lui, la alt pas): are măcar una din etichetele ei. */
+function raspunsaDeja(q: Intrebare, extrase: Extrasa[]): boolean {
+  const ale = new Set(q.raspunsuri.flatMap((r) => r.taguri));
+  return extrase.some((e) => ale.has(e.tag));
+}
+
+/** Trece la următorul pas care mai are rost (sare pasul 3 fără firmă și întrebările deja răspunse) și pune întrebarea sau rezumatul. */
 function avanseaza(s: Stare): Stare {
   const n = copie(s);
   let pas = n.pas + 1;
-  if (pas === 3 && !n.extrase.some((e) => TAGURI_FIRMA.includes(e.tag))) pas = 4;
+  while (pas <= INTREBARI.length) {
+    const q = INTREBARI[pas - 1];
+    const faraFirma = pas === 3 && !n.extrase.some((e) => TAGURI_FIRMA.includes(e.tag));
+    if (!faraFirma && !raspunsaDeja(q, n.extrase)) break;
+    pas++;
+  }
   n.pas = pas;
   if (pas > INTREBARI.length) {
     n.pas = INTREBARI.length + 1;

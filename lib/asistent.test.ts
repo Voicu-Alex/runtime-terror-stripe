@@ -69,6 +69,23 @@ describe("asistentul de profil", () => {
     expect(s2.extrase.filter((e) => e.tag === "pfa")).toHaveLength(1);
   });
 
+  it("nu mai pune întrebările la care omul a răspuns deja în cuvintele lui", () => {
+    // „lucrez ca programator la un SRL, stau cu chirie și am mașină” la pasul 1
+    const s = raspundeLiber(porneste(), "lucrez ca programator, stau cu chirie și am mașină", [
+      { tag: "angajat", din: "lucrez" },
+      { tag: "it", din: "programator" },
+      { tag: "chirias", din: "chirie" },
+      { tag: "masina", din: "mașină" },
+    ]);
+    // sare 2 (domeniul: IT), 3 (fără firmă), 4 (deține: mașină), 5 (locuința: chirie) și ajunge la 6
+    expect(s.pas).toBe(6);
+    const puse = s.mesaje.filter((m) => m.rol === "asistent").map((m) => m.text);
+    expect(puse).not.toContain(INTREBARI[1].text);
+    expect(puse).not.toContain(INTREBARI[3].text);
+    expect(puse).not.toContain(INTREBARI[4].text);
+    expect(puse[puse.length - 1]).toBe(INTREBARI[5].text);
+  });
+
   it("sarPeste avansează fără etichete", () => {
     const s = sarPeste(porneste());
     expect(s.pas).toBe(2);
@@ -85,7 +102,8 @@ describe("asistentul de profil", () => {
 
   it("raspundeLiber cu etichete: dedupe pe tag, păstrează primul `din`, avansează", () => {
     let s = raspundeLiber(porneste(), "sunt programator", [{ tag: "it", din: "programator" }]);
-    expect(s.pas).toBe(2);
+    // IT răspunde deja la pasul 2 (domeniul), iar pasul 3 se sare fără firmă: urmează pasul 4
+    expect(s.pas).toBe(4);
     s = raspundeLiber(s, "iar IT", [
       { tag: "it", din: "IT" },
       { tag: "angajat", din: "angajat" },

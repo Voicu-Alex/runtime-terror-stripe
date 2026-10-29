@@ -1,5 +1,14 @@
 # Session state
 
+## Latest (29 oct 2026): logo + antet nou (PR #43), refăcut curat peste main 268a4977
+- Doar schimbările de logo și interfață, fără asistentul din `codex/assistant-current-ui` (main are deja asistentul din feat/asistent, PR #44). Versiunea veche cu acel asistent: branch local `ui-logo-responsive-vechi`.
+- Logo: components/Logo.tsx (buzunar --color-v3-logo, monedă --color-v3-pos), iconițe/OG în lib/marca.tsx.
+- Antet: logo + nume în stânga; dreapta Pro + buton rotund de profil (components/MeniuProfil.tsx): cont, Etichetele mele, Adaugă un document, Planul meu, Vorbește cu asistentul (/profil#asistent), Temă închisă, Limba, Pro, Ieși din cont. „Profil” scos din bara de secțiuni.
+- Asistent.tsx: #document / #etichete deschid formularul și derulează la el; #asistent arată conversația.
+- /aplicatie pe telefon: nu mai are 807 px lățime (bilanț). og:image din AUTH_URL (pe Amplify arăta spre localhost:3000).
+- Găzduirea e AWS Amplify (https://main.d35dxj4gdere6m.amplifyapp.com/); check-ul Vercel de pe PR e de ignorat.
+- Neverificat: meniul în starea conectat / „Ieși din cont”; dacă AUTH_URL e setată în consola Amplify.
+
 ## Latest (29 oct 2026): branch `legi-pipeline` (worktree `.claude/worktrees/legi-pipeline`), pipeline-ul de ingestie fără om
 - Branch nou din `main` (e74eb78d) cu `legi-ingest` inclus (merge 4c17e28d). Planul a ce lipsea: `docs/ingest-urmatorii-pasi.md`.
 - Construit de 3 builderi (Sonnet), inspectat, nimic pushuit:

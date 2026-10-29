@@ -103,13 +103,16 @@ async function profilCuModel(c: CerereProfil): Promise<RaspunsProfil | null> {
 
 async function legeCuModel(c: CerereLege, date: DateCard): Promise<RaspunsLege | null> {
   const client = new Anthropic();
+  // Sonnet 5.5 gândește implicit și gândirea intră în max_tokens: cu 600 răspunsul venea gol (stop max_tokens)
+  // și ruta cădea mereu pe șablon. Efort mic: răspunsul e de 2–3 propoziții, din blocul DATE.
   const r = await client.messages.create({
     model: "claude-sonnet-5-5",
-    max_tokens: 600,
+    max_tokens: 4000,
+    output_config: { effort: "low" },
     system: sistemLege(date),
     messages: mesajeLege(c.istoric, c.intrebare),
   });
-  if (r.stop_reason === "refusal") return null;
+  if (r.stop_reason === "refusal" || r.stop_reason === "max_tokens") return null;
   const text = r.content
     .flatMap((b) => (b.type === "text" ? [b.text] : []))
     .join("")

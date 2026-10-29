@@ -26,18 +26,17 @@ export default async function Flux({ searchParams }: { searchParams: Promise<{ p
   );
 }
 
-/** Persoanele fictive din demo (Andrei, Maria, Ion, Ioana), calculate pe server pentru că nu depind de dispozitiv. */
+/** Persoanele fictive (?p=andrei|maria|ion|ioana|elena), calculate pe server pentru că nu depind de dispozitiv. */
 function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
   const persoana = persoanaDemo(id);
   const potriviri = potriveste(persoana.profil, CATALOG, AZI_DEMO);
   return (
     <>
       <p className="mt-1 mb-0 text-sm text-v3-ink-2">
-        <T k="Profil demo:" /> <b className="text-v3-ink">{persoana.nume}</b> ·{" "}
+        <T k="Exemplu · persoană fictivă" />: <b className="text-v3-ink">{persoana.nume}</b> ·{" "}
         <Link href="/flux" className="text-v3-ink underline decoration-v3-line underline-offset-2">
           <T k="profilul meu" />
         </Link>
-        {" · "}<Link href={`/notificare?p=${id}`} className="underline decoration-v3-line underline-offset-2"><T k="Previzualizare notificări" /></Link>
       </p>
       <ListaFlux
         potriviri={potriviri}

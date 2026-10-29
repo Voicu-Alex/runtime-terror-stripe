@@ -182,6 +182,20 @@ function AsistentProfil() {
 
   useEffect(() => setBaza(incarcaProfil()), []);
 
+  // Meniul contului duce la /profil#document, #etichete (formularul) sau #asistent (conversația).
+  useEffect(() => {
+    const dupaAncora = () => {
+      const ancora = window.location.hash.slice(1);
+      if (ancora === "document" || ancora === "etichete") {
+        setFormular(true);
+        requestAnimationFrame(() => document.getElementById(ancora)?.scrollIntoView({ block: "start" }));
+      } else if (ancora === "asistent") setFormular(false);
+    };
+    dupaAncora();
+    window.addEventListener("hashchange", dupaAncora);
+    return () => window.removeEventListener("hashchange", dupaAncora);
+  }, []);
+
   // /profil?p=andrei: arată conversația terminată pentru o persoană demo (nu se salvează nimic).
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get("p");
@@ -265,7 +279,7 @@ function AsistentProfil() {
   const btnLink = "min-h-11 px-1 text-[14.5px] font-bold text-v3-ink underline underline-offset-2";
 
   return (
-    <div className="space-y-3">
+    <div id="asistent" className="scroll-mt-14 space-y-3">
       <div className="sticky top-12 z-10 -mx-4 flex items-center justify-between gap-2 border-b border-v3-line bg-[var(--fundal)] px-4">
         <button type="button" onClick={() => setFormular((f) => !f)} aria-pressed={formular} className={btnLink}>
           {formular ? t("Înapoi la conversație") : t("Încarc un document sau folosesc formularul")}
