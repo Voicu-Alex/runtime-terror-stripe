@@ -1,5 +1,13 @@
 # Session state
 
+## Latest (29 oct 2026): logo + UI responsive pe branch `ui-logo-responsive` (worktree .claude/worktrees/ui-logo), commit 41238c97, NEPUSHUIT
+- Din origin/main a2280499 + merge local `codex/assistant-current-ui` (asistentul nu e încă pe main; merge curat).
+- Logo în aplicație: buzunar în culoarea --color-v3-logo (gri cald; accentul albastru din v3 vechi nu mai e în app), monedă --color-v3-pos. components/Logo.tsx; iconițe/OG în lib/marca.tsx.
+- Telefon: logo stânga, limba un singur buton, tema în subsol; acasă nu mai are 807 px lățime (bilanț); butonul Asistent jos-dreapta peste tot; focus curat în câmpul de chat.
+- Verificat: tsc, 264 teste, telefon 375 lumină/întuneric în panoul de browser, desktop/tabletă în captures/ui-dupa-*. Serverul pornit din Bash pe :3020 (limita de 5 servere de preview era plină).
+- Deschis: push + PR (depinde de PR-ul asistentului); ESLint nu rulează cu configul din repo.
+
+
 Updated: 2026-10-29 05:35
 ## Deploy descriere mutat pe main (29 oct 2026)
 - main fast-forward la deploy-descriere și împins: origin/main = 17e7bd03 (include cele 18 commit-uri legi-ingest + deploy-ul Next.js). Scripturile din deploy/descriere/ spun acum `main`.
