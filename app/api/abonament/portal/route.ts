@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   try {
     const client = await clientDupaEmail(s, email);
     if (!client) return NextResponse.json({ eroare: "Nu ai încă un abonament." }, { status: 404 });
-    const portal = await s.billingPortal.sessions.create({ customer: client.id, return_url: `${new URL(req.url).origin}/abonament` });
+    const portal = await s.billingPortal.sessions.create({ customer: client.id, return_url: `${new URL(process.env.AUTH_URL || req.url).origin}/abonament` });
     return NextResponse.json({ url: portal.url });
   } catch (e) {
     console.error("Stripe portal:", e instanceof Error ? e.message : e);

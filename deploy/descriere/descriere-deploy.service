@@ -1,9 +1,9 @@
 [Unit]
-Description=Publică descriere.andreidobrin.com din main (GitHub)
+Description=Publică aplicația și descrierea din deploy-descriere (GitHub)
 Wants=network-online.target
 After=network-online.target
 
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/descriere-deploy
-TimeoutStartSec=120
+TimeoutStartSec=900

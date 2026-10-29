@@ -37,6 +37,7 @@ function FluxDemo({ id, sortare }: { id: string; sortare: Sortare }) {
         <Link href="/flux" className="text-v3-ink underline decoration-v3-line underline-offset-2">
           <T k="profilul meu" />
         </Link>
+        {" · "}<Link href={`/notificare?p=${id}`} className="underline decoration-v3-line underline-offset-2"><T k="Previzualizare notificări" /></Link>
       </p>
       <ListaFlux
         potriviri={potriviri}

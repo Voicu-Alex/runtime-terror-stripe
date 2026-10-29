@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { dataScurta, mii, zile, ZILE_URGENT } from "@/lib/card";
+import { bani, dataScurta, zile, ZILE_URGENT } from "@/lib/card";
 import { CATALOG, gasesteSchimbarea } from "@/lib/catalog";
 import { GHID, ordoneaza } from "@/lib/ghid";
 import { aziISO } from "@/lib/potrivire";
@@ -211,7 +211,7 @@ export default function Acasa() {
             Toate legile, după cât poți salva
           </Cta>
         </div>
-        <p className="m-0 mt-4 text-[13.5px] text-v3-ink-2">Fără cont. Profilul rămâne pe telefonul tău. Fiecare sumă are legea și articolul lângă ea.</p>
+        <p className="m-0 mt-4 text-[13.5px] text-v3-ink-2">Nu conectezi banca. Poți completa profilul manual sau cu AI. Fiecare sumă are legea și articolul lângă ea.</p>
       </section>
 
       {/* STORY: trei cazuri reale */}
@@ -251,7 +251,7 @@ export default function Acasa() {
                 </p>
                 {a.salvezi && (
                   <p className="m-0 mt-1.5 text-[14px] font-bold text-v3-band-pos">
-                    păstrezi până la {mii(a.salvezi.lei)} lei {a.salvezi.cand === "o_data" ? "o dată" : "pe an"}
+                    păstrezi până la {bani(a.salvezi.lei)} lei {a.salvezi.perioada ?? (a.salvezi.cand === "o_data" ? "o dată" : "pe an")}
                   </p>
                 )}
               </li>
@@ -271,7 +271,7 @@ export default function Acasa() {
         <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
           {[
             ["Profilul din documente", "Încarci un fluturaș, un contract sau o factură. Etichetele și cifrele se completează singure; tu scoți ce nu e cazul."],
-            ["Fluxul tău, în lei pe lună", "Fiecare lege care te atinge, cu suma pentru tine: cât pierzi, cât câștigi."],
+            ["Fluxul tău, în lei pe an", "Fiecare lege care te atinge, cu suma pentru tine: cât pierzi, cât câștigi."],
             ["Ce poți face și până când", "Pașii permiși de lege și termenul, cu numărătoarea calculată din data din act."],
             ["Planul meu", "Bifezi ce faci și vezi cât păstrezi pe an. Bara de jos se schimbă pe loc."],
             ["Sursa lângă fiecare sumă", "Actul, Monitorul Oficial, articolul și linkul la Portalul Legislativ. Ce nu am verificat scrie „de confirmat”."],

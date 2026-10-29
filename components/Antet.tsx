@@ -21,16 +21,16 @@ export function Antet() {
   return (
     <>
       <header>
-        <div className="mx-auto grid max-w-[1080px] grid-cols-[auto_1fr_auto] items-center gap-2 px-4 pt-3.5 pb-2.5 sm:grid-cols-[1fr_auto_1fr] sm:gap-2.5 lg:pt-[18px] lg:pb-4">
+        <div className="mx-auto grid max-w-[1080px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-4 pt-3.5 pb-2.5 sm:gap-2.5 lg:grid-cols-[1fr_auto_1fr] lg:pt-[18px] lg:pb-4">
           {/* stânga: tema, dreapta: Pro și limba, ca logo-ul să rămână centrat */}
           <span className="flex justify-start">
             <ComutatorTema />
           </span>
-          <Link href="/" className="text-center no-underline">
-            <b className="block font-head text-[clamp(15px,4.4vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] text-balance text-v3-logo min-[400px]:whitespace-nowrap lg:text-[34px]">
+          <Link href="/" className="min-w-0 text-center no-underline">
+            <b className="block font-head text-[clamp(15px,4.4vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] text-balance text-v3-logo lg:whitespace-nowrap lg:text-[34px]">
               Ce înseamnă pentru mine
             </b>
-            <span className="mt-[3px] block text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase lg:text-[11.5px]">
+            <span className="mt-[3px] hidden text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase min-[400px]:block lg:text-[11.5px]">
               {t("Legea, pe banii tăi")}
             </span>
           </Link>
@@ -65,18 +65,23 @@ function ButonPro() {
   const stare = useAbonament();
   if (stare?.activ)
     return (
-      <Link href="/abonament" className="inline-flex min-h-8 items-center gap-1 rounded-lg border border-v3-line bg-v3-card px-2.5 text-xs font-bold text-v3-ink no-underline">
+      <Link href="/abonament" className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg border border-v3-line bg-v3-card px-2.5 text-xs font-bold text-v3-ink no-underline">
         Pro <span className="text-v3-pos">✓</span>
       </Link>
     );
   return (
     <Link
       href="/abonament"
-      className="inline-flex min-h-8 items-center rounded-lg bg-v3-ink px-2.5 text-xs font-bold whitespace-nowrap text-v3-on-ink no-underline hover:bg-v3-ink-strong"
+      className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg bg-v3-ink px-2.5 text-xs font-bold whitespace-nowrap text-v3-on-ink no-underline hover:bg-v3-ink-strong"
     >
       <span className="hidden sm:inline">{t("Upgrade la")}&nbsp;</span>Pro
     </Link>
   );
+}
+
+export function SariLaContinut() {
+  const { t } = useLimba();
+  return <a href="#continut" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-v3-ink focus:px-4 focus:py-3 focus:text-v3-on-ink">{t("Sari la conținut")}</a>;
 }
 
 export function Subsol() {
@@ -84,7 +89,7 @@ export function Subsol() {
   return (
     <footer className="mx-auto max-w-[1080px] border-t border-v3-line px-4 pt-4 pb-8 text-[12.5px] text-v3-ink-2">
       {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}
-      {t("Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică. Profilul rămâne pe dispozitivul tău.")}
+      {t("Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică.")}
       {limba === "en" && <> {t("Textele legilor sunt în română.")}</>}
       <Link href="/abonament" className="ml-1 font-semibold text-v3-ink-2 underline decoration-v3-line underline-offset-2">
         Pro

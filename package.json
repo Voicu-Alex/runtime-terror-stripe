@@ -9,6 +9,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "supabase:import": "node --env-file=.env.local scripts/supabase-import.mjs",
+    "supabase:sync": "node --env-file=.env.local scripts/supabase-sync.mjs && vitest run",
     "legi:migreaza": "node --env-file=.env.local scripts/legi/migreaza.mjs",
     "legi:descopera": "node --env-file=.env.local --import tsx scripts/legi/descopera.mts",
     "legi:export-lot": "node --env-file=.env.local --import tsx scripts/legi/export-lot.mts",

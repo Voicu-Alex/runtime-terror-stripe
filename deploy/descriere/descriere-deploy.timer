@@ -1,5 +1,5 @@
 [Unit]
-Description=Verifică main la fiecare 3 minute
+Description=Verifică deploy-descriere la fiecare 3 minute
 
 [Timer]
 OnBootSec=1min

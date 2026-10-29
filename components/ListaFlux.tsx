@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import CardSchimbare from "@/components/CardSchimbare";
 import { useLimba } from "@/components/Limba";
 import { ArticolPrincipal, Cifre, Termene, TitluSectiune, evenimente } from "@/components/RevistaFlux";
-import { cuSemn, dupaImpact, dupaNoutate, mii, type Sortare } from "@/lib/card";
+import { bani, cuSemn, dupaImpact, dupaNoutate, mii, type Sortare } from "@/lib/card";
 import { alegeNotificarea, incarcaPlan, salveazaPlan } from "@/lib/plan";
 import { CATALOG } from "@/lib/catalog";
 import { planulMeu, potriveste, type Potrivire } from "@/lib/potrivire";
@@ -79,16 +79,16 @@ export function ListaFlux({
   }
 
   const flux = [...potriviri].sort(sortare === "noi" ? dupaNoutate : dupaImpact);
-  const plan = planulMeu(potriviri, bifate, valori);
+  const plan = planulMeu(potriviri, bifate, valori, azi);
   const cuEconomie = potriviri.some((p) => p.schimbare.actiuni.some((a) => a.formula_economie));
   const sep = baza.includes("?") ? "&" : "?";
   const optiune = (s: Sortare, text: string) =>
     s === sortare ? (
-      <b className="text-v3-ink" aria-current="true">
+      <b className="inline-flex min-h-11 items-center text-v3-ink" aria-current="true">
         {text}
       </b>
     ) : (
-      <Link href={`${baza}${sep}sort=${s}`} className="text-v3-ink-2 underline decoration-v3-line underline-offset-2 hover:text-v3-ink">
+      <Link href={`${baza}${sep}sort=${s}`} className="inline-flex min-h-11 items-center text-v3-ink-2 underline decoration-v3-line underline-offset-2 hover:text-v3-ink">
         {text}
       </Link>
     );
@@ -130,31 +130,33 @@ export function ListaFlux({
         {/* Planul meu: suma actelor cu impact calculabil, fără și cu acțiunile bifate (lib/potrivire.ts planulMeu). */}
         <aside
           aria-label={t("Planul meu")}
-          className="sticky bottom-0 -mx-4 mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t-2 border-v3-ink bg-[var(--fundal)] px-4 py-3"
+          className="bara-plan sticky bottom-0 z-10 -mx-4 mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t-2 border-v3-ink bg-v3-paper px-4 py-3"
         >
           <span className="text-[11.5px] font-extrabold tracking-[.1em] text-v3-accent uppercase">{t("Planul meu")}</span>
           <span className="text-[15px] text-v3-ink">
             {t("Acum:")}{" "}
             <b className={`tabular-nums ${plan.fara_actiuni < 0 ? "text-v3-neg" : plan.fara_actiuni > 0 ? "text-v3-pos" : ""}`}>
-              {cuSemn(plan.fara_actiuni)} {t("lei/lună")}
+              {cuSemn(plan.fara_actiuni * 12)} {t("lei/an")}
             </b>
           </span>
-          {plan.economii !== 0 ? (
+          {plan.economii !== 0 || plan.economii_punctuale !== 0 ? (
             <span className="text-[15px] text-v3-ink">
               {t("Cu ce ai bifat:")}{" "}
               <b className={`tabular-nums ${plan.cu_actiuni < 0 ? "text-v3-neg" : "text-v3-pos"}`}>
-                {cuSemn(plan.cu_actiuni)} {t("lei/lună")}
+                {cuSemn(plan.cu_actiuni * 12)} {t(plan.unitate)}
               </b>
-              <span className="text-v3-ink-2">
+              {plan.economii !== 0 && <span className="text-v3-ink-2">
                 {" "}
-                · {t("păstrezi")} {mii(plan.economii * 12)} {t("lei/an")}
-              </span>
+                · {t("păstrezi")} {mii(plan.economii * 12)} {t(plan.unitate)}
+              </span>}
+              {plan.economii_punctuale !== 0 && <span className="text-v3-ink-2"> · +{bani(plan.economii_punctuale)} {t("lei o dată")}</span>}
             </span>
           ) : (
             <span className="text-[13.5px] text-v3-ink-2">
-              {cuEconomie ? t("Bifează „O fac” la actele cu economie și vezi cât păstrezi.") : t("Sumele din acțiuni se adună aici.")}
+              {cuEconomie ? t("Adaugă o acțiune în plan pentru a vedea economia.") : t("Sumele din acțiuni se adună aici.")}
             </span>
           )}
+          <span role="status" className="sr-only">{t("Planul meu")}: {cuSemn(plan.cu_actiuni * 12)} {t(plan.unitate)}{plan.economii_punctuale !== 0 && ` · +${bani(plan.economii_punctuale)} ${t("lei o dată")}`}</span>
         </aside>
       </div>
       <aside aria-label={t("Termene")} className="hidden border-l border-v3-line pl-5 lg:block">

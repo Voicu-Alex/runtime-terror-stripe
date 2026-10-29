@@ -23,7 +23,7 @@
     "id": "prima_stabilitate",
     "pentru": "Pentru tinerii sub 30 de ani care își caută primul job",
     "ce": "statul îți dă 27.000 lei dacă te înregistrezi la AJOFM înainte să semnezi",
-    "salvezi": { "lei": 12000, "cand": "pe_an", "ipoteza": "1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea, în total 27.000 lei" },
+    "salvezi": { "lei": 12000, "cand": "pe_an", "perioada": "în primul an", "ipoteza": "1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea, în total 27.000 lei" },
     "pierzi": null,
     "termen": null,
     "pasi": [
@@ -31,7 +31,7 @@
       "Semnează primul contract cu normă întreagă și pe durată nedeterminată, la un angajator privat (nu la o instituție publică sau o firmă de stat).",
       "Cere prima de stabilitate la AJOFM după angajare. Termenul de depunere: TODO (presa spune 90 de zile).",
       "Nu o cere împreună cu prima de inserție pentru absolvenți (1.980 lei): nu se cumulează, iar prima de stabilitate e mai mare.",
-      "Dacă pleci în primii 2 ani prin demisie, prin acordul părților sau prin concediere disciplinară, dai banii înapoi."
+      "Dacă pleci în primii 2 ani prin demisie, prin acordul părților sau prin concediere disciplinară, restituie banii."
     ],
     "solutie": {
       "nume": "AJOFM (rețeaua ANOFM)",
@@ -136,7 +136,7 @@
     "id": "motorina_acciza",
     "pentru": "Pentru șoferii de mașini pe motorină",
     "ce": "litrul e cu 0,85 lei mai ieftin doar până pe 31 octombrie",
-    "salvezi": { "lei": 42, "cand": "o_data", "ipoteza": "un plin de 50 de litri × 0,85 lei" },
+    "salvezi": { "lei": 42.5, "cand": "o_data", "perioada": "pe plin (50 l)", "ipoteza": "un plin de 50 de litri × 0,85 lei" },
     "pierzi": null,
     "termen": "2026-10-31",
     "pasi": [
@@ -211,7 +211,7 @@
     "termen": null,
     "pasi": [
       "Legea nu oferă o acțiune care să compenseze creșterea.",
-      "Ți-o arătăm ca să-ți ajustezi bugetul: la fiecare 1.000 de lei cheltuiți, aproximativ 17 lei merg în plus la TVA."
+      "Ajustează-ți bugetul: la fiecare 1.000 de lei cheltuiți, aproximativ 17 lei merg în plus la TVA."
     ],
     "solutie": null
   },
@@ -296,7 +296,7 @@
     "termen": null,
     "pasi": [
       "Întreabă la primărie dacă te încadrezi la venitul minim de incluziune.",
-      "Cererea se depune la primărie, cu declarație pe propria răspundere."
+      "Dacă te încadrezi, depune cererea la primărie, cu declarație pe propria răspundere."
     ],
     "solutie": {
       "nume": "Primăria de domiciliu",
@@ -330,7 +330,7 @@
     "termen": null,
     "pasi": [
       "Azi nu pierzi nimic: se schimbă doar felul în care primești banii la pensionare.",
-      "Alegerea dintre plata eșalonată și rentă o faci la pensionare."
+      "Alege între plata eșalonată și rentă la pensionare."
     ],
     "solutie": null
   },
@@ -604,6 +604,7 @@
     "salvezi": {
       "lei": 100,
       "cand": "o_data",
+      "perioada": "pentru noiembrie–decembrie 2026",
       "ipoteza": "50 lei pe lună pentru noiembrie și decembrie 2026, dacă te înscrii în noiembrie"
     },
     "pierzi": null,

@@ -6,7 +6,7 @@
 #   ./deploy/descriere/install.sh
 #
 # Drum: acest calculator -> Proxmox host1 (SSH) -> pct push în CT 107.
-# E idempotent: nu suprascrie config-ul și nu regenerează cheia de deploy dacă există deja.
+# Păstrează cheia și configurarea existente; fixează branch-ul de publicare la deploy-descriere.
 
 set -euo pipefail
 
@@ -44,11 +44,12 @@ install -m 644 \$src/known_hosts /etc/descriere-deploy/known_hosts
 if [ ! -f /etc/descriere-deploy/config ]; then
   cat > /etc/descriere-deploy/config <<'CFG'
 REPO_URL="git@github.com:Voicu-Alex/runtime-terror-stripe.git"
-BRANCH=main
+BRANCH=deploy-descriere
 WEBROOT=/var/www/descriere
 SSH_KEY=/etc/descriere-deploy/deploy_key
 CFG
 fi
+sed -i 's/^BRANCH=.*/BRANCH=deploy-descriere/' /etc/descriere-deploy/config
 [ -f /etc/descriere-deploy/deploy_key ] || ssh-keygen -q -t ed25519 -N '' -C "descriere-deploy@ct$CTID" -f /etc/descriere-deploy/deploy_key
 
 if ! cmp -s \$src/nginx.conf /etc/nginx/sites-available/descriere; then

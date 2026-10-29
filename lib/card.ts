@@ -1,7 +1,7 @@
 // Ce afișează un card din flux, calculat din Potrivire. Pur, testat; componenta doar randează.
 import type { Potrivire } from "./potrivire";
 import { actualizatLa } from "./catalog";
-import { calculeaza } from "./formule";
+import { calculeazaEconomie, type Economie } from "./formule";
 import { TAGURI } from "./taguri";
 import { etichetaTagL, familieL, lunaScurta, type Limba } from "./i18n";
 import type { Valori } from "./profil";
@@ -26,6 +26,11 @@ export function mii(n: number): string {
   return String(Math.round(Math.abs(n))).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
+/** Păstrează și banii pentru economii punctuale (de exemplu 42,50 lei pe un plin). */
+export function bani(n: number): string {
+  return Math.abs(n).toLocaleString("ro-RO", { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
+}
+
 /** −120 / +25 / 0, cu minus tipografic. */
 export function cuSemn(n: number): string {
   const r = Math.round(n);
@@ -48,22 +53,22 @@ export type VedereCard = {
   titlu: string;
   stare: StareCard;
   act: string;
-  /** lei/lună rotunjit; null = nu putem calcula */
+  /** impact anualizat în lei/an, rotunjit după conversie; null = nu putem calcula */
   suma: number | null;
   /** ce să cerem omului când suma lipsește */
   cere: string | null;
   termen: { text: string; zile: number; urgent: boolean; depasit: boolean } | null;
-  /** economia pe an dacă face acțiunea; null = nu o estimăm */
-  economieAn: number | null;
+  /** economia cu perioada ei reală: anuală, în primul an sau punctuală */
+  economie: Economie | null;
 };
 
 const CERE: Partial<Record<keyof Valori, string>> = {
-  pensie_lunara: "spune-ne pensia ta",
-  dividende_anuale: "spune-ne dividendele tale",
-  cheltuieli_lunare: "spune-ne cât cheltui pe lună",
-  salariu_brut: "spune-ne salariul brut",
-  salariu_net: "spune-ne salariul net",
-  impozit_cladiri_anual: "spune-ne impozitul pe clădire de pe decizia de impunere",
+  pensie_lunara: "indică cuantumul pensiei",
+  dividende_anuale: "indică dividendele anuale",
+  cheltuieli_lunare: "indică cheltuielile lunare",
+  salariu_brut: "indică salariul brut",
+  salariu_net: "indică salariul net",
+  impozit_cladiri_anual: "indică impozitul pe clădire din decizia de impunere",
 };
 
 export function vedere(p: Potrivire, valori: Valori, limba: Limba = "ro"): VedereCard {
@@ -72,7 +77,7 @@ export function vedere(p: Potrivire, valori: Valori, limba: Limba = "ro"): Veder
   const zileT = p.zile_pana_la_termen;
   const depasit = zileT !== null && zileT < 0;
   const familie = familieL(limba, TAGURI[p.taguri_comune[0]].familie);
-  const eco = a?.formula_economie ? calculeaza(a.formula_economie, valori) : null;
+  const eco = a?.formula_economie ? calculeazaEconomie(a.formula_economie, valori) : null;
 
   return {
     id: s.id,
@@ -80,13 +85,13 @@ export function vedere(p: Potrivire, valori: Valori, limba: Limba = "ro"): Veder
     titlu: limba === "en" && s.rezumat_en ? s.rezumat_en : s.rezumat,
     stare: depasit ? "termen_depasit" : s.status,
     act: s.act,
-    suma: p.impact_lei_luna === null ? null : Math.round(p.impact_lei_luna),
+    suma: p.impact_lei_luna === null ? null : Math.round(p.impact_lei_luna * 12),
     cere: p.impact_lei_luna === null ? (p.valori_lipsa.map((k) => CERE[k]).find(Boolean) ?? null) : null,
     termen:
       a?.termen && zileT !== null
         ? { text: dataScurta(a.termen, limba), zile: zileT, urgent: !depasit && zileT < ZILE_URGENT, depasit }
         : null,
-    economieAn: eco ? Math.round(eco * 12) : null,
+    economie: eco?.suma ? eco : null,
   };
 }
 

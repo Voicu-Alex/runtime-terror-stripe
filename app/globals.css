@@ -93,6 +93,34 @@
   --text: var(--color-v3-ink);
 }
 
+html {
+  color-scheme: light;
+  scroll-padding-block: 5rem 10rem;
+}
+
+::selection {
+  background: var(--color-v3-ink);
+  color: var(--color-v3-on-ink);
+}
+
+input, textarea {
+  caret-color: var(--color-v3-ink);
+}
+
+button:not(:disabled), summary, select, input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.bara-plan {
+  padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transition-transform {
+    transition: none;
+  }
+}
+
 body {
   background: var(--fundal);
   color: var(--text);

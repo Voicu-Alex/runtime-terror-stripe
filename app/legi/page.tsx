@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { T } from "@/components/Limba";
-import { dataScurta, mii, zile, ZILE_URGENT } from "@/lib/card";
+import { bani, dataScurta, zile, ZILE_URGENT } from "@/lib/card";
 import { CATALOG } from "@/lib/catalog";
 import { GHID, ordoneaza, type ArticolGhid, type Suma } from "@/lib/ghid";
 
@@ -14,7 +14,7 @@ export const metadata = { title: "Toate schimbările din lege · Ce înseamnă p
 const STARE: Record<string, string> = { proiect: "proiect", adoptat: "adoptat", in_vigoare: "în vigoare" };
 
 function cand(s: Suma): string {
-  return s.cand === "o_data" ? "o singură dată" : "pe an";
+  return s.perioada ?? (s.cand === "o_data" ? "o singură dată" : "pe an");
 }
 
 function Bani({ tip, s }: { tip: "salvezi" | "pierzi"; s: Suma | null }) {
@@ -28,7 +28,7 @@ function Bani({ tip, s }: { tip: "salvezi" | "pierzi"; s: Suma | null }) {
         <>
           <p className={`m-0 mt-1 font-head text-[30px] leading-none font-extrabold tracking-[-.02em] ${salvezi ? "text-v3-pos" : "text-v3-neg"}`}>
             {salvezi ? "+" : "−"}
-            {mii(s.lei)}
+            {bani(s.lei)}
             <small className="ml-1.5 font-sans text-[14px] font-semibold tracking-normal text-v3-ink-2">lei {cand(s)}</small>
           </p>
           <p className="m-0 mt-1.5 text-[13px] leading-snug text-v3-ink-2">{s.ipoteza}</p>
@@ -42,23 +42,18 @@ function Bani({ tip, s }: { tip: "salvezi" | "pierzi"; s: Suma | null }) {
   );
 }
 
-function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
+function Articol({ a }: { a: ArticolGhid }) {
   const s = a.schimbare;
   const urgent = a.zile !== null && a.zile >= 0 && a.zile < ZILE_URGENT;
   const portal = s.sursa_url.includes("legislatie.just.ro");
   return (
-    <article id={a.id} className={`scroll-mt-4 border-b border-v3-line py-8 ${a.expirat ? "opacity-80" : ""}`}>
-      <div className="grid gap-x-6 sm:grid-cols-[64px_minmax(0,1fr)]">
-        {loc !== null && (
-          <p aria-hidden="true" className="m-0 mb-2 font-head text-[44px] leading-none font-extrabold text-v3-tint1 sm:mb-0 sm:text-[56px]">
-            {String(loc).padStart(2, "0")}
-          </p>
-        )}
-        <div className={loc === null ? "sm:col-span-2" : ""}>
+    <article id={a.id} className="scroll-mt-20 border-b border-v3-line py-8">
+      <div className="min-w-0">
+        <div>
           <p className="m-0 mb-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[12.5px] text-v3-ink-2">
             <span
               className={`rounded-full border px-[9px] py-px font-semibold ${
-                a.expirat ? "border-v3-past-line bg-v3-past-bg text-v3-past" : "border-v3-pos bg-v3-pos-soft text-v3-pos"
+                a.expirat ? "border-v3-past-line bg-v3-past-bg text-v3-past" : "border-v3-line bg-v3-accent-soft text-v3-ink-2"
               }`}
             >
               {a.expirat ? "termen depășit" : STARE[s.status]}
@@ -75,7 +70,7 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
             )}
           </p>
 
-          <h2 className="m-0 font-head text-[clamp(21px,4.6vw,28px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink uppercase">
+          <h2 className="m-0 font-head text-[clamp(21px,4.6vw,28px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink">
             <span className="text-v3-accent">{a.pentru}:</span> {a.ce}
           </h2>
 
@@ -85,7 +80,7 @@ function Articol({ a, loc }: { a: ArticolGhid; loc: number | null }) {
             {a.pierzi && <Bani tip="pierzi" s={a.pierzi} />}
           </div>
 
-          <div className="mt-4 rounded-xl bg-v3-act p-4 shadow-[inset_3px_0_0_var(--color-v3-pos)]">
+          <div className="mt-4 rounded-xl bg-v3-act p-4">
             <h3 className="m-0 mb-2 text-[12px] font-extrabold tracking-[.1em] text-v3-ink uppercase">
               {a.expirat ? (
                 <T k="Ce mai poți face" />
@@ -203,8 +198,8 @@ export default function PaginaLegi() {
       </header>
 
       <section aria-label="Schimbările, după cât poți salva">
-        {active.map((a, i) => (
-          <Articol key={a.id} a={a} loc={i + 1} />
+        {active.map((a) => (
+          <Articol key={a.id} a={a} />
         ))}
       </section>
 
@@ -217,7 +212,7 @@ export default function PaginaLegi() {
             <T k="Termenul a trecut · bine de știut pentru data viitoare" />
           </h2>
           {expirate.map((a) => (
-            <Articol key={a.id} a={a} loc={null} />
+            <Articol key={a.id} a={a} />
           ))}
         </section>
       )}
