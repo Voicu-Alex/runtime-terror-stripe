@@ -1917,5 +1917,1087 @@
     "sursa_explicativa": "https://www.edupedu.ro/oficial-burse-pentru-studenti-in-anul-universitar-2026-2027-minimum-925-de-lei-bursa-sociala-si-3-700-de-lei-bursa-de-doctorat/",
     "incredere": "ridicata",
     "verificat_la": "2026-10-28"
+  },
+  {
+    "id": "plafonul_scutire_tva_2025",
+    "act": "OUG 22/2025",
+    "mo_ref": "MO 806 / 29 aug 2025",
+    "rezumat": "Plafonul de scutire de TVA pentru firmele mici a crescut la 395.000 lei din 1 septembrie 2025",
+    "status": "in_vigoare",
+    "publicat_la": "2025-08-29",
+    "in_vigoare_de_la": "2025-09-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "pfa",
+      "pfa_norma",
+      "micro",
+      "srl_dividende"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Poți rămâne neînregistrat în scopuri de TVA până la o cifră de afaceri anuală de 395.000 lei.",
+      "curios": "Persoana impozabilă stabilită în România a cărei cifră de afaceri anuală nu depășește 395.000 lei poate aplica scutirea de TVA, adică nu adaugă TVA pe facturi și nu deduce TVA pe achiziții. Vechiul plafon, pomenit în art. III alin. (1), era de 300.000 lei. Dacă rămâi sub plafon, nu mai ai decont de TVA, dar nici nu poți scădea TVA-ul de pe cumpărături.",
+      "expert": "Art. I pct. 11 modifică art. 310 alin. (1), (2) și (6) din Codul fiscal: plafonul este 395.000 lei, iar cifra de afaceri de referință se calculează conform alin. (2), fără livrările de active fixe corporale și cesiunea de active necorporale. Regimul normal se aplică din data depășirii plafonului, începând cu tranzacția care îl depășește (alin. (6)). Intră în vigoare la 1 septembrie 2025 (art. II). De verificat: Pagina ANAF despre regimul special de scutire și înregistrarea în scopuri de TVA (ANAF, informații pentru persoane impozabile)."
+    },
+    "actiuni": [
+      {
+        "text": "Urmărește cifra de afaceri a anului calendaristic, calculată după art. 310 alin. (2). Plafonul este 395.000 lei; când îl depășești, trebuie să ceri înregistrarea în scopuri de TVA cel târziu la data depășirii.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 310 alin. (1) Cod fiscal, modificat prin art. I pct. 11; art. II · citat: „a cărei cifră de afaceri anuală, declarată sau realizată, nu depășește plafonul de 395.000 lei, poate aplica scutirea de taxă”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/301801",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "The VAT exemption threshold for small businesses rose to 395,000 lei from 1 September 2025",
+    "formula_tip": null
+  },
+  {
+    "id": "te_poti_scoate_2025",
+    "act": "OUG 22/2025",
+    "mo_ref": "MO 806 / 29 aug 2025",
+    "rezumat": "Te poți scoate din evidența TVA dacă te-ai înregistrat până la 1 septembrie 2025 doar pentru că ai trecut de 300.000 lei",
+    "status": "in_vigoare",
+    "publicat_la": "2025-08-29",
+    "in_vigoare_de_la": "2025-09-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "pfa",
+      "pfa_norma",
+      "micro",
+      "srl_dividende"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă te-ai înregistrat la TVA doar pentru că ai trecut de 300.000 lei și ești sub 395.000 lei, poți cere să fii scos din evidență.",
+      "curios": "Cine s-a înregistrat în scopuri de TVA până la 1 septembrie 2025 inclusiv, ca urmare a depășirii a 300.000 lei, poate cere scoaterea din evidență și trecerea la scutire, dacă nu a depășit 395.000 lei până la cerere. Pentru firmele înființate înainte de 2025 se cere în plus să nu fi depășit 300.000 lei în 2024. Cererea se depune între 1 și 10 ale lunii, iar ANAF răspunde până la sfârșitul lunii. Până la decizie ai toate obligațiile unui plătitor de TVA.",
+      "expert": "Alin. (2): firmele înființate înainte de 2025, fără depășirea a 300.000 lei în 2024. Alin. (3): firmele înființate în 2025. Alin. (4): cererea între 1 și 10 ale lunii următoare perioadei fiscale, anularea valabilă de la comunicarea deciziei, ultimul decont până la 25 ale lunii următoare comunicării, cu toate ajustările. De verificat: Cererea de scoatere din evidența persoanelor înregistrate în scopuri de TVA, prin Spațiul Privat Virtual sau portalul de formulare ANAF (formularul exact de verificat)."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă te încadrezi, depune la ANAF cererea de scoatere din evidența persoanelor înregistrate în scopuri de TVA, între 1 și 10 ale lunii următoare perioadei tale fiscale. Până la decizie rămâi plătitor de TVA, apoi depui ultimul decont până la 25 ale lunii următoare deciziei.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. III alin. (2)-(4) · citat: „pot solicita, începând cu data de 1 septembrie 2025, scoaterea din evidența persoanelor înregistrate în scopuri de TVA”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/301801",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "You can ask to be removed from the VAT register if you registered by 1 September 2025 only because you passed 300,000 lei",
+    "formula_tip": null
+  },
+  {
+    "id": "daca_treci_lei_2025",
+    "act": "OUG 22/2025",
+    "mo_ref": "MO 806 / 29 aug 2025",
+    "rezumat": "Dacă treci de 395.000 lei, ceri înregistrarea la TVA cel târziu în ziua depășirii; întârzierea înseamnă TVA retroactiv",
+    "status": "in_vigoare",
+    "publicat_la": "2025-08-29",
+    "in_vigoare_de_la": "2025-09-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "cost",
+    "taguri": [
+      "pfa",
+      "pfa_norma",
+      "micro",
+      "srl_dividende"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Când treci de 395.000 lei, ceri înregistrarea la TVA chiar în ziua depășirii.",
+      "curios": "Dacă aplici scutirea și cifra ta de afaceri depășește plafonul, trebuie să ceri înregistrarea în scopuri de TVA cel târziu la data depășirii. TVA normal se aplică din tranzacția care a dus la depășire. Dacă ceri târziu, ANAF te poate înregistra din oficiu de la data depășirii și stabili TVA de plată pentru perioada respectivă.",
+      "expert": "Alin. (6): regimul normal de taxare din data depășirii, începând cu tranzacția care îl depășește. Alin. (6^1): organul fiscal înregistrează din oficiu sau modifică data înregistrării și stabilește taxa de plată (colectată minus deductibilă) sau suma negativă. Alin. (6^2)-(6^3): același calcul îl faci tu singur și îl treci în primul decont după înregistrare. De verificat: Formularul de înregistrare în scopuri de TVA (art. 316) pe portalul ANAF; formularul exact nu e în text, de verificat."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă depășești plafonul, cere înregistrarea în scopuri de TVA cel târziu la data depășirii. Dacă ai întârziat, ceri tu modificarea datei înregistrării la data depășirii și treci sumele în primul decont depus după înregistrare.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 310 alin. (6) și (6^1) · citat: „trebuie să solicite înregistrarea în scopuri de TVA, conform art. 316, cel târziu la data depășirii plafonului”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/301801",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "If you pass 395,000 lei you must apply for VAT registration by the day you pass it; late registration means back-dated VAT",
+    "formula_tip": null
+  },
+  {
+    "id": "srl_ul_pierde_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "SRL-ul pierde regimul micro dacă veniturile trec de 100.000 euro, și plătește impozit pe profit din trimestrul depășirii",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-01-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "micro"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Un SRL micro care depășește 100.000 euro venituri în an trece la impozit pe profit din trimestrul depășirii.",
+      "curios": "Pragul pentru regimul micro este de 100.000 euro venituri. Dacă îl depășești în cursul anului, nu mai plătești impozit pe veniturile microîntreprinderii, ci impozit pe profit, începând cu trimestrul în care ai trecut de prag. Veniturile firmelor legate cu a ta se adună la verificare.",
+      "expert": "Art. 47 alin. (1) lit. c): condiția de încadrare este ca veniturile să nu fi depășit echivalentul în lei a 100.000 euro, la cursul de la închiderea exercițiului financiar în care s-au înregistrat veniturile. Art. 47 alin. (1^1): limita se verifică cumulat cu veniturile întreprinderilor legate. Art. 52 alin. (1): la depășire în cursul anului se datorează impozit pe profit din trimestrul depășirii; art. 52 alin. (5^1) adună și veniturile persoanelor legate. Art. 54 alin. (1): se ia cifra de afaceri contabilă; pentru art. 52 se adaugă veniturile din transferul mijloacelor fixe sau terenurilor, în condițiile din text. Art. 10 alin. (3) și (5): se aplică pentru încadrarea în 2026 și pentru calculul plafonului din trimestrul I 2026. Art. 10 alin. (4): cine a comunicat între 1 ianuarie 2026 și intrarea în vigoare aplicarea sau ieșirea din regimul micro depune o nouă declarație de mențiuni."
+    },
+    "actiuni": [
+      {
+        "text": "Urmărește pe parcursul anului veniturile firmei (cifra de afaceri, împreună cu cele ale firmelor legate) față de 100.000 euro; dacă le depășești, impozitul pe profit se datorează din trimestrul depășirii. Dacă ai comunicat ANAF aplicarea sau ieșirea din regimul micro între 1 ianuarie 2026 și intrarea în vigoare a ordonanței, depune o nouă declarație de mențiuni (art. 10 alin. (4)).",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anaf_formulare"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 52 alin. (1) (art. 6 pct. 20); art. 47 alin. (1) lit. c) (art. 6 pct. 15) · citat: „(1) Dacă în cursul unui an fiscal o microîntreprindere realizează venituri mai mari de 100.000 euro, aceasta datorează impozit pe profit începând cu trimestrul în care s-a depășit această limită.”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "A micro-enterprise SRL switches to profit tax from the quarter its revenue passes 100,000 euro",
+    "formula_tip": null
+  },
+  {
+    "id": "srl_ul_nou_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "SRL-ul nou are 90 de zile de la înregistrare ca să angajeze primul salariat și să rămână la regimul micro",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-02-25",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "termen",
+    "taguri": [
+      "micro"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Un SRL nou poate fi micro de la început, dar trebuie să aibă un salariat în cel mult 90 de zile de la înregistrare.",
+      "curios": "Dacă înființezi un SRL și alegi regimul micro din primul an, ai 90 de zile de la înregistrare ca să ai un salariat. Dacă nu îl ai până atunci, începi să plătești impozit pe profit din trimestrul următor celui în care s-au împlinit cele 90 de zile.",
+      "expert": "Art. 48 alin. (3): persoana juridică nou-înființată poate opta pentru impozitul pe veniturile microîntreprinderilor din primul an fiscal dacă condițiile de la art. 47 alin. (1) lit. d) și h) sunt îndeplinite la înregistrarea în registrul comerțului, iar cea de la lit. g) (deținerea unui salariat, după cum reiese din alin. (3^1) și (3^3)) în 90 de zile inclusiv de la înregistrare. Altfel, impozit pe profit din trimestrul următor expirării celor 90 de zile."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă ai un SRL nou care aplică regimul micro, angajează primul salariat în cel mult 90 de zile de la data înregistrării în registrul comerțului.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 48 alin. (3) (art. 6 pct. 18) · citat: „În cazul în care, în acest termen, nu se îndeplinește condiția de la art. 47 alin. (1) lit. g), microîntreprinderea datorează impozit pe profit începând cu trimestrul următor celui în care expiră perioada de 90 de zile.”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "A new SRL has 90 days from registration to hire its first employee and stay in the micro regime",
+    "formula_tip": null
+  },
+  {
+    "id": "daca_singurul_salariat_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "Dacă singurul salariat pleacă, ai 30 de zile să angajezi altul ca să rămâi micro",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-02-25",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "termen",
+    "taguri": [
+      "micro"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Un SRL micro cu un singur salariat trebuie să angajeze pe altcineva în 30 de zile de la plecarea lui.",
+      "curios": "Dacă ai un singur salariat și contractul lui se termină, ai 30 de zile să angajezi altul, cu contract pe durată nedeterminată sau pe cel puțin 12 luni. Dacă nu o faci, plătești impozit pe profit din trimestrul următor celui în care a încetat raportul de muncă.",
+      "expert": "Art. 52 alin. (3): dacă nu mai e îndeplinită condiția salariatului (art. 47 alin. (1) lit. g)), se datorează impozit pe profit din trimestrul următor celui în care a încetat raportul de muncă. Pentru microîntreprinderea cu un singur salariat, condiția rămâne îndeplinită dacă în 30 de zile de la încetare se angajează un nou salariat cu contract pe durată nedeterminată sau determinată de cel puțin 12 luni."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă singurul tău salariat pleacă, angajează un înlocuitor în cel mult 30 de zile (contract pe durată nedeterminată sau de cel puțin 12 luni).",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 52 alin. (3) (art. 6 pct. 21) · citat: „Pentru o microîntreprindere cu un singur salariat, al cărui raport de muncă încetează, condiția prevăzută la art. 47 alin. (1) lit. g) se consideră îndeplinită dacă, în termen de 30 de zile de la încetarea raportului de muncă, este angajat un nou salariat”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "If the only employee leaves, you have 30 days to hire a replacement to stay in the micro regime",
+    "formula_tip": null
+  },
+  {
+    "id": "bonificatie_impozitul_veniturile_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "Bonificație de 3% din impozitul pe veniturile microîntreprinderii pe 2025, acordată de ANAF din oficiu",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-02-25",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "micro"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "SRL-urile micro care au depus și plătit la timp primesc 3% din impozitul pe veniturile microîntreprinderii pe 2025.",
+      "curios": "ANAF constată din oficiu dacă îndeplinești condițiile și emite o decizie, după termenul de depunere a declarației pentru trimestrul IV 2025. Condițiile: toate declarațiile din vectorul fiscal depuse, impozitul pe 2025 plătit integral la termen și nicio altă datorie la bugetul de stat la termenul legal. Suma nu se restituie în numerar, ci compensează alte obligații fiscale.",
+      "expert": "Art. 7: bonificație de 3% din impozitul pe veniturile microîntreprinderilor aferent anului fiscal 2025, calculat prin însumarea impozitelor trimestriale (alin. (4) lit. b)). Se constată din oficiu prin decizie după termenul declarației pentru trimestrul IV 2025 (alin. (2) lit. b)), în condițiile alin. (3). Suma se compensează cu alte obligații fiscale conform art. 167 din Legea 207/2015 (alin. (7)), nu se restituie; excepție la prescripție, cu restituire potrivit art. 168 (alin. (8)). Declarațiile rectificative sau deciziile de impunere cu diferențe pot reduce sau anula bonificația (alin. (6)). Veniturile reprezentând bonificația sunt prevăzute la art. 53 alin. (1) lit. p) (art. 6 pct. 23), iar la impozitul pe profit la art. 23 lit. s) (art. 6 pct. 4). Procedura se aprobă prin ordin al ministrului finanțelor (alin. (10))."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică în Spațiul Privat Virtual al firmei decizia prin care ANAF a constatat bonificația de 3% și că suma a intrat în evidența fiscală; ea se compensează cu alte obligații, nu se restituie.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": "anaf_spv_ghid"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 7 alin. (1)-(3) · citat: „beneficiază de o bonificație de 3% din impozitul pe profit anual/impozitul pe veniturile microîntreprinderilor, aferente anului fiscal 2025/anului fiscal modificat care începe în anul 2025, după caz.”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "A 3% rebate on the 2025 micro-enterprise income tax, granted by ANAF automatically",
+    "formula_tip": null
+  },
+  {
+    "id": "pfa_contributiile_pilon_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "PFA: contribuțiile la Pilon III, pensii ocupaționale și PEPP intră într-o limită de 400 euro pe an",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-03-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "pfa",
+      "pilon3"
+    ],
+    "conditii": [],
+    "formula": "pilon3_deducere",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Contribuțiile PFA la pensii facultative (Pilon III), ocupaționale și PEPP intră într-o limită de 400 euro pe an, de la 1 martie 2026.",
+      "curios": "Legea adaugă la art. 68 alin. (5) contribuțiile la pensii facultative, la pensii ocupaționale și la produse paneuropene de pensii personale (PEPP), plătite pentru tine, în limita a 400 euro pe an pentru fiecare persoană. Pentru pensiile facultative se numără și sumele plătite între 1 ianuarie și 28 februarie 2026.",
+      "expert": "Art. 6 pct. 26 modifică art. 68 alin. (5) lit. g) (pensii facultative, inclusiv scheme administrate de entități din UE, SEE sau dintr-un stat aderent la codurile OCDE). Pct. 27 adaugă lit. g^1) (pensii ocupaționale) și g^2) (PEPP). Fiecare literă are limita de 400 euro anual pe persoană. Art. 10 alin. (6): pct. 26 și 27 se aplică veniturilor aferente anului 2026; alin. (9): în 2026 se iau în calcul și sumele plătite pentru pensii facultative între 1 ianuarie și 28 februarie 2026; alin. (10): pentru pensii ocupaționale și PEPP, contribuțiile plătite începând cu 1 martie 2026."
+    },
+    "actiuni": [
+      {
+        "text": "Păstrează dovezile plății contribuțiilor la fondul de pensii facultative, ocupațional sau PEPP și cere extrasul fondului; ia-le în calcul la completarea declarației unice pentru veniturile din 2026, în limita de 400 euro pe an pentru fiecare tip.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anaf_declaratia_unica"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 68 alin. (5) lit. g), g^1), g^2) (art. 6 pct. 26-27) · citat: „plătite în scopul personal al contribuabilului, indiferent dacă activitatea se desfășoară individual sau într-o formă de asociere, în limita echivalentului în lei a 400 euro anual pentru fiecare persoană”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Self-employed: contributions to Pillar III, occupational pensions and PEPP count up to 400 euro a year",
+    "formula_tip": null
+  },
+  {
+    "id": "pfa_sumele_platite_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "PFA: sumele plătite pentru ETF-uri prin intermediari autorizați intră într-o limită de 400 euro pe an",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-03-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "pfa"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Un PFA poate lua în calcul până la 400 euro pe an din sumele plătite pentru ETF-uri, pentru tranzacțiile decontate de la 1 martie 2026.",
+      "curios": "Noua literă s) din art. 68 alin. (5) privește sumele plătite pentru acțiuni, obligațiuni sau titluri ETF prin intermediari prevăzuți de lege, în limita a 400 euro pe an, fără costurile tranzacției. Ai nevoie de documente justificative de la intermediar, cu datele cerute de lege.",
+      "expert": "Art. 6 pct. 28: lit. s) la art. 68 alin. (5), limită echivalentul în lei a 400 euro anual pentru fiecare persoană, fără costurile tranzacției, prin entitățile de la art. 96^1 alin. (1). Documentul justificativ cuprinde datele de identificare, data decontării, instrumentele dobândite și valoarea lor și faptul că emitentul este entitate prevăzută la art. 96^1 alin. (1). Art. 10 alin. (7): se aplică veniturilor aferente anului 2026 pentru sumele plătite și decontate începând cu 1 martie 2026."
+    },
+    "actiuni": [
+      {
+        "text": "Păstrează documentele justificative de la intermediar pentru tranzacțiile ETF decontate de la 1 martie 2026 (datele tale, data decontării, instrumentele și valoarea) și ia-le în calcul în declarația unică pe 2026, până la 400 euro pe an.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anaf_declaratia_unica"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 68 alin. (5) lit. s) (art. 6 pct. 28) · citat: „sumele plătite în scopul personal al contribuabilului, pentru dobândirea de acțiuni, obligațiuni și/sau titluri de participare emise de organisme de plasament colectiv în valori mobiliare tranzacționabile (Exchange Traded Fund - ETF)”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Self-employed: amounts paid for ETFs through authorised intermediaries count up to 400 euro a year",
+    "formula_tip": null
+  },
+  {
+    "id": "salariat_contributiile_pilon_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "Salariat: contribuțiile la Pilon III, pensii ocupaționale și PEPP se deduc până la 400 euro pe an, de la salariul din martie 2026",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-03-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "angajat",
+      "pilon3"
+    ],
+    "conditii": [],
+    "formula": "pilon3_deducere",
+    "estimare": false,
+    "niveluri": {
+      "zero": "Contribuțiile salariatului la pensii facultative, ocupaționale sau PEPP se deduc până la 400 euro pe an, de la salariul din martie 2026.",
+      "curios": "Art. 78 prevede deducerea contribuțiilor suportate de angajat la fonduri de pensii facultative (modificat), pensii ocupaționale și PEPP (adăugate), astfel încât la nivelul anului să nu depășească echivalentul în lei al 400 euro. Se aplică veniturilor din martie 2026.",
+      "expert": "Art. 6 pct. 32 modifică art. 78 alin. (2) lit. a) pct. (iii) (pensii facultative); pct. 33 adaugă pct. (iii^1) (ocupaționale) și (iii^2) (PEPP), fiecare cu limita de 400 euro la nivelul anului. Art. 10 alin. (8): se aplică veniturilor aferente lunii martie 2026; alin. (9): în 2026 la limita de 400 euro se iau în calcul și sumele plătite pentru pensii facultative între 1 ianuarie și 28 februarie 2026; alin. (10): pentru ocupaționale și PEPP, contribuțiile plătite începând cu 1 martie 2026."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă plătești contribuții la Pilon III, pensie ocupațională sau PEPP, verifică pe fluturașul din fiecare lună că angajatorul a luat în calcul deducerea, în limita de 400 euro pe an.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 78 alin. (2) lit. a) pct. (iii), (iii^1), (iii^2) (art. 6 pct. 32-33) · citat: „(iii^2) contribuțiile la produsele paneuropene de pensii personale potrivit Regulamentului (UE) 2019/1.238 al Parlamentului European și al Consiliului din 20 iunie 2019, suportate de angajați”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Employee: contributions to Pillar III, occupational pensions and PEPP are deducted up to 400 euro a year, from March 2026 pay",
+    "formula_tip": null
+  },
+  {
+    "id": "salariat_sumele_platite_2026",
+    "act": "OUG 8/2026",
+    "mo_ref": "MO 147 / 25 feb 2026",
+    "rezumat": "Salariat: sumele plătite pentru ETF-uri prin intermediari autorizați se deduc până la 400 euro pe an",
+    "status": "in_vigoare",
+    "publicat_la": "2026-02-25",
+    "in_vigoare_de_la": "2026-03-01",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "angajat"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Salariatul deduce până la 400 euro pe an din sumele plătite pentru ETF-uri, din venitul lunii în care s-a decontat tranzacția.",
+      "curios": "Sumele plătite de angajat pentru acțiuni, obligațiuni sau titluri ETF prin intermediari prevăzuți de lege, fără costurile tranzacției, se deduc până la 400 euro pe an. Deducerea se face din veniturile lunii în care s-a decontat tranzacția, pe baza documentului de la intermediar.",
+      "expert": "Art. 6 pct. 34 adaugă pct. (vi) la art. 78 alin. (2) lit. a). Documentul justificativ cuprinde datele persoanei, data decontării, instrumentele și valoarea lor și faptul că emitentul e entitate de la art. 96^1 alin. (1). Cursul pentru verificarea plafonului este cel BNR din ultima zi a lunii pentru care se plătesc drepturile salariale. La schimbarea angajatorului, verificarea plafonului se face pe baza documentelor eliberate de angajatorul anterior. Art. 10 alin. (11): se aplică veniturilor din martie 2026 pentru tranzacțiile plătite și decontate începând cu 1 martie 2026."
+    },
+    "actiuni": [
+      {
+        "text": "Păstrează documentele justificative de la intermediar pentru tranzacțiile ETF decontate de la 1 martie 2026, cu datele cerute de lege, pentru deducerea din salariu; la schimbarea angajatorului ia documentul cu deducerile acordate.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "angajator_hr"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 78 alin. (2) lit. a) pct. (vi) (art. 6 pct. 34) · citat: „Sumele se deduc din veniturile lunii în care s-a efectuat decontarea tranzacției, pe baza documentelor justificative emise de către entitățile prevăzute la art. 96^1 alin. (1)”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/307580",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Employee: amounts paid for ETFs through authorised intermediaries are deducted up to 400 euro a year",
+    "formula_tip": null
+  },
+  {
+    "id": "bursa_merit_scoala_2026",
+    "act": "HG 738/2026",
+    "mo_ref": "MO 800 / 21 sep 2026",
+    "rezumat": "Bursa de merit din școală: 450 lei pe lună din anul școlar 2026-2027",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-21",
+    "in_vigoare_de_la": "2026-09-21",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "elev_student"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Bursa de merit are cuantumul de 450 lei pe lună din anul școlar 2026-2027.",
+      "curios": "Hotărârea 738/2026 schimbă art. 6 alin. (1) din metodologia-cadru a burselor. Din anul școlar 2026-2027, bursa de merit este de 450 lei pe lună. Textul nu spune cât era înainte, așa că nu putem arăta diferența.",
+      "expert": "HG 738/2026 înlocuiește art. 6 alin. (1) din Anexa la HG 732/2025: bursa de merit 450 lei/lună, bursa socială 300 lei/lună, bursa tehnologică 300 lei/lună. Cuantumurile anterioare și condițiile de acordare nu sunt în textul primit, deci nu sunt descrise."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă primești bursa de merit, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 450 lei pe lună.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 6 alin. (1) lit. a) · citat: „pentru bursa de merit - 450 lei/lună”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314719",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Merit school scholarship: 450 lei per month from the 2026-2027 school year",
+    "formula_tip": null
+  },
+  {
+    "id": "bursa_sociala_scoala_2026",
+    "act": "HG 738/2026",
+    "mo_ref": "MO 800 / 21 sep 2026",
+    "rezumat": "Bursa socială din școală: 300 lei pe lună din anul școlar 2026-2027",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-21",
+    "in_vigoare_de_la": "2026-09-21",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "elev_student"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Bursa socială are cuantumul de 300 lei pe lună din anul școlar 2026-2027.",
+      "curios": "Hotărârea 738/2026 schimbă art. 6 alin. (1) din metodologia-cadru a burselor. Din anul școlar 2026-2027, bursa socială este de 300 lei pe lună. Textul nu spune cât era înainte, așa că nu putem arăta diferența.",
+      "expert": "HG 738/2026 înlocuiește art. 6 alin. (1) din Anexa la HG 732/2025: bursa de merit 450 lei/lună, bursa socială 300 lei/lună, bursa tehnologică 300 lei/lună. Cuantumurile anterioare și condițiile de acordare nu sunt în textul primit, deci nu sunt descrise."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă primești bursa socială, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 300 lei pe lună.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 6 alin. (1) lit. b) · citat: „pentru bursa socială - 300 lei/lună”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314719",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Social school scholarship: 300 lei per month from the 2026-2027 school year",
+    "formula_tip": null
+  },
+  {
+    "id": "bursa_tehnologica_scoala_2026",
+    "act": "HG 738/2026",
+    "mo_ref": "MO 800 / 21 sep 2026",
+    "rezumat": "Bursa tehnologică din școală: 300 lei pe lună din anul școlar 2026-2027",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-21",
+    "in_vigoare_de_la": "2026-09-21",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "elev_student"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Bursa tehnologică are cuantumul de 300 lei pe lună din anul școlar 2026-2027.",
+      "curios": "Hotărârea 738/2026 schimbă art. 6 alin. (1) din metodologia-cadru a burselor. Din anul școlar 2026-2027, bursa tehnologică este de 300 lei pe lună. Textul nu spune cât era înainte, așa că nu putem arăta diferența.",
+      "expert": "HG 738/2026 înlocuiește art. 6 alin. (1) din Anexa la HG 732/2025: bursa de merit 450 lei/lună, bursa socială 300 lei/lună, bursa tehnologică 300 lei/lună. Cuantumurile anterioare și condițiile de acordare nu sunt în textul primit, deci nu sunt descrise."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă primești bursa tehnologică, verifică la școală că suma plătită pentru anul școlar 2026-2027 este de 300 lei pe lună.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 6 alin. (1) lit. c) · citat: „pentru bursa tehnologică - 300 lei/lună”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314719",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Technological school scholarship: 300 lei per month from the 2026-2027 school year",
+    "formula_tip": null
+  },
+  {
+    "id": "prima_activare_somerii_2002",
+    "act": "Legea 76/2002, forma consolidată",
+    "mo_ref": "MO 103 / 6 feb 2002",
+    "rezumat": "Prima de activare pentru șomerii fără indemnizație: 1.000 lei neimpozabili, în două tranșe",
+    "status": "in_vigoare",
+    "publicat_la": "2002-02-06",
+    "in_vigoare_de_la": "2002-02-06",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "somer"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă ești șomer înregistrat de cel puțin 30 de zile, fără indemnizație de șomaj, și te angajezi cu normă întreagă peste 3 luni, primești 1.000 lei.",
+      "curios": "Suma de 1.000 lei nu se impozitează. Jumătate o primești la angajare, jumătate după 3 luni de la angajare. Nu o primești dacă te angajezi la un angajator la care ai lucrat în ultimele 12 luni, și nu o poți cumula cu prima de inserție sau cu prima de instalare.",
+      "expert": "Art. 73^2 alin. (1): șomeri înregistrați de cel puțin 30 de zile, fără indemnizație de șomaj, încadrați cu normă întreagă pentru o perioadă mai mare de 3 luni, ulterior înregistrării. Alin. (1^1): 50% la angajare, 50% după 3 luni. Alin. (2): exclus cine se încadrează la un angajator cu care a avut raporturi de muncă în ultimele 12 luni. Alin. (3): menținerea primei la schimbarea angajatorului în 30 de zile, în aceleași condiții. Alin. (4): nu se cumulează cu prima de inserție (art. 73^1 alin. (1)) și cu prima de instalare (art. 75). Alin. (5): se poate cumula cu prima de încadrare (art. 74)."
+    },
+    "actiuni": [
+      {
+        "text": "Fii înregistrat ca șomer la agenția de ocupare cel puțin 30 de zile înainte să te angajezi cu normă întreagă și cere prima de activare.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anofm"
+      },
+      {
+        "text": "Verifică dacă ai primit prima tranșă (50% din cuantumul stabilit) la angajare și a doua tranșă (50%) după expirarea celor 3 luni de la angajare.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": "anofm"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 73^2 alin. (1)-(5) · citat: „beneficiază de o primă de activare în valoare de 1.000 lei, neimpozabilă”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/33919",
+    "sursa_explicativa": "",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Activation bonus for unemployed people without benefit: 1,000 lei, tax-free, in two instalments",
+    "formula_tip": null
+  },
+  {
+    "id": "prima_incadrare_somerii_2002",
+    "act": "Legea 76/2002, forma consolidată",
+    "mo_ref": "MO 103 / 6 feb 2002",
+    "rezumat": "Prima de încadrare pentru șomerii care lucrează la peste 15 km de casă: 0,5 lei/km, maximum 55 lei/zi, 12 luni",
+    "status": "in_vigoare",
+    "publicat_la": "2002-02-06",
+    "in_vigoare_de_la": "2002-02-06",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "somer"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă ești șomer înregistrat și te angajezi la peste 15 km de casă, poți primi o primă pentru drum.",
+      "curios": "Prima este neimpozabilă și se calculează la 0,5 lei pe kilometru, cel mult 55 lei pe zi, doar pentru zilele în care lucrezi efectiv la angajator. Se acordă pe 12 luni. Se poate cumula cu prima de activare.",
+      "expert": "Art. 74 alin. (1): șomeri înregistrați, încadrați într-o localitate aflată la peste 15 km de domiciliu sau reședință; prima este neimpozabilă și poate fi acordată (formularea e «pot beneficia»). Alin. (2): 0,5 lei/km, maximum 55 lei/zi, proporțional cu zilele efectiv lucrate. Alin. (3): perioada de acordare este de 12 luni. Art. 73^2 alin. (5) permite cumulul cu prima de activare."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă te angajezi la peste 15 km de domiciliu sau reședință, cere prima de încadrare la agenția de ocupare în care ești înregistrat.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anofm"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 74 alin. (1)-(3) · citat: „Cuantumul primei prevăzute la alin. (1) se calculează la 0,5 lei/km, dar nu mai mult de 55 lei/zi”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/33919",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Commuting bonus for unemployed people who take a job over 15 km from home: 0.5 lei/km, at most 55 lei/day, for 12 months",
+    "formula_tip": null
+  },
+  {
+    "id": "prima_instalare_somerii_2002",
+    "act": "Legea 76/2002, forma consolidată",
+    "mo_ref": "MO 103 / 6 feb 2002",
+    "rezumat": "Prima de instalare pentru șomerii care se mută la peste 50 km: 12.500 lei, 15.500 lei cu familia, 3.500 lei pentru al doilea soț",
+    "status": "in_vigoare",
+    "publicat_la": "2002-02-06",
+    "in_vigoare_de_la": "2002-02-06",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "somer"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă ești șomer înregistrat și te angajezi la peste 50 km de casă și te muți acolo, poți primi 12.500 lei.",
+      "curios": "Prima este neimpozabilă: 12.500 lei dacă te muți singur, 15.500 lei dacă te muți cu familia. Dacă ambii soți îndeplinesc condițiile, unul primește suma întreagă, celălalt 3.500 lei. Se plătește în două tranșe de 50%: la instalare și după 12 luni de la angajare. Dacă angajatorul sau statul îți asigură locuință sau plătește cheltuielile de locuit, sumele sunt mai mici: 3.500 lei singur, 6.500 lei cu familia, plătite o singură dată.",
+      "expert": "Art. 75 alin. (1): șomeri înregistrați, încadrați la peste 50 km de domiciliu sau reședință, care își schimbă domiciliul sau își stabilesc reședința în localitate sau în localitățile învecinate; prima este neimpozabilă și poate fi acordată (formularea e «pot beneficia»). Alin. (2): lit. a) 12.500 lei; lit. b) 15.500 lei dacă sunt însoțiți de membrii familiei în sensul Codului civil sau, în familia monoparentală, de copiii în întreținere. Alin. (3): dacă ambii soți îndeplinesc condițiile, unul primește suma de la alin. (2) lit. a), celălalt 3.500 lei. Alin. (4): cu locuință de serviciu sau cheltuieli suportate de angajator ori din fonduri publice: 3.500 lei, 6.500 lei, respectiv 3.500 lei pentru fiecare soț. Alin. (5): două tranșe de 50%, la instalare și după 12 luni de la angajare. Alin. (6): sumele de la alin. (4) se plătesc într-o singură tranșă, la instalare. Art. 73^2 alin. (4): nu se cumulează cu prima de activare."
+    },
+    "actiuni": [
+      {
+        "text": "Înainte să te muți pentru un job la peste 50 km, întreabă la agenția de ocupare în care ești înregistrat cum ceri prima de instalare și ce acte trebuie să depui.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anofm"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 75 alin. (1)-(6) · citat: „a) 12.500 lei pentru persoanele înregistrate ca șomeri la agențiile pentru ocuparea forței de muncă și care se încadrează în muncă”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/33919",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Relocation settlement bonus for unemployed people who move over 50 km for a job: 12,500 lei, 15,500 lei with family, 3,500 lei for the second spouse",
+    "formula_tip": null
+  },
+  {
+    "id": "prima_relocare_cheltuielile_2002",
+    "act": "Legea 76/2002, forma consolidată",
+    "mo_ref": "MO 103 / 6 feb 2002",
+    "rezumat": "Prima de relocare: 75% din cheltuielile de locuire, până la 900 lei pe lună, cel mult 36 de luni",
+    "status": "in_vigoare",
+    "publicat_la": "2002-02-06",
+    "in_vigoare_de_la": "2002-02-06",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "somer"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă ești șomer înregistrat, te angajezi la peste 50 km, te muți acolo și veniturile tale nete (sau ale familiei) nu depășesc 5.000 lei pe lună, statul poate plăti 75% din chirie și utilități, până la 900 lei pe lună.",
+      "curios": "Prima este neimpozabilă și se dă lunar, cel mult 36 de luni, cât timp condițiile rămân îndeplinite. Veniturile tale nete lunare, sau ale familiei, nu trebuie să treacă de 5.000 lei pe lună. Nu o primești dacă angajatorul sau statul îți asigură locuință sau îți plătește chiria.",
+      "expert": "Art. 76^2 alin. (1): șomeri înregistrați, încadrați la peste 50 km, care își schimbă domiciliul sau își stabilesc reședința în localitate sau în localitățile învecinate; 75% din cheltuielile de locuire, maximum 900 lei, din bugetul asigurărilor pentru șomaj. Alin. (2): venituri nete lunare ale persoanei singure sau, împreună cu familia, de cel mult 5.000 lei/lună. Alin. (3): persoana singură și familia se definesc conform art. 6 alin. (1) lit. a) și b) din Legea 196/2016. Alin. (4): cheltuieli pentru locuire sunt chiria și utilitățile. Alin. (5): nu se acordă dacă angajatorul sau autoritățile asigură locuință de serviciu sau suportă chiria. Alin. (6): lunar, cel mult 36 de luni, cât timp condițiile din alin. (1) și (2) sunt respectate. Art. 76^5 alin. (7): nu se cumulează cu prima de stabilitate."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă te muți pentru un job la peste 50 km, cere prima de relocare la agenția de ocupare în care ești înregistrat și pregătește dovada chiriei și a utilităților din noua locuință.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": "anofm"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 76^2 alin. (1)-(6) · citat: „egală cu 75% din suma destinată asigurării cheltuielilor pentru locuire în noul domiciliu sau noua reședință, dar nu mai mult de 900 lei”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/33919",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Relocation bonus: 75% of housing costs, up to 900 lei per month, for up to 36 months",
+    "formula_tip": null
+  },
+  {
+    "id": "motorina_agricultura_rambursare_2026",
+    "act": "HG 731/2026",
+    "mo_ref": "MO 796 / 18 sep 2026",
+    "rezumat": "Motorină în agricultură: rambursare de la 1,996 la 2,557 lei/litru, după cât scade accizei în criză",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-18",
+    "in_vigoare_de_la": "2026-09-18",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "agricultura"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Cât timp durează criza pe piața țițeiului, ajutorul pentru motorina din agricultură e între 1,996 și 2,557 lei pe litru, după cât s-a redus accizei.",
+      "curios": "Pe durata situației de criză declarate prin Legea 162/2026, rambursarea pentru motorina standard folosită în agricultură depinde de cât se reduce temporar accizei. La o reducere de 5% ajutorul e de 2,557 lei/litru, iar la 25% e de 1,996 lei/litru. Cu cât accizei e mai mică, cu atât rambursarea pe litru e mai mică.",
+      "expert": "Art. 2 alin. (3^9) lit. b) din HG 1.174/2014 se aplică pe durata situației de criză declarate conform art. 1 din Legea 162/2026. Ajutorul e diferența dintre nivelul redus al accizei (după mecanismul temporar din art. 5 din Legea 162/2026) și rata redusă de la alin. (2^6), dat ca rambursare, în cuantum unitar: diminuare 5%, nivel 2.664,08 lei/1.000 l, ajutor 2,557 lei/l; diminuare 10%, nivel 2.523,86 lei/1.000 l, ajutor 2,417 lei/l; diminuare 15%, nivel 2.383,65 lei/1.000 l, ajutor 2,277 lei/l; diminuare 20%, nivel 2.243,43 lei/1.000 l, ajutor 2,137 lei/l; diminuare 25%, nivel 2.103,22 lei/1.000 l, ajutor 1,996 lei/l. Se aplică motorinei standard. De verificat: Pagina Ministerului Agriculturii și Dezvoltării Rurale (sau a instituției care primește cererile) cu procedura de acordare a schemei din HG 1.174/2014; un om trebuie să verifice autoritatea și linkul.."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică în decontul sau în decizia de rambursare că suma pe litru corespunde nivelului de diminuare a accizei din perioada în care ai cumpărat motorina: 2,557 lei/l la 5%, 2,417 la 10%, 2,277 la 15%, 2,137 la 20%, 1,996 la 25%.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. unic pct. 1 (art. 2 alin. (3^9) lit. b) din HG 1.174/2014) · citat: „diferența dintre nivelul redus de 2.664,08 lei/1.000 litri rezultat prin diminuarea cu 5% a nivelului accizei în vigoare”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314687",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Agricultural diesel: reimbursement from 1.996 to 2.557 lei per litre, depending on the temporary excise cut during the crisis",
+    "formula_tip": null
+  },
+  {
+    "id": "grant_pana_lei_2026",
+    "act": "HG 751/2026",
+    "mo_ref": "MO 812 / 24 sep 2026",
+    "rezumat": "Grant de până la 333 lei/ha pentru porumb și floarea-soarelui afectate de seceta din 2025",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-24",
+    "in_vigoare_de_la": "2026-09-25",
+    "expira_la": "2026-12-31",
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "agricultura"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Dacă ai avut porumb sau floarea-soarelui afectate de secetă în 2025 și ai proces-verbal de constatare a pagubelor, poți cere de la APIA până la 333 lei pentru fiecare hectar afectat.",
+      "curios": "Statul plătește un grant producătorilor agricoli (persoane fizice, PFA, întreprinderi individuale sau familiale, firme, societăți agricole) pentru suprafețele cu porumb și/sau floarea-soarelui afectate de secetă pedologică în 2025. Contează gradul de afectare din procesul-verbal. Peste 90% afectare primești maximum 333 lei/ha. Între 30% și 90% suma se reduce proporțional: de exemplu, la 50% afectare se înmulțește 333 cu 50 și se împarte la 100. Sumele se plătesc până la 31 decembrie 2026.",
+      "expert": "Schema de grant se bazează pe Regulamentul de punere în aplicare (UE) 2026/1.698, iar APIA o implementează (art. 2). Bugetul total este de 155.361.520 lei (art. 8 alin. (1)). Eligibilitatea cere: proces-verbal de constatare pentru iunie-august 2025 în modelul din Ordinul 97/63/2020, afectare între 30% și 100% din suprafața culturii, cerere de plată APIA 2025 și înscrierea în situația centralizatoare a direcției pentru agricultură județene (art. 7 alin. (1)). Suprafața plătită nu poate depăși suprafața determinată de APIA în cererea de plată 2025 (art. 7 alin. (2), art. 9 alin. (2)). Pentru un interval de afectare se folosește media aritmetică a intervalului (art. 9 alin. (1) lit. b)). Dacă fondurile nu ajung, sumele se reduc liniar pentru toți (art. 8 alin. (2)). Dacă rămân bani, se redistribuie pe hectarele cu afectare între 30% și 90%, fără a depăși 333 lei/ha (art. 8 alin. (3)). Cu asigurare pentru secetă sau cu DR-31, despăgubirea plus grantul nu pot depăși 80% din cheltuielile eligibile; media este de aproximativ 6.560 lei/ha (art. 12 și 13). Sprijinul necuvenit se restituie cu dobândă (art. 21). Beneficiarii păstrează documentele 10 ani de la încasare (art. 22 alin. (2)). Nu pot beneficia cei cu decizie negativă la plata pe suprafață sau la ajutorul național tranzitoriu 2025 (art. 10 alin. (4)) și cei cu ajutor ilegal nerambursat (art. 6 alin. (2)). De verificat: Centrul județean/local APIA unde ai depus cererea de plată 2025 (pagina APIA cu formularul de cerere pentru sprijinul de urgență, anexa nr. 3 la HG 751/2026), autoritate: APIA. De verificat: Direcția pentru agricultură județeană (secretariat sau serviciul care a întocmit procesele-verbale), autoritate: direcția pentru agricultură județeană. De verificat: Centrul județean/local APIA unde depui cererea, autoritate: APIA. De verificat: Centrul județean/local APIA unde ai depus cererea, autoritate: APIA."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă ai cultivat porumb și/sau floarea-soarelui în 2025, ai depus cerere de plată la APIA și ai proces-verbal de constatare a pagubelor cu afectare de minimum 30%, depune cererea de acordare a sprijinului (modelul din anexa nr. 3) la centrul APIA unde ai depus cererea de plată 2025. Termenul legal este de maximum 20 de zile lucrătoare după ce direcțiile pentru agricultură trimit listele către APIA. Cere de la APIA cererea pretipărită, cu suprafețele deja completate. O poți trimite și prin poștă, fax sau e-mail.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      },
+      {
+        "text": "Verifică la direcția pentru agricultură a județului tău că procesul-verbal de constatare a pagubelor apare în situația centralizatoare trimisă către APIA. Fără această înscriere nu ești eligibil.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      },
+      {
+        "text": "Dacă ai alt cont bancar decât cel din cererea de plată 2025, completează rubrica „cod IBAN nou” și atașează copia documentului de coordonate bancare. Dacă nu s-a schimbat nimic, nu trebuie să atașezi alte documente de identificare.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      },
+      {
+        "text": "Dacă ai poliță de asigurare pentru secetă sau beneficiezi de DR-31 și ai primit deja despăgubire, trece suma în cererea, la secțiunea Declarații și angajamente. Dacă o primești după depunere, anunță APIA în 15 zile. Dacă despăgubirea plus grantul depășesc 80% din cheltuielile eligibile, restitui diferența cu dobândă.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      },
+      {
+        "text": "Dacă ai preluat prin transfer exploatația unui producător care a depus cererea de plată 2025, anexează la cerere copia documentului care atestă preluarea și copia procesului-verbal încheiat pe numele producătorului inițial.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      },
+      {
+        "text": "Verifică în cont dacă ai primit grantul până la 31 decembrie 2026. Suma corectă este 333 lei/ha înmulțit cu gradul de afectare din procesul-verbal și împărțit la 100 (sau 333 lei/ha întreg, peste 90% afectare), pe suprafața din procesul-verbal, dar nu mai mare decât cea din cererea de plată 2025. Poate fi mai mică dacă bugetul nu ajunge. Dacă primești notificare de respingere, o poți contesta conform Legii 554/2004. Înainte de instanță, cere revocarea actului în 30 de zile de la comunicare.",
+        "termen": "2026-12-31",
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      },
+      {
+        "text": "Păstrează 10 ani, de la data încasării sumei, toate documentele care atestă acordarea sprijinului.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 9 alin. (1) · citat: „Sprijinul financiar de urgență sub formă de grant este în cuantum de 333 lei/ha”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314810",
+    "sursa_explicativa": "",
+    "incredere": "ridicata",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Grant of up to 333 lei/ha for maize and sunflower areas hit by the 2025 drought",
+    "formula_tip": null
+  },
+  {
+    "id": "tichetul_masa_poate_2026",
+    "act": "Ordin 1.254/1.188/2026",
+    "mo_ref": "MO 830 / 30 sep 2026",
+    "rezumat": "Tichetul de masă poate avea cel mult 45 lei, din octombrie 2026 și până în martie 2027",
+    "status": "in_vigoare",
+    "publicat_la": "2026-09-30",
+    "in_vigoare_de_la": "2026-10-01",
+    "expira_la": "2027-03-31",
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "angajat"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Un tichet de masă nu poate valora mai mult de 45 lei, începând cu octombrie 2026.",
+      "curios": "Pentru semestrul II al lui 2026, începând cu octombrie, valoarea unui tichet de masă nu poate trece de 45 lei. Aceeași valoare se aplică și în februarie și martie 2027. Dacă primești tichete, 45 lei este plafonul pentru valoarea unui tichet. Angajatorul poate da și o valoare mai mică.",
+      "expert": "Art. 1: pentru semestrul II 2026, începând cu octombrie 2026, valoarea nominală a unui tichet de masă, stabilită conform art. 33 din Normele metodologice (HG 1.045/2018) de aplicare a Legii 165/2018, nu poate depăși 45 lei. Art. 2: aceeași valoare se aplică în februarie și martie 2027. Textul nu spune ce se aplică în ianuarie 2027 și nu dă valoarea anterioară. Nu descriem mecanismul de la art. 33 din norme, pentru că nu l-am primit."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă primești tichete de masă, verifică pe fluturaș sau pe cardul de masă că valoarea unui tichet nu depășește 45 lei pentru lunile la care se aplică ordinul (din octombrie 2026, plus februarie și martie 2027). Dacă depășește, cere explicații angajatorului.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "angajator",
+        "destinatie": "angajator_hr"
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. 1 și art. 2 · citat: „nu poate depăși cuantumul de 45 lei”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/314930",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Meal voucher face value capped at 45 lei from October 2026, also applies in February and March 2027",
+    "formula_tip": null
+  },
+  {
+    "id": "tarife_noi_kilometru_2026",
+    "act": "Ordinul MTI 959/2026",
+    "mo_ref": "MO 847 / 8 oct 2026",
+    "rezumat": "Tarife noi pe kilometru (TollRo) pentru camioanele de peste 3,5 tone pe autostrăzi și drumuri naționale",
+    "status": "in_vigoare",
+    "publicat_la": "2026-10-08",
+    "in_vigoare_de_la": "2026-10-08",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "info",
+    "taguri": [
+      "transport"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Camioanele de peste 3,5 tone plătesc pe kilometru tarife noi pe drumurile naționale, în funcție de greutate, clasa EURO și tipul de drum.",
+      "curios": "Anexa din Ordinul 1.925/2025 a fost înlocuită cu una nouă. Un camion de peste 12 tone cu clasa EURO VI plătește 0,48 lei/km (TVA inclus) pe autostradă și 0,24 lei/km pe drum național. Clasele mai poluante plătesc mai mult: EURO V-IV cu 15% peste EURO VI, EURO III-0 cu 30% peste EURO VI. Cât de mult s-a schimbat față de tarifele vechi nu putem spune, pentru că anexa veche nu e în text.",
+      "expert": "Art. I pct. 2 înlocuiește integral anexa Ordinului 1.925/2025. Tariful este în lei/km, TVA inclus, și depinde de categoria vehiculului după MTMA (cat. I: peste 3,5 t și până la 7,5 t; cat. II: peste 7,5 t și sub 12 t; cat. III: 12 t sau mai mult), de clasa EURO și de categoria de drum. Autostrăzi și drumuri expres: cat. I 0,17 (EURO VI), 0,19 (V-IV), 0,22 (III-0); cat. II 0,29, 0,33, 0,37; cat. III 0,48, 0,55, 0,62. Drumuri naționale: cat. I 0,08, 0,10, 0,11; cat. II 0,14, 0,16, 0,19; cat. III 0,24, 0,28, 0,31. Tariful cuprinde un tarif de utilizare a infrastructurii și unul bazat pe costuri externe (poluare). Pct. 3: EURO V-IV este EURO VI plus 15%, EURO III-0 este EURO VI plus 30%. Pct. 4: tariful unui vehicul nu poate depăși cu mai mult de 100% tariful EURO VI. Clasa și masa se iau din documentele de înmatriculare. De verificat: Pagina oficială TollRo cu tarifele pe kilometru în vigoare (de la administratorul sistemului de tarifare rutieră)."
+    },
+    "actiuni": [
+      {
+        "text": "Verifică tariful pe kilometru care ți se aplică: caută în anexă categoria vehiculului după MTMA și clasa EURO din certificatul de înmatriculare, apoi tipul de drum (autostradă sau drum național). Compară cu ce ți se taxează la un drum.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. I pct. 2 și anexa pct. 1 · citat: „Tariful unitar reprezintă tariful de trecere (TollRo) pe unitatea de kilometru aplicat pe domeniul SETRE România”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/315078",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "New per-km road toll (TollRo) rates for goods vehicles over 3.5 tonnes on motorways and national roads",
+    "formula_tip": null
+  },
+  {
+    "id": "camioanele_electrice_platesc_2026",
+    "act": "Ordinul MTI 959/2026",
+    "mo_ref": "MO 847 / 8 oct 2026",
+    "rezumat": "Camioanele electrice plătesc cu 75% mai puțin decât tariful EURO VI",
+    "status": "in_vigoare",
+    "publicat_la": "2026-10-08",
+    "in_vigoare_de_la": "2026-10-08",
+    "expira_la": null,
+    "termen_actiune": null,
+    "directie": "castig",
+    "taguri": [
+      "transport"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Camioanele electrice de peste 3,5 tone plătesc pe kilometru un sfert din tariful clasei EURO VI.",
+      "curios": "Tariful pentru vehiculele electrice este tariful EURO VI redus cu 75%, cu fracțiunile de ban neglijate. De exemplu, un camion electric de peste 12 tone plătește 0,12 lei/km pe autostradă, față de 0,48 lei/km pentru EURO VI, și 0,06 lei/km pe drum național, față de 0,24. Reducerea se păstrează și după fiecare actualizare a tarifului.",
+      "expert": "Pct. 7: tariful vehiculelor electrice pornește de la tariful EURO VI, redus cu 75% și rotunjit prin neglijarea fracțiunilor de ban. După fiecare actualizare, conform art. 1 alin. (3) și (4) din ordin, se recalculează în același mod. Pct. 8 definește vehiculul electric: autovehicul înmatriculat cu cel puțin un dispozitiv de stocare a energiei electrice, care folosește motoare electrice pentru propulsie în locul motorului cu ardere internă, sau ansamblul format din el și remorcile tractate. Pct. 9: dacă vehiculul nu are clasă EURO, clasa se consideră dată de mențiunea despre sursa de energie electrică din certificatul de înmatriculare (rubrica P.3) sau din documentul echivalent al altui stat, iar vehiculului i se aplică coloana „Vehicule electrice”. De verificat: Pagina oficială TollRo cu tarifele pe kilometru în vigoare (de la administratorul sistemului de tarifare rutieră)."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă ai un vehicul electric de marfă de peste 3,5 tone, verifică în certificatul de înmatriculare (rubrica P.3) că apare sursa de energie electrică. Atunci ți se aplică tariful din coloana „Vehicule electrice”.",
+        "termen": null,
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "verifica",
+        "cine_aplica": "stat",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "anexa pct. 7-9 · citat: „Tariful unitar pentru vehiculele electrice este tariful unitar corespunzător clasei de emisii poluante EURO VI, redus cu 75% și rotunjit la nivel de ban prin neglijarea fracțiunilor de ban.”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/315078",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Electric goods vehicles pay 75% less than the EURO VI per-km toll rate",
+    "formula_tip": null
+  },
+  {
+    "id": "ajutorul_crescatorii_porci_2026",
+    "act": "Legea 203/2026",
+    "mo_ref": "MO 865 / 15 oct 2026",
+    "rezumat": "Ajutorul pentru crescătorii de porci din Legea 175/2026 se extinde și la societățile comerciale, cu cerere în 10 zile lucrătoare",
+    "status": "in_vigoare",
+    "publicat_la": "2026-10-15",
+    "in_vigoare_de_la": "2026-10-18",
+    "expira_la": null,
+    "termen_actiune": "2026-10-30",
+    "directie": "castig",
+    "taguri": [
+      "agricultura"
+    ],
+    "conditii": [],
+    "formula": null,
+    "estimare": true,
+    "niveluri": {
+      "zero": "Și firmele (SRL, SA etc.) care cresc porci pot cere ajutorul de stat din Legea 175/2026, dar cererea se depune într-un termen foarte scurt.",
+      "curios": "Ajutorul de stat pentru crescătorii din sectorul suin, instituit prin Legea 175/2026, poate fi cerut acum și de persoanele juridice constituite potrivit Legii 31/1990. Cererile se depun în 10 zile lucrătoare de la intrarea în vigoare a legii. Condițiile sunt cele de la art. 4 din Legea 175/2026, care nu e în textul primit. Dacă ai o firmă cu fermă de porci, verifică urgent dacă te încadrezi.",
+      "expert": "Art. II extinde beneficiul Legii 175/2026 (cu modificările aduse de prezenta lege) la persoanele juridice constituite potrivit Legii 31/1990, republicată, la cerere, în condițiile art. 4 din Legea 175/2026. Termenul de depunere a cererilor este de 10 zile lucrătoare de la data intrării în vigoare a legii. Suma ajutorului și condițiile de la art. 4 nu apar în textul primit. Art. I abrogă art. 5 alin. (5) din Legea 175/2026; conținutul acelui alineat nu e în text, deci efectul abrogării nu e descris aici. De verificat: Pagina sau ghișeul autorității la care se depun cererile pentru ajutorul din Legea 175/2026 (autoritatea nu e numită în textul primit, trebuie verificată în Legea 175/2026).."
+    },
+    "actiuni": [
+      {
+        "text": "Dacă firma ta crește porci, citește condițiile de la art. 4 din Legea 175/2026 și depune cererea pentru ajutorul de stat în 10 zile lucrătoare de la intrarea în vigoare a legii.",
+        "termen": "2026-10-30",
+        "formula_economie": null,
+        "one_click": null,
+        "tip": "fa",
+        "cine_aplica": "tu",
+        "destinatie": null
+      }
+    ],
+    "profesionist": null,
+    "articol": "art. II · citat: „beneficiază, la cerere, și persoanele juridice constituite potrivit Legii societăților nr. 31/1990, republicată”",
+    "sursa_url": "https://legislatie.just.ro/Public/DetaliiDocument/315220",
+    "sursa_explicativa": "",
+    "incredere": "medie",
+    "verificat_la": "2026-10-29",
+    "rezumat_en": "Pig farmer state aid under Law 175/2026 extended to companies under Law 31/1990, on request, within 10 working days",
+    "formula_tip": null
   }
 ]
