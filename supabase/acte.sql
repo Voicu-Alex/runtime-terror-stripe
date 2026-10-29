@@ -31,10 +31,14 @@ create table if not exists public.acte (
   termen_consultare date,            -- doar la proiecte
   triaj jsonb,                       -- { "reguli": {...}, "model": { "atinge_banii": true, "motiv": "...", "model": "...", "la": "..." } }
   stare_procesare text not null default 'nou'
-    check (stare_procesare in ('nou', 'respins_reguli', 'candidat', 'triat_nu', 'triat_da', 'interpretat', 'aprobat', 'respins')),
+    check (stare_procesare in ('nou', 'respins_reguli', 'candidat', 'triat_nu', 'triat_da', 'interpretat', 'aprobat', 'respins', 'eroare')),
   descoperit_la timestamptz not null default now(),
   actualizat_la timestamptz not null default now()
 );
+-- id-ul e mereu '<sursa>:<sursa_id>'
+do $$ begin
+  alter table public.acte add constraint acte_id_compus check (id = sursa || ':' || sursa_id);
+exception when duplicate_object then null; end $$;
 create index if not exists acte_stare_procesare on public.acte (stare_procesare);
 create index if not exists acte_tip_act on public.acte (tip_act);
 create index if not exists acte_publicat_la on public.acte (publicat_la desc);
@@ -42,11 +46,12 @@ create index if not exists acte_publicat_la on public.acte (publicat_la desc);
 -- O propunere a modelului pentru un act, în formatul din eval/interpretare/instructiuni.md.
 create table if not exists public.interpretari (
   id bigserial primary key,
-  act_id text not null references public.acte (id) on delete cascade,
+  act_id text not null references public.acte (id) on delete restrict,
   model text not null,               -- claude-sonnet-5-5, claude-haiku-5-5...
   driver text not null check (driver in ('subagent', 'api')),
   instructiuni_versiune text not null,
   rezultat jsonb not null,           -- obiectul JSON întors de model
+  lot jsonb,                         -- ce a primit modelul: { "articole": [...], "text_hash": "...", "lungime": n }
   verificari jsonb,                  -- rezultatul verificărilor automate (lib/verificari-interpretare.ts)
   stare text not null default 'propus' check (stare in ('propus', 'aprobat', 'respins')),
   nota_revizor text,
@@ -56,6 +61,12 @@ create table if not exists public.interpretari (
 );
 create index if not exists interpretari_act_id on public.interpretari (act_id);
 create index if not exists interpretari_stare on public.interpretari (stare);
+-- o singură propunere pe act + model + driver + versiune de instrucțiuni (cheia de conflict a importului)
+create unique index if not exists interpretari_unic on public.interpretari (act_id, model, driver, instructiuni_versiune);
+-- un singur rând aprobat pe act
+create unique index if not exists interpretari_un_aprobat on public.interpretari (act_id) where stare = 'aprobat';
+-- coloane adăugate după prima versiune (create table if not exists nu le adaugă singur)
+alter table public.interpretari add column if not exists lot jsonb;
 
 -- Jurnalul rulărilor de descoperire: dovada că am stat sub limită.
 create table if not exists public.rulari (

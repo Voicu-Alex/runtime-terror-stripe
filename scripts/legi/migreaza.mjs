@@ -23,7 +23,10 @@ if (!url) {
 } else {
   const sql = await readFile(path.join(import.meta.dirname, "..", "..", "supabase", "acte.sql"), "utf8");
   const ssl = process.env.SUPABASE_DB_CA ? { ca: await readFile(process.env.SUPABASE_DB_CA, "utf8") } : true;
-  const client = new pg.Client({ connectionString: url, ssl });
+  // `sslmode` din URL ar suprascrie opțiunea `ssl` (și CA-ul) în pg; îl scoatem.
+  const u = new URL(url);
+  u.searchParams.delete("sslmode");
+  const client = new pg.Client({ connectionString: u.toString(), ssl });
   try {
     await client.connect();
     await client.query(sql);
