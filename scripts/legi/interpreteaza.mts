@@ -7,7 +7,8 @@
  * Cu Supabase:
  *   npm run legi:interpreteaza -- --stare triat_da --max 10 --buget-usd 2
  *   npm run legi:interpreteaza -- --ids portal:293109,portal:305208 --model claude-haiku-5-5
- *   ... --versiune v3        versiunea instrucțiunilor (cheia de conflict a upsert-ului, ca la legi:importa)
+ *   ... --reinterpreteaza    include și actele deja `interpretat` (niciodată `aprobat` sau `respins`); cu aceeași cheie (act, model, driver, versiune) rândul existent din `interpretari` este înlocuit
+ *   ... --versiune v4        versiunea instrucțiunilor (cheia de conflict a upsert-ului, ca la legi:importa)
  *   ... --dry-run            apelează modelul și afișează verificările, dar nu scrie nimic în Supabase
  *
  * Fără Supabase (loturile din legi:export-lot, <id>.txt):
@@ -23,7 +24,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
-import { liniiVerificare, pregatesteRand, STARI_ASTEAPTA, urcaInterpretare } from "../../lib/importa-interpretare.ts";
+import { liniiVerificare, pregatesteRand, STARI_ASTEAPTA, STARI_REINTERPRETARE, textCalculabile, urcaInterpretare } from "../../lib/importa-interpretare.ts";
 import { interpreteazaText, construiesteSistem, PRETURI } from "../../lib/interpretare-api.ts";
 import { textPentruModel } from "../../lib/lot.ts";
 import { clientSupabase, verifica } from "./db.mjs";
@@ -36,7 +37,8 @@ const { values: arg } = parseArgs({
     max: { type: "string", default: "10" },
     ids: { type: "string" },
     model: { type: "string", default: process.env.LEGI_MODEL_INTERPRETARE ?? "claude-sonnet-5-5" },
-    versiune: { type: "string", default: "v3" },
+    versiune: { type: "string", default: "v4" },
+    reinterpreteaza: { type: "boolean", default: false },
     "buget-usd": { type: "string", default: "2" },
     "dry-run": { type: "boolean", default: false },
     din: { type: "string" },
@@ -55,6 +57,7 @@ const pozitiv = (v: number, nume: "max" | "buget-usd") => {
 };
 pozitiv(max, "max");
 pozitiv(bugetUsd, "buget-usd");
+const stariAcceptate = arg.reinterpreteaza ? STARI_REINTERPRETARE : STARI_ASTEAPTA;
 const azi = new Date().toISOString().slice(0, 10);
 const cheiFisier = (id: string) => id.replace(/[^A-Za-z0-9._-]/g, "_");
 
@@ -77,12 +80,14 @@ async function main(): Promise<number> {
   } else {
     const coloane = "id, titlu, url, mo_ref, publicat_la, data_vigoare, text, lungime, articole, triaj, stare_procesare";
     let q = sb!.from("acte").select(coloane);
-    q = vrute ? q.in("id", vrute).in("stare_procesare", STARI_ASTEAPTA) : q.eq("stare_procesare", arg.stare!).order("id").limit(max);
+    q = vrute
+      ? q.in("id", vrute).in("stare_procesare", stariAcceptate)
+      : (arg.reinterpreteaza ? q.in("stare_procesare", [arg.stare!, "interpretat"]) : q.eq("stare_procesare", arg.stare!)).order("id").limit(max);
     const randuri: any[] = verifica(await q, "acte") ?? [];
     if (vrute) {
-      // id-urile cerute care nu sunt în stare candidat/triat_da/nou (aprobate, respinse, inexistente) nu se reinterpretează
+      // id-urile cerute care nu sunt în stările acceptate (aprobate, respinse, inexistente) nu se reinterpretează
       const gasite = new Set(randuri.map((a) => a.id));
-      for (const id of vrute) if (!gasite.has(id)) console.error(`! ${id}: sărit, nu există sau nu e în stare ${STARI_ASTEAPTA.join("/")}`);
+      for (const id of vrute) if (!gasite.has(id)) console.error(`! ${id}: sărit, nu există sau nu e în stare ${stariAcceptate.join("/")}`);
     }
     elemente = randuri.map((a) => {
       if (!a.text) return { id: a.id, text: null, problema: "actul nu are text în Supabase" };
@@ -108,6 +113,7 @@ async function main(): Promise<number> {
   let picate = 0;
   let esuate = 0;
   let ramase = 0;
+  const calc = { cu_formula: 0, active_cu_bani: 0 };
   let oprit = false;
 
   for (let i = 0; i < elemente.length; i++) {
@@ -150,11 +156,13 @@ async function main(): Promise<number> {
     for (const linie of liniiVerificare(el.id, r.interpretare, verificari)) console.log(linie);
     console.log(`    ${r.secunde.toFixed(1)} s · $${r.usd.toFixed(4)} · cache citit ${cost.cache_read}`);
     if (!verificari.ok) picate++;
+    calc.cu_formula += verificari.calculabile.cu_formula;
+    calc.active_cu_bani += verificari.calculabile.active_cu_bani;
 
     if (arg["dry-run"]) continue;
     if (dirOut) await writeFile(path.join(dirOut, `${cheiFisier(el.id)}.json`), JSON.stringify(r.interpretare, null, 2) + "\n");
     else if (sb) {
-      const rez = await urcaInterpretare(sb, rand, el.id, verifica);
+      const rez = await urcaInterpretare(sb, rand, el.id, verifica, stariAcceptate);
       if (!rez.urcat) console.log(`    sărit, ${rez.motiv}`);
     }
   }
@@ -162,7 +170,7 @@ async function main(): Promise<number> {
   const costFinal = { model, actele: incercate, ok, verificari_picate: picate, apeluri_esuate: esuate, ...total, usd: Number(total.usd.toFixed(4)) };
   if (dirOut && !arg["dry-run"]) await writeFile(path.join(dirOut, "cost.json"), JSON.stringify(costFinal, null, 2) + "\n");
   console.log(
-    `\n${incercate} acte încercate, ${ok} interpretate, ${picate} cu verificări picate, ${esuate} apeluri eșuate · $${total.usd.toFixed(4)} · ${total.secunde.toFixed(0)} s` +
+    `\n${incercate} acte încercate, ${ok} interpretate, ${picate} cu verificări picate, ${esuate} apeluri eșuate · ${textCalculabile(calc)} · $${total.usd.toFixed(4)} · ${total.secunde.toFixed(0)} s` +
       (arg["dry-run"] ? " (dry-run, nimic scris)" : "") +
       (oprit ? ` · oprit de buget, ${ramase} acte rămase` : ""),
   );

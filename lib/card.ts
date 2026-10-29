@@ -69,6 +69,13 @@ const CERE: Partial<Record<keyof Valori, string>> = {
   salariu_brut: "indică salariul brut",
   salariu_net: "indică salariul net",
   impozit_cladiri_anual: "indică impozitul pe clădire din decizia de impunere",
+  valoare_impozabila_locuinta: "indică valoarea impozabilă a locuinței din decizia de impunere",
+  pret_masina: "indică prețul de achiziție al mașinii",
+  cifra_afaceri_anuala: "indică cifra de afaceri anuală",
+  castig_investitii_anual: "indică câștigul din investiții pe an",
+  chirie_incasata_lunara: "indică chiria încasată pe lună",
+  consum_gaz_anual_kwh: "indică consumul de gaz pe an, în kWh",
+  impozit_venit_anual_precedent: "indică impozitul pe venit plătit anul trecut",
 };
 
 export function vedere(p: Potrivire, valori: Valori, limba: Limba = "ro"): VedereCard {

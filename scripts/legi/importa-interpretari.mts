@@ -14,7 +14,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import type { InterpretareAct } from "../../lib/interpretare.ts";
-import { liniiVerificare, pregatesteRand, urcaInterpretare } from "../../lib/importa-interpretare.ts";
+import { liniiVerificare, pregatesteRand, textCalculabile, urcaInterpretare } from "../../lib/importa-interpretare.ts";
 import { clientSupabase, verifica } from "./db.mjs";
 
 const { values: arg } = parseArgs({
@@ -23,7 +23,7 @@ const { values: arg } = parseArgs({
     raspunsuri: { type: "string" },
     model: { type: "string" },
     driver: { type: "string" },
-    versiune: { type: "string", default: "v3" },
+    versiune: { type: "string", default: "v4" },
     "dry-run": { type: "boolean", default: false },
   },
 });
@@ -43,6 +43,7 @@ if (!fisiere.length) {
 }
 let urcate = 0;
 let picate = 0;
+const calc = { cu_formula: 0, active_cu_bani: 0 };
 for (const f of fisiere.sort()) {
   const cheie = f.replace(/\.json$/, "");
   const actId = cheie.replace(/^portal[-_]/, "portal:");
@@ -63,10 +64,12 @@ for (const f of fisiere.sort()) {
   const { verificari: v, rand } = pregatesteRand({ actId, model: arg.model!, driver: arg.driver!, versiune: arg.versiune!, interpretare: interp, text, azi });
   for (const linie of liniiVerificare(cheie, interp, v)) console.log(linie);
   if (!v.ok) picate++;
+  calc.cu_formula += v.calculabile.cu_formula;
+  calc.active_cu_bani += v.calculabile.active_cu_bani;
   if (!sb) continue;
 
   const rez = await urcaInterpretare(sb, rand, actId, verifica);
   if (rez.urcat) urcate++;
   else console.log(`  ${actId}: sărit, ${rez.motiv}`);
 }
-console.log(`\n${fisiere.length} răspunsuri, ${picate} cu verificări picate${sb ? `, ${urcate} urcate în interpretari (propus)` : " (dry-run, nimic urcat)"}`);
+console.log(`\n${fisiere.length} răspunsuri, ${picate} cu verificări picate, ${textCalculabile(calc)}${sb ? `, ${urcate} urcate în interpretari (propus)` : " (dry-run, nimic urcat)"}`);

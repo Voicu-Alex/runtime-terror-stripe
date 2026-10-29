@@ -117,7 +117,7 @@ Costul documentelor nu e măsurat (ruta nu înregistrează tokenii); estimare pe
 ```bash
 node eval/descarca-acte.mjs        # textele legilor, fără cheie
 python eval/genereaza-documente.py # documentele fictive noi
-node eval/scor.mjs                 # notează eval/rezultate/<model>/
+node --import tsx eval/scor.mjs             # notează eval/rezultate/<model>/
 node eval/numara-actiuni.mjs       # câte acțiuni și linkuri pe model
 node eval/detalii-v2.mjs           # formulele, destinațiile alese și propuse (v2)
 node scripts/verifica-destinatii.mjs # verificarea zilnică a destinațiilor

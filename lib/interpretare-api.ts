@@ -28,7 +28,7 @@ export function costUsd(usage: UsageApi, model: string): number {
 }
 
 export const FISIER_INSTRUCTIUNI = "eval/interpretare/instructiuni.md";
-export const FISIERE_SISTEM = ["lib/taguri.ts", "lib/formule.ts", "lib/formule-tip.ts", "lib/profil.ts", "data/destinatii.json"];
+export const FISIERE_SISTEM = ["lib/taguri.ts", "lib/formule.ts", "lib/formule-tip.ts", "lib/profil.ts", "data/destinatii.json", "data/referinte.json"];
 
 /**
  * Promptul de sistem: instrucțiunile (cu {{AZI}} înlocuit) plus fișierele la care trimit, în aceeași ordine și cu

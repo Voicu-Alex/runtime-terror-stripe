@@ -45,7 +45,14 @@ export type RezultatInterpretare = {
 };
 
 export type Verificare = { cod: string; mesaj: string; schimbare?: number };
-export type Verificari = { trecute: Verificare[]; picate: Verificare[]; ok: boolean };
+export type Verificari = {
+  trecute: Verificare[];
+  picate: Verificare[];
+  /** lipsesc la interpretările vechi, dinainte de v4 */
+  avertismente?: Verificare[];
+  calculabile?: { cu_formula: number; active_cu_bani: number };
+  ok: boolean;
+};
 
 export type ActInterpretare = {
   titlu: string;
