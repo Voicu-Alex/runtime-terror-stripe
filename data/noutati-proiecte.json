@@ -1,0 +1,32 @@
+[
+  {
+    "id": "proiect_iasi_taxe_2027",
+    "data": "2026-10-28",
+    "emitent": "Primăria Municipiului Iași",
+    "emitent_en": "Iași City Hall",
+    "titlu": "Iași: taxele locale pe 2027 ar crește cu inflația (7,3%); cota pentru casele persoanelor fizice rămâne 0,08%",
+    "titlu_en": "Iași: local taxes for 2027 would rise with inflation (7.3%); the rate for individuals' homes stays at 0.08%",
+    "text": "Proiect de hotărâre în dezbatere publică. Valorile de bază s-ar indexa cu 7,3%. Observațiile se trimit în 30 de zile lucrătoare de la publicare. Nu e încă o hotărâre.",
+    "text_en": "A draft decision under public consultation. Base values would be indexed by 7.3%. Comments can be sent within 30 working days of publication. It is not yet a decision.",
+    "act": "Proiect de hotărâre a Consiliului Local Iași",
+    "act_en": "Draft decision of the Iași Local Council",
+    "url": "https://www.stireadeiasi.ro/stiri-locale/impozite-taxe-locale-iasi-2027/",
+    "sursa": "Știrea de Iași, 28 oct 2026",
+    "taguri": ["proprietar"]
+  },
+  {
+    "id": "proiect_motorina_prelungire",
+    "data": "2026-10-26",
+    "emitent": "Ministerul Finanțelor",
+    "emitent_en": "Ministry of Finance",
+    "titlu": "Acciza redusă la motorină și adaosul plafonat s-ar prelungi de la 1 nov 2026 până la 31 ian 2027",
+    "titlu_en": "The reduced diesel excise duty and the capped margin would be extended from 1 Nov 2026 to 31 Jan 2027",
+    "text": "Proiect de hotărâre anunțat de minister. Trebuie adoptat și publicat înainte de 31 oct, altfel măsurile se opresc. Ministerul estimează ≈0,85 lei/l în plus fără prelungire.",
+    "text_en": "A draft decision announced by the ministry. It must be adopted and published before 31 October, otherwise the measures stop. The ministry estimates ≈0.85 lei/l more without the extension.",
+    "act": "Proiect de hotărâre a Guvernului",
+    "act_en": "Draft Government decision",
+    "url": "https://financiarul.ro/economie/finantele-propun-pastrarea-accizei-reduse-pentru-motorina/",
+    "sursa": "Financiarul, 26 oct 2026",
+    "taguri": ["masina"]
+  }
+]

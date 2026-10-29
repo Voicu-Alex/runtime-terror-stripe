@@ -23,19 +23,20 @@ export function zile(n: number, limba: Limba = "ro"): string {
   return `${n}${r === 0 || r >= 20 ? " de" : ""} zile`;
 }
 
-export function mii(n: number): string {
-  return String(Math.round(Math.abs(n))).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+/** Separatorul de mii al limbii: 7.308 în română, 7,308 în engleză (altfel „7.308” se citește ca 7,3). */
+export function mii(n: number, limba: Limba = "ro"): string {
+  return String(Math.round(Math.abs(n))).replace(/\B(?=(\d{3})+(?!\d))/g, limba === "en" ? "," : ".");
 }
 
-/** Păstrează și banii pentru economii punctuale (de exemplu 42,50 lei pe un plin). */
-export function bani(n: number): string {
-  return Math.abs(n).toLocaleString("ro-RO", { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
+/** Păstrează și banii pentru economii punctuale (42,50 lei pe un plin; 42.50 în engleză). */
+export function bani(n: number, limba: Limba = "ro"): string {
+  return Math.abs(n).toLocaleString(limba === "en" ? "en-US" : "ro-RO", { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
 }
 
 /** −120 / +25 / 0, cu minus tipografic. */
-export function cuSemn(n: number): string {
+export function cuSemn(n: number, limba: Limba = "ro"): string {
   const r = Math.round(n);
-  return (r < 0 ? "−" : r > 0 ? "+" : "") + mii(r);
+  return (r < 0 ? "−" : r > 0 ? "+" : "") + mii(r, limba);
 }
 
 export type StareCard = "proiect" | "adoptat" | "in_vigoare" | "termen_depasit";

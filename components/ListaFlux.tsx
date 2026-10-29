@@ -163,27 +163,27 @@ export function ListaFlux({
           <span className="text-[15px] text-v3-ink">
             {t("Acum:")}{" "}
             <b className={`font-num font-semibold tabular-nums ${plan.fara_actiuni < 0 ? "text-v3-neg" : plan.fara_actiuni > 0 ? "text-v3-pos" : ""}`}>
-              {cuSemn(plan.fara_actiuni * 12)} {t("lei/an")}
+              {cuSemn(plan.fara_actiuni * 12, limba)} {t("lei/an")}
             </b>
           </span>
           {plan.economii !== 0 || plan.economii_punctuale !== 0 ? (
             <span className="text-[15px] text-v3-ink">
               {t("Cu ce ai bifat:")}{" "}
               <b className={`font-num font-semibold tabular-nums ${plan.cu_actiuni < 0 ? "text-v3-neg" : "text-v3-pos"}`}>
-                {cuSemn(plan.cu_actiuni * 12)} {t(plan.unitate)}
+                {cuSemn(plan.cu_actiuni * 12, limba)} {t(plan.unitate)}
               </b>
               {plan.economii !== 0 && <span className="text-v3-ink-2">
                 {" "}
-                · {t("păstrezi")} {mii(plan.economii * 12)} {t(plan.unitate)}
+                · {t("păstrezi")} {mii(plan.economii * 12, limba)} {t(plan.unitate)}
               </span>}
-              {plan.economii_punctuale !== 0 && <span className="text-v3-ink-2"> · +{bani(plan.economii_punctuale)} {t("lei o dată")}</span>}
+              {plan.economii_punctuale !== 0 && <span className="text-v3-ink-2"> · +{bani(plan.economii_punctuale, limba)} {t("lei o dată")}</span>}
             </span>
           ) : (
             <span className="text-[13.5px] text-v3-ink-2">
               {cuEconomie ? t("Adaugă o acțiune în plan pentru a vedea economia.") : t("Sumele din acțiuni se adună aici.")}
             </span>
           )}
-          <span role="status" className="sr-only">{t("Planul meu")}: {cuSemn(plan.cu_actiuni * 12)} {t(plan.unitate)}{plan.economii_punctuale !== 0 && ` · +${bani(plan.economii_punctuale)} ${t("lei o dată")}`}</span>
+          <span role="status" className="sr-only">{t("Planul meu")}: {cuSemn(plan.cu_actiuni * 12, limba)} {t(plan.unitate)}{plan.economii_punctuale !== 0 && ` · +${bani(plan.economii_punctuale, limba)} ${t("lei o dată")}`}</span>
         </aside>
       </div>
       <aside aria-label={t("Termene")} className="hidden border-l border-v3-line pl-5 lg:block">

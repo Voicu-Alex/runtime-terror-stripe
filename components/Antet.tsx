@@ -7,11 +7,17 @@ import { ComutatorTema } from "@/components/Tema";
 import { useAbonament } from "@/components/useAbonament";
 
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
+// Trei secțiuni: Pentru tine (macheta v6), Toate legile (noutățile și ghidul) și Profil (cu Planul meu).
 const SECTIUNI = [
-  { href: "/flux", text: "Flux" },
+  { href: "/", text: "Pentru tine" },
   { href: "/legi", text: "Toate legile" },
   { href: "/profil", text: "Profil" },
 ];
+
+/** „/” e activ doar pe pagina principală și pe fluxul vechi; restul, după prefix. */
+function activ(cale: string, href: string): boolean {
+  return href === "/" ? cale === "/" || cale.startsWith("/flux") : cale.startsWith(href);
+}
 
 export function Antet() {
   const { t } = useLimba();
@@ -28,7 +34,7 @@ export function Antet() {
           </span>
           <Link href="/" className="min-w-0 text-center no-underline">
             <b className="block font-head text-[clamp(15px,4.4vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] text-balance text-v3-logo lg:whitespace-nowrap lg:text-[34px]">
-              Ce înseamnă pentru mine
+              {t("Buzunar")}
             </b>
             <span className="mt-[3px] hidden text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase min-[400px]:block lg:text-[11.5px]">
               {t("Legea, pe banii tăi")}
@@ -42,14 +48,14 @@ export function Antet() {
       </header>
       <nav
         aria-label={t("Secțiuni")}
-        className="sticky top-0 z-20 flex justify-center gap-5 border-t border-b border-v3-line bg-[var(--fundal)] sm:gap-11"
+        className="sticky top-0 z-20 flex gap-5 overflow-x-auto border-t border-b border-v3-line bg-[var(--fundal)] px-4 sm:justify-center sm:gap-9"
       >
         {SECTIUNI.map((s) => (
           <Link
             key={s.href}
             href={s.href}
-            aria-current={cale.startsWith(s.href) ? "page" : undefined}
-            className="flex min-h-[46px] items-center text-[13.5px] font-bold tracking-[.06em] text-v3-ink uppercase no-underline aria-[current=page]:text-v3-accent aria-[current=page]:shadow-[inset_0_-3px_0_var(--color-v3-accent)]"
+            aria-current={activ(cale, s.href) ? "page" : undefined}
+            className="flex min-h-[46px] shrink-0 items-center whitespace-nowrap text-[13.5px] font-bold tracking-[.06em] text-v3-ink uppercase no-underline aria-[current=page]:text-v3-accent aria-[current=page]:shadow-[inset_0_-3px_0_var(--color-v3-accent)]"
           >
             {t(s.text)}
           </Link>
@@ -90,7 +96,7 @@ export function Subsol() {
     <footer className="mx-auto max-w-[1080px] border-t border-v3-line px-4 pt-4 pb-8 text-[12.5px] text-v3-ink-2">
       {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}
       {t("Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică.")}
-      {limba === "en" && <> {t("Textele legilor sunt în română.")}</>}
+      {limba === "en" && <> {t("Traducerea în engleză e neoficială; textul verificat e cel în română.")}</>}
       <Link href="/surse" className="ml-1 font-semibold text-v3-ink-2 underline decoration-v3-line underline-offset-2">
         {t("Surse și limitări")}
       </Link>{" "}

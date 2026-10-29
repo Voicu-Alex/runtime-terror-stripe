@@ -56,7 +56,7 @@ export function Abonare() {
     <section className="rounded-3xl border border-v3-tintb bg-linear-135 from-v3-tint1 via-v3-tint2 via-45% to-v3-card px-5 py-8 sm:px-9">
       <p className="m-0 mb-2 inline-flex items-center gap-2 text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">
         <span className="rounded-md bg-v3-ink px-1.5 py-0.5 tracking-[.08em] text-v3-on-ink">Pro</span>
-        {t("Ce înseamnă pentru mine")}
+        {t("Buzunar")}
       </p>
       <h1 className="m-0 font-head text-[clamp(28px,6.6vw,40px)] leading-[1.12] font-extrabold tracking-[-.015em] text-v3-ink">
         {t("Vezi cât te costă fiecare lege")}

@@ -43,7 +43,8 @@ function Bani({ tip, s, limba }: { tip: "salvezi" | "pierzi"; s: Suma | null; li
   );
 }
 
-export function ArticolLegi({ a: ro }: { a: ArticolGhid }) {
+/** `inLista`: ghidul deschis dintr-un rând din „Toate legile”, fără chenarul și id-ul articolului de sine stătător. */
+export function ArticolLegi({ a: ro, inLista = false }: { a: ArticolGhid; inLista?: boolean }) {
   const { t, limba } = useLimba();
   const a = ghidPeLimba(ro, limba);
   const s = a.schimbare;
@@ -52,7 +53,7 @@ export function ArticolLegi({ a: ro }: { a: ArticolGhid }) {
   const urgent = a.zile !== null && a.zile >= 0 && a.zile < ZILE_URGENT;
   const portal = s.sursa_url.includes("legislatie.just.ro");
   return (
-    <article id={a.id} className="scroll-mt-20 border-b border-v3-line py-8">
+    <article id={inLista ? undefined : a.id} className={inLista ? "pt-1" : "scroll-mt-20 border-b border-v3-line py-8"}>
       <div className="min-w-0">
         <div lang={a.limba}>
           <p className="m-0 mb-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[12.5px] text-v3-ink-2">
@@ -75,7 +76,7 @@ export function ArticolLegi({ a: ro }: { a: ArticolGhid }) {
             )}
           </p>
 
-          <h2 className="m-0 font-head text-[clamp(21px,4.6vw,28px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink">
+          <h2 className={`m-0 font-head leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink ${inLista ? "text-[19px]" : "text-[clamp(21px,4.6vw,28px)]"}`}>
             <span className="text-v3-accent">{a.pentru}:</span> {a.ce}
           </h2>
 

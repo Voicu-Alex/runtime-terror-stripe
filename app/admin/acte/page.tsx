@@ -4,7 +4,7 @@ import { areAcces } from "@/lib/admin";
 import { interpretariDemo } from "@/lib/interpretari-demo";
 import { interpretariPropuse } from "@/lib/supabase-server";
 
-export const metadata = { title: "Interpretări de aprobat · Ce înseamnă pentru mine" };
+export const metadata = { title: "Interpretări de aprobat · Buzunar" };
 export const dynamic = "force-dynamic";
 
 export default async function PaginaAdminActe({ searchParams }: { searchParams: Promise<{ demo?: string }> }) {

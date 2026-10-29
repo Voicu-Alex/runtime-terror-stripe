@@ -7,11 +7,11 @@ export const CULORI = {
   tenta: "#DEDBD8",
   tenta2: "#F1F0EE",
   cerneala: "#111827",
-  verde: "#15803D",
+  verde: "#00853A",
   gri: "#57534E",
 } as const;
 
-/** Pătratul cu „cî”, ca în notificarea de pe landing page. */
+/** Pătratul cu „B” (Buzunar), ca în notificarea de pe landing page. */
 export function Insigna({ marime }: { marime: number }) {
   return (
     <div
@@ -29,7 +29,7 @@ export function Insigna({ marime }: { marime: number }) {
         borderRadius: marime * 0.22,
       }}
     >
-      cî
+      B
     </div>
   );
 }

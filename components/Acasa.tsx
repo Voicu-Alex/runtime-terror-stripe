@@ -228,8 +228,8 @@ function CazReal({ c, nr }: { c: Caz; nr: number }) {
           <p className="m-0 mb-2 text-center text-[12px] font-semibold text-v3-band-ink-2">{d(c.aflat)} · 09:41</p>
           <div className="rounded-2xl bg-v3-card p-3.5">
             <p className="m-0 flex items-center gap-2 text-[12px] font-bold text-v3-ink-2">
-              <span className="inline-flex size-5 items-center justify-center rounded-md bg-v3-logo text-[10px] font-extrabold text-v3-on-ink">cî</span>
-              Ce înseamnă pentru mine · {en ? "now" : "acum"}
+              <span className="inline-flex size-5 items-center justify-center rounded-md bg-v3-logo text-[10px] font-extrabold text-v3-on-ink">B</span>
+              {en ? "Pocket · now" : "Buzunar · acum"}
             </p>
             <p className="m-0 mt-2 text-[14.5px] leading-[1.45] font-semibold text-v3-ink">{c.notificare[limba]}</p>
             <p className="m-0 mt-2 text-[12.5px] font-bold text-v3-pos">

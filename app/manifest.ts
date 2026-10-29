@@ -4,10 +4,10 @@ import type { MetadataRoute } from "next";
 // Fără service worker deocamdată: un cache vechi ar putea arăta juriului o versiune trecută după un deploy.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Ce înseamnă pentru mine",
-    short_name: "Ce înseamnă",
+    name: "Buzunar",
+    short_name: "Buzunar",
     description: "Fiecare lege nouă, tradusă în lei pe an pentru tine. / Every new law, translated into lei per year for you.",
-    start_url: "/flux",
+    start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",
     theme_color: "#FFFFFF",

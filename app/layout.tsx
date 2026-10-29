@@ -15,11 +15,11 @@ const ADRESA = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.en
 
 export const metadata: Metadata = {
   metadataBase: new URL(ADRESA),
-  title: "Ce înseamnă pentru mine",
+  title: "Buzunar",
   description: "Fiecare lege nouă, tradusă în lei pe an pentru tine.",
-  appleWebApp: { capable: true, title: "Ce înseamnă", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "Buzunar", statusBarStyle: "default" },
   openGraph: {
-    title: "Ce înseamnă pentru mine",
+    title: "Buzunar · Pocket",
     description: "Every new Romanian law, in lei per year for you, with what you can do and by when.",
     type: "website",
   },

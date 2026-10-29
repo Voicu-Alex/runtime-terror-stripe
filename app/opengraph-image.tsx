@@ -3,7 +3,7 @@ import { CULORI, Insigna } from "@/lib/marca";
 
 // Imaginea care apare când linkul e trimis pe WhatsApp, Slack sau LinkedIn. În engleză, ca pitch-ul;
 // cifra e cea din landing page (Legea 141/2025, art. III; calculul e în components/Acasa.tsx).
-export const alt = "Ce înseamnă pentru mine: every new law, translated into lei per year for you";
+export const alt = "Buzunar (Pocket): every new law, translated into lei per year for you";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,7 +24,7 @@ export default function OpenGraph() {
       <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
         <Insigna marime={84} />
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 40, fontWeight: 800, color: CULORI.logo }}>Ce înseamnă pentru mine</div>
+          <div style={{ fontSize: 40, fontWeight: 800, color: CULORI.logo }}>Buzunar · Pocket</div>
           <div style={{ fontSize: 22, letterSpacing: 4, color: CULORI.gri }}>THE LAW, IN YOUR MONEY</div>
         </div>
       </div>
