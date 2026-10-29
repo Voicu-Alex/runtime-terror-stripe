@@ -59,7 +59,7 @@ export async function POST(req: Request) {
   if (!verdict.permis) {
     const eroare =
       verdict.motiv === "zi"
-        ? "Am atins limita de documente analizate azi în demo. Încearcă mâine sau folosește un exemplu."
+        ? "Am atins limita de documente analizate azi. Încearcă mâine."
         : "Ai analizat deja mai multe documente în ultima oră. Încearcă din nou mai târziu.";
     return NextResponse.json({ eroare }, { status: 429, headers: { "Retry-After": String(verdict.reincearcaInSec) } });
   }

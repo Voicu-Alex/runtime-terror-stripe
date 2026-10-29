@@ -17,8 +17,6 @@ export type StareAbonament = {
   panaLa: string | null;
   /** se oprește la finalul perioadei (anulat din portal) */
   seOpreste: boolean;
-  /** fluxul e deschis tuturor pentru demo (PRO_DESCHIS_DEMO=1 pe server); abonamentul rămâne separat */
-  deschisDemo?: boolean;
 };
 
 export const FARA_ABONAMENT: StareAbonament = { conectat: false, email: null, activ: false, status: null, panaLa: null, seOpreste: false };
@@ -28,12 +26,7 @@ export function esteActiv(status: string | null | undefined): boolean {
   return status === "active" || status === "trialing";
 }
 
-/** Fluxul pe profilul tău se vede neestompat: cu Pro sau cât timp demo-ul e deschis. */
+/** Fluxul pe profilul tău se vede neestompat doar cu Pro (ADR 0002). */
 export function fluxDeschis(stare: StareAbonament | null): boolean {
-  return !!stare && (stare.activ || !!stare.deschisDemo);
-}
-
-/** Comutatorul de demo, citit pe server: doar valoarea exactă „1” îl pornește. */
-export function demoDeschis(valoare: string | undefined): boolean {
-  return valoare === "1";
+  return !!stare && stare.activ;
 }

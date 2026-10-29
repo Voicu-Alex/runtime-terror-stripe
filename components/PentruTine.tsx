@@ -24,7 +24,6 @@ import { TAGURI, type TagId } from "@/lib/taguri";
 // o deblocare gratuită, încă una pentru profilul completat, Pro deschide tot. Cardul deschis e CardSchimbare.
 
 const AZI_DEMO = "2026-10-28";
-const CHEIE_PLAN_DEMO = "cipm.v6.plan";
 
 type StareFiltru = "proiect" | "urmeaza" | "in_vigoare" | "incheiata";
 const STARI: StareFiltru[] = ["proiect", "urmeaza", "in_vigoare", "incheiata"];
@@ -55,29 +54,15 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
   const abonament = useAbonament();
   const aprobate = useAprobate();
 
-  // Profilul: persoana demo din ?p=, altfel profilul tău, altfel exemplul Andrei (ca în v6).
+  // Profilul: persoana fictivă din ?p=, altfel profilul tău, altfel exemplul Andrei (ca în v6), marcat clar ca exemplu.
   const areProfil = !!profilReal && profilReal.taguri.length > 0;
   const idDemo = demoId && demoId in PERSOANE_DEMO ? demoId : areProfil ? null : "andrei";
   const persoana = idDemo ? persoanaDemo(idDemo) : null;
   const profil: Profil | null = persoana ? persoana.profil : profilReal;
   const azi = idDemo ? AZI_DEMO : aziISO();
 
-  // Basic | Premium: Pro real de la Stripe; cu demo-ul deschis (PRO_DESCHIS_DEMO=1), un comutator pentru prezentare.
-  const [planDemo, setPlanDemo] = useState<"basic" | "premium">("basic");
-  useEffect(() => {
-    try {
-      if (window.localStorage.getItem(CHEIE_PLAN_DEMO) === "premium") setPlanDemo("premium");
-    } catch {}
-  }, []);
-  function alegePlan(x: "basic" | "premium") {
-    setPlanDemo(x);
-    try {
-      window.localStorage.setItem(CHEIE_PLAN_DEMO, x);
-    } catch {}
-  }
-  const proReal = !!abonament?.activ;
-  const comutator = !proReal && !!abonament?.deschisDemo;
-  const premium = proReal || (comutator && planDemo === "premium");
+  // Pro vine doar de la Stripe (ADR 0002); fără el, freemium-ul de mai jos.
+  const premium = !!abonament?.activ;
 
   const [fm, setFm] = useState<StareFreemium>(FREEMIUM_GOL);
   useEffect(() => setFm(incarcaFreemium()), []);
@@ -195,33 +180,30 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
           ))}
         </div>
 
-        <p className="mt-3 mb-0 text-sm text-v3-ink-2">
-          {persoana ? (
-            <>
-              {demoId ? t("Profil demo:") : t("Exemplu:")} <b className="text-v3-ink">{persoana.nume}</b> ·{" "}
+        {persoana ? (
+          // Exemplul e marcat vizibil ca fictiv, cu tot profilul lui, ca să nu fie luat drept al cititorului.
+          <section aria-label={t("Exemplu")} className="mt-3 rounded-2xl border border-dashed border-v3-accent bg-v3-accent-soft p-4">
+            <p className="m-0 text-[11.5px] font-extrabold tracking-[.12em] text-v3-accent uppercase">{t("Exemplu · persoană fictivă")}</p>
+            <p className="m-0 mt-1 text-[15.5px] leading-snug text-v3-ink">
+              <b>{persoana.nume}</b> · {persoana.profil.taguri.map((x) => etichetaTagL(limba, x)).join(", ")}
+            </p>
+            <p className="m-0 mt-2 text-[14px] text-v3-ink-2">
+              {t("Sumele de mai jos sunt pe acest profil.")}{" "}
               <Link href="/profil" className="font-semibold text-v3-ink underline decoration-v3-line underline-offset-2">
                 {t("Fă-ți profilul: manual sau dintr-un document")}
               </Link>
-            </>
-          ) : (
-            <>
-              {t("Profilul tău:")} {profil.taguri.map((x) => etichetaTagL(limba, x)).join(", ")} ·{" "}
-              <Link href="/profil" className="text-v3-ink underline decoration-v3-line underline-offset-2">
-                {t("modifică")}
-              </Link>
-            </>
-          )}
-        </p>
+            </p>
+          </section>
+        ) : (
+          <p className="mt-3 mb-0 text-sm text-v3-ink-2">
+            {t("Profilul tău:")} {profil.taguri.map((x) => etichetaTagL(limba, x)).join(", ")} ·{" "}
+            <Link href="/profil" className="text-v3-ink underline decoration-v3-line underline-offset-2">
+              {t("modifică")}
+            </Link>
+          </p>
+        )}
 
-        <Freemium
-          premium={premium}
-          proReal={proReal}
-          comutator={comutator}
-          plan={planDemo}
-          alegePlan={alegePlan}
-          ramase={ramase}
-          profilCompletat={profilCompletat}
-        />
+        <Freemium premium={premium} ramase={ramase} profilCompletat={profilCompletat} />
 
         <Bilant randuri={randuri} acces={acces} />
 
@@ -320,58 +302,23 @@ function Pastila({ on, n, onClick, children }: { on: boolean; n: number; onClick
   );
 }
 
-function Freemium({
-  premium,
-  proReal,
-  comutator,
-  plan,
-  alegePlan,
-  ramase,
-  profilCompletat,
-}: {
-  premium: boolean;
-  proReal: boolean;
-  comutator: boolean;
-  plan: "basic" | "premium";
-  alegePlan: (x: "basic" | "premium") => void;
-  ramase: number;
-  profilCompletat: boolean;
-}) {
+function Freemium({ premium, ramase, profilCompletat }: { premium: boolean; ramase: number; profilCompletat: boolean }) {
   const { t } = useLimba();
   return (
     <section className="mt-4 rounded-2xl border border-v3-line bg-v3-card p-5">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <h2 className="m-0 font-head text-[18px] font-extrabold text-v3-ink">
-          {premium ? (
-            <>
-              {proReal ? t("Pro activ") : t("Premium (demo)")} · {PRET_BANI / 100} {t("lei/lună")}
-            </>
-          ) : (
-            <>
-              {t("Deblocări gratuite")} · {ramase} {ramase === 1 ? t("disponibilă") : t("disponibile")}
-            </>
-          )}
-        </h2>
-        {comutator && (
-          <span role="group" aria-label={t("Tip cont (demo)")} className="inline-flex rounded-full border border-v3-line p-0.5 text-[13px] font-semibold">
-            {(["basic", "premium"] as const).map((x) => (
-              <button
-                key={x}
-                type="button"
-                aria-pressed={plan === x}
-                onClick={() => alegePlan(x)}
-                className="min-h-8 rounded-full px-3 text-v3-ink-2 aria-pressed:bg-v3-ink aria-pressed:text-v3-on-ink"
-              >
-                {x === "basic" ? "Basic" : "Premium"}
-              </button>
-            ))}
-          </span>
+      <h2 className="m-0 font-head text-[18px] font-extrabold text-v3-ink">
+        {premium ? (
+          <>
+            {t("Pro activ")} · {PRET_BANI / 100} {t("lei/lună")}
+          </>
+        ) : (
+          <>
+            {t("Deblocări gratuite")} · {ramase} {ramase === 1 ? t("disponibilă") : t("disponibile")}
+          </>
         )}
-      </div>
+      </h2>
       {premium ? (
-        <p className="m-0 mt-1.5 text-[14.5px] text-v3-ink-2">
-          {proReal ? t("Vezi toate legile, sumele și ghidurile complete.") : t("Toate legile deblocate, ca pentru un abonat Pro. Plata reală e pe pagina Pro.")}
-        </p>
+        <p className="m-0 mt-1.5 text-[14.5px] text-v3-ink-2">{t("Vezi toate legile, sumele și ghidurile complete.")}</p>
       ) : (
         <>
           <p className="m-0 mt-1.5 text-[14.5px] text-v3-ink-2">

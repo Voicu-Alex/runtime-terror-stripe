@@ -328,8 +328,7 @@ const EN: Record<string, string> = {
   "Înapoi la Pro": "Back to Pro",
 
   // erorile rutei de analiză (app/api/analiza-document), afișate în formular
-  "Am atins limita de documente analizate azi în demo. Încearcă mâine sau folosește un exemplu.":
-    "The demo has reached today’s limit of analysed documents. Try again tomorrow or use an example.",
+  "Am atins limita de documente analizate azi. Încearcă mâine.": "We have reached today’s limit of analysed documents. Try again tomorrow.",
   "Ai analizat deja mai multe documente în ultima oră. Încearcă din nou mai târziu.":
     "You have already analysed several documents in the last hour. Please try again later.",
   "Acceptăm doar PDF, JPG sau PNG.": "We accept only PDF, JPG or PNG.",
@@ -360,6 +359,10 @@ const EN: Record<string, string> = {
   Filtre: "Filters",
   "Caută o lege sau o etichetă": "Search for a law or a tag",
   "Exemplu:": "Example:",
+  Exemplu: "Example",
+  "Exemplu · persoană fictivă": "Example · fictional person",
+  "Sumele de mai jos sunt pe acest profil.": "The amounts below are for this profile.",
+  "Sau vezi exemplul:": "Or see the example:",
   "Fă-ți profilul: manual sau dintr-un document": "Make your profile: by hand or from a document",
   "Caută după etichetă:": "Search by tag:",
   Rezultate: "Results",
