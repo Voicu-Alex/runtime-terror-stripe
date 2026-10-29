@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Antet, Subsol, SariLaContinut } from "@/components/Antet";
 import { LimbaProvider } from "@/components/Limba";
 import { SCRIPT_TEMA } from "@/components/Tema";
@@ -10,9 +10,27 @@ import "./globals.css";
 const FONTURI =
   "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Raleway:wght@700;800&family=Geist:wght@500;600;700&display=swap";
 
+// Adresa publică, pentru linkurile absolute din previzualizare (Open Graph). Vercel o dă singur la build.
+const ADRESA = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Ce înseamnă pentru mine",
+  metadataBase: new URL(ADRESA),
+  title: "Buzunar",
   description: "Fiecare lege nouă, tradusă în lei pe an pentru tine.",
+  appleWebApp: { capable: true, title: "Buzunar", statusBarStyle: "default" },
+  openGraph: {
+    title: "Buzunar · Pocket",
+    description: "Every new Romanian law, in lei per year for you, with what you can do and by when.",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#18181B" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

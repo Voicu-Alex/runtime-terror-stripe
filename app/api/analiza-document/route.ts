@@ -10,9 +10,13 @@ import {
   type AnalizaDocument,
 } from "@/lib/analiza-document";
 import { raspunsDemo } from "@/lib/demo-analiza";
+import { adresaDin, contorNou, inregistreaza, limiteDinEnv } from "@/lib/limita";
 import { esteTag } from "@/lib/taguri";
 
 export const runtime = "nodejs";
+
+// Un contor pe instanță: frâna pentru linkul public (lib/limita.ts). Limitele: LIMITA_DOCUMENTE_PE_ORA, LIMITA_DOCUMENTE_PE_ZI.
+const CONTOR = contorNou();
 
 /**
  * Primește un document, îl trimite o singură dată la Claude și întoarce etichetele propuse.
@@ -48,6 +52,16 @@ export async function POST(req: Request) {
       },
       { status: 503 },
     );
+  }
+
+  // Doar apelurile reale la Claude costă, deci doar ele se numără.
+  const verdict = inregistreaza(CONTOR, adresaDin(req.headers), limiteDinEnv(process.env), Date.now());
+  if (!verdict.permis) {
+    const eroare =
+      verdict.motiv === "zi"
+        ? "Am atins limita de documente analizate azi în demo. Încearcă mâine sau folosește un exemplu."
+        : "Ai analizat deja mai multe documente în ultima oră. Încearcă din nou mai târziu.";
+    return NextResponse.json({ eroare }, { status: 429, headers: { "Retry-After": String(verdict.reincearcaInSec) } });
   }
 
   const data = Buffer.from(await fisier.arrayBuffer()).toString("base64");

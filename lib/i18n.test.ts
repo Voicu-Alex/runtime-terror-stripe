@@ -23,6 +23,15 @@ describe("interfața în engleză", () => {
     for (const s of CATALOG) expect(s.rezumat_en?.length ?? 0).toBeGreaterThan(10);
   });
 
+  it("fiecare act are propoziția de la Zero în engleză", () => {
+    expect(CATALOG.filter((s) => !s.niveluri.zero_en).map((s) => s.id)).toEqual([]);
+  });
+
+  it("fiecare acțiune din catalog are text în engleză", () => {
+    const fara = CATALOG.flatMap((s) => s.actiuni.filter((a) => !a.text_en).map((a) => `${s.id}: ${a.text}`));
+    expect(fara).toEqual([]);
+  });
+
   it("datele și zilele se formatează în engleză", () => {
     expect(dataScurta("2026-03-26", "en")).toBe("26 Mar 2026");
     expect(dataScurta("2026-03-26")).toBe("26 mar 2026");

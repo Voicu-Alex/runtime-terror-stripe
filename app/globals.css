@@ -19,12 +19,13 @@
   --color-v3-card: #FFFFFF;
   --color-v3-line: #E5E7EB;
   --color-v3-accent: #57534E;
-  --color-v3-neg: #C81E1E;
-  --color-v3-pos: #15803D;
+  /* roșu și verde intense (29 oct, Chris): roșul de dinainte bătea spre portocaliu; ambele trec 4,5:1 pe alb */
+  --color-v3-neg: #E0101E;
+  --color-v3-pos: #00853A;
   --color-v3-pos-soft: #E1F1E7;
   --color-v3-accent-soft: #F5F5F4;
   --color-v3-act: #FAF7F2;
-  --color-v3-urg: #B42318;
+  --color-v3-urg: #E0101E;
   --color-v3-urg-soft: #FCEBE9;
   --color-v3-past: #5E6A63;
   --color-v3-past-bg: #E8EBE6;
@@ -47,8 +48,8 @@
  * Tema închisă, neutră: gri-negru curat (scara zinc), fără tentă caldă.
  * - fără negru pur: fundal #18181B; suprafețele mai sus sunt puțin mai deschise (card #1F1F23, degradeuri #27272A);
  * - text aproape alb (#F4F4F5), text secundar #A1A1AA;
- * - verde #4ADE80 = bani în plus, roșu #F87171 = bani în minus, mai deschise ca să se citească pe închis;
- * - toate perechile text/fundal au cel puțin 4,5:1 (WCAG AA); cea mai mică e 5,8:1.
+ * - verde #2EE873 = bani în plus, roșu #FF4545 = bani în minus, intense, dar destul de deschise ca să se citească pe închis;
+ * - toate perechile text/fundal au cel puțin 4,5:1 (WCAG AA); cea mai mică e roșul pe card, 4,8:1.
  */
 [data-theme="dark"] {
   color-scheme: dark;
@@ -61,12 +62,12 @@
   --color-v3-card: #1F1F23;
   --color-v3-line: #303036;
   --color-v3-accent: #D4D4D8;
-  --color-v3-neg: #F87171;
-  --color-v3-pos: #4ADE80;
+  --color-v3-neg: #FF4545;
+  --color-v3-pos: #2EE873;
   --color-v3-pos-soft: #132A1C;
   --color-v3-accent-soft: #27272A;
   --color-v3-act: #232327;
-  --color-v3-urg: #F87171;
+  --color-v3-urg: #FF4545;
   --color-v3-urg-soft: #2D1A1A;
   --color-v3-past: #9CA3AF;
   --color-v3-past-bg: #27272A;
@@ -80,7 +81,7 @@
   --color-v3-band: #232327;
   --color-v3-band-ink: #F4F4F5;
   --color-v3-band-ink-2: #A1A1AA;
-  --color-v3-band-pos: #4ADE80;
+  --color-v3-band-pos: #2EE873;
 }
 
 @theme {

@@ -17,7 +17,7 @@
     "formula": "tva_21",
     "estimare": true,
     "niveluri": {
-      "zero": "Cota standard de TVA crește cu 2 puncte, deci aproape tot ce cumperi costă puțin mai mult. Estimat ca 1,68% din cheltuielile tale lunare.",
+      "zero": "Cota standard de TVA crește cu 2 puncte, deci aproape tot ce cumperi costă puțin mai mult. Estimat ca 1,68% din cheltuielile tale lunare.", "zero_en": "Since August 2025, almost everything you buy costs a little more: VAT went up from 19% to 21%.",
       "curios": "Creșterea face parte din pachetul de măsuri fiscal-bugetare din Legea 141/2025. Atinge pe oricine cumpără ceva, pentru că TVA e inclus în prețul de la raft. Cotele reduse de 5% și 9% au devenit una singură, de 11%, pentru alimente, medicamente, apă, cărți, cazare și restaurante. Exemplu: un produs care costa 119 lei cu TVA de 19% ajunge la 121 lei, dacă prețul fără TVA rămâne același.",
       "expert": "Legea 141/2025, art. II pct. 42, modifică art. 291 alin. (1) și (2) din Codul fiscal: cota standard 21%, cota redusă 11%; pct. 43 abrogă cota de 5%. Publicată în Monitorul Oficial nr. 699 din 25 iulie 2025, aplicabilă de la 1 august 2025 (art. VII alin. (1)). Nuanță: o persoană fizică putea cumpăra o singură locuință cu TVA de 9% până la 31 iulie 2026, dacă avea maximum 120 mp utili, costa maximum 600.000 lei fără TVA și contractul de avans era încheiat până la 1 august 2025 (art. III). Nuanță: alimentele cu minimum 10 g zahăr adăugat la 100 g, băuturile alcoolice și suplimentele alimentare nu intră la 11%."
     },
@@ -49,13 +49,13 @@
     "formula": "dividende_16",
     "estimare": false,
     "niveluri": {
-      "zero": "Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu 10%. Pe dividendele tale, diferența apare în cifra anuală.",
+      "zero": "Dividendele distribuite după 1 ianuarie 2026 se impozitează cu 16%, nu 10%. Pe dividendele tale, diferența apare în cifra anuală.", "zero_en": "Since January 2026, you keep less of your dividends: the tax went up from 10% to 16%.",
       "curios": "Creșterea face parte din același pachet de măsuri fiscal-bugetare, Legea 141/2025. Te privește dacă ai un SRL și îți plătești profitul ca dividende. Contează data la care sunt distribuite, nu data plății: ce s-a distribuit până la 31 decembrie 2025 a rămas la 10%. Exemplu: la 10.000 lei dividende, impozitul crește de la 1.000 lei la 1.600 lei.",
       "expert": "Legea 141/2025, art. II pct. 5, modifică art. 97 alin. (7) din Codul fiscal (persoane fizice: 16%, impozit final); pct. 1 modifică art. 43 alin. (2) (persoane juridice). Publicată în Monitorul Oficial nr. 699 din 25 iulie 2025; se aplică dividendelor distribuite începând cu 1 ianuarie 2026 (art. VII alin. (1)). Nuanță: dividendele distribuite pe baza situațiilor financiare interimare din 2025 rămân la 10%, fără recalculare la regularizare (art. VII alin. (2)). Nuanță: pentru firmele cu an fiscal modificat, data este prima zi a anului fiscal care începe în 2026."
     },
     "actiuni": [
       {
-        "text": "Distribuie dividendele din profitul 2025",
+        "text": "Distribuie dividendele din profitul 2025", "text_en": "Pay out the dividends from your 2025 profit",
         "termen": "2025-12-31",
         "formula_economie": "dividende_economie",
         "one_click": null,
@@ -100,13 +100,13 @@
     "formula": "cass_pensii",
     "estimare": false,
     "niveluri": {
-      "zero": "Contribuția de 10% pentru sănătate se aplică doar părții din pensie care depășește 3.000 lei.",
+      "zero": "Contribuția de 10% pentru sănătate se aplică doar părții din pensie care depășește 3.000 lei.", "zero_en": "Since August 2025, if your pension is above 3,000 lei, you pay a 10% health contribution on the part above it.",
       "curios": "Până în august 2025, pensionarii nu plăteau contribuția de sănătate (CASS). Legea 141/2025 a introdus-o, dar doar pe partea din pensie care trece de 3.000 lei pe lună. Cine are pensia de 3.000 lei sau mai mică nu plătește nimic în plus. Exemplu: la o pensie de 4.000 lei, plătești 10% din 1.000 lei, adică 100 lei pe lună.",
       "expert": "Legea 141/2025, art. II pct. 16 abrogă scutirea generală a pensionarilor (Codul fiscal art. 154 alin. (1) lit. h)), pct. 18 introduce lit. h^2) (scutire pentru pensiile de până la 3.000 lei lunar inclusiv), iar pct. 25 introduce art. 157^6 (baza = pensia minus 3.000 lei). Cota de 10% vine din art. 156 din Codul fiscal. Publicată în Monitorul Oficial nr. 699 din 25 iulie 2025; se aplică veniturilor din august 2025 (art. VII alin. (1) lit. e), modificat prin OG 22/2025). Nuanță: e temporară, se aplică între 1 august 2025 și 31 decembrie 2027 (art. VII alin. (3)). Nuanță: pragul de 3.000 lei se scade separat pentru fiecare drept de pensie."
     },
     "actiuni": [
       {
-        "text": "Verifică cuponul de pensie: CASS se aplică doar peste 3.000 lei",
+        "text": "Verifică cuponul de pensie: CASS se aplică doar peste 3.000 lei", "text_en": "Check your pension slip: health contribution (CASS) applies only above 3,000 lei",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -150,13 +150,13 @@
     "formula": "energie_plafon",
     "estimare": true,
     "niveluri": {
-      "zero": "Plafonul a acoperit 1 apr–30 iun 2025 și a încetat la 1 iul 2025; de atunci factura urmează prețul pieței.",
+      "zero": "Plafonul a acoperit 1 apr–30 iun 2025 și a încetat la 1 iul 2025; de atunci factura urmează prețul pieței.", "zero_en": "Since July 2025, electricity no longer has a capped price: you pay what your contract with the supplier says.",
       "curios": "Între 1 aprilie și 30 iunie 2025, statul a limitat prețul curentului pentru casnici, după consum: 0,68, 0,80 sau 1,3 lei/kWh cu TVA. De la 1 iulie 2025 schema s-a încheiat, iar prețul depinde doar de oferta furnizorului. Te privește dacă ai contract de curent pe numele tău. Exemplu: la 200 kWh pe lună, cu plafonul de 0,80 lei/kWh plăteai cel mult 160 lei; acum suma depinde de prețul din contractul tău.",
       "expert": "OUG 6/2025, art. 1 alin. (1): prețul final plafonat pentru consumul dintre 1 aprilie și 30 iunie 2025 era maximum 0,68 lei/kWh (consum de până la 100 kWh/lună și categoriile vulnerabile de la lit. a)), maximum 0,80 lei/kWh (între 100,01 și 255 kWh/lună) și maximum 1,3 lei/kWh pentru ceilalți casnici. Publicată în Monitorul Oficial nr. 182 din 28 februarie 2025. Încetarea schemei la 1 iulie 2025 este confirmată de ANRE (comunicat din 11 iunie 2025). Nuanță: peste 300 kWh pe lună, tot consumul se factura la 1,3 lei/kWh. Nuanță: ANRE recomandă compararea ofertelor pe comparatorul oficial (posf.ro); schimbarea furnizorului e fără costuri."
     },
     "actiuni": [
       {
-        "text": "Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix",
+        "text": "Compară ofertele furnizorilor pe comparatorul ANRE și treci pe un contract cu preț fix", "text_en": "Compare supplier offers on the ANRE comparison tool and switch to a fixed-price contract",
         "termen": null,
         "formula_economie": null,
         "one_click": "https://posf.ro/comparator",
@@ -191,13 +191,13 @@
     "formula": "pilon2_plata",
     "estimare": false,
     "niveluri": {
-      "zero": "Legea nouă schimbă felul în care primești banii din Pilon II: doar o parte deodată, restul în rate. Azi nu pierzi nimic, dar pensia privată se planifică altfel.",
+      "zero": "Legea nouă schimbă felul în care primești banii din Pilon II: doar o parte deodată, restul în rate. Azi nu pierzi nimic, dar pensia privată se planifică altfel.", "zero_en": "From 2027, you can take at most 30% of your Pillar II savings at once; you receive the rest monthly.",
       "curios": "Legea 2/2026 stabilește cum îți primești banii din Pilonul II și III la pensionare. Poți cere o singură dată maximum 30% din suma strânsă, iar restul vine în rate lunare sau ca pensie viageră. Exemplu: dacă ai strâns 100.000 lei, poți lua deodată cel mult 30.000 lei, iar 70.000 lei îi primești eșalonat. Regulile noi pornesc abia după ce ASF autorizează primul fond care plătește în rate; până atunci se aplică regulile vechi.",
       "expert": "Legea 2/2026 privind plata pensiilor private, publicată în Monitorul Oficial nr. 2 din 5 ianuarie 2026; intră în vigoare la un an de la publicare, adică pe 5 ianuarie 2027 (art. 113). Art. 55 alin. (1): maximum 30% din activ, la cerere, o singură dată, înainte de plățile lunare. Art. 60: rata lunară este egală cu indemnizația socială pentru pensionari; dacă astfel plata ar dura peste 8 ani, rata poate crește, dar plata durează cel puțin 8 ani. Nuanță: până când ASF autorizează cel puțin un fond de plată prin retragere programată, plata se face exclusiv după legile vechi (411/2004, 204/2006, 1/2020), conform art. 111 alin. (1). Nuanță: dacă suma strânsă nu depășește de 12 ori indemnizația socială pentru pensionari, primești totul o dată sau în maximum 12 luni (art. 50 alin. (3))."
     },
     "actiuni": [
       {
-        "text": "Decide cum vrei plata: 30% o dată, restul eșalonat",
+        "text": "Decide cum vrei plata: 30% o dată, restul eșalonat", "text_en": "Decide how you want the payout: 30% at once, the rest in instalments",
         "termen": "2027-01-05",
         "formula_economie": null,
         "one_click": null,
@@ -238,13 +238,13 @@
     "formula": "pilon3_deducere",
     "estimare": true,
     "niveluri": {
-      "zero": "Contribuțiile la Pilon III sunt deductibile până la 400 EUR pe an. Economia estimată este de circa 200 lei pe an.",
+      "zero": "Contribuțiile la Pilon III sunt deductibile până la 400 EUR pe an. Economia estimată este de circa 200 lei pe an.", "zero_en": "Pillar III contributions are deductible up to 400 EUR per year. The estimated saving is about 200 lei per year.",
       "curios": "TODO",
       "expert": "TODO"
     },
     "actiuni": [
       {
-        "text": "Alimentează Pilon III până la plafonul deductibil de 400 EUR/an",
+        "text": "Alimentează Pilon III până la plafonul deductibil de 400 EUR/an", "text_en": "Pay into Pillar III up to the deductible ceiling of 400 EUR/year",
         "termen": "2026-12-31",
         "formula_economie": "pilon3_economie",
         "one_click": null,
@@ -280,13 +280,13 @@
     "formula": "micro_1",
     "estimare": false,
     "niveluri": {
-      "zero": "Cotă unică de 1% pentru microîntreprinderi (cota de 3% eliminată). Plafonul de 100.000 EUR și condiția de un angajat: de verificat.",
+      "zero": "Cotă unică de 1% pentru microîntreprinderi (cota de 3% eliminată). Plafonul de 100.000 EUR și condiția de un angajat: de verificat.", "zero_en": "Since January 2026, your micro-company pays 1% of its revenue, if it stays under 100,000 euros per year.",
       "curios": "Cota de 3% a dispărut: din 2026, toate microîntreprinderile plătesc 1% din venituri. În schimb, plafonul de venituri a coborât de la 250.000 la 100.000 euro pe an. Te privește dacă ai un SRL micro; ca să rămână micro, firma trebuie să aibă cel puțin un salariat și să nu treacă de plafon. Exemplu: la 50.000 lei venituri într-un trimestru, impozitul este 500 lei.",
       "expert": "OUG 89/2025, art. I pct. 4, modifică art. 51 alin. (1) din Codul fiscal: „Cota de impozit pe veniturile microîntreprinderilor este de 1%.” Publicată în Monitorul Oficial nr. 1203 din 24 decembrie 2025, aplicabilă de la 1 ianuarie 2026 (art. II alin. (1)). Plafonul de 100.000 euro nu vine din OUG 89/2025, ci din art. 47 alin. (1) lit. c) din Codul fiscal, introdus prin OUG 156/2024 și rescris prin OUG 8/2026 (Monitorul Oficial nr. 147 din 25 februarie 2026). Nuanță: la plafon se adună și veniturile întreprinderilor legate, inclusiv ale PFA-urilor asociaților care dețin peste 25% (art. 47 alin. (1^1), art. 52 alin. (5^1)). Nuanță: o firmă nou înființată are 90 de zile să angajeze primul salariat (OUG 8/2026)."
     },
     "actiuni": [
       {
-        "text": "Verifică cifra de afaceri a SRL-ului față de noul prag",
+        "text": "Verifică cifra de afaceri a SRL-ului față de noul prag", "text_en": "Check your SRL's turnover against the new threshold",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -334,13 +334,13 @@
     "formula": "gaz_plafon",
     "estimare": true,
     "niveluri": {
-      "zero": "Până la 31 martie 2027 prețul la gaz e plafonat. De la 1 aprilie 2027 factura urmează prețul pieței.",
+      "zero": "Până la 31 martie 2027 prețul la gaz e plafonat. De la 1 aprilie 2027 factura urmează prețul pieței.", "zero_en": "Until 31 March 2027, you pay the lowest gas price: either the one in your contract or the one set by the state.",
       "curios": "Plafonul fix de 0,31 lei/kWh s-a terminat la 31 martie 2026. De la 1 aprilie 2026, OUG 12/2026 a pus în loc o formulă: gazul de la producători are preț fix, iar adaosul furnizorului e limitat. Te privește dacă ești client casnic de gaz, inclusiv în bloc sau cartier rezidențial. Exemplu: TODO, avem nevoie de un preț final oficial în lei/kWh calculat după formulă.",
       "expert": "OUG 12/2026, art. 1 alin. (2): prețul facturat clienților casnici între 1 aprilie 2026 și 31 martie 2027 este cel mai mic dintre prețul contractual și prețul final calculat. Art. 3: componenta de furnizare este de maximum 15 lei/MWh. Art. 6 alin. (1): producătorii livrează cu 110 lei/MWh. Publicată în Monitorul Oficial nr. 178 din 9 martie 2026; modificată prin OUG 19/2026 (Monitorul Oficial nr. 237 din 26 martie 2026). Nuanță: cifra de 0,31 lei/kWh vine din OUG 6/2025 și s-a aplicat doar între 1 aprilie 2025 și 31 martie 2026. Nuanță: producătorii de energie termică pentru populație beneficiază doar pentru consumul dintre 1 noiembrie 2026 și 31 martie 2027 (modificare prin OUG 19/2026)."
     },
     "actiuni": [
       {
-        "text": "Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix",
+        "text": "Compară ofertele de gaz pe comparatorul ANRE și blochează un preț fix", "text_en": "Compare gas offers on the ANRE comparison tool and lock in a fixed price",
         "termen": "2027-03-31",
         "formula_economie": null,
         "one_click": "https://posf.ro/comparator",
@@ -385,13 +385,13 @@
     "formula": "it_scutire",
     "estimare": true,
     "niveluri": {
-      "zero": "Venitul brut până la 10.000 lei nu mai e scutit de impozit; netul a scăzut.",
+      "zero": "Venitul brut până la 10.000 lei nu mai e scutit de impozit; netul a scăzut.", "zero_en": "Gross income up to 10,000 lei is no longer exempt from income tax; net pay went down.",
       "curios": "TODO",
       "expert": "TODO"
     },
     "actiuni": [
       {
-        "text": "Verifică dacă angajatorul a compensat prin brut; solicită o simulare la HR",
+        "text": "Verifică dacă angajatorul a compensat prin brut; solicită o simulare la HR", "text_en": "Check whether your employer compensated through your gross salary; ask HR for a simulation",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -427,13 +427,13 @@
     "formula": "constructii_facilitati",
     "estimare": true,
     "niveluri": {
-      "zero": "Facilitățile fiscale pentru salariații din construcții și agricultură au fost eliminate; netul a scăzut.",
+      "zero": "Facilitățile fiscale pentru salariații din construcții și agricultură au fost eliminate; netul a scăzut.", "zero_en": "The tax breaks for employees in construction and agriculture were removed; net pay went down.",
       "curios": "TODO",
       "expert": "TODO"
     },
     "actiuni": [
       {
-        "text": "Solicită angajatorului o simulare a salariului net actual",
+        "text": "Solicită angajatorului o simulare a salariului net actual", "text_en": "Ask your employer for a simulation of your current net salary",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -469,13 +469,13 @@
     "formula": "horeca_tva_11",
     "estimare": false,
     "niveluri": {
-      "zero": "Serviciile HoReCa au cota redusă unică de TVA de 11% din 1 august 2025. Prețurile de listă și casa de marcat trebuie aliniate.",
+      "zero": "Serviciile HoReCa au cota redusă unică de TVA de 11% din 1 august 2025. Prețurile de listă și casa de marcat trebuie aliniate.", "zero_en": "Hospitality (HoReCa) services have a single reduced VAT rate of 11% since 1 August 2025. List prices and the cash register must be updated.",
       "curios": "TODO",
       "expert": "TODO"
     },
     "actiuni": [
       {
-        "text": "Actualizează prețurile de listă și casa de marcat la 11%",
+        "text": "Actualizează prețurile de listă și casa de marcat la 11%", "text_en": "Update your list prices and cash register to 11%",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -510,13 +510,13 @@
     "formula": "impozit_cladiri",
     "estimare": true,
     "niveluri": {
-      "zero": "Baza de calcul a impozitului pe clădiri crește de la 1 ianuarie 2026, deci plătești mai mult la primărie.",
+      "zero": "Baza de calcul a impozitului pe clădiri crește de la 1 ianuarie 2026, deci plătești mai mult la primărie.", "zero_en": "The tax base for the building tax goes up from 1 January 2026, so you pay more to the town hall.",
       "curios": "TODO",
       "expert": "TODO"
     },
     "actiuni": [
       {
-        "text": "Verifică decizia de impunere 2026 la primărie; plata integrală până la 31 mar 2027 aduce bonificație 10%",
+        "text": "Verifică decizia de impunere 2026 la primărie; plata integrală până la 31 mar 2027 aduce bonificație 10%", "text_en": "Check your 2026 tax assessment at the town hall; paying in full by 31 Mar 2027 earns a 10% discount",
         "termen": "2027-03-31",
         "formula_economie": "cladiri_bonificatie",
         "one_click": null,
@@ -558,13 +558,13 @@
     "formula": "alocatie_copii",
     "estimare": true,
     "niveluri": {
-      "zero": "Pentru fiecare copil primești de la stat o alocație lunară, indiferent de venit. Se cere o singură dată, la primărie sau online.",
+      "zero": "Pentru fiecare copil primești de la stat o alocație lunară, indiferent de venit. Se cere o singură dată, la primărie sau online.", "zero_en": "For each child you receive a monthly allowance from the state, whatever your income. You apply once, at the town hall or online.",
       "curios": "Alocația de stat se acordă pentru fiecare copil, indiferent de venitul părinților, și se cere o singură dată. Suma se indexa în fiecare an, dar în 2026 rămâne la nivelul din decembrie 2025: Legea 141/2025 o menține înghețată tot anul.",
       "expert": "Legea 61/1993, art. 3, în forma modificată prin OUG 126/2021: cuantum indexat anual din 2023. Legea 141/2025, art. XXV lit. k): în 2026, alocațiile de stat pentru copii reglementate de Legea 61/1993 se mențin în plată la nivelul acordat pentru luna decembrie 2025. Suma de 292 lei pentru copiii între 2 și 18 ani e din presă; cuantumul exact din decembrie 2025 trebuie confirmat într-un act oficial."
     },
     "actiuni": [
       {
-        "text": "Verifică dacă alocația e cerută și dacă suma de pe extras e cea actuală",
+        "text": "Verifică dacă alocația e cerută și dacă suma de pe extras e cea actuală", "text_en": "Check that the allowance has been applied for and that the amount on your statement is the current one",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -622,13 +622,13 @@
     "formula": null,
     "estimare": true,
     "niveluri": {
-      "zero": "Dacă ai copii și venit mic, ajutorul de la primărie se cere acum ca venit minim de incluziune, nu ca alocație pentru susținerea familiei. Suma depinde de venit și de numărul copiilor.",
+      "zero": "Dacă ai copii și venit mic, ajutorul de la primărie se cere acum ca venit minim de incluziune, nu ca alocație pentru susținerea familiei. Suma depinde de venit și de numărul copiilor.", "zero_en": "If you have children and a low income, the town hall support is now requested as the minimum inclusion income, not as the family support allowance. The amount depends on income and the number of children.",
       "curios": "TODO",
       "expert": "TODO"
     },
     "actiuni": [
       {
-        "text": "Întreabă la primărie dacă te încadrezi; dacă da, depune cererea cu declarație pe propria răspundere",
+        "text": "Întreabă la primărie dacă te încadrezi; dacă da, depune cererea cu declarație pe propria răspundere", "text_en": "Ask the town hall whether you qualify; you file an application with a sworn statement",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -671,13 +671,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Te apropii de vârsta de pensionare. Merită să afli de pe acum câte luni de contribuție ai și când poți ieși la pensie fără penalizare.",
+      "zero": "Te apropii de vârsta de pensionare. Merită să afli de pe acum câte luni de contribuție ai și când poți ieși la pensie fără penalizare.", "zero_en": "You are getting close to retirement age. It is worth finding out now how many months of contributions you have and when you can retire without a penalty.",
       "curios": "TODO",
       "expert": "TODO"
     },
     "actiuni": [
       {
-        "text": "Solicită de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)",
+        "text": "Solicită de la Casa de Pensii stagiul de cotizare (online, cu cont pe portalul CNPP)", "text_en": "Request your contribution record from the Pension Office (online, with an account on the CNPP portal)",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -723,13 +723,13 @@
     "formula": "prima_stabilitate",
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ai sub 30 de ani, nu lucrezi și nu ești la școală, primul contract cu normă întreagă și pe durată nedeterminată îți aduce de la stat 1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea. Condiția: să fii în evidența AJOFM înainte de angajare.",
+      "zero": "Dacă ai sub 30 de ani, nu lucrezi și nu ești la școală, primul contract cu normă întreagă și pe durată nedeterminată îți aduce de la stat 1.000 lei pe lună în primul an și 1.250 lei pe lună în al doilea. Condiția: să fii în evidența AJOFM înainte de angajare.", "zero_en": "If you are under 30, not working and not in education, your first full-time permanent contract brings you 1,000 lei a month from the state in the first year and 1,250 lei a month in the second. The condition: you must be registered with AJOFM before you are hired.",
       "curios": "Prima vine pe lângă salariu, nu se impozitează și se plătește 24 de luni, în total 27.000 lei. Contează ordinea: întâi te înregistrezi la agenția pentru ocuparea forței de muncă, apoi semnezi contractul. Nu se acordă dacă angajatorul e o instituție publică sau o firmă de stat. Nu se cumulează cu prima de inserție pentru absolvenți, care e de 3 ori ISR (1.980 lei, după comunicatul ANOFM din iulie 2026), deci contează pe care o soliciți. Dacă în primii 2 ani contractul se încheie prin demisie, prin acordul părților sau prin concediere disciplinară, banii se dau înapoi.",
       "expert": "OUG 11/2026, art. I pct. 15, introduce art. 76^5 în Legea 76/2002. Alin. (1): tinerii NEET înregistrați la agenția pentru ocuparea forței de muncă, încadrați pentru prima dată cu normă întreagă și pe durată nedeterminată; 1.000 lei/lună în primele 12 luni și 1.250 lei/lună în următoarele 12; neimpozabilă, fără contribuții sociale. Alin. (2): nu se acordă la instituții publice, regii, companii naționale și societăți cu capital majoritar de stat sau al UAT. Alin. (4): dreptul se păstrează dacă te angajezi în maximum 60 de zile la alt angajator, în aceleași condiții. Alin. (5): restituire integrală dacă raportul de muncă încetează în primele 24 de luni în temeiul art. 55 lit. b), art. 61 lit. a) sau art. 81 din Codul muncii. Alin. (7): nu se cumulează cu prima de inserție (art. 73^1 alin. (1)), prima de activare, primele de mobilitate și prima de relocare. NEET: între 16 ani și împlinirea a 30 de ani, fără loc de muncă, fără școală sau formare profesională (preambulul OUG). TODO: termenul de depunere a cererii din normele aprobate prin HG 570/2026 (presa: 90 de zile de la angajare); necitit în text."
     },
     "actiuni": [
       {
-        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi solicită prima de stabilitate",
+        "text": "Înregistrează-te la AJOFM înainte să semnezi primul contract pe durată nedeterminată, apoi solicită prima de stabilitate", "text_en": "Register with AJOFM before you sign your first permanent contract, then apply for the stability bonus",
         "termen": null,
         "formula_economie": "prima_stabilitate_economie",
         "one_click": null,
@@ -764,7 +764,7 @@
     "formula": "tva_locuinta",
     "estimare": true,
     "niveluri": {
-      "zero": "O locuință nouă de până la 120 mp și 600.000 lei fără TVA se cumpără acum cu TVA 21%, nu 9%. Păstra 9% doar cine avea un contract cu avans până la 1 august 2025.",
+      "zero": "O locuință nouă de până la 120 mp și 600.000 lei fără TVA se cumpără acum cu TVA 21%, nu 9%. Păstra 9% doar cine avea un contract cu avans până la 1 august 2025.", "zero_en": "A new home of up to 120 m² and 600,000 lei before VAT is now bought with 21% VAT, not 9%. Only people with a down-payment contract signed by 1 August 2025 kept the 9%.",
       "curios": "Pentru contractele semnate între 3 și 31 iulie 2025 trebuia și un avans de 20% din preț, plătit integral până la 31 iulie. La un apartament nou de 400.000 lei fără TVA, diferența e de 48.000 lei: 36.000 lei TVA cu 9%, 84.000 lei cu 21%. Apartamentele vechi cumpărate de la o persoană fizică nu au TVA. Cine a cumpărat cu 21% între 1 și 7 august 2026 poate cere diferența înapoi de la 1 octombrie 2026 (Legea 161/2026).",
       "expert": "Legea 141/2025, art. III alin. (1): o singură locuință cu cota de 9% între 1 aug 2025 și 31 iul 2026, dacă are max. 120 mp utili (fără anexe), valoare cu teren de max. 600.000 lei fără TVA și există un act juridic între vii cu plată în avans încheiat până la 1 aug 2025. Alin. (2): pentru actele din 3–31 iul 2025, dovada unui avans de 20% din valoare fără TVA, achitat integral până la 31 iul 2025. Termenul de livrare prelungit la 30 sep 2026 și restituirea pentru achizițiile din 1–7 aug 2026: Legea 161/2026, MO 642 / 4 aug 2026 (articol necitit)."
     },
@@ -779,7 +779,7 @@
     ],
     "actiuni": [
       {
-        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).",
+        "text": "Dacă ai cumpărat o locuință cu TVA standard între 1 august 2026 și intrarea în vigoare a Legii 161/2026 (7 august 2026) și îndeplinești condițiile (cel mult 120 mp utili, cel mult 600.000 lei fără TVA, antecontract cu avans încheiat până la 1 august 2025, nicio altă locuință cu TVA redus din 2023), cere la ANAF restituirea diferenței până la 9%, de la 1 octombrie 2026. Procedura e în ordinul ANAF prevăzut la art. II alin. (5) din lege (numărul ordinului: de verificat).", "text_en": "If you bought a home at the standard VAT rate between 1 August 2026 and the entry into force of Law 161/2026 (7 August 2026) and you meet the conditions (at most 120 m² of usable area, at most 600,000 lei before VAT, a preliminary contract with a down payment signed by 1 August 2025, no other home bought at reduced VAT since 2023), you can ask ANAF to refund the difference down to 9%, from 1 October 2026. The procedure is in the ANAF order provided for in art. II para. (5) of the law (order number: to be verified).",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -788,7 +788,7 @@
         "destinatie": null
       },
       {
-        "text": "Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025",
+        "text": "Semnează contractul cu avans și plătește 20% din preț până la 31 iul 2025", "text_en": "Sign the contract with a down payment and pay 20% of the price by 31 Jul 2025",
         "termen": "2025-07-31",
         "formula_economie": "tva_locuinta_economie",
         "one_click": null,
@@ -824,13 +824,13 @@
     "formula": "motorina_acciza",
     "estimare": true,
     "niveluri": {
-      "zero": "Acciza la motorină e redusă cu 25%, adică motorina e cu aproximativ 0,85 lei pe litru mai ieftină. Perioada de criză din lege se termină pe 31 octombrie 2026.",
+      "zero": "Acciza la motorină e redusă cu 25%, adică motorina e cu aproximativ 0,85 lei pe litru mai ieftină. Perioada de criză din lege se termină pe 31 octombrie 2026.", "zero_en": "The excise duty on diesel is cut by 25%, so diesel is about 0.85 lei per litre cheaper. The crisis period in the law ends on 31 October 2026.",
       "curios": "Ministerul Finanțelor decide la fiecare două săptămâni cât e reducerea; pentru 16–31 octombrie a rămas 25%. Dacă nu se prelungește, de la 1 noiembrie litrul crește înapoi. Contează doar dacă mașina ta merge pe motorină. Suma presupune un plin de 50 de litri.",
       "expert": "Legea 162/2026 declară situație de criză pe piața produselor petroliere între 7 aug și 31 oct 2026 și permite reducerea accizei la motorina standard cu 5–25%, stabilită de MF la două săptămâni. Pentru 16–31 oct 2026: 2.103,22 lei/1.000 l în loc de 2.804,29 (reducere 701,07 lei/1.000 l, comunicat MF din 15 oct 2026). 0,85 lei/l = 0,701 × 1,21 (TVA) e calculul nostru. Articolul exact: TODO."
     },
     "actiuni": [
       {
-        "text": "Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă",
+        "text": "Fă plinul la motorină până la 31 oct 2026, cât acciza e redusă", "text_en": "Fill up with diesel by 31 Oct 2026, while the excise duty is reduced",
         "termen": "2026-10-31",
         "formula_economie": "motorina_economie",
         "one_click": null,
@@ -865,13 +865,13 @@
     "formula": "cei_d",
     "estimare": true,
     "niveluri": {
-      "zero": "Din 2027, ce depui într-un cont CEI-D se scade din venitul pe care plătești impozit, deci plătești cu 10% din sumă mai puțin impozit.",
+      "zero": "Din 2027, ce depui într-un cont CEI-D se scade din venitul pe care plătești impozit, deci plătești cu 10% din sumă mai puțin impozit.", "zero_en": "From 2027, what you deposit into a CEI-D account is deducted from your taxable income, so you pay 10% of that amount less in tax.",
       "curios": "Banii se pot retrage la pensie sau după 65 de ani, oricare vine primul, iar la retragere se plătește 10% impozit. Există și varianta CEI-S, fără deducere acum, dar fără impozit la retragere. Conturile se deschid după ce ASF publică normele, care încă lipsesc. Suma presupune 300 lei depuși pe lună; plafonul anual al deducerii nu l-am găsit în text.",
       "expert": "Legea 202/2026: art. 19 pct. 7 adaugă la Codul fiscal art. 78 alin. (2) lit. a) pct. (vii), contribuțiile CEI-D suportate de angajat, deduse în luna plății pe baza documentului administratorului. Art. 20: se aplică de la 1 ian 2027. Art. 5 alin. (3): retragere de la deschiderea dreptului la pensie sau după 65 de ani. Art. 19 pct. 13 (art. 96^2): 10% impozit final la retragerea din CEI-D. Text citit pe infodosar.ro, nu pe Portal Legislativ. Plafon anual: TODO."
     },
     "actiuni": [
       {
-        "text": "Legea permite: deschide un cont CEI-D din 2027 și scade din impozit 10% din ce depui",
+        "text": "Legea permite: deschide un cont CEI-D din 2027 și scade din impozit 10% din ce depui", "text_en": "The law allows it: open a CEI-D account from 2027 and deduct 10% of what you deposit from your income tax",
         "termen": null,
         "formula_economie": "cei_d_economie",
         "one_click": null,
@@ -906,13 +906,13 @@
     "formula": "impozit_auto",
     "estimare": true,
     "niveluri": {
-      "zero": "Din 2026, impozitul pe mașină se calculează după capacitatea cilindrică și după norma de poluare Euro, nu după vechime. La mașinile mici pe benzină sau motorină, suma aproape se dublează.",
+      "zero": "Din 2026, impozitul pe mașină se calculează după capacitatea cilindrică și după norma de poluare Euro, nu după vechime. La mașinile mici pe benzină sau motorină, suma aproape se dublează.", "zero_en": "From 2026, the car tax is calculated by engine size and Euro emission standard, not by age. For small petrol or diesel cars, the amount almost doubles.",
       "curios": "Se plătește o sumă pentru fiecare 200 cmc. Până la 1.600 cmc: 19,5 lei la Euro 3 și mai vechi, 18,8 la Euro 4, 17,6 la Euro 5, 16,5 la Euro 6. Între 1.601 și 2.000 cmc: 29,7 / 28,5 / 26,7 / 25,1 lei. Electricele plătesc 40 lei pe an. De exemplu, un motor de 1.400 cmc Euro 5 trece de la 63 la 123 lei pe an. Primăria poate mări sumele, deci cifra exactă e pe decizia ta de impunere.",
       "expert": "Legea 239/2025, MO 1160 / 15 dec 2025, modificată prin OUG 78/2025, schimbă calculul impozitului pe mijloacele de transport din Codul fiscal: sumă pe fiecare 200 cmc sau fracțiune, pe trepte de cilindree și norme Euro (tabelul din presă: Alba24, Capital). Bonificația de până la 10% la plata integrală până la 31 martie: Codul fiscal art. 472 alin. (2), stabilită prin hotărâre a consiliului local; necitit în text. Verificat în textul legii (Legea 239/2025, art. XII pct. 43–46): tabelul pe norme Euro la art. 470 alin. (2), 40 lei/an pentru vehiculele electrice (alin. (3^1)) și o reducere de cel mult 30% pentru hibridele cu cel mult 50 g CO2/km, stabilită de consiliul local (alin. (3))."
     },
     "actiuni": [
       {
-        "text": "Plătește tot impozitul pe 2027 până la 31 mar 2027: primăria dă o bonificație de până la 10%",
+        "text": "Plătește tot impozitul pe 2027 până la 31 mar 2027: primăria dă o bonificație de până la 10%", "text_en": "Pay the full 2027 tax by 31 Mar 2027: the town hall gives a discount of up to 10%",
         "termen": "2027-03-31",
         "formula_economie": "auto_bonificatie",
         "one_click": null,
@@ -953,13 +953,13 @@
     "formula": null,
     "estimare": true,
     "niveluri": {
-      "zero": "Dacă ai salariul minim, pentru 200 lei din el nu se plătesc taxe până la 31 decembrie 2026; din ianuarie 2027 scutirea se termină dacă nu e prelungită.",
+      "zero": "Dacă ai salariul minim, pentru 200 lei din el nu se plătesc taxe până la 31 decembrie 2026; din ianuarie 2027 scutirea se termină dacă nu e prelungită.", "zero_en": "If you earn the minimum wage, no taxes are paid on 200 lei of it until 31 December 2026; from January 2027 the exemption ends unless it is extended.",
       "curios": "Între 1 ianuarie și 30 iunie 2026 scutirea a fost de 300 lei pe lună, iar din 1 iulie este de 200 lei. Pentru această sumă nu se plătesc impozit, CAS și CASS. Calculul nostru: la 4.325 lei brut, scutirea îți lasă în mână cam 83 lei în plus pe lună (70 lei contribuții și 13 lei impozit). Condiții: normă întreagă, salariul de bază egal cu minimul și venit brut lunar de cel mult 4.600 lei, fără tichete de masă și vouchere de vacanță.",
       "expert": "OUG 89/2025, art. III alin. (1)-(6), derogare de la art. 78, 139 alin. (1), 140, 157 alin. (1) și 220^4 alin. (1) din Codul fiscal. Praguri de venit brut: 4.300 lei (ian.-iun. 2026) și 4.600 lei (iul.-dec. 2026). Suma se reduce proporțional pentru fracțiuni de lună, angajări noi sau încetări (alin. (4)). Condiția nu e îndeplinită dacă salariul de bază a fost redus între intrarea în vigoare a OUG și 31 dec 2026 (alin. (2)). Se aplică și raporturilor de serviciu (alin. (3)) și doar veniturilor lunilor ianuarie-decembrie 2026 (alin. (6)). Până la 28.10.2026 nu am găsit un act care să prelungească scutirea în 2027. Suma de 83 lei este calculul nostru, nu o cifră din lege."
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: angajatorul aplică scutirea automat. Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut",
+        "text": "Nu trebuie să faci nimic: angajatorul aplică scutirea automat. Din ianuarie 2027 verifică pe fluturaș dacă netul a scăzut", "text_en": "You do not need to do anything: your employer applies the exemption automatically. From January 2027, check your payslip to see whether your net pay went down",
         "termen": "2026-12-31",
         "one_click": null,
         "formula_economie": null,
@@ -994,13 +994,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă stai în concediu medical pentru o boală obișnuită, primești mai puțini bani pentru concediile scurte.",
+      "zero": "Dacă stai în concediu medical pentru o boală obișnuită, primești mai puțini bani pentru concediile scurte.", "zero_en": "If you take sick leave for an ordinary illness, you receive less money for short sick leaves.",
       "curios": "Din 1 august 2025, indemnizația depinde de câte zile are episodul de boală: 55% din baza de calcul până la 7 zile, 65% între 8 și 14 zile și 75% de la 15 zile în sus. Înainte era 75% pentru orice durată. Exemplu ilustrativ: la o bază zilnică de 200 lei, 5 zile de concediu înseamnă 550 lei brut, față de 750 lei înainte. Unele boli cardiovasculare rămân la 75%.",
       "expert": "Legea 141/2025 modifică art. 17 din OUG 158/2005 (cuantumul indemnizației pentru boli obișnuite și accidente în afara muncii). Procentele, pragurile de zile și excepția pentru unele boli cardiovasculare sunt confirmate în materialul DGRFP Ploiești (ANAF). Procentul se stabilește după totalul zilelor din episodul de boală. Modificarea e făcută prin art. IX din Legea 141/2025, în vigoare de la 1 august 2025 (art. X). Măsura se cumulează cu neplata unei zile din OUG 91/2025 (intrare separată: concediu_medical_prima_zi)."
     },
     "actiuni": [
       {
-        "text": "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat",
+        "text": "Verifică pe fluturaș procentul aplicat: se stabilește după totalul zilelor din același episod de boală, nu după fiecare certificat", "text_en": "Check the percentage applied on your payslip: it is set by the total days of the same illness episode, not by each certificate",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1044,13 +1044,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Pentru certificatele de concediu medical din 1 februarie 2026 până la 31 decembrie 2027, nu ești plătit pentru o zi din episodul de boală.",
+      "zero": "Pentru certificatele de concediu medical din 1 februarie 2026 până la 31 decembrie 2027, nu ești plătit pentru o zi din episodul de boală.", "zero_en": "For sick leave certificates from 1 February 2026 to 31 December 2027, you are not paid for one day of each illness episode.",
       "curios": "Indemnizația se calculează cu o zi mai puțin decât durata de pe certificat. Din 18 mai 2026, ziua se scade o singură dată pe episod, chiar dacă primești mai multe certificate. Ziua nu se mai scade la concediile de maternitate și de risc maternal, la pacienții din programele naționale de sănătate și pe perioada spitalizării (conform notei de fundamentare a Ministerului Sănătății; data exactă de aplicare e de confirmat în Legea 64/2026). Exemplu ilustrativ: la o bază zilnică de 200 lei și 55%, 5 zile de concediu se plătesc ca 4 zile, adică 440 lei brut în loc de 550 lei.",
       "expert": "OUG 91/2025, art. II: certificatele eliberate între 1 feb 2026 și 31 dec 2027 se plătesc prin diminuarea cu o zi; regula și perioada sunt confirmate în nota de fundamentare a Ministerului Sănătății. Legea 64/2026 de aprobare (MO 416 / 15 mai 2026, în vigoare la 18 mai 2026) aplică diminuarea o singură dată pe episod și adaugă excepții de la 1 iunie 2026; aceste detalii le-am găsit doar în surse de specialitate (contzilla.ro, portalcontabilitate.ro), textul oficial trebuie citit. Presa menționează o excepție de neconstituționalitate ridicată de Avocatul Poporului; nu am găsit o decizie CCR. Linkul de pe Portalul Legislativ: TODO."
     },
     "actiuni": [
       {
-        "text": "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare",
+        "text": "Verifică pe fluturaș că ziua neplătită a fost scăzută o singură dată pe episod, nu la fiecare certificat de continuare", "text_en": "Check on your payslip that the unpaid day was deducted only once per episode, not for each continuation certificate",
         "termen": "2027-12-31",
         "one_click": null,
         "formula_economie": null,
@@ -1095,13 +1095,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ai în întreținere soțul, soția sau un părinte fără venituri, ei nu mai sunt asigurați gratuit la sănătate; îi poți asigura plătind 2.430 lei pe an pentru fiecare.",
+      "zero": "Dacă ai în întreținere soțul, soția sau un părinte fără venituri, ei nu mai sunt asigurați gratuit la sănătate; îi poți asigura plătind 2.430 lei pe an pentru fiecare.", "zero_en": "If your spouse or a parent with no income depends on you, they are no longer insured for free; you can insure them by paying 2,430 lei per year for each.",
       "curios": "Din 1 august 2025, soțul, soția și părinții fără venituri proprii nu mai sunt scutiți de contribuția la sănătate. Poți plăti CASS pentru ei prin Declarația unică: 10% din 6 salarii minime, adică 2.430 lei pentru fiecare persoană în 2026, cam 203 lei pe lună. Plătești 25% când depui declarația și restul de 75% până la 25 mai 2027. Copiii până la 18 ani și elevii sau studenții până la 26 de ani rămân asigurați fără plată.",
       "expert": "Codul fiscal, art. 182^1, introdus prin Legea 141/2025. Baza: 6 salarii minime brute în vigoare la 1 ianuarie a anului opțiunii. ANAF a confirmat 2.430 lei și tranșele de 25% și 75% pentru 2025 (comunicatul din 4 sep 2025). Pentru 2026 suma rezultă la fel, 6 x 4.050 lei x 10%, pentru că salariul minim la 1 ianuarie 2026 a rămas 4.050 lei (OUG 89/2025, preambul). Termenul de 25 mai 2027 aplică regula ANAF a anului următor opțiunii. Persoana în întreținere poate opta și în nume propriu. Se aplică doar soțului, soției și părinților fără venituri proprii (comunicatul ANAF nr. 882/4.09.2025)."
     },
     "actiuni": [
       {
-        "text": "Dacă vrei să îi asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen",
+        "text": "Dacă vrei să îi asiguri, depune Declarația unică, capitolul II, secțiunea pentru persoanele aflate în întreținere; plătește 25% la depunere și restul până la termen", "text_en": "If you want to insure them, file the Single Tax Return (Declarația unică), chapter II, section for dependants; pay 25% when you file and the rest by the deadline",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
         "formula_economie": null,
@@ -1136,13 +1136,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă primești indemnizație de șomaj, din august 2025 ți se reține 10% contribuție la sănătate, iar în 2026 indemnizația nu crește.",
+      "zero": "Dacă primești indemnizație de șomaj, din august 2025 ți se reține 10% contribuție la sănătate, iar în 2026 indemnizația nu crește.", "zero_en": "If you receive unemployment benefit, a 10% health contribution has been withheld since August 2025, and the benefit does not go up in 2026.",
       "curios": "Șomerii nu mai sunt asigurați la sănătate fără plată: contribuția de 10% se reține direct din indemnizație. Exemplu ilustrativ: la o indemnizație de 1.000 lei, primești 900 lei. În plus, indicatorul social de referință, de care depinde indemnizația, rămâne în 2026 la nivelul din decembrie 2025. Nu trebuie să depui nicio declarație, reținerea e automată.",
       "expert": "Legea 141/2025: art. II pct. 22 adaugă indemnizațiile de șomaj (Legea 76/2002) la veniturile pentru care se datorează CASS (art. 155 alin. (1) Cod fiscal), aplicabil veniturilor din august 2025 (art. VII alin. (1) lit. e)); art. II pct. 27 obligă plătitorul (ANOFM) să calculeze și să rețină contribuția la sursă; art. VIII pct. 7 îi include printre asigurații prin reținere la sursă. Art. XXXIII: în 2026, indicatorul social de referință rămâne la nivelul din decembrie 2025, prin derogare de la art. 33^2 din Legea 76/2002. Valoarea ISR în lei: TODO."
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: contribuția se reține automat din indemnizație și îți păstrează calitatea de asigurat",
+        "text": "Nu trebuie să faci nimic: contribuția se reține automat din indemnizație și îți păstrează calitatea de asigurat", "text_en": "You do not need to do anything: the contribution is withheld automatically from your benefit and keeps you insured",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1177,13 +1177,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ești în concediu de creștere a copilului, din august 2025 ți se reține 10% contribuție la sănătate din indemnizație.",
+      "zero": "Dacă ești în concediu de creștere a copilului, din august 2025 ți se reține 10% contribuție la sănătate din indemnizație.", "zero_en": "If you are on parental leave, a 10% health contribution has been withheld from your benefit since August 2025.",
       "curios": "Până în iulie 2025, părinții în concediu de creștere a copilului erau asigurați la sănătate fără plată. Acum contribuția de 10% se reține direct din indemnizație. Exemplu ilustrativ: la o indemnizație de 2.000 lei, primești 1.800 lei. Se aplică și concediului de acomodare. Reținerea e automată, nu depui nimic.",
       "expert": "Legea 141/2025: art. II pct. 22 adaugă indemnizațiile lunare pentru creșterea copilului (OUG 111/2010) la veniturile pentru care se datorează CASS, aplicabil veniturilor din august 2025 (art. VII alin. (1) lit. e)); art. VIII pct. 7 lit. a) îi include printre asigurații prin reținere la sursă; contribuția o calculează și o plătește ANPIS (art. 168 alin. (1^5) Cod fiscal). Concediul de acomodare: din surse ANAF (DGRFP Ploiești), articolul de confirmat. Cuantumul indemnizației nu a fost verificat."
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: reținerea e automată. Verifică pe decizia de plată că indemnizația netă corespunde",
+        "text": "Nu trebuie să faci nimic: reținerea e automată. Verifică pe decizia de plată că indemnizația netă corespunde", "text_en": "You do not need to do anything: the deduction is automatic. Check on the payment decision that the net benefit matches",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1218,13 +1218,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Pensia ta din sistemul public nu crește în 2026, pentru că valoarea punctului de referință rămâne 81 lei.",
+      "zero": "Pensia ta din sistemul public nu crește în 2026, pentru că valoarea punctului de referință rămâne 81 lei.", "zero_en": "Your public pension does not go up in 2026, because the reference point value stays at 81 lei.",
       "curios": "Pensia se calculează înmulțind punctele tale cu valoarea punctului de referință. Legea 360/2023 prevede indexarea anuală, dar Legea 141/2025 o suspendă pentru 2026 și păstrează valoarea de 81 lei. Exemplu: la 40 de puncte, pensia rămâne 3.240 lei brut. Mecanismul de indexare se aplică din nou începând cu 2027.",
       "expert": "Legea 141/2025, art. XXXI alin. (1): valoarea punctului de referință de la art. 83 alin. (1) din Legea 360/2023 se menține la 81 lei în 2026; alin. (2): art. 84 alin. (3)-(5), (7) și (8) din Legea 360/2023 se aplică din 2027. Pentru 2025, aceeași valoare a fost menținută prin OUG 156/2024, art. XVII. Pensiile de serviciu nu se actualizează în 2026 (art. XXX, conform Casei Județene de Pensii Cluj). Pentru 2027, ministrul Muncii a declarat că pregătește indexarea, dar nu există încă un act normativ. Sprijinul punctual pentru pensii mici din 2026, menționat în presă, nu a fost verificat."
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare",
+        "text": "Nu trebuie să faci nimic: în 2026 pensia nu se recalculează prin indexare", "text_en": "You do not need to do anything: in 2026 the pension is not recalculated through indexation",
         "termen": null,
         "one_click": null,
         "formula_economie": null,
@@ -1259,13 +1259,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ai PFA impozitat la normă de venit, pentru 2026 plătești taxe pe cel puțin 48.600 lei, oricât ai câștigat de fapt.",
+      "zero": "Dacă ai PFA impozitat la normă de venit, pentru 2026 plătești taxe pe cel puțin 48.600 lei, oricât ai câștigat de fapt.", "zero_en": "If your sole proprietorship (PFA) is taxed on an income norm, for 2026 you pay taxes on at least 48,600 lei, whatever you actually earned.",
       "curios": "Norma de venit pentru fiecare activitate nu poate fi mai mică de 12 salarii minime, adică 48.600 lei pentru 2026. La acest nivel, calculul nostru dă 12.150 lei CAS și 4.860 lei CASS pe an, adică circa 1.418 lei pe lună, plus impozitul de 10%. Dacă norma din județul tău era mai mică, plătești mai mult. Plata și declarația unică sunt până la 25 mai 2027.",
       "expert": "Legea 239/2025, art. XII pct. 6, modifică art. 69 alin. (3) Cod fiscal: norma de venit nu poate fi mai mică de 12 salarii minime brute în vigoare la 1 ianuarie a anului, inclusiv pentru fiecare membru al unei asocieri. ANAF (prezentarea DGRFP Brașov, 29 ian 2026) confirmă aplicarea pentru veniturile din 2026 și salariul minim de referință de 4.050 lei. CAS se datorează pentru că venitul atinge pragul de 12 salarii (art. 148 alin. (3), care include normele anuale). Sumele de contribuții sunt calculul nostru; baza exactă a impozitului (după deducerea contribuțiilor) nu a fost verificată în această sesiune."
     },
     "actiuni": [
       {
-        "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; dacă vrei sistemul real, optează pentru el până la termenul legal",
+        "text": "Compară cu contabilul norma de 48.600 lei cu venitul real; dacă vrei sistemul real, optează pentru el până la termenul legal", "text_en": "Compare the 48,600 lei income norm with your real income together with your accountant; you can opt for the real-income system by the legal deadline",
         "termen": "2027-05-25",
         "one_click": null,
         "formula_economie": null,
@@ -1304,13 +1304,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ai PFA sau profesie liberală cu venit net mare, contribuția la sănătate pe 2026 poate fi cu până la 4.860 lei mai mare.",
+      "zero": "Dacă ai PFA sau profesie liberală cu venit net mare, contribuția la sănătate pe 2026 poate fi cu până la 4.860 lei mai mare.", "zero_en": "If you have a PFA or a liberal profession with a high net income, your 2026 health contribution can be up to 4,860 lei higher.",
       "curios": "CASS de 10% se calculează pe venitul net, dar numai până la un plafon. Plafonul a crescut de la 60 la 72 de salarii minime, adică 291.600 lei pentru 2026. CASS maxim urcă astfel de la 24.300 lei la 29.160 lei pe an, cu 405 lei pe lună în plus. Te afectează doar dacă venitul net depășește 243.000 lei pe an.",
       "expert": "Legea 239/2025, art. XII pct. 19, modifică art. 170 alin. (1) Cod fiscal: baza anuală pentru CASS pe veniturile din activități independente nu poate depăși 72 de salarii minime brute. ANAF (prezentarea DGRFP Brașov, 29 ian 2026) confirmă creșterea de la 60 la 72 de salarii și aplicarea pentru veniturile din 2026, la salariul minim de 4.050 lei. Același plafon de 72 de salarii apare la contractele de activitate sportivă (art. 174). Diferențele în lei sunt calculul nostru."
     },
     "actiuni": [
       {
-        "text": "Pune deoparte diferența de CASS pentru declarația unică pe 2026, cu plata până la termen",
+        "text": "Pune deoparte diferența de CASS pentru declarația unică pe 2026, cu plata până la termen", "text_en": "Set aside the health contribution (CASS) difference for your 2026 Single Tax Return, to be paid by the deadline",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
         "formula_economie": null,
@@ -1345,13 +1345,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă închiriezi pe termen scurt între 1 și 7 camere din locuința ta, pentru veniturile din 2026 plătești 10% impozit pe 70% din încasări, adică 7%, fără contabilitate.",
+      "zero": "Dacă închiriezi pe termen scurt între 1 și 7 camere din locuința ta, pentru veniturile din 2026 plătești 10% impozit pe 70% din încasări, adică 7%, fără contabilitate.", "zero_en": "If you rent out between 1 and 7 rooms of your home short-term, for 2026 income you pay 10% tax on 70% of what you collect, that is 7%, with no bookkeeping.",
       "curios": "Pentru 1-7 camere, venitul se impozitează ca cedare a folosinței bunurilor: se scade automat 30% cheltuieli și se aplică 10% impozit final. Comisionul platformei nu intră în venit. Exemplu: la 30.000 lei încasați într-un an, impozitul este 2.100 lei. Peste 7 camere, veniturile devin activitate independentă, cu CAS și CASS. Declară și plătește până la 25 mai 2027.",
       "expert": "Legea 239/2025, art. XII pct. 7-10, rescrie art. 83-85 Cod fiscal; peste 7 camere se aplică art. 68^3 (activitate independentă, cotă forfetară 30%, impozit 10%). Închirierea pe termen scurt înseamnă aceeași cameră închiriată neîntrerupt aceleiași persoane cel mult 30 de zile. Venitul din 2025 rămâne pe regulile vechi (art. 133 alin. (34)-(35)). Pentru 1-7 camere, CASS se datorează dacă veniturile din aceste categorii ating 6 salarii minime (24.300 lei în 2026), conform ghidului ANAF Galați. Obligatoriu: registrul de evidență fiscală (doar venituri) și fișa de ocupare a capacității de cazare."
     },
     "actiuni": [
       {
-        "text": "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală, apoi declară venitul din 2026 în declarația unică",
+        "text": "Completează fișa de ocupare și partea de venituri din registrul de evidență fiscală, apoi declară venitul din 2026 în declarația unică", "text_en": "Fill in the occupancy sheet and the income section of the tax record register, then declare your 2026 income in the Single Tax Return",
         "termen": "2027-05-25",
         "one_click": "https://static.anaf.ro/static/10/Anaf/Declaratii_R/declaratie_unica.html",
         "formula_economie": null,
@@ -1392,13 +1392,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ești plătit cu salariul minim, de la 1 iulie 2026 brutul tău trebuie să fie cel puțin 4.325 lei pe lună.",
+      "zero": "Dacă ești plătit cu salariul minim, de la 1 iulie 2026 brutul tău trebuie să fie cel puțin 4.325 lei pe lună.", "zero_en": "If you are paid the minimum wage, from 1 July 2026 your gross pay must be at least 4,325 lei a month.",
       "curios": "Salariul minim brut a urcat de la 4.050 la 4.325 lei pe lună, adică 275 lei în plus la brut, pentru un program de 166,667 ore pe lună în medie (25,949 lei pe oră). Creșterea e obligatorie și în firmele private, la normă întreagă. Presa calculează un net de aproximativ 2.699 lei pentru cine primește și scutirea de 200 lei.",
       "expert": "HG 146/2026, art. 1: 4.325 lei lunar, fără sporuri, pentru 166,667 ore pe lună în medie, adică 25,949 lei/oră, începând cu 1 iulie 2026. Publicată în Monitorul Oficial nr. 196 din 13 martie 2026 (verificat pe Portalul Legislativ). Netul de 2.699 lei e un calcul de presă, nu o cifră din hotărâre. Scutirea de 200 lei pe lună vine separat, din OUG 89/2025 (intrarea salariu_minim_netaxabil_2026)."
     },
     "actiuni": [
       {
-        "text": "Verifică fluturașul de salariu pe iulie 2026: salariul de bază brut, pentru normă întreagă, trebuie să fie cel puțin 4.325 lei.",
+        "text": "Verifică fluturașul de salariu pe iulie 2026: salariul de bază brut, pentru normă întreagă, trebuie să fie cel puțin 4.325 lei.", "text_en": "Check your July 2026 payslip: the gross base salary for full-time work must be at least 4,325 lei.",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1407,7 +1407,7 @@
         "destinatie": "angajator_hr"
       },
       {
-        "text": "Dacă angajatorul nu a aplicat noul salariu minim, sesizează Inspecția Muncii.",
+        "text": "Dacă angajatorul nu a aplicat noul salariu minim, sesizează Inspecția Muncii.", "text_en": "If your employer has not applied the new minimum wage, you can report it to the Labour Inspectorate.",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1458,13 +1458,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă venitul net din familie e de cel mult 1.386 lei pe persoană (2.053 lei dacă locuiești singur), poți primi ajutor lunar la încălzire între noiembrie și martie, dar numai dacă depui cererea.",
+      "zero": "Dacă venitul net din familie e de cel mult 1.386 lei pe persoană (2.053 lei dacă locuiești singur), poți primi ajutor lunar la încălzire între noiembrie și martie, dar numai dacă depui cererea.", "zero_en": "If your family's net income is at most 1,386 lei per person (2,053 lei if you live alone), you can get monthly heating aid between November and March, but only if you apply.",
       "curios": "Ajutorul se acordă în sezonul rece, de la 1 noiembrie la 31 martie, ca procent dintr-o valoare de referință care scade pe măsură ce venitul crește. Legea fixează valoarea de referință la cel puțin 250 lei pe lună pentru gaze, 500 lei pentru curent electric și 320 lei pentru lemne sau alți combustibili; Guvernul o poate actualiza. Cererea se depune la primăria de care aparține locuința, de regulă până pe 15 octombrie.",
       "expert": "Legea 226/2021 privind consumatorul vulnerabil de energie (MO nr. 891 din 16 septembrie 2021), forma consolidată: art. 7 alin. (1)-(2), venitul net mediu lunar de cel mult 1.386 lei pe persoană în familie și 2.053 lei pentru persoana singură; art. 7 alin. (3), valorile de referință minime (250 lei gaze, 500 lei energie electrică, 320 lei combustibili solizi sau petrolieri); art. 3 lit. g), sezonul rece de 5 luni, 1 noiembrie - 31 martie; art. 16, cererea se depune de regulă până la 15 octombrie. Procentele pe tranșe de venit și condițiile de excludere (de exemplu bunurile deținute) nu sunt transcrise aici. Ce se întâmplă cu cererile depuse după 15 octombrie: de confirmat la primărie."
     },
     "actiuni": [
       {
-        "text": "Solicită la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă",
+        "text": "Solicită la primărie formularul de ajutor pentru încălzire; termenul general a fost 15 octombrie, întreabă dacă mai poți depune și de când se acordă", "text_en": "Ask the town hall for the heating aid form; the general deadline was 15 October, so ask whether you can still apply and from when it is paid",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1499,13 +1499,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ai datorii pe care nu le mai poți plăti, poți cere insolvența personală; pragul minim e 15 salarii minime, adică 64.875 lei de la 1 iulie 2026.",
+      "zero": "Dacă ai datorii pe care nu le mai poți plăti, poți cere insolvența personală; pragul minim e 15 salarii minime, adică 64.875 lei de la 1 iulie 2026.", "zero_en": "If you have debts you can no longer pay, you can file for personal insolvency; the minimum threshold is 15 minimum wages, that is 64,875 lei from 1 July 2026.",
       "curios": "Procedura pe bază de plan de rambursare pornește de la datorii scadente de cel puțin 15 salarii minime. Planul durează cel mult 5 ani, cu o posibilă prelungire de 12 luni. Există și o procedură simplificată pentru cine are datorii de cel mult 10 salarii minime (43.250 lei), nu are bunuri sau venituri urmăribile și a depășit vârsta de pensionare sau și-a pierdut cel puțin jumătate din capacitatea de muncă: după 3 ani, datoriile rămase pot fi șterse.",
       "expert": "Legea 151/2015 (MO nr. 464 din 26 iunie 2015), forma consolidată: art. 3 pct. 24, valoarea-prag de 15 salarii minime pe economie; art. 4 alin. (1) lit. c); art. 25 alin. (5), planul de rambursare de cel mult 5 ani, prelungibil cu cel mult 12 luni; art. 65, procedura simplificată (cel mult 10 salarii minime, fără bunuri sau venituri urmăribile, peste vârsta standard de pensionare sau capacitate de muncă pierdută cel puțin pe jumătate); art. 69-71, obligațiile pe 3 ani și eliberarea de datoriile reziduale. Sumele în lei sunt calculul nostru la salariul minim de 4.325 lei (HG 146/2026). Nu e sfat juridic: procedura are costuri și efecte asupra bunurilor."
     },
     "actiuni": [
       {
-        "text": "Dacă datoriile tale trec de prag, solicită informații la comisia de insolvență din județul tău înainte să depui cererea",
+        "text": "Dacă datoriile tale trec de prag, solicită informații la comisia de insolvență din județul tău înainte să depui cererea", "text_en": "If your debts exceed the threshold, ask your county insolvency commission for information before you file the application",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1540,13 +1540,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ai sere, solarii, răsadnițe, ciupercării sau silozuri pentru cereale, nu plătești impozit pe clădiri pentru ele în 2026, iar din 2027 plătești jumătate.",
+      "zero": "Dacă ai sere, solarii, răsadnițe, ciupercării sau silozuri pentru cereale, nu plătești impozit pe clădiri pentru ele în 2026, iar din 2027 plătești jumătate.", "zero_en": "If you have greenhouses, polytunnels, cold frames, mushroom houses or grain silos, you pay no building tax on them in 2026, and from 2027 you pay half.",
       "curios": "Scutirea se aplică clădirilor folosite ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje și silozuri sau pătule pentru depozitarea și conservarea cerealelor. Nu se aplică încăperilor folosite pentru alte activități economice. În 2026 impozitul e zero, iar începând cu 2027 impozitul pe aceste clădiri se reduce cu 50%.",
       "expert": "OUG 89/2025, art. VI pct. 3, modifică art. XII pct. 26 din Legea 239/2025, adică art. 456 alin. (3) din Codul fiscal: în 2026 clădirile folosite ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje, silozuri și/sau pătule pentru cereale sunt scutite de impozitul pe clădiri, cu excepția încăperilor folosite pentru alte activități economice; din 2027 impozitul se reduce cu 50%. În vigoare la 1 ianuarie 2026 (art. VIII alin. (1)). Verificat în textul OUG 89/2025."
     },
     "actiuni": [
       {
-        "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, solicită corectarea",
+        "text": "Verifică pe decizia de impunere de la primărie că serele, solariile sau silozurile tale apar ca scutite pentru 2026; dacă nu, solicită corectarea", "text_en": "Check on your town hall tax assessment that your greenhouses, polytunnels or silos are listed as exempt for 2026; if not, ask for a correction",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1582,13 +1582,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ai un copil la grădiniță sau la școală de stat, verifică dacă unitatea lui e în programul „Masă sănătoasă”: în 2026 programul continuă, finanțat de stat.",
+      "zero": "Dacă ai un copil la grădiniță sau la școală de stat, verifică dacă unitatea lui e în programul „Masă sănătoasă”: în 2026 programul continuă, finanțat de stat.", "zero_en": "If your child is in a state kindergarten or school, check whether it is in the “Healthy Meal” (Masă sănătoasă) programme: in 2026 the programme continues, funded by the state.",
       "curios": "Din 8 ianuarie 2026 programul național „Masă sănătoasă” continuă pentru preșcolarii și elevii din unitățile de învățământ preuniversitar de stat. Bugetul este de 1.531.090 mii lei. Ce școli intră în program și cum se împart banii stabilește Guvernul prin hotărâre, la propunerea Ministerului Educației.",
       "expert": "OUG 89/2025, art. XIX alin. (1): prin derogare de la art. 77 alin. (4) din Legea 198/2023, în 2026, începând cu 8 ianuarie 2026, se implementează Programul național „Masă sănătoasă”, finanțat din sume defalcate din TVA, în limita a 1.531.090 mii lei, pentru preșcolarii și elevii din unitățile de învățământ preuniversitar de stat; repartizarea pe unități și normele metodologice se aprobă prin hotărâre a Guvernului. Lista unităților incluse: TODO (hotărârea de Guvern de aplicare)."
     },
     "actiuni": [
       {
-        "text": "Întreabă la grădinița sau școala copilului dacă e inclusă în programul „Masă sănătoasă” în 2026",
+        "text": "Întreabă la grădinița sau școala copilului dacă e inclusă în programul „Masă sănătoasă” în 2026", "text_en": "Ask your child's kindergarten or school whether it is included in the “Healthy Meal” (Masă sănătoasă) programme in 2026",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1629,13 +1629,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă venitul net din familie e de cel mult 1.784 lei pe persoană (1.940 lei dacă locuiești singur), poți primi 50 lei pe lună la factura de curent până la sfârșitul lui 2026, dar numai dacă te înscrii.",
+      "zero": "Dacă venitul net din familie e de cel mult 1.784 lei pe persoană (1.940 lei dacă locuiești singur), poți primi 50 lei pe lună la factura de curent până la sfârșitul lui 2026, dar numai dacă te înscrii.", "zero_en": "If your family's net income is at most 1,784 lei per person (1,940 lei if you live alone), you can get 50 lei a month off your electricity bill until the end of 2026, but only if you sign up.",
       "curios": "Sprijinul pentru consumatorii casnici de energie electrică afli în sărăcie energetică este de 50 lei pe lună, pentru un singur loc de consum. Se acordă familiilor cu venit net de cel mult 1.784 lei pe membru și persoanelor singure cu cel mult 1.940 lei. Măsura a fost prelungită până la 31 decembrie 2026. Te înscrii online, prin aplicația EPIDS, sau prin poștă ori primărie; cine se înscrie mai târziu primește sprijinul din luna înscrierii.",
       "expert": "OUG 35/2025 (MO nr. 612 din 30 iunie 2025), forma consolidată: art. 4 alin. (1), pragurile de venit (1.940 lei persoana singură, 1.784 lei pe membru de familie); art. 6 alin. (1) și (3), 50 lei pe lună pentru un singur loc de consum; art. 6 alin. (1) și (4), cererea prin EPIDS sau prin reprezentanții poștei ori ai primăriei; art. 7 alin. (8), sprijinul se acordă din luna înregistrării pentru cererile ulterioare. Art. 1 alin. (2), modificat prin OUG 89/2025 art. XXXIV: măsurile se aplică între 1 iulie 2025 și 31 decembrie 2026."
     },
     "actiuni": [
       {
-        "text": "Înscrie-te pentru sprijin prin aplicația EPIDS sau la primărie; primești banii din luna înscrierii, cel mult până în decembrie 2026",
+        "text": "Înscrie-te pentru sprijin prin aplicația EPIDS sau la primărie; primești banii din luna înscrierii, cel mult până în decembrie 2026", "text_en": "Sign up for support through the EPIDS app or at the town hall; you receive the money from the month you sign up, until December 2026 at the latest",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1679,13 +1679,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă lucrezi la stat, de exemplu într-un spital public, în 2026 salariul de bază și sporurile rămân la nivelul din decembrie 2025.",
+      "zero": "Dacă lucrezi la stat, de exemplu într-un spital public, în 2026 salariul de bază și sporurile rămân la nivelul din decembrie 2025.", "zero_en": "If you work in the public sector, for example in a public hospital, in 2026 your base salary and bonuses stay at the December 2025 level.",
       "curios": "Pentru personalul plătit din fonduri publice, salariul de bază brut rămâne în 2026 la nivelul din decembrie 2025, dacă păstrezi aceeași funcție și aceleași condiții. Sporurile și celelalte elemente ale salariului rămân cel mult la nivelul din decembrie 2025. Orele suplimentare se compensează doar cu timp liber, în următoarele 90 de zile, iar instituțiile nu acordă premii sau bonusuri.",
       "expert": "Legea 141/2025: art. XVI alin. (1)-(3), salariul de bază brut se menține la nivelul din decembrie 2025; art. XVII, sporurile și celelalte elemente ale salariului brut se mențin cel mult la nivelul din decembrie 2025; art. XVIII alin. (1), munca suplimentară se compensează numai cu timp liber în următoarele 90 de zile (cu excepții pentru militari și polițiști la alin. (2)); art. XIX alin. (3), instituțiile publice nu acordă premii, bonusuri sau drepturi similare; art. XLVIII, celelalte drepturi salariale din legi speciale rămân la nivelul din decembrie 2025. Se aplică tuturor bugetarilor (sănătate, educație, administrație)."
     },
     "actiuni": [
       {
-        "text": "Dacă faci ore suplimentare, solicită ca timpul liber corespunzător să îți fie acordat în cel mult 90 de zile",
+        "text": "Dacă faci ore suplimentare, solicită ca timpul liber corespunzător să îți fie acordat în cel mult 90 de zile", "text_en": "If you work overtime, ask for the matching time off to be granted within 90 days at most",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1726,13 +1726,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă lucrezi la stat și salariul tău de bază net e de cel mult 6.000 lei, în 2026 primești 800 lei în vouchere de vacanță.",
+      "zero": "Dacă lucrezi la stat și salariul tău de bază net e de cel mult 6.000 lei, în 2026 primești 800 lei în vouchere de vacanță.", "zero_en": "If you work in the public sector and your net base salary is at most 6,000 lei, in 2026 you receive 800 lei in holiday vouchers.",
       "curios": "Instituțiile publice acordă în 2026 vouchere de vacanță de 800 lei personalului cu salariul de bază net de cel mult 6.000 lei. Voucherele se acordă între 1 ianuarie și 31 decembrie 2026.",
       "expert": "Legea 141/2025, art. XLIV: instituțiile publice acordă anual vouchere de vacanță de 800 lei personalului al cărui salariu de bază net este de cel mult 6.000 lei, în perioada 1 ianuarie - 31 decembrie 2026. Condiția din profil folosește salariul net total, nu salariul de bază net: e o aproximare. Se aplică tuturor bugetarilor (sănătate, educație, administrație)."
     },
     "actiuni": [
       {
-        "text": "Verifică la serviciul de resurse umane dacă ai primit cei 800 lei în vouchere pentru 2026",
+        "text": "Verifică la serviciul de resurse umane dacă ai primit cei 800 lei în vouchere pentru 2026", "text_en": "Check with your HR department whether you have received the 800 lei in vouchers for 2026",
         "termen": "2026-12-31",
         "formula_economie": null,
         "one_click": null,
@@ -1767,13 +1767,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ești pensionar și ai handicap grav sau accentuat, indemnizația de solidaritate prevăzută de lege nu se acordă înainte de 1 ianuarie 2027.",
+      "zero": "Dacă ești pensionar și ai handicap grav sau accentuat, indemnizația de solidaritate prevăzută de lege nu se acordă înainte de 1 ianuarie 2027.", "zero_en": "If you are a pensioner with a severe or pronounced disability, the solidarity allowance provided by law is not granted before 1 January 2027.",
       "curios": "Legea persoanelor cu handicap prevede o indemnizație de solidaritate pentru pensionarii pentru limită de vârstă cu handicap vizual grav, grav sau accentuat. Termenul de aplicare a fost amânat până la 1 ianuarie 2027. Separat, punctele suplimentare de pensie pentru stagiul lucrat cu handicap grav sau accentuat nu se mai aplică în 2026.",
       "expert": "Legea 448/2006, art. 58^1 alin. (1): indemnizația de solidaritate pentru pensionarii pentru limită de vârstă cu handicap vizual grav, grav sau accentuat; termenul se prorogă până la 1 ianuarie 2027 prin Legea 141/2025, art. XLVII. Art. 58^2 (puncte de 0,125 din ISR pe an de stagiu lucrat cu handicap grav sau accentuat) nu se aplică în 2026, conform OUG 89/2025, art. XXXVIII. Indemnizația lunară din art. 58 alin. (4) (80% din ISR la grav, 53% la accentuat) nu e afectată. Cuantumul indemnizației de solidaritate în lei: TODO."
     },
     "actiuni": [
       {
-        "text": "Nu trebuie să faci nimic acum; verifică la direcția de asistență socială ce documente îți trebuie pentru indemnizația de solidaritate din 2027",
+        "text": "Nu trebuie să faci nimic acum; verifică la direcția de asistență socială ce documente îți trebuie pentru indemnizația de solidaritate din 2027", "text_en": "You do not need to do anything now; check with the social assistance department which documents you need for the 2027 solidarity allowance",
         "termen": null,
         "formula_economie": null,
         "one_click": null,
@@ -1809,13 +1809,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Rovinieta pentru mașină costă acum în funcție de norma de poluare: de la 228 lei pe an pentru electrice la 330 lei pe an pentru mașinile Euro 3 sau mai vechi.",
+      "zero": "Rovinieta pentru mașină costă acum în funcție de norma de poluare: de la 228 lei pe an pentru electrice la 330 lei pe an pentru mașinile Euro 3 sau mai vechi.", "zero_en": "The road vignette (rovinieta) now costs according to the emission standard: from 228 lei a year for electric cars to 330 lei a year for Euro 3 or older cars.",
       "curios": "Pentru autoturisme (categoria A), rovinieta pe 12 luni costă 228 lei la electrice, 254 lei la Euro 6, 292 lei la Euro 4-5 și 330 lei la Euro 3 sau mai vechi. Rovinieta pe o zi costă între 20 și 29 lei, iar pe 30 de zile între 43 și 62 lei. Mașinile la care nu se poate stabili norma de poluare sunt tratate ca Euro 0. Tarifele se indexează anual, de la 1 ianuarie.",
       "expert": "Ordinul MTI 888/2026 pentru aprobarea categoriilor de vehicule și a nivelului rovinietei (MO nr. 818 din 25 septembrie 2026), anexa, categoria A (autoturisme cu cel mult 9 locuri, TVA inclus): 1 zi 20/22/26/29 lei, 10 zile 27/30/35/39 lei, 30 de zile 43/48/55/62 lei, 60 de zile 68/76/87/99 lei, 12 luni 228/254/292/330 lei, pentru electrice / Euro VI / Euro V-IV / Euro III-0. Art. 3 alin. (2): tarifele se aplică rovinietelor a căror valabilitate începe la data prevăzută de art. 29 alin. (1) din Legea 226/2023 sau ulterior; data de 1 octombrie 2026 e cea comunicată în presă. Art. 3 alin. (3): indexare anuală de la 1 ianuarie."
     },
     "actiuni": [
       {
-        "text": "Verifică norma Euro din talon (certificatul de înmatriculare) ca să știi ce tarif plătești, apoi cumpără rovinieta de pe site-ul CNAIR",
+        "text": "Verifică norma Euro din talon (certificatul de înmatriculare) ca să știi ce tarif plătești, apoi cumpără rovinieta de pe site-ul CNAIR", "text_en": "Check the Euro emission standard on your registration certificate to know which rate you pay, then buy the road vignette (rovinieta) on the CNAIR website",
         "termen": null,
         "formula_economie": null,
         "one_click": "https://www.cnair.ro",
@@ -1851,13 +1851,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă emiți facturi ca PFA sau firmă, din 2026 ai 5 zile lucrătoare, nu 5 zile calendaristice, ca să le trimiți în sistemul RO e-Factura.",
+      "zero": "Dacă emiți facturi ca PFA sau firmă, din 2026 ai 5 zile lucrătoare, nu 5 zile calendaristice, ca să le trimiți în sistemul RO e-Factura.", "zero_en": "If you issue invoices as a PFA or a company, since 2026 you have 5 working days, not 5 calendar days, to send them to RO e-Factura.",
       "curios": "Termenul de transmitere în RO e-Factura este de 5 zile lucrătoare de la emiterea facturii, dar nu mai târziu de 5 zile lucrătoare de la termenul-limită de emitere. Același termen se aplică și facturilor către persoane fizice (B2C). Persoanele fizice care desfășoară activități economice și se identifică prin CNP trebuie să se înscrie în Registrul RO e-Factura obligatoriu înainte să înceapă activitatea.",
       "expert": "OUG 89/2025, art. X pct. 2 (art. 10 alin. (7) din OUG 120/2021) și pct. 3 (art. 10^1 alin. (2^1)): termenul-limită este de 5 zile lucrătoare de la emitere, dar nu mai târziu de 5 zile lucrătoare de la data-limită de emitere din art. 319 alin. (16) Cod fiscal, calculat conform Regulamentului (CEE, Euratom) nr. 1182/71; în vigoare la 1 ianuarie 2026 (art. XIV alin. (1)). Art. X pct. 5 (art. 10^10) și art. XI: persoanele fizice care se identifică prin CNP și au obligații de e-Factura se înscriu în Registrul RO e-Factura obligatoriu înainte de a începe activitatea; cele care activau deja trebuiau înscrise înainte de 15 ianuarie 2026."
     },
     "actiuni": [
       {
-        "text": "Setează în programul de facturare un termen de 5 zile lucrătoare pentru trimiterea în RO e-Factura",
+        "text": "Setează în programul de facturare un termen de 5 zile lucrătoare pentru trimiterea în RO e-Factura", "text_en": "Set a 5-working-day deadline in your invoicing software for submitting to RO e-Factura",
         "termen": null,
         "formula_economie": null,
         "one_click": "https://www.anaf.ro",
@@ -1896,13 +1896,13 @@
     "formula": null,
     "estimare": false,
     "niveluri": {
-      "zero": "Dacă ești student la buget, în anul universitar 2026–2027 bursa socială e de cel puțin 925 lei; o primești doar dacă o soliciți la facultate.",
+      "zero": "Dacă ești student la buget, în anul universitar 2026–2027 bursa socială e de cel puțin 925 lei; o primești doar dacă o soliciți la facultate.", "zero_en": "If you are a state-funded student, in the 2026–2027 academic year the social scholarship is at least 925 lei; you only get it if you apply at your faculty.",
       "curios": "Pentru anul universitar 2026–2027, cuantumul minim al bursei sociale, gândit să acopere cheltuielile minime de masă și cazare, este 925 lei. Studenții la programele didactice (licență cu dublă specializare sau master didactic) primesc o bursă de 2.165 lei, iar doctoranzii la buget 3.700 lei. Universitățile pot da mai mult, dar nu mai puțin decât aceste minime.",
       "expert": "Ordinul ministrului educației și cercetării nr. 5.732 din 25 septembrie 2026 (MO nr. 831 din 30 septembrie 2026), pentru studenții la programe finanțate de la bugetul de stat, anul universitar 2026–2027: art. 1, bursa de doctorat 3.700 lei, indiferent de anul de studiu; art. 2, bursa pentru licența didactică cu dublă specializare sau masterul didactic 2.165 lei; art. 3, cuantumul minim al bursei sociale 925 lei. Ordinul nu precizează perioada (lunar) și nici dacă bursele se plătesc și în vacanțe. Regulile de acordare și pragul de venit pentru bursa socială sunt stabilite de fiecare universitate: TODO."
     },
     "actiuni": [
       {
-        "text": "Depune dosarul pentru bursa socială la secretariatul facultății, în perioada anunțată de universitate",
+        "text": "Depune dosarul pentru bursa socială la secretariatul facultății, în perioada anunțată de universitate", "text_en": "Submit your social scholarship application to the faculty office, within the period announced by the university",
         "termen": null,
         "formula_economie": null,
         "one_click": null,

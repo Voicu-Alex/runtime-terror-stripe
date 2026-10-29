@@ -46,7 +46,7 @@ export async function POST(req: Request) {
                 tax_behavior: "inclusive",
                 // Codul fiscal e cerut de Managed Payments (Stripe ca vânzător înregistrat, se ocupă de TVA):
                 // „Website Information Services - Personal Use”.
-                product_data: { name: "Ce înseamnă pentru mine · Pro", tax_code: "txcd_10701401" },
+                product_data: { name: "Buzunar · Pro", tax_code: "txcd_10701401" },
               },
             },
       ],

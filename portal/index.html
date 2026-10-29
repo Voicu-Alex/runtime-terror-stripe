@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ce înseamnă pentru mine — Schimbările în Lege Traduse în Lei</title>
+  
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-logo">€</div>
+        <div>
+          <h1 class="brand-title">Ce înseamnă pentru mine</h1>
+          <div class="brand-sub">Fiecare lege nouă tradusă în lei pe lună pentru tine</div>
+        </div>
+      </div>
+
+      <!-- MAIN NAVIGATION TABS -->
+      <nav class="nav-tabs" aria-label="Navigare Principală">
+        <button class="nav-tab-btn active" data-tab="profile" onclick="switchTab('profile')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Profilul Meu (Personalizat)</span>
+          <span class="badge-count" id="badge-profile-count">0</span>
+        </button>
+
+        <button class="nav-tab-btn" data-tab="all_laws" onclick="switchTab('all_laws')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+          <span>Toate Schimbările Recente din Lege</span>
+          <span class="badge-count">8</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" id="app-root">
+    <!-- Randat dinamic prin app.js -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p><strong>Ce înseamnă pentru mine</strong> — Proiect realizat pentru Hackathonul NEXXT AI × Stripe România 2026.</p>
+    <p style="margin-top:4px;">Datele se bazează pe texte publicate în Monitorul Oficial și Portalul Legislativ. Neutralitate protejată: fără recomandări subiective.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

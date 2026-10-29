@@ -92,7 +92,8 @@ export function FormularProfil() {
       try {
         const r = await fetch("/api/analiza-document", { method: "POST", body: form });
         const json = await r.json();
-        if (!r.ok) throw new Error(json.eroare ?? `Eroare ${r.status}`);
+        // mesajele serverului sunt în română; t() le traduce pe cele din dicționar
+        if (!r.ok) throw new Error(json.eroare ? t(json.eroare) : `Eroare ${r.status}`);
         const analiza = json as AnalizaDocument;
         const sigure = analiza.etichete_propuse.filter((e) => e.incredere >= PRAG_AUTOMAT).map((e) => e.tag);
         const valori: Valori = {};

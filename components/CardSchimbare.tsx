@@ -3,13 +3,14 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { Potrivire } from "@/lib/potrivire";
 import type { CampValoare, Valori } from "@/lib/profil";
-import type { Actiune, CineAplica } from "@/lib/catalog";
+import { textActiune, type Actiune, type CineAplica } from "@/lib/catalog";
 import { destinatie } from "@/lib/destinatii";
 import { useLimba } from "@/components/Limba";
 import { etichetaTagL } from "@/lib/i18n";
 import { ETICHETA_STARE, bani, cuSemn, cuTracking, dataScurta, vedere, zile, type StareCard } from "@/lib/card";
 import { furnizori, niveluri, specialist } from "@/lib/continut";
 import { comparatieAct } from "@/lib/voce";
+import { modificari as modificariPeLimba, numeDestinatie, sursaAct } from "@/lib/traduceri";
 
 // Aspectul urmează rândul din lista „Toate actele care te privesc” din mockup/v3/index.html?v=f.
 // Cele 3 niveluri din issue #3, cu textele din content/niveluri.json (Iasmina):
@@ -63,12 +64,13 @@ export default function CardSchimbare({
   const v = vedere(p, valori, limba);
   const a = s.actiuni.find((x) => x.termen) ?? s.actiuni[0];
   const dep = v.termen?.depasit;
-  const modificari = s.modificat_prin ?? [];
+  const modificari = modificariPeLimba(s, limba);
+  const sursa = sursaAct(s, limba);
   const ultima = modificari[modificari.length - 1];
-  const n = niveluri(s);
+  const n = niveluri(s, limba);
   const comparatie = comparatieAct(s, limba);
   const fz = furnizori(s.id);
-  const sp = specialist(s);
+  const sp = specialist(s, limba);
   const surseExtra = n.surse.filter((u) => u !== s.sursa_url && !u.startsWith("https://posf.ro"));
   // suma calculată din salariul brut e brută: din ea se rețin contribuțiile și impozitul
   const brut = s.formula_tip?.tip === "diferenta_prag" && s.formula_tip.parametri.camp === "salariu_brut";
@@ -97,7 +99,7 @@ export default function CardSchimbare({
             dep ? "text-v3-past" : v.suma === null || v.suma === 0 ? "text-v3-ink" : v.suma < 0 ? "text-v3-neg" : "text-v3-pos"
           }`}
         >
-          {v.suma === null ? "—" : cuSemn(v.suma)}
+          {v.suma === null ? "—" : cuSemn(v.suma, limba)}
           <small className="block text-[12.5px] font-semibold tracking-normal text-v3-ink-2">
             {v.suma === null ? t("de calculat") : v.suma === 0 ? t("lei acum") : brut ? t("lei/an brut") : t("lei/an")}
           </small>
@@ -142,7 +144,7 @@ export default function CardSchimbare({
         <div id={`${uid}-d`} className="pb-4">
           {/* Zero: o propoziție, fără jargon */}
           <p className="m-0 mb-2.5 max-w-[60ch] text-[15px] text-v3-ink">
-            <b>{t("Pentru tine:")}</b> <span lang="ro">{n.zero}</span>
+            <b>{t("Pentru tine:")}</b> <span lang={n.limbaZero}>{n.zero}</span>
           </p>
           {comparatie && (
             <dl aria-label={t("Înainte și acum")} className="m-0 mb-3 grid grid-cols-[1fr_auto_1fr] items-start gap-3 rounded-[10px] border border-v3-line bg-v3-card p-3 text-[14px]">
@@ -209,7 +211,7 @@ export default function CardSchimbare({
               ))}
               {v.economie !== null && !dep && (
                 <p className="m-0 mb-1.5 text-[14.5px]">
-                  {t("Prin această acțiune poți păstra până la")} <b>{bani(v.economie.suma)} {t(v.economie.unitate)}</b>.
+                  {t("Prin această acțiune poți păstra până la")} <b>{bani(v.economie.suma, limba)} {t(v.economie.unitate)}</b>.
                 </p>
               )}
               {onBifeaza && !dep && (
@@ -302,7 +304,7 @@ export default function CardSchimbare({
 
           {/* Curios */}
           {curios && n.curios && (
-            <p id={`${uid}-c`} className="mt-3 mb-0 max-w-[60ch] text-[15px] text-v3-ink" lang="ro">
+            <p id={`${uid}-c`} className="mt-3 mb-0 max-w-[60ch] text-[15px] text-v3-ink" lang={n.limbaDetalii}>
               {n.curios}
             </p>
           )}
@@ -311,11 +313,11 @@ export default function CardSchimbare({
           {lege && (
             <div id={`${uid}-e`} className="mt-3 rounded-[10px] border border-v3-line bg-v3-card p-3 text-sm">
               <h3 className="m-0 mb-1 text-sm font-bold text-v3-ink-2">{t("Sursa legală")}</h3>
-              <p className="m-0 mb-1 font-semibold">
-                {s.act} · {s.mo_ref}
+              <p className="m-0 mb-1 font-semibold" lang={sursa.act.limba}>
+                {sursa.act.text} · {sursa.mo_ref.text}
               </p>
-              <p className="m-0 mb-1 text-v3-ink-2" lang="ro">
-                {n.expert ?? s.articol}
+              <p className="m-0 mb-1 text-v3-ink-2" lang={n.expert ? n.limbaDetalii : sursa.articol.limba}>
+                {n.expert ?? sursa.articol.text}
               </p>
               {modificari.length > 0 && (
                 <div className="mt-2 mb-1">
@@ -329,7 +331,7 @@ export default function CardSchimbare({
                         <span className="font-semibold">{m.act}</span>
                         {!eTODO(m.mo_ref) && <span className="text-v3-ink-2"> · {m.mo_ref}</span>}
                         {m.data && <span className="text-v3-ink-2"> · {d(m.data)}</span>}
-                        <span className="block text-v3-ink-2" lang="ro">
+                        <span className="block text-v3-ink-2" lang={m.limba}>
                           {m.ce}
                         </span>
                         {eTODO(m.sursa_url) ? (
@@ -387,7 +389,7 @@ export default function CardSchimbare({
           {sp.intrebare && (
             <>
               <p className="m-0 text-[13px] font-bold text-v3-ink-2">{t("Ce poți întreba")}</p>
-              <p className="m-0 mb-1.5 text-[15px]" lang="ro">
+              <p className="m-0 mb-1.5 text-[15px]" lang={sp.limba}>
                 {sp.intrebare}
               </p>
               <button
@@ -408,7 +410,7 @@ export default function CardSchimbare({
           {sp.documente && (
             <>
               <p className="m-0 text-[13px] font-bold text-v3-ink-2">{t("Ce documente să pregătești")}</p>
-              <p className="m-0 mb-3 text-[15px]" lang="ro">
+              <p className="m-0 mb-3 text-[15px]" lang={sp.limba}>
                 {sp.documente}
               </p>
             </>
@@ -445,6 +447,7 @@ const CINE: Record<CineAplica, string> = { tu: "tu", angajator: "angajatorul", f
 function ActiuneTipizata({ ac, dep, termenDepasit, prima }: { ac: Actiune; dep: boolean; termenDepasit?: string; prima: boolean }) {
   const { t, limba } = useLimba();
   const dest = destinatie(ac.destinatie);
+  const unde = dest && numeDestinatie(ac.destinatie!, dest.nume, limba);
   const titlu = dep
     ? `${t("Termen depășit:")} ${termenDepasit}`
     : ac.tip === "nimic_pana_la" && ac.termen
@@ -457,8 +460,8 @@ function ActiuneTipizata({ ac, dep, termenDepasit, prima }: { ac: Actiune; dep: 
   return (
     <div className={prima ? "" : "mt-3 border-t border-v3-line pt-3"}>
       <p className={`m-0 text-[13px] font-bold tracking-[.02em] ${dep ? "text-v3-past" : "text-v3-ink-2"}`}>{titlu}</p>
-      <p className="mt-0.5 mb-1.5 font-semibold" lang="ro">
-        {ac.text}
+      <p className="mt-0.5 mb-1.5 font-semibold" lang={limba === "en" && ac.text_en ? "en" : "ro"}>
+        {textActiune(ac, limba)}
       </p>
       {/* butonul one-click duce deja acolo (cu parametrii de tracking), nu îl dublăm */}
       {dest && !dep && !(dest.url && ac.one_click) && (dest.url ? (
@@ -468,13 +471,13 @@ function ActiuneTipizata({ ac, dep, termenDepasit, prima }: { ac: Actiune; dep: 
           rel="noopener"
           className="mt-0.5 inline-flex min-h-11 items-center gap-2 rounded-[10px] border border-v3-ink bg-v3-card px-3 text-sm font-semibold text-v3-ink no-underline"
         >
-          <span lang="ro">{dest.nume}</span>
+          <span lang={unde!.limba}>{unde!.text}</span>
           <Sageata />
           <span className="sr-only">{t("(se deschide într-un tab nou)")}</span>
         </a>
       ) : (
         <p className="m-0 text-[14px] text-v3-ink">
-          <span className="font-semibold">{t("Unde:")}</span> <span lang="ro">{dest.nume}</span>
+          <span className="font-semibold">{t("Unde:")}</span> <span lang={unde!.limba}>{unde!.text}</span>
         </p>
       ))}
     </div>

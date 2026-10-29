@@ -15,6 +15,8 @@
 - Rularea v4 (Sonnet) pe cele 18: Codul fiscal, OUG 156/2024 și Legea 141/2025 depășesc 32k tokeni la răspuns (JSON tăiat); restul rulează la ≈ 2 min și ≈ 0,2 USD pe act. De măsurat când se termină; dacă nu aduce formule, v4 trebuie scurtat.
 - Capăt deschis (decizie de echipă): aprobarea scrie `data/catalog.json` pe disc; aplicația nu citește din Supabase, deci un act aprobat ajunge la utilizatori doar prin `supabase:sync` + commit + push pe main.
 
+
+Updated: 2026-10-29 05:35
 ## Deploy descriere mutat pe main (29 oct 2026)
 - main fast-forward la deploy-descriere și împins: origin/main = 17e7bd03 (include cele 18 commit-uri legi-ingest + deploy-ul Next.js). Scripturile din deploy/descriere/ spun acum `main`.
 - RĂMAS: pe CT 107 config-ul încă are BRANCH=deploy-descriere (SSH spre Proxmox nu a mers din sesiune). De rulat: `ssh root@192.168.31.63 "pct exec 107 -- sed -i s/^BRANCH=.*/BRANCH=main/ /etc/descriere-deploy/config && pct exec 107 -- descriere-deploy"`. Apoi version.txt trebuie să arate 17e7bd03.
@@ -87,6 +89,13 @@ Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) �
   oricine la primul job.
 - `cei_d` din catalog e cont de investiții, nu certificat energetic; art. 111 nu mai are prag de 450.000 lei din 2023.
 
+
+## Final (29 oct 2026, 06:45, limită de utilizare atinsă)
+- Parcurgerea 314500–315900 s-a încheiat în 3 rulări (jurnale în `eval/rezultate/triaj-2026-10-29/`): 1.065 acte, 0 erori,
+  0 reîncercări; după 315411 id-urile au goluri mari (313 lipsă din 469), pragul de oprire e acum 200 la rând.
+- Stări finale în `scratch/sweep`: 723 respinse de reguli, 96 triat_da, 178 triat_nu, 68 candidați netriați (loturile se fac
+  cu `legi:triaj --din scratch/sweep --export scratch/triaj4`). Verdictele Haiku sunt în `eval/rezultate/triaj-2026-10-29/`.
+- Blocat tot pe `SUPABASE_DB_URL`; pașii de după sunt mai sus. Nimic pushuit.
 Updated: 2026-10-28 14:40
 
 ## Context
@@ -225,3 +234,9 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - Stări finale în `scratch/sweep`: 723 respinse de reguli, 96 triat_da, 178 triat_nu, 68 candidați netriați (loturile se fac
   cu `legi:triaj --din scratch/sweep --export scratch/triaj4`). Verdictele Haiku sunt în `eval/rezultate/triaj-2026-10-29/`.
 - Blocat tot pe `SUPABASE_DB_URL`; pașii de după sunt mai sus. Nimic pushuit.
+
+## Latest (Chris, 29 oct ~01:30, branch `chris-demo`, PR #34, not merged)
+- Pitch is a 3-min video in English (phase 1). Read `docs/pitch/README.md` first: script, slides advice, jury Q&A, Vercel to-dos, open decisions (Pro price 15 vs 49,99/299; IT −520 vs −650).
+- Added: `PRO_DESCHIS_DEMO=1` (feed open for the jury, default off), rate limit on `/api/analiza-document` (lib/limita.ts), landing bilingual (components/Acasa.tsx), `text_en` on all 43 actions and `niveluri.zero_en` on all 42 acts, `/surse`, `/admin` (real Sonnet 5.5 proposals from eval/rezultate/sonnet-api → data/inbox-mo.json; approve shows the card live in other tabs via localStorage), PWA manifest + icons + OG image, `scripts/inregistreaza-demo.mjs` (records 7 scenes to captures/video/, needs `npm i --no-save playwright-core`).
+- Vercel deploys only commits authored by Voicu (Hobby, private repo): only Voicu merges to main.
+- 115 tests, tsc, build pass; Playwright sweep 13 pages × phone/desktop × light/dark: no horizontal overflow, no console errors. No Anthropic API calls made.
