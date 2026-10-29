@@ -29,7 +29,7 @@ Folosiți designul aplicației (ADR 0001, „Revistă” pe gri), ca slide-urile
 - slide-uri cu paragrafe: dacă trebuie citit, juriul nu vă mai ascultă;
 - cifre fără sursă: sub fiecare cifră, mic, actul și articolul (regula „nimic inventat” din `CLAUDE.md`);
 - „AI-powered” ca argument: arătați ce face (citește Monitorul Oficial, citează fraza din lege), nu eticheta;
-- trei prețuri diferite în materiale diferite (vezi README, „De decis înainte”).
+- alt preț decât 15 lei/lună: e singurul preț, în aplicație și în materialul de business (ADR 0002).
 
 ## QR-ul
 

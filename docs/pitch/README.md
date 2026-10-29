@@ -39,7 +39,7 @@ Prima fază e un **video de pitch de maximum 3 minute, în engleză**. Juriul î
 
 ## De decis înainte de filmare
 
-- **Prețul Pro.** Aplicația și ADR 0002 spun 15 lei/lună, iar `business/slide-cum-facem-bani.md` spune 299 lei/an sau 49,99 lei/lună, cu prima lună gratuită. Video-ul, slide-ul și aplicația trebuie să spună același lucru.
+- **Prețul Pro: decis, 15 lei/lună** (ADR 0002). Aplicația, `business/model-de-business.md` și `business/slide-cum-facem-bani.md` spun același lucru; oferta veche (299 lei/an, 49,99 lei/lună, prima lună gratuită) e retrasă. Video-ul și slide-ul folosesc 15 lei/lună, fără plan anual și fără probă gratuită.
 - **Scutirea IT.** Aplicația arată −6.240 lei/an pentru Andrei (520 lei/lună × 12; brut 8.000, doar impozitul). Materialele mai vechi spun −650 pe lună. Scenariul folosește 6.240 pe an.
 - **Numele.** Aplicația se numește **Buzunar** în română și **Pocket** în engleză (decis pe 29 oct; numele vechi era „Ce înseamnă pentru mine”).
 - **Onboarding-ul prin chat** din `CLAUDE.md` nu există în aplicație. Echipa a ales profilul din documente. Ori actualizăm `CLAUDE.md`, ori nu-l promitem în pitch.

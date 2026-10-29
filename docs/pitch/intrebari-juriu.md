@@ -18,7 +18,7 @@ Three guards: the model must quote the sentence from the act word for word, it s
 The profile stays on your phone; there is no account for it. A document is read once and never stored, and personal ID numbers and IBANs are masked. Payment is on Stripe's page; we never see the card. *(/surse, lib/anonimizare.ts, docs/adr/0002-abonament-stripe.md)*
 
 **Why would anyone pay?**
-Because the value is in lei: one missed deadline in our cases cost 6,000 to 48,000 lei. Pro gives the amount for your profile, the deadlines, the actions and My plan. *(landing page cases; price: see README, to confirm)*
+Because the value is in lei: one missed deadline in our cases cost 6,000 to 48,000 lei. Pro gives the amount for your profile, the deadlines, the actions and My plan, for 15 lei a month. *(landing page cases; price: ADR 0002, the same in the app and the business material)*
 
 **How do you reach users?**
 A free public calculator for each big law, the press when a law lands, and employers offering it as a benefit. *(business/slide-cum-facem-bani.md)*
