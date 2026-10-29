@@ -20,3 +20,6 @@ next-env.d.ts
 # python (scripturi și servere locale)
 __pycache__/
 *.pyc
+
+# loturile de interpretare (texte de lege exportate pentru agenți, răspunsurile lor)
+scratch/
