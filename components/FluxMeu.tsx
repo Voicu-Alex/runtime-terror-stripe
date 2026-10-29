@@ -28,7 +28,7 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
       <section className="mt-5 rounded-[10px] border border-v3-line bg-v3-card p-5">
         <h2 className="m-0 text-[17px] font-bold text-v3-ink">{t("Profilul tău e gol")}</h2>
         <p className="mt-1 mb-4 text-[15px] text-v3-ink-2">
-          {t("Încarcă un contract, un fluturaș sau o factură și profilul se completează singur. Rămâne pe dispozitivul tău.")}
+          {t("Completează profilul manual sau încarcă un document pentru analiză cu AI.")}
         </p>
         <Link href="/profil" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
           {t("Completează profilul")}

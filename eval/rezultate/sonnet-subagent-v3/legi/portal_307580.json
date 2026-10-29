@@ -1,0 +1,504 @@
+{
+  "act": "OUG 8/2026",
+  "mo": "MO 147 / 25 feb 2026",
+  "publicat_la": "2026-02-25",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "SRL-ul pierde regimul micro dacă veniturile trec de 100.000 euro, și plătește impozit pe profit din trimestrul depășirii",
+      "rezumat_en": "A micro-enterprise SRL switches to profit tax from the quarter its revenue passes 100,000 euro",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 52 alin. (1) (art. 6 pct. 20); art. 47 alin. (1) lit. c) (art. 6 pct. 15)",
+      "citat": "(1) Dacă în cursul unui an fiscal o microîntreprindere realizează venituri mai mari de 100.000 euro, aceasta datorează impozit pe profit începând cu trimestrul în care s-a depășit această limită.",
+      "niveluri": {
+        "zero": "Un SRL micro care depășește 100.000 euro venituri în an trece la impozit pe profit din trimestrul depășirii.",
+        "curios": "Pragul pentru regimul micro este de 100.000 euro venituri. Dacă îl depășești în cursul anului, nu mai plătești impozit pe veniturile microîntreprinderii, ci impozit pe profit, începând cu trimestrul în care ai trecut de prag. Veniturile firmelor legate cu a ta se adună la verificare.",
+        "expert": "Art. 47 alin. (1) lit. c): condiția de încadrare este ca veniturile să nu fi depășit echivalentul în lei a 100.000 euro, la cursul de la închiderea exercițiului financiar în care s-au înregistrat veniturile. Art. 47 alin. (1^1): limita se verifică cumulat cu veniturile întreprinderilor legate. Art. 52 alin. (1): la depășire în cursul anului se datorează impozit pe profit din trimestrul depășirii; art. 52 alin. (5^1) adună și veniturile persoanelor legate. Art. 54 alin. (1): se ia cifra de afaceri contabilă; pentru art. 52 se adaugă veniturile din transferul mijloacelor fixe sau terenurilor, în condițiile din text. Art. 10 alin. (3) și (5): se aplică pentru încadrarea în 2026 și pentru calculul plafonului din trimestrul I 2026. Art. 10 alin. (4): cine a comunicat între 1 ianuarie 2026 și intrarea în vigoare aplicarea sau ieșirea din regimul micro depune o nouă declarație de mențiuni."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Urmărește pe parcursul anului veniturile firmei (cifra de afaceri, împreună cu cele ale firmelor legate) față de 100.000 euro; dacă le depășești, impozitul pe profit se datorează din trimestrul depășirii. Dacă ai comunicat ANAF aplicarea sau ieșirea din regimul micro între 1 ianuarie 2026 și intrarea în vigoare a ordonanței, depune o nouă declarație de mențiuni (art. 10 alin. (4)).",
+          "termen": null,
+          "destinatie": "anaf_formulare",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Textul nu spune care era pragul înainte, deci direcția e info. Impactul în lei depinde de veniturile și profitul firmei, iar cota impozitului pe profit nu e în text, deci nu avem formulă. Art. 47 alin. (1) lit. d), g), h), i) și art. 51 nu sunt în text. De verificat dacă ne trebuie un câmp cu veniturile firmei în profil. Data 2026-01-01 vine din art. 10 alin. (3) și (5) (aplicare din anul fiscal 2026, trimestrul I 2026); ordonanța a intrat în vigoare la publicare."
+    },
+    {
+      "rezumat": "SRL-ul nou are 90 de zile de la înregistrare ca să angajeze primul salariat și să rămână la regimul micro",
+      "rezumat_en": "A new SRL has 90 days from registration to hire its first employee and stay in the micro regime",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-02-25",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "termen",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 48 alin. (3) (art. 6 pct. 18)",
+      "citat": "În cazul în care, în acest termen, nu se îndeplinește condiția de la art. 47 alin. (1) lit. g), microîntreprinderea datorează impozit pe profit începând cu trimestrul următor celui în care expiră perioada de 90 de zile.",
+      "niveluri": {
+        "zero": "Un SRL nou poate fi micro de la început, dar trebuie să aibă un salariat în cel mult 90 de zile de la înregistrare.",
+        "curios": "Dacă înființezi un SRL și alegi regimul micro din primul an, ai 90 de zile de la înregistrare ca să ai un salariat. Dacă nu îl ai până atunci, începi să plătești impozit pe profit din trimestrul următor celui în care s-au împlinit cele 90 de zile.",
+        "expert": "Art. 48 alin. (3): persoana juridică nou-înființată poate opta pentru impozitul pe veniturile microîntreprinderilor din primul an fiscal dacă condițiile de la art. 47 alin. (1) lit. d) și h) sunt îndeplinite la înregistrarea în registrul comerțului, iar cea de la lit. g) (deținerea unui salariat, după cum reiese din alin. (3^1) și (3^3)) în 90 de zile inclusiv de la înregistrare. Altfel, impozit pe profit din trimestrul următor expirării celor 90 de zile."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ai un SRL nou care aplică regimul micro, angajează primul salariat în cel mult 90 de zile de la data înregistrării în registrul comerțului.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Conținutul art. 47 alin. (1) lit. d), g), h) nu este în text; deducem că lit. g) înseamnă salariat din art. 48 alin. (3^1) și (3^3). Textul nu spune cum era înainte, de aceea direcția e termen. Fără sumă în lei. Data intrării în vigoare e cea a publicării (25 februarie 2026), art. 10 nu prevede altă aplicare pentru pct. 18."
+    },
+    {
+      "rezumat": "Dacă singurul salariat pleacă, ai 30 de zile să angajezi altul ca să rămâi micro",
+      "rezumat_en": "If the only employee leaves, you have 30 days to hire a replacement to stay in the micro regime",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-02-25",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "termen",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 52 alin. (3) (art. 6 pct. 21)",
+      "citat": "Pentru o microîntreprindere cu un singur salariat, al cărui raport de muncă încetează, condiția prevăzută la art. 47 alin. (1) lit. g) se consideră îndeplinită dacă, în termen de 30 de zile de la încetarea raportului de muncă, este angajat un nou salariat",
+      "niveluri": {
+        "zero": "Un SRL micro cu un singur salariat trebuie să angajeze pe altcineva în 30 de zile de la plecarea lui.",
+        "curios": "Dacă ai un singur salariat și contractul lui se termină, ai 30 de zile să angajezi altul, cu contract pe durată nedeterminată sau pe cel puțin 12 luni. Dacă nu o faci, plătești impozit pe profit din trimestrul următor celui în care a încetat raportul de muncă.",
+        "expert": "Art. 52 alin. (3): dacă nu mai e îndeplinită condiția salariatului (art. 47 alin. (1) lit. g)), se datorează impozit pe profit din trimestrul următor celui în care a încetat raportul de muncă. Pentru microîntreprinderea cu un singur salariat, condiția rămâne îndeplinită dacă în 30 de zile de la încetare se angajează un nou salariat cu contract pe durată nedeterminată sau determinată de cel puțin 12 luni."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă singurul tău salariat pleacă, angajează un înlocuitor în cel mult 30 de zile (contract pe durată nedeterminată sau de cel puțin 12 luni).",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Textul nu spune cum era înainte, de aceea direcția e termen. Fără sumă în lei."
+    },
+    {
+      "rezumat": "Suspendarea contractului singurului salariat sub 30 de zile nu te scoate din regimul micro",
+      "rezumat_en": "A suspension of under 30 days of the sole employee's contract does not remove you from the micro regime",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-02-25",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 48 alin. (3^1) (art. 6 pct. 18)",
+      "citat": "în cazul în care raportul de muncă este suspendat, potrivit legii, condiția prevăzută la art. 47 alin. (1) lit. g) se consideră îndeplinită dacă perioada de suspendare este mai mică de 30 de zile și situația este înregistrată pentru prima dată în anul fiscal respectiv",
+      "niveluri": {
+        "zero": "Dacă salariatul tău e suspendat mai puțin de 30 de zile, îți păstrezi regimul micro, dar o singură dată pe an.",
+        "curios": "Condiția de a avea un salariat rămâne îndeplinită dacă suspendarea contractului durează sub 30 de zile și apare pentru prima dată în anul fiscal respectiv. Altfel se aplică regula de la art. 52 alin. (3): impozit pe profit din trimestrul următor celui în care a încetat condiția.",
+        "expert": "Art. 48 alin. (3^1) (art. 6 pct. 18): suspendarea raportului de muncă potrivit legii nu strică condiția de la art. 47 alin. (1) lit. g) dacă e mai mică de 30 de zile și înregistrată pentru prima dată în anul fiscal. În caz contrar se aplică în mod corespunzător art. 52 alin. (3)."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Notează în an prima suspendare a contractului salariatului și durata ei: sub 30 de zile nu schimbă regimul micro, dar o a doua în același an sau una de 30 de zile sau mai mult atrage regula de la art. 52 alin. (3).",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul nu spune cum era înainte. Fără sumă în lei."
+    },
+    {
+      "rezumat": "Concediul medical al salariatului de cel mult 30 de zile pe an nu te scoate din regimul micro",
+      "rezumat_en": "Sick leave of up to 30 days a year for the employee does not remove you from the micro regime",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-02-25",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 48 alin. (3^3) (art. 6 pct. 19)",
+      "citat": "condiția referitoare la deținerea unui salariat se consideră îndeplinită dacă salariatul se află în concediu pentru incapacitate temporară de muncă, potrivit legii, cu condiția ca perioada cumulată a concediului",
+      "niveluri": {
+        "zero": "Dacă salariatul tău e în concediu medical până la 30 de zile cumulat pe an, îți păstrezi regimul micro.",
+        "curios": "Condiția salariatului rămâne îndeplinită dacă salariatul e în concediu pentru incapacitate temporară de muncă, iar toate zilele de concediu din anul fiscal însumează cel mult 30. Dacă le depășesc, se aplică art. 52 alin. (3): impozit pe profit din trimestrul următor.",
+        "expert": "Art. 48 alin. (3^3) (art. 6 pct. 19): prin excepție de la alin. (3^1), concediul pentru incapacitate temporară de muncă nu afectează condiția dacă perioada cumulată pe întreg anul fiscal nu depășește 30 de zile; în caz contrar se aplică în mod corespunzător art. 52 alin. (3)."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Ține evidența zilelor de concediu medical ale salariatului în anul fiscal: peste 30 de zile cumulat pierzi condiția salariatului pentru regimul micro.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul nu spune cum era înainte. Fără sumă în lei."
+    },
+    {
+      "rezumat": "Pentru regimul micro în 2026, situațiile financiare pe 2025 trebuiau depuse până la 31 martie 2026",
+      "rezumat_en": "For the 2026 micro regime, the 2025 annual accounts had to be filed by 31 March 2026",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-02-25",
+      "pana_la": "2026-03-31",
+      "termen_actiune": "2026-03-31",
+      "status": "in_vigoare",
+      "directie": "termen",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 48 alin. (2) (art. 6 pct. 17); art. 52 alin. (2) (art. 6 pct. 21)",
+      "citat": "Pentru aplicarea sistemului de impunere pe veniturile microîntreprinderii în anul fiscal 2026, condiția prevăzută la art. 47 alin. (1) lit. i) se consideră îndeplinită dacă situațiile financiare anuale sunt depuse până la data de 31 martie 2026 inclusiv.",
+      "niveluri": {
+        "zero": "Pentru 2026, SRL-ul micro avea de depus situațiile financiare anuale până la 31 martie 2026. Termenul a trecut.",
+        "curios": "Ca să aplici regimul micro în 2026, situațiile financiare anuale trebuiau depuse până la 31 martie 2026. Dacă o microîntreprindere nu depune în termen situațiile financiare ale anului precedent, plătește impozit pe profit din trimestrul în care nu mai e îndeplinită condiția.",
+        "expert": "Art. 48 alin. (2) (art. 6 pct. 17): opțiunea pentru micro se poate face din anul fiscal următor celui în care sunt îndeplinite condițiile de la art. 47 alin. (1); pentru 2026, lit. i) se consideră îndeplinită cu situațiile financiare depuse până la 31 martie 2026 inclusiv. Art. 52 alin. (2) (art. 6 pct. 21): nedepunerea în termen a situațiilor financiare pentru exercițiul precedent atrage impozit pe profit din trimestrul în care condiția nu mai e îndeplinită."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut la data de azi. Art. 47 alin. (1) lit. i) nu e în text; pentru anii următori termenul de depunere nu e în text. Fără sumă în lei."
+    },
+    {
+      "rezumat": "Bonificație de 3% din impozitul pe veniturile microîntreprinderii pe 2025, acordată de ANAF din oficiu",
+      "rezumat_en": "A 3% rebate on the 2025 micro-enterprise income tax, granted by ANAF automatically",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-02-25",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 7 alin. (1)-(3)",
+      "citat": "beneficiază de o bonificație de 3% din impozitul pe profit anual/impozitul pe veniturile microîntreprinderilor, aferente anului fiscal 2025/anului fiscal modificat care începe în anul 2025, după caz.",
+      "niveluri": {
+        "zero": "SRL-urile micro care au depus și plătit la timp primesc 3% din impozitul pe veniturile microîntreprinderii pe 2025.",
+        "curios": "ANAF constată din oficiu dacă îndeplinești condițiile și emite o decizie, după termenul de depunere a declarației pentru trimestrul IV 2025. Condițiile: toate declarațiile din vectorul fiscal depuse, impozitul pe 2025 plătit integral la termen și nicio altă datorie la bugetul de stat la termenul legal. Suma nu se restituie în numerar, ci compensează alte obligații fiscale.",
+        "expert": "Art. 7: bonificație de 3% din impozitul pe veniturile microîntreprinderilor aferent anului fiscal 2025, calculat prin însumarea impozitelor trimestriale (alin. (4) lit. b)). Se constată din oficiu prin decizie după termenul declarației pentru trimestrul IV 2025 (alin. (2) lit. b)), în condițiile alin. (3). Suma se compensează cu alte obligații fiscale conform art. 167 din Legea 207/2015 (alin. (7)), nu se restituie; excepție la prescripție, cu restituire potrivit art. 168 (alin. (8)). Declarațiile rectificative sau deciziile de impunere cu diferențe pot reduce sau anula bonificația (alin. (6)). Veniturile reprezentând bonificația sunt prevăzute la art. 53 alin. (1) lit. p) (art. 6 pct. 23), iar la impozitul pe profit la art. 23 lit. s) (art. 6 pct. 4). Procedura se aprobă prin ordin al ministrului finanțelor (alin. (10))."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică în Spațiul Privat Virtual al firmei decizia prin care ANAF a constatat bonificația de 3% și că suma a intrat în evidența fiscală; ea se compensează cu alte obligații, nu se restituie.",
+          "termen": null,
+          "destinatie": "anaf_spv_ghid",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Suma depinde de impozitul pe veniturile microîntreprinderii plătit pe 2025, pe care nu îl avem în profil, deci nu avem formulă. Termenul legal de depunere a declarației pe trimestrul IV 2025 nu e în text. De verificat dacă decizia a fost deja emisă. Textul nu explică rolul art. 53 alin. (1) lit. p)."
+    },
+    {
+      "rezumat": "Declarația unică: bonificație de 3% din impozitul pe venit pe 2025 pentru plata și depunerea până la 15 aprilie 2026",
+      "rezumat_en": "Annual income return filers: a 3% rebate on 2025 income tax if filed and paid by 15 April 2026",
+      "taguri": [
+        "pfa"
+      ],
+      "in_vigoare_de_la": "2026-02-25",
+      "pana_la": "2026-04-15",
+      "termen_actiune": "2026-04-15",
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 8 alin. (1)-(2)",
+      "citat": "contribuabilii persoane fizice beneficiază de o bonificație de 3% din impozitul pe venit datorat pentru veniturile realizate în anul 2025",
+      "niveluri": {
+        "zero": "Cine a depus declarația unică și a plătit tot până la 15 aprilie 2026 a primit 3% reducere din impozitul pe venit pe 2025. Termenul a trecut.",
+        "curios": "Bonificația se calcula în declarația unică. Ca s-o primești, impozitul pe venit, CAS și CASS pe 2025 trebuiau plătite integral, iar declarația depusă, până la 15 aprilie 2026 inclusiv. Cine depusese declarația fără bonificație o putea corecta cu o declarație rectificativă, tot până la 15 aprilie 2026.",
+        "expert": "Art. 8 alin. (1): bonificație de 3% din impozitul pe venit datorat pentru veniturile realizate în 2025, pentru care există obligația de a depune declarația de la art. 122 din Codul fiscal. Alin. (2): condiții cumulative, plata integrală (prin plată și/sau compensare) a impozitului, CAS și CASS, inclusiv CASS de la art. 180 alin. (2), și depunerea declarației până la 15 aprilie 2026 inclusiv. Alin. (3): bonificația se determină de contribuabil și se evidențiază separat în declarație, sub rezerva verificării. Alin. (4): rectificativă până la 15 aprilie 2026. Alin. (5): plata făcută înainte sau după intrarea în vigoare, dar până la 15 aprilie 2026, se ia în calcul."
+      },
+      "actiuni": [],
+      "incredere": "ridicata",
+      "nota": "Termenul a trecut la data de azi. Textul nu enumeră categoriile de persoane fizice, ci spune că privește cine are obligația declarației unice; am pus doar eticheta pfa. Suma depinde de impozitul pe venit pe 2025, care nu e în profil, deci nu avem formulă."
+    },
+    {
+      "rezumat": "PFA: contribuțiile la Pilon III, pensii ocupaționale și PEPP intră într-o limită de 400 euro pe an",
+      "rezumat_en": "Self-employed: contributions to Pillar III, occupational pensions and PEPP count up to 400 euro a year",
+      "taguri": [
+        "pfa",
+        "pilon3"
+      ],
+      "in_vigoare_de_la": "2026-03-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": "pilon3_deducere",
+      "formula_tip": null,
+      "articol": "art. 68 alin. (5) lit. g), g^1), g^2) (art. 6 pct. 26-27)",
+      "citat": "plătite în scopul personal al contribuabilului, indiferent dacă activitatea se desfășoară individual sau într-o formă de asociere, în limita echivalentului în lei a 400 euro anual pentru fiecare persoană",
+      "niveluri": {
+        "zero": "Contribuțiile PFA la pensii facultative (Pilon III), ocupaționale și PEPP intră într-o limită de 400 euro pe an, de la 1 martie 2026.",
+        "curios": "Legea adaugă la art. 68 alin. (5) contribuțiile la pensii facultative, la pensii ocupaționale și la produse paneuropene de pensii personale (PEPP), plătite pentru tine, în limita a 400 euro pe an pentru fiecare persoană. Pentru pensiile facultative se numără și sumele plătite între 1 ianuarie și 28 februarie 2026.",
+        "expert": "Art. 6 pct. 26 modifică art. 68 alin. (5) lit. g) (pensii facultative, inclusiv scheme administrate de entități din UE, SEE sau dintr-un stat aderent la codurile OCDE). Pct. 27 adaugă lit. g^1) (pensii ocupaționale) și g^2) (PEPP). Fiecare literă are limita de 400 euro anual pe persoană. Art. 10 alin. (6): pct. 26 și 27 se aplică veniturilor aferente anului 2026; alin. (9): în 2026 se iau în calcul și sumele plătite pentru pensii facultative între 1 ianuarie și 28 februarie 2026; alin. (10): pentru pensii ocupaționale și PEPP, contribuțiile plătite începând cu 1 martie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Păstrează dovezile plății contribuțiilor la fondul de pensii facultative, ocupațional sau PEPP și cere extrasul fondului; ia-le în calcul la completarea declarației unice pentru veniturile din 2026, în limita de 400 euro pe an pentru fiecare tip.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul art. 68 alin. (5) arată doar elementul din listă; ce reprezintă lista (deduceri din venitul net) nu e în text, de verificat. Formula pilon3_deducere dă 0, câștigul concret e în acțiunea Pilon III. Termenul declarației unice pentru 2026 nu e în text. Data 2026-03-01 vine din art. 10 alin. (10) pentru ocupaționale și PEPP; pentru pensiile facultative se aplică veniturilor din tot anul 2026 (alin. (6), (9))."
+    },
+    {
+      "rezumat": "PFA: sumele plătite pentru ETF-uri prin intermediari autorizați intră într-o limită de 400 euro pe an",
+      "rezumat_en": "Self-employed: amounts paid for ETFs through authorised intermediaries count up to 400 euro a year",
+      "taguri": [
+        "pfa"
+      ],
+      "in_vigoare_de_la": "2026-03-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 68 alin. (5) lit. s) (art. 6 pct. 28)",
+      "citat": "sumele plătite în scopul personal al contribuabilului, pentru dobândirea de acțiuni, obligațiuni și/sau titluri de participare emise de organisme de plasament colectiv în valori mobiliare tranzacționabile (Exchange Traded Fund - ETF)",
+      "niveluri": {
+        "zero": "Un PFA poate lua în calcul până la 400 euro pe an din sumele plătite pentru ETF-uri, pentru tranzacțiile decontate de la 1 martie 2026.",
+        "curios": "Noua literă s) din art. 68 alin. (5) privește sumele plătite pentru acțiuni, obligațiuni sau titluri ETF prin intermediari prevăzuți de lege, în limita a 400 euro pe an, fără costurile tranzacției. Ai nevoie de documente justificative de la intermediar, cu datele cerute de lege.",
+        "expert": "Art. 6 pct. 28: lit. s) la art. 68 alin. (5), limită echivalentul în lei a 400 euro anual pentru fiecare persoană, fără costurile tranzacției, prin entitățile de la art. 96^1 alin. (1). Documentul justificativ cuprinde datele de identificare, data decontării, instrumentele dobândite și valoarea lor și faptul că emitentul este entitate prevăzută la art. 96^1 alin. (1). Art. 10 alin. (7): se aplică veniturilor aferente anului 2026 pentru sumele plătite și decontate începând cu 1 martie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Păstrează documentele justificative de la intermediar pentru tranzacțiile ETF decontate de la 1 martie 2026 (datele tale, data decontării, instrumentele și valoarea) și ia-le în calcul în declarația unică pe 2026, până la 400 euro pe an.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Entitățile de la art. 96^1 alin. (1) nu sunt descrise în text. Nu avem formulă pentru ETF. Ce reprezintă lista de la art. 68 alin. (5) nu e în text."
+    },
+    {
+      "rezumat": "Salariat: contribuțiile la Pilon III, pensii ocupaționale și PEPP se deduc până la 400 euro pe an, de la salariul din martie 2026",
+      "rezumat_en": "Employee: contributions to Pillar III, occupational pensions and PEPP are deducted up to 400 euro a year, from March 2026 pay",
+      "taguri": [
+        "angajat",
+        "pilon3"
+      ],
+      "in_vigoare_de_la": "2026-03-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": "pilon3_deducere",
+      "formula_tip": null,
+      "articol": "art. 78 alin. (2) lit. a) pct. (iii), (iii^1), (iii^2) (art. 6 pct. 32-33)",
+      "citat": "(iii^2) contribuțiile la produsele paneuropene de pensii personale potrivit Regulamentului (UE) 2019/1.238 al Parlamentului European și al Consiliului din 20 iunie 2019, suportate de angajați",
+      "niveluri": {
+        "zero": "Contribuțiile salariatului la pensii facultative, ocupaționale sau PEPP se deduc până la 400 euro pe an, de la salariul din martie 2026.",
+        "curios": "Art. 78 prevede deducerea contribuțiilor suportate de angajat la fonduri de pensii facultative (modificat), pensii ocupaționale și PEPP (adăugate), astfel încât la nivelul anului să nu depășească echivalentul în lei al 400 euro. Se aplică veniturilor din martie 2026.",
+        "expert": "Art. 6 pct. 32 modifică art. 78 alin. (2) lit. a) pct. (iii) (pensii facultative); pct. 33 adaugă pct. (iii^1) (ocupaționale) și (iii^2) (PEPP), fiecare cu limita de 400 euro la nivelul anului. Art. 10 alin. (8): se aplică veniturilor aferente lunii martie 2026; alin. (9): în 2026 la limita de 400 euro se iau în calcul și sumele plătite pentru pensii facultative între 1 ianuarie și 28 februarie 2026; alin. (10): pentru ocupaționale și PEPP, contribuțiile plătite începând cu 1 martie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Dacă plătești contribuții la Pilon III, pensie ocupațională sau PEPP, verifică pe fluturașul din fiecare lună că angajatorul a luat în calcul deducerea, în limita de 400 euro pe an.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul nu spune cum ajunge angajatorul să cunoască contribuția (documente, procedură); acțiunea e doar de verificare. Formula pilon3_deducere dă 0, câștigul concret e în acțiunea Pilon III. Alin. (2) lit. a) din art. 78 nu e prezentat integral, deci nu știm din ce se face deducerea."
+    },
+    {
+      "rezumat": "Salariat: sumele plătite pentru ETF-uri prin intermediari autorizați se deduc până la 400 euro pe an",
+      "rezumat_en": "Employee: amounts paid for ETFs through authorised intermediaries are deducted up to 400 euro a year",
+      "taguri": [
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2026-03-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 78 alin. (2) lit. a) pct. (vi) (art. 6 pct. 34)",
+      "citat": "Sumele se deduc din veniturile lunii în care s-a efectuat decontarea tranzacției, pe baza documentelor justificative emise de către entitățile prevăzute la art. 96^1 alin. (1)",
+      "niveluri": {
+        "zero": "Salariatul deduce până la 400 euro pe an din sumele plătite pentru ETF-uri, din venitul lunii în care s-a decontat tranzacția.",
+        "curios": "Sumele plătite de angajat pentru acțiuni, obligațiuni sau titluri ETF prin intermediari prevăzuți de lege, fără costurile tranzacției, se deduc până la 400 euro pe an. Deducerea se face din veniturile lunii în care s-a decontat tranzacția, pe baza documentului de la intermediar.",
+        "expert": "Art. 6 pct. 34 adaugă pct. (vi) la art. 78 alin. (2) lit. a). Documentul justificativ cuprinde datele persoanei, data decontării, instrumentele și valoarea lor și faptul că emitentul e entitate de la art. 96^1 alin. (1). Cursul pentru verificarea plafonului este cel BNR din ultima zi a lunii pentru care se plătesc drepturile salariale. La schimbarea angajatorului, verificarea plafonului se face pe baza documentelor eliberate de angajatorul anterior. Art. 10 alin. (11): se aplică veniturilor din martie 2026 pentru tranzacțiile plătite și decontate începând cu 1 martie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Păstrează documentele justificative de la intermediar pentru tranzacțiile ETF decontate de la 1 martie 2026, cu datele cerute de lege, pentru deducerea din salariu; la schimbarea angajatorului ia documentul cu deducerile acordate.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul nu spune cine depune documentele la angajator. Entitățile de la art. 96^1 alin. (1) nu sunt descrise. Nu avem formulă pentru ETF."
+    },
+    {
+      "rezumat": "Contribuțiile angajatorului la pensii facultative și ocupaționale pentru salariați, până la 400 euro pe an, apar în listele din Codul fiscal",
+      "rezumat_en": "Employer contributions to voluntary and occupational pensions for employees, up to 400 euro a year, are added to Fiscal Code lists",
+      "taguri": [
+        "angajat",
+        "pilon3"
+      ],
+      "in_vigoare_de_la": "2026-03-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 76 alin. (4^1) lit. e), e^1) (art. 6 pct. 29-31); art. 142 lit. aa^1) pct. 5, 5^1 (art. 6 pct. 36-37)",
+      "citat": "contribuțiile la un fond de pensii ocupațional potrivit Legii nr. 1/2020, cu modificările și completările ulterioare, și cele reprezentând contribuții la scheme de pensii ocupaționale",
+      "niveluri": {
+        "zero": "Dacă angajatorul plătește pentru tine la o pensie facultativă sau ocupațională, suma până la 400 euro pe an apare în listele speciale din Codul fiscal din martie 2026.",
+        "curios": "Legea adaugă pensiile ocupaționale și păstrează pensiile facultative în listele cu contribuțiile suportate de angajator pentru salariați, în limita a 400 euro pe an pentru fiecare persoană. Se aplică veniturilor din martie 2026.",
+        "expert": "Art. 6 pct. 29 modifică art. 76 alin. (4^1) lit. e) (pensii facultative suportate de angajator), pct. 30 adaugă lit. e^1) (ocupaționale), pct. 31 modifică art. 76 alin. (9) (sumele sunt venituri ale lunilor pentru care s-a făcut plata, pe baza documentelor justificative), pct. 36 și 37 modifică și adaugă pct. 5 și 5^1 la art. 142 lit. aa^1), cu limita de 400 euro anual pe persoană. Art. 10 alin. (8): se aplică veniturilor din martie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Dacă angajatorul plătește contribuții la un fond de pensii facultative sau ocupațional pentru tine, verifică pe fluturaș cum apare suma și că limita este de 400 euro pe an.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Textul nu spune ce efect are includerea în listele din art. 76 alin. (4^1) și art. 142 lit. aa^1) (de exemplu dacă suma e scutită de impozit sau de contribuții); conținutul acelor articole nu e primit. De verificat de un om înainte de afișare. Fără formulă."
+    },
+    {
+      "rezumat": "Plafonul TVA la încasare urcă la 5.000.000 lei din 1 martie 2026 și la 5.500.000 lei din 1 ianuarie 2027",
+      "rezumat_en": "The cash-accounting VAT threshold rises to 5,000,000 lei from 1 March 2026 and 5,500,000 lei from 1 January 2027",
+      "taguri": [
+        "micro",
+        "pfa"
+      ],
+      "in_vigoare_de_la": "2026-03-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 282 alin. (3) (art. 6 pct. 38); art. 324 alin. (12), (14) (art. 6 pct. 42-43)",
+      "citat": "Plafonul pentru aplicarea sistemului TVA la încasare este de: a) 5.000.000 lei, în perioada 1 martie-31 decembrie 2026; b) 5.500.000 lei, începând cu data de 1 ianuarie 2027.",
+      "niveluri": {
+        "zero": "Dacă ești plătitor de TVA, poți plăti TVA la încasare până la o cifră de afaceri de 5.000.000 lei în 2026 și 5.500.000 lei din 2027.",
+        "curios": "Cu sistemul TVA la încasare, TVA devine exigibilă când încasezi banii de la client, nu când emiți factura. Pragul de cifră de afaceri pentru acest sistem a urcat. Intri în sistem printr-o notificare depusă până pe 20 ale lunii anterioare perioadei fiscale din care vrei să aplici sistemul.",
+        "expert": "Art. 282 alin. (3): exigibilitatea la data încasării pentru cei care optează; plafon 5.000.000 lei între 1 martie și 31 decembrie 2026 și 5.500.000 lei din 1 ianuarie 2027. Alin. (3^1): eligibili sunt cei înregistrați în scopuri de TVA, cu sediul în România, a căror cifră de afaceri din anul precedent nu a depășit plafonul. Alin. (4) lit. c)-d): excluderi la depășire. Alin. (5): aplici sistemul cel puțin până la sfârșitul anului în care ai optat; la depășire, până la sfârșitul perioadei fiscale următoare. Art. 324 alin. (12): notificare până la 20 inclusiv a lunii anterioare perioadei fiscale; alin. (14): notificare la depășire până la 20 inclusiv a lunii următoare; alin. (16): registrul public ANAF. Art. 9: cine a depășit în ianuarie sau februarie 2026 plafonul de 4.500.000 lei, dar nu 5.000.000 lei, nu a fost radiat. Art. 10 alin. (1): pct. 25-44 intră în vigoare la 1 martie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ești înregistrat în scopuri de TVA și vrei sistemul TVA la încasare, depune notificarea până la 20 ale lunii anterioare perioadei fiscale din care îl aplici; dacă îl aplici deja și depășești plafonul, notifici până la 20 ale lunii următoare perioadei fiscale a depășirii.",
+          "termen": null,
+          "destinatie": "anaf_formulare",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul nu spune care era plafonul înainte; din art. 9 reiese că era 4.500.000 lei, dar nu îl dăm ca regulă generală. Vizează doar cine e plătitor de TVA, iar etichetele micro și pfa sunt cele mai apropiate. Fără sumă în lei."
+    },
+    {
+      "rezumat": "Rezervele din profit reinvestit scutit nu pot fi distribuite 5 ani; după aceea, 50% din suma distribuită se impozitează la firmă",
+      "rezumat_en": "Exempt reinvested-profit reserves cannot be distributed for 5 years; 50% is then taxed at company level",
+      "taguri": [
+        "srl_dividende"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 26 alin. (9^1) (art. 6 pct. 6)",
+      "citat": "nu le pot utiliza pentru majorarea capitalului social, pentru distribuire sau pentru acoperirea pierderilor, o perioadă de 5 ani, începând cu anul următor celui pentru care se constituie acestea",
+      "niveluri": {
+        "zero": "Rezervele din profit reinvestit nu pot fi distribuite 5 ani; după aceea, 50% din suma distribuită se impozitează la firmă.",
+        "curios": "Firmele care constituie rezerve fiscale conform art. 22 alin. (5) din 2026 nu le pot folosi 5 ani pentru majorarea capitalului, distribuire sau acoperirea pierderilor. Dacă le folosesc înainte, sumele se impozitează integral. După 5 ani, la distribuire se impozitează 50%; la majorarea capitalului sau acoperirea pierderilor nu se impozitează nimic. Regula se aplică și rezervelor existente la 31 decembrie 2025.",
+        "expert": "Art. 26 alin. (9^1) (art. 6 pct. 6), aplicabil de la anul fiscal 2026 (art. 10 alin. (2)). Sumele se impozitează ca elemente similare veniturilor, în ordinea înregistrării rezervelor; rezervele existente la 31 decembrie 2025 se consideră înregistrate la acea dată. Dacă rezervele rămân până la lichidare, nu intră în rezultatul fiscal al lichidării."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "tu",
+          "text": "Dacă ești asociat într-un SRL plătitor de impozit pe profit cu rezerve din profit reinvestit, întreabă contabilul dacă rezervele intră sub regula de 5 ani înainte de a decide o distribuire de dividende.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Art. 22 alin. (5), care definește rezervele fiscale, nu e în text, deci nu știm ce firme au astfel de rezerve. Vizează SRL-urile plătitoare de impozit pe profit, nu micro. Efectul asupra dividendelor asociatului este indirect. De verificat de un om. Fără formulă."
+    }
+  ]
+}

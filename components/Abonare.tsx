@@ -12,7 +12,7 @@ import { dataScurta } from "@/lib/card";
 // Noi nu vedem cardul; abonamentul e al emailului de Google.
 
 const CE_PRIMESTI = [
-  "Cât te costă sau îți aduce fiecare lege, în lei pe lună, pe profilul tău",
+  "Cât te costă sau îți aduce fiecare lege, în lei pe an, pe profilul tău",
   "Cât păstrezi pe an dacă faci ce permite legea",
   "Planul meu: bifezi ce faci și vezi totalul",
   "Abonamentul te urmează pe orice telefon, cu contul Google",
@@ -62,7 +62,7 @@ export function Abonare() {
         {t("Vezi cât te costă fiecare lege")}
       </h1>
       <p className="m-0 mt-4 flex items-baseline gap-2">
-        <span className="font-head text-[48px] leading-none font-extrabold tracking-[-.02em] text-v3-ink">{pret}</span>
+        <span className="font-num font-semibold tabular-nums lining-nums text-[48px] leading-none tracking-[-.03em] text-v3-ink">{pret}</span>
         <span className="text-[17px] font-semibold text-v3-ink-2">{t("lei/lună")}</span>
       </p>
       <ul className="m-0 mt-5 list-none space-y-2.5 p-0">
@@ -88,7 +88,7 @@ export function Abonare() {
               {t("Continuă cu Google")}
             </button>
             <p className="m-0 mt-3 text-[13.5px] text-v3-ink-2">
-              {t("Folosim doar emailul, ca abonamentul să te urmeze pe orice telefon. Profilul rămâne pe dispozitivul tău.")}
+              {t("Folosim emailul contului Google pentru a asocia abonamentul Stripe contului tău.")}
             </p>
           </>
         ) : stare.activ ? (

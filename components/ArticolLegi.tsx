@@ -1,7 +1,7 @@
 "use client";
 
 import { useLimba } from "@/components/Limba";
-import { dataScurta, mii, zile, ZILE_URGENT } from "@/lib/card";
+import { bani, dataScurta, zile, ZILE_URGENT } from "@/lib/card";
 import type { ArticolGhid, Suma } from "@/lib/ghid";
 import type { Limba } from "@/lib/i18n";
 import { ghidPeLimba, sursaAct } from "@/lib/traduceri";
@@ -11,9 +11,9 @@ import { ghidPeLimba, sursaAct } from "@/lib/traduceri";
 
 const STARE: Record<string, string> = { proiect: "proiect", adoptat: "adoptat", in_vigoare: "în vigoare" };
 
-/** Suma în formatul limbii: 48.000 în română, 48,000 în engleză. */
+/** Suma în formatul limbii: 48.000 în română, 48,000 în engleză (cu zecimale, pentru economii punctuale). */
 function lei(n: number, limba: Limba): string {
-  return limba === "en" ? mii(n).replace(/\./g, ",") : mii(n);
+  return limba === "en" ? Math.abs(n).toLocaleString("en-US", { maximumFractionDigits: 2 }) : bani(n);
 }
 
 function Bani({ tip, s, limba }: { tip: "salvezi" | "pierzi"; s: Suma | null; limba: Limba }) {
@@ -27,7 +27,7 @@ function Bani({ tip, s, limba }: { tip: "salvezi" | "pierzi"; s: Suma | null; li
       </p>
       {s ? (
         <>
-          <p className={`m-0 mt-1 font-head text-[30px] leading-none font-extrabold tracking-[-.02em] ${salvezi ? "text-v3-pos" : "text-v3-neg"}`}>
+          <p className={`m-0 mt-1 font-num font-semibold tabular-nums lining-nums text-[30px] leading-none tracking-[-.03em] ${salvezi ? "text-v3-pos" : "text-v3-neg"}`}>
             {salvezi ? "+" : "−"}
             {lei(s.lei, limba)}
             <small className="ml-1.5 font-sans text-[14px] font-semibold tracking-normal text-v3-ink-2">lei {perioada}</small>
@@ -43,7 +43,7 @@ function Bani({ tip, s, limba }: { tip: "salvezi" | "pierzi"; s: Suma | null; li
   );
 }
 
-export function ArticolLegi({ a: ro, loc }: { a: ArticolGhid; loc: number | null }) {
+export function ArticolLegi({ a: ro }: { a: ArticolGhid }) {
   const { t, limba } = useLimba();
   const a = ghidPeLimba(ro, limba);
   const s = a.schimbare;
@@ -52,18 +52,13 @@ export function ArticolLegi({ a: ro, loc }: { a: ArticolGhid; loc: number | null
   const urgent = a.zile !== null && a.zile >= 0 && a.zile < ZILE_URGENT;
   const portal = s.sursa_url.includes("legislatie.just.ro");
   return (
-    <article id={a.id} className={`scroll-mt-4 border-b border-v3-line py-8 ${a.expirat ? "opacity-80" : ""}`}>
-      <div className="grid gap-x-6 sm:grid-cols-[64px_minmax(0,1fr)]">
-        {loc !== null && (
-          <p aria-hidden="true" className="m-0 mb-2 font-head text-[44px] leading-none font-extrabold text-v3-tint1 sm:mb-0 sm:text-[56px]">
-            {String(loc).padStart(2, "0")}
-          </p>
-        )}
-        <div className={loc === null ? "sm:col-span-2" : ""} lang={a.limba}>
+    <article id={a.id} className="scroll-mt-20 border-b border-v3-line py-8">
+      <div className="min-w-0">
+        <div lang={a.limba}>
           <p className="m-0 mb-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[12.5px] text-v3-ink-2">
             <span
               className={`rounded-full border px-[9px] py-px font-semibold ${
-                a.expirat ? "border-v3-past-line bg-v3-past-bg text-v3-past" : "border-v3-pos bg-v3-pos-soft text-v3-pos"
+                a.expirat ? "border-v3-past-line bg-v3-past-bg text-v3-past" : "border-v3-line bg-v3-accent-soft text-v3-ink-2"
               }`}
             >
               {t(a.expirat ? "termen depășit" : STARE[s.status])}
@@ -80,7 +75,7 @@ export function ArticolLegi({ a: ro, loc }: { a: ArticolGhid; loc: number | null
             )}
           </p>
 
-          <h2 className="m-0 font-head text-[clamp(21px,4.6vw,28px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink uppercase">
+          <h2 className="m-0 font-head text-[clamp(21px,4.6vw,28px)] leading-[1.18] font-extrabold tracking-[-.01em] text-v3-ink">
             <span className="text-v3-accent">{a.pentru}:</span> {a.ce}
           </h2>
 
@@ -90,7 +85,7 @@ export function ArticolLegi({ a: ro, loc }: { a: ArticolGhid; loc: number | null
             {a.pierzi && <Bani tip="pierzi" s={a.pierzi} limba={limba} />}
           </div>
 
-          <div className="mt-4 rounded-xl bg-v3-act p-4 shadow-[inset_3px_0_0_var(--color-v3-pos)]">
+          <div className="mt-4 rounded-xl bg-v3-act p-4">
             <h3 className="m-0 mb-2 text-[12px] font-extrabold tracking-[.1em] text-v3-ink uppercase">
               {a.expirat
                 ? t("Ce mai poți face")

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLimba } from "@/components/Limba";
-import { ETICHETA_STARE, cuSemn, dataScurta, mii, vedere, zile, type VedereCard } from "@/lib/card";
+import { ETICHETA_STARE, bani, cuSemn, dataScurta, vedere, zile, type VedereCard } from "@/lib/card";
 import { textActiune } from "@/lib/catalog";
 import { sursaAct } from "@/lib/traduceri";
 import { lunaScurta, type Limba } from "@/lib/i18n";
@@ -71,16 +71,16 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
         const [y, m, d] = x.iso.split("-").map(Number);
         const urgent = x.termen && x.v.termen?.urgent;
         const suma = x.termen
-          ? x.v.economieAn
-            ? <b className="text-v3-pos">+{mii(x.v.economieAn)} {t("lei/an")}</b>
+          ? x.v.economie
+            ? <b className="text-v3-pos">+{bani(x.v.economie.suma)} {t(x.v.economie.unitate)}</b>
             : null
           : x.v.suma
-            ? <b className={culoare(x.v.suma)}>{cuSemn(x.v.suma)} {t("lei/lună")}</b>
+            ? <b className={culoare(x.v.suma)}>{cuSemn(x.v.suma)} {t("lei/an")}</b>
             : null;
         return (
           <li key={x.p.schimbare.id + x.iso} className="grid grid-cols-[46px_1fr] gap-2.5 border-b border-v3-line py-3.5">
             <div className="text-center leading-none">
-              <b className={`block font-head text-2xl font-extrabold ${urgent ? "text-v3-urg" : ""}`}>{d}</b>
+              <b className={`block font-num font-semibold tabular-nums lining-nums text-2xl tracking-[-.03em] ${urgent ? "text-v3-urg" : ""}`}>{d}</b>
               <span className="mt-[3px] block text-[11px] font-extrabold tracking-[.1em] text-v3-accent uppercase">{lunaScurta(limba, m - 1)}</span>
               <small className="mt-0.5 block text-[10.5px] text-v3-ink-2">{y}</small>
             </div>
@@ -124,7 +124,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
   const a = s.actiuni.find((x) => x.termen) ?? s.actiuni[0];
   const deschis = v.termen && !v.termen.depasit;
   // acțiunea contează dacă termenul e deschis sau dacă n-are termen, dar aduce bani (prima de stabilitate)
-  const actiune = !v.termen?.depasit && (deschis || !!v.economieAn);
+  const actiune = !v.termen?.depasit && (deschis || !!v.economie);
   const urgent = deschis && v.termen!.urgent;
   const urmeaza = s.in_vigoare_de_la > azi ? zileIntre(azi, s.in_vigoare_de_la) : null;
 
@@ -142,18 +142,18 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
           </span>
         )}
       </p>
-      <span className="mb-2 block text-xs font-extrabold tracking-[.12em] text-v3-accent uppercase">{v.kicker}</span>
+      <p className="mt-0 mb-2 text-sm font-medium text-v3-accent">{v.kicker}</p>
       <h2 className="m-0 mb-2.5 font-head text-[clamp(25px,6.6vw,36px)] leading-[1.16] font-extrabold tracking-[-.015em]">{v.titlu}</h2>
-      {actiune && v.economieAn ? (
-        <p className="m-0 mb-3 font-head text-[clamp(30px,8vw,40px)] font-extrabold tracking-[-.02em] text-v3-pos">
-          <span className="font-sans text-[15px] font-semibold tracking-normal">{limba === "en" ? "up to" : "până la"}</span> +{mii(v.economieAn)}
-          <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">{t("lei/an")}</small>
+      {actiune && v.economie ? (
+        <p className="m-0 mb-3 font-num font-semibold tabular-nums lining-nums text-[clamp(30px,8vw,40px)] tracking-[-.03em] text-v3-pos">
+          <span className="font-sans text-[15px] font-semibold tracking-normal">{limba === "en" ? "up to" : "până la"}</span> +{bani(v.economie.suma)}
+          <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">{t(v.economie.unitate)}</small>
         </p>
       ) : v.suma !== null ? (
-        <p className={`m-0 mb-3 font-head text-[clamp(30px,8vw,40px)] font-extrabold tracking-[-.02em] ${culoare(v.suma)}`}>
+        <p className={`m-0 mb-3 font-num font-semibold tabular-nums lining-nums text-[clamp(30px,8vw,40px)] tracking-[-.03em] ${culoare(v.suma)}`}>
           {cuSemn(v.suma)}
           <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">
-            {v.suma === 0 ? t("lei/lună acum") : t("lei/lună")}
+            {v.suma === 0 ? t("lei acum") : t("lei/an")}
           </small>
         </p>
       ) : null}
@@ -168,7 +168,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
       </p>
       <div className="flex flex-wrap items-center justify-between gap-3.5 border-t border-v3-tintb pt-3.5">
         {(deschis || urmeaza !== null) && (
-          <div className={`border-l-[3px] pl-2.5 ${urgent ? "border-v3-urg" : "border-v3-accent"}`}>
+          <div>
             <b className={`block font-head text-[22px] leading-[1.15] font-extrabold ${urgent ? "text-v3-urg" : ""}`}>
               {deschis ? `${t("mai ai")} ${zile(v.termen!.zile, limba)}` : `${t("peste")} ${zile(urmeaza!, limba)}`}
             </b>
@@ -182,7 +182,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
             §
           </i>
           <span>
-            <b className="block text-[13px] font-extrabold tracking-[.06em] uppercase" lang={sursaAct(s, limba).act.limba}>{sursaAct(s, limba).act.text}</b>
+            <b className="block text-sm font-bold" lang={sursaAct(s, limba).act.limba}>{sursaAct(s, limba).act.text}</b>
             <span className="block text-[13px] text-v3-ink-2">
               {sursaAct(s, limba).mo_ref.text}
               {s.verificat_la && ` · ${t("verificat la")} ${dataScurta(s.verificat_la, limba)}`}
@@ -192,7 +192,7 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
       </div>
       <a
         href={`#c-${s.id}`}
-        className="mt-4 inline-flex min-h-[46px] items-center justify-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-[10px] bg-v3-ink px-6 py-3 text-center leading-6 font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong sm:w-auto"
       >
         {t("Vezi ce înseamnă și sursa")}
       </a>
@@ -203,29 +203,35 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
 export function Cifre({ potriviri, valori, ev, azi }: { potriviri: Potrivire[]; valori: Valori; ev: Eveniment[]; azi: string }) {
   const { t, limba } = useLimba();
   const vederi = potriviri.map((p) => ({ p, v: vedere(p, valori, limba) }));
-  // Suma pe lună e deja în bara „Planul meu”; aici arătăm cât poți păstra dacă faci tot ce permite legea.
-  const deschise = vederi.filter((x) => x.v.economieAn && !x.v.termen?.depasit);
-  const pastrezi = deschise.reduce((s, x) => s + (x.v.economieAn ?? 0), 0);
+  // Impactul anualizat e deja în bara „Planul meu”; aici arătăm cât poți păstra dacă faci tot ce permite legea.
+  const deschise = vederi.filter((x) => x.v.economie && !x.v.termen?.depasit);
+  const pastrezi = deschise.reduce((s, x) => s + (x.v.economie?.punctuala ? 0 : x.v.economie?.suma ?? 0), 0);
+  const punctuale = deschise.reduce((s, x) => s + (x.v.economie?.punctuala ? x.v.economie.suma : 0), 0);
+  const perioadeAnuale = new Set(deschise.filter(x => !x.v.economie?.punctuala).map(x => x.v.economie!.unitate));
+  const unitateAnuala = perioadeAnuale.size === 1 ? [...perioadeAnuale][0] : "lei/an";
   const cifre: [React.ReactNode, string][] = [
     [potriviri.length, t("acte care te privesc")],
     [ev.filter((x) => x.termen).length, t("termene deschise")],
     [deschise.length, t("acțiuni pe care legea le permite")],
-    [<span key="p" className={culoare(pastrezi)}>{cuSemn(pastrezi)} lei</span>, t("pe an, dacă le faci pe toate")],
+    [<span key="p" className="text-v3-pos">
+      {pastrezi || !punctuale ? <>{cuSemn(pastrezi)} {t(unitateAnuala)}</> : <>+{bani(punctuale)} {t("lei o dată")}</>}
+      {!!pastrezi && !!punctuale && <small className="mt-1 block text-sm font-semibold">+{bani(punctuale)} {t("lei o dată")}</small>}
+    </span>, t("dacă le faci pe toate")],
   ];
   return (
     <section
       aria-label={t("pentru tine, în cifre")}
-      className="mb-[18px] grid overflow-hidden rounded-2xl border border-v3-line bg-linear-135 from-v3-stats to-v3-card to-70% lg:grid-cols-[190px_1fr]"
+      className="mb-[18px] grid overflow-hidden rounded-2xl border border-v3-line bg-linear-135 from-v3-stats to-v3-card to-70% lg:grid-cols-[150px_minmax(0,1fr)]"
     >
       <div className="flex items-baseline gap-2.5 border-b border-v3-line px-[18px] py-4 lg:flex-col lg:justify-center lg:border-r lg:border-b-0">
-        <b className="font-head text-[30px] font-extrabold text-v3-accd">{azi.slice(0, 4)}</b>
-        <span className="text-[11.5px] font-extrabold tracking-[.1em] text-v3-ink-2 uppercase">{t("pentru tine, în cifre")}</span>
+        <b className="font-num font-semibold tabular-nums lining-nums text-[30px] tracking-[-.03em] text-v3-accd">{azi.slice(0, 4)}</b>
+        <span className="text-sm font-medium text-v3-ink-2">{t("pentru tine, în cifre")}</span>
       </div>
       <ul className="m-0 grid list-none grid-cols-2 gap-x-3.5 gap-y-4 px-[18px] py-3.5 lg:grid-cols-4 lg:gap-x-[22px]">
         {cifre.map(([b, text]) => (
           <li key={text} className="before:mb-2 before:block before:h-0.5 before:w-4 before:bg-v3-logo">
-            <b className="block font-head text-[22px] font-extrabold tracking-[-.01em] whitespace-nowrap lg:text-xl">{b}</b>
-            <span className="mt-0.5 block text-[11px] font-extrabold tracking-[.08em] text-v3-ink-2 uppercase">{text}</span>
+            <b className="block font-num font-semibold tabular-nums lining-nums text-[22px] tracking-[-.03em] lg:text-xl">{b}</b>
+            <span className="mt-1 block text-sm leading-snug text-v3-ink-2">{text}</span>
           </li>
         ))}
       </ul>

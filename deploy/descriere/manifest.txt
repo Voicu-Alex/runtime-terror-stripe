@@ -1,0 +1,6 @@
+# Ce se publică pe https://descriere.andreidobrin.com
+# <fișier în repo>   <cale pe site>
+# Poller-ul citește acest fișier din commit-ul pe care îl publică, deci o modificare aici
+# intră în vigoare odată cu push-ul pe main.
+mockup/descriere.html                                    index.html
+docs/rethinking_financial_futures_hackathon_stripe.pdf   docs/rethinking_financial_futures_hackathon_stripe.pdf

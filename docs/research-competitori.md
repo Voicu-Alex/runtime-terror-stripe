@@ -62,7 +62,7 @@ Capturi: `irishtaxhub-buget-desktop.png`, `irishtimes-buget-desktop.png` (în ca
 Fără captură: site-ul blochează accesul automat (406). Din surse ([resolver.co.uk](https://news.resolver.co.uk/snoop-a-free-app-that-looks-out-for-your-money), [headforpoints.com](https://headforpoints.com/2021/01/05/snoop-app-review), recenzie din 2021): aplicație gratuită, conectată la bancă prin open banking, cu un flux de „Snoops” (sfaturi personalizate de economisire), alerte la reînnoirea contractelor, rezumatul plăților săptămânii, în fiecare duminică. Lansată în 2020, cumpărată de Vanquis Banking Group în 2023.
 
 - **Ce luăm:** fluxul de carduri personalizate și ritualul săptămânal („look ahead” duminica) ca model de notificare.
-- **Prin ce diferim:** noi nu cerem acces la bancă (decizie v2). E un argument de încredere: datele rămân pe telefonul tău.
+- **Prin ce diferim:** noi nu cerem acces la bancă (decizie v2). Aceasta nu înseamnă că toate datele rămân local; documentele încărcate au procesare externă, conform [fluxurilor verificate](date-personale.md).
 
 ### Finanztip (Germania): educație financiară independentă
 Capturi: `finanztip-desktop.png`, `finanztip-mobil.png`.

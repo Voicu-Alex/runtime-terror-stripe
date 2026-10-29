@@ -122,3 +122,26 @@ export function calculeaza(id: FormulaId | null, valori: Valori): number | null 
   const r = FORMULE[id](valori);
   return r == null ? null : Math.round(r * 100) / 100;
 }
+
+export type Economie = {
+  suma: number;
+  unitate: "lei/an" | "lei/an din 2027" | "lei/plin (50 l)" | "lei o dată" | "lei în primul an";
+  punctuala: boolean;
+};
+
+/** Formulele vechi normalizează sumele lunar; afișarea recuperează perioada reală a fiecăreia. */
+const PERIOADE_ECONOMII: Partial<Record<FormulaId, { factor: number; unitate: Economie["unitate"]; punctuala: boolean }>> = {
+  motorina_economie: { factor: 12, unitate: "lei/plin (50 l)", punctuala: true },
+  tva_locuinta_economie: { factor: 300, unitate: "lei o dată", punctuala: true },
+  prima_stabilitate_economie: { factor: 12, unitate: "lei în primul an", punctuala: false },
+  cei_d_economie: { factor: 12, unitate: "lei/an din 2027", punctuala: false },
+};
+
+export function calculeazaEconomie(id: FormulaId | null, valori: Valori): Economie | null {
+  if (!id) return null;
+  // Convertim înainte de rotunjire: 50 l × 0,85 lei = 42,50 lei, nu 42,48 lei.
+  const lunar = FORMULE[id](valori);
+  if (lunar == null) return null;
+  const perioada = PERIOADE_ECONOMII[id] ?? { factor: 12, unitate: "lei/an" as const, punctuala: false };
+  return { suma: Math.round(lunar * perioada.factor * 100) / 100, unitate: perioada.unitate, punctuala: perioada.punctuala };
+}

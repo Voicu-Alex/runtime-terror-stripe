@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direcția C · Fir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+/* C · Fir: prietenul care știe îți scrie. Legile vin ca mesaje, grupate pe subiecte din viața ta. */
+:root{
+  --bg:#ECEAF2; --surface:#FFFFFF; --ink:#1F1B2B; --muted:#6A6480; --line:#DCD8E6;
+  --plum:#4A2D63; --plum-soft:#EFE8F5; --plus:#12804A; --minus:#C2302F; --warn:#4A2D63;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 'Instrument Sans',system-ui,sans-serif}
+a{color:inherit}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--plum);outline-offset:2px}
+.plus{color:var(--plus)} .minus{color:var(--minus)} .zero{color:var(--muted)}
+.app{display:grid;grid-template-columns:290px 1fr 340px;height:100vh;max-width:1400px;margin:0 auto}
+
+/* subiecte */
+.topics{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+.me{padding:20px 20px 14px}
+.me b{font-weight:700;font-size:17px;display:block}
+.me span{color:var(--muted);font-size:13px}
+.tl{overflow-y:auto;overflow-x:hidden;flex:1}
+.topic{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;width:100%;text-align:left;border:0;background:none;padding:12px 20px;align-items:center}
+.topic:hover{background:rgba(255,255,255,.55)}
+.topic.sel{background:var(--surface)}
+.av{width:40px;height:40px;border-radius:12px;background:var(--plum-soft);display:grid;place-items:center;font:22px/1 'Instrument Serif',serif;color:var(--plum)}
+.topic b{display:block;font-weight:600}
+.topic small{display:block;color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.topic .r{text-align:right;font-size:13px;font-weight:600;white-space:nowrap}
+.badge{display:inline-block;background:var(--plum);color:#fff;font-size:11.5px;border-radius:999px;padding:1px 8px;margin-top:3px}
+.sum{padding:16px 20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.sum b{display:block;font:30px/1.1 'Instrument Serif',serif;color:var(--minus)}
+
+/* firul */
+.thread{display:flex;flex-direction:column;min-height:0;background:var(--surface)}
+.th{padding:16px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.th b{font-size:17px}
+.th small{color:var(--muted);display:block;font-size:13px}
+.back{display:none;border:0;background:none;font-size:22px;padding:0 6px 0 0}
+.msgs{flex:1;overflow:auto;padding:22px 24px 10px;display:flex;flex-direction:column;gap:10px}
+.day{align-self:center;color:var(--muted);font-size:12.5px;margin:6px 0}
+.b{max-width:min(560px,86%);padding:11px 14px;border-radius:18px 18px 18px 6px;background:var(--bg)}
+.b.me{align-self:flex-end;background:var(--plum);color:#fff;border-radius:18px 18px 6px 18px}
+.law{max-width:min(560px,92%);background:var(--surface);border:1px solid var(--line);border-radius:6px 18px 18px 18px;padding:14px 16px;box-shadow:0 1px 0 var(--line)}
+.law.new{border-color:var(--plum);box-shadow:0 0 0 3px var(--plum-soft)}
+.law .k{font-size:12.5px;color:var(--muted);margin:0 0 4px}
+.law h3{font-size:16px;font-weight:600;line-height:1.3;margin:0 0 10px}
+.law .amt{font:34px/1 'Instrument Serif',serif;font-variant-numeric:tabular-nums}
+.law .amt small{font:13px 'Instrument Sans',sans-serif;color:var(--muted);margin-left:6px}
+.law .due{margin-top:10px;font-weight:600;font-size:14px}
+.law .due.urg{color:#fff;background:var(--plum);display:inline-block;padding:2px 10px;border-radius:999px}
+.law .open{margin-top:10px;border:0;background:none;padding:0;font-weight:600;color:var(--plum);font-size:14px}
+.law.passed{opacity:.75}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:8px 24px 18px;border-top:1px solid var(--line)}
+.chips button{border:1.5px solid var(--plum);background:none;color:var(--plum);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px}
+.chips button:hover{background:var(--plum-soft)}
+.compose{display:flex;gap:8px;padding:0 24px 18px}
+.compose input{flex:1;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font:inherit;background:var(--bg)}
+
+/* legea */
+.law-pane{border-left:1px solid var(--line);padding:22px 22px;overflow:auto}
+.law-pane h2{font:28px/1.1 'Instrument Serif',serif;margin:0 0 6px;font-weight:400}
+.law-pane .lead{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+.law-pane dl{margin:0 0 18px;font-size:14px}
+.law-pane dt{color:var(--muted);font-size:12.5px;margin-top:10px}
+.law-pane dd{margin:2px 0 0}
+.tag{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13px;margin:0 4px 4px 0}
+.fix{border:0;background:none;color:var(--plum);font-weight:600;padding:0;font-size:14px}
+.est{font-size:13px;color:var(--muted);background:var(--surface);border-radius:12px;padding:10px 12px;margin:0 0 14px}
+
+/* notificarea push (telefon) / mesaj nou (desktop) */
+.push{position:fixed;top:10px;left:50%;transform:translateX(-50%);width:min(420px,calc(100% - 20px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-radius:20px;padding:12px 14px;box-shadow:0 16px 40px rgba(31,27,43,.25);z-index:9;display:grid;grid-template-columns:38px 1fr;gap:10px;border:0;text-align:left;animation:slide .45s ease-out}
+.push[hidden]{display:none}
+@keyframes slide{from{transform:translate(-50%,-120%)}}
+.push .ic{width:38px;height:38px;border-radius:10px;background:var(--plum);color:#fff;display:grid;place-items:center;font:20px 'Instrument Serif',serif}
+.push small{color:var(--muted);font-size:12px}
+.push b{display:block;font-size:14.5px;line-height:1.3}
+.push span{font-size:14px}
+@media (prefers-reduced-motion:reduce){.push{animation:none}}
+.still .push{animation:none}
+
+@media (max-width:1100px){ .app{grid-template-columns:260px 1fr} .law-pane{display:none} }
+@media (max-width:760px){
+  .app{grid-template-columns:1fr;height:100vh}
+  .thread{display:none}
+  .app.reading .topics{display:none}
+  .app.reading .thread{display:flex}
+  .back{display:block}
+  .th{padding:12px 14px}
+  .msgs{padding:16px 14px 8px}
+  .chips{padding:8px 14px 14px}
+  .compose{padding:0 14px 14px}
+  .topic small{max-width:190px}
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <nav class="topics" aria-label="Subiecte">
+    <div class="me"><b>Ce înseamnă pentru mine</b><span id="me"></span></div>
+    <div class="tl" id="topics"></div>
+    <div class="sum">Legile deja în vigoare te costă<b id="tot"></b>lei pe lună, pe profilul tău</div>
+  </nav>
+  <section class="thread" aria-label="Mesaje">
+    <div class="th"><button class="back" id="back" aria-label="Înapoi la subiecte">‹</button><div><b id="tname"></b><small id="tsub"></small></div></div>
+    <div class="msgs" id="msgs" aria-live="polite"></div>
+    <div class="chips" id="chips"></div>
+    <div class="compose"><input placeholder="Întreabă ceva despre legile tale…" aria-label="Întreabă"></div>
+  </section>
+  <aside class="law-pane" id="pane" aria-live="polite"></aside>
+</div>
+<button class="push" id="push" aria-label="Deschide notificarea"></button>
+<script src="data.js"></script>
+<script>
+var TOPICS = [
+  {id:'masina', name:'Mașină', av:'M'},
+  {id:'pensie', name:'Pensie', av:'P'},
+  {id:'salariu', name:'Salariu și firmă', av:'S'},
+  {id:'casa', name:'Casă și facturi', av:'C'}
+];
+var cur = 'pensie', focus = 'cei_d', extra = {};
+function itemsOf(t){ return ITEMS.filter(function(i){ return i.topic === t; }); }
+function topicList(){
+  return TOPICS.map(function(t){
+    var its = itemsOf(t.id), last = its[0], urg = its.filter(function(i){ return i.deadline && U.days(i.deadline) >= 0 && U.days(i.deadline) < 30; })[0];
+    var nw = its.filter(function(i){ return i.isNew; }).length, sum = its.filter(U.inForce).reduce(function(s,i){ return s + i.impact; }, 0);
+    return '<button class="topic' + (t.id === cur ? ' sel' : '') + '" data-t="' + t.id + '"><span class="av">' + t.av + '</span><span><b>' + t.name + '</b><small>' + U.esc(last.chat) + '</small></span><span class="r"><span class="' + U.cls(sum) + '">' + (sum ? U.lei(sum).replace(' lei/lună','') : '') + '</span><br>' +
+      (urg ? '<span class="badge">' + U.days(urg.deadline) + ' zile</span>' : nw ? '<span class="badge">nou</span>' : '') + '</span></button>';
+  }).join('');
+}
+function card(i){
+  var dl = i.deadline ? U.days(i.deadline) : null, past = i.status === 'termen_depasit';
+  var main = i.impact ? i.impact : i.gain, lbl = i.impact ? (U.inForce(i) ? 'lei/lună' : 'lei/lună din ' + U.date(i.effective)) : (i.gain ? 'lei/lună dacă vrei' : 'lei/lună');
+  var s = '<div class="law' + (i.isNew ? ' new' : '') + (past ? ' passed' : '') + '"><p class="k">' + i.act + ' · ' + STATUS[i.status] + (i.isNew ? ' · nou' : '') + '</p><h3>' + U.esc(i.title) + '</h3>';
+  s += '<div class="amt ' + (i.impact ? U.cls(i.impact) : (i.gain ? 'plus' : 'zero')) + '">' + (main ? (main > 0 ? '+' : '−') + U.num(main) : '0') + '<small>' + lbl + '</small></div>';
+  if (dl !== null) s += '<div class="due' + (!past && dl < 30 ? ' urg' : '') + '">' + (past ? 'termenul a trecut pe ' + U.date(i.deadline) : 'până la ' + U.date(i.deadline) + ' · mai ai ' + dl + ' zile') + '</div>';
+  s += '<button class="open" data-law="' + i.id + '">Arată-mi legea</button></div>';
+  return s;
+}
+function thread(){
+  var t = TOPICS.filter(function(x){ return x.id === cur; })[0], its = itemsOf(cur);
+  document.getElementById('tname').textContent = t.name;
+  document.getElementById('tsub').textContent = its.length + ' legi te privesc aici';
+  var s = '<div class="day">' + U.date(TODAY) + '</div>';
+  its.forEach(function(i){
+    s += '<div class="b">' + (i.id === 'it' ? U.esc(i.chat) : 'Pe scurt: ' + U.esc(i.chat.charAt(0).toLowerCase() + i.chat.slice(1))) + '</div>' + '<div id="c-' + i.id + '">' + card(i) + '</div>';
+  });
+  (extra[cur] || []).forEach(function(m){ s += m; });
+  document.getElementById('msgs').innerHTML = s;
+  var f = U.byId(focus);
+  document.getElementById('chips').innerHTML = '<button data-q="ce">Ce pot face?</button><button data-q="lege">Arată-mi legea</button><button data-q="nu">Nu mă privește</button>';
+  var m = document.getElementById('msgs'), fc = document.getElementById('c-' + focus); m.scrollTop = (extra[cur] && extra[cur].length) ? m.scrollHeight : (fc ? fc.offsetTop - m.offsetTop - 140 : 0);
+}
+function pane(){
+  var i = U.byId(focus);
+  var s = '<h2>' + i.short + '</h2><p class="lead">' + STATUS[i.status] + ' · din ' + U.date(i.effective) + '</p>';
+  if (i.est) s += '<p class="est">Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege. ' + U.esc(i.note) + '</p>';
+  s += '<dl><dt>Actul</dt><dd><a href="' + i.link + '" target="_blank" rel="noopener">' + i.act + '</a></dd><dt>Monitorul Oficial</dt><dd>' + i.mo + '</dd><dt>Articolul</dt><dd>' + U.esc(i.art) + '</dd><dt>Ce poți face</dt><dd>' + U.esc(i.action || 'Nimic de făcut aici.') + '</dd><dt>Verificat</dt><dd>28 oct 2026</dd></dl>';
+  s += '<p style="font-size:13px;color:var(--muted);margin:0 0 6px">Te privește ca</p>' + i.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('') + '<br><button class="fix">Nu e corect? Corectează profilul</button>';
+  document.getElementById('pane').innerHTML = s;
+}
+function reply(q){
+  var i = U.byId(focus), a = extra[cur] = extra[cur] || [];
+  if (q === 'ce'){ a.push('<div class="b me">Ce pot face?</div>'); a.push('<div class="b">' + (i.action ? U.esc(i.action) + (i.deadline && U.days(i.deadline) >= 0 ? ', până la ' + U.date(i.deadline) + '.' : '.') + (i.gain ? ' Asta înseamnă cam +' + U.num(i.gain) + ' lei/lună.' : '') : 'Aici nu ai ce face, doar să știi.') + '</div>'); }
+  if (q === 'lege'){ a.push('<div class="b me">Arată-mi legea</div>'); a.push('<div class="b">' + i.act + ', ' + i.mo + ', ' + U.esc(i.art) + '. <a href="' + i.link + '" target="_blank" rel="noopener">Textul pe portal</a></div>'); }
+  if (q === 'nu'){ a.push('<div class="b me">Nu mă privește</div>'); a.push('<div class="b">OK. Ți-am arătat-o pentru eticheta „' + i.tags[0] + '”. Vrei s-o scot din profil?</div>'); }
+  thread();
+}
+function render(){ document.getElementById('topics').innerHTML = topicList(); thread(); pane(); }
+document.getElementById('topics').addEventListener('click', function(e){
+  var b = e.target.closest('[data-t]'); if (!b) return; cur = b.dataset.t; focus = itemsOf(cur)[0].id; document.getElementById('app').classList.add('reading'); render();
+});
+document.getElementById('msgs').addEventListener('click', function(e){ var b = e.target.closest('[data-law]'); if (b){ focus = b.dataset.law; pane(); reply('lege'); } });
+document.getElementById('chips').addEventListener('click', function(e){ var b = e.target.closest('[data-q]'); if (b) reply(b.dataset.q); });
+document.getElementById('back').onclick = function(){ document.getElementById('app').classList.remove('reading'); };
+document.getElementById('me').textContent = PERSON.name + ', ' + PERSON.age + ' · ' + PERSON.tags.length + ' etichete';
+document.getElementById('tot').textContent = U.lei(U.totalNow()).replace(' lei/lună','');
+render();
+
+var push = document.getElementById('push');
+push.innerHTML = '<span class="ic">C</span><span><small>Ce înseamnă pentru mine · acum</small><b>Lege nouă pentru tine: cont de investiții pentru pensie</b><span>Până la <b style="display:inline;color:var(--plus)">+30 lei/lună</b> din 2027, ca angajat.</span></span>';
+push.onclick = function(){ push.hidden = true; cur = 'pensie'; focus = 'cei_d'; document.getElementById('app').classList.add('reading'); render(); };
+var Q = new URLSearchParams(location.search);
+if (Q.get('notif') === '0') push.hidden = true;
+if (Q.get('still')) document.body.classList.add('still');
+if (Q.get('open')) document.getElementById('app').classList.add('reading');
+setTimeout(function(){ if (innerWidth > 760) push.hidden = true; }, Q.get('still') ? 1e9 : 6000);
+</script>
+</body>
+</html>

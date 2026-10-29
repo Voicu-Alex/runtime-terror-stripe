@@ -58,6 +58,16 @@ export type Niveluri = {
   expert: string; // articolul și nuanțele sau "TODO"
 };
 
+export type ComparatieAct = {
+  inainte: string | null;
+  acum: string;
+  inainte_en?: string;
+  acum_en?: string;
+  sursa_url: string;
+  articol: string;
+  verificat_la: string;
+};
+
 export type Schimbare = {
   id: string;
   act: string;
@@ -65,6 +75,8 @@ export type Schimbare = {
   rezumat: string;
   /** titlul în engleză, scris de noi (lib/i18n.ts); textele legii rămân în română */
   rezumat_en?: string;
+  /** Valorile din comparație au sursă; null la „înainte” înseamnă că valoarea veche nu e verificată. */
+  comparatie?: ComparatieAct;
   status: Status;
   publicat_la: string; // ISO
   in_vigoare_de_la: string; // ISO
@@ -115,6 +127,15 @@ export function valideazaCatalog(brut: unknown): Schimbare[] {
     if (typeof x.id !== "string" || !x.id) throw new CatalogInvalid(`${unde}: lipsește id`);
     if (ids.has(x.id)) throw new CatalogInvalid(`${unde}: id dublat`);
     ids.add(x.id);
+    if (x.comparatie != null) {
+      const c = x.comparatie as Partial<ComparatieAct>;
+      if ((c.inainte !== null && (typeof c.inainte !== 'string' || !c.inainte.trim()))
+        || typeof c.acum !== 'string' || !c.acum.trim() || c.sursa_url !== x.sursa_url
+        || typeof c.articol !== 'string' || !c.articol.trim()
+        || typeof c.verificat_la !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(c.verificat_la)) {
+        throw new CatalogInvalid(`${unde}: comparație fără valori sau sursă verificată`);
+      }
+    }
     if (!Array.isArray(x.taguri) || x.taguri.length === 0) throw new CatalogInvalid(`${unde}: fără etichete`);
     for (const t of x.taguri) if (!esteTag(t)) throw new CatalogInvalid(`${unde}: eticheta necunoscută „${String(t)}”`);
     if (x.formula != null && !esteFormula(x.formula)) throw new CatalogInvalid(`${unde}: formula necunoscută „${String(x.formula)}”`);

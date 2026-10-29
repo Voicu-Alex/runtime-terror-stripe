@@ -1,0 +1,482 @@
+{
+  "act": "Legea 239/2025",
+  "mo": "MO 1160 / 15 dec 2025",
+  "publicat_la": "2025-12-15",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Câștigurile din criptomonede se impozitează cu 16%, iar sub 200 lei pe tranzacție nu plătești nimic",
+      "rezumat_en": "Crypto gains are taxed at 16%, and gains under 200 lei per transaction are not taxed",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 116 alin. (2^1) din Codul fiscal",
+      "citat": "prin aplicarea cotei de 16% asupra câștigului din transferul de monedă virtuală, determinat ca diferență pozitivă între prețul de vânzare și prețul de achiziție",
+      "niveluri": {
+        "zero": "Dacă vinzi criptomonede cu câștig, plătești 16% impozit pe câștig, de la 1 ianuarie 2026.",
+        "curios": "Câștigul se calculează ca diferența dintre prețul de vânzare și cel de cumpărare, inclusiv costurile directe ale tranzacției. Un câștig sub 200 lei pe tranzacție nu se impozitează, cu condiția ca totalul câștigurilor din an să nu treacă de 600 lei. Impozitul îl calculezi tu și îl declari în Declarația unică.",
+        "expert": "Art. 116 alin. (2^1) introduce pentru veniturile din transferul de monedă virtuală (art. 114 alin. (2) lit. m)) un impozit calculat de contribuabil pe baza Declarației unice, cu cota de 16% asupra câștigului. Litera c) a art. 116 alin. (2) se abrogă. Scutirea pentru câștigul sub 200 lei/tranzacție se pierde dacă totalul câștigurilor din an depășește 600 lei. Se aplică câștigurilor obținute începând cu 1 ianuarie 2026 (art. XIII alin. (2) lit. d))."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Ține evidența prețului de cumpărare, a prețului de vânzare și a costurilor pentru fiecare tranzacție din 2026, ca să calculezi câștigul în Declarația unică.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Cota veche nu apare în textul primit, deci nu putem folosi schimbare_cota. Suma depinde de câștigurile fiecăruia, pe care nu le avem în profil. Nu există etichetă pentru investitori în criptomonede. Termenul de depunere a Declarației unice (art. 122 alin. (3)) nu e în textul primit."
+    },
+    {
+      "rezumat": "Câștigurile din acțiuni și alte titluri, ținute printr-un broker, se impozitează cu 3% după un an și cu 6% sub un an",
+      "rezumat_en": "Gains on shares and similar securities held through a broker are taxed at 3% after one year and 6% under one year",
+      "taguri": [],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 97 alin. (8^1) din Codul fiscal",
+      "citat": "prin aplicarea unei cote de 3% asupra fiecărui câștig din transferul titlurilor de valoare care au fost dobândite și înstrăinate într-o perioadă mai mare de 365 de zile inclusiv de la data dobândirii",
+      "niveluri": {
+        "zero": "Impozitul pe câștigul din vânzarea de acțiuni prin broker e 3% dacă ai ținut titlurile cel puțin 365 de zile și 6% dacă le-ai ținut mai puțin.",
+        "curios": "Impozitul se oprește la sursă, de către entitatea prin care faci tranzacția, la fiecare câștig. Aceleași cote, 3% și 6%, se aplică și pentru instrumentele financiare derivate, după cât timp le-ai ținut. Titlurile se consideră vândute în ordinea cumpărării, primul intrat, primul ieșit, pe fiecare simbol.",
+        "expert": "Art. 97 alin. (8^1) stabilește reținerea la sursă pentru câștigurile determinate conform art. 94 și 95, pentru operațiuni prin entitățile de la art. 96^1 alin. (1): 3% pentru titluri deținute cel puțin 365 de zile, 6% pentru sub 365 de zile, aceleași cote pentru derivate. Se aplică transferurilor și operațiunilor din 1 ianuarie 2026 (art. XIII alin. (2) lit. c)). Art. 123 alin. (1^2) trimite separat la cota de 16% asupra câștigului net anual impozabil determinat potrivit art. 119 și la Declarația unică."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "furnizor",
+          "text": "Verifică în notele de tranzacție ale brokerului că impozitul reținut e 3% pentru titlurile ținute cel puțin 365 de zile și 6% pentru cele ținute mai puțin.",
+          "termen": null,
+          "destinatie": null,
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Cota veche nu apare în textul primit. Suma depinde de câștigurile fiecăruia. Nu există etichetă pentru investitori. Relația dintre art. 97 alin. (8^1) și art. 123 alin. (1^2) (cota de 16%, art. 119, conținutul lor nu e în textul primit) e de verificat."
+    },
+    {
+      "rezumat": "PFA la normă de venit: norma nu poate fi mai mică de 12 salarii minime brute",
+      "rezumat_en": "Sole traders on a flat income norm: the norm cannot be below 12 minimum gross wages",
+      "taguri": [
+        "pfa_norma"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 69 alin. (3) din Codul fiscal",
+      "citat": "Norma de venit pentru fiecare activitate desfășurată de contribuabil nu poate fi mai mică decât nivelul a 12 salarii de bază minime brute pe țară garantate în plată",
+      "niveluri": {
+        "zero": "Dacă ești PFA la normă de venit, norma pentru fiecare activitate nu mai poate fi sub 12 salarii minime brute.",
+        "curios": "Se ia salariul minim brut în vigoare la 1 ianuarie a anului în care realizezi venitul. Regula se aplică la fiecare activitate, și la fiecare membru al unei asocieri fără personalitate juridică. Se aplică veniturilor din 2026.",
+        "expert": "Art. 69 alin. (3) este modificat: pragul de 12 salarii de bază minime brute pe țară garantate în plată se raportează la data de 1 ianuarie a anului de realizare a venitului și se aplică pentru fiecare activitate, inclusiv în cadrul unei asocieri fără personalitate juridică, pentru fiecare membru asociat. Intră în vigoare prin art. XIII alin. (1) lit. b) și se aplică veniturilor aferente anului 2026 (art. XIII alin. (2) lit. b))."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "La Declarația unică pentru veniturile din 2026, verifică ce normă de venit ți se aplică și că nu e sub 12 salarii minime brute.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Valoarea salariului minim la 1 ianuarie 2026 și norma veche nu sunt în textul primit, deci nu calculăm suma și nu putem spune dacă norma crește pentru fiecare activitate. Termenul Declarației unice (art. 122 alin. (3)) nu e în textul primit."
+    },
+    {
+      "rezumat": "Contribuția la sănătate (CASS) a PFA se calculează cel mult pentru 72 de salarii minime brute",
+      "rezumat_en": "Health contribution (CASS) for sole traders is capped at 72 minimum gross wages",
+      "taguri": [
+        "pfa",
+        "pfa_norma"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 170 alin. (1) din Codul fiscal",
+      "citat": "care nu poate fi mai mare decât cea corespunzătoare unei baze anuale de calcul egale cu nivelul de 72 de salarii minime brute pe țară",
+      "niveluri": {
+        "zero": "CASS-ul pentru veniturile independente se calculează cel mult la 72 de salarii minime brute pe an.",
+        "curios": "Baza de calcul e suma veniturilor nete sau a normelor de venit din activități independente. Dacă ea trece de 72 de salarii minime brute pe țară, contribuția se calculează doar pentru acest plafon. Pierderile fiscale anuale nu se iau în calcul.",
+        "expert": "Art. 170 alin. (1) este modificat: baza anuală de calcul a CASS cumulează venitul net sau norma anuală (ajustată, după caz) stabilite potrivit art. 68, 68^1, 68^3 și 69 și nu poate depăși 72 de salarii minime brute pe țară. Plafonul de 72 apare și în art. 174 alin. (4), (5) și (11) pentru contractele de activitate sportivă. Intră în vigoare la 1 ianuarie 2026 (art. XIII alin. (1) lit. a)). Art. 170 alin. (4) lit. c) trimite la art. 84-85 pentru venitul net din cedarea folosinței bunurilor."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "La Declarația unică pentru veniturile din 2026, verifică baza de calcul a CASS: ea nu poate trece de 72 de salarii minime brute.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Plafonul vechi nu e în textul primit, deci nu știm dacă schimbarea mărește sau scade CASS-ul. Cota CASS e la art. 156, care nu e în textul primit. Salariul minim și termenul Declarației unice nu sunt în textul primit."
+    },
+    {
+      "rezumat": "Impozitul pe clădirile de locuit se calculează cu valori impozabile noi, de la 2.677 pentru clădirile cu instalații",
+      "rezumat_en": "Tax on residential buildings uses new taxable values, from 2,677 for buildings with utilities",
+      "taguri": [
+        "proprietar"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": "impozit_cladiri",
+      "formula_tip": null,
+      "articol": "art. 457 alin. (2) din Codul fiscal",
+      "citat": "A. Clădire cu cadre din beton armat sau cu pereți exteriori din cărămidă arsă sau din orice alte materiale rezultate în urma unui tratament termic și/sau chimic 2.677 1.606",
+      "niveluri": {
+        "zero": "Tabelul cu valorile pe care se calculează impozitul pe clădirea ta de locuit s-a schimbat, de la 1 ianuarie 2026.",
+        "curios": "Pentru o clădire cu cadre din beton armat sau pereți din cărămidă arsă, valoarea impozabilă e 2.677 pentru clădirile cu apă, canalizare, electricitate și încălzire și 1.606 pentru cele fără una dintre ele. Pentru pereți din lemn sau materiale netratate termic sunt 803 și 535. Anexele au 535 și 469, respectiv 335 și 201. Subsolul, demisolul și mansarda folosite ca locuință se iau la 75%, iar cele folosite altfel la 50%.",
+        "expert": "Art. XII pct. 28 înlocuiește tabelul de la art. 457 alin. (2) cu valorile pe tipuri (A-D) și rânduri de corecție (E 75%, F 50%). Impozitul final îl stabilește primăria cu cota votată de consiliul local; cota nu poate fi mai mică decât cea din 2025 (art. 457 alin. (1^1)). Alin. (7)-(9) ale art. 457 se abrogă. Intră în vigoare la 1 ianuarie 2026 (art. XIII alin. (1) lit. a))."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică pe decizia de impunere de la primărie că valoarea impozabilă a clădirii corespunde tipului ei (materialul pereților, instalațiile) din tabelul de la art. 457 alin. (2).",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Valorile vechi nu apar în textul primit, deci nu știm cât crește sau scade valoarea; formula impozit_cladiri e estimarea din catalog (presă), nu o cifră din lege. Tabelul din text nu are unitate de măsură, de verificat în Monitorul Oficial. Cota o stabilește consiliul local, deci suma diferă pe localități."
+    },
+    {
+      "rezumat": "Cota impozitului pe clădirile de locuit nu poate fi mai mică decât cea din 2025",
+      "rezumat_en": "The residential building tax rate cannot be lower than the 2025 rate",
+      "taguri": [
+        "proprietar"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 457 alin. (1^1) din Codul fiscal",
+      "citat": "Cota impozitului pe clădiri stabilită potrivit alin. (1) pentru anul, nu poate fi mai mică decât cota stabilită pentru anul 2025.",
+      "niveluri": {
+        "zero": "Primăria nu poate scădea cota impozitului pe clădirea ta sub cea din 2025.",
+        "curios": "Consiliul local alege cota în limitele din Codul fiscal, dar acum nu poate coborî sub cota din 2025.",
+        "expert": "Art. 457 alin. (1^1) introduce un prag minim pentru cota stabilită potrivit alin. (1). Pentru anul 2026, art. 458 alin. (2) și art. 460 alin. (10) cer același lucru pentru cotele din articolele respective, a căror formulare completă nu e în textul primit. Art. 458 alin. (3) se abrogă. Art. 460 alin. (1) și (4) se abrogă, iar abrogările și alin. (10) intră în vigoare la 1 ianuarie 2027 (art. XIII alin. (1) lit. c)). Art. 457 alin. (1^1) intră în vigoare la 1 ianuarie 2026."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Compară cota de pe decizia de impunere din 2026 cu cea din 2025: nu trebuie să fie mai mică.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Cota din 2025 și cea din 2026 diferă pe localități și nu sunt în textul primit, deci nu calculăm suma. Efectul cumulat cu noile valori impozabile e în schimbarea separată despre art. 457 alin. (2)."
+    },
+    {
+      "rezumat": "Impozit suplimentar de 0,9% pe partea din valoarea unei locuințe care trece de 2.500.000 lei",
+      "rezumat_en": "Extra 0.9% tax on the part of a home's value above 2,500,000 lei",
+      "taguri": [
+        "proprietar"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 500^2 lit. a) din Codul fiscal",
+      "citat": "prin aplicarea unei cote de 0,9% asupra diferenței dintre valoarea impozabilă a clădirii comunicată de către organul fiscal local și plafonul de 2.500.000 lei",
+      "niveluri": {
+        "zero": "Dacă o clădire de locuit are valoarea impozabilă peste 2.500.000 lei, plătești 0,9% din partea care depășește această sumă.",
+        "curios": "Valoarea impozabilă ți-o comunică primăria. Se ia doar diferența peste 2.500.000 lei, nu valoarea întreagă. Regula privește proprietățile care sunt clădiri rezidențiale.",
+        "expert": "Art. 500^2 lit. a) este modificat: pentru clădirile rezidențiale, cota de 0,9% se aplică asupra diferenței dintre valoarea impozabilă comunicată de organul fiscal local și plafonul de 2.500.000 lei. Intră în vigoare la 1 ianuarie 2026 (art. XIII alin. (1) lit. a), pct. 51)."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Dacă locuința ta are valoare mare, verifică la primărie valoarea impozabilă comunicată și dacă a fost depășit plafonul de 2.500.000 lei.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Valoarea impozabilă a clădirii nu e în profil, deci nu avem o condiție pe câmp din Valori și nu calculăm suma. Termenul și modul de plată al acestui impozit sunt la art. 500^2, care nu e în textul primit în întregime."
+    },
+    {
+      "rezumat": "Impozit suplimentar de 0,9% pe partea din prețul unei mașini care trece de 375.000 lei",
+      "rezumat_en": "Extra 0.9% tax on the part of a car's purchase price above 375,000 lei",
+      "taguri": [
+        "masina"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 500^2 lit. b) din Codul fiscal",
+      "citat": "prin aplicarea unei cote de 0,9% asupra diferenței dintre valoarea de achiziție și plafonul de 375.000 lei",
+      "niveluri": {
+        "zero": "Dacă ai cumpărat un autoturism cu mai mult de 375.000 lei, plătești 0,9% din partea care depășește această sumă.",
+        "curios": "Contează valoarea de achiziție a autoturismului. Se ia doar diferența peste 375.000 lei. Pentru un autoturism sub această valoare, regula nu schimbă nimic.",
+        "expert": "Art. 500^2 lit. b) este modificat: pentru autoturisme, cota de 0,9% se aplică asupra diferenței dintre valoarea de achiziție și plafonul de 375.000 lei. Intră în vigoare la 1 ianuarie 2026 (art. XIII alin. (1) lit. a), pct. 51)."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Dacă ai un autoturism cumpărat cu mai mult de 375.000 lei, verifică la primărie dacă ți s-a calculat taxa pe diferența peste acest plafon.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Valoarea de achiziție a mașinii nu e în profil, deci nu calculăm suma. Modul și termenul de plată sunt la art. 500^2, care nu e în textul primit în întregime."
+    },
+    {
+      "rezumat": "Impozitul pe mașină se calculează după cilindree și norma Euro, cu sume noi pe 200 cmc",
+      "rezumat_en": "Car tax is calculated by engine size and Euro emissions class, with new amounts per 200 cc",
+      "taguri": [
+        "masina"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": "impozit_auto",
+      "formula_tip": null,
+      "articol": "art. 470 alin. (2) din Codul fiscal",
+      "citat": "Motociclete, tricicluri, cvadricicluri și autoturisme cu capacitatea cilindrică de până la 1.600 cmc inclusiv 19,5 18,8 17,6 16,5 16,2",
+      "niveluri": {
+        "zero": "Impozitul pe mașină depinde acum de cilindree și de norma de poluare (Euro), cu sume noi pe fiecare 200 cmc.",
+        "curios": "Înmulțești numărul de grupe de 200 cmc (sau fracțiune) cu suma din tabel, după norma de poluare a mașinii. Pentru autoturismele până la 1.600 cmc, sumele sunt 19,5 (non-euro, E0-E3), 18,8 (E4), 17,6 (E5), 16,5 (E6) și 16,2 pentru hibride cu emisii de CO2 peste 50 g/km. Autovehiculele electrice plătesc 40 lei pe an.",
+        "expert": "Art. XII pct. 43 înlocuiește tabelul de la art. 470 alin. (2) și adaugă norma de poluare; pct. 44 introduce schimbul de date între ministere pentru norma de poluare (alin. (2^1)); pct. 46 introduce alin. (3^1): 40 lei/an pentru autovehiculele acționate electric; pct. 45 reduce impozitul hibridelor cu emisii de cel mult 50 g/km cu maximum 30%, prin hotărâre a consiliului local. Art. 469 alin. (4)-(7) se abrogă, iar art. 487^1 se abrogă. Intră în vigoare la 1 ianuarie 2026 (art. XIII alin. (1) lit. a))."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică pe decizia de impunere de la primărie că ți s-a aplicat grupa de cilindree și norma de poluare corectă din certificatul mașinii.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Sumele vechi nu sunt în textul primit, deci nu știm cât se schimbă. Formula impozit_auto este exemplul din presă din catalog (o mașină de 1.400 cmc Euro 5), nu o cifră din lege. Sumele din tabel sunt fără indexare (art. 491 exclude art. 470 alin. (2) de la indexare)."
+    },
+    {
+      "rezumat": "Chiria de apartament sau casă: cheltuielile se scad forfetar cu 20% din venitul brut, impozit 10%",
+      "rezumat_en": "Rental income: expenses are deducted at a flat 20% of gross income, with 10% tax",
+      "taguri": [
+        "proprietar"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 84 alin. (3) din Codul fiscal",
+      "citat": "se stabilește prin deducerea din venitul brut a cheltuielilor determinate prin aplicarea cotei de 20% asupra venitului brut",
+      "niveluri": {
+        "zero": "Dacă închiriezi o locuință, din venitul brut se scade automat 20% pentru cheltuieli, iar pe restul plătești 10% impozit.",
+        "curios": "Se aplică o cotă forfetară de 20% din venitul brut pentru cheltuieli. Impozitul de 10% se calculează pe venitul net anual rămas. La chiriile plătite de firme, venitul net se stabilește la fiecare plată, cu aceeași cotă de 20%.",
+        "expert": "Art. 84 alin. (1) și (3) și art. 84^1 alin. (1) și (3) sunt modificate: venitul net se stabilește cu cota de 20%, cu excluderea din regula generală a arendării bunurilor agricole și a închirierii pe termen scurt a camerelor (art. 85). Art. 123 alin. (2) fixează cota de 10% asupra venitului net anual. Art. 83 alin. (5) cere înregistrarea contractului de închiriere la organul fiscal în cel mult 30 de zile de la încheiere sau de la modificare. Se aplică veniturilor din 2026 (art. XIII alin. (2) lit. b))."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Înregistrează contractul de închiriere la organul fiscal în cel mult 30 de zile de la încheiere sau de la modificare și declară venitul în Declarația unică.",
+          "termen": null,
+          "destinatie": "anaf_formulare",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Cota veche de cheltuieli nu e în textul primit, deci nu știm dacă 20% e mai bun sau mai rău decât înainte. Procedura de înregistrare a contractelor se stabilește prin ordin ANAF (art. 83 alin. (6)), de verificat. Nu știm din text dacă obligația de înregistrare este nouă. Termenul Declarației unice nu e în textul primit."
+    },
+    {
+      "rezumat": "Închirierea pe termen scurt a 1-7 camere: cheltuieli forfetare de 30%, impozit final de 10%",
+      "rezumat_en": "Short-term rental of 1 to 7 rooms: flat 30% expenses, final tax of 10%",
+      "taguri": [
+        "proprietar"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 85 alin. (2) din Codul fiscal",
+      "citat": "Venitul net anual din închirierea pe termen scurt a camerelor situate în locuințe proprietate personală se determină prin deducerea din venitul brut a cheltuielilor determinate prin aplicarea cotei forfetare de 30% asupra venitului brut",
+      "niveluri": {
+        "zero": "Dacă dai în chirie pe termen scurt între 1 și 7 camere din locuințele tale, scazi automat 30% din venit și plătești 10% impozit pe rest.",
+        "curios": "Contează camerele din locuințe proprietate personală, oricâte locuințe ai. Închirierea pe termen scurt înseamnă cel mult 30 de zile neîntrerupte aceleiași persoane. Comisionul reținut de platforma de rezervări nu intră în venitul brut. Ții fișa de ocupare a capacității de cazare și completezi doar partea de venituri din Registrul de evidență fiscală.",
+        "expert": "Art. 83 alin. (2)-(4) și art. 85 sunt noi: veniturile din 1-7 camere intră la cedarea folosinței bunurilor; peste 7 camere sunt venituri din activități independente (art. 68^3). Cota forfetară este 30%, impozitul 10% și este final, plătit integral la bugetul de stat prin Declarația unică. Sumele în valută se convertesc la cursul BNR din ultima zi bancară anterioară încasării. Art. 87 se abrogă. Se aplică veniturilor din 2026 (art. XIII alin. (2) lit. b)); pentru veniturile din 2025 rămân regulile vechi (art. 133 alin. (35))."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Completează și păstrează fișa de ocupare a capacității de cazare (perioada de ocupare și datele persoanelor cazate) și declară venitul în Declarația unică.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Regimul vechi nu e în textul primit, deci nu știm dacă impozitul crește sau scade. Modelul fișei de ocupare se aprobă prin ordin ANAF (art. 85 alin. (9)), de verificat. Termenul Declarației unice (art. 122 alin. (3)) nu e în textul primit."
+    },
+    {
+      "rezumat": "Servicii de cazare ca PFA sau peste 7 camere: cheltuieli forfetare de 30% și impozit final de 10%",
+      "rezumat_en": "Accommodation services as a sole trader or over 7 rooms: flat 30% expenses and final 10% tax",
+      "taguri": [
+        "pfa",
+        "horeca"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 68^3 alin. (2) din Codul fiscal",
+      "citat": "Venitul net anual din prestarea de servicii de cazare se determină prin deducerea din venitul brut a cheltuielilor determinate prin aplicarea cotei forfetare de 30% asupra venitului brut",
+      "niveluri": {
+        "zero": "Dacă oferi cazare ca PFA sau închiriezi peste 7 camere pe termen scurt, scazi 30% din venit și plătești 10% impozit final.",
+        "curios": "Regula se aplică operatorilor din turism care sunt contribuabili persoane fizice și celor cu peste 7 camere închiriate pe termen scurt în locuințe proprietate personală. Nu ții contabilitate: completezi doar partea de venituri din Registrul de evidență fiscală. Dacă mai ai și alte activități independente în același an, pentru ele rămân regulile art. 68 și 69.",
+        "expert": "Art. 68^3 este nou: venitul net anual din cazare se determină cu cota forfetară de 30% asupra venitului brut, iar impozitul de 10% este final (alin. (6)). Comisionul platformelor nu intră în venitul brut (alin. (3)). Sumele în valută se convertesc la cursul BNR din ultima zi bancară anterioară încasării. Art. 67 alin. (1^1) și art. 83 alin. (4) trimit la art. 68^3 pentru peste 7 camere. Se aplică veniturilor din 2026 (art. XIII alin. (2) lit. b)); pentru veniturile independente din închirierea în scop turistic din 2025 rămân obligațiile din 2025 (art. 133 alin. (34))."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Completează fișa de ocupare a capacității de cazare și declară impozitul în Declarația unică, până la termenul de la art. 122 alin. (3).",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Regimul vechi (sistem real sau normă de venit) nu e în textul primit, deci nu știm dacă impozitul crește sau scade. Definiția operatorilor din turism e în legislația specifică, nu în textul primit. Termenul Declarației unice nu e în textul primit."
+    },
+    {
+      "rezumat": "Clădirile folosite ca sere sau silozuri sunt scutite de impozit în 2026, iar din 2027 plătesc cu 50% mai puțin",
+      "rezumat_en": "Greenhouses and silos are exempt from building tax in 2026, then get a 50% reduction from 2027",
+      "taguri": [
+        "agricultura"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 456 alin. (3) din Codul fiscal",
+      "citat": "sunt scutite de la plata impozitului pe clădiri, iar începând cu anul 2027 pentru acestea impozitul pe clădiri se reduce cu 50%",
+      "niveluri": {
+        "zero": "Serele, solariile, silozurile și pătulele nu plătesc impozit pe clădiri în 2026, iar din 2027 plătesc jumătate.",
+        "curios": "Scutirea privește clădirile folosite ca sere, solare, răsadnițe, ciupercării, silozuri pentru furaje și silozuri sau pătule pentru cereale. Încăperile folosite pentru alte activități economice nu intră.",
+        "expert": "Art. 456 alin. (3) este modificat: în 2026 clădirile enumerate sunt scutite, iar de la 2027 impozitul se reduce cu 50%. Alin. (2^1)-(2^3), (3^1), (6) și (6^1) ale art. 456 se abrogă; lista scutirilor obligatorii (alin. (1)) și a celor la alegerea consiliului local (alin. (2)) este rescrisă. Intră în vigoare la 1 ianuarie 2026 (art. XIII alin. (1) lit. a))."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică pe decizia de impunere din 2026 că pentru sere, solare și silozuri nu s-a calculat impozit pe clădiri.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Suma depinde de clădirile fiecăruia și nu avem impozitul acestor clădiri separat în profil. Nu știm din text dacă scutirea e nouă sau doar reformulată. Pentru 2027 scutirea totală dispare conform textului, iar reducerea de 50% începe; nu avem termenul pentru cereri."
+    },
+    {
+      "rezumat": "Impozitul pe terenurile agricole și pe teren cu construcții are sume noi pe categorii de folosință",
+      "rezumat_en": "Tax on farmland and on land with buildings has new amounts by land use category",
+      "taguri": [
+        "agricultura"
+      ],
+      "in_vigoare_de_la": "2026-01-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. 465 alin. (4) și (7) din Codul fiscal",
+      "citat": "Categoria de folosințăImpozit (lei) 1.Teren cu construcții60-83 2.Teren arabil112-134",
+      "niveluri": {
+        "zero": "Tabelele cu sumele impozitului pe teren au fost înlocuite, de la 1 ianuarie 2026.",
+        "curios": "Intervalele sunt, de exemplu, 60-83 pentru teren cu construcții și 112-134 pentru teren arabil. Alte categorii au intervale proprii, de la 3-15 pentru teren cu apă la 129-150 pentru livadă.",
+        "expert": "Art. XII pct. 39 înlocuiește tabelele de la art. 465 alin. (4) (sume pe zone A-D și categorii de folosință) și alin. (7) (intervale în lei). Alin. (2) și (5^1) ale art. 463 și scutirile de la art. 464 sunt rescrise (pct. 34-38). Intră în vigoare la 1 ianuarie 2026 (art. XIII alin. (1) lit. a))."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică pe decizia de impunere că terenul tău e încadrat în categoria de folosință și în zona corecte din tabelele de la art. 465.",
+          "termen": null,
+          "destinatie": "primaria",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Sumele vechi nu sunt în textul primit, deci nu știm direcția. Tabelele din text au coloane lipite și nu au unitate de măsură, de verificat în Monitorul Oficial. Suprafața terenului nu e în profil. Nu există o etichetă pentru proprietari de teren; am folosit agricultura."
+    }
+  ]
+}

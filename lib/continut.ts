@@ -7,7 +7,7 @@ import parteneriJson from "@/business/parteneri.json";
 import type { Niveluri, Schimbare } from "./catalog";
 import type { Limba } from "./i18n";
 import { destinatie } from "./destinatii";
-import { actEn } from "./traduceri";
+import { actEn, numeDestinatie } from "./traduceri";
 
 type NivelIasmina = Niveluri & { surse: string[] };
 const NIVELURI = niveluriJson as Record<string, NivelIasmina>;
@@ -112,9 +112,10 @@ export function furnizori(idSchimbare: string): Furnizor[] {
 const REGISTRU_PROFESIE: Record<string, string> = { contabil: "ceccar_tablou", "consultant fiscal": "ccf_registru" };
 
 /** Registrul profesiei vine din lista de destinații verificate (data/destinatii.json). */
-function registru(profesie: string): { nume: string; url: string } | null {
-  const d = destinatie(REGISTRU_PROFESIE[profesie]);
-  return d?.url ? { nume: d.nume, url: d.url } : null;
+function registru(profesie: string, limba: Limba): { nume: string; url: string } | null {
+  const id = REGISTRU_PROFESIE[profesie];
+  const d = destinatie(id);
+  return d?.url ? { nume: numeDestinatie(id, d.nume, limba).text, url: d.url } : null;
 }
 
 export type Specialist = {
@@ -136,6 +137,6 @@ export function specialist(s: Schimbare, limba: Limba = "ro"): Specialist | null
     intrebare: d?.intrebare ?? null,
     documente: d?.documente ?? null,
     limba: en ? "en" : "ro",
-    registru: registru(s.profesionist),
+    registru: registru(s.profesionist, limba),
   };
 }

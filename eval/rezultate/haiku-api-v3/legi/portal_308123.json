@@ -1,0 +1,317 @@
+{
+  "act": "OUG 11/2026",
+  "mo": "MO necunoscut (actul e datat 5 martie 2026)",
+  "publicat_la": "2026-03-05",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Tinerii NEET care se angajează pentru prima dată primesc 1.000 lei pe lună, iar apoi 1.250 lei, timp de 24 de luni",
+      "rezumat_en": "Young NEETs who take their first full-time permanent job receive 1,000 lei a month, then 1,250 lei, for 24 months",
+      "taguri": [
+        "caut_primul_job"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [
+        {
+          "camp": "varsta",
+          "op": ">=",
+          "valoare": 16
+        },
+        {
+          "camp": "varsta",
+          "op": "<",
+          "valoare": 30
+        }
+      ],
+      "formula": "prima_stabilitate_economie",
+      "formula_tip": null,
+      "articol": "art. I pct. 15, art. 76^5 alin. (1)",
+      "citat": "1.000 lei lunar, pentru primele 12 luni de la data încadrării în muncă",
+      "niveluri": {
+        "zero": "Dacă ai între 16 și 30 de ani, nu ești în școală sau formare și te angajezi pentru prima dată cu normă întreagă și contract pe durată nedeterminată, primești o primă de stabilitate de la agenția pentru ocuparea forței de muncă.",
+        "curios": "Prima este de 1.000 lei pe lună în primele 12 luni de la angajare și de 1.250 lei pe lună în următoarele 12 luni. Este neimpozabilă și nu se plătesc pe ea contribuții sociale obligatorii. Dacă pleci de la angajator înainte de 24 de luni, dar contractul s-a încheiat din motivele din Codul muncii pe care le enumeră legea, trebuie să restitui integral sumele primite. Dacă pleci și te angajezi la alt angajator în maximum 60 de zile, dreptul la primă se păstrează.",
+        "expert": "Art. 76^5 alin. (1): 1.000 lei lunar (lit. a) pentru primele 12 luni, 1.250 lei lunar (lit. b) pentru următoarele 12 luni consecutive, din bugetul asigurărilor pentru șomaj. Alin. (2) exclude angajarea la instituții și autorități publice, la regii autonome, la societăți cu acționar majoritar stat sau UAT și la institute de cercetare sub autoritate publică. Alin. (3): prima se acordă proporțional cu timpul lucrat, inclusiv în concediul de odihnă. Alin. (4): menținerea dreptului la schimbarea angajatorului, cu maximum 60 de zile în afara statutului de angajat. Alin. (5) și (6): restituire și recuperare conform art. 47. Alin. (7): nu se cumulează cu prima de inserție, de activare, de mobilitate sau de relocare."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Înregistrează-te în evidența agenției pentru ocuparea forței de muncă din județul tău înainte de a începe munca. Prima se acordă doar dacă te încadrezi pentru prima dată, cu normă întreagă și pe durată nedeterminată.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        },
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Verifică la agenție, lunar, că prima se plătește: 1.000 lei în primele 12 luni și 1.250 lei în următoarele 12 luni de la încadrare. Dacă pleci înainte de 24 de luni, verifică dacă ești obligat să restitui sumele, în funcție de motivul încetării contractului.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Data intrării în vigoare nu e în text și antetul spune necunoscută. Am dedus-o ca fiind data publicării, 5 martie 2026, pentru că ordonanțele de urgență intră în vigoare la publicare (Constituția, art. 115 alin. (5)). Data publicării în Monitorul Oficial nu e în textul primit. Articolele din Codul muncii la care trimite alin. (5) (art. 55 lit. b, art. 61 lit. a, art. 81) nu sunt în textul primit, deci nu le descriem; de verificat. Ce înseamnă „pentru prima dată în muncă” nu este definit în text."
+    },
+    {
+      "rezumat": "Dacă restitui în 180 de zile o indemnizație de șomaj plătită greșit, nu mai plătești dobânzi și penalități",
+      "rezumat_en": "If you repay an unemployment benefit paid in error within 180 days, you do not pay late-payment interest or penalties",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 6, art. 47 alin. (4) și (5); art. II alin. (1) și (2)",
+      "citat": "se recuperează fără perceperea de obligații fiscale accesorii, dacă acestea sunt restituite de beneficiari în termen de maximum 180 de zile de la comunicarea deciziilor",
+      "niveluri": {
+        "zero": "Dacă ai primit o indemnizație de șomaj pe care nu trebuia să o primești și ai primit o decizie de recuperare, poți s-o returnezi în 180 de zile fără dobânzi și penalități.",
+        "curios": "Termenul de 180 de zile se numără de la comunicarea deciziei agenției. Dacă nu plătești în acest termen, sumele se recuperează după regulile obișnuite din Legea 500/2002, iar dobânzile și penalitățile se calculează și pentru cele 180 de zile. Pentru sumele deja neîncasate la data intrării în vigoare, termenul a curs de la această dată.",
+        "expert": "Art. 47 alin. (4): recuperarea fără obligații fiscale accesorii, dacă restituirea se face în maximum 180 de zile de la comunicarea deciziei, prin derogare de la art. 73^1 din Legea 500/2002. Alin. (5): după expirarea termenului, recuperarea se face conform art. 73^1, iar accesoriile se calculează inclusiv pentru cele 180 de zile. Art. II alin. (1)-(2): sumele nerecuperate la data intrării în vigoare se recuperează conform alin. (4)-(5), iar termenul de 180 de zile se calculează de la intrarea în vigoare a ordonanței."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ai primit o decizie de recuperare a indemnizației de șomaj, plătește suma în maximum 180 de zile de la comunicarea deciziei, ca să eviți dobânzile și penalitățile pentru această perioadă.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Sumele deja recuperate sau restituite nu sunt afectate. Pentru sumele nerecuperate până la 5 martie 2026 (data dedusă a intrării în vigoare), termenul de 180 de zile ar fi expirat la 1 septembrie 2026. Data intrării în vigoare nu e în text, deci e dedusă (vezi nota de la prima schimbare). Suma de recuperat nu e în text, deci formula e null."
+    },
+    {
+      "rezumat": "Victimele violenței domestice sau ale traficului de persoane care nu au putut lucra pot beneficia de măsurile de ocupare",
+      "rezumat_en": "Victims of domestic violence or human trafficking who could not work can access employment measures",
+      "taguri": [
+        "somer",
+        "persoana_handicap"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 3 (art. 16 lit. g)",
+      "citat": "nu au putut ocupa loc de muncă și sunt victime ale violenței domestice aflate în perioada valabilității măsurilor dispuse prin ordin de protecție",
+      "niveluri": {
+        "zero": "Dacă ești victimă a violenței domestice sau a traficului de persoane și nu ai putut lucra, legea te include între categoriile protejate la angajare.",
+        "curios": "Categoria acoperă victimele violenței domestice cât timp are valabilitate un ordin de protecție, plus 12 luni de la expirarea lui. Acoperă și victimele traficului de persoane, cu definiția din Legea 678/2001. Pentru victimele violenței domestice, dovada este ordinul de protecție emis potrivit Legii 217/2003.",
+        "expert": "Art. 16 lit. g), modificat: categoria celor care nu au putut ocupa loc de muncă și sunt victime ale violenței domestice (în perioada ordinului de protecție și 12 luni după expirarea lui) sau victime ale traficului de persoane. Textul nu conține enumerarea măsurilor pentru care contează această categorie, iar art. 85 alin. (1) o folosește pentru angajatori; de verificat în textul consolidat al art. 16."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ești în această situație, prezintă-te la agenția pentru ocuparea forței de muncă din județul tău cu ordinul de protecție emis potrivit Legii 217/2003, sau cu dovada că ești victimă a traficului, pentru a fi încadrat în categoria respectivă.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Art. 16 are și o parte introductivă, care nu e în textul primit. Nu știm ce drepturi concrete dă această categorie pentru persoana în sine, doar că se folosește la angajatori (art. 85). De verificat. Taguri: „persoana_handicap” nu se potrivește aici, iar eticheta corectă ar trebui să fie una pentru victime; până atunci am ales „somer”, care e cel mai apropiat. Data intrării în vigoare dedusă ca la prima schimbare."
+    },
+    {
+      "rezumat": "Pentru șomerii sub 30 de ani, statutul de șomer de lungă durată apare după 6 luni, nu după 12",
+      "rezumat_en": "For unemployed people under 30, long-term unemployed status applies after 6 months instead of 12",
+      "taguri": [
+        "somer",
+        "caut_primul_job"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [
+        {
+          "camp": "varsta",
+          "op": ">=",
+          "valoare": 16
+        },
+        {
+          "camp": "varsta",
+          "op": "<",
+          "valoare": 30
+        }
+      ],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 1 (art. 5 pct. IV^2)",
+      "citat": "pe o perioadă de 6 luni, în cazul persoanelor cu vârsta cuprinsă între 16 ani și până la împlinirea vârstei de 30 de ani",
+      "niveluri": {
+        "zero": "Dacă ai sub 30 de ani și ești șomer de peste 6 luni, legea te consideră șomer de lungă durată.",
+        "curios": "Pentru persoanele de peste 30 de ani, pragul rămâne de 12 luni. Statutul de șomer de lungă durată deschide accesul la măsuri de ocupare, iar angajatorii care te angajează primesc sprijin, ceea ce poate face mai ușoară găsirea unui loc de muncă.",
+        "expert": "Art. 5 pct. IV^2: șomer de lungă durată este persoana care este șomer pe o perioadă mai mare de 12 luni (peste 30 de ani) sau pe o perioadă de 6 luni (16 ani până la 30 de ani). Definiția e folosită și de art. 85 alin. (1) pentru angajatori."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "stat",
+          "text": "Dacă ai sub 30 de ani și ești în evidența agenției de peste 6 luni, întreabă agenția dacă ești înregistrat ca șomer de lungă durată și dacă ai acces la măsurile pentru această categorie.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Textul nu spune cum se evidențiază statutul în sistemul agenției. Data intrării în vigoare dedusă ca la prima schimbare."
+    },
+    {
+      "rezumat": "Angajatorul care încadrează un șomer de lungă durată, tânăr NEET sau o persoană din alte categorii primește 2.250 lei pe lună, 12 luni",
+      "rezumat_en": "An employer who hires a long-term unemployed person, a young NEET or someone from other listed groups gets 2,250 lei a month for 12 months",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": {
+        "tip": "suma_fixa_lunar",
+        "parametri": {
+          "lei": 2250
+        }
+      },
+      "articol": "art. I pct. 17 (art. 85 alin. (1))",
+      "citat": "o sumă în cuantum de 2.250 lei, cu obligația menținerii desfășurării raporturilor de muncă sau de serviciu cel puțin 18 luni",
+      "niveluri": {
+        "zero": "Dacă angajezi în muncă pe durată nedeterminată un șomer de lungă durată, un tânăr NEET sau altă persoană din categoriile legii, primești 2.250 lei pe lună din bugetul asigurărilor pentru șomaj.",
+        "curios": "Suma se primește 12 luni pentru fiecare persoană angajată. Trebuie să menții raporturile de muncă cel puțin 18 luni. Legea acoperă și cazul în care persoana își pierde statutul de părinte unic susținător sau de persoană cu handicap în timpul acordării sumei, cu anumite condiții. Pentru șomerii care ajung în 2 ani la condițiile de pensie anticipată sau de pensie pentru limită de vârstă, suma se acordă pe perioada angajării.",
+        "expert": "Art. 85 alin. (1), modificat: angajatorii care încadrează pe perioadă nedeterminată șomeri de peste 50 de ani, părinți unici susținători, șomeri de lungă durată, tineri NEET, persoane din art. 16 lit. g), mame cu cel puțin 3 copii sub 18 ani sau foști deținuți primesc 2.250 lei lunar, 12 luni, cu menținerea raporturilor de muncă cel puțin 18 luni. Alin. (3): facilitățile rămân dacă beneficiarii își pierd statutul din motive legate de ordinul de protecție. Alin. (5): suma de 2.250 lei pentru șomerii care în 2 ani ajung la condițiile de pensie, pe perioada angajării."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă angajezi o persoană din categoriile legii, cere agenției pentru ocuparea forței de muncă să încheie convenția de stimulare înainte de a începe lucrul. Angajarea trebuie să fie pe durată nedeterminată, iar raporturile de muncă trebuie menținute cel puțin 18 luni.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Articolul III alin. (1) arată că măsurile se acordă în baza unor convenții cu agențiile, dar procedura nu e în textul primit; de verificat. Suma se plătește din bugetul asigurărilor pentru șomaj, nu de la stat direct. Data intrării în vigoare dedusă ca la prima schimbare."
+    },
+    {
+      "rezumat": "Dacă demisionezi în perioada în care ai primit o măsură de angajare, nu mai poți primi aceeași măsură timp de 24 de luni",
+      "rezumat_en": "If you resign during a hiring subsidy period, you cannot get the same measure again for 24 months",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "cost",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 30 (art. 95 alin. (1^1a) și (1^1b))",
+      "citat": "pot fi încadrate din nou prin astfel de măsuri numai după expirarea unui termen de minimum 24 luni",
+      "niveluri": {
+        "zero": "Dacă demisionezi în timp ce ești încadrat printr-o măsură de angajare, nu mai poți fi încadrat din nou prin astfel de măsuri pentru 24 de luni.",
+        "curios": "Restricția nu se aplică dacă demisia a fost determinată de încălcări grave ale drepturilor tale de către angajator, constatate printr-o hotărâre judecătorească definitivă sau prin acte ale organelor abilitate, rămase definitive.",
+        "expert": "Art. 95 alin. (1^1a): persoanele încadrate prin măsuri de stimulare, a căror demisie a survenit în perioada de acordare a măsurilor sau în perioada de menținere obligatorie, pot fi reîncadrate prin astfel de măsuri numai după minimum 24 de luni de la reînregistrarea la agenție. Alin. (1^1b): excepție pentru demisia determinată de încălcări grave ale drepturilor, constatate definitiv."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Înainte de a demisiona dintr-un loc de muncă obținut printr-o măsură de angajare, află de la agenție dacă ai dreptul la o nouă măsură și din ce dată. Dacă demisia e determinată de încălcări grave ale drepturilor tale, pregătește hotărârea judecătorească sau actul organului abilitat.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Restricția se aplică doar la măsurile de stimulare. Demisia fără motiv grav nu e interzisă, doar reîncadrarea prin măsuri. Data intrării în vigoare dedusă ca la prima schimbare."
+    },
+    {
+      "rezumat": "Șomerii tineri cu risc de excluziune și persoanele din grupuri vulnerabile pot primi sprijin personalizat gratuit, prin contract de solidaritate",
+      "rezumat_en": "Young people at risk of social exclusion and people from vulnerable groups can get free personalised support through a solidarity contract",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 21 (art. 93^2 alin. (1) și (2))",
+      "citat": "se acordă în mod gratuit tinerilor cu risc de marginalizare socială și persoanelor care fac parte dintr-un grup vulnerabil",
+      "niveluri": {
+        "zero": "Dacă ești tânăr cu risc de marginalizare socială sau faci parte dintr-un grup vulnerabil, poți primi sprijin personalizat de la agenția pentru ocuparea forței de muncă, gratuit, printr-un contract de solidaritate.",
+        "curios": "Contractul se încheie pe cel puțin un an și cel mult trei ani. Conținutul serviciilor e stabilit în lege, dar lista exactă nu e în textul primit. Angajatorii care te încadrează în timpul contractului pot primi sume lunare din bugetul asigurărilor pentru șomaj.",
+        "expert": "Art. 93^2 alin. (1): acompaniament social personalizat, gratuit, prin agențiile teritoriale, în baza unui contract de solidaritate. Alin. (2): durata de 1 până la 3 ani. Art. 93^4 (modificat): sumă lunară pentru angajatorul de inserție, de patru ori indicatorul social de referință, până la expirarea contractului. Art. 93^6: 50% din indemnizația de șomaj, dacă angajatorul menține raportul după expirarea contractului."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ești tânăr cu risc de marginalizare socială sau faci parte dintr-un grup vulnerabil, cere la agenția teritorială acompaniament social personalizat și întreabă de contractul de solidaritate.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Definiția grupului vulnerabil este în art. 6 alin. (1) lit. j) din Legea 219/2015, text care nu e în textul primit; de verificat. Lista serviciilor din art. 93^2 alin. (1) nu e în text. Data intrării în vigoare dedusă ca la prima schimbare."
+    },
+    {
+      "rezumat": "PFA-ul plătește contribuția la șomaj pe un venit cuprins între salariul minim și de 5 ori salariul minim",
+      "rezumat_en": "A sole trader pays unemployment contributions on income between the minimum wage and five times the minimum wage",
+      "taguri": [
+        "pfa"
+      ],
+      "in_vigoare_de_la": "2026-03-05",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 4 (art. 22 alin. (2))",
+      "citat": "Venitul lunar pentru care se asigură persoanele prevăzute la art. 20 nu poate fi mai mic decât salariul de bază minim brut pe țară garantat în plată",
+      "niveluri": {
+        "zero": "Dacă ești PFA, venitul la care îți calculezi contribuția la șomaj nu poate fi sub salariul minim brut și nici peste de 5 ori salariul minim.",
+        "curios": "Pentru un venit mai mic decât salariul minim, contribuția se calculează la nivelul salariului minim. Pentru un venit peste de 5 ori salariul minim, contribuția se calculează doar până la acest plafon. Cifrele exacte depind de salariul minim din luna respectivă.",
+        "expert": "Art. 22 alin. (2), modificat: venitul lunar pentru care se asigură persoanele prevăzute la art. 20 nu poate fi mai mic decât salariul de bază minim brut pe țară garantat în plată (art. 164 alin. (1) din Codul muncii) și nu poate fi mai mare decât de 5 ori salariul minim în vigoare în luna pentru care se plătește contribuția (art. 20 alin. (2)). Art. 20 nu e în textul primit, și nici forma veche a art. 22 alin. (2)."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Verifică în declarația ta că venitul pe care ai calculat contribuția la șomaj e cuprins între salariul minim brut și de 5 ori salariul minim din luna respectivă.",
+          "termen": null,
+          "destinatie": "anaf_declaratia_unica",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Textul nu spune care era regula anterioară, deci nu știm dacă pentru tine e o schimbare în plus sau în minus. Art. 20, care spune cine sunt persoanele asigurate, nu e în textul primit; de verificat. Data intrării în vigoare dedusă ca la prima schimbare."
+    }
+  ]
+}

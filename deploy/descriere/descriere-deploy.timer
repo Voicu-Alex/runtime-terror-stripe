@@ -1,0 +1,10 @@
+[Unit]
+Description=Verifică main la fiecare 3 minute
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=3min
+RandomizedDelaySec=20
+
+[Install]
+WantedBy=timers.target

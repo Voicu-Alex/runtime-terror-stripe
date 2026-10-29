@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Ce înseamnă pentru mine",
     short_name: "Ce înseamnă",
-    description: "Fiecare lege nouă, tradusă în lei pe lună pentru tine. / Every new law, translated into lei per month for you.",
+    description: "Fiecare lege nouă, tradusă în lei pe an pentru tine. / Every new law, translated into lei per year for you.",
     start_url: "/flux",
     display: "standalone",
     background_color: "#FFFFFF",

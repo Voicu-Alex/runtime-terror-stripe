@@ -1,5 +1,6 @@
 import type { Valori } from "./profil";
 import { TAGURI, TOATE_TAGURILE, type TagId } from "./taguri";
+import { VOCE_ASISTENT } from "./voce";
 
 /** Contractul dintre ruta de API și pagina /documente. Doar extragere; nicio sumă calculată, niciun sfat. */
 
@@ -103,6 +104,9 @@ export const INSTRUCTIUNI_MODEL = `Ești modulul de extragere al aplicației „
 
 Lista de etichete și ce înseamnă:
 ${TOATE_TAGURILE.map((t) => `- ${t}: ${TAGURI[t].eticheta} (familia „${TAGURI[t].familie}”)`).join("\n")}
+
+Vocea asistentului:
+${VOCE_ASISTENT}
 
 Reguli:
 1. Propui o etichetă doar dacă documentul o susține direct. Un contract de muncă susține „angajat”; dacă angajatorul e din IT, și „it”. O factură de gaz susține „consumator_gaz”; una de curent, „consumator_energie”. Un cupon de pensie susține „pensionar”.

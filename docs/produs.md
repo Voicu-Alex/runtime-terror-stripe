@@ -14,7 +14,7 @@ Când apare un act normativ care atinge una din etichetele tale, primești o not
 
 Fluxul tău este cronologic. Fiecare element are o stare: proiect (în consultare, poate să se schimbe), adoptat (publicat, nu a intrat încă în vigoare), în vigoare, termen depășit. Bara „Planul meu" arată impactul pe 12 luni fără acțiuni și cu acțiunile alese, plus următorul termen.
 
-Nu ai nevoie de cont bancar și nu legi nimic. Profilul rămâne pe telefonul tău.
+Nu conectezi conturi bancare. Profilul manual este salvat în browser, dar documentele încărcate sunt trimise serverului aplicației și, pentru analiza AI, la Anthropic. Vezi [fluxurile de date verificate](date-personale.md).
 
 ## Audiența, nevoia financiară, experiența produsului
 
@@ -71,7 +71,7 @@ România s-ar afla pe locul 35 din 39 în sondajul OECD/INFE 2023 privind educa�
 **Reglementare**
 - Scenarii educaționale, nu consultanță financiară sau juridică. Pentru informare nu ar fi nevoie de licență ASF sau BNR (de confirmat cu un jurist).
 - Fără date din conturi bancare, fără PSD2.
-- GDPR: profilul rămâne pe dispozitiv; notificările se calculează local din reguli descărcate.
+- Date personale: salvarea locală a profilului nu înseamnă procesare exclusiv locală. Documentele, autentificarea și plata au fluxuri externe; vocea și emailul sunt încă propuse. Vezi [Date personale](date-personale.md). Previzualizarea notificărilor se calculează local; livrarea în fundal nu este implementată.
 
 **Limitări**
 - Set restrâns de reguli în demo.

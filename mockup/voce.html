@@ -1,0 +1,581 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vocea aplicației</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+/* Same tokens and font as mockup/index.html (the team's reference design). Light only, like the app.
+   Layout: header, what stays the same, situation picker, then one card per personality (3 / 2 / 1 columns). */
+:root{
+  --paper:#F2F4EF; --card:#FFFFFF; --ink:#14201B; --ink-2:#4A5851; --line:#D6DCD3;
+  --accent:#2A3BC9; --accent-soft:#E7EAFB;
+  --neg:#9A4630; --neg-soft:#F6E6E0; --pos:#1E7A4B; --pos-soft:#E1F1E7;
+  --font:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.45;font-variant-numeric:tabular-nums}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding-block:18px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header .hrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:800;font-size:clamp(24px,5vw,32px);letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
+.lang{display:flex;border:1px solid var(--ink);border-radius:999px;padding:2px;flex:none}
+.lang button{border:0;background:none;padding:6px 12px;border-radius:999px;font-weight:700;font-size:13px;min-height:32px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sub{margin:8px 0 0;color:var(--ink-2);max-width:66ch}
+.badge{display:inline-block;margin-top:10px;font-size:13px;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:999px;padding:3px 10px}
+
+.same{margin:22px 0 0;background:var(--ink);color:var(--paper);border-radius:18px;padding:16px 20px}
+.same small{display:block;margin-bottom:10px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.65}
+.same ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.same li{border:1px solid rgba(242,244,239,.25);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600;line-height:1.3}
+
+.bar{margin:24px 0 10px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.lbl{margin:0;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.chk{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer;min-height:40px}
+.chk input{width:18px;height:18px;accent-color:var(--neg);margin:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.pchip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14.5px;min-height:42px}
+.pchip[aria-checked="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.grid{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.pane{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.pane.bad{border:1.5px dashed var(--neg)}
+.ph{display:flex;gap:10px;align-items:flex-start}
+.letter{flex:none;width:30px;height:30px;border-radius:9px;background:var(--ink);color:var(--paper);font-weight:800;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+.bad .letter{background:var(--neg)}
+.ph h3{margin:0;font-size:17px;line-height:1.2;letter-spacing:-.01em}
+.ph p{margin:2px 0 0;font-size:13.5px;color:var(--ink-2);line-height:1.35}
+
+.thread{display:flex;flex-direction:column;gap:8px}
+.bub{max-width:92%;padding:10px 14px;border-radius:16px;font-size:15px;margin:0}
+.bub.as{background:var(--paper);border-bottom-left-radius:4px;align-self:flex-start}
+.bub.us{background:var(--accent);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.ev{align-self:center;font-size:12.5px;font-weight:600;color:var(--ink-2);border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:3px 10px;text-align:center}
+.src{align-self:flex-start;margin:-2px 0 0 4px;font-size:12.5px}
+.src b{border:1px solid var(--line);border-radius:6px;padding:1px 8px;font-weight:600;background:var(--card)}
+.xtr{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start}
+.tg{font-size:13px;font-weight:600;border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:8px;padding:2px 9px}
+mark{background:var(--neg-soft);color:var(--neg);border-bottom:2px solid var(--neg);padding:0 2px;border-radius:3px}
+.nw{white-space:nowrap}
+.phd{display:inline-block;font-size:.88em;font-weight:700;color:var(--accent);border:1px dashed var(--accent);border-radius:6px;padding:0 5px;line-height:1.3;white-space:nowrap}
+
+.pc{margin:auto 0 0;padding:12px 0 0;border-top:1px solid var(--line);list-style:none;display:flex;flex-direction:column;gap:6px}
+.pc li{font-size:14px;display:flex;gap:8px;align-items:baseline;line-height:1.35}
+.pc li::before{flex:none;font-weight:800;width:10px}
+.pc .plus::before{content:"+";color:var(--pos)}
+.pc .minus::before{content:"−";color:var(--neg)}
+.pc .x::before{content:"×";color:var(--neg)}
+
+/* view tabs */
+.views{margin:22px 0 0;display:flex;gap:4px;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:4px;flex-wrap:wrap}
+.views button{flex:1 1 150px;border:0;background:none;border-radius:10px;padding:10px 12px;font-weight:700;font-size:14.5px;min-height:44px;color:var(--ink-2)}
+.views button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.note{margin:12px 0 0;font-size:13.5px;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:10px;padding:8px 12px}
+.pane.chosen{border:2px solid var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.pick{margin-left:auto;flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--accent);border-radius:999px;padding:2px 9px;align-self:center}
+
+/* act card, as in mockup/index.html */
+.acard{border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pill{font-size:12px;font-weight:600;border-radius:999px;padding:1px 9px;border:1px solid var(--line);background:var(--paper)}
+.pill.st-adoptat{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.pill.st-in_vigoare{background:var(--pos-soft);color:var(--pos);border-color:var(--pos)}
+.acard h4{margin:2px 0 0;font-size:17.5px;line-height:1.2;letter-spacing:-.01em}
+.imp{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;font-size:14.5px}
+.imp .v{font-size:21px;font-weight:800;letter-spacing:-.02em;color:var(--neg)}
+.imp .v.zero{font-size:16px;color:var(--ink-2)}
+.imp .u{font-weight:600;color:var(--ink-2)}
+.imp .est{font-size:11.5px;font-weight:600;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:6px;padding:0 6px}
+.why{margin:0;font-size:14.5px;color:var(--ink-2)}
+.chg{margin:0;display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:4px 12px;background:var(--paper);border-radius:10px;padding:8px 12px;font-size:14px}
+.chg>*{min-width:0}
+.chg small{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.chg .old{color:var(--ink-2)}
+.chg .new{font-weight:700}
+.chg .arr{font-weight:800;color:var(--ink-2)}
+.tbc{display:inline-block;font-size:12px;font-weight:600;color:var(--ink-2);border:1px dashed var(--ink-2);border-radius:6px;padding:0 6px;width:max-content}
+.act{margin:0;background:var(--paper);border-radius:10px;padding:10px 12px;font-size:14px}
+.tgrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--ink-2)}
+.tgrow .tg{background:var(--paper);border-color:var(--line);color:var(--ink)}
+.legal{margin:0;font-size:12.5px;color:var(--ink-2)}
+.legal b{color:var(--ink);font-weight:600}
+
+/* lock screen with one notification */
+.lock{background:var(--ink);border-radius:16px;padding:14px 10px}
+.freq{margin:0;font-size:13.5px;color:var(--ink-2)}
+.freq b{color:var(--ink)}
+.notif{background:rgba(255,255,255,.97);border-radius:16px;padding:10px 12px}
+.nh{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-2)}
+.nh .ic{width:20px;height:20px;border-radius:6px;background:var(--accent);color:#fff;font-weight:800;font-size:11px;display:inline-flex;align-items:center;justify-content:center}
+.nh b{color:var(--ink);font-weight:700}
+.nh .nt{margin-left:auto}
+.ntitle{margin:6px 0 2px;font-size:15px;font-weight:700;line-height:1.25}
+.nbody{margin:0;font-size:14px;line-height:1.35}
+.silent{margin:0;border:1px dashed rgba(242,244,239,.4);border-radius:12px;padding:12px;text-align:center;font-size:13.5px;font-weight:600;color:rgba(242,244,239,.75)}
+
+footer{margin-top:26px;font-size:13.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:6px}
+footer p{margin:0;max-width:70ch}
+
+@media (max-width:1000px){.grid{grid-template-columns:1fr 1fr}.same ul{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="hrow">
+      <h1 class="brand" id="brand"></h1>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ro" id="lang-ro">RO</button>
+        <button type="button" data-lang="en" id="lang-en">EN</button>
+      </div>
+    </div>
+    <p class="sub" id="sub"></p>
+    <span class="badge" id="badge"></span>
+  </header>
+
+  <section class="same" aria-labelledby="same-l">
+    <small id="same-l"></small>
+    <ul id="same"></ul>
+  </section>
+
+  <div class="views" role="tablist" id="views"></div>
+  <p class="note" id="note" hidden></p>
+
+  <div class="bar">
+    <p class="lbl" id="sit-l"></p>
+    <label class="chk" id="showbad-w"><input type="checkbox" id="showbad"><span id="showbad-l"></span></label>
+  </div>
+  <div class="chips" id="sits" role="radiogroup"></div>
+
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    <p id="f1"></p>
+    <p id="f2"></p>
+  </footer>
+</div>
+
+<script>
+const UI = {
+  ro:{
+    brand:'Vocea aplicației',
+    sub:'Vocea pentru „Ce înseamnă pentru mine”, pe tipuri de text: asistentul în chat (B), rezumatul actului (E) și notificările (B). Celelalte personalități rămân pentru comparație.',
+    badge:'Ciornă · după docs/voce.md',
+    sameL:'La fel în toate',
+    same:['Suma și termenul, primele','Cifrele vin din motorul de reguli','Fără sfaturi de investiții','Actul și articolul, la vedere'],
+    sit:'Situația', showBad:'Arată și textul generat (așa nu)',
+    views:{chat:'Asistentul (ales: B)', sum:'Rezumatul actului (ales: E)', pro:'Notificări (ales: B)'},
+    before:'Înainte', after:'Acum', tbc:'de verificat',
+    actL:'Actul', proL:'Tipul mesajului', chosen:'Ales',
+    noteSum:'Același card din aplicație, cu schimbarea pe scurt (înainte → acum) acolo unde e verificată. Suma, data și sursa vin din datele verificate; personalitatea schimbă doar titlul și textul.',
+    notePro:'Notificări pe telefon, trimise doar când e nevoie: act nou, termen apropiat, intrare în vigoare. Fără legi noi, B nu trimite nimic. Excepție rară: „Mai stai în chirie?”, cel mult o dată pe an pe etichetă.',
+    roOnly:'',
+    freq:'Când scrie:', silent:'Nu trimite notificare', now:'acum',
+    forYou:'Pentru tine:', info:'informativ', est:'estimare', tagsAs:'Te privește ca:', verified:'verificat la 28 oct 2026', noAct:'',
+    badName:'Text generat', badDesc:'Ce evităm, ca reper.',
+    f1:'Ce e în chenar punctat albastru (de exemplu {suma}) vine din motorul de reguli. Asistentul nu calculează și nu inventează cifre.',
+    f2:'Scenarii educative, nu consultanță. Textul generat e scris intenționat prost, ca exemplu.'
+  },
+  en:{
+    brand:'The app’s voice',
+    sub:'The voice of “What it means for me”, by type of text: the chat assistant (B), act summaries (E) and notifications (B). The other personalities stay for comparison.',
+    badge:'Draft · from docs/voice.md',
+    sameL:'Same in all of them',
+    same:['Amount and deadline first','Figures come from the rules engine','No investment advice','Act and article in plain sight'],
+    sit:'Situation', showBad:'Also show generated text (not like this)',
+    views:{chat:'Assistant (chosen: B)', sum:'Act summary (chosen: E)', pro:'Notifications (chosen: B)'},
+    before:'Before', after:'Now', tbc:'to be verified',
+    actL:'Act', proL:'Message type', chosen:'Chosen',
+    noteSum:'The same card as in the app. Amount, date and source come from verified data; the personality changes only the title and text.',
+    notePro:'Phone notifications. The personality also changes how often it writes: some send no message at all in certain cases.',
+    roOnly:'These two views are in Romanian only for now.',
+    freq:'Writes when:', silent:'Sends no notification', now:'now',
+    forYou:'For you:', info:'informative', est:'estimate', tagsAs:'Concerns you as:', verified:'verified on 28 Oct 2026', noAct:'',
+    badName:'Generated text', badDesc:'What we avoid, for reference.',
+    f1:'Anything in a dashed blue box (for example {amount}) comes from the rules engine. The assistant never calculates or invents figures.',
+    f2:'Educational scenarios, not advice. The generated text is deliberately bad, as an example.'
+  }
+};
+
+/* Situations: what happened (ctx), optional tag chips / source, and the generated "not like this" text.
+   Facts only from docs/research-v2.md; amounts and dates stay as {placeholders}. */
+const SITS = [
+ {id:'start',
+  ro:{label:'Prima întrebare', ctx:[{ev:'Prima deschidere a aplicației'}],
+   bad:{t:'Bună! 👋 Sunt asistentul tău financiar personal și sunt aici pentru tine! Hai să explorăm împreună călătoria ta financiară. Pentru început, ai putea să-mi spui câte ceva despre tine?',
+        m:['👋','sunt aici pentru tine','Hai să explorăm împreună','călătoria ta financiară','ai putea să-mi spui câte ceva despre tine'],
+        n:['Se prezintă în loc să întrebe','Întrebarea e vagă']}},
+  en:{label:'First question', ctx:[{ev:'App opened for the first time'}],
+   bad:{t:'Hi there! 👋 I’m your personal financial assistant and I’m here for you! Let’s explore your financial journey together. To start, could you tell me a bit about yourself?',
+        m:['👋','I’m here for you','Let’s explore','your financial journey','tell me a bit about yourself'],
+        n:['Introduces itself instead of asking','Vague question']}}},
+ {id:'tags',
+  ro:{label:'Confirmă etichetele', ctx:[{us:'Lucrez în IT ca angajat, am și un SRL din care iau dividende, stau în chirie în București și conduc o mașină diesel din 2015.'}],
+   chips:['angajat IT','SRL cu dividende','chiriaș','șofer'],
+   bad:{t:'Excelent! Am înregistrat cu succes informațiile tale. Este important de menționat că toate aceste aspecte pot influența situația ta financiară. Mai există și alte aspecte pe care ai dori să le împărtășești?',
+        m:['Excelent!','Am înregistrat cu succes informațiile tale','Este important de menționat că','Mai există și alte aspecte pe care ai dori să le împărtășești?'],
+        n:['Nu spune ce a notat','Ton de ghișeu']}},
+  en:{label:'Confirm tags', ctx:[{us:'I work in IT as an employee, I also have an SRL that pays me dividends, I rent in Bucharest and I drive a diesel car from 2015.'}],
+   chips:['IT employee','SRL with dividends','renter','driver'],
+   bad:{t:'Great! I’ve successfully recorded your information. It’s important to note that all of these aspects can affect your financial situation. Is there anything else you’d like to share?',
+        m:['Great!','I’ve successfully recorded your information','It’s important to note that','Is there anything else you’d like to share?'],
+        n:['Doesn’t say what it noted','Customer-service tone']}}},
+ {id:'vague',
+  ro:{label:'Răspuns vag', ctx:[{us:'Păi am și eu o firmă mică.'}],
+   bad:{t:'Desigur! Antreprenoriatul este o parte esențială a economiei. Ai putea să-mi oferi mai multe detalii despre structura juridică a afacerii tale, cifra de afaceri și numărul de angajați?',
+        m:['Desigur!','Antreprenoriatul este o parte esențială a economiei','cifra de afaceri','numărul de angajați'],
+        n:['Cere date pe care aplicația nu le folosește','Trei întrebări într-un mesaj']}},
+  en:{label:'Vague answer', ctx:[{us:'Well, I have a small business.'}],
+   bad:{t:'Absolutely! Entrepreneurship is a crucial part of the economy. Could you share more details about your business’s legal structure, turnover and number of employees?',
+        m:['Absolutely!','Entrepreneurship is a crucial part of the economy','turnover','number of employees'],
+        n:['Asks for data the app doesn’t use','Three questions in one message']}}},
+ {id:'bad',
+  ro:{label:'Veste proastă', ctx:[{ev:'Notificare · profil Maria, PFA în HoReCa'}], src:'Legea 141/2025, art. II pct. 42',
+   bad:{t:'Atenție! ⚠️ Noile modificări legislative pot avea un impact semnificativ asupra afacerii tale. Înțeleg cât de stresant poate fi, dar nu-ți face griji, suntem aici să te ajutăm să navighezi aceste schimbări!',
+        m:['Atenție!','⚠️','pot avea un impact semnificativ','Înțeleg cât de stresant poate fi','nu-ți face griji','să navighezi aceste schimbări'],
+        n:['Nu spune ce lege, nici cât','Liniștire falsă']}},
+  en:{label:'Bad news', ctx:[{ev:'Notification · profile Maria, PFA in hospitality'}], src:'Law 141/2025, art. II pt. 42',
+   bad:{t:'Heads up! ⚠️ New legislative changes may significantly impact your business. I understand how stressful this can be, but don’t worry, we’re here to help you navigate these changes!',
+        m:['Heads up!','⚠️','may significantly impact','I understand how stressful this can be','don’t worry','navigate these changes'],
+        n:['Doesn’t say which law, or how much','False reassurance']}}},
+ {id:'invest',
+  ro:{label:'„Unde să pun banii?”', ctx:[{us:'Să bag banii în Pilonul III sau într-un depozit?'}],
+   bad:{t:'Bună întrebare! Pilonul III este cea mai bună opțiune pentru tine, deoarece îți oferă beneficii fiscale garantate. Îți recomandăm să investești cât mai mult posibil!',
+        m:['Bună întrebare!','cea mai bună opțiune pentru tine','garantate','Îți recomandăm să investești'],
+        n:['Sfat financiar: interzis','„Garantat”, „cel mai bun”']}},
+  en:{label:'“Where do I put my money?”', ctx:[{us:'Should I put my money in Pilon III or in a deposit?'}],
+   bad:{t:'Great question! Pilon III is the best option for you, as it offers guaranteed tax benefits. We recommend you invest as much as possible!',
+        m:['Great question!','the best option for you','guaranteed','We recommend you invest'],
+        n:['Financial advice: not allowed','“Guaranteed”, “the best”']}}},
+ {id:'draft',
+  ro:{label:'Act în proiect', ctx:[{ev:'Notificare · act în consultare publică'}],
+   bad:{t:'Vești importante! O nouă lege va modifica impozitele începând de anul viitor. Pregătește-te pentru aceste schimbări esențiale!',
+        m:['Vești importante!','va modifica','Pregătește-te','esențiale'],
+        n:['Prezintă un proiect ca lege sigură','Fără sumă, fără dată']}},
+  en:{label:'Draft act', ctx:[{ev:'Notification · act in public consultation'}],
+   bad:{t:'Big news! A new law will change your taxes starting next year. Get ready for these crucial changes!',
+        m:['Big news!','will change','Get ready','crucial'],
+        n:['Presents a draft as settled law','No amount, no date']}}},
+ {id:'missed',
+  ro:{label:'Termen depășit', ctx:[{ev:'Card · termen depășit'}],
+   bad:{t:'Din păcate, ai ratat termenul! 😔 Nu-ți face griji, nu e mare lucru, vor mai fi și alte oportunități de economisire în viitor!',
+        m:['Din păcate','😔','Nu-ți face griji','nu e mare lucru','vor mai fi și alte oportunități'],
+        n:['Reproș, apoi liniștire falsă']}},
+  en:{label:'Deadline passed', ctx:[{ev:'Card · deadline passed'}],
+   bad:{t:'Unfortunately, you missed the deadline! 😔 Don’t worry, it’s no big deal, there will be other savings opportunities in the future!',
+        m:['Unfortunately','😔','Don’t worry','it’s no big deal','there will be other savings opportunities'],
+        n:['Blame, then false reassurance']}}},
+ {id:'scope',
+  ro:{label:'În afara aplicației', ctx:[{us:'Cum fac declarația unică?'}],
+   bad:{t:'Cu plăcere! Iată cum faci declarația unică în 5 pași simpli: 1. Intră în SPV. 2. Completează formularul. 3. Trimite-l. Sper că te-am ajutat! Nu ezita să mă întrebi orice altceva!',
+        m:['Cu plăcere!','în 5 pași simpli','Sper că te-am ajutat!','Nu ezita să mă întrebi orice altceva!'],
+        n:['Iese din rol, cu pași neverificați']}},
+  en:{label:'Out of scope', ctx:[{us:'How do I file my tax return?'}],
+   bad:{t:'Happy to help! Here’s how to file your tax return in 5 easy steps: 1. Log in to SPV. 2. Fill in the form. 3. Submit it. I hope this helps! Feel free to ask me anything else!',
+        m:['Happy to help!','in 5 easy steps','I hope this helps!','Feel free to ask me anything else!'],
+        n:['Leaves its role, with unchecked steps']}}},
+ {id:'angry',
+  ro:{label:'Omul e supărat', ctx:[{us:'Iar ne iau banii.'}],
+   bad:{t:'Înțeleg perfect frustrarea ta și este absolut normal să te simți așa. Nu ești singur! Hai să privim partea plină a paharului.',
+        m:['Înțeleg perfect frustrarea ta','este absolut normal să te simți așa','Nu ești singur!','partea plină a paharului'],
+        n:['Emoții narate, nicio informație']}},
+  en:{label:'Angry user', ctx:[{us:'They’re taking our money again.'}],
+   bad:{t:'I completely understand your frustration and it’s absolutely normal to feel this way. You’re not alone! Let’s look on the bright side.',
+        m:['I completely understand your frustration','it’s absolutely normal to feel this way','You’re not alone!','look on the bright side'],
+        n:['Narrated feelings, no information']}}},
+ {id:'unknown',
+  ro:{label:'Nu știm încă', ctx:[{us:'Cât pierd din asta?'}],
+   bad:{t:'Conform estimărilor noastre, vei pierde aproximativ 300 de lei pe lună. Este esențial să îți ajustezi bugetul în consecință.',
+        m:['Conform estimărilor noastre','aproximativ 300 de lei pe lună','Este esențial'],
+        n:['Cifră inventată, fără act']}},
+  en:{label:'Not verified yet', ctx:[{us:'How much do I lose from this?'}],
+   bad:{t:'Based on our estimates, you will lose approximately 300 lei per month. It’s crucial to adjust your budget accordingly.',
+        m:['Based on our estimates','approximately 300 lei per month','It’s crucial'],
+        n:['Invented figure, no act']}}}
+];
+
+/* Personalities. Each line follows the same rules; only tone changes. */
+const PERS = [
+ {id:'calm', L:'A',
+  ro:{name:'Contabilul calm', desc:'Direct, neutru, scurt. Varianta din ghid.', plus:'Clar și sigur; merge peste tot', minus:'Poate părea sec la onboarding'},
+  en:{name:'The calm accountant', desc:'Direct, neutral, short. The guide’s version.', plus:'Clear and safe; works everywhere', minus:'Can feel dry during onboarding'},
+  lines:{
+   start:{ro:['Spune-mi în câteva cuvinte cum câștigi și ce deții.'], en:['Tell me in a few words how you earn and what you own.']},
+   tags:{ro:['Am notat: angajat IT, SRL cu dividende, chiriaș, șofer. Mai e ceva?'], en:['Noted: IT employee, SRL with dividends, renter, driver. Anything else?']},
+   vague:{ro:['Firma e PFA sau SRL? Contează, pentru că legile diferă.'], en:['Is it a PFA or an SRL? It matters, because different rules apply.']},
+   bad:{ro:['Din 1 august 2025, TVA la restaurante e 11%. Pentru PFA-ul tău în HoReCa: −{suma} lei/lună, estimare.'], en:['From 1 August 2025, VAT for restaurants is 11%. For your PFA in hospitality: −{amount} lei/month, estimate.']},
+   invest:{ro:['Nu pot să-ți spun unde să pui banii. Pot să-ți arăt ce prevede legea: contribuția la Pilonul III e deductibilă până la 400 de euro pe an. Vezi cardul cu articolul.'], en:['I can’t tell you where to put your money. I can show you what the law says: Pilon III contributions are deductible up to 400 euros a year. The card has the article.']},
+   draft:{ro:['E încă proiect, în consultare. Se poate schimba sau poate să nu treacă. Dacă rămâne așa: −{suma} lei/lună din {data}.'], en:['This is still a draft, under consultation. It can change or may not pass. If it stays as it is: −{amount} lei/month from {date}.']},
+   missed:{ro:['Termenul a fost {data}. Ai fi economisit {suma} lei.'], en:['The deadline was {date}. You would have saved {amount} lei.']},
+   scope:{ro:['Asta nu fac. Eu îți arăt ce legi noi îți schimbă banii. Pentru declarație, ghidul ANAF e la anaf.ro.'], en:['That’s not something I do. I show you which new laws change your money. For the return, ANAF’s guide is on anaf.ro.']},
+   angry:{ro:['Da, e o pierdere de {suma} lei pe lună. Singura acțiune din lege e {acțiune}, până pe {data}.'], en:['Yes, it’s a loss of {amount} lei a month. The only action the law allows is {action}, by {date}.']},
+   unknown:{ro:['Încă nu am verificat articolul exact, așa că nu îți dau o sumă. Actul e {act}; linkul e mai jos.'], en:['We haven’t verified the exact article yet, so I won’t give you an amount. The act is {act}; the link is below.']}
+  }},
+ {id:'friend', L:'B',
+  ro:{name:'Prietenul care se pricepe', desc:'Cald, colocvial, ca un prieten care lucrează la contabilitate.', plus:'Sună a om; onboarding mai relaxat', minus:'Poate deveni familiar; „Super”, „Știu” se repetă'},
+  en:{name:'The friend who knows', desc:'Warm and casual, like a friend who works in accounting.', plus:'Sounds human; friendlier onboarding', minus:'Can get overfamiliar; “Got it”, “I know” repeat'},
+  lines:{
+   start:{ro:['Salut. Ca să-ți arăt doar legile care te privesc, spune-mi cum câștigi și ce ai: job, firmă, casă, mașină.'], en:['Hi. So I only show you the laws that affect you, tell me how you earn and what you have: job, business, home, car.']},
+   tags:{ro:['Super, am prins tot: angajat IT, SRL cu dividende, chiriaș, șofer. Am uitat ceva?'], en:['Got it all: IT employee, SRL with dividends, renter, driver. Did I miss anything?']},
+   vague:{ro:['Ok. E PFA sau SRL? Întreb pentru că regulile sunt diferite.'], en:['OK. Is it a PFA or an SRL? I’m asking because the rules differ.']},
+   bad:{ro:['Veste nu prea bună: din 1 august 2025, TVA la restaurante e 11%. La PFA-ul tău înseamnă cam −{suma} lei/lună, estimare.'], en:['Not great news: from 1 August 2025, VAT for restaurants is 11%. For your PFA that’s about −{amount} lei/month, estimate.']},
+   invest:{ro:['Aici nu te pot sfătui, nu e treaba mea să aleg pentru tine. Ce pot să-ți spun: contribuția la Pilonul III e deductibilă până la 400 de euro pe an. Detaliile sunt pe card.'], en:['I can’t advise you here; it’s not my call to choose for you. What I can tell you: Pilon III contributions are deductible up to 400 euros a year. Details are on the card.']},
+   draft:{ro:['Deocamdată e doar un proiect, deci se mai poate schimba. Dacă trece așa, te-ar costa −{suma} lei/lună din {data}.'], en:['For now it’s only a draft, so it can still change. If it passes as is, it would cost you −{amount} lei/month from {date}.']},
+   missed:{ro:['Termenul a fost {data}, deci de data asta a trecut. Ar fi fost {suma} lei economisiți.'], en:['The deadline was {date}, so this one’s gone. It would have been {amount} lei saved.']},
+   scope:{ro:['La asta nu te pot ajuta, eu mă ocup doar de legile noi care îți ating banii. Pentru declarație, ANAF are un ghid pe anaf.ro.'], en:['I can’t help with that; I only cover new laws that touch your money. For the return, ANAF has a guide on anaf.ro.']},
+   angry:{ro:['Știu, enervant. Concret, pierzi {suma} lei pe lună. Ce poți face: {acțiune}, până pe {data}.'], en:['I know, annoying. In numbers, you lose {amount} lei a month. What you can do: {action}, by {date}.']},
+   unknown:{ro:['Nu vreau să-ți dau o cifră la ghici. Articolul exact încă nu e verificat; actul e {act}, ai linkul mai jos.'], en:['I don’t want to give you a guess. The exact article isn’t verified yet; the act is {act}, link below.']}
+  }},
+ {id:'mini', L:'C',
+  ro:{name:'Minimalistul', desc:'Cât mai puține cuvinte. Ca o notificare.', plus:'Cel mai rapid de citit; ideal pentru notificări', minus:'Rece; la onboarding sună a formular'},
+  en:{name:'The minimalist', desc:'As few words as possible. Like a notification.', plus:'Fastest to read; ideal for notifications', minus:'Cold; in onboarding it reads like a form'},
+  lines:{
+   start:{ro:['Cum câștigi și ce deții?'], en:['How do you earn, and what do you own?']},
+   tags:{ro:['Notat: angajat IT, SRL cu dividende, chiriaș, șofer. Altceva?'], en:['Noted: IT employee, SRL with dividends, renter, driver. Anything else?']},
+   vague:{ro:['PFA sau SRL?'], en:['PFA or SRL?']},
+   bad:{ro:['TVA restaurante: 11% din 1 aug 2025. Tu: −{suma} lei/lună (estimare).'], en:['Restaurant VAT: 11% from 1 Aug 2025. You: −{amount} lei/month (estimate).']},
+   invest:{ro:['Nu dau sfaturi de investiții. Legea: Pilon III deductibil până la 400 €/an.'], en:['No investment advice. The law: Pilon III deductible up to €400/year.']},
+   draft:{ro:['Proiect, se poate schimba. Dacă trece: −{suma} lei/lună din {data}.'], en:['Draft, may change. If passed: −{amount} lei/month from {date}.']},
+   missed:{ro:['Termen depășit: {data}. Ratat: {suma} lei.'], en:['Deadline passed: {date}. Missed: {amount} lei.']},
+   scope:{ro:['Nu fac declarații. Ghid ANAF: anaf.ro.'], en:['I don’t do tax returns. ANAF guide: anaf.ro.']},
+   angry:{ro:['−{suma} lei/lună. Acțiune: {acțiune}, până pe {data}.'], en:['−{amount} lei/month. Action: {action}, by {date}.']},
+   unknown:{ro:['Articol neverificat. Fără sumă încă. Act: {act}.'], en:['Article not verified. No amount yet. Act: {act}.']}
+  }},
+ {id:'teacher', L:'D',
+  ro:{name:'Profesorul răbdător', desc:'Explică de ce, într-o propoziție în plus.', plus:'Omul înțelege de ce, nu doar cât', minus:'Mesaje mai lungi; trece de regula de 2–3 propoziții'},
+  en:{name:'The patient teacher', desc:'Explains why, in one extra sentence.', plus:'People understand why, not just how much', minus:'Longer messages; breaks the 2–3 sentence rule'},
+  lines:{
+   start:{ro:['Aplicația filtrează legile după cum câștigi și ce deții. Spune-mi asta în câteva cuvinte și îți arăt doar ce te privește.'], en:['The app filters laws by how you earn and what you own. Tell me that in a few words and I’ll show you only what concerns you.']},
+   tags:{ro:['Am notat: angajat IT, SRL cu dividende, chiriaș, șofer. Fiecare e o etichetă; după ele aleg legile din fluxul tău. Mai e ceva?'], en:['Noted: IT employee, SRL with dividends, renter, driver. Each one is a tag; I use them to pick the laws in your feed. Anything else?']},
+   vague:{ro:['Firma e PFA sau SRL? Cele două se impozitează după reguli diferite, așa că și legile noi le ating diferit.'], en:['Is it a PFA or an SRL? The two are taxed under different rules, so new laws affect them differently.']},
+   bad:{ro:['Din 1 august 2025, TVA la restaurante e 11%. TVA e taxa inclusă în prețul plătit de client. Pentru PFA-ul tău: −{suma} lei/lună, estimare.'], en:['From 1 August 2025, VAT for restaurants is 11%. VAT is the tax included in the price the customer pays. For your PFA: −{amount} lei/month, estimate.']},
+   invest:{ro:['Nu pot alege în locul tău unde pui banii; asta ar fi consultanță financiară. Pot să-ți explic regula: contribuția la Pilonul III e deductibilă până la 400 de euro pe an, adică suma aceea nu intră la calculul impozitului. Vezi cardul cu articolul.'], en:['I can’t choose where you put your money; that would be financial advice. I can explain the rule: Pilon III contributions are deductible up to 400 euros a year, so that amount is left out when your tax is calculated. The card has the article.']},
+   draft:{ro:['E proiect, în consultare publică. Până la publicarea în Monitorul Oficial se poate schimba sau poate să nu treacă. Dacă rămâne așa: −{suma} lei/lună din {data}.'], en:['It’s a draft in public consultation. Until it’s published in Monitorul Oficial it can change or fail. If it stays as is: −{amount} lei/month from {date}.']},
+   missed:{ro:['Termenul a fost {data}. Ai fi economisit {suma} lei. Îl arătăm ca să vezi cum funcționează regula.'], en:['The deadline was {date}. You would have saved {amount} lei. We show it so you can see how the rule works.']},
+   scope:{ro:['Asta nu fac. Eu urmăresc legile noi și îți arăt cum îți schimbă banii; declarația unică e altă procedură. Ghidul oficial e la anaf.ro.'], en:['That’s not something I do. I track new laws and show how they change your money; the tax return is a separate procedure. The official guide is on anaf.ro.']},
+   angry:{ro:['Da, e o pierdere de {suma} lei pe lună. Legea îți lasă o singură acțiune: {acțiune}, până pe {data}.'], en:['Yes, it’s a loss of {amount} lei a month. The law leaves you one action: {action}, by {date}.']},
+   unknown:{ro:['Fiecare sumă din aplicație vine dintr-un articol verificat. Pentru actul ăsta ({act}) încă nu am verificat articolul, așa că nu îți dau o cifră.'], en:['Every amount in the app comes from a verified article. For this act ({act}) the article isn’t verified yet, so I won’t give you a figure.']}
+  }},
+ {id:'formal', L:'E',
+  ro:{name:'Consilierul clar', desc:'Precis și calm, cu „tu”.', plus:'Respectuos; explică schimbarea și acțiunea', minus:'Mai sobru; păstrează explicațiile scurte'},
+  en:{name:'The clear adviser', desc:'Precise and calm (informal Romanian “tu”).', plus:'Respectful; explains the change and action', minus:'More reserved; keeps explanations brief'},
+  lines:{
+   start:{ro:['Spune-mi, te rog, în câteva cuvinte cum câștigi și ce deții.'], en:['Could you tell me, in a few words, how you earn and what you own?']},
+   tags:{ro:['Am notat: angajat IT, SRL cu dividende, chiriaș, șofer. Mai este ceva?'], en:['I have noted: IT employee, SRL with dividends, renter, driver. Is there anything else?']},
+   vague:{ro:['Firma este PFA sau SRL? Regulile diferă.'], en:['Is the business a PFA or an SRL? The rules differ.']},
+   bad:{ro:['Din 1 august 2025, TVA la restaurante este 11%. Pentru PFA-ul tău în HoReCa: −{suma} lei/lună, estimare.'], en:['From 1 August 2025, VAT for restaurants is 11%. For your PFA in hospitality: −{amount} lei/month, estimate.']},
+   invest:{ro:['Nu îți pot spune unde să plasezi banii. Îți pot arăta ce prevede legea: contribuția la Pilonul III este deductibilă până la 400 de euro pe an. Detaliile sunt pe card.'], en:['I cannot tell you where to place your money. I can show you what the law provides: Pilon III contributions are deductible up to 400 euros a year. The details are on the card.']},
+   draft:{ro:['Este încă proiect, în consultare. Se poate modifica sau poate să nu fie adoptat. Dacă rămâne așa: −{suma} lei/lună din {data}.'], en:['This is still a draft, under consultation. It may be amended or not adopted. If it remains as is: −{amount} lei/month from {date}.']},
+   missed:{ro:['Termenul a fost {data}. Ai fi economisit {suma} lei.'], en:['The deadline was {date}. You would have saved {amount} lei.']},
+   scope:{ro:['Nu mă ocup de declarații. Îți arăt ce legi noi îți schimbă veniturile. Ghidul ANAF este pe anaf.ro.'], en:['I do not handle tax returns. I show which new laws change your income. ANAF’s guide is on anaf.ro.']},
+   angry:{ro:['Da, este o pierdere de {suma} lei pe lună. Singura acțiune prevăzută de lege este {acțiune}, până pe {data}.'], en:['Yes, this is a loss of {amount} lei a month. The only action the law provides is {action}, by {date}.']},
+   unknown:{ro:['Încă nu am verificat articolul exact, așa că nu îți dau o sumă. Actul este {act}; linkul este mai jos.'], en:['I have not yet verified the exact article, so I will not give you an amount. The act is {act}; the link is below.']}
+  }},
+ {id:'dry', L:'F',
+  ro:{name:'Ironicul sec', desc:'Umor sec, cu măsură. Cifrele rămân serioase.', plus:'Memorabil, are personalitate', minus:'Ironia la vești proaste poate jigni; greu de ținut constant'},
+  en:{name:'The dry wit', desc:'Dry humour, in small doses. The numbers stay serious.', plus:'Memorable, has character', minus:'Irony on bad news can offend; hard to keep consistent'},
+  lines:{
+   start:{ro:['Legile se schimbă des. Spune-mi cum câștigi și ce deții, ca să le urmărim doar pe cele care te ating.'], en:['Laws change often. Tell me how you earn and what you own, and we’ll only follow the ones that touch you.']},
+   tags:{ro:['Am notat: angajat IT, SRL cu dividende, chiriaș, șofer. O combinație populară în legislația ultimilor doi ani. Mai e ceva?'], en:['Noted: IT employee, SRL with dividends, renter, driver. A popular combination in the last two years of legislation. Anything else?']},
+   vague:{ro:['PFA sau SRL? Statul le tratează diferit, așa că și eu.'], en:['PFA or SRL? The state treats them differently, so I do too.']},
+   bad:{ro:['Încă o cotă nouă: din 1 august 2025, TVA la restaurante e 11%. Pentru PFA-ul tău: −{suma} lei/lună, estimare.'], en:['Another new rate: from 1 August 2025, VAT for restaurants is 11%. For your PFA: −{amount} lei/month, estimate.']},
+   invest:{ro:['Aici mă opresc: nu aleg investiții în locul nimănui. Legea spune doar atât: Pilonul III, deductibil până la 400 de euro pe an.'], en:['This is where I stop: I don’t pick investments for anyone. The law says only this: Pilon III, deductible up to 400 euros a year.']},
+   draft:{ro:['Deocamdată e doar proiect, iar proiectele se mai răzgândesc. Dacă trece așa: −{suma} lei/lună din {data}.'], en:['For now it’s only a draft, and drafts change their minds. If it passes as is: −{amount} lei/month from {date}.']},
+   missed:{ro:['Termenul a fost {data}. Ai fi economisit {suma} lei. Se mai întâmplă.'], en:['The deadline was {date}. You would have saved {amount} lei. It happens.']},
+   scope:{ro:['Declarația unică e o aventură separată, cu ghid pe anaf.ro. Eu mă ocup doar de legile noi care îți ating banii.'], en:['The tax return is a separate adventure, with a guide on anaf.ro. I only cover new laws that touch your money.']},
+   angry:{ro:['Da. {suma} lei pe lună. Singurul lucru de făcut: {acțiune}, până pe {data}.'], en:['Yes. {amount} lei a month. The one thing to do: {action}, by {date}.']},
+   unknown:{ro:['Aș putea ghici o sumă, dar n-ar ajuta pe nimeni. Articolul încă nu e verificat; actul e {act}.'], en:['I could guess an amount, but it wouldn’t help anyone. The article isn’t verified yet; the act is {act}.']}
+  }}
+];
+
+/* Act summaries. Status, date, impact and source are fixed data (docs/research-v2.md); personalities write title (t), explanation (w) and action (a). Romanian only for now. */
+const ACTS = [
+ {id:'tva', label:'TVA HoReCa (Maria)', st:'in_vigoare', stL:'în vigoare', date:'din 1 aug 2025', imp:{v:'−{suma}', u:'lei/lună', est:true}, chg:{old:null, new:'11% (cota redusă)'}, tags:['PFA','HoReCa'], src:'Legea 141/2025 · MO 699/25 iul 2025 · art. II pct. 42'},
+ {id:'pilon2', label:'Pilonul II (Andrei)', st:'adoptat', stL:'adoptat', date:'din 5 ian 2027', imp:null, tags:['Pilon II'], src:'Legea 2/2026 · MO 2/5 ian 2026 · art. 55 alin. (1)'},
+ {id:'it', label:'Scutirea IT (Andrei)', st:'in_vigoare', stL:'în vigoare', date:'din 1 ian 2025', imp:{v:'−{suma}', u:'lei/lună', est:true}, chg:{old:'scutit de impozitul pe venit (cu condiții)', new:'fără scutire'}, tags:['angajat IT'], src:'OUG 156/2024 · MO 1334/31 dec 2024 · art. LXIV pct. 7'},
+ {id:'cass', label:'CASS pe pensii (Ion)', st:'in_vigoare', stL:'în vigoare', date:'din 1 aug 2025', imp:{v:'−{suma}', u:'lei/lună', est:true}, chg:{old:'fără CASS pe pensie', new:'10% pe partea peste 3.000 lei/lună, până la 1 ian 2028'}, tags:['pensionar'], src:'Legea 141/2025 · MO 699/25 iul 2025 · art. II pct. 7'}
+];
+const SUMS = {
+ calm:{
+  tva:{t:'TVA la restaurante: 11%', w:'Din 1 august 2025, serviciile de restaurant au cota de TVA de 11%.', a:'Nicio acțiune prevăzută în lege.'},
+  pilon2:{t:'Pilonul II: 30% o dată, restul eșalonat', w:'Din 5 ianuarie 2027, la plata Pilonului II poți lua 30% din sumă o dată. Restul se plătește eșalonat.', a:'Nimic de făcut acum.'},
+  it:{t:'Scutirea de impozit pentru IT s-a eliminat', w:'Din veniturile lunii ianuarie 2025, angajații din IT nu mai sunt scutiți de impozitul pe venit.', a:'Cere angajatorului o simulare a salariului net actual.'},
+  cass:{t:'CASS de 10% pe pensie, peste 3.000 lei', w:'Din 1 august 2025, pensiile plătesc contribuția de sănătate (CASS) de 10% pe partea care depășește 3.000 lei pe lună.', a:'Nicio acțiune prevăzută în lege.'}},
+ friend:{
+  tva:{t:'Restaurantele trec pe TVA de 11%', w:'Pe scurt: din 1 august 2025, la restaurante se aplică TVA de 11%. Asta se simte în ce încasezi ca PFA în HoReCa.', a:'Din lege nu ai ceva de făcut aici.'},
+  pilon2:{t:'Pilonul II se va putea lua parțial deodată', w:'Pe scurt: din 5 ianuarie 2027, când ajungi să încasezi Pilonul II, poți lua 30% deodată. Restul vine în tranșe.', a:'Acum nu ai nimic de făcut, doar să știi.'},
+  it:{t:'Gata cu scutirea pentru IT', w:'Pe scurt: din ianuarie 2025, dacă lucrezi în IT nu mai ești scutit de impozitul pe venit. De aici vine diferența la net.', a:'Cere la HR o simulare a net-ului actual, să vezi exact.'},
+  cass:{t:'Pensia peste 3.000 lei plătește acum CASS', w:'Pe scurt: din 1 august 2025, dacă pensia ta trece de 3.000 lei, plătești 10% contribuție la sănătate pe ce depășește suma asta.', a:'Din lege nu ai ceva de făcut aici.'}},
+ mini:{
+  tva:{t:'TVA restaurante 11%', w:'Din 1 aug 2025.', a:'Fără acțiune.'},
+  pilon2:{t:'Pilon II: 30% o dată', w:'Din 5 ian 2027. Restul eșalonat.', a:'Fără acțiune acum.'},
+  it:{t:'Scutire IT eliminată', w:'Din venitul pe ian 2025.', a:'Cere simulare net la HR.'},
+  cass:{t:'CASS 10% pe pensie peste 3.000 lei', w:'Din 1 aug 2025, pe partea care depășește.', a:'Fără acțiune.'}},
+ teacher:{
+  tva:{t:'TVA la restaurante: 11%', w:'Din 1 august 2025, serviciile de restaurant au TVA de 11%. TVA e taxa inclusă în prețul plătit de client; firma o încasează și o virează statului.', a:'Legea nu îți lasă o acțiune anume.'},
+  pilon2:{t:'Cum se va plăti Pilonul II', w:'Pilonul II e pensia privată obligatorie, strânsă din contribuția reținută din salariu. Din 5 ianuarie 2027, la plată poți lua 30% o dată; restul se plătește eșalonat.', a:'Nimic de făcut acum; decizia vine la momentul plății.'},
+  it:{t:'De ce a scăzut net-ul în IT', w:'Până în 2024, angajații din IT care îndeplineau anumite condiții erau scutiți de impozitul pe venit. OUG 156/2024 a eliminat scutirea, începând cu veniturile din ianuarie 2025.', a:'Cere angajatorului o simulare a salariului net actual, ca să vezi diferența.'},
+  cass:{t:'Ce e CASS și de ce apare pe pensie', w:'CASS e contribuția pentru asigurările de sănătate. Din 1 august 2025, pensiile o plătesc cu o cotă de 10%, doar pe partea care depășește 3.000 lei pe lună.', a:'Legea nu îți lasă o acțiune anume.'}},
+ formal:{
+  tva:{t:'Cota de TVA pentru restaurante: 11%', w:'Începând cu 1 august 2025, serviciile de restaurant se impozitează cu TVA de 11%.', a:'Legea nu prevede o acțiune din partea ta.'},
+  pilon2:{t:'Plata Pilonului II: 30% într-o singură tranșă', w:'Începând cu 5 ianuarie 2027, poți încasa 30% din suma din Pilonul II într-o singură tranșă. Restul se plătește eșalonat.', a:'Nu este necesară nicio acțiune în prezent.'},
+  it:{t:'Eliminarea scutirii de impozit pentru IT', w:'Începând cu veniturile aferente lunii ianuarie 2025, angajații din IT nu mai beneficiază de scutirea de impozit pe venit.', a:'Cere angajatorului o simulare a salariului net actual.'},
+  cass:{t:'CASS de 10% pentru pensii, peste pragul de 3.000 lei', w:'Începând cu 1 august 2025 și până la 1 ianuarie 2028, pensiile datorează contribuția de asigurări sociale de sănătate de 10% pentru partea care depășește 3.000 lei lunar.', a:'Legea nu prevede o acțiune din partea ta.'}},
+ dry:{
+  tva:{t:'TVA 11% la restaurante. Poftă bună.', w:'Din 1 august 2025, serviciile de restaurant au TVA de 11%. Cifra pentru PFA-ul tău e mai sus, fără garnitură.', a:'Legea nu-ți lasă nimic de făcut.'},
+  pilon2:{t:'Pilonul II: 30% acum, restul cu răbdare', w:'Din 5 ianuarie 2027, poți lua 30% din Pilonul II o dată. Restul vine eșalonat.', a:'Nimic de făcut acum. E o veste pentru mai târziu.'},
+  it:{t:'IT-ul intră în rând cu ceilalți', w:'Din ianuarie 2025, scutirea de impozit pe venit pentru IT nu mai există. Net-ul a observat primul.', a:'Cere la HR o simulare a net-ului actual.'},
+  cass:{t:'Pensie peste 3.000 lei? Vine și CASS-ul.', w:'Din 1 august 2025, pensiile plătesc 10% contribuție la sănătate pe ce trece de 3.000 lei.', a:'Legea nu-ți lasă nimic de făcut.'}}
+};
+
+/* Proactive messages: push notifications [title, body], or null when that personality stays silent. */
+const PRO = [
+ {id:'new', label:'Act nou adoptat'},
+ {id:'deadline', label:'Termen în 2 săptămâni'},
+ {id:'inforce', label:'Intră în vigoare mâine'},
+ {id:'quiet', label:'Lună fără noutăți'},
+ {id:'profile', label:'Verificare profil'}
+];
+const PROS = {
+ calm:{freq:'acte noi care te privesc și termene, cu 14 zile înainte.',
+  new:['Lege nouă: Pilonul II','Din 5 ian 2027 poți lua 30% din Pilonul II o dată. Nimic de făcut acum.'],
+  deadline:['Termen: 31 dec 2026','Contribuția la Pilonul III plătită până atunci se deduce pe 2026: +{suma} lei/an.'],
+  inforce:['De mâine: {act}','Pentru tine: −{suma} lei/lună. Vezi ce poți face.'],
+  quiet:null,
+  profile:['Profilul tău','Ai eticheta „chiriaș” de un an. Mai e valabilă?']},
+ friend:{freq:'doar când e nevoie: un act nou care te privește, un termen care se apropie (cu 14 zile înainte) sau o regulă care intră în vigoare. Rar, o verificare a profilului: cel mult o dată pe an pentru o etichetă care se poate schimba (chiriaș, ipotecă, mașină).',
+  new:['Ceva nou la Pilonul II','Din 5 ian 2027 vei putea lua 30% din Pilonul II deodată. Acum nu trebuie să faci nimic, doar să știi.'],
+  deadline:['Mai ai 2 săptămâni pentru Pilonul III','Ce pui până pe 31 dec 2026 se deduce pe anul ăsta: +{suma} lei/an.'],
+  inforce:['Mâine intră în vigoare {act}','La tine înseamnă −{suma} lei/lună. Ți-am pus pe card ce poți face.'],
+  quiet:null,
+  profile:['Mai stai în chirie?','Ai eticheta „chiriaș” de un an. Dacă s-a schimbat ceva, actualizează profilul ca să primești doar ce te privește.']},
+ mini:{freq:'doar când sunt bani în joc: acte cu sumă și termene.',
+  new:null,
+  deadline:['Pilon III: 31 dec','+{suma} lei/an dacă plătești până atunci.'],
+  inforce:['{act}, de mâine','−{suma} lei/lună.'],
+  quiet:null,
+  profile:null},
+ teacher:{freq:'acte noi, termene și un rezumat lunar cu ce s-a schimbat și de ce.',
+  new:['Lege nouă: cum se plătește Pilonul II','Legea 2/2026 schimbă plata pensiei private obligatorii: din 5 ian 2027, 30% o dată, restul eșalonat. Pe card vezi ce înseamnă pentru tine.'],
+  deadline:['Pilon III: termen 31 dec 2026','Contribuțiile la Pilonul III se deduc pe anul în care le plătești. Ce plătești până pe 31 dec intră la 2026: +{suma} lei/an.'],
+  inforce:['Ce se schimbă de mâine','{act} intră în vigoare. Pentru tine: −{suma} lei/lună; pe card e și explicația.'],
+  quiet:['Rezumatul lunii','Nicio lege nouă nu atinge etichetele tale. Le verificăm zilnic în Monitorul Oficial.'],
+  profile:['Profilul decide ce vezi','Notificările vin după etichete. „Chiriaș” e de acum un an; dacă nu mai e corect, scoate-l.']},
+ formal:{freq:'acte noi care te privesc și termene, cu 14 zile înainte.',
+  new:['Act normativ nou: Pilonul II','Începând cu 5 ian 2027, poți încasa 30% din Pilonul II într-o singură tranșă. Nu este necesară nicio acțiune acum.'],
+  deadline:['Termen: 31 decembrie 2026','Contribuția la Pilonul III plătită până la această dată se deduce pentru 2026: +{suma} lei/an.'],
+  inforce:['Intră în vigoare: {act}','Impact estimat: −{suma} lei/lună. Detaliile sunt în aplicație.'],
+  quiet:null,
+  profile:['Actualizarea profilului','Eticheta „chiriaș” a fost setată acum un an. Te rugăm să confirmi dacă mai este valabilă.']},
+ dry:{freq:'acte noi, termene și un rezumat lunar, cu umor sec.',
+  new:['Pilonul II, rescris','Din 5 ian 2027: 30% o dată, restul în tranșe. Până atunci, nimic de făcut.'],
+  deadline:['Pilon III: 31 dec bate la ușă','Ce plătești până atunci se deduce pe 2026: +{suma} lei/an.'],
+  inforce:['Mâine: {act}','−{suma} lei/lună. Ce se poate face e pe card.'],
+  quiet:['Lună fără surprize','Nicio lege nouă pentru tine. Rar, dar se întâmplă.'],
+  profile:['Tot chiriaș?','Eticheta „chiriaș” are un an. Dacă ai devenit proprietar, actualizează profilul.']}
+};
+
+const CHOSEN = {chat:'friend', sum:'formal', pro:'friend'};
+let lang = 'ro', view = 'chat', cur = {chat:'start', sum:'tva', pro:'new'}, showBad = false;
+try{
+  const s = JSON.parse(localStorage.getItem('voce3') || '{}');
+  if(UI[s.lang]) lang = s.lang;
+  if(['chat','sum','pro'].includes(s.view)) view = s.view;
+  if(s.cur) cur = Object.assign(cur, s.cur);
+  showBad = !!s.showBad;
+}catch(e){}
+const items = () => view==='chat' ? SITS.map(s=>[s.id, s[lang].label]) : view==='sum' ? ACTS.map(a=>[a.id, a.label]) : PRO.map(p=>[p.id, p.label]);
+
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const ph = s => esc(s).replace(/(−?)\{([^}]+)\}/g,'<span class="nw">$1<span class="phd">{$2}</span></span>');
+function marked(t, list){
+  let h = esc(t);
+  list.slice().sort((a,b)=>b.length-a.length).forEach(m=>{ h = h.split(esc(m)).join('\u0000'+esc(m)+'\u0001'); });
+  return h.replace(/\u0000/g,'<mark>').replace(/\u0001/g,'</mark>');
+}
+const ctxHtml = ctx => ctx.map(c => c.ev ? '<p class="ev">'+esc(c.ev)+'</p>' : '<p class="bub us">'+esc(c.us)+'</p>').join('');
+const head = (L, name, desc, chosen) => '<div class="ph"><span class="letter" aria-hidden="true">'+L+'</span><div><h3>'+esc(name)+'</h3><p>'+esc(desc)+'</p></div>'+(chosen ? '<span class="pick">'+esc(UI[lang].chosen)+'</span>' : '')+'</div>';
+
+function chatPanes(u){
+  const s = SITS.find(x=>x.id===cur.chat)[lang];
+  const extras = (s.chips ? '<div class="xtr">'+s.chips.map(c=>'<span class="tg">'+esc(c)+'</span>').join('')+'</div>' : '') +
+                 (s.src ? '<p class="src"><b>'+esc(s.src)+'</b></p>' : '');
+  let html = PERS.map(p=>{
+    const t = p[lang], lines = p.lines[cur.chat][lang], ch = p.id===CHOSEN.chat;
+    return '<section class="pane'+(ch?' chosen':'')+'" aria-label="'+p.L+': '+esc(t.name)+'">'+head(p.L, t.name, t.desc, ch)+
+      '<div class="thread">'+ctxHtml(s.ctx)+lines.map(b=>'<p class="bub as">'+ph(b)+'</p>').join('')+extras+'</div>'+
+      '<ul class="pc"><li class="plus">'+esc(t.plus)+'</li><li class="minus">'+esc(t.minus)+'</li></ul></section>';
+  }).join('');
+  if(showBad){
+    html += '<section class="pane bad" aria-label="'+esc(u.badName)+'">'+head('×', u.badName, u.badDesc)+
+      '<div class="thread">'+ctxHtml(s.ctx)+'<p class="bub as">'+marked(s.bad.t, s.bad.m)+'</p></div>'+
+      '<ul class="pc">'+s.bad.n.map(n=>'<li class="x">'+esc(n)+'</li>').join('')+'</ul></section>';
+  }
+  return html;
+}
+function sumPanes(){
+  const R = UI.ro, a = ACTS.find(x=>x.id===cur.sum);
+  const imp = a.imp
+    ? '<p class="imp"><span>'+R.forYou+'</span><span class="nw"><span class="v">'+ph(a.imp.v)+'</span> <span class="u">'+esc(a.imp.u)+'</span></span>'+(a.imp.est ? '<span class="est">'+R.est+'</span>' : '')+'</p>'
+    : '<p class="imp"><span>'+R.forYou+'</span><span class="v zero">'+R.info+'</span></p>';
+  const chg = a.chg ? '<p class="chg"><small>'+R.before+'</small>'+(a.chg.old ? '<span class="old">'+esc(a.chg.old)+'</span>' : '<span><span class="tbc">'+R.tbc+'</span></span>')+'<small>'+R.after+'</small><b class="new">'+esc(a.chg.new)+'</b></p>' : '';
+  return PERS.map(p=>{
+    const t = p[lang], x = SUMS[p.id][a.id], ch = p.id===CHOSEN.sum;
+    return '<section class="pane'+(ch?' chosen':'')+'" aria-label="'+p.L+': '+esc(t.name)+'">'+head(p.L, t.name, t.desc, ch)+
+      '<div class="acard"><div class="meta"><span class="pill st-'+a.st+'">'+esc(a.stL)+'</span><span class="pill">'+esc(a.date)+'</span></div>'+
+      '<h4>'+ph(x.t)+'</h4>'+imp+chg+'<p class="why">'+ph(x.w)+'</p><p class="act">'+ph(x.a)+'</p>'+
+      '<div class="tgrow">'+R.tagsAs+' '+a.tags.map(g=>'<span class="tg">'+esc(g)+'</span>').join('')+'</div>'+
+      '<p class="legal"><b>'+esc(a.src)+'</b> · '+R.verified+'</p></div></section>';
+  }).join('');
+}
+function proPanes(){
+  const R = UI.ro;
+  return PERS.map(p=>{
+    const t = p[lang], x = PROS[p.id], m = x[cur.pro], ch = p.id===CHOSEN.pro;
+    const body = m
+      ? '<div class="notif"><div class="nh"><span class="ic">C</span><b>Ce înseamnă pentru mine</b><span class="nt">'+R.now+'</span></div><p class="ntitle">'+ph(m[0])+'</p><p class="nbody">'+ph(m[1])+'</p></div>'
+      : '<p class="silent">'+R.silent+'</p>';
+    return '<section class="pane'+(ch?' chosen':'')+'" aria-label="'+p.L+': '+esc(t.name)+'">'+head(p.L, t.name, t.desc, ch)+
+      '<p class="freq"><b>'+R.freq+'</b> '+esc(x.freq)+'</p><div class="lock">'+body+'</div></section>';
+  }).join('');
+}
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $('brand').textContent = u.brand; $('sub').textContent = u.sub; $('badge').textContent = u.badge;
+  $('same-l').textContent = u.sameL; $('same').innerHTML = u.same.map(t=>'<li>'+esc(t)+'</li>').join('');
+  $('views').innerHTML = ['chat','sum','pro'].map(v=>'<button type="button" role="tab" id="view-'+v+'" data-v="'+v+'" aria-selected="'+(v===view)+'">'+esc(u.views[v])+'</button>').join('');
+  const note = view==='sum' ? u.noteSum : view==='pro' ? u.notePro : '';
+  $('note').hidden = !note; $('note').textContent = note + (note && u.roOnly ? ' '+u.roOnly : '');
+  const lbl = view==='chat' ? u.sit : view==='sum' ? u.actL : u.proL;
+  $('sit-l').textContent = lbl; $('sits').setAttribute('aria-label', lbl);
+  $('showbad-w').hidden = view!=='chat';
+  $('showbad-l').textContent = u.showBad; $('showbad').checked = showBad;
+  $('sits').innerHTML = items().map(([id,l])=>'<button type="button" class="pchip" role="radio" id="sit-'+id+'" data-id="'+id+'" aria-checked="'+(id===cur[view])+'">'+esc(l)+'</button>').join('');
+  $('f1').innerHTML = ph(u.f1); $('f2').textContent = u.f2;
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lang===lang));
+  $('grid').innerHTML = view==='chat' ? chatPanes(u) : view==='sum' ? sumPanes() : proPanes();
+  try{ localStorage.setItem('voce3', JSON.stringify({lang, view, cur, showBad})); }catch(e){}
+}
+document.querySelector('.lang').addEventListener('click', e=>{ const b = e.target.closest('button'); if(b){ lang = b.dataset.lang; render(); } });
+$('views').addEventListener('click', e=>{ const b = e.target.closest('button'); if(b){ view = b.dataset.v; render(); $('view-'+view).focus(); } });
+$('showbad').addEventListener('change', e=>{ showBad = e.target.checked; render(); });
+$('sits').addEventListener('click', e=>{ const b = e.target.closest('.pchip'); if(b){ cur[view] = b.dataset.id; render(); $('sit-'+cur[view]).focus(); } });
+$('sits').addEventListener('keydown', e=>{
+  if(!['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'].includes(e.key)) return;
+  e.preventDefault();
+  const ids = items().map(x=>x[0]), i = ids.indexOf(cur[view]), d = (e.key==='ArrowRight'||e.key==='ArrowDown') ? 1 : -1;
+  cur[view] = ids[(i+d+ids.length)%ids.length]; render(); $('sit-'+cur[view]).focus();
+});
+render();
+</script>

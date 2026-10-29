@@ -40,10 +40,15 @@ describe("ghidul general (/legi)", () => {
     ["cei_d", "cei_d_economie"],
     ["impozit_cladiri_2026", "cladiri_bonificatie"],
     ["impozit_auto_2026", "auto_bonificatie"],
-    ["motorina_acciza", "motorina_economie"],
   ] as [string, FormulaId][])("%s: suma de salvat e cea din formula %s", (id, formula) => {
     const g = GHID.find((x) => x.id === id)!;
     expect(g.salvezi!.lei).toBe(Math.round(calculeaza(formula, {})! * 12));
+  });
+
+  it("motorina: ghidul păstrează 42,50 lei pentru un singur plin de 50 l", () => {
+    expect(GHID.find(x => x.id === "motorina_acciza")!.salvezi).toMatchObject({
+      lei: 42.5, cand: "o_data", perioada: "pe plin (50 l)",
+    });
   });
 
   it.each([

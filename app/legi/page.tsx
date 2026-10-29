@@ -39,7 +39,7 @@ export default function PaginaLegi() {
             [deschise, "cu termen încă deschis"],
           ].map(([n, t]) => (
             <li key={t as string} className="before:mb-2 before:block before:h-0.5 before:w-4 before:bg-v3-logo">
-              <b className="block font-head text-[26px] font-extrabold">{n}</b>
+              <b className="block font-num font-semibold tabular-nums lining-nums text-[26px] tracking-[-.03em]">{n}</b>
               <span className="mt-0.5 block text-[11px] font-extrabold tracking-[.08em] text-v3-ink-2 uppercase">
                 <T k={t as string} />
               </span>
@@ -49,8 +49,8 @@ export default function PaginaLegi() {
       </header>
 
       <section aria-label="Schimbările, după cât poți salva">
-        {active.map((a, i) => (
-          <ArticolLegi key={a.id} a={a} loc={i + 1} />
+        {active.map((a) => (
+          <ArticolLegi key={a.id} a={a} />
         ))}
       </section>
 
@@ -63,7 +63,7 @@ export default function PaginaLegi() {
             <T k="Termenul a trecut · bine de știut pentru data viitoare" />
           </h2>
           {expirate.map((a) => (
-            <ArticolLegi key={a.id} a={a} loc={null} />
+            <ArticolLegi key={a.id} a={a} />
           ))}
         </section>
       )}

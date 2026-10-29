@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direcția A · Bon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* A · Bon: legile care te privesc, tipărite ca un bon fiscal personal. */
+:root{
+  --counter:#2B3954; --counter-2:#24304A; --paper:#FCFCF9; --ink:#1A1D24; --faded:#6B6F78;
+  --rule:#BFC2C8; --plus:#0E7A3E; --minus:#BE2A2E; --mark:#FFE36E; --sheet:#FFFFFF;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1200px 600px at 30% 0%,#34446A,var(--counter) 60%,var(--counter-2));min-height:100vh;color:var(--ink);font:15px/1.5 'IBM Plex Sans',system-ui,sans-serif}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;max-width:1040px;margin:0 auto;padding:20px 24px;color:#E6E9F0}
+.brand{font:700 17px/1 'IBM Plex Sans Condensed',sans-serif;letter-spacing:.2px}
+.who{font-size:13px;color:#B9C0D0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px 64px;display:grid;grid-template-columns:420px 1fr;gap:40px;align-items:start}
+
+/* bonul */
+.bon{background:var(--paper);font:13.5px/1.55 'IBM Plex Mono',monospace;padding:26px 24px 18px;position:relative;box-shadow:0 18px 40px rgba(10,16,30,.35);
+  --zz:linear-gradient(135deg,transparent 6px,var(--paper) 0) 0 0/12px 12px repeat-x,linear-gradient(-135deg,transparent 6px,var(--paper) 0) 0 0/12px 12px repeat-x}
+.bon::before,.bon::after{content:"";position:absolute;left:0;right:0;height:10px;background:linear-gradient(45deg,var(--paper) 5px,transparent 0) 0 0/10px 10px repeat-x,linear-gradient(-45deg,var(--paper) 5px,transparent 0) 0 0/10px 10px repeat-x}
+.bon::before{top:-10px;transform:rotate(180deg)}
+.bon::after{bottom:-10px}
+.head{text-align:center;margin-bottom:10px}
+.head b{display:block;font-size:15px;letter-spacing:.5px}
+.head span{color:var(--faded);font-size:12.5px;display:block}
+.cut{border:0;border-top:1.5px dashed var(--rule);margin:12px 0}
+.sec{text-align:center;color:var(--faded);font-size:12px;margin:14px 0 6px}
+.line{display:block;width:100%;text-align:left;border:0;background:none;padding:7px 6px;margin:0 -6px;width:calc(100% + 12px);color:inherit;font:inherit;border-radius:2px}
+.line:hover{background:#F2F1EA}
+.line.sel{background:linear-gradient(transparent 4%,var(--mark) 4%,var(--mark) 96%,transparent 96%)}
+.row{display:flex;gap:10px;align-items:baseline}
+.row .t{flex:1;min-width:0;overflow:hidden}
+.row .t::after{content:" ...............................................";color:var(--rule);white-space:nowrap}
+.row .t{white-space:nowrap;text-overflow:clip}
+.amt{white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums}
+.plus{color:var(--plus)} .minus{color:var(--minus)} .zero{color:var(--faded)}
+.sub{color:var(--faded);font-size:12px}
+.due{font-size:12.5px;font-weight:700;margin-top:2px}
+.due.urg{display:inline-block;background:var(--ink);color:var(--paper);padding:0 6px}
+.past .t,.past .amt{text-decoration:line-through;text-decoration-color:rgba(26,29,36,.45)}
+.new{font-size:11px;border:1.5px solid currentColor;padding:0 4px;margin-left:6px;vertical-align:1px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin:4px 0}
+.tot.big{font-size:20px;font-weight:700}
+.tot .lbl{font-size:13.5px;font-weight:500}
+.bar{height:46px;margin:16px 6px 4px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 9px,var(--ink) 9px 12px,transparent 12px 13px,var(--ink) 13px 14px,transparent 14px 17px)}
+.foot{text-align:center;font-size:11.5px;color:var(--faded)}
+.inline{display:none}
+
+/* foaia cu detalii (desktop) */
+.sheet{background:var(--sheet);padding:32px 34px;box-shadow:0 18px 40px rgba(10,16,30,.3);position:sticky;top:20px;border-top:6px solid var(--mark)}
+.k{font-size:13px;color:var(--faded);margin:0 0 6px}
+.sheet h1{font:700 27px/1.18 'IBM Plex Sans Condensed',sans-serif;margin:0 0 18px;max-width:30ch;text-wrap:balance}
+.fig{display:flex;gap:28px;flex-wrap:wrap;margin:0 0 18px;padding:14px 0;border-block:1px solid #E6E6E1}
+.fig div{min-width:120px}
+.fig b{display:block;font:700 26px/1.1 'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.fig small{font-size:12.5px;color:var(--faded)}
+.why{max-width:60ch;margin:0 0 18px}
+.act{background:#F6F6F1;padding:16px 18px;margin:0 0 18px;border-left:4px solid var(--ink)}
+.act p{margin:0 0 6px;font-weight:600}
+.act .d{font:700 15px 'IBM Plex Mono',monospace}
+.act.done{border-left-color:var(--rule);color:var(--faded)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.chip{font-size:12.5px;border:1px solid #CFCFC8;padding:2px 9px;border-radius:999px}
+.src{font-size:13px;color:#3B3F48;margin:0;padding-left:0;list-style:none}
+.src li{margin:3px 0}
+.est{font-size:12.5px;color:var(--faded);font-style:italic;margin:0 0 14px}
+
+/* notificarea: un bon mic care iese din imprimantă */
+.slot{position:fixed;inset:0;background:rgba(14,20,34,.55);display:flex;justify-content:center;align-items:flex-start;padding-top:56px;z-index:9}
+.slot[hidden]{display:none}
+.printer{width:min(380px,calc(100% - 32px));position:relative}
+.printer::before{content:"";display:block;height:14px;background:#11182A;border-radius:7px;box-shadow:inset 0 3px 4px rgba(0,0,0,.6)}
+.slip{background:var(--paper);margin:-7px 10px 0;padding:18px 18px 16px;font:13px/1.5 'IBM Plex Mono',monospace;transform-origin:top;animation:print 1.1s steps(14) both}
+@keyframes print{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.slip h2{font:700 17px/1.25 'IBM Plex Sans Condensed',sans-serif;margin:6px 0 10px}
+.slip .amt{font-size:18px}
+.btns{display:flex;gap:8px;margin-top:14px}
+.btn{border:0;background:var(--ink);color:var(--paper);padding:10px 14px;font:600 14px 'IBM Plex Sans',sans-serif;flex:1}
+.btn.ghost{background:none;color:var(--ink);border:1.5px solid var(--ink);flex:0 0 auto}
+
+@media (prefers-reduced-motion:reduce){.slip{animation:none}}
+.still .slip{animation:none}
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr);padding:0 12px 40px}
+  .bon{min-width:0}
+  .top{padding:16px 16px}
+  .who{display:none}
+  .sheet{display:none}
+  .bon{padding:24px 16px 16px}
+  .inline{display:block;font:15px/1.5 'IBM Plex Sans',sans-serif;background:#fff;margin:6px -6px 10px;padding:16px;border:1px solid #E4E3DC}
+  .inline h1{font:700 20px/1.22 'IBM Plex Sans Condensed',sans-serif;margin:0 0 12px}
+  .inline .fig{gap:18px;padding:10px 0}
+  .inline .fig b{font-size:20px}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Ce înseamnă pentru mine</span><span class="who" id="who"></span></header>
+<main class="wrap">
+  <section class="bon" aria-label="Bonul tău de legi" id="bon"></section>
+  <aside class="sheet" id="sheet" aria-live="polite"></aside>
+</main>
+<div class="slot" id="slot" role="dialog" aria-label="Notificare nouă">
+  <div class="printer"><div class="slip" id="slip"></div></div>
+</div>
+<script src="data.js"></script>
+<script>
+var sel = 'cei_d';
+var order = ['motorina','pilon3','cei_d','pilon2','gaz','it','tva','curent','dividend'];
+var groups = [
+  {name:'cu termen', ids:['motorina','pilon3','gaz']},
+  {name:'urmează', ids:['cei_d','pilon2']},
+  {name:'deja în vigoare', ids:['it','tva','curent','dividend']}
+];
+function amountOf(i){ return i.impact || i.gain; }
+function amountLabel(i){ return i.impact ? U.lei(i.impact) : (i.gain ? 'până la ' + U.lei(i.gain) : '0 lei'); }
+function detail(i, h){
+  var dl = i.deadline ? U.days(i.deadline) : null, past = i.status === 'termen_depasit';
+  var s = '<p class="k">' + i.act + ' · ' + STATUS[i.status] + (i.isNew ? ' · nou în Monitorul Oficial' : '') + '</p>';
+  s += '<' + h + '>' + U.esc(i.title) + '</' + h + '>';
+  s += '<div class="fig"><div><b class="' + U.cls(i.impact) + '">' + U.lei(i.impact) + '</b><small>' + (U.inForce(i) ? 'efectul de acum' : 'din ' + U.date(i.effective)) + '</small></div>';
+  if (i.gain) s += '<div><b class="' + (past ? 'zero' : 'plus') + '">+' + U.num(i.gain) + ' lei/lună</b><small>' + (past ? 'ai fi economisit' : 'cu acțiunea din lege') + '</small></div>';
+  s += '</div>';
+  if (i.est) s += '<p class="est">Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege. ' + U.esc(i.note) + '</p>';
+  s += '<p class="why">' + U.esc(i.why) + '</p>';
+  if (i.action) s += '<div class="act' + (past ? ' done' : '') + '"><p>' + U.esc(i.action) + '</p>' + (i.deadline ? '<span class="d">' + (past ? 'termenul a trecut pe ' + U.date(i.deadline) : 'până la ' + U.date(i.deadline) + ' · mai ai ' + dl + ' zile') + '</span>' : '') + '</div>';
+  s += '<div class="chips">' + i.tags.map(function(t){return '<span class="chip">te privește ca ' + t + '</span>';}).join('') + '</div>';
+  s += '<ul class="src"><li><a href="' + i.link + '" target="_blank" rel="noopener">' + i.act + ', ' + i.mo + '</a></li><li>' + U.esc(i.art) + '</li><li>verificat la 28 oct 2026</li></ul>';
+  return s;
+}
+function line(i){
+  var dl = i.deadline ? U.days(i.deadline) : null, past = i.status === 'termen_depasit';
+  var amt = i.impact ? i.impact : i.gain, cls = i.impact ? U.cls(i.impact) : (i.gain ? 'plus' : 'zero');
+  var s = '<button class="line' + (i.id === sel ? ' sel' : '') + (past ? ' past' : '') + '" data-id="' + i.id + '" aria-expanded="' + (i.id === sel) + '">';
+  s += '<div class="row"><span class="t">' + i.short + '</span><span class="amt ' + cls + '">' + (amt ? (amt > 0 ? '+' : '−') + U.num(amt) : '0') + '</span></div>';
+  s += '<div class="sub">' + i.act + ' · ' + STATUS[i.status] + (i.isNew ? '<span class="new">nou</span>' : '') + '</div>';
+  if (dl !== null && !past) s += '<div class="due' + (dl < 30 ? ' urg' : '') + '">› până la ' + U.date(i.deadline) + ' · ' + dl + ' zile</div>';
+  if (!U.inForce(i) && !i.deadline) s += '<div class="due">› din ' + U.date(i.effective) + '</div>';
+  s += '</button>';
+  if (i.id === sel) s += '<div class="inline">' + detail(i, 'h1') + '</div>';
+  return s;
+}
+function render(){
+  var now = new Date(), t = U.d(TODAY);
+  document.getElementById('who').textContent = PERSON.name + ', ' + PERSON.age + ' · ' + PERSON.tags.length + ' etichete';
+  var s = '<div class="head"><b>CE ÎNSEAMNĂ PENTRU MINE</b><span>bon personal de legi</span><span>' + PERSON.name + ', ' + PERSON.age + ' · 29.10.2026 · 09:14</span></div><hr class="cut">';
+  groups.forEach(function(g){ s += '<div class="sec">-- ' + g.name + ' --</div>' + g.ids.map(function(id){return line(U.byId(id));}).join(''); });
+  s += '<hr class="cut">';
+  s += '<div class="tot big"><span>Total în vigoare</span><span class="minus">' + U.lei(U.totalNow()) + '</span></div>';
+  s += '<div class="tot"><span class="lbl">Poți recupera cu acțiunile din lege, inclusiv cele din 2027</span><span class="amt plus">până la +' + U.num(U.totalGain()) + '</span></div>';
+  s += '<div class="tot"><span class="lbl">Termenul următor</span><span class="amt">31 oct · 2 zile</span></div>';
+  s += '<hr class="cut"><div class="bar" aria-hidden="true"></div><div class="foot">fiecare rând are sursa în legislatie.just.ro<br>nu e sfat financiar · sume lunare în lei</div>';
+  document.getElementById('bon').innerHTML = s;
+  document.getElementById('sheet').innerHTML = detail(U.byId(sel), 'h1');
+}
+document.getElementById('bon').addEventListener('click', function(e){
+  var b = e.target.closest('.line'); if (!b) return; sel = b.dataset.id; render();
+});
+var n = U.byId('cei_d');
+document.getElementById('slip').innerHTML = '<div class="sub">nou în Monitorul Oficial · 15 oct 2026</div><h2>' + n.title + '</h2>' +
+  '<div class="row"><span class="t">Pentru tine</span><span class="amt plus">până la +30</span></div><div class="sub">lei/lună din 1 ian 2027 · te privește ca angajat</div>' +
+  '<div class="btns"><button class="btn" id="go">Vezi pe bon</button><button class="btn ghost" id="later">Mai târziu</button></div>';
+function closeSlot(){ document.getElementById('slot').hidden = true; }
+document.getElementById('go').onclick = function(){ sel = 'cei_d'; render(); closeSlot(); };
+document.getElementById('later').onclick = closeSlot;
+var Q = new URLSearchParams(location.search);
+if (Q.get('notif') === '0') closeSlot();
+if (Q.get('still')) document.body.classList.add('still');
+render();
+</script>
+</body>
+</html>

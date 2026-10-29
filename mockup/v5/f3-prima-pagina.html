@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F3 · Prima pagină</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+/* F3 · Prima pagină: ierarhie de revistă. Deschide cu legea care te costă cel mai mult,
+   termenele devin o bandă de trei, restul e lista. Mai puține etichete deasupra titlurilor. */
+.lead{background:linear-gradient(160deg,var(--tint1),var(--tint2) 45%,#fff);border:1px solid var(--tintb);border-radius:var(--r);padding:26px 28px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 32px;margin-bottom:34px}
+.lead h1{font:800 clamp(26px,3vw,36px)/1.12 var(--head);letter-spacing:-.015em;margin:0;text-wrap:balance;max-width:20ch}
+.lead .big{text-align:right;align-self:start}
+.lead .big b{display:block;font:800 clamp(44px,5vw,64px)/.95 var(--head);letter-spacing:-.03em}
+.lead .big small{font-size:14px;color:var(--ink-2)}
+.lead .mt{margin:8px 0 10px}
+.lead .body{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px;border-top:1px solid var(--tintb);padding-top:16px}
+.lead .body p{margin:0 0 10px;font-size:16px;max-width:52ch}
+.lead .act{background:rgba(255,255,255,.75)}
+.strip h2,.lh{font:800 19px/1.2 var(--head);margin:0 0 12px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.strip h2 span,.lh span{font:500 13.5px var(--sans);color:var(--ink-3)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:34px}
+.tile{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px 16px 14px;text-align:left;display:flex;flex-direction:column;gap:6px;transition:border-color .15s}
+.tile:hover{border-color:var(--tintb)}
+.tile.urg{background:var(--neg-soft);border-color:#F3D3D3}
+.tile .when{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.tile .when b{font:800 24px/1 var(--head)}
+.tile .when span{font-size:13px;font-weight:700}
+.tile.urg .when span{color:var(--neg)}
+.tile .what{font-size:14.5px;font-weight:600;line-height:1.35;flex:1}
+.tile .gain{font-size:14px}
+@media (max-width:760px){
+  .lead{grid-template-columns:1fr;padding:18px 16px 16px;margin-bottom:24px}
+  .lead .big{text-align:left;display:flex;align-items:baseline;gap:6px}
+  .lead .big b{font-size:44px;display:inline}
+  .lead .body{grid-template-columns:1fr;gap:4px}
+  .lead .body p{font-size:15.5px}
+  .tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px 26px;padding:0 16px;scrollbar-width:none}
+  .tile{flex:0 0 78%;scroll-snap-align:start}
+}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr"></header>
+<nav class="nav" id="nav"></nav>
+<div class="page two">
+  <aside class="filters"><h3>Arată</h3><div id="f"></div><p class="fnote">Andrei, 32. Profilul rămâne pe telefon.</p></aside>
+  <main>
+    <div class="chiprow" id="chips"></div>
+    <article class="lead" id="lead"></article>
+    <section class="strip" id="strip"></section>
+    <h2 class="lh" id="lh"></h2>
+    <div class="list" id="list"></div>
+    <p class="disc">Nu e sfat financiar. Arătăm efectul legii pe profilul tău și ce permite legea.</p>
+  </main>
+</div>
+<nav class="bnav" id="bnav"></nav>
+<script src="../v4/data.js"></script>
+<script src="common.js"></script>
+<script>
+function render(){
+  var v = visible().slice().sort(function(a,b){ return Math.abs(b.impact || b.gain) - Math.abs(a.impact || a.gain); });
+  var L = v[0], el = document.getElementById('lead');
+  if (L){
+    var s = '<h1>' + U.esc(L.title) + '</h1><div class="big">' + amount(L) + '</div><div class="mt">' + meta(L) + '</div>';
+    s += '<div class="body"><div><p>' + U.esc(L.why) + '</p>' + (L.est ? '<p class="est">Suma e calculul nostru pe profilul tău, nu o cifră scrisă în lege. ' + U.esc(L.note) + '</p>' : '') + '</div><div>';
+    if (L.action) s += '<div class="act"><b>Ce poți face</b>' + U.esc(L.action) + '.</div>';
+    s += '<div class="src">' + ic('doc') + '<span><a href="' + L.link + '" target="_blank" rel="noopener">' + L.act + '</a>, ' + L.mo + ', ' + U.esc(L.art) + '. Verificat la 28 oct 2026.</span></div></div></div>';
+    el.innerHTML = s; el.hidden = false;
+  } else el.hidden = true;
+
+  var todo = v.filter(openDl).sort(function(a,b){ return a.deadline < b.deadline ? -1 : 1; }).slice(0, 3);
+  document.getElementById('strip').innerHTML = todo.length ? '<h2>De făcut curând<span>' + todo.length + ' termene deschise</span></h2><div class="tiles">' + todo.map(function(i){
+    var n = U.days(i.deadline), x = U.d(i.deadline);
+    return '<button class="tile' + (n < 30 ? ' urg' : '') + '" data-open="' + i.id + '"><span class="when"><b>' + x.getDate() + ' ' + U.MONTHS[x.getMonth()] + '</b><span>' + left(n) + '</span></span><span class="what">' + U.esc(i.action) + '</span><span class="gain pos">+' + U.num(i.gain) + ' lei/lună</span></button>';
+  }).join('') + '</div>' : '';
+
+  var rest = v.slice(1);
+  document.getElementById('lh').innerHTML = 'Toate actele care te privesc<span>' + v.length + ' acte. Azi te costă ' + lei0(-totalNow()) + ' lei/lună.' + (simGain() ? ' Cu ce ai simulat: <b class="neg">−' + lei0(-(totalNow() + simGain())) + ' lei/lună</b>.' : '') + '</span>';
+  document.getElementById('list').innerHTML = rest.map(function(i){ return row(i); }).join('');
+  var fh = filters(); document.getElementById('f').innerHTML = fh; document.getElementById('chips').innerHTML = fh;
+}
+shell(); bind(render); render();
+</script>
+</body>
+</html>

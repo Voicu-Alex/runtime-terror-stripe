@@ -124,15 +124,41 @@ describe("potriveste", () => {
 });
 
 describe("planulMeu", () => {
+  it("un plin aduce o economie punctuală, fără să modifice economiile anuale", () => {
+    const p = profil({ taguri: ["masina"] });
+    const r = potriveste(p, CATALOG.filter(s => s.id === "motorina_acciza"), AZI);
+    const plan = planulMeu(r, new Set(["motorina_acciza"]), p.valori, AZI);
+    expect(plan.economii).toBe(0);
+    expect(plan.cu_actiuni).toBe(0);
+    expect(plan.economii_punctuale).toBe(42.5);
+  });
+
+  it("o acțiune cu termenul trecut nu mai aduce economii în plan", () => {
+    const p = profil({ taguri: ["cumpar_locuinta"] });
+    const r = potriveste(p, CATALOG.filter(s => s.id === "tva_locuinta"), AZI);
+    const plan = planulMeu(r, new Set(["tva_locuinta"]), p.valori, AZI);
+    expect(plan.economii).toBe(0);
+    expect(plan.economii_punctuale).toBe(0);
+  });
+
   it("adună impacturile și economiile din acțiunile bifate", () => {
     const p = profil({ taguri: ["srl_dividende", "pilon3"], valori: { dividende_anuale: 24000 } });
     const r = potriveste(p, CATALOG, AZI);
-    const fara = planulMeu(r, new Set(), p.valori);
+    const fara = planulMeu(r, new Set(), p.valori, AZI);
     expect(fara.fara_actiuni).toBe(-120);
     expect(fara.economii).toBe(0);
-    const cu = planulMeu(r, new Set(["pilon3_deducere"]), p.valori);
+    const cu = planulMeu(r, new Set(["pilon3_deducere"]), p.valori, AZI);
     expect(cu.economii).toBeCloseTo(16.67, 1);
     expect(cu.cu_actiuni).toBeCloseTo(-103.33, 1);
+  });
+
+  it("prima de stabilitate păstrează în plan perioada primului an", () => {
+    const p = profil({ taguri: ["caut_primul_job"], valori: { an_nastere: 2003 } });
+    const r = potriveste(p, CATALOG, AZI);
+    const plan = planulMeu(r, new Set(["prima_stabilitate"]), p.valori, AZI);
+    expect(plan.economii).toBe(1000);
+    expect(plan.unitate).toBe("lei în primul an");
+    expect(plan.economii_punctuale).toBe(0);
   });
 });
 

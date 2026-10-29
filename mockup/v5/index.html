@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variante F, v5</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Raleway:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111827;--ink-2:#4B5563;--line:#E5E7EB;--bg:#F1F0EE}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 'Inter',system-ui,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 24px 60px}
+h1{font:800 28px/1.15 'Raleway',sans-serif;margin:0 0 8px}
+.intro{color:var(--ink-2);max-width:72ch;margin:0 0 26px}
+.v{border-top:2px solid var(--ink);padding:20px 0 32px}
+.v h2{font:800 21px/1.2 'Raleway',sans-serif;margin:0 0 6px}
+.v p{margin:0 0 6px;max-width:78ch}
+.v .fix{color:var(--ink-2);font-size:14px}
+.v a{color:var(--ink);font-weight:600}
+.frames{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;margin-top:14px}
+.desk{width:704px;height:451px;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#fff;flex:none}
+.desk iframe{width:1280px;height:820px;border:0;transform:scale(.55);transform-origin:0 0}
+.phone{width:300px;height:620px;border:9px solid #1D1F24;border-radius:36px;overflow:hidden;background:#fff;flex:none}
+.phone iframe{width:375px;height:785px;border:0;transform:scale(.752);transform-origin:0 0}
+.cap{font-size:12.5px;color:var(--ink-2);margin-top:6px}
+@media (max-width:760px){.desk{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Designul F, îmbunătățit în trei feluri</h1>
+  <p class="intro">Toate păstrează aspectul F (gri cald, Raleway și Inter, verde pentru bani în plus, roșu pentru minus). Diferă doar ce îmbunătățesc. Același ecran și aceleași date: fluxul lui Andrei pe 28 oct 2026. Primul rând e F așa cum e azi, ca reper. Variantele au 9 acte, F are 11 (lipsesc microîntreprinderile și TVA la locuințe noi, care nu schimbă suma lui Andrei). Click pe un rând îl deschide.</p>
+
+  <section class="v">
+    <h2>Reper · F, azi</h2>
+    <p class="fix">Ce îl ține pe loc: trei unități pe același ecran (lei/an, lei/lună, lei pe 12 luni); articolul principal e cea mai mică sumă (+43 lei/an), iar IT (−520 lei/lună) stă în listă; patru rânduri de etichete înaintea titlului pe telefon; banda de cifre se citește greu.</p>
+    <div class="frames">
+      <div><div class="desk"><iframe src="../v3/index.html?v=f&bar=0" title="F desktop" loading="lazy"></iframe></div><div class="cap">desktop 1280</div></div>
+      <div><div class="phone"><iframe src="../v3/index.html?v=f&bar=0" title="F telefon" loading="lazy"></iframe></div><div class="cap">telefon 375</div></div>
+    </div>
+  </section>
+
+  <section class="v">
+    <h2>F1 · Clar</h2>
+    <p>O propoziție spune totul: „Legile intrate deja te costă 784 lei pe lună.” Dedesubt, lista grupată după ce faci cu ea: De făcut, Te costă deja, Urmează. O singură unitate, lei/lună.</p>
+    <p class="fix">Scoate: articolul principal, banda de cifre, coloana de termene (repeta lista) și etichetele de deasupra titlurilor. Pe telefon, lista începe pe primul ecran.</p>
+    <a href="f1-clar.html" target="_blank">Deschide F1</a>
+    <div class="frames">
+      <div><div class="desk"><iframe src="f1-clar.html" title="F1 desktop" loading="lazy"></iframe></div><div class="cap">desktop 1280</div></div>
+      <div><div class="phone"><iframe src="f1-clar.html" title="F1 telefon" loading="lazy"></iframe></div><div class="cap">telefon 375</div></div>
+    </div>
+  </section>
+
+  <section class="v">
+    <h2>F2 · Bilanț</h2>
+    <p>În locul articolului și al benzii de cifre: bilanțul lunar pe o bară, cu fiecare lege la scară. Dedesubt, în verde, ce poți recupera. Atingi o bucată verde și cifra se recalculează pe loc (simularea din pitch).</p>
+    <p class="fix">Păstrează: coloana de termene din F. Lista are o bară subțire pe fiecare rând, ca să se vadă cât cântărește fiecare lege.</p>
+    <a href="f2-bilant.html" target="_blank">Deschide F2</a>
+    <div class="frames">
+      <div><div class="desk"><iframe src="f2-bilant.html" title="F2 desktop" loading="lazy"></iframe></div><div class="cap">desktop 1280</div></div>
+      <div><div class="phone"><iframe src="f2-bilant.html" title="F2 telefon" loading="lazy"></iframe></div><div class="cap">telefon 375</div></div>
+    </div>
+  </section>
+
+  <section class="v">
+    <h2>F3 · Prima pagină</h2>
+    <p>Ierarhie de revistă: deschide cu legea care te costă cel mai mult (IT, −520 lei/lună), cu explicația, acțiunea și sursa vizibile. Termenele devin o bandă de trei cartonașe; restul e lista.</p>
+    <p class="fix">Păstrează: articolul principal din F, dar alege-l după sumă, nu după termen. Pe telefon, termenele se derulează orizontal.</p>
+    <a href="f3-prima-pagina.html" target="_blank">Deschide F3</a>
+    <div class="frames">
+      <div><div class="desk"><iframe src="f3-prima-pagina.html" title="F3 desktop" loading="lazy"></iframe></div><div class="cap">desktop 1280</div></div>
+      <div><div class="phone"><iframe src="f3-prima-pagina.html" title="F3 telefon" loading="lazy"></iframe></div><div class="cap">telefon 375</div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

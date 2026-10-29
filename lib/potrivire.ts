@@ -1,5 +1,5 @@
 import type { Conditie, Schimbare } from "./catalog";
-import { calculeaza } from "./formule";
+import { calculeaza, calculeazaEconomie } from "./formule";
 import { evalueazaTip, necesita } from "./formule-tip";
 import { varstaLa, type CampConditie, type Profil, type Valori } from "./profil";
 import type { TagId } from "./taguri";
@@ -139,16 +139,25 @@ export function inlocuiteLa(catalog: Schimbare[], azi: string): Set<string> {
   return set;
 }
 
-/** Suma pe lună a schimbărilor cu impact calculabil, fără și cu acțiunile bifate. */
-export function planulMeu(potriviri: Potrivire[], actiuniBifate: Set<string>, valori: Valori) {
+/** Impactul recurent rămâne lunar în motor; economiile punctuale se întorc separat, integral. */
+export function planulMeu(potriviri: Potrivire[], actiuniBifate: Set<string>, valori: Valori, azi = aziISO()) {
   let faraActiuni = 0;
   let economii = 0;
+  let punctuale = 0;
+  let primulAn = false;
   for (const p of potriviri) {
     faraActiuni += p.impact_lei_luna ?? 0;
     if (!actiuniBifate.has(p.schimbare.id)) continue;
-    for (const a of p.schimbare.actiuni) economii += calculeaza(a.formula_economie, valori) ?? 0;
+    for (const a of p.schimbare.actiuni) {
+      if (a.termen && a.termen < azi) continue;
+      const economie = calculeazaEconomie(a.formula_economie, valori);
+      if (!economie) continue;
+      if (economie.unitate === "lei în primul an") primulAn = true;
+      if (economie.punctuala) punctuale += economie.suma;
+      else economii += economie.suma / 12;
+    }
   }
-  return { fara_actiuni: round2(faraActiuni), cu_actiuni: round2(faraActiuni + economii), economii: round2(economii) };
+  return { fara_actiuni: round2(faraActiuni), cu_actiuni: round2(faraActiuni + economii), economii: round2(economii), economii_punctuale: round2(punctuale), unitate: primulAn ? "lei în primul an" : "lei/an" };
 }
 
 function round2(n: number) {
