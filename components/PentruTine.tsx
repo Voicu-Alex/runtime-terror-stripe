@@ -381,7 +381,7 @@ function Freemium({
             {!profilCompletat && (
               <Link
                 href="/profil"
-                className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-ink px-4 text-[14px] font-bold text-v3-ink no-underline"
+                className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-ink px-4 py-2 text-[14px] leading-snug font-bold text-v3-ink no-underline hover:bg-v3-accent-soft"
               >
                 {t("Completează profilul sau încarcă un document · +1 deblocare")}
               </Link>
@@ -541,7 +541,7 @@ function Bilant({ randuri, acces }: { randuri: Rand[]; acces: (id: string) => bo
                   className="inline-flex max-w-full items-center gap-1.5 py-0.5 text-left text-[13px] text-v3-ink-2 hover:text-v3-ink"
                 >
                   <i aria-hidden="true" className={`size-2.5 flex-none rounded-[3px] ${culoare}`} />
-                  <span className="truncate">{eticheta(r)}</span>
+                  <span className="relative min-w-0 truncate">{eticheta(r)}</span>
                   <b className="font-semibold whitespace-nowrap text-v3-ink">
                     {i === 0 ? "−" : "+"}
                     {bani(val(r), limba)}

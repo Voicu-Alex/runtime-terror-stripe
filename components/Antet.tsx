@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ComutatorLimba, useLimba } from "@/components/Limba";
 import { ComutatorTema } from "@/components/Tema";
+import { SemnBuzunar } from "@/components/Logo";
 import { useAbonament } from "@/components/useAbonament";
 import type { StareAbonament } from "@/lib/abonament";
 
@@ -28,22 +29,29 @@ export function Antet() {
   return (
     <>
       <header>
-        <div className="mx-auto grid max-w-[1080px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-4 pt-3.5 pb-2.5 sm:gap-2.5 lg:grid-cols-[1fr_auto_1fr] lg:pt-[18px] lg:pb-4">
-          {/* stânga: tema, dreapta: Pro și limba, ca logo-ul să rămână centrat */}
-          <span className="flex justify-start">
+        {/* Telefon: logo în stânga, acțiunile în dreapta (tema e în subsol, ca să încapă pe 320 px).
+            De la lg: antetul „Revistă” cu logo-ul centrat și sloganul dedesubt. */}
+        <div className="mx-auto flex max-w-[1080px] items-center justify-between gap-3 px-4 pt-3 pb-2.5 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:pt-[18px] lg:pb-4">
+          <span className="hidden lg:flex lg:justify-start">
             <ComutatorTema />
           </span>
-          <Link href="/" className="min-w-0 text-center no-underline">
-            <b className="block font-head text-[clamp(15px,4.4vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] text-balance text-v3-logo lg:whitespace-nowrap lg:text-[34px]">
-              {t("Buzunar")}
-            </b>
-            <span className="mt-[3px] hidden text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase min-[480px]:block lg:text-[11.5px]">
+          <Link href="/" className="flex min-w-0 items-center gap-2 no-underline lg:flex-col lg:gap-1">
+            <span className="flex items-center gap-2 lg:gap-2.5">
+              <SemnBuzunar className="h-7 lg:h-9" />
+              <b className="font-head text-[21px] leading-none font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-logo lg:text-[34px]">{t("Buzunar")}</b>
+            </span>
+            <span className="hidden text-[11.5px] font-semibold tracking-[.16em] whitespace-nowrap text-v3-ink-2 uppercase lg:block">
               {t("Legea, pe banii tăi")}
             </span>
           </Link>
           <span className="flex items-center justify-end gap-1.5 sm:gap-2">
             <ButoaneCont />
-            <ComutatorLimba />
+            <span className="lg:hidden">
+              <ComutatorLimba compact />
+            </span>
+            <span className="hidden lg:inline-flex">
+              <ComutatorLimba />
+            </span>
           </span>
         </div>
       </header>
@@ -125,7 +133,11 @@ export function SariLaContinut() {
 export function Subsol() {
   const { t, limba } = useLimba();
   return (
-    <footer className="mx-auto max-w-[1080px] border-t border-v3-line px-4 pt-4 pb-8 text-[12.5px] text-v3-ink-2">
+    <footer className="mx-auto max-w-[1080px] border-t border-v3-line px-4 pt-4 pb-24 text-[12.5px] text-v3-ink-2 lg:pb-8">
+      {/* Pe telefon tema stă aici, nu în antet */}
+      <span className="mb-3 flex items-center gap-2 lg:hidden">
+        <ComutatorTema /> {t("Temă")}
+      </span>
       {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}
       {t("Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică.")}
       {limba === "en" && <> {t("Traducerea în engleză e neoficială; textul verificat e cel în română.")}</>}

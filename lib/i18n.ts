@@ -236,6 +236,7 @@ const EN: Record<string, string> = {
   "Calculate față de azi, din datele din lege.": "Counted from today, using the dates in the law.",
   "Niciun termen deschis.": "No open deadlines.",
   "Temă închisă": "Dark theme",
+  "Temă": "Theme",
   "Treci la tema deschisă": "Switch to the light theme",
   "Treci la tema închisă": "Switch to the dark theme",
   // pagina generală /legi

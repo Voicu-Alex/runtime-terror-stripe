@@ -3,6 +3,7 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { useAsistent } from "@/components/AsistentProvider";
 import { useLimba } from "@/components/Limba";
+import { SemnBuzunar } from "@/components/Logo";
 import { CATALOG } from "@/lib/catalog";
 import { arePropuneri } from "@/lib/chat-ui";
 import { etichetaTagL } from "@/lib/i18n";
@@ -74,9 +75,12 @@ export function ChatPanel({ modal = false, open = true, onClose, action }: { mod
   const inner = <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-[14px] border border-v3-line bg-v3-card text-v3-ink">
     <div className="shrink-0 border-b border-v3-line bg-v3-accent-soft px-5 py-4 sm:px-6">
       <div className="flex items-start justify-between gap-3">
-        <div>
-          <h2 className="m-0 font-head text-[21px] leading-tight font-extrabold">{t(modal ? "Asistentul tău" : "Conversație")}</h2>
-          <p className="m-0 mt-1 text-[13px] text-v3-ink-2">{demoName ? `${t("Profil demo:")} ${demoName}` : t("Întreabă despre legi sau spune-mi ce situație ai.")}</p>
+        <div className="flex min-w-0 items-start gap-3">
+          <SemnBuzunar className="mt-0.5 h-8" />
+          <div className="min-w-0">
+            <h2 className="m-0 font-head text-[21px] leading-tight font-extrabold">{t(modal ? "Asistentul tău" : "Conversație")}</h2>
+            <p className="m-0 mt-1 text-[13px] text-v3-ink-2">{demoName ? `${t("Profil demo:")} ${demoName}` : t("Întreabă despre legi sau spune-mi ce situație ai.")}</p>
+          </div>
         </div>
         {modal ? <button type="button" onClick={onClose} aria-label={t("Închide")} className="grid min-h-11 min-w-11 place-items-center rounded-lg text-xl text-v3-ink-2 hover:bg-v3-line focus-visible:outline-2 focus-visible:outline-v3-ink">×</button> : action}
       </div>
@@ -122,11 +126,11 @@ export function ChatPanel({ modal = false, open = true, onClose, action }: { mod
     </div>
     <div className="shrink-0 border-t border-v3-line bg-v3-card px-4 pt-3 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:px-6">
       {!session.seTrimite && <div className="mb-3 flex flex-wrap gap-2">{suggestions.slice(0, 3).map((q) => <button key={q} type="button" onClick={() => send(q)} className="min-h-11 max-w-full rounded-full border border-v3-line bg-v3-accent-soft px-3 py-1 text-left text-[13px] font-semibold text-v3-ink hover:border-v3-ink">{t(q)}</button>)}</div>}
-      <form onSubmit={(e) => { e.preventDefault(); send(); }} className="flex items-end gap-2 rounded-[12px] border border-v3-line bg-v3-paper p-1.5 focus-within:border-v3-ink">
+      <form onSubmit={(e) => { e.preventDefault(); send(); }} className="flex items-end gap-2 rounded-[12px] border border-v3-line bg-v3-paper p-1.5 focus-within:border-v3-ink focus-within:shadow-[0_0_0_3px_var(--color-v3-line)]">
         <textarea ref={editor} value={session.draft} onChange={(e) => setDraft(e.target.value)} maxLength={2000} rows={1}
           onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing && e.nativeEvent.keyCode !== 229) { e.preventDefault(); send(); } }}
           aria-label={t("Scrie un mesaj")} placeholder={t("Întreabă despre o lege sau descrie situația ta…")}
-          className="max-h-32 min-h-11 min-w-0 flex-1 resize-none border-0 bg-transparent px-2 py-2 text-base text-v3-ink outline-none placeholder:text-v3-ink-2" />
+          className="fara-contur max-h-32 min-h-11 min-w-0 flex-1 resize-none border-0 bg-transparent px-2 py-2 text-base text-v3-ink outline-none placeholder:text-v3-ink-2" />
         <button type="submit" disabled={session.seTrimite || !session.draft.trim()} aria-label={t("Trimite")}
           className="grid min-h-11 min-w-11 place-items-center rounded-lg bg-v3-ink text-lg font-bold text-v3-on-ink disabled:opacity-40">↑</button>
       </form>

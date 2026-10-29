@@ -36,9 +36,23 @@ export function useLimba(): Ctx {
   return useContext(LimbaContext);
 }
 
-/** Comutatorul RO | EN din antet. */
-export function ComutatorLimba() {
+/** Comutatorul RO | EN din antet. `compact`: un singur buton care arată limba în care treci (pe telefon). */
+export function ComutatorLimba({ compact = false }: { compact?: boolean }) {
   const { limba, setLimba } = useLimba();
+  if (compact) {
+    const alta: Limba = limba === "ro" ? "en" : "ro";
+    return (
+      <button
+        type="button"
+        lang={alta}
+        onClick={() => setLimba(alta)}
+        aria-label={alta === "en" ? "Switch to English" : "Schimbă în română"}
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-v3-line bg-v3-card text-xs font-semibold text-v3-ink uppercase hover:border-v3-ink"
+      >
+        {alta}
+      </button>
+    );
+  }
   return (
     <span className="inline-flex overflow-hidden rounded-lg border border-v3-line text-xs font-semibold" role="group" aria-label="Limba / Language">
       {(["ro", "en"] as Limba[]).map((l) => (
