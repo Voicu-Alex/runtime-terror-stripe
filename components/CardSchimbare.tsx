@@ -239,7 +239,7 @@ export default function CardSchimbare({
                   <span className="sr-only">{t("(se deschide într-un tab nou)")}</span>
                 </a>
               )}
-              {fz.length > 0 && !dep && (
+              {fz.length > 0 && !dep && !solutieScurta(s.id, s.status) && (
                 <div className="mt-3">
                   <p className="m-0 mb-1 text-[13px] text-v3-ink-2">
                     {t("Sau direct la un furnizor. În ordine alfabetică")}
