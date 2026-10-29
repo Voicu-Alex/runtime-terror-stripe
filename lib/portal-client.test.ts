@@ -103,4 +103,15 @@ describe("ClientPortal", () => {
     await v;
     expect(ap2.length).toBe(2);
   });
+
+  it("un 500 cu pagina „Error” a Portalului e act lipsă: fără reîncercare, numărat ca 404", async () => {
+    const f = vi.fn(async () => new Response("<html><head><title>Error</title></head></html>", { status: 500 })) as unknown as typeof fetch;
+    const c = new ClientPortal({ fetch: f, esteLipsa: (status, text) => status >= 500 && /<title>Error<\/title>/.test(text) });
+    const r = await c.ia("u1");
+    expect(r.status).toBe(500);
+    expect(f).toHaveBeenCalledTimes(1);
+    expect(c.status404).toBe(1);
+    expect(c.statusAlte).toBe(0);
+    expect(c.erori).toEqual([]);
+  });
 });

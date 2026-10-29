@@ -49,7 +49,7 @@ const intreg = (v: string | undefined, nume: string) => {
 };
 
 const max = intreg(arg.max, "max");
-const client = new ClientPortal({ max, pauzaMs: intreg(arg.pauza, "pauza") });
+const client = new ClientPortal({ max, pauzaMs: intreg(arg.pauza, "pauza"), esteLipsa });
 
 // ---------------------------------------------------------------- --cauta-oug 8/2026
 if (arg["cauta-oug"]) {

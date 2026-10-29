@@ -18,6 +18,11 @@ export type OptiuniClientPortal = {
   userAgent?: string;
   /** Implicit setTimeout, deci merge cu fake timers. */
   somn?: (ms: number) => Promise<void>;
+  /**
+   * Portalul răspunde cu 500 și o pagină „Error” la un id care nu există. Predicatul spune dacă un răspuns ≥ 400
+   * e de fapt „actul lipsește” (se numără ca 404 și nu se reîncearcă), nu o cădere a serverului.
+   */
+  esteLipsa?: (status: number, text: string) => boolean;
 };
 
 /** S-a atins plafonul `--max`: oprire curată. */
@@ -54,6 +59,7 @@ export class ClientPortal {
   private readonly asteptari: number[];
   private readonly userAgent: string;
   private readonly somn: (ms: number) => Promise<void>;
+  private readonly esteLipsa: (status: number, text: string) => boolean;
   private amCerutDeja = false;
 
   constructor(o: OptiuniClientPortal = {}) {
@@ -63,6 +69,7 @@ export class ClientPortal {
     this.asteptari = o.asteptariReincercare ?? [30_000, 120_000];
     this.userAgent = o.userAgent ?? USER_AGENT_PORTAL;
     this.somn = o.somn ?? somnImplicit;
+    this.esteLipsa = o.esteLipsa ?? (() => false);
   }
 
   /** O cerere cu pauză, reîncercări și numărătoare. 404 nu e eroare: se întoarce ca atare. */
@@ -79,10 +86,11 @@ export class ClientPortal {
       try {
         const r = await this.fetchFn(url, { ...init, headers: { ...(init.headers as Record<string, string> | undefined), "User-Agent": this.userAgent } });
         const text = await r.text();
-        if (r.status === 404) this.status404++;
+        const lipsa = r.status === 404 || (r.status >= 400 && this.esteLipsa(r.status, text));
+        if (lipsa) this.status404++;
         else if (r.status >= 200 && r.status < 300) this.status200++;
         else this.statusAlte++;
-        if (!esteEroareDeReincercat(r.status)) return { status: r.status, text };
+        if (lipsa || !esteEroareDeReincercat(r.status)) return { status: r.status, text };
         motiv = `HTTP ${r.status}`;
       } catch (e) {
         this.statusAlte++;
