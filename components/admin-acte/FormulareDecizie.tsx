@@ -17,7 +17,7 @@ function Mesaj({ s }: { s: StareActiune }) {
   return null;
 }
 
-export type OptiuneAprobare = { rezumat: string; picate: string[] };
+export type OptiuneAprobare = { rezumat: string; picate: string[]; cotaLipsa?: boolean };
 
 /**
  * Aprobă, schimbare cu schimbare: una cu verificări picate pe ea e debifată și dezactivată, cu mesajele dedesubt.
@@ -49,6 +49,32 @@ export function FormularAproba({ id, optiuni, blocatAct }: { id: number; optiuni
                 />
                 <span>{o.rezumat}</span>
               </label>
+              {o.cotaLipsa && !picat && (
+                <div className="mt-1.5 ml-6 grid gap-1.5">
+                  <div className="flex flex-wrap gap-2">
+                    <input
+                      type="number"
+                      step="0.01"
+                      name={`cota_veche_${i}`}
+                      disabled={!bifate[i]}
+                      aria-label={`cota veche (%), schimbarea ${i + 1}`}
+                      placeholder="cota veche (%)"
+                      className="min-h-11 w-36 rounded-[10px] border border-v3-line bg-transparent px-3 text-[14px] text-v3-ink"
+                    />
+                    <input
+                      type="text"
+                      name={`sursa_veche_${i}`}
+                      disabled={!bifate[i]}
+                      aria-label={`sursa cotei vechi (act, articol), schimbarea ${i + 1}`}
+                      placeholder="sursa (act, articol)"
+                      className="min-h-11 min-w-48 flex-1 rounded-[10px] border border-v3-line bg-transparent px-3 text-[14px] text-v3-ink"
+                    />
+                  </div>
+                  <p className="m-0 text-[12.5px] text-v3-ink-2">
+                    Ambele sunt obligatorii pentru aprobare; sursa trebuie să fie un act și un articol, nu un link de presă.
+                  </p>
+                </div>
+              )}
               {o.picate.map((m, k) => (
                 <p key={k} className="m-0 mt-0.5 ml-6 text-[12.5px] text-v3-urg">
                   ✕ {m}

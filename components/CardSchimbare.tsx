@@ -3,12 +3,12 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { Potrivire } from "@/lib/potrivire";
 import type { CampValoare, Valori } from "@/lib/profil";
-import { gasesteSchimbarea, textActiune, type Actiune, type CineAplica } from "@/lib/catalog";
+import { textActiune, type Actiune, type CineAplica } from "@/lib/catalog";
 import { destinatie } from "@/lib/destinatii";
-import { useAsistent } from "@/components/AsistentProvider";
 import { useLimba } from "@/components/Limba";
 import { etichetaTagL } from "@/lib/i18n";
 import { ETICHETA_STARE, bani, cuSemn, cuTracking, dataScurta, vedere, zile, type StareCard } from "@/lib/card";
+import Asistent from "@/components/Asistent";
 import { furnizori, niveluri, specialist } from "@/lib/continut";
 import { comparatieAct } from "@/lib/voce";
 import { modificari as modificariPeLimba, numeDestinatie, sursaAct } from "@/lib/traduceri";
@@ -34,10 +34,8 @@ export default function CardSchimbare({
   bifata = false,
   onBifeaza,
   onValoare,
-  asistentOwner,
 }: {
   p: Potrivire;
-  asistentOwner?: string;
   valori: Valori;
   /** acțiunea e bifată în „Planul meu” */
   bifata?: boolean;
@@ -45,10 +43,10 @@ export default function CardSchimbare({
   /** omul dă valoarea care îi lipsește formulei („spune-ne salariul brut”); o păstrează ListaFlux */
   onValoare?: (camp: CampValoare, valoare: number) => void;
 }) {
-  const { openChat } = useAsistent();
   const [deschis, setDeschis] = useState(false);
   const [curios, setCurios] = useState(false);
   const [lege, setLege] = useState(false);
+  const [intreaba, setIntreaba] = useState(false);
   const [specialistDeschis, setSpecialistDeschis] = useState(false);
   const [copiere, setCopiere] = useState<'liber' | 'copiat' | 'eroare'>('liber');
   const butonSpecialist = useRef<HTMLButtonElement>(null);
@@ -304,9 +302,13 @@ export default function CardSchimbare({
             >
               {t("Arată-mi legea")}
             </button>
-            {gasesteSchimbarea(s.id) && <button type="button" onClick={() => openChat(s.id, asistentOwner)} className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-4 text-sm font-semibold text-v3-ink">
-              {t("Întreabă asistentul")}
-            </button>}
+            <button
+              type="button"
+              onClick={() => setIntreaba(true)}
+              className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-4 text-sm font-semibold text-v3-ink"
+            >
+              {t("Întreabă")}
+            </button>
           </div>
 
           {/* Curios */}
@@ -371,6 +373,16 @@ export default function CardSchimbare({
                 {s.incredere === "scazuta" && ` ${t("· sursă de încredere scăzută")}`}
               </span>
             </div>
+          )}
+
+          {intreaba && (
+            <Asistent
+              mod="lege"
+              id={s.id}
+              titlu={v.titlu}
+              profil={{ taguri: p.taguri_comune, valori }}
+              onInchide={() => setIntreaba(false)}
+            />
           )}
 
           <p className="mt-3 mb-0 text-[12.5px] text-v3-ink-2">

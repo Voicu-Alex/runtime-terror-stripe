@@ -1,5 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { areAcces, esteAdmin } from "./admin";
+import { areAcces, completariDinFormular, esteAdmin, parseazaCota } from "./admin";
+
+describe("parseazaCota", () => {
+  it("acceptă punct sau virgulă, refuză negativ, gol și non-numere", () => {
+    expect(parseazaCota(" 10,5 ")).toBe(10.5);
+    expect(parseazaCota("0")).toBe(0);
+    expect(parseazaCota("-1")).toBeNull();
+    expect(parseazaCota("")).toBeNull();
+    expect(parseazaCota("abc")).toBeNull();
+    expect(parseazaCota("Infinity")).toBeNull();
+  });
+});
 
 describe("esteAdmin", () => {
   it("găsește adresa în listă, fără să conteze majusculele și spațiile", () => {
@@ -26,5 +37,21 @@ describe("areAcces", () => {
   it("cu listă: doar adresele din ea, și în dezvoltare", () => {
     expect(areAcces(null, "ion@x.ro", false)).toBe(false);
     expect(areAcces("ion@x.ro", "ion@x.ro", true)).toBe(true);
+  });
+});
+
+describe("completariDinFormular", () => {
+  const form = (o: Record<string, string>) => ({ get: (k: string) => o[k] ?? null });
+  it("citește perechile pentru schimbările alese și ignoră câmpurile goale", () => {
+    const r = completariDinFormular(form({ cota_veche_0: "10", sursa_veche_0: " Legea 227/2015, art. 97 ", cota_veche_1: "", sursa_veche_1: "" }), [0, 1]);
+    expect(r).toEqual({ completari: { 0: { cota_veche: 10, sursa_veche: "Legea 227/2015, art. 97" } } });
+  });
+  it("acceptă virgula zecimală și ignoră schimbările nealese", () => {
+    expect(completariDinFormular(form({ cota_veche_0: "5,5", sursa_veche_0: "x", cota_veche_2: "9", sursa_veche_2: "y" }), [0]).completari).toEqual({ 0: { cota_veche: 5.5, sursa_veche: "x" } });
+  });
+  it("cere ambele câmpuri și un număr", () => {
+    expect(completariDinFormular(form({ cota_veche_0: "10" }), [0]).eroare).toMatch(/Schimbarea 0/);
+    expect(completariDinFormular(form({ sursa_veche_0: "x" }), [0]).eroare).toMatch(/Schimbarea 0/);
+    expect(completariDinFormular(form({ cota_veche_0: "abc", sursa_veche_0: "x" }), [0]).eroare).toMatch(/număr/);
   });
 });

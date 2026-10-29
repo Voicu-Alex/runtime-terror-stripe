@@ -111,7 +111,7 @@ export function potriveste(profil: Profil, catalog: Schimbare[], azi = aziISO())
     const impact = s.formula
       ? calculeaza(s.formula, profil.valori)
       : s.formula_tip
-        ? evalueazaTip(s.formula_tip, profil.valori, s.directie)
+        ? evalueazaTip(s.formula_tip, profil.valori, s.directie, { la: azi })
         : null;
     if (impact == null && s.formula) for (const k of VALORI_FORMULEI[s.formula] ?? []) if (profil.valori[k] == null) lipsa.add(k);
     if (impact == null && !s.formula && s.formula_tip) for (const k of necesita(s.formula_tip)) if (profil.valori[k] == null) lipsa.add(k);

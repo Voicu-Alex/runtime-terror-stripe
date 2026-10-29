@@ -2,12 +2,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const { create } = vi.hoisted(() => ({ create: vi.fn() }));
 vi.mock("@anthropic-ai/sdk", () => ({ default: class { static APIError = class extends Error {}; messages = { create }; } }));
-import { POST } from "@/app/api/asistent/route";
+import { POST } from "@/app/api/asistent/chat/route";
 
 const body = (mesaj: string, extra: Record<string, unknown> = {}) => ({ mod: "chat", mesaj, istoric: [], profil: { taguri: [], valori: {} }, ...extra });
-const cere = (x: unknown) => POST(new Request("http://x/api/asistent", { method: "POST", body: JSON.stringify(x) }));
+const cere = (x: unknown) => POST(new Request("http://x/api/asistent/chat", { method: "POST", body: JSON.stringify(x) }));
 
-describe("POST /api/asistent chat", () => {
+describe("POST /api/asistent/chat chat", () => {
   const cheie = process.env.ANTHROPIC_API_KEY;
   beforeEach(() => { delete process.env.ANTHROPIC_API_KEY; create.mockReset(); });
   afterEach(() => { if (cheie === undefined) delete process.env.ANTHROPIC_API_KEY; else process.env.ANTHROPIC_API_KEY = cheie; });

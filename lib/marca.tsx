@@ -8,11 +8,14 @@ export const CULORI = {
   tenta2: "#F1F0EE",
   cerneala: "#111827",
   verde: "#00853A",
+  // moneda din iconiță: verdele de bani în plus din tema închisă, care se vede pe gri
+  verdeDeschis: "#2EE873",
   gri: "#57534E",
 } as const;
 
-/** Pătratul cu „B” (Buzunar), ca în notificarea de pe landing page. */
+/** Iconița: buzunarul alb cusut, cu moneda verde, pe pătratul gri al logo-ului (același desen ca components/Logo.tsx). */
 export function Insigna({ marime }: { marime: number }) {
+  const semn = marime * 0.62;
   return (
     <div
       style={{
@@ -22,14 +25,14 @@ export function Insigna({ marime }: { marime: number }) {
         alignItems: "center",
         justifyContent: "center",
         background: CULORI.logo,
-        color: "#FFFFFF",
-        fontSize: marime * 0.46,
-        fontWeight: 800,
-        letterSpacing: -marime * 0.02,
         borderRadius: marime * 0.22,
       }}
     >
-      B
+      <svg width={semn * 0.9} height={semn} viewBox="0 0 36 40">
+        <circle cx="22.5" cy="9" r="7" fill={CULORI.verdeDeschis} />
+        <path d="M4 10.5h28v17.2c0 1-.5 1.9-1.3 2.4L18 38l-12.7-7.9C4.5 29.6 4 28.7 4 27.7z" fill="#FFFFFF" />
+        <path d="M7.5 14v13.1L18 33.6l10.5-6.5V14" fill="none" stroke={CULORI.logo} strokeWidth="1.5" strokeDasharray="2.2 2" strokeLinecap="round" />
+      </svg>
     </div>
   );
 }

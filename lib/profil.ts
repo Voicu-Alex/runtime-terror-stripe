@@ -21,6 +21,20 @@ export type Valori = {
   persoane_intretinere?: number;
   /** impozitul pe clădiri plătit pe an, de pe decizia de impunere; îl cer scutirile (formula „scutire”) */
   impozit_cladiri_anual?: number;
+  /** valoarea impozabilă a locuinței de pe decizia de impunere; baza impozitului pe clădiri */
+  valoare_impozabila_locuinta?: number;
+  /** prețul de achiziție al mașinii */
+  pret_masina?: number;
+  /** cifra de afaceri a PFA sau a SRL-ului pe an; pragurile de la micro și TVA se dau pe ea */
+  cifra_afaceri_anuala?: number;
+  /** câștigul din investiții (acțiuni, titluri, cripto) realizat într-un an */
+  castig_investitii_anual?: number;
+  /** chiria încasată pe lună de cine închiriază o locuință altora */
+  chirie_incasata_lunara?: number;
+  /** consumul de gaz pe an, în kWh, de pe facturi */
+  consum_gaz_anual_kwh?: number;
+  /** impozitul pe venit plătit pentru anul precedent, din decizia de impunere */
+  impozit_venit_anual_precedent?: number;
 };
 
 export type CampValoare = keyof Valori;
@@ -40,6 +54,13 @@ export const CAMPURI_VALORI: Record<CampValoare, { eticheta: string; unitate: st
   varsta_copil_mic: { eticheta: "vârsta celui mai mic copil", unitate: "ani" },
   persoane_intretinere: { eticheta: "persoane în întreținere", unitate: "" },
   impozit_cladiri_anual: { eticheta: "impozitul pe clădiri pe an", unitate: "lei" },
+  valoare_impozabila_locuinta: { eticheta: "valoarea impozabilă a locuinței", unitate: "lei" },
+  pret_masina: { eticheta: "prețul de achiziție al mașinii", unitate: "lei" },
+  cifra_afaceri_anuala: { eticheta: "cifra de afaceri pe an", unitate: "lei" },
+  castig_investitii_anual: { eticheta: "câștigul din investiții pe an", unitate: "lei" },
+  chirie_incasata_lunara: { eticheta: "chiria încasată pe lună", unitate: "lei" },
+  consum_gaz_anual_kwh: { eticheta: "consumul de gaz pe an", unitate: "kWh" },
+  impozit_venit_anual_precedent: { eticheta: "impozitul pe venit plătit anul trecut", unitate: "lei" },
 };
 
 /** Vârsta la o dată, din anul nașterii. Aproximație la nivel de an, suficientă pentru praguri. */

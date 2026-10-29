@@ -1,13 +1,47 @@
-# Asistentul în Buzunar
+# Asistentul: profil prin conversație și întrebări despre o lege
 
-Chatul se deschide din Profil, din bula de pe Pentru tine / Toate legile / flux sau din butonul unui act din catalog. Folosește culorile, fonturile și controalele existente. Formularul de profil, Planul meu, navigarea și pagina Pentru tine rămân cele din main.
+Scris la 29 octombrie 2026, pe branch-ul `feat/asistent`. Pune în aplicație decizia din `docs/produs.md`: profilul se face vorbind cu un asistent, cu formularul ca alternativă.
 
-Răspunsurile explică legi din catalog și termenii verificați în `data/termeni-asistent.json`. „Explică mai simplu” păstrează subiectul și reformulează. Sursele și data verificării sunt separate de explicație. Condițiile și excepțiile legii rămân în răspuns; modelul nu trebuie să inventeze exemple numerice.
+## Regula care îl face să încapă în produs
 
-Etichetele propuse sunt aplicate numai după Confirmă. Formularul și Planul meu urmăresc același profil, inclusiv când chatul îl modifică. Conversațiile demo sunt separate de cea personală; exemplul Andrei implicit de pe homepage este identificat ca demo. Chatul păstrează conversațiile și modificările demo numai în memoria paginii. Profilul personal folosește stocarea locală existentă.
+Prima regulă a aplicației este „nimic inventat”, iar orice sumă vine din motor. Un chat inventează din fire. De aceea modelul face exact două lucruri:
 
-`POST /api/asistent` acceptă doar contractul `mod: "chat"`, cu mesaj, istoric limitat, profil și context opțional. Nu scrie conversația în loguri sau în baza de date. Fără `ANTHROPIC_API_KEY`, răspunde din catalog. Cu cheie, modelul poate reformula numai dovezile selectate; numerele sau URL-urile noi declanșează revenirea la textul verificat. Acest filtru nu dovedește corectitudinea semantică a fiecărei reformulări, de aceea răspunsul AI este etichetat și păstrează sursele.
+1. **Text liber → etichete** din lista fixă din `lib/taguri.ts`, printr-o schemă JSON cu enum. Nu poate produce o etichetă care nu există.
+2. **Explică un singur card** din ce există deja pentru el: intrarea din `data/catalog.json`, ghidul din `data/ghid.json`, nivelurile zero/curios/expert și potrivirea calculată de `lib/potrivire.ts`. Sumele, datele și articolele îi sunt date ca date; promptul îi interzice să calculeze.
 
-Apelurile plătite folosesc contorul existent din `lib/limita.ts`, separat pentru chat: `LIMITA_ASISTENT_PE_ORA` (implicit 20 pe adresă) și `LIMITA_ASISTENT_PE_ZI` (implicit 150). Limita este în memoria instanței, nu un plafon distribuit. La atingerea ei, chatul continuă cu răspunsurile din catalog. `0` dezactivează apelurile plătite pentru intervalul respectiv.
+Tot restul rămâne determinist: potrivirea, lei/lună, termenele, fluxul.
 
-Verificare: `npm test`, `npm run build`; manual, explicație + reformulare, confirmarea unei etichete și actualizarea formularului/Planului meu, Escape cu revenirea focusului, demo Andrei și dialog pe telefon. Furnizorul AI este simulat în teste; verificarea vizuală folosește modul fără cheie.
+## Ce face
+
+- **Pe `/profil`**: cele 6 întrebări din `content/parcurs.md` §2, una pe familie de etichete, cu răspunsuri rapide și „Sar peste”. Butoanele nu apelează niciun model. Textul scris liber pleacă la `/api/asistent` (mod `profil`) și se întoarce ca etichete cu cuvântul din care au venit („IT din «programator»”), afișate ca chips cu ×. La final: „Am găsit N acte care te privesc” și „Vezi ce te privește” → `/flux`. „Prefer formularul” rămâne mereu la vedere și arată `FormularProfil`. `/profil?p=andrei` arată conversația deja completată pentru o persoană din demo.
+- **Pe un card** (`CardSchimbare`): butonul „Întreabă” deschide aceeași casetă în mod `lege`, cu trei întrebări sugerate („De ce mă privește?”, „Ce trebuie să fac?”, „Ce se întâmplă dacă nu fac nimic?”). Fiecare răspuns se încheie cu actul și articolul, cu link la sursă, sau cu „încă nu am verificat”.
+- **Refuză**: sume, date sau articole care nu sunt în datele primite; recomandări de produse sau investiții; întrebări din afara aplicației (declarația unică → anaf.ro); CNP, IBAN, nume, venitul exact.
+
+## Cum e făcut
+
+| Fișier | Rol |
+|---|---|
+| `lib/asistent.ts` | Cele 6 întrebări (textele din parcurs.md), mașina de stări a conversației, regula de sărit pasul 3 și întrebările deja răspunse în cuvintele omului, tipurile cererii și răspunsului API, validarea `esteCerere`, `redaDinTaguri` pentru demo |
+| `lib/demo-asistent.ts` | Modul fără cheie: cuvinte-cheie → etichete; răspunsuri despre o lege numai din niveluri, ghid și acțiuni |
+| `lib/asistent-prompt.ts` | Promptul de sistem (blocul din `docs/voce.md` §9 și exemplele §7) și blocul DATE pentru un card |
+| `app/api/asistent/route.ts` | POST, două moduri. Fără `ANTHROPIC_API_KEY` sau la orice eroare: demo. `profil` → `claude-haiku-5-5` cu schemă JSON (enum de etichete); `lege` → `claude-sonnet-5-5`, text. Nu stochează și nu loghează conținut. |
+| `components/Asistent.tsx` | Caseta de chat, în stilul v3 F, RO/EN, pe `/profil` și în `<dialog>` pe card |
+
+Modelele sunt cele recomandate în `docs/eval-modele.md` (Haiku pentru etichete, Sonnet pentru interpretare). Ruta de documente rămâne pe Opus; decizia pe modele e a echipei.
+
+## Date personale
+
+Răspunsurile rapide nu părăsesc browserul. Textul scris liber și, la întrebările despre o lege, etichetele și cifrele din profil plus istoricul conversației ajung la serverul aplicației; cu cheie configurată, serverul le trimite la Anthropic. Fără cheie, nimic nu pleacă la Anthropic. Rândul corespunzător trebuie adăugat în `docs/date-personale.md` (fișierul nu e încă pe `main`).
+
+## Ce rămâne deschis
+
+- Dacă întrebările despre o lege devin partea de Pro. Azi Pro nu deblochează nimic; decizie de echipă.
+- „Nu știu ce e Pilonul II” din parcurs.md lipsește: explicația cere sursa ASF.
+- Ruta cu cheie reală nu a fost rulată în această ramură; testele nu ating rețeaua.
+- `docs/voce.md` §11 spune „nu adaugă un chat liber”; de actualizat când fișierul ajunge pe `main`.
+
+## Chatul flotant
+
+Butonul din dreapta jos deschide o conversație generală despre legi și termeni, inclusiv pe `/aplicatie`. Păstrează asistentul de profil și dialogul existent al fiecărui card. Endpoint-ul separat `POST /api/asistent/chat` validează mesajul, istoricul și contextul, fără persistență pe server. Propunerile de profil cer confirmare; exemplele demo au conversații separate de profilul personal.
+
+Cu `ANTHROPIC_API_KEY`, explicațiile pe dovezi verificate folosesc API-ul real, fără raționament intern în bugetul scurt. Sursele rămân cele selectate de server. Fără cheie, la eroare sau dacă răspunsul conține cifre/linkuri noi, chatul revine la textul catalogului. Filtrul nu dovedește corectitudinea semantică. Limitele per instanță sunt `LIMITA_ASISTENT_PE_ORA` (20) și `LIMITA_ASISTENT_PE_ZI` (150), transmise la runtime prin `amplify.yml`.

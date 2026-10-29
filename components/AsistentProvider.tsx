@@ -126,7 +126,7 @@ export function AsistentProvider({ children }: { children: ReactNode }) {
         ? demoRef.current[owner.slice(5)] ?? PERSOANE_DEMO[owner.slice(5) as PersoanaDemo]?.profil
         : profilCurent() ?? profileRef.current;
       if (!selected) throw new Error("profile");
-      const response = await fetch("/api/asistent", {
+      const response = await fetch("/api/asistent/chat", {
         method: "POST", headers: { "Content-Type": "application/json" }, signal: controller.signal,
         body: JSON.stringify({ mod: "chat", mesaj: message, istoric: istoricLimitat(history), profil: selected, contextId, limba }),
       });
@@ -192,7 +192,7 @@ export function AsistentProvider({ children }: { children: ReactNode }) {
   return <Context.Provider value={value}>
     <Suspense fallback={null}><RouteIdentity personal={personal} onChange={switchRoute} /></Suspense>
     {children}
-    {["/", "/legi", "/flux", "/profil"].includes(pathname) && <button type="button" onClick={() => openChat()} aria-label={t("Deschide asistentul")}
+    {["/", "/aplicatie", "/legi", "/flux", "/profil"].includes(pathname) && <button type="button" onClick={() => openChat()} aria-label={t("Deschide asistentul")}
       className={`fixed right-4 z-30 flex min-h-12 items-center gap-2 rounded-full bg-v3-ink px-4 text-sm font-bold text-v3-on-ink shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-v3-ink ${pathname === "/flux" ? "bottom-[calc(10rem+env(safe-area-inset-bottom))]" : "bottom-[calc(1rem+env(safe-area-inset-bottom))]"}`}>
       <svg aria-hidden="true" viewBox="0 0 24 24" className="size-[18px] fill-none stroke-current stroke-[1.8]" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H7l-3 2v-5.5A7.5 7.5 0 0 1 11.5 4h1A7.5 7.5 0 0 1 20 11.5Z" />

@@ -360,6 +360,174 @@
    "articol": "art. 1-3",
    "curios": "For the 2026–2027 academic year, the minimum social grant, meant to cover minimum food and housing costs, is 925 lei. Students on teacher-training programmes (double-major bachelor's or teaching master's) receive a grant of 2,165 lei, and state-funded PhD students 3,700 lei. Universities can give more, but not less than these minimums.",
    "expert": "Order of the Minister of Education and Research no. 5,732 of 25 September 2026 (Official Gazette no. 831 of 30 September 2026), for students on programmes funded from the state budget, academic year 2026–2027: art. 1, the doctoral grant of 3,700 lei, whatever the year of study; art. 2, the grant for the double-major teaching bachelor's or the teaching master's of 2,165 lei; art. 3, the minimum social grant of 925 lei. The order does not specify the period (monthly) or whether grants are also paid during holidays. The award rules and the income threshold for the social grant are set by each university: TODO."
+  },
+  "plafonul_scutire_tva_2025": {
+   "act": "GEO 22/2025",
+   "mo_ref": "Official Gazette 806 / 29 Aug 2025",
+   "articol": "art. 310 para. (1) Fiscal Code, amended by art. I item 11; art. II · quote: “whose annual turnover, declared or achieved, does not exceed the threshold of 395,000 lei, may apply the tax exemption”",
+   "curios": "A taxable person established in Romania whose annual turnover does not exceed 395,000 lei can apply the VAT exemption, meaning they do not add VAT to invoices and do not deduct VAT on purchases. The old threshold, mentioned in art. III para. (1), was 300,000 lei. If you stay below the threshold, you no longer file a VAT return, but you also cannot deduct the VAT on what you buy.",
+   "expert": "Art. I item 11 amends art. 310 para. (1), (2) and (6) of the Fiscal Code: the threshold is 395,000 lei, and the reference turnover is calculated under para. (2), excluding supplies of tangible fixed assets and transfers of intangible assets. The normal regime applies from the date the threshold is exceeded, starting with the transaction that exceeds it (para. (6)). It enters into force on 1 September 2025 (art. II). To verify: the ANAF page on the special exemption regime and VAT registration (ANAF, information for taxable persons)."
+  },
+  "te_poti_scoate_2025": {
+   "act": "GEO 22/2025",
+   "mo_ref": "Official Gazette 806 / 29 Aug 2025",
+   "articol": "art. III para. (2)-(4) · quote: “may request, from 1 September 2025, removal from the register of persons registered for VAT purposes”",
+   "curios": "Anyone who registered for VAT purposes up to and including 1 September 2025 because they exceeded 300,000 lei can ask to be removed from the register and move to the exemption, provided they have not exceeded 395,000 lei by the time of the request. For companies set up before 2025, you must also not have exceeded 300,000 lei in 2024. The request is filed between the 1st and the 10th of the month, and ANAF answers by the end of the month. Until the decision, you have all the obligations of a VAT payer.",
+   "expert": "Para. (2): companies set up before 2025, without exceeding 300,000 lei in 2024. Para. (3): companies set up in 2025. Para. (4): the request between the 1st and the 10th of the month following the tax period, the cancellation valid from the notification of the decision, the last VAT return by the 25th of the month following the notification, with all adjustments. To verify: the request for removal from the register of persons registered for VAT purposes, through the Virtual Private Space or the ANAF forms portal (exact form to be verified)."
+  },
+  "daca_treci_lei_2025": {
+   "act": "GEO 22/2025",
+   "mo_ref": "Official Gazette 806 / 29 Aug 2025",
+   "articol": "art. 310 para. (6) and (6^1) · quote: “must request registration for VAT purposes, under art. 316, by the date the threshold is exceeded at the latest”",
+   "curios": "If you apply the exemption and your turnover exceeds the threshold, you must apply for VAT registration by the date of exceeding at the latest. Normal VAT applies from the transaction that led to the excess. If you apply late, ANAF can register you ex officio from the date of exceeding and set the VAT due for that period.",
+   "expert": "Para. (6): the normal taxation regime from the date of exceeding, starting with the transaction that exceeds it. Para. (6^1): the tax authority registers ex officio or changes the registration date and sets the tax due (collected minus deductible) or the negative amount. Para. (6^2)-(6^3): you make the same calculation yourself and include it in the first VAT return after registration. To verify: the VAT registration form (art. 316) on the ANAF portal; the exact form is not in the text, to be verified."
+  },
+  "srl_ul_pierde_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 52 para. (1) (art. 6 item 20); art. 47 para. (1) let. c) (art. 6 item 15) · quote: “(1) If during a fiscal year a micro-enterprise earns revenue above 100,000 euro, it owes profit tax starting with the quarter in which this limit was exceeded.”",
+   "curios": "The threshold for the micro regime is 100,000 euro of revenue. If you exceed it during the year, you no longer pay micro-enterprise income tax but profit tax, starting with the quarter in which you passed the threshold. The revenue of companies linked to yours is added up for the check.",
+   "expert": "Art. 47 para. (1) let. c): the eligibility condition is that revenue has not exceeded the lei equivalent of 100,000 euro, at the rate on the closing date of the financial year in which the revenue was recorded. Art. 47 para. (1^1): the limit is checked cumulatively with the revenue of linked enterprises. Art. 52 para. (1): if exceeded during the year, profit tax is owed from the quarter of exceeding; art. 52 para. (5^1) also adds up the revenue of linked persons. Art. 54 para. (1): the accounting turnover is used; for art. 52, revenue from the transfer of fixed assets or land is added, under the conditions in the text. Art. 10 para. (3) and (5): applies for eligibility in 2026 and for calculating the threshold in the first quarter of 2026. Art. 10 para. (4): anyone who notified, between 1 January 2026 and the entry into force, that they apply or leave the micro regime files a new declaration of mentions."
+  },
+  "srl_ul_nou_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 48 para. (3) (art. 6 item 18) · quote: “If, within this period, the condition in art. 47 para. (1) let. g) is not met, the micro-enterprise owes profit tax starting with the quarter following the one in which the 90-day period expires.”",
+   "curios": "If you set up an SRL and choose the micro regime in the first year, you have 90 days from registration to have an employee. If you do not have one by then, you start paying profit tax from the quarter following the one in which the 90 days ran out.",
+   "expert": "Art. 48 para. (3): a newly established legal person can opt for micro-enterprise income tax in the first fiscal year if the conditions in art. 47 para. (1) let. d) and h) are met at registration in the trade register, and the one in let. g) (having an employee, as shown by para. (3^1) and (3^3)) within 90 days inclusive of registration. Otherwise, profit tax from the quarter following the expiry of the 90 days."
+  },
+  "daca_singurul_salariat_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 52 para. (3) (art. 6 item 21) · quote: “For a micro-enterprise with a single employee whose employment relationship ends, the condition in art. 47 para. (1) let. g) is considered met if, within 30 days of the end of the employment relationship, a new employee is hired”",
+   "curios": "If you have a single employee and their contract ends, you have 30 days to hire another, on a permanent contract or one of at least 12 months. If you do not, you pay profit tax from the quarter following the one in which the employment relationship ended.",
+   "expert": "Art. 52 para. (3): if the employee condition (art. 47 para. (1) let. g)) is no longer met, profit tax is owed from the quarter following the one in which the employment relationship ended. For a micro-enterprise with a single employee, the condition remains met if within 30 days of the end a new employee is hired on a permanent contract or a fixed-term contract of at least 12 months."
+  },
+  "bonificatie_impozitul_veniturile_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 7 para. (1)-(3) · quote: “benefits from a rebate of 3% of the annual profit tax / micro-enterprise income tax, for fiscal year 2025 / the modified fiscal year starting in 2025, as the case may be.”",
+   "curios": "ANAF checks ex officio whether you meet the conditions and issues a decision, after the filing deadline of the return for the fourth quarter of 2025. The conditions: all returns in the tax record filed, the 2025 tax paid in full and on time, and no other debt to the state budget at the legal deadline. The amount is not refunded in cash, but offsets other tax obligations.",
+   "expert": "Art. 7: a rebate of 3% of the micro-enterprise income tax for fiscal year 2025, calculated by adding up the quarterly taxes (para. (4) let. b)). It is established ex officio by decision after the deadline of the return for the fourth quarter of 2025 (para. (2) let. b)), under the conditions of para. (3). The amount is offset against other tax obligations under art. 167 of Law 207/2015 (para. (7)), not refunded; exception on limitation, with refund under art. 168 (para. (8)). Amended returns or assessment decisions with differences can reduce or cancel the rebate (para. (6)). The income representing the rebate is covered in art. 53 para. (1) let. p) (art. 6 item 23), and for profit tax in art. 23 let. s) (art. 6 item 4). The procedure is approved by order of the finance minister (para. (10))."
+  },
+  "pfa_contributiile_pilon_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 68 para. (5) let. g), g^1), g^2) (art. 6 item 26-27) · quote: “paid for the taxpayer's personal purposes, whether the activity is carried out individually or in an association, up to the lei equivalent of 400 euro per year for each person”",
+   "curios": "The law adds to art. 68 para. (5) contributions to voluntary pensions, to occupational pensions and to pan-European personal pension products (PEPP), paid for yourself, up to 400 euro a year for each person. For voluntary pensions, amounts paid between 1 January and 28 February 2026 also count.",
+   "expert": "Art. 6 item 26 amends art. 68 para. (5) let. g) (voluntary pensions, including schemes run by entities from the EU, the EEA or a state that has joined the OECD codes). Item 27 adds let. g^1) (occupational pensions) and g^2) (PEPP). Each letter has a limit of 400 euro a year per person. Art. 10 para. (6): items 26 and 27 apply to income for 2026; para. (9): in 2026, amounts paid for voluntary pensions between 1 January and 28 February 2026 are also taken into account; para. (10): for occupational pensions and PEPP, contributions paid from 1 March 2026."
+  },
+  "pfa_sumele_platite_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 68 para. (5) let. s) (art. 6 item 28) · quote: “amounts paid for the taxpayer's personal purposes, for acquiring shares, bonds and/or units issued by undertakings for collective investment in transferable securities that are traded (Exchange Traded Fund - ETF)”",
+   "curios": "The new letter s) of art. 68 para. (5) covers amounts paid for shares, bonds or ETF units through intermediaries provided for by law, up to 400 euro a year, excluding transaction costs. You need supporting documents from the intermediary, with the data required by law.",
+   "expert": "Art. 6 item 28: let. s) added to art. 68 para. (5), limit of the lei equivalent of 400 euro a year for each person, excluding transaction costs, through the entities in art. 96^1 para. (1). The supporting document contains the identification data, the settlement date, the instruments acquired and their value, and the fact that the issuer is an entity provided for in art. 96^1 para. (1). Art. 10 para. (7): applies to income for 2026 for amounts paid and settled from 1 March 2026."
+  },
+  "salariat_contributiile_pilon_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 78 para. (2) let. a) point (iii), (iii^1), (iii^2) (art. 6 item 32-33) · quote: “(iii^2) contributions to pan-European personal pension products under Regulation (EU) 2019/1,238 of the European Parliament and of the Council of 20 June 2019, borne by employees”",
+   "curios": "Art. 78 provides for the deduction of contributions borne by the employee to voluntary pension funds (amended), occupational pensions and PEPP (added), so that over the year they do not exceed the lei equivalent of 400 euro. It applies to income from March 2026.",
+   "expert": "Art. 6 item 32 amends art. 78 para. (2) let. a) point (iii) (voluntary pensions); item 33 adds points (iii^1) (occupational) and (iii^2) (PEPP), each with a limit of 400 euro over the year. Art. 10 para. (8): applies to income for March 2026; para. (9): in 2026, amounts paid for voluntary pensions between 1 January and 28 February 2026 are also taken into account in the 400 euro limit; para. (10): for occupational pensions and PEPP, contributions paid from 1 March 2026."
+  },
+  "salariat_sumele_platite_2026": {
+   "act": "GEO 8/2026",
+   "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+   "articol": "art. 78 para. (2) let. a) point (vi) (art. 6 item 34) · quote: “The amounts are deducted from the income of the month in which the transaction was settled, on the basis of supporting documents issued by the entities provided for in art. 96^1 para. (1)”",
+   "curios": "Amounts paid by the employee for shares, bonds or ETF units through intermediaries provided for by law, excluding transaction costs, are deducted up to 400 euro a year. The deduction is made from the income of the month in which the transaction was settled, on the basis of the document from the intermediary.",
+   "expert": "Art. 6 item 34 adds point (vi) to art. 78 para. (2) let. a). The supporting document contains the person's data, the settlement date, the instruments and their value, and the fact that the issuer is an entity in art. 96^1 para. (1). The exchange rate for checking the ceiling is the BNR rate on the last day of the month for which salary rights are paid. When the employer changes, the ceiling is checked on the basis of the documents issued by the previous employer. Art. 10 para. (11): applies to income from March 2026 for transactions paid and settled from 1 March 2026."
+  },
+  "bursa_merit_scoala_2026": {
+   "act": "GD 738/2026",
+   "mo_ref": "Official Gazette 800 / 21 Sep 2026",
+   "articol": "art. 6 para. (1) let. a) · quote: “for the merit scholarship - 450 lei/month”",
+   "curios": "Decision 738/2026 changes art. 6 para. (1) of the framework methodology for scholarships. From the 2026-2027 school year, the merit scholarship is 450 lei a month. The text does not say what it was before, so we cannot show the difference.",
+   "expert": "GD 738/2026 replaces art. 6 para. (1) of the Annex to GD 732/2025: merit scholarship 450 lei/month, social scholarship 300 lei/month, technological scholarship 300 lei/month. The previous amounts and the conditions for granting are not in the text received, so they are not described."
+  },
+  "bursa_sociala_scoala_2026": {
+   "act": "GD 738/2026",
+   "mo_ref": "Official Gazette 800 / 21 Sep 2026",
+   "articol": "art. 6 para. (1) let. b) · quote: “for the social scholarship - 300 lei/month”",
+   "curios": "Decision 738/2026 changes art. 6 para. (1) of the framework methodology for scholarships. From the 2026-2027 school year, the social scholarship is 300 lei a month. The text does not say what it was before, so we cannot show the difference.",
+   "expert": "GD 738/2026 replaces art. 6 para. (1) of the Annex to GD 732/2025: merit scholarship 450 lei/month, social scholarship 300 lei/month, technological scholarship 300 lei/month. The previous amounts and the conditions for granting are not in the text received, so they are not described."
+  },
+  "bursa_tehnologica_scoala_2026": {
+   "act": "GD 738/2026",
+   "mo_ref": "Official Gazette 800 / 21 Sep 2026",
+   "articol": "art. 6 para. (1) let. c) · quote: “for the technological scholarship - 300 lei/month”",
+   "curios": "Decision 738/2026 changes art. 6 para. (1) of the framework methodology for scholarships. From the 2026-2027 school year, the technological scholarship is 300 lei a month. The text does not say what it was before, so we cannot show the difference.",
+   "expert": "GD 738/2026 replaces art. 6 para. (1) of the Annex to GD 732/2025: merit scholarship 450 lei/month, social scholarship 300 lei/month, technological scholarship 300 lei/month. The previous amounts and the conditions for granting are not in the text received, so they are not described."
+  },
+  "prima_activare_somerii_2002": {
+   "act": "Law 76/2002, consolidated version",
+   "mo_ref": "Official Gazette 103 / 6 Feb 2002",
+   "articol": "art. 73^2 para. (1)-(5) · quote: “receives an activation bonus of 1,000 lei, tax-free”",
+   "curios": "The 1,000 lei is not taxed. You receive half when you start the job and half 3 months after starting. You do not receive it if you take a job with an employer you worked for in the last 12 months, and you cannot combine it with the placement bonus or the settlement bonus.",
+   "expert": "Art. 73^2 para. (1): people registered as unemployed for at least 30 days, without unemployment benefit, hired full-time for a period longer than 3 months, after registration. Para. (1^1): 50% on hiring, 50% after 3 months. Para. (2): excluded are those hired by an employer with whom they had an employment relationship in the last 12 months. Para. (3): the bonus is kept if the employer changes within 30 days, under the same conditions. Para. (4): cannot be combined with the placement bonus (art. 73^1 para. (1)) or the settlement bonus (art. 75). Para. (5): can be combined with the commuting bonus (art. 74)."
+  },
+  "prima_incadrare_somerii_2002": {
+   "act": "Law 76/2002, consolidated version",
+   "mo_ref": "Official Gazette 103 / 6 Feb 2002",
+   "articol": "art. 74 para. (1)-(3) · quote: “The amount of the bonus provided for in para. (1) is calculated at 0.5 lei/km, but no more than 55 lei/day”",
+   "curios": "The bonus is tax-free and is calculated at 0.5 lei per kilometre, at most 55 lei a day, only for the days you actually work for the employer. It is granted for 12 months. It can be combined with the activation bonus.",
+   "expert": "Art. 74 para. (1): registered unemployed people hired in a locality more than 15 km from their domicile or residence; the bonus is tax-free and may be granted (the wording is “may benefit”). Para. (2): 0.5 lei/km, at most 55 lei/day, in proportion to the days actually worked. Para. (3): the granting period is 12 months. Art. 73^2 para. (5) allows it to be combined with the activation bonus."
+  },
+  "prima_instalare_somerii_2002": {
+   "act": "Law 76/2002, consolidated version",
+   "mo_ref": "Official Gazette 103 / 6 Feb 2002",
+   "articol": "art. 75 para. (1)-(6) · quote: “a) 12,500 lei for people registered as unemployed with the employment agencies who take a job”",
+   "curios": "The bonus is tax-free: 12,500 lei if you move alone, 15,500 lei if you move with your family. If both spouses meet the conditions, one receives the full amount, the other 3,500 lei. It is paid in two instalments of 50%: on settling in and 12 months after starting the job. If the employer or the state provides housing or pays the housing costs, the amounts are lower: 3,500 lei alone, 6,500 lei with family, paid once.",
+   "expert": "Art. 75 para. (1): registered unemployed people hired more than 50 km from their domicile or residence, who change their domicile or establish their residence in the locality or neighbouring localities; the bonus is tax-free and may be granted (the wording is “may benefit”). Para. (2): let. a) 12,500 lei; let. b) 15,500 lei if accompanied by family members within the meaning of the Civil Code or, in a single-parent family, by dependent children. Para. (3): if both spouses meet the conditions, one receives the amount in para. (2) let. a), the other 3,500 lei. Para. (4): with service housing or costs borne by the employer or from public funds: 3,500 lei, 6,500 lei, and 3,500 lei for each spouse respectively. Para. (5): two instalments of 50%, on settling in and 12 months after starting the job. Para. (6): the amounts in para. (4) are paid in a single instalment, on settling in. Art. 73^2 para. (4): cannot be combined with the activation bonus."
+  },
+  "prima_relocare_cheltuielile_2002": {
+   "act": "Law 76/2002, consolidated version",
+   "mo_ref": "Official Gazette 103 / 6 Feb 2002",
+   "articol": "art. 76^2 para. (1)-(6) · quote: “equal to 75% of the amount intended to cover housing costs at the new domicile or new residence, but no more than 900 lei”",
+   "curios": "The bonus is tax-free and is paid monthly, for at most 36 months, as long as the conditions remain met. Your monthly net income, or your family's, must not exceed 5,000 lei a month. You do not receive it if the employer or the state provides you with housing or pays your rent.",
+   "expert": "Art. 76^2 para. (1): registered unemployed people hired more than 50 km away, who change their domicile or establish their residence in the locality or neighbouring localities; 75% of housing costs, at most 900 lei, from the unemployment insurance budget. Para. (2): monthly net income of the single person or, together with the family, of at most 5,000 lei/month. Para. (3): the single person and the family are defined under art. 6 para. (1) let. a) and b) of Law 196/2016. Para. (4): housing costs are rent and utilities. Para. (5): not granted if the employer or the authorities provide service housing or bear the rent. Para. (6): monthly, for at most 36 months, as long as the conditions in para. (1) and (2) are met. Art. 76^5 para. (7): cannot be combined with the stability bonus."
+  },
+  "motorina_agricultura_rambursare_2026": {
+   "act": "GD 731/2026",
+   "mo_ref": "Official Gazette 796 / 18 Sep 2026",
+   "articol": "sole art. item 1 (art. 2 para. (3^9) let. b) of GD 1,174/2014) · quote: “the difference between the reduced level of 2,664.08 lei/1,000 litres resulting from a 5% reduction of the excise duty level in force”",
+   "curios": "For the duration of the crisis situation declared under Law 162/2026, the reimbursement for standard diesel used in agriculture depends on how much the excise duty is temporarily cut. At a 5% cut the aid is 2.557 lei/litre, and at 25% it is 1.996 lei/litre. The lower the excise duty, the lower the reimbursement per litre.",
+   "expert": "Art. 2 para. (3^9) let. b) of GD 1,174/2014 applies for the duration of the crisis situation declared under art. 1 of Law 162/2026. The aid is the difference between the reduced level of the excise duty (after the temporary mechanism in art. 5 of Law 162/2026) and the reduced rate in para. (2^6), given as a reimbursement, in a unit amount: 5% reduction, level 2,664.08 lei/1,000 l, aid 2.557 lei/l; 10% reduction, level 2,523.86 lei/1,000 l, aid 2.417 lei/l; 15% reduction, level 2,383.65 lei/1,000 l, aid 2.277 lei/l; 20% reduction, level 2,243.43 lei/1,000 l, aid 2.137 lei/l; 25% reduction, level 2,103.22 lei/1,000 l, aid 1.996 lei/l. It applies to standard diesel. To verify: the page of the Ministry of Agriculture and Rural Development (or of the institution that receives the requests) with the procedure for granting the scheme in GD 1,174/2014; a person must verify the authority and the link.."
+  },
+  "grant_pana_lei_2026": {
+   "act": "GD 751/2026",
+   "mo_ref": "Official Gazette 812 / 24 Sep 2026",
+   "articol": "art. 9 para. (1) · quote: “The emergency financial support in the form of a grant is 333 lei/ha”",
+   "curios": "The state pays a grant to agricultural producers (individuals, sole traders, individual or family enterprises, companies, agricultural societies) for areas with maize and/or sunflower affected by pedological drought in 2025. The degree of damage in the report matters. Above 90% damage you receive at most 333 lei/ha. Between 30% and 90% the amount is reduced proportionally: for example, at 50% damage you multiply 333 by 50 and divide by 100. Amounts are paid by 31 December 2026.",
+   "expert": "The grant scheme is based on Implementing Regulation (EU) 2026/1,698, and APIA implements it (art. 2). The total budget is 155,361,520 lei (art. 8 para. (1)). Eligibility requires: a damage assessment report for June-August 2025 in the model of Order 97/63/2020, damage between 30% and 100% of the crop area, an APIA payment request for 2025 and registration in the summary statement of the county agriculture directorate (art. 7 para. (1)). The area paid cannot exceed the area determined by APIA in the 2025 payment request (art. 7 para. (2), art. 9 para. (2)). For a damage interval, the arithmetic mean of the interval is used (art. 9 para. (1) let. b)). If funds are not enough, amounts are reduced linearly for everyone (art. 8 para. (2)). If money is left, it is redistributed over hectares with damage between 30% and 90%, without exceeding 333 lei/ha (art. 8 para. (3)). With drought insurance or with DR-31, compensation plus grant cannot exceed 80% of eligible expenses; the average is about 6,560 lei/ha (art. 12 and 13). Undue support is repaid with interest (art. 21). Beneficiaries keep the documents for 10 years from receipt (art. 22 para. (2)). Those with a negative decision on area payment or on the 2025 transitional national aid (art. 10 para. (4)) and those with unrepaid illegal aid (art. 6 para. (2)) cannot benefit. To verify: the county/local APIA centre where you filed the 2025 payment request (APIA page with the request form for emergency support, annex no. 3 to GD 751/2026), authority: APIA. To verify: the county agriculture directorate (secretariat or the department that drew up the reports), authority: county agriculture directorate. To verify: the county/local APIA centre where you file the request, authority: APIA. To verify: the county/local APIA centre where you filed the request, authority: APIA."
+  },
+  "tichetul_masa_poate_2026": {
+   "act": "Order 1,254/1,188/2026",
+   "mo_ref": "Official Gazette 830 / 30 Sep 2026",
+   "articol": "art. 1 and art. 2 · quote: “cannot exceed the amount of 45 lei”",
+   "curios": "For the second half of 2026, from October, the value of a meal voucher cannot exceed 45 lei. The same value also applies in February and March 2027. If you receive vouchers, 45 lei is the ceiling for the value of one voucher. The employer can also give a lower value.",
+   "expert": "Art. 1: for the second half of 2026, from October 2026, the face value of a meal voucher, set under art. 33 of the Methodological Norms (GD 1,045/2018) implementing Law 165/2018, cannot exceed 45 lei. Art. 2: the same value applies in February and March 2027. The text does not say what applies in January 2027 and does not give the previous value. We do not describe the mechanism in art. 33 of the norms, because we did not receive it."
+  },
+  "tarife_noi_kilometru_2026": {
+   "act": "MTI Order 959/2026",
+   "mo_ref": "Official Gazette 847 / 8 Oct 2026",
+   "articol": "art. I item 2 and annex item 1 · quote: “The unit rate is the toll (TollRo) per unit of kilometre applied on the SETRE Romania domain”",
+   "curios": "The annex to Order 1,925/2025 has been replaced with a new one. A truck over 12 tonnes with EURO VI class pays 0.48 lei/km (VAT included) on a motorway and 0.24 lei/km on a national road. More polluting classes pay more: EURO V-IV 15% above EURO VI, EURO III-0 30% above EURO VI. How much this changed from the old rates we cannot say, because the old annex is not in the text.",
+   "expert": "Art. I item 2 replaces the annex to Order 1,925/2025 in full. The rate is in lei/km, VAT included, and depends on the vehicle category by maximum authorised mass (cat. I: over 3.5 t and up to 7.5 t; cat. II: over 7.5 t and under 12 t; cat. III: 12 t or more), on the EURO class and on the road category. Motorways and expressways: cat. I 0.17 (EURO VI), 0.19 (V-IV), 0.22 (III-0); cat. II 0.29, 0.33, 0.37; cat. III 0.48, 0.55, 0.62. National roads: cat. I 0.08, 0.10, 0.11; cat. II 0.14, 0.16, 0.19; cat. III 0.24, 0.28, 0.31. The rate includes an infrastructure use charge and one based on external costs (pollution). Item 3: EURO V-IV is EURO VI plus 15%, EURO III-0 is EURO VI plus 30%. Item 4: a vehicle's rate cannot exceed the EURO VI rate by more than 100%. The class and mass are taken from the registration documents. To verify: the official TollRo page with the per-kilometre rates in force (from the administrator of the road charging system)."
+  },
+  "camioanele_electrice_platesc_2026": {
+   "act": "MTI Order 959/2026",
+   "mo_ref": "Official Gazette 847 / 8 Oct 2026",
+   "articol": "annex items 7-9 · quote: “The unit rate for electric vehicles is the unit rate corresponding to the EURO VI pollutant emission class, reduced by 75% and rounded to the ban by disregarding fractions of a ban.”",
+   "curios": "The rate for electric vehicles is the EURO VI rate reduced by 75%, with fractions of a ban disregarded. For example, an electric truck over 12 tonnes pays 0.12 lei/km on a motorway, against 0.48 lei/km for EURO VI, and 0.06 lei/km on a national road, against 0.24. The reduction is kept after each update of the rate.",
+   "expert": "Item 7: the rate for electric vehicles starts from the EURO VI rate, reduced by 75% and rounded by disregarding fractions of a ban. After each update, under art. 1 para. (3) and (4) of the order, it is recalculated in the same way. Item 8 defines the electric vehicle: a motor vehicle registered with at least one electrical energy storage device, which uses electric motors for propulsion instead of an internal combustion engine, or the combination formed by it and the trailers it tows. Item 9: if the vehicle has no EURO class, the class is deemed to be given by the mention of the electric energy source in the registration certificate (field P.3) or in the equivalent document of another state, and the “Electric vehicles” column applies to the vehicle. To verify: the official TollRo page with the per-kilometre rates in force (from the administrator of the road charging system)."
+  },
+  "ajutorul_crescatorii_porci_2026": {
+   "act": "Law 203/2026",
+   "mo_ref": "Official Gazette 865 / 15 Oct 2026",
+   "articol": "art. II · quote: “legal persons established under the Companies Law no. 31/1990, republished, also benefit, on request”",
+   "curios": "The state aid for pig sector farmers, set up by Law 175/2026, can now also be requested by legal persons established under Law 31/1990. Requests are filed within 10 working days of the law entering into force. The conditions are those in art. 4 of Law 175/2026, which is not in the text received. If you have a company with a pig farm, check urgently whether you qualify.",
+   "expert": "Art. II extends the benefit of Law 175/2026 (as amended by this law) to legal persons established under Law 31/1990, republished, on request, under the conditions of art. 4 of Law 175/2026. The deadline for filing requests is 10 working days from the date the law enters into force. The amount of the aid and the conditions in art. 4 do not appear in the text received. Art. I repeals art. 5 para. (5) of Law 175/2026; the content of that paragraph is not in the text, so the effect of the repeal is not described here. To verify: the page or counter of the authority where requests for the aid in Law 175/2026 are filed (the authority is not named in the text received, it must be checked in Law 175/2026).."
   }
  },
  "ghid": {
@@ -899,6 +1067,181 @@
    "pasi": [
     "Ask the faculty office when the social grant applications are due.",
     "Prepare the income documents your university asks for and file on time."
+   ]
+  },
+  "plafonul_scutire_tva_2025": {
+   "pentru": "For those who have: sole trader (PFA), sole trader on income norm, SRL micro-company, SRL dividends",
+   "ce": "The VAT exemption threshold for small businesses rose to 395,000 lei from 1 September 2025",
+   "pasi": [
+    "Track the turnover of the calendar year, calculated under art. 310 para. (2). The threshold is 395,000 lei; when you exceed it, you must apply for VAT registration by the date you exceed it at the latest."
+   ]
+  },
+  "te_poti_scoate_2025": {
+   "pentru": "For those who have: sole trader (PFA), sole trader on income norm, SRL micro-company, SRL dividends",
+   "ce": "You can ask to be removed from the VAT register if you registered by 1 September 2025 only because you passed 300,000 lei",
+   "pasi": [
+    "If you qualify, file with ANAF the request for removal from the register of persons registered for VAT purposes, between the 1st and the 10th of the month following your tax period. Until the decision you remain a VAT payer, then you file the last VAT return by the 25th of the month following the decision."
+   ]
+  },
+  "daca_treci_lei_2025": {
+   "pentru": "For those who have: sole trader (PFA), sole trader on income norm, SRL micro-company, SRL dividends",
+   "ce": "If you pass 395,000 lei, you apply for VAT registration by the day you pass it at the latest; being late means back-dated VAT",
+   "pasi": [
+    "If you exceed the threshold, apply for VAT registration by the date you exceed it at the latest. If you were late, you ask for the registration date to be changed to the date of exceeding and include the amounts in the first VAT return filed after registration."
+   ]
+  },
+  "srl_ul_pierde_2026": {
+   "pentru": "For those who have: SRL micro-company",
+   "ce": "The SRL loses the micro regime if revenue passes 100,000 euro, and pays profit tax from the quarter in which it passes",
+   "pasi": [
+    "Track the company's revenue during the year (turnover, together with that of linked companies) against 100,000 euro; if you exceed it, profit tax is owed from the quarter of exceeding. If you notified ANAF that you apply or leave the micro regime between 1 January 2026 and the entry into force of the ordinance, file a new declaration of mentions (art. 10 para. (4))."
+   ]
+  },
+  "srl_ul_nou_2026": {
+   "pentru": "For those who have: SRL micro-company",
+   "ce": "A new SRL has 90 days from registration to hire its first employee and stay in the micro regime",
+   "pasi": [
+    "If you have a new SRL that applies the micro regime, hire the first employee within 90 days of the date of registration in the trade register at the most."
+   ]
+  },
+  "daca_singurul_salariat_2026": {
+   "pentru": "For those who have: SRL micro-company",
+   "ce": "If your only employee leaves, you have 30 days to hire another to stay micro",
+   "pasi": [
+    "If your only employee leaves, hire a replacement within 30 days at the most (permanent contract or one of at least 12 months)."
+   ]
+  },
+  "bonificatie_impozitul_veniturile_2026": {
+   "pentru": "For those who have: SRL micro-company",
+   "ce": "A 3% rebate on the 2025 micro-enterprise income tax, granted by ANAF ex officio",
+   "pasi": [
+    "Check in the company's Virtual Private Space the decision by which ANAF established the 3% rebate and that the amount has entered the tax record; it is offset against other obligations, not refunded."
+   ]
+  },
+  "pfa_contributiile_pilon_2026": {
+   "pentru": "For those who have: sole trader (PFA), Pillar III",
+   "ce": "Sole trader: contributions to Pillar III, occupational pensions and PEPP fall within a limit of 400 euro a year",
+   "pasi": [
+    "Keep proof of payment of contributions to the voluntary pension fund, the occupational fund or PEPP and ask for the fund statement; take them into account when filling in the single return for 2026 income, up to 400 euro a year for each type."
+   ]
+  },
+  "pfa_sumele_platite_2026": {
+   "pentru": "For those who have: sole trader (PFA)",
+   "ce": "Sole trader: amounts paid for ETFs through authorised intermediaries fall within a limit of 400 euro a year",
+   "pasi": [
+    "Keep the supporting documents from the intermediary for ETF transactions settled from 1 March 2026 (your data, the settlement date, the instruments and the value) and take them into account in the single return for 2026, up to 400 euro a year."
+   ]
+  },
+  "salariat_contributiile_pilon_2026": {
+   "pentru": "For those who have: salary, Pillar III",
+   "ce": "Employee: contributions to Pillar III, occupational pensions and PEPP are deducted up to 400 euro a year, from March 2026 pay",
+   "pasi": [
+    "If you pay contributions to Pillar III, an occupational pension or PEPP, check on your payslip each month that your employer has taken the deduction into account, up to 400 euro a year."
+   ]
+  },
+  "salariat_sumele_platite_2026": {
+   "pentru": "For those who have: salary",
+   "ce": "Employee: amounts paid for ETFs through authorised intermediaries are deducted up to 400 euro a year",
+   "pasi": [
+    "Keep the supporting documents from the intermediary for ETF transactions settled from 1 March 2026, with the data required by law, for the deduction from salary; when you change employer, take the document showing the deductions granted."
+   ]
+  },
+  "bursa_merit_scoala_2026": {
+   "pentru": "For those who have: pupil or student",
+   "ce": "School merit scholarship: 450 lei a month from the 2026-2027 school year",
+   "pasi": [
+    "If you receive the merit scholarship, check at school that the amount paid for the 2026-2027 school year is 450 lei a month."
+   ]
+  },
+  "bursa_sociala_scoala_2026": {
+   "pentru": "For those who have: pupil or student",
+   "ce": "School social scholarship: 300 lei a month from the 2026-2027 school year",
+   "pasi": [
+    "If you receive the social scholarship, check at school that the amount paid for the 2026-2027 school year is 300 lei a month."
+   ]
+  },
+  "bursa_tehnologica_scoala_2026": {
+   "pentru": "For those who have: pupil or student",
+   "ce": "School technological scholarship: 300 lei a month from the 2026-2027 school year",
+   "pasi": [
+    "If you receive the technological scholarship, check at school that the amount paid for the 2026-2027 school year is 300 lei a month."
+   ]
+  },
+  "prima_activare_somerii_2002": {
+   "pentru": "For those who have: unemployed",
+   "ce": "Activation bonus for unemployed people without benefit: 1,000 lei, tax-free, in two instalments",
+   "pasi": [
+    "Be registered as unemployed with the employment agency for at least 30 days before you take a full-time job, and ask for the activation bonus.",
+    "Check that you received the first instalment (50% of the amount set) when you started the job and the second instalment (50%) after the 3 months from starting have passed."
+   ]
+  },
+  "prima_incadrare_somerii_2002": {
+   "pentru": "For those who have: unemployed",
+   "ce": "Commuting bonus for unemployed people who work more than 15 km from home: 0.5 lei/km, at most 55 lei/day, 12 months",
+   "pasi": [
+    "If you take a job more than 15 km from your domicile or residence, ask for the commuting bonus at the employment agency where you are registered."
+   ]
+  },
+  "prima_instalare_somerii_2002": {
+   "pentru": "For those who have: unemployed",
+   "ce": "Settlement bonus for unemployed people who move more than 50 km: 12,500 lei, 15,500 lei with family, 3,500 lei for the second spouse",
+   "pasi": [
+    "Before you move for a job more than 50 km away, ask the employment agency where you are registered how to apply for the settlement bonus and which documents you must submit."
+   ]
+  },
+  "prima_relocare_cheltuielile_2002": {
+   "pentru": "For those who have: unemployed",
+   "ce": "Relocation bonus: 75% of housing costs, up to 900 lei a month, for at most 36 months",
+   "pasi": [
+    "If you move for a job more than 50 km away, ask for the relocation bonus at the employment agency where you are registered and prepare proof of the rent and utilities at the new home."
+   ]
+  },
+  "motorina_agricultura_rambursare_2026": {
+   "pentru": "For those who have: agriculture",
+   "ce": "Diesel in agriculture: reimbursement from 1.996 to 2.557 lei/litre, depending on how much the excise duty falls in the crisis",
+   "pasi": [
+    "Check in the statement or in the reimbursement decision that the amount per litre matches the level of the excise duty reduction in the period when you bought the diesel: 2.557 lei/l at 5%, 2.417 at 10%, 2.277 at 15%, 2.137 at 20%, 1.996 at 25%."
+   ]
+  },
+  "grant_pana_lei_2026": {
+   "pentru": "For those who have: agriculture",
+   "ce": "Grant of up to 333 lei/ha for maize and sunflower affected by the 2025 drought",
+   "pasi": [
+    "If you grew maize and/or sunflower in 2025, filed a payment request with APIA and have a damage assessment report with at least 30% damage, file the support request (model in annex no. 3) at the APIA centre where you filed the 2025 payment request. The legal deadline is at most 20 working days after the agriculture directorates send the lists to APIA. Ask APIA for the pre-printed request, with the areas already filled in. You can also send it by post, fax or e-mail.",
+    "Check with your county's agriculture directorate that the damage assessment report appears in the summary statement sent to APIA. Without this registration you are not eligible.",
+    "If you have a different bank account from the one in the 2025 payment request, fill in the “new IBAN code” field and attach a copy of the bank details document. If nothing has changed, you do not need to attach other identification documents.",
+    "If you have a drought insurance policy or benefit from DR-31 and have already received compensation, enter the amount in the request, in the Declarations and commitments section. If you receive it after filing, tell APIA within 15 days. If compensation plus grant exceed 80% of eligible expenses, you repay the difference with interest.",
+    "If you took over by transfer the holding of a producer who filed the 2025 payment request, attach to the request a copy of the document proving the takeover and a copy of the report drawn up in the name of the original producer.",
+    "Check your account to see whether you received the grant by 31 December 2026. The correct amount is 333 lei/ha multiplied by the degree of damage in the report and divided by 100 (or the full 333 lei/ha, above 90% damage), on the area in the report, but not more than the one in the 2025 payment request. It may be lower if the budget is not enough. If you receive a rejection notice, you can challenge it under Law 554/2004. Before going to court, ask for the act to be revoked within 30 days of notification.",
+    "Keep for 10 years, from the date you receive the amount, all documents showing the support was granted."
+   ]
+  },
+  "tichetul_masa_poate_2026": {
+   "pentru": "For those who have: salary",
+   "ce": "A meal voucher can be worth at most 45 lei, from October 2026 until March 2027",
+   "pasi": [
+    "If you receive meal vouchers, check on your payslip or meal card that the value of one voucher does not exceed 45 lei for the months to which the order applies (from October 2026, plus February and March 2027). If it does, ask your employer for an explanation."
+   ]
+  },
+  "tarife_noi_kilometru_2026": {
+   "pentru": "For those who have: transport",
+   "ce": "New per-kilometre rates (TollRo) for goods vehicles over 3.5 tonnes on motorways and national roads",
+   "pasi": [
+    "Check the per-kilometre rate that applies to you: look in the annex for the vehicle category by maximum authorised mass and the EURO class from the registration certificate, then the road type (motorway or national road). Compare it with what you are charged for a trip."
+   ]
+  },
+  "camioanele_electrice_platesc_2026": {
+   "pentru": "For those who have: transport",
+   "ce": "Electric trucks pay 75% less than the EURO VI rate",
+   "pasi": [
+    "If you have an electric goods vehicle over 3.5 tonnes, check in the registration certificate (field P.3) that the electric energy source appears. Then the rate in the “Electric vehicles” column applies to you."
+   ]
+  },
+  "ajutorul_crescatorii_porci_2026": {
+   "pentru": "For those who have: agriculture",
+   "ce": "The aid for pig farmers in Law 175/2026 is extended to companies too, with a request within 10 working days",
+   "pasi": [
+    "If your company raises pigs, read the conditions in art. 4 of Law 175/2026 and file the request for state aid within 10 working days of the law entering into force."
    ]
   }
  },

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { signIn, signOut } from "next-auth/react";
 import { useState } from "react";
 import { useLimba } from "@/components/Limba";
-import { useAbonament } from "@/components/useAbonament";
+import { seteazaProDemo, useAbonament } from "@/components/useAbonament";
 import { PRET_BANI } from "@/lib/abonament";
 import { dataScurta } from "@/lib/card";
 
@@ -79,6 +79,24 @@ export function Abonare() {
       <div className="mt-7">
         {stare === null ? (
           <p className="m-0 text-[15px] text-v3-ink-2">{t("Se verifică contul…")}</p>
+        ) : stare.demo ? (
+          // Pro de demo (comutatorul din meniul contului): fără Stripe, deci fără portal de gestionare.
+          <div className="rounded-2xl border border-v3-pos/30 bg-v3-pos-soft p-4">
+            <p className="m-0 text-[16px] font-bold text-v3-pos">{t("Ai Pro (demo).")}</p>
+            <p className="m-0 mt-1 text-[14.5px] text-v3-ink">{t("Vezi aplicația ca un abonat, fără plată. Ține doar pe acest dispozitiv.")}</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Link href="/aplicatie" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-[18px] font-bold text-v3-on-ink no-underline">
+                {t("Pentru tine")}
+              </Link>
+              <button
+                type="button"
+                onClick={() => seteazaProDemo(false)}
+                className="min-h-11 rounded-[10px] border border-v3-line bg-v3-card px-[18px] font-semibold text-v3-ink"
+              >
+                {t("Oprește Pro (demo)")}
+              </button>
+            </div>
+          </div>
         ) : !stare.conectat ? (
           // Pasul 1: conectarea. Abonamentul se leagă de contul Google, deci nu se poate plăti fără el.
           <>

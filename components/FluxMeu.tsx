@@ -8,13 +8,12 @@ import { useProfil } from "@/components/useProfil";
 import type { Sortare } from "@/lib/card";
 import { CATALOG } from "@/lib/catalog";
 import { etichetaTagL } from "@/lib/i18n";
-import { PRET_BANI, fluxDeschis } from "@/lib/abonament";
+import { PRET_BANI } from "@/lib/abonament";
 import { aziISO, potriveste } from "@/lib/potrivire";
 
 /**
  * Fluxul pe profilul real. Profilul stă în localStorage, deci potrivirea rulează aici, pe dispozitiv.
  * Fără Pro (verificat la Stripe), fluxul se vede estompat, cu „Upgrade la Pro” deasupra; până la răspuns, tot estompat.
- * Cu demo-ul deschis (PRO_DESCHIS_DEMO=1), se vede tot, cu o notă că Pro e deschis pentru demo.
  */
 export function FluxMeu({ sortare }: { sortare: Sortare }) {
   const profil = useProfil();
@@ -34,16 +33,14 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
           {t("Completează profilul")}
         </Link>
         <p className="mt-4 mb-0 text-[13px] text-v3-ink-2">
-          {t("Sau vezi un exemplu:")} <Link href="/flux?p=andrei">Andrei, 32</Link> · <Link href="/flux?p=maria">Maria, 45</Link> ·{" "}
-          <Link href="/flux?p=ion">Ion, 67</Link> · <Link href="/flux?p=ioana">Ioana, 23</Link> · <Link href="/flux?p=elena">Elena, 24</Link>
+          {t("Sau vezi exemplul:")} <Link href="/flux?p=andrei">Andrei, 32</Link>
         </p>
       </section>
     );
   }
 
   const potriviri = potriveste(profil, CATALOG, aziISO());
-  const blocat = !fluxDeschis(stare);
-  const prinDemo = !blocat && !stare?.activ;
+  const blocat = !stare?.activ;
   return (
     <>
       <p className="mt-1 mb-0 text-sm text-v3-ink-2">
@@ -52,14 +49,6 @@ export function FluxMeu({ sortare }: { sortare: Sortare }) {
           {t("modifică")}
         </Link>
       </p>
-      {prinDemo && (
-        <p className="mt-2 mb-0 text-[13px] text-v3-ink-2">
-          {t("Pro e deschis pentru demo.")}{" "}
-          <Link href="/abonament" className="font-semibold text-v3-ink underline decoration-v3-line underline-offset-2">
-            {t("Vezi abonamentul")}
-          </Link>
-        </p>
-      )}
       <div className="relative">
         {/* inert: conținutul estompat nu se poate citi cu tastatura sau cititorul de ecran, doar vedea ca formă */}
         <div inert={blocat} aria-hidden={blocat} className={blocat ? "pointer-events-none max-h-[1400px] overflow-hidden blur-[6px] select-none" : ""}>
