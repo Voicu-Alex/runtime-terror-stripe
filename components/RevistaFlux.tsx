@@ -72,10 +72,10 @@ export function Termene({ ev }: { ev: Eveniment[] }) {
         const urgent = x.termen && x.v.termen?.urgent;
         const suma = x.termen
           ? x.v.economie
-            ? <b className="text-v3-pos">+{bani(x.v.economie.suma)} {t(x.v.economie.unitate)}</b>
+            ? <b className="text-v3-pos">+{bani(x.v.economie.suma, limba)} {t(x.v.economie.unitate)}</b>
             : null
           : x.v.suma
-            ? <b className={culoare(x.v.suma)}>{cuSemn(x.v.suma)} {t("lei/an")}</b>
+            ? <b className={culoare(x.v.suma)}>{cuSemn(x.v.suma, limba)} {t("lei/an")}</b>
             : null;
         return (
           <li key={x.p.schimbare.id + x.iso} className="grid grid-cols-[46px_1fr] gap-2.5 border-b border-v3-line py-3.5">
@@ -146,12 +146,12 @@ export function ArticolPrincipal({ p, valori, azi }: { p: Potrivire | null; valo
       <h2 className="m-0 mb-2.5 font-head text-[clamp(25px,6.6vw,36px)] leading-[1.16] font-extrabold tracking-[-.015em]">{v.titlu}</h2>
       {actiune && v.economie ? (
         <p className="m-0 mb-3 font-num font-semibold tabular-nums lining-nums text-[clamp(30px,8vw,40px)] tracking-[-.03em] text-v3-pos">
-          <span className="font-sans text-[15px] font-semibold tracking-normal">{limba === "en" ? "up to" : "până la"}</span> +{bani(v.economie.suma)}
+          <span className="font-sans text-[15px] font-semibold tracking-normal">{limba === "en" ? "up to" : "până la"}</span> +{bani(v.economie.suma, limba)}
           <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">{t(v.economie.unitate)}</small>
         </p>
       ) : v.suma !== null ? (
         <p className={`m-0 mb-3 font-num font-semibold tabular-nums lining-nums text-[clamp(30px,8vw,40px)] tracking-[-.03em] ${culoare(v.suma)}`}>
-          {cuSemn(v.suma)}
+          {cuSemn(v.suma, limba)}
           <small className="ml-1.5 font-sans text-[15px] font-semibold tracking-normal text-v3-ink-2">
             {v.suma === 0 ? t("lei acum") : t("lei/an")}
           </small>
@@ -214,8 +214,8 @@ export function Cifre({ potriviri, valori, ev, azi }: { potriviri: Potrivire[]; 
     [ev.filter((x) => x.termen).length, t("termene deschise")],
     [deschise.length, t("acțiuni pe care legea le permite")],
     [<span key="p" className="text-v3-pos">
-      {pastrezi || !punctuale ? <>{cuSemn(pastrezi)} {t(unitateAnuala)}</> : <>+{bani(punctuale)} {t("lei o dată")}</>}
-      {!!pastrezi && !!punctuale && <small className="mt-1 block text-sm font-semibold">+{bani(punctuale)} {t("lei o dată")}</small>}
+      {pastrezi || !punctuale ? <>{cuSemn(pastrezi, limba)} {t(unitateAnuala)}</> : <>+{bani(punctuale, limba)} {t("lei o dată")}</>}
+      {!!pastrezi && !!punctuale && <small className="mt-1 block text-sm font-semibold">+{bani(punctuale, limba)} {t("lei o dată")}</small>}
     </span>, t("dacă le faci pe toate")],
   ];
   return (

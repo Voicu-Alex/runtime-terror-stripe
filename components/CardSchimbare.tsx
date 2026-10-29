@@ -99,7 +99,7 @@ export default function CardSchimbare({
             dep ? "text-v3-past" : v.suma === null || v.suma === 0 ? "text-v3-ink" : v.suma < 0 ? "text-v3-neg" : "text-v3-pos"
           }`}
         >
-          {v.suma === null ? "—" : cuSemn(v.suma)}
+          {v.suma === null ? "—" : cuSemn(v.suma, limba)}
           <small className="block text-[12.5px] font-semibold tracking-normal text-v3-ink-2">
             {v.suma === null ? t("de calculat") : v.suma === 0 ? t("lei acum") : brut ? t("lei/an brut") : t("lei/an")}
           </small>
@@ -211,7 +211,7 @@ export default function CardSchimbare({
               ))}
               {v.economie !== null && !dep && (
                 <p className="m-0 mb-1.5 text-[14.5px]">
-                  {t("Prin această acțiune poți păstra până la")} <b>{bani(v.economie.suma)} {t(v.economie.unitate)}</b>.
+                  {t("Prin această acțiune poți păstra până la")} <b>{bani(v.economie.suma, limba)} {t(v.economie.unitate)}</b>.
                 </p>
               )}
               {onBifeaza && !dep && (

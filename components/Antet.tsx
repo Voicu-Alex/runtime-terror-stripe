@@ -7,11 +7,19 @@ import { ComutatorTema } from "@/components/Tema";
 import { useAbonament } from "@/components/useAbonament";
 
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
+// Secțiunile urmează macheta v6 (Pentru tine, Noutăți, Planul meu, Profil), plus „Toate legile”.
 const SECTIUNI = [
-  { href: "/flux", text: "Flux" },
+  { href: "/", text: "Pentru tine" },
+  { href: "/noutati", text: "Noutăți" },
   { href: "/legi", text: "Toate legile" },
+  { href: "/plan", text: "Planul meu" },
   { href: "/profil", text: "Profil" },
 ];
+
+/** „/” e activ doar pe pagina principală și pe fluxul vechi; restul, după prefix. */
+function activ(cale: string, href: string): boolean {
+  return href === "/" ? cale === "/" || cale.startsWith("/flux") : cale.startsWith(href);
+}
 
 export function Antet() {
   const { t } = useLimba();
@@ -42,14 +50,14 @@ export function Antet() {
       </header>
       <nav
         aria-label={t("Secțiuni")}
-        className="sticky top-0 z-20 flex justify-center gap-5 border-t border-b border-v3-line bg-[var(--fundal)] sm:gap-11"
+        className="sticky top-0 z-20 flex gap-5 overflow-x-auto border-t border-b border-v3-line bg-[var(--fundal)] px-4 sm:justify-center sm:gap-9"
       >
         {SECTIUNI.map((s) => (
           <Link
             key={s.href}
             href={s.href}
-            aria-current={cale.startsWith(s.href) ? "page" : undefined}
-            className="flex min-h-[46px] items-center text-[13.5px] font-bold tracking-[.06em] text-v3-ink uppercase no-underline aria-[current=page]:text-v3-accent aria-[current=page]:shadow-[inset_0_-3px_0_var(--color-v3-accent)]"
+            aria-current={activ(cale, s.href) ? "page" : undefined}
+            className="flex min-h-[46px] shrink-0 items-center whitespace-nowrap text-[13.5px] font-bold tracking-[.06em] text-v3-ink uppercase no-underline aria-[current=page]:text-v3-accent aria-[current=page]:shadow-[inset_0_-3px_0_var(--color-v3-accent)]"
           >
             {t(s.text)}
           </Link>

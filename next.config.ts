@@ -9,11 +9,7 @@ const nextConfig: NextConfig = {
   },
   // ESLint nu e instalat încă (eslint-config-next nu era în cache-ul local la 2026-10-28). Tipurile le verifică tsc.
   eslint: { ignoreDuringBuilds: true },
-  // Macheta v6 (mockup/v6, copiată în public/ la build) e pagina principală: / o servește direct.
-  // Landing-ul de dinainte e la /despre. beforeFiles, ca rescrierea să bată app/page.tsx.
-  async rewrites() {
-    return { beforeFiles: [{ source: "/", destination: "/v6/index.html" }], afterFiles: [], fallback: [] };
-  },
+  // Macheta v6 statică (mockup/v6, copiată în public/ la build) rămâne la /v6, ca referință; aplicația o reface în app/page.tsx.
   async redirects() {
     return [
       { source: "/v6", destination: "/v6/index.html", permanent: false },
