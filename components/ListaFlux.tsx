@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import CardSchimbare from "@/components/CardSchimbare";
 import { useLimba } from "@/components/Limba";
+import { useAprobate } from "@/components/useAprobate";
 import { ArticolPrincipal, Cifre, Termene, TitluSectiune, evenimente } from "@/components/RevistaFlux";
 import { bani, cuSemn, dupaImpact, dupaNoutate, mii, type Sortare } from "@/lib/card";
 import { alegeNotificarea, incarcaPlan, salveazaPlan } from "@/lib/plan";
@@ -58,6 +59,12 @@ export function ListaFlux({
     () => (cuExtra ? potriveste({ ...profil, valori: { ...profil.valori, ...extra } }, CATALOG, azi) : potriviriDate),
     [cuExtra, profil, extra, azi, potriviriDate],
   );
+  // Actele aprobate acum în /admin (alt tab): apar sus, separat, până intră în catalog.
+  const aprobate = useAprobate();
+  const noi = useMemo(
+    () => (profil && aprobate.length ? potriveste({ ...profil, valori: { ...profil.valori, ...extra } }, aprobate, azi) : []),
+    [profil, aprobate, extra, azi],
+  );
 
   function seteazaValoare(camp: CampValoare, valoare: number) {
     const urm = { ...extra, [camp]: valoare };
@@ -98,6 +105,26 @@ export function ListaFlux({
   return (
     <div className="mt-4 lg:grid lg:grid-cols-[minmax(0,1fr)_270px] lg:gap-7">
       <div className="min-w-0">
+        {noi.length > 0 && (
+          <section aria-label={t("Nou în Monitorul Oficial")} className="mb-6 rounded-2xl border-2 border-v3-pos/40 bg-v3-pos-soft/40 px-4 pt-3">
+            <p className="m-0 flex items-center gap-2 text-[12px] font-extrabold tracking-[.1em] text-v3-pos uppercase">
+              <span aria-hidden="true" className="size-2 animate-pulse rounded-full bg-v3-pos" />
+              {t("Nou în Monitorul Oficial")} · {t("verificat de un om azi")}
+            </p>
+            <ul className="m-0 list-none p-0">
+              {noi.map((x) => (
+                <CardSchimbare
+                  key={x.schimbare.id}
+                  p={x}
+                  valori={valori}
+                  bifata={bifate.has(x.schimbare.id)}
+                  onBifeaza={() => comuta(x.schimbare.id)}
+                  onValoare={profil && pastrare ? seteazaValoare : undefined}
+                />
+              ))}
+            </ul>
+          </section>
+        )}
         <ArticolPrincipal p={alegeNotificarea(potriviri, valori)} valori={valori} azi={azi} />
         <Cifre potriviri={potriviri} valori={valori} ev={ev} azi={azi} />
         <div className="lg:hidden">

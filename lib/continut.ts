@@ -5,7 +5,9 @@
 import niveluriJson from "@/content/niveluri.json";
 import parteneriJson from "@/business/parteneri.json";
 import type { Niveluri, Schimbare } from "./catalog";
+import type { Limba } from "./i18n";
 import { destinatie } from "./destinatii";
+import { actEn, numeDestinatie } from "./traduceri";
 
 type NivelIasmina = Niveluri & { surse: string[] };
 const NIVELURI = niveluriJson as Record<string, NivelIasmina>;
@@ -32,24 +34,52 @@ export function faraTODO(text: string): string {
     .trim();
 }
 
-export type NiveluriCard = { zero: string; curios: string | null; expert: string | null; surse: string[]; autor: "continut" | "catalog" };
+export type NiveluriCard = {
+  zero: string;
+  /** limba propoziției de la Zero: în engleză doar unde catalogul are `zero_en` */
+  limbaZero: Limba;
+  curios: string | null;
+  expert: string | null;
+  /** limba textelor Curios și Expert: în engleză unde data/traduceri-en.json le are */
+  limbaDetalii: Limba;
+  surse: string[];
+  autor: "continut" | "catalog";
+};
 
-/** Textele Iasminei au prioritate; unde lipsesc, rămân cele din catalog. */
-export function niveluri(s: Schimbare): NiveluriCard {
+/** Textele Iasminei au prioritate; unde lipsesc, rămân cele din catalog. În engleză, din data/traduceri-en.json. */
+export function niveluri(s: Schimbare, limba: Limba = "ro"): NiveluriCard {
+  const ro = niveluriRo(s, limba);
+  const t = limba === "en" ? actEn(s.id) : undefined;
+  // traducerea se folosește doar unde există și textul românesc (un TODO rămâne ascuns în ambele limbi)
+  if (!t?.curios && !t?.expert) return ro;
+  return {
+    ...ro,
+    curios: ro.curios && t.curios ? faraTODO(t.curios) || ro.curios : ro.curios,
+    expert: ro.expert && t.expert ? faraTODO(t.expert) || ro.expert : ro.expert,
+    limbaDetalii: "en",
+  };
+}
+
+function niveluriRo(s: Schimbare, limba: Limba): NiveluriCard {
   const i = NIVELURI[CHEIE_NIVELURI[s.id]];
+  const en = limba === "en" && s.niveluri.zero_en ? s.niveluri.zero_en : null;
   if (i) {
     return {
-      zero: faraTODO(i.zero) || s.niveluri.zero,
+      zero: en ?? (faraTODO(i.zero) || s.niveluri.zero),
+      limbaZero: en ? "en" : "ro",
       curios: faraTODO(i.curios) || null,
       expert: faraTODO(i.expert) || null,
+      limbaDetalii: "ro",
       surse: i.surse ?? [],
       autor: "continut",
     };
   }
   return {
-    zero: s.niveluri.zero,
+    zero: en ?? s.niveluri.zero,
+    limbaZero: en ? "en" : "ro",
     curios: eTODO(s.niveluri.curios) ? null : s.niveluri.curios,
     expert: eTODO(s.niveluri.expert) ? null : s.niveluri.expert,
+    limbaDetalii: "ro",
     surse: [],
     autor: "catalog",
   };
@@ -82,26 +112,31 @@ export function furnizori(idSchimbare: string): Furnizor[] {
 const REGISTRU_PROFESIE: Record<string, string> = { contabil: "ceccar_tablou", "consultant fiscal": "ccf_registru" };
 
 /** Registrul profesiei vine din lista de destinații verificate (data/destinatii.json). */
-function registru(profesie: string): { nume: string; url: string } | null {
-  const d = destinatie(REGISTRU_PROFESIE[profesie]);
-  return d?.url ? { nume: d.nume, url: d.url } : null;
+function registru(profesie: string, limba: Limba): { nume: string; url: string } | null {
+  const id = REGISTRU_PROFESIE[profesie];
+  const d = destinatie(id);
+  return d?.url ? { nume: numeDestinatie(id, d.nume, limba).text, url: d.url } : null;
 }
 
 export type Specialist = {
   profesie: string;
   intrebare: string | null;
   documente: string | null;
+  /** limba întrebării și a documentelor */
+  limba: Limba;
   registru: { nume: string; url: string } | null;
 };
 
-export function specialist(s: Schimbare): Specialist | null {
+export function specialist(s: Schimbare, limba: Limba = "ro"): Specialist | null {
   if (!s.profesionist) return null;
   // Întrebarea și „ce să ai pregătit” stau în catalog, câmpul `specialist` (Voicu, #15).
-  const d = s.specialist;
+  const en = limba === "en" && s.specialist ? actEn(s.id)?.specialist : undefined;
+  const d = en ?? s.specialist;
   return {
     profesie: s.profesionist,
     intrebare: d?.intrebare ?? null,
     documente: d?.documente ?? null,
-    registru: registru(s.profesionist),
+    limba: en ? "en" : "ro",
+    registru: registru(s.profesionist, limba),
   };
 }

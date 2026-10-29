@@ -1,0 +1,924 @@
+{
+ "_despre": "Traducerea în engleză a textelor din data/catalog.json, content/niveluri.json și data/ghid.json, pentru pitch și juriu. Cheile sunt id-urile din catalog. Aceleași fapte și cifre ca în română, scrise în format englezesc; TODO rămâne TODO. Textul românesc e cel verificat; dacă îl schimbi, actualizează și traducerea (lib/traduceri.test.ts verifică structura).",
+ "acte": {
+  "tva_21": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. II item 42 (Fiscal Code art. 291 para. 1-2)",
+   "curios": "The increase is part of the fiscal and budget package in Law 141/2025. It affects anyone who buys anything, because VAT is included in the shelf price. The reduced rates of 5% and 9% became a single 11% rate, for food, medicines, water, books, accommodation and restaurants. Example: a product that cost 119 lei with 19% VAT reaches 121 lei, if the price before VAT stays the same.",
+   "expert": "Law 141/2025, art. II item 42, amends art. 291 para. (1) and (2) of the Fiscal Code: standard rate 21%, reduced rate 11%; item 43 repeals the 5% rate. Published in Official Gazette no. 699 of 25 July 2025, applicable from 1 August 2025 (art. VII para. (1)). Nuance: an individual could buy a single home at 9% VAT until 31 July 2026, if it had at most 120 sq m of usable area, cost at most 600,000 lei before VAT and the down-payment contract was signed by 1 August 2025 (art. III). Nuance: foods with at least 10 g of added sugar per 100 g, alcoholic drinks and food supplements are not at 11%."
+  },
+  "dividende_16": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. II item 1 (Fiscal Code art. 43 para. 2); item 5 (art. 97 para. 7)",
+   "curios": "The increase is part of the same fiscal and budget package, Law 141/2025. It concerns you if you own an SRL (limited company) and pay yourself the profit as dividends. What counts is the date the dividends are distributed, not the payment date: whatever was distributed by 31 December 2025 stayed at 10%. Example: on 10,000 lei of dividends, the tax rises from 1,000 lei to 1,600 lei.",
+   "expert": "Law 141/2025, art. II item 5, amends art. 97 para. (7) of the Fiscal Code (individuals: 16%, final tax); item 1 amends art. 43 para. (2) (companies). Published in Official Gazette no. 699 of 25 July 2025; applies to dividends distributed from 1 January 2026 (art. VII para. (1)). Nuance: dividends distributed on the basis of 2025 interim financial statements stay at 10%, with no recalculation at year-end adjustment (art. VII para. (2)). Nuance: for companies with a modified fiscal year, the date is the first day of the fiscal year starting in 2026.",
+   "specialist": {
+    "intrebare": "Is it still worth taking money out of my SRL as dividends rather than salary, with the 16% tax?",
+    "documente": "This year's estimated profit and how much you want to take out of the company."
+   }
+  },
+  "cass_pensii": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. II item 7 (art. 100), items 17/18 (art. 154 para. 1 let. h^2), item 25 (art. 157^6)",
+   "curios": "Until August 2025, pensioners did not pay the health contribution (CASS). Law 141/2025 introduced it, but only on the part of the pension above 3,000 lei a month. A pension of 3,000 lei or less pays nothing extra. Example: on a 4,000 lei pension, you pay 10% of 1,000 lei, that is 100 lei a month.",
+   "expert": "Law 141/2025, art. II item 16 repeals the general exemption for pensioners (Fiscal Code art. 154 para. (1) let. h)), item 18 introduces let. h^2) (exemption for pensions up to and including 3,000 lei a month), and item 25 introduces art. 157^6 (base = pension minus 3,000 lei). The 10% rate comes from art. 156 of the Fiscal Code. Published in Official Gazette no. 699 of 25 July 2025; applies to income from August 2025 (art. VII para. (1) let. e), amended by GO 22/2025). Nuance: it is temporary, applying between 1 August 2025 and 31 December 2027 (art. VII para. (3)). Nuance: the 3,000 lei threshold is deducted separately for each pension entitlement.",
+   "modificat_prin": [
+    {
+     "act": "GO 22/2025",
+     "ce": "amends art. VII para. (1) let. e) of Law 141/2025: CASS applies to pension income from August 2025"
+    }
+   ]
+  },
+  "energie_plafon": {
+   "act": "GEO 6/2025",
+   "mo_ref": "Official Gazette 182 / 28 Feb 2025",
+   "articol": "art. 1 para. (1) let. a)",
+   "curios": "Between 1 April and 30 June 2025, the state capped the electricity price for households, by consumption: 0.68, 0.80 or 1.3 lei/kWh including VAT. From 1 July 2025 the scheme ended, and the price depends only on the supplier's offer. It concerns you if the electricity contract is in your name. Example: at 200 kWh a month, with the 0.80 lei/kWh cap you paid at most 160 lei; now the amount depends on the price in your contract.",
+   "expert": "GEO 6/2025, art. 1 para. (1): the capped final price for consumption between 1 April and 30 June 2025 was at most 0.68 lei/kWh (consumption up to 100 kWh/month and the vulnerable categories in let. a)), at most 0.80 lei/kWh (between 100.01 and 255 kWh/month) and at most 1.3 lei/kWh for other households. Published in Official Gazette no. 182 of 28 February 2025. The end of the scheme on 1 July 2025 is confirmed by ANRE, the energy regulator (press release of 11 June 2025). Nuance: above 300 kWh a month, all consumption was billed at 1.3 lei/kWh. Nuance: ANRE recommends comparing offers on the official comparison tool (posf.ro); switching supplier is free."
+  },
+  "pilon2_plata": {
+   "act": "Law 2/2026",
+   "mo_ref": "Official Gazette 2 / 5 Jan 2026",
+   "articol": "art. 55 para. (1) (max 30%); art. 113 (in force one year after publication)",
+   "curios": "Law 2/2026 sets how you receive your Pillar II and Pillar III money when you retire. You can ask once for at most 30% of the amount saved, and the rest comes in monthly instalments or as a lifetime annuity. Example: if you saved 100,000 lei, you can take at most 30,000 lei at once, and you receive the other 70,000 lei in instalments. The new rules start only after ASF, the financial supervisor, authorises the first fund that pays in instalments; until then the old rules apply.",
+   "expert": "Law 2/2026 on the payment of private pensions, published in Official Gazette no. 2 of 5 January 2026; it enters into force one year after publication, on 5 January 2027 (art. 113). Art. 55 para. (1): at most 30% of the assets, on request, once, before the monthly payments. Art. 60: the monthly instalment equals the social allowance for pensioners; if that would make the payment last more than 8 years, the instalment can increase, but payment lasts at least 8 years. Nuance: until ASF authorises at least one fund paying by programmed withdrawal, payment is made only under the old laws (411/2004, 204/2006, 1/2020), under art. 111 para. (1). Nuance: if the amount saved does not exceed 12 times the social allowance for pensioners, you receive everything at once or in at most 12 months (art. 50 para. (3)).",
+   "specialist": {
+    "intrebare": "Should I take 30% at once or everything in instalments?",
+    "documente": "The latest statement from your pension fund, with the amount saved."
+   }
+  },
+  "pilon3_deducere": {
+   "act": "Fiscal Code (Law 227/2015)",
+   "mo_ref": "Official Gazette 688 / 10 Sep 2015 (original text)",
+   "articol": "art. 78 (employees); art. 68 (sole traders, PFA); article to be confirmed in the text"
+  },
+  "micro_1": {
+   "act": "GEO 89/2025",
+   "mo_ref": "Official Gazette 1203 / 24 Dec 2025",
+   "articol": "art. I item 4 (Fiscal Code art. 51 para. 1); art. II item 1",
+   "curios": "The 3% rate is gone: from 2026, all micro-enterprises pay 1% of revenue. In exchange, the revenue ceiling went down from 250,000 to 100,000 euros a year. It concerns you if you own a micro SRL; to stay micro, the company must have at least one employee and stay under the ceiling. Example: on 50,000 lei of revenue in a quarter, the tax is 500 lei.",
+   "expert": "GEO 89/2025, art. I item 4, amends art. 51 para. (1) of the Fiscal Code: “The tax rate on micro-enterprise revenue is 1%.” Published in Official Gazette no. 1203 of 24 December 2025, applicable from 1 January 2026 (art. II para. (1)). The 100,000 euro ceiling does not come from GEO 89/2025, but from art. 47 para. (1) let. c) of the Fiscal Code, introduced by GEO 156/2024 and rewritten by GEO 8/2026 (Official Gazette no. 147 of 25 February 2026). Nuance: the ceiling also adds the revenue of linked enterprises, including the sole-trader businesses (PFA) of partners holding over 25% (art. 47 para. (1^1), art. 52 para. (5^1)). Nuance: a newly founded company has 90 days to hire its first employee (GEO 8/2026).",
+   "specialist": {
+    "intrebare": "What happens if I go over the 100,000 euro ceiling halfway through the year?",
+    "documente": "The company's revenue since the start of the year and the number of employees."
+   },
+   "modificat_prin": [
+    {
+     "act": "GEO 8/2026",
+     "mo_ref": "Official Gazette 147 / 25 Feb 2026",
+     "ce": "rewrites art. 47 para. (1) let. c) of the Fiscal Code (the 100,000 euro ceiling) and gives a new company 90 days to hire its first employee"
+    }
+   ]
+  },
+  "gaz_plafon": {
+   "act": "GEO 12/2026",
+   "mo_ref": "Official Gazette 178 / 9 Mar 2026",
+   "articol": "art. 1 para. (1)-(2); art. 3; art. 6 para. (1). The act uses a price formula; 0.31 lei/kWh is the figure from the press.",
+   "curios": "The fixed cap of 0.31 lei/kWh ended on 31 March 2026. From 1 April 2026, GEO 12/2026 replaced it with a formula: gas from producers has a fixed price, and the supplier's margin is limited. It concerns you if you are a household gas customer, including in a block of flats or a residential estate.",
+   "expert": "GEO 12/2026, art. 1 para. (2): the price billed to household customers between 1 April 2026 and 31 March 2027 is the lower of the contract price and the calculated final price. Art. 3: the supply component is at most 15 lei/MWh. Art. 6 para. (1): producers deliver at 110 lei/MWh. Published in Official Gazette no. 178 of 9 March 2026; amended by GEO 19/2026 (Official Gazette no. 237 of 26 March 2026). Nuance: the 0.31 lei/kWh figure comes from GEO 6/2025 and applied only between 1 April 2025 and 31 March 2026. Nuance: producers of heat for households benefit only for consumption between 1 November 2026 and 31 March 2027 (amendment by GEO 19/2026).",
+   "modificat_prin": [
+    {
+     "act": "GEO 19/2026",
+     "mo_ref": "Official Gazette 237 / 26 Mar 2026",
+     "ce": "producers of heat for households benefit only for consumption between 1 November 2026 and 31 March 2027"
+    }
+   ]
+  },
+  "it_scutire": {
+   "act": "GEO 156/2024",
+   "mo_ref": "Official Gazette 1334 / 31 Dec 2024",
+   "articol": "art. LXIV item 7 (repeals Fiscal Code art. 60 item 2)"
+  },
+  "constructii_facilitati": {
+   "act": "GEO 156/2024",
+   "mo_ref": "Official Gazette 1334 / 31 Dec 2024",
+   "articol": "art. LXIV item 7 (repeals Fiscal Code art. 60 items 5 and 7)"
+  },
+  "horeca_tva_11": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. II item 42 (Fiscal Code art. 291 para. 2)"
+  },
+  "impozit_cladiri_2026": {
+   "act": "Law 239/2025 (amended by GEO 78/2025)",
+   "mo_ref": "Official Gazette 1160 / 15 Dec 2025; GEO 78: Official Gazette 1172 / 17 Dec 2025",
+   "articol": "article to be confirmed; GEO 78/2025 art. I items 6-7"
+  },
+  "alocatie_copii": {
+   "act": "Law 61/1993 (state child allowance), republished",
+   "mo_ref": "Official Gazette 767 / 14 Nov 2012 (republication); art. 3 amended by GEO 126/2021, Official Gazette 1189 / 15 Dec 2021",
+   "articol": "art. 3 para. (1) let. b): 243 lei a month for children aged 2 to 18, from January 2022 (600 lei under 2 or with a disability); para. (2): indexed yearly by the average inflation rate from January 2023. The 292 lei figure for 2026 is not written in the law: it comes from the press.",
+   "curios": "The state allowance is paid for every child, whatever the parents' income, and you apply for it once. The amount used to be indexed every year, but in 2026 it stays at the December 2025 level: Law 141/2025 keeps it frozen for the whole year.",
+   "expert": "Law 61/1993, art. 3, as amended by GEO 126/2021: amount indexed yearly from 2023. Law 141/2025, art. XXV let. k): in 2026, state child allowances under Law 61/1993 stay at the level paid for December 2025. The 292 lei amount for children aged 2 to 18 comes from the press; the exact December 2025 amount needs to be confirmed in an official act.",
+   "modificat_prin": [
+    {
+     "act": "GEO 126/2021",
+     "mo_ref": "Official Gazette 1189 / 15 Dec 2021",
+     "ce": "art. 3: 243 lei a month for ages 2 to 18 from January 2022 (600 lei under 2 or with a disability), indexed yearly from 2023"
+    },
+    {
+     "act": "Law 141/2025",
+     "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+     "ce": "art. XXV let. k): in 2026, state child allowances stay at the December 2025 level (no indexation)"
+    }
+   ]
+  },
+  "alocatie_sustinere_familie": {
+   "act": "Law 196/2016 (minimum inclusion income), which replaced Law 277/2010",
+   "mo_ref": "Official Gazette 882 / 3 Nov 2016",
+   "articol": "Law 277/2010 was repealed on 1 Jan 2024 by art. 96 let. b) of Law 196/2016 (note on the Legislative Portal, DetaliiDocument/124905). TODO: the article of Law 196/2016 with the family component, the income thresholds and the amounts."
+  },
+  "varsta_pensionare": {
+   "act": "Law 360/2023 (public pension system)",
+   "mo_ref": "Official Gazette 1089 / 4 Dec 2023",
+   "articol": "art. 47 para. (1): 65 for men and women, reached through the phase-in in annex no. 5; para. (2)-(3): minimum contribution period 15 years, full period 35 years; art. 167: the law enters into force on 1 Sep 2024. TODO: the phase-in years for women (annex no. 5 is not in the text we read)."
+  },
+  "prima_stabilitate": {
+   "act": "GEO 11/2026 (amends Law 76/2002)",
+   "mo_ref": "Official Gazette 181 / 9 Mar 2026",
+   "articol": "art. I item 15 (Law 76/2002 art. 76^5 para. (1)-(7)). Legislative Portal link: TODO; the official text is on the ANAF website.",
+   "curios": "The bonus comes on top of your salary, is not taxed and is paid for 24 months, 27,000 lei in total. The order matters: first you register with the employment agency, then you sign the contract. It is not granted if the employer is a public institution or a state-owned company. It cannot be combined with the graduate placement bonus, which is 3 times the ISR, the social reference indicator (1,980 lei, according to the ANOFM press release of July 2026), so it matters which one you apply for. If the contract ends in the first 2 years by resignation, by mutual agreement or by disciplinary dismissal, the money must be paid back.",
+   "expert": "GEO 11/2026, art. I item 15, introduces art. 76^5 into Law 76/2002. Para. (1): young NEETs registered with the employment agency, hired for the first time full-time on a permanent contract; 1,000 lei/month for the first 12 months and 1,250 lei/month for the next 12; not taxable, no social contributions. Para. (2): not granted at public institutions, state-run companies, national companies and companies majority-owned by the state or by a local authority. Para. (4): the right is kept if you take another job within at most 60 days, under the same conditions. Para. (5): full repayment if the employment ends in the first 24 months under art. 55 let. b), art. 61 let. a) or art. 81 of the Labour Code. Para. (7): cannot be combined with the placement bonus (art. 73^1 para. (1)), the activation bonus, the mobility bonuses and the relocation bonus. NEET: from age 16 until turning 30, without a job and not in school or training (preamble of the GEO). TODO: the application deadline from the rules approved by GD 570/2026 (press: 90 days from hiring); not read in the text."
+  },
+  "tva_locuinta": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. III para. (1)-(2)",
+   "curios": "For contracts signed between 3 and 31 July 2025, a 20% down payment was also required, paid in full by 31 July. On a new flat of 400,000 lei before VAT, the difference is 48,000 lei: 36,000 lei of VAT at 9%, 84,000 lei at 21%. Older flats bought from an individual have no VAT. Anyone who bought at 21% between 1 and 7 August 2026 can claim the difference back from 1 October 2026 (Law 161/2026).",
+   "expert": "Law 141/2025, art. III para. (1): a single home at the 9% rate between 1 Aug 2025 and 31 Jul 2026, if it has at most 120 sq m of usable area (without annexes), a value including land of at most 600,000 lei before VAT, and a legal act between living persons with an advance payment concluded by 1 Aug 2025. Para. (2): for acts from 3–31 Jul 2025, proof of a 20% down payment of the value before VAT, paid in full by 31 Jul 2025. The delivery deadline extended to 30 Sep 2026 and the refund for purchases from 1–7 Aug 2026: Law 161/2026, Official Gazette 642 / 4 Aug 2026 (article not read).",
+   "modificat_prin": [
+    {
+     "act": "Law 161/2026",
+     "mo_ref": "Official Gazette 642 / 4 Aug 2026",
+     "ce": "Extends 9% VAT until 30 Sep 2026 for anyone with a preliminary contract and down payment by 1 Aug 2025 (art. I) and allows a refund of the VAT difference for a single home bought at the standard rate between 1 Aug 2026 and the law’s entry into force, claimed from 1 Oct 2026 under the procedure approved by ANAF order (art. II)."
+    }
+   ]
+  },
+  "motorina_acciza": {
+   "act": "Law 162/2026",
+   "mo_ref": "Official Gazette 642 / 4 Aug 2026",
+   "articol": "article not read (TODO). Legislative Portal link: TODO; the summary of Official Gazette 642 is on monitoruljuridic.ro.",
+   "curios": "The Ministry of Finance decides every two weeks how big the reduction is; for 16–31 October it stayed at 25%. If it is not extended, from 1 November the price per litre goes back up. It only matters if your car runs on diesel. The amount assumes a 50-litre tank.",
+   "expert": "Law 162/2026 declares a crisis on the petroleum products market between 7 Aug and 31 Oct 2026 and allows the excise duty on standard diesel to be reduced by 5–25%, set by the Ministry of Finance every two weeks. For 16–31 Oct 2026: 2,103.22 lei/1,000 l instead of 2,804.29 (a reduction of 701.07 lei/1,000 l, Ministry of Finance press release of 15 Oct 2026). 0.85 lei/l = 0.701 × 1.21 (VAT) is our calculation. Exact article: TODO."
+  },
+  "cei_d": {
+   "act": "Law 202/2026",
+   "mo_ref": "Official Gazette 865 / 15 Oct 2026",
+   "articol": "art. 19 item 7 (Fiscal Code art. 78 para. 2 let. a item vii); art. 20; art. 5 para. (3); art. 19 item 13. Legislative Portal link: TODO.",
+   "curios": "The money can be withdrawn at retirement or after age 65, whichever comes first, and 10% tax is paid on withdrawal. There is also the CEI-S option, with no deduction now but no tax on withdrawal. The accounts can be opened after ASF, the financial supervisor, publishes the rules, which are still missing. The amount assumes 300 lei deposited a month; we did not find the yearly cap on the deduction in the text.",
+   "expert": "Law 202/2026: art. 19 item 7 adds to the Fiscal Code art. 78 para. (2) let. a) item (vii), CEI-D contributions paid by the employee, deducted in the month of payment based on the administrator's document. Art. 20: applies from 1 Jan 2027. Art. 5 para. (3): withdrawal from the date the pension right opens or after age 65. Art. 19 item 13 (art. 96^2): 10% final tax on withdrawal from CEI-D. Text read on infodosar.ro, not on the Legislative Portal. Yearly cap: TODO."
+  },
+  "impozit_auto_2026": {
+   "act": "Law 239/2025 (amended by GEO 78/2025)",
+   "mo_ref": "Official Gazette 1160 / 15 Dec 2025; GEO 78: Official Gazette 1172 / 17 Dec 2025",
+   "articol": "art. XII items 43–46 (Fiscal Code art. 470 para. (2), (2^1), (2^2), (3) and (3^1))",
+   "curios": "You pay an amount for every 200 cc. Up to 1,600 cc: 19.5 lei for Euro 3 and older, 18.8 for Euro 4, 17.6 for Euro 5, 16.5 for Euro 6. Between 1,601 and 2,000 cc: 29.7 / 28.5 / 26.7 / 25.1 lei. Electric cars pay 40 lei a year. For example, a 1,400 cc Euro 5 engine goes from 63 to 123 lei a year. The town hall can raise the amounts, so the exact figure is on your tax assessment.",
+   "expert": "Law 239/2025, Official Gazette 1160 / 15 Dec 2025, amended by GEO 78/2025, changes how the tax on vehicles in the Fiscal Code is calculated: an amount for every 200 cc or fraction, by engine size bands and Euro standards (the table from the press: Alba24, Capital). The discount of up to 10% for paying in full by 31 March: Fiscal Code art. 472 para. (2), set by local council decision; not read in the text. Checked in the text of the law (Law 239/2025, art. XII items 43–46): the table by Euro standard in art. 470 para. (2), 40 lei/year for electric vehicles (para. (3^1)) and a reduction of at most 30% for hybrids with at most 50 g CO2/km, set by the local council (para. (3))."
+  },
+  "salariu_minim_netaxabil_2026": {
+   "act": "GEO 89/2025",
+   "mo_ref": "Official Gazette 1203 / 24 Dec 2025",
+   "articol": "art. III para. (1), (2), (4) and (6)",
+   "curios": "Between 1 January and 30 June 2026 the exemption was 300 lei a month, and from 1 July it is 200 lei. No income tax, CAS (pension contribution) or CASS (health contribution) is paid on this amount. Our calculation: at 4,325 lei gross, the exemption leaves you about 83 lei more a month (70 lei in contributions and 13 lei in tax). Conditions: full-time, base salary equal to the minimum, and gross monthly income of at most 4,600 lei, excluding meal tickets and holiday vouchers.",
+   "expert": "GEO 89/2025, art. III para. (1)-(6), derogation from art. 78, 139 para. (1), 140, 157 para. (1) and 220^4 para. (1) of the Fiscal Code. Gross income thresholds: 4,300 lei (Jan–Jun 2026) and 4,600 lei (Jul–Dec 2026). The amount is reduced proportionally for part months, new hires or terminations (para. (4)). The condition is not met if the base salary was reduced between the entry into force of the GEO and 31 Dec 2026 (para. (2)). It also applies to civil-service employment (para. (3)) and only to income for the months January–December 2026 (para. (6)). As of 28.10.2026 we found no act extending the exemption into 2027. The 83 lei amount is our calculation, not a figure from the law."
+  },
+  "concediu_medical_procente": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "Law 141/2025, art. IX (GEO 158/2005 art. 17 para. (1) and (1^1))",
+   "curios": "From 1 August 2025, sick pay depends on how many days the illness episode lasts: 55% of the calculation base up to 7 days, 65% between 8 and 14 days and 75% from 15 days up. Before, it was 75% for any length. Illustrative example: with a daily base of 200 lei, 5 days of sick leave means 550 lei gross, compared with 750 lei before. Some cardiovascular diseases stay at 75%.",
+   "expert": "Law 141/2025 amends art. 17 of GEO 158/2005 (the amount of sick pay for ordinary illness and accidents outside work). The percentages, the day thresholds and the exception for some cardiovascular diseases are confirmed in material from DGRFP Ploiești (ANAF, the tax authority). The percentage is set by the total days in the illness episode. The change is made by art. IX of Law 141/2025, in force from 1 August 2025 (art. X). It adds to the unpaid first day from GEO 91/2025 (separate entry: concediu_medical_prima_zi).",
+   "modificat_prin": [
+    {
+     "act": "GEO 89/2025",
+     "mo_ref": "Official Gazette 1203 / 24 Dec 2025",
+     "ce": "art. VII adds para. (12) to art. 17 of GEO 158/2005: differences from recalculating episodes that continue into the next month are declared in the month they are calculated (from 1 July 2026, art. VIII para. (2))"
+    }
+   ]
+  },
+  "concediu_medical_prima_zi": {
+   "act": "GEO 91/2025",
+   "mo_ref": "Official Gazette 1223 / 31 Dec 2025",
+   "articol": "art. II",
+   "curios": "Sick pay is calculated for one day less than the length on the certificate. From 18 May 2026, the day is deducted only once per episode, even if you receive several certificates. The day is no longer deducted for maternity leave and maternity-risk leave, for patients in national health programmes and during hospitalisation (according to the Ministry of Health's explanatory note; the exact start date is to be confirmed in Law 64/2026). Illustrative example: with a daily base of 200 lei and 55%, 5 days of sick leave are paid as 4 days, that is 440 lei gross instead of 550 lei.",
+   "expert": "GEO 91/2025, art. II: certificates issued between 1 Feb 2026 and 31 Dec 2027 are paid minus one day; the rule and the period are confirmed in the Ministry of Health's explanatory note. Law 64/2026 approving it (Official Gazette 416 / 15 May 2026, in force on 18 May 2026) applies the deduction only once per episode and adds exceptions from 1 June 2026; we found these details only in specialist sources (contzilla.ro, portalcontabilitate.ro), and the official text still needs to be read. The press mentions an unconstitutionality challenge raised by the Ombudsman; we found no Constitutional Court decision. Legislative Portal link: TODO.",
+   "modificat_prin": [
+    {
+     "act": "Law 64/2026",
+     "mo_ref": "Official Gazette 416 / 15 May 2026",
+     "ce": "approves GEO 91/2025: the deduction applies only once per episode, with exceptions (from specialist sources and the Ministry of Health explanatory note; the text of the law to be confirmed)"
+    }
+   ]
+  },
+  "cass_intretinere": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. II item 38 (Fiscal Code art. 182^1)",
+   "curios": "From 1 August 2025, a husband, wife or parents with no income of their own are no longer exempt from the health contribution. You can pay CASS for them through the Single Tax Return: 10% of 6 minimum wages, that is 2,430 lei per person in 2026, about 203 lei a month. You pay 25% when you file the return and the remaining 75% by 25 May 2027. Children up to 18 and pupils or students up to 26 stay insured without paying.",
+   "expert": "Fiscal Code, art. 182^1, introduced by Law 141/2025. Base: 6 gross minimum wages in force on 1 January of the year of the option. ANAF confirmed 2,430 lei and the 25% and 75% instalments for 2025 (press release of 4 Sep 2025). For 2026 the amount comes out the same, 6 x 4,050 lei x 10%, because the minimum wage on 1 January 2026 stayed at 4,050 lei (GEO 89/2025, preamble). The 25 May 2027 deadline applies ANAF's rule for the year after the option. The dependent person can also opt in their own name. It applies only to a husband, wife and parents with no income of their own (ANAF press release no. 882/4.09.2025)."
+  },
+  "cass_somaj": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. II items 22 and 27 (Fiscal Code art. 155 para. (1), art. 168 para. (1^3)), art. VIII item 7 let. c); art. XXXIII (ISR in 2026)",
+   "curios": "Unemployed people are no longer health-insured without paying: the 10% contribution is withheld directly from the benefit. Illustrative example: on a benefit of 1,000 lei, you receive 900 lei. In addition, the social reference indicator (ISR), which the benefit depends on, stays in 2026 at the December 2025 level. You do not need to file anything; the deduction is automatic.",
+   "expert": "Law 141/2025: art. II item 22 adds unemployment benefits (Law 76/2002) to the income on which CASS is due (Fiscal Code art. 155 para. (1)), applicable to income from August 2025 (art. VII para. (1) let. e)); art. II item 27 requires the payer (ANOFM) to calculate and withhold the contribution at source; art. VIII item 7 includes them among those insured by withholding at source. Art. XXXIII: in 2026, the social reference indicator stays at the December 2025 level, by derogation from art. 33^2 of Law 76/2002. ISR value in lei: TODO."
+  },
+  "cass_crestere_copil": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. II item 22 (Fiscal Code art. 155 para. (1)), art. VIII item 7 let. a)",
+   "curios": "Until July 2025, parents on childcare leave were health-insured without paying. Now the 10% contribution is withheld directly from the allowance. Illustrative example: on an allowance of 2,000 lei, you receive 1,800 lei. It also applies to adoption leave. The deduction is automatic; you do not file anything.",
+   "expert": "Law 141/2025: art. II item 22 adds the monthly childcare allowances (GEO 111/2010) to the income on which CASS is due, applicable to income from August 2025 (art. VII para. (1) let. e)); art. VIII item 7 let. a) includes them among those insured by withholding at source; the contribution is calculated and paid by ANPIS, the social benefits agency (Fiscal Code art. 168 para. (1^5)). Adoption leave: from ANAF sources (DGRFP Ploiești), article to be confirmed. The amount of the allowance has not been checked."
+  },
+  "pensie_vpr_2026": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. XXXI",
+   "curios": "Your pension is calculated by multiplying your points by the reference point value. Law 360/2023 provides for yearly indexation, but Law 141/2025 suspends it for 2026 and keeps the value at 81 lei. Example: at 40 points, the pension stays at 3,240 lei gross. Indexation applies again from 2027.",
+   "expert": "Law 141/2025, art. XXXI para. (1): the reference point value in art. 83 para. (1) of Law 360/2023 stays at 81 lei in 2026; para. (2): art. 84 para. (3)-(5), (7) and (8) of Law 360/2023 apply from 2027. For 2025, the same value was kept by GEO 156/2024, art. XVII. Service pensions are not updated in 2026 (art. XXX, according to the Cluj County Pension House). For 2027, the Minister of Labour said indexation is being prepared, but there is no legal act yet. The one-off support for small pensions in 2026, mentioned in the press, has not been checked."
+  },
+  "pfa_norma_minima_2026": {
+   "act": "Law 239/2025",
+   "mo_ref": "Official Gazette 1160 / 15 Dec 2025",
+   "articol": "art. XII item 6 (Fiscal Code art. 69 para. (3))",
+   "curios": "The income norm for each activity cannot be lower than 12 minimum wages, that is 48,600 lei for 2026. At this level, our calculation gives 12,150 lei CAS (pension contribution) and 4,860 lei CASS (health contribution) a year, about 1,418 lei a month, plus 10% income tax. If the norm in your county was lower, you pay more. Payment and the Single Tax Return are due by 25 May 2027.",
+   "expert": "Law 239/2025, art. XII item 6, amends Fiscal Code art. 69 para. (3): the income norm cannot be lower than 12 gross minimum wages in force on 1 January of the year, including for each member of an association. ANAF (DGRFP Brașov presentation, 29 Jan 2026) confirms it applies to income from 2026 and the reference minimum wage of 4,050 lei. CAS is due because the income reaches the 12-wage threshold (art. 148 para. (3), which includes yearly norms). The contribution amounts are our calculation; the exact tax base (after deducting contributions) was not checked in this session.",
+   "specialist": {
+    "intrebare": "For my PFA (sole trader business), is it better in 2027 to stay on the income norm or move to the real system, after Law 239/2025?",
+    "documente": "The 2025 assessment or Single Tax Return, the 2026 receipts, documented expenses, the CAEN activity code"
+   }
+  },
+  "pfa_cass_plafon_72": {
+   "act": "Law 239/2025",
+   "mo_ref": "Official Gazette 1160 / 15 Dec 2025",
+   "articol": "art. XII item 19 (Fiscal Code art. 170 para. (1))",
+   "curios": "The 10% CASS (health contribution) is calculated on net income, but only up to a cap. The cap went up from 60 to 72 minimum wages, that is 291,600 lei for 2026. The maximum CASS rises from 24,300 lei to 29,160 lei a year, 405 lei a month more. It only affects you if your net income is above 243,000 lei a year.",
+   "expert": "Law 239/2025, art. XII item 19, amends Fiscal Code art. 170 para. (1): the yearly base for CASS on income from independent activities cannot exceed 72 gross minimum wages. ANAF (DGRFP Brașov presentation, 29 Jan 2026) confirms the increase from 60 to 72 wages and that it applies to income from 2026, at the minimum wage of 4,050 lei. The same cap of 72 wages applies to sports activity contracts (art. 174). The differences in lei are our calculation."
+  },
+  "inchiriere_termen_scurt_2026": {
+   "act": "Law 239/2025",
+   "mo_ref": "Official Gazette 1160 / 15 Dec 2025",
+   "articol": "art. XII items 7 and 10 (Fiscal Code art. 83 and 85)",
+   "curios": "For 1-7 rooms, the income is taxed as letting out the use of property: 30% is deducted automatically as expenses and a 10% final tax applies. The platform commission is not counted as income. Example: on 30,000 lei received in a year, the tax is 2,100 lei. Above 7 rooms, the income becomes an independent activity, with CAS and CASS. File and pay by 25 May 2027.",
+   "expert": "Law 239/2025, art. XII items 7-10, rewrites Fiscal Code art. 83-85; above 7 rooms art. 68^3 applies (independent activity, 30% flat-rate expenses, 10% tax). Short-term letting means the same room let continuously to the same person for at most 30 days. Income from 2025 stays under the old rules (art. 133 para. (34)-(35)). For 1-7 rooms, CASS is due if the income from these categories reaches 6 minimum wages (24,300 lei in 2026), according to the ANAF Galați guide. Mandatory: the tax record register (income only) and the accommodation occupancy sheet."
+  },
+  "salariu_minim_2026": {
+   "act": "GD 146/2026",
+   "mo_ref": "Official Gazette 196 / 13 Mar 2026",
+   "articol": "art. 1 (4,325 lei a month from 1 July 2026, 25.949 lei/hour); art. 2 (repeals GD 1,506/2024). The condition gross ≥ 4,050 lei: the previous minimum wage, kept at 4,050 lei from 1 Jan to 30 Jun 2026 (GEO 89/2025, preamble); below it (part-time) we do not show an amount.",
+   "curios": "The gross minimum wage went up from 4,050 to 4,325 lei a month, 275 lei more gross, for an average schedule of 166.667 hours a month (25.949 lei an hour). The increase is mandatory in private companies too, for full-time work. The press calculates a net of about 2,699 lei for those who also receive the 200 lei exemption.",
+   "expert": "GD 146/2026, art. 1: 4,325 lei a month, without bonuses, for an average of 166.667 hours a month, that is 25.949 lei/hour, from 1 July 2026. Published in Official Gazette no. 196 of 13 March 2026 (checked on the Legislative Portal). The 2,699 lei net is a press calculation, not a figure from the decision. The 200 lei a month exemption comes separately, from GEO 89/2025 (entry salariu_minim_netaxabil_2026)."
+  },
+  "ajutor_incalzire": {
+   "act": "Law 226/2021",
+   "mo_ref": "Official Gazette 891 / 16 Sep 2021",
+   "articol": "art. 3 let. g), art. 7 para. (1)-(3), art. 16",
+   "curios": "The allowance is paid in the cold season, from 1 November to 31 March, as a percentage of a reference value that goes down as income goes up. The law sets the reference value at no less than 250 lei a month for gas, 500 lei for electricity and 320 lei for firewood or other fuels; the Government can update it. The application goes to the town hall of the place where the home is, usually by 15 October.",
+   "expert": "Law 226/2021 on the vulnerable energy consumer (Official Gazette no. 891 of 16 September 2021), consolidated version: art. 7 para. (1)-(2), average net monthly income of at most 1,386 lei per family member and 2,053 lei for a single person; art. 7 para. (3), the minimum reference values (250 lei gas, 500 lei electricity, 320 lei solid or petroleum fuels); art. 3 let. g), the 5-month cold season, 1 November - 31 March; art. 16, the application is usually filed by 15 October. The percentages by income band and the exclusion conditions (for example, property owned) are not transcribed here. What happens to applications filed after 15 October: to be confirmed at the town hall."
+  },
+  "insolventa_persoane_fizice": {
+   "act": "Law 151/2015",
+   "mo_ref": "Official Gazette 464 / 26 Jun 2015",
+   "articol": "art. 3 item 24, art. 25 para. (5), art. 65, art. 69-71",
+   "curios": "The procedure based on a repayment plan starts from overdue debts of at least 15 minimum wages. The plan lasts at most 5 years, with a possible 12-month extension. There is also a simplified procedure for people with debts of at most 10 minimum wages (43,250 lei), no assets or income that can be seized, and who are past retirement age or have lost at least half of their work capacity: after 3 years, the remaining debts can be written off.",
+   "expert": "Law 151/2015 (Official Gazette no. 464 of 26 June 2015), consolidated version: art. 3 item 24, the threshold of 15 national minimum wages; art. 4 para. (1) let. c); art. 25 para. (5), the repayment plan of at most 5 years, extendable by at most 12 months; art. 65, the simplified procedure (at most 10 minimum wages, no assets or income that can be seized, past the standard retirement age or work capacity lost by at least half); art. 69-71, the 3-year obligations and release from residual debts. The amounts in lei are our calculation at the minimum wage of 4,325 lei (GD 146/2026). This is not legal advice: the procedure has costs and effects on your assets."
+  },
+  "sere_solare_2026": {
+   "act": "GEO 89/2025",
+   "mo_ref": "Official Gazette 1203 / 24 Dec 2025",
+   "articol": "art. VI item 3 (Fiscal Code art. 456 para. (3))",
+   "curios": "The exemption applies to buildings used as greenhouses, polytunnels, seedbeds, mushroom farms, fodder silos and silos or cribs for storing and preserving grain. It does not apply to rooms used for other economic activities. In 2026 the tax is zero, and from 2027 the tax on these buildings is cut by 50%.",
+   "expert": "GEO 89/2025, art. VI item 3, amends art. XII item 26 of Law 239/2025, that is art. 456 para. (3) of the Fiscal Code: in 2026, buildings used as greenhouses, polytunnels, seedbeds, mushroom farms, fodder silos, grain silos and/or cribs are exempt from building tax, except rooms used for other economic activities; from 2027 the tax is cut by 50%. In force on 1 January 2026 (art. VIII para. (1)). Checked in the text of GEO 89/2025."
+  },
+  "masa_sanatoasa_2026": {
+   "act": "GEO 89/2025",
+   "mo_ref": "Official Gazette 1203 / 24 Dec 2025",
+   "articol": "art. XIX para. (1)-(2)",
+   "curios": "From 8 January 2026 the national “Healthy Meal” programme continues for pre-school children and pupils in state pre-university schools. The budget is 1,531,090 thousand lei. Which schools are in the programme and how the money is split is decided by the Government by decision, on the Ministry of Education's proposal.",
+   "expert": "GEO 89/2025, art. XIX para. (1): by derogation from art. 77 para. (4) of Law 198/2023, in 2026, from 8 January 2026, the national “Healthy Meal” Programme is implemented, financed from amounts allocated from VAT, up to 1,531,090 thousand lei, for pre-school children and pupils in state pre-university schools; the allocation by school and the methodological rules are approved by Government decision. List of schools included: TODO (the implementing Government decision)."
+  },
+  "saracie_energetica_2026": {
+   "act": "GEO 35/2025 (extended by GEO 89/2025)",
+   "mo_ref": "Official Gazette 612 / 30 Jun 2025",
+   "articol": "art. 1 para. (2), art. 4 para. (1), art. 6, art. 7 para. (8)",
+   "curios": "The support for household electricity customers in energy poverty is 50 lei a month, for a single consumption point. It goes to families with a net income of at most 1,784 lei per member and to single people with at most 1,940 lei. The measure was extended until 31 December 2026. You sign up online, through the EPIDS app, or by post or at the town hall; anyone who signs up later receives the support from the month they sign up.",
+   "expert": "GEO 35/2025 (Official Gazette no. 612 of 30 June 2025), consolidated version: art. 4 para. (1), the income thresholds (1,940 lei single person, 1,784 lei per family member); art. 6 para. (1) and (3), 50 lei a month for a single consumption point; art. 6 para. (1) and (4), applying through EPIDS or through post office or town hall representatives; art. 7 para. (8), support is paid from the month of registration for later applications. Art. 1 para. (2), amended by GEO 89/2025 art. XXXIV: the measures apply between 1 July 2025 and 31 December 2026.",
+   "modificat_prin": [
+    {
+     "act": "GEO 89/2025",
+     "mo_ref": "Official Gazette 1203 / 24 Dec 2025",
+     "ce": "art. XXXIV extends the measures until 31 December 2026 and changes how income is calculated for some income categories"
+    }
+   ]
+  },
+  "salarii_stat_inghetate_2026": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. XVI, XVII, XVIII para. (1), XIX para. (3), XLVIII",
+   "curios": "For staff paid from public funds, the gross base salary stays in 2026 at the December 2025 level, if you keep the same position and the same conditions. Bonuses and other salary elements stay at most at the December 2025 level. Overtime is compensated only with time off, within the next 90 days, and institutions do not give awards or bonuses.",
+   "expert": "Law 141/2025: art. XVI para. (1)-(3), the gross base salary stays at the December 2025 level; art. XVII, bonuses and other elements of the gross salary stay at most at the December 2025 level; art. XVIII para. (1), overtime is compensated only with time off within the next 90 days (with exceptions for the military and police in para. (2)); art. XIX para. (3), public institutions do not grant awards, bonuses or similar rights; art. XLVIII, other salary rights under special laws stay at the December 2025 level. It applies to all public-sector staff (health, education, administration)."
+  },
+  "vouchere_vacanta_stat_2026": {
+   "act": "Law 141/2025",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "art. XLIV",
+   "curios": "Public institutions give 800 lei in holiday vouchers in 2026 to staff with a net base salary of at most 6,000 lei. The vouchers are given between 1 January and 31 December 2026.",
+   "expert": "Law 141/2025, art. XLIV: public institutions give yearly holiday vouchers of 800 lei to staff whose net base salary is at most 6,000 lei, between 1 January and 31 December 2026. The condition in the profile uses the total net salary, not the net base salary: it is an approximation. It applies to all public-sector staff (health, education, administration)."
+  },
+  "handicap_indemnizatie_solidaritate": {
+   "act": "Law 141/2025 (postpones art. 58^1 of Law 448/2006)",
+   "mo_ref": "Official Gazette 699 / 25 Jul 2025",
+   "articol": "Law 141/2025 art. XLVII; Law 448/2006 art. 58^1, 58^2; GEO 89/2025 art. XXXVIII",
+   "curios": "The law on people with disabilities provides a solidarity allowance for old-age pensioners with a severe visual disability, a severe disability or a pronounced disability. Its start date was postponed to 1 January 2027. Separately, the extra pension points for years worked with a severe or pronounced disability do not apply in 2026.",
+   "expert": "Law 448/2006, art. 58^1 para. (1): the solidarity allowance for old-age pensioners with a severe visual, severe or pronounced disability; the deadline is postponed to 1 January 2027 by Law 141/2025, art. XLVII. Art. 58^2 (0.125 ISR points per year worked with a severe or pronounced disability) does not apply in 2026, under GEO 89/2025, art. XXXVIII. The monthly allowance in art. 58 para. (4) (80% of the ISR for severe, 53% for pronounced) is not affected. Amount of the solidarity allowance in lei: TODO."
+  },
+  "rovinieta_2026": {
+   "act": "Ministry of Transport Order 888/2026",
+   "mo_ref": "Official Gazette 818 / 25 Sep 2026",
+   "articol": "art. 3 and the annex (category A)",
+   "curios": "For cars (category A), the 12-month road vignette (rovinieta) costs 228 lei for electric cars, 254 lei for Euro 6, 292 lei for Euro 4-5 and 330 lei for Euro 3 or older. A one-day vignette costs between 20 and 29 lei, and a 30-day one between 43 and 62 lei. Cars whose emission standard cannot be established are treated as Euro 0. The rates are indexed every year, from 1 January.",
+   "expert": "Ministry of Transport Order 888/2026 approving the vehicle categories and the vignette rates (Official Gazette no. 818 of 25 September 2026), annex, category A (cars with at most 9 seats, VAT included): 1 day 20/22/26/29 lei, 10 days 27/30/35/39 lei, 30 days 43/48/55/62 lei, 60 days 68/76/87/99 lei, 12 months 228/254/292/330 lei, for electric / Euro VI / Euro V-IV / Euro III-0. Art. 3 para. (2): the rates apply to vignettes whose validity starts on the date in art. 29 para. (1) of Law 226/2023 or later; the 1 October 2026 date is the one reported in the press. Art. 3 para. (3): yearly indexation from 1 January."
+  },
+  "efactura_5_zile_lucratoare": {
+   "act": "GEO 89/2025",
+   "mo_ref": "Official Gazette 1203 / 24 Dec 2025",
+   "articol": "art. X items 2, 3 and 5, art. XI, art. XIV",
+   "curios": "The deadline for sending invoices to RO e-Factura is 5 working days from issuing the invoice, but no later than 5 working days from the issuing deadline. The same deadline applies to invoices to individuals (B2C). Individuals who carry out economic activities and identify themselves with their personal ID number (CNP) must register in the RO e-Factura Register before they start the activity.",
+   "expert": "GEO 89/2025, art. X item 2 (art. 10 para. (7) of GEO 120/2021) and item 3 (art. 10^1 para. (2^1)): the deadline is 5 working days from issue, but no later than 5 working days from the issuing deadline in art. 319 para. (16) of the Fiscal Code, calculated under Regulation (EEC, Euratom) No 1182/71; in force on 1 January 2026 (art. XIV para. (1)). Art. X item 5 (art. 10^10) and art. XI: individuals who identify with their CNP and have e-Factura obligations must register in the RO e-Factura Register before starting the activity; those already active had to register before 15 January 2026.",
+   "specialist": {
+    "intrebare": "How is the 5-working-day deadline for e-Factura calculated in my case, and which B2C invoices must be sent?",
+    "documente": "The list of invoices issued each month, the type of customers (companies or individuals), the invoicing software you use"
+   }
+  },
+  "burse_studenti_2026_2027": {
+   "act": "Order of the Minister of Education and Research no. 5,732/2026",
+   "mo_ref": "Official Gazette 831 / 30 Sep 2026",
+   "articol": "art. 1-3",
+   "curios": "For the 2026–2027 academic year, the minimum social grant, meant to cover minimum food and housing costs, is 925 lei. Students on teacher-training programmes (double-major bachelor's or teaching master's) receive a grant of 2,165 lei, and state-funded PhD students 3,700 lei. Universities can give more, but not less than these minimums.",
+   "expert": "Order of the Minister of Education and Research no. 5,732 of 25 September 2026 (Official Gazette no. 831 of 30 September 2026), for students on programmes funded from the state budget, academic year 2026–2027: art. 1, the doctoral grant of 3,700 lei, whatever the year of study; art. 2, the grant for the double-major teaching bachelor's or the teaching master's of 2,165 lei; art. 3, the minimum social grant of 925 lei. The order does not specify the period (monthly) or whether grants are also paid during holidays. The award rules and the income threshold for the social grant are set by each university: TODO."
+  }
+ },
+ "ghid": {
+  "tva_locuinta": {
+   "pentru": "For anyone who bought a new home between 1 and 7 August 2026",
+   "ce": "you can claim back 12% of the price",
+   "salvezi": {
+    "ipoteza": "on a new flat of 400,000 lei before VAT: 84,000 lei of VAT at 21%, 36,000 lei at 9%"
+   },
+   "pasi": [
+    "Check that the home has at most 120 sq m of usable area and cost at most 600,000 lei before VAT, including the land.",
+    "Find the down-payment contract signed by 1 August 2025. Without it you do not qualify.",
+    "File the VAT difference refund request with ANAF, the tax authority, from 1 October 2026, following the procedure in the ANAF order (order number: TODO).",
+    "It can be claimed for one home only."
+   ],
+   "solutie": {
+    "nume": "ANAF (tax authority)",
+    "ce": "The request goes directly to ANAF. It does not go through any company and costs nothing."
+   },
+   "nota": "Anyone who signed after 31 July 2025 without a down payment pays 21% and can no longer recover the difference."
+  },
+  "prima_stabilitate": {
+   "pentru": "For young people under 30 looking for their first job",
+   "ce": "the state gives you 27,000 lei if you register with AJOFM before you sign",
+   "salvezi": {
+    "perioada": "in the first year",
+    "ipoteza": "1,000 lei a month in the first year and 1,250 lei a month in the second, 27,000 lei in total"
+   },
+   "pasi": [
+    "Register with the county employment agency (AJOFM) before you are hired. The order matters.",
+    "Sign your first full-time, permanent contract with a private employer (not a public institution or a state-owned company).",
+    "Apply for the stability bonus at AJOFM after you are hired. Application deadline: TODO (the press says 90 days).",
+    "Do not apply for it together with the graduate placement bonus (1,980 lei): they cannot be combined, and the stability bonus is larger.",
+    "If you leave in the first 2 years by resignation, by mutual agreement or by disciplinary dismissal, you must pay the money back."
+   ],
+   "solutie": {
+    "nume": "AJOFM (the ANOFM network)",
+    "ce": "Registration and the application are free, at the agency in your county."
+   }
+  },
+  "alocatie_copii": {
+   "pentru": "For parents with children aged 2 to 18",
+   "ce": "292 lei a month for each child, if you applied for the allowance",
+   "salvezi": {
+    "ipoteza": "one child, 292 lei × 12 months, if the allowance had not been claimed"
+   },
+   "pasi": [
+    "Check on your bank statement that the allowance comes for each child and that the amount is the current one.",
+    "If you do not receive it, file the application at the town hall where you live.",
+    "For children under 2 the amount is higher than 292 lei."
+   ],
+   "solutie": {
+    "nume": "Your local town hall",
+    "ce": "The application goes to the town hall and is free."
+   }
+  },
+  "cei_d": {
+   "pentru": "For employees saving for retirement",
+   "ce": "from 2027, the state leaves you 10% of what you deposit",
+   "salvezi": {
+    "ipoteza": "300 lei deposited a month in a CEI-D account, 10% income tax"
+   },
+   "pasi": [
+    "Wait for the ASF rules: without them the accounts cannot be opened.",
+    "Open a CEI-D account at a bank or an authorised investment firm.",
+    "Your contribution is deducted from taxable income in the same month you pay.",
+    "The money can be withdrawn at retirement or after age 65. 10% tax is paid on withdrawal.",
+    "Yearly cap on the deduction: TODO, we did not find it in the text."
+   ],
+   "solutie": {
+    "nume": "ASF, list of authorised entities",
+    "ce": "ASF, the financial supervisor, publishes who may manage these accounts. Compare the fees: they decide how much of the 10% is left."
+   }
+  },
+  "pilon3_deducere": {
+   "pentru": "For employees and sole traders (PFA) who pay income tax",
+   "ce": "about 200 lei a year back if you put 400 euros into Pillar III by 31 December",
+   "salvezi": {
+    "ipoteza": "400 EUR ≈ 2,000 lei deposited, 10% income tax"
+   },
+   "pasi": [
+    "Choose a voluntary pension fund authorised by ASF.",
+    "Employee: ask your employer to withhold the contribution from your salary; the deduction shows on your payslip.",
+    "PFA: include the contribution in the Single Tax Return.",
+    "The 400 EUR cap is per calendar year: whatever you do not deposit by 31 December is lost for 2026."
+   ],
+   "solutie": {
+    "nume": "ASF, list of voluntary pension funds",
+    "ce": "ASF publishes the authorised funds. Compare the management fees: the lowest fee leaves the most money in your account."
+   }
+  },
+  "it_scutire": {
+   "pentru": "For software developers with a gross salary of up to 10,000 lei",
+   "ce": "10% income tax: up to 650 lei a month less in your pocket",
+   "salvezi": {
+    "ipoteza": "you recover part of it through the Pillar III deduction; from 2027 also through CEI-D"
+   },
+   "pierzi": {
+    "ipoteza": "gross 10,000 lei: 10% × 65% × 10,000 = 650 lei a month"
+   },
+   "pasi": [
+    "Ask HR for a net salary simulation and whether the company compensated through the gross salary.",
+    "Use the Pillar III deduction (400 EUR a year, about 200 lei of tax back).",
+    "From 2027, the CEI-D account also cuts your tax by 10% of what you deposit."
+   ],
+   "solutie": {
+    "nume": "Your employer's HR department",
+    "ce": "Deductions are made on the payroll; you do not need any outside company."
+   }
+  },
+  "constructii_facilitati": {
+   "pentru": "For employees in construction and agriculture",
+   "ce": "457 lei a month less in your pocket at the construction minimum wage",
+   "salvezi": {
+    "ipoteza": "you recover part of it through the Pillar III deduction"
+   },
+   "pierzi": {
+    "ipoteza": "the construction minimum wage, 4,582 lei gross: net 3,196 lei in 2024, 2,739 lei from 2025"
+   },
+   "pasi": [
+    "Ask your employer for a simulation of your current net salary.",
+    "Check whether the gross salary was raised to compensate.",
+    "Use the Pillar III deduction (400 EUR a year, about 200 lei of tax back)."
+   ],
+   "solutie": {
+    "nume": "Your employer's HR department",
+    "ce": "The simulation and the deductions are done on the payroll, for free."
+   }
+  },
+  "motorina_acciza": {
+   "pentru": "For drivers of diesel cars",
+   "ce": "a litre is 0.85 lei cheaper only until 31 October",
+   "salvezi": {
+    "perioada": "per tank (50 l)",
+    "ipoteza": "a 50-litre tank × 0.85 lei"
+   },
+   "pasi": [
+    "Fill up by 31 October 2026, while the excise duty is cut by 25%.",
+    "The Ministry of Finance decides every two weeks whether the reduction continues. If it is extended, the saving stays.",
+    "Compare pump prices between stations before you fill up."
+   ],
+   "solutie": {
+    "nume": "Price Monitor (Competition Council)",
+    "ce": "The state website that compares prices by station. The fuel page was unavailable on 28 Oct 2026."
+   }
+  },
+  "impozit_cladiri_2026": {
+   "pentru": "For owners of houses and flats",
+   "ce": "building tax goes up from 2026",
+   "salvezi": {
+    "ipoteza": "the 10% discount on an estimated tax of 420 lei a year"
+   },
+   "pierzi": {
+    "ipoteza": "press estimate, 35 lei a month; low confidence"
+   },
+   "pasi": [
+    "Check the tax assessment from your town hall.",
+    "Pay the full 2027 tax by 31 March 2027 to get the discount of up to 10%."
+   ],
+   "solutie": {
+    "nume": "Ghișeul.ro",
+    "ce": "You pay the local tax online, without going to the office."
+   }
+  },
+  "impozit_auto_2026": {
+   "pentru": "For drivers of small petrol or diesel cars, especially Euro 3 and older",
+   "ce": "car tax almost doubles from 2026",
+   "salvezi": {
+    "ipoteza": "the discount of up to 10% on a tax of 123 lei a year"
+   },
+   "pierzi": {
+    "ipoteza": "1,400 cc, Euro 5: 63 lei in 2025, 123 lei in 2026"
+   },
+   "pasi": [
+    "Check your tax assessment: the amount now depends on engine size and Euro standard. Euro 3 and older pay the most.",
+    "Pay the full 2027 tax by 31 March 2027 to get the discount of up to 10%.",
+    "Electric cars pay 40 lei a year. This only matters if you are changing cars anyway."
+   ],
+   "solutie": {
+    "nume": "Ghișeul.ro",
+    "ce": "You pay the local tax online, without going to the office."
+   }
+  },
+  "cass_pensii": {
+   "pentru": "For pensioners with a pension above 3,000 lei",
+   "ce": "10% health contribution on the part above 3,000 lei",
+   "pierzi": {
+    "ipoteza": "pension of 4,200 lei: 10% of 1,200 lei = 120 lei a month"
+   },
+   "pasi": [
+    "Check on your pension slip that CASS applies only to the part above 3,000 lei.",
+    "If it is calculated on the whole pension, ask the Pension House to correct it."
+   ],
+   "solutie": {
+    "nume": "National Public Pension House (CNPP)",
+    "ce": "You ask the pension house for the correction, for free."
+   }
+  },
+  "tva_21": {
+   "pentru": "For everyone",
+   "ce": "21% VAT: almost everything you buy is 1.7% more expensive",
+   "pierzi": {
+    "ipoteza": "spending of 5,000 lei a month × 1.68%"
+   },
+   "pasi": [
+    "The law does not offer an action that offsets the increase.",
+    "Adjust your budget: for every 1,000 lei you spend, about 17 lei more goes to VAT."
+   ]
+  },
+  "energie_plafon": {
+   "pentru": "For everyone with an electricity bill in their name",
+   "ce": "the electricity price has not been capped since July 2025",
+   "pasi": [
+    "Look at the price per kWh and the type of contract on your bill.",
+    "Put your consumption into the ANRE comparison tool and see the yearly cost of each offer.",
+    "If you find a cheaper offer, switching supplier is free; the new supplier handles the paperwork."
+   ],
+   "solutie": {
+    "nume": "ANRE offer comparison tool",
+    "ce": "The official comparison tool from ANRE, the energy regulator, shows the estimated cost of each offer for your consumption. We receive nothing from suppliers."
+   },
+   "nota": "How much you save depends on your consumption and your current offer; we do not have a sourced average (TODO)."
+  },
+  "gaz_plafon": {
+   "pentru": "For people who heat with gas",
+   "ce": "the protected gas price ends on 31 March 2027",
+   "pasi": [
+    "By 31 March 2027, compare gas offers for your consumption.",
+    "Look at offers with a fixed price for 12 months: they protect you from the increase afterwards.",
+    "Switching supplier is free."
+   ],
+   "solutie": {
+    "nume": "ANRE offer comparison tool",
+    "ce": "The official comparison tool from ANRE, the energy regulator, shows the estimated cost of each gas offer. We receive nothing from suppliers."
+   },
+   "nota": "How much you save depends on your consumption; we do not have a sourced average (TODO)."
+  },
+  "micro_1": {
+   "pentru": "For micro-enterprises",
+   "ce": "a single tax rate: 1% of revenue from 2026",
+   "pasi": [
+    "Check the company's turnover against the micro-enterprise ceiling (100,000 EUR, to be confirmed in the text).",
+    "Discuss with your accountant whether you stay micro or move to profit tax."
+   ],
+   "solutie": {
+    "nume": "CECCAR members register",
+    "ce": "The public register of chartered accountants."
+   }
+  },
+  "horeca_tva_11": {
+   "pentru": "For restaurants, hotels and cafés",
+   "ce": "11% VAT on services from August 2025",
+   "pasi": [
+    "Update list prices and the cash register to the 11% rate.",
+    "Check the invoices issued after 1 August 2025."
+   ],
+   "solutie": {
+    "nume": "CECCAR members register",
+    "ce": "The public register of chartered accountants."
+   }
+  },
+  "alocatie_sustinere_familie": {
+   "pentru": "For low-income families",
+   "ce": "the family support allowance has become the minimum inclusion income",
+   "pasi": [
+    "Ask at the town hall whether you qualify for the minimum inclusion income.",
+    "If you qualify, file the application at the town hall, with a sworn statement."
+   ],
+   "solutie": {
+    "nume": "Your local town hall",
+    "ce": "The application is free."
+   }
+  },
+  "varsta_pensionare": {
+   "pentru": "For people approaching retirement",
+   "ce": "the standard retirement age is 65, for women and men",
+   "pasi": [
+    "Ask the Pension House for your contribution record, online, with an account on the CNPP portal.",
+    "Check whether any periods you worked are missing and bring the proof before you retire."
+   ],
+   "solutie": {
+    "nume": "National Public Pension House (CNPP)",
+    "ce": "You request your contribution record online, for free."
+   }
+  },
+  "pilon2_plata": {
+   "pentru": "For everyone with Pillar II",
+   "ce": "from 2027, at retirement you take at most 30% at once, the rest in instalments",
+   "pasi": [
+    "You lose nothing today: only the way you receive the money at retirement changes.",
+    "Choose between instalments and an annuity at retirement."
+   ]
+  },
+  "dividende_16": {
+   "pentru": "For SRL partners who pay themselves dividends",
+   "ce": "dividend tax went up from 10% to 16%",
+   "pierzi": {
+    "ipoteza": "100,000 lei of dividends a year × 6 points"
+   },
+   "pasi": [
+    "The deadline to distribute the 2025 profit at 10% passed on 31 December 2025.",
+    "For 2026 profit, 16% applies. Discuss with your accountant how you plan your income."
+   ],
+   "solutie": {
+    "nume": "CECCAR members register",
+    "ce": "The public register of chartered accountants."
+   }
+  },
+  "salariu_minim_netaxabil_2026": {
+   "pentru": "For employees on the minimum wage",
+   "ce": "200 lei a month free of tax and contributions, only for 2026 income",
+   "pierzi": {
+    "ipoteza": "at 4,325 lei gross, the 200 lei exempted mean ≈ 83 lei net a month (35% contributions + 10% tax); GEO 89/2025 applies the exemption only to 2026 income"
+   },
+   "pasi": [
+    "You do not need to do anything until 31 December 2026: your employer applies the exemption automatically.",
+    "From January 2027, check on your payslip whether your net pay went down; so far there is no act extending the exemption."
+   ]
+  },
+  "concediu_medical_procente": {
+   "pentru": "For employees who take sick leave for ordinary illness",
+   "ce": "short sick leave is paid at 55% (up to 7 days) or 65% (8–14 days), not 75%",
+   "pierzi": {
+    "ipoteza": "5 days of sick leave on a base of 200 lei a day: 550 lei at 55%, compared with 750 lei at 75%"
+   },
+   "pasi": [
+    "Check the percentage applied on your payslip: it is set by the total days in the same illness episode, not by each certificate.",
+    "If the episode went past 14 days, the percentage must be 75%."
+   ]
+  },
+  "concediu_medical_prima_zi": {
+   "pentru": "For employees who take sick leave",
+   "ce": "one day of each illness episode is not paid, between 1 February 2026 and 31 December 2027",
+   "pierzi": {
+    "ipoteza": "one day on a base of 200 lei at 55%"
+   },
+   "pasi": [
+    "Check on your payslip that the unpaid day was deducted only once per episode, not for every follow-up certificate.",
+    "Maternity, maternity risk, patients in national health programmes and hospitalisation are exempt: if you are in one of these situations, the day must not be deducted."
+   ]
+  },
+  "cass_intretinere": {
+   "pentru": "For people supporting a husband, wife or parent with no income",
+   "ce": "they are no longer health-insured for free; you can insure them for 2,430 lei a year each",
+   "pierzi": {
+    "ipoteza": "one dependent person: 6 minimum wages × 4,050 lei × 10%"
+   },
+   "pasi": [
+    "Decide whether you want to insure them: the option is final for that year.",
+    "File the Single Tax Return, chapter II, the section for dependent persons.",
+    "Pay 25% when you file and the remaining 75% by 25 May of the following year."
+   ],
+   "solutie": {
+    "nume": "ANAF, Virtual Private Space (SPV)",
+    "ce": "The Single Tax Return is filed and paid online, for free."
+   }
+  },
+  "cass_somaj": {
+   "pentru": "For people receiving unemployment benefit",
+   "ce": "10% health contribution withheld from the benefit; the benefit does not go up in 2026",
+   "pierzi": {
+    "ipoteza": "benefit of 1,000 lei a month, 10% withheld"
+   },
+   "pasi": [
+    "You do not need to do anything: the contribution is withheld automatically and keeps you insured."
+   ]
+  },
+  "cass_crestere_copil": {
+   "pentru": "For parents on childcare leave",
+   "ce": "10% health contribution withheld from the allowance, from August 2025",
+   "pierzi": {
+    "ipoteza": "allowance of 2,000 lei a month, 10% withheld"
+   },
+   "pasi": [
+    "You do not need to do anything: the deduction is automatic.",
+    "Check on the payment decision that the net allowance is right."
+   ]
+  },
+  "pensie_vpr_2026": {
+   "pentru": "For pensioners in the public system",
+   "ce": "pensions are not indexed in 2026: the reference point stays at 81 lei",
+   "pasi": [
+    "You do not need to do anything: in 2026 the pension is not recalculated by indexation.",
+    "Yearly indexation returns from 2027."
+   ]
+  },
+  "pfa_norma_minima_2026": {
+   "pentru": "For sole traders (PFA) taxed on an income norm",
+   "ce": "the income norm can no longer be below 12 minimum wages, that is 48,600 lei for 2026",
+   "pasi": [
+    "Compare the 48,600 lei norm with your real income in 2026.",
+    "Discuss with your accountant whether it is worth moving to the real system.",
+    "File and pay through the Single Tax Return by 25 May 2027."
+   ],
+   "solutie": {
+    "nume": "ANAF, Virtual Private Space (SPV)",
+    "ce": "The Single Tax Return is filed and paid online, for free."
+   }
+  },
+  "pfa_cass_plafon_72": {
+   "pentru": "For sole traders and liberal professions with net income above 243,000 lei a year",
+   "ce": "the CASS cap rises from 60 to 72 minimum wages",
+   "pierzi": {
+    "ipoteza": "net income above 291,600 lei: maximum CASS 29,160 lei, compared with 24,300 lei"
+   },
+   "pasi": [
+    "Set aside the CASS difference for the 2026 Single Tax Return.",
+    "Pay by 25 May 2027."
+   ],
+   "solutie": {
+    "nume": "ANAF, Virtual Private Space (SPV)",
+    "ce": "The Single Tax Return is filed and paid online, for free."
+   }
+  },
+  "inchiriere_termen_scurt_2026": {
+   "pentru": "For owners who let 1–7 rooms short-term (Airbnb, Booking)",
+   "ce": "a 10% final tax on 70% of receipts, that is 7%, with no bookkeeping",
+   "pierzi": {
+    "ipoteza": "30,000 lei received in a year: 10% of 21,000 lei"
+   },
+   "pasi": [
+    "Fill in the occupancy sheet and the income part of the tax record register.",
+    "Declare your 2026 income in the Single Tax Return and pay by 25 May 2027.",
+    "Above 7 rooms, the income becomes an independent activity, with CAS and CASS."
+   ],
+   "solutie": {
+    "nume": "ANAF, Virtual Private Space (SPV)",
+    "ce": "The Single Tax Return is filed and paid online, for free."
+   }
+  },
+  "salariu_minim_2026": {
+   "pentru": "For employees on the minimum wage",
+   "ce": "the gross minimum wage rises to 4,325 lei from 1 July 2026",
+   "pasi": [
+    "Check your July 2026 payslip: the full-time base salary must be at least 4,325 lei gross.",
+    "If it is not, ask your employer to correct it."
+   ]
+  },
+  "ajutor_incalzire": {
+   "pentru": "For families with a net income of at most 1,386 lei per member (2,053 lei for a single person)",
+   "ce": "a monthly heating allowance between November and March, only on application",
+   "pasi": [
+    "Calculate the average net income per family member.",
+    "Ask for the form at the town hall of the place where your home is.",
+    "The general deadline is 15 October; ask the town hall whether you can still apply and from when it is paid."
+   ]
+  },
+  "insolventa_persoane_fizice": {
+   "pentru": "For people with debts they can no longer pay",
+   "ce": "personal insolvency can be requested from debts of 15 minimum wages, that is 64,875 lei",
+   "pasi": [
+    "Put together the list of overdue debts and creditors.",
+    "Ask the insolvency commission in your county for information.",
+    "If you are past retirement age and have debts of at most 43,250 lei, ask about the simplified procedure."
+   ]
+  },
+  "sere_solare_2026": {
+   "pentru": "For people who own greenhouses, polytunnels, seedbeds, mushroom farms or grain silos",
+   "ce": "no building tax on them in 2026; from 2027, half",
+   "pasi": [
+    "Check on the town hall tax assessment that these buildings are listed as exempt for 2026.",
+    "If not, ask the local tax office to correct it."
+   ]
+  },
+  "masa_sanatoasa_2026": {
+   "pentru": "For parents with children at a state kindergarten or school",
+   "ce": "the “Healthy Meal” programme continues in 2026 in the schools included",
+   "pasi": [
+    "Ask the kindergarten or school whether it is in the programme in 2026."
+   ]
+  },
+  "saracie_energetica_2026": {
+   "pentru": "For families with a net income of at most 1,784 lei per member (1,940 lei for a single person)",
+   "ce": "50 lei a month off the electricity bill, until 31 December 2026",
+   "salvezi": {
+    "perioada": "for November–December 2026",
+    "ipoteza": "50 lei a month for November and December 2026, if you sign up in November"
+   },
+   "pasi": [
+    "Calculate the net income per family member.",
+    "Sign up through the EPIDS app or at the town hall.",
+    "The support is paid from the month you sign up, so the sooner you sign up, the more you get."
+   ]
+  },
+  "salarii_stat_inghetate_2026": {
+   "pentru": "For public-sector employees (hospitals, schools, administration)",
+   "ce": "base salary and bonuses stay in 2026 at the December 2025 level",
+   "pasi": [
+    "Overtime is compensated only with time off: ask for it within 90 days at most."
+   ]
+  },
+  "vouchere_vacanta_stat_2026": {
+   "pentru": "For public-sector employees with a net base salary of at most 6,000 lei",
+   "ce": "800 lei in holiday vouchers in 2026",
+   "salvezi": {
+    "ipoteza": "holiday vouchers given in 2026"
+   },
+   "pasi": [
+    "Check with HR whether you have received the vouchers for 2026."
+   ]
+  },
+  "handicap_indemnizatie_solidaritate": {
+   "pentru": "For pensioners with a severe visual, severe or pronounced disability",
+   "ce": "the solidarity allowance is not paid before 1 January 2027",
+   "pasi": [
+    "You do not need to do anything now.",
+    "Ask the social assistance office which documents you will need from 2027."
+   ]
+  },
+  "rovinieta_2026": {
+   "pentru": "For car owners",
+   "ce": "the yearly road vignette costs between 228 and 330 lei, depending on the Euro standard",
+   "pasi": [
+    "Check the Euro standard in your registration certificate.",
+    "Buy the vignette for the period you need: for occasional trips, the 10- or 30-day one can be cheaper than the yearly one."
+   ],
+   "solutie": {
+    "nume": "CNAIR (national roads company)",
+    "ce": "You buy the vignette online from CNAIR."
+   }
+  },
+  "efactura_5_zile_lucratoare": {
+   "pentru": "For sole traders and companies that issue invoices",
+   "ce": "invoices go to RO e-Factura within 5 working days of being issued",
+   "pasi": [
+    "Set the 5-working-day deadline in your invoicing software.",
+    "Send invoices to individuals (B2C) within the same deadline."
+   ],
+   "solutie": {
+    "nume": "ANAF, RO e-Factura",
+    "ce": "Invoices are sent through SPV or through invoicing software connected to RO e-Factura."
+   }
+  },
+  "burse_studenti_2026_2027": {
+   "pentru": "For state-funded students",
+   "ce": "the minimum social grant is 925 lei in the 2026–2027 academic year",
+   "pasi": [
+    "Ask the faculty office when the social grant applications are due.",
+    "Prepare the income documents your university asks for and file on time."
+   ]
+  }
+ },
+ "destinatii": {
+  "anre_comparator": "ANRE offer comparison tool (electricity and gas)",
+  "anaf_declaratia_unica": "Single Tax Return (form 212), filled in online",
+  "anaf_formulare": "ANAF forms portal",
+  "anaf_spv_ghid": "ANAF guide to registering in the Virtual Private Space (individuals)",
+  "anaf_efactura_cerere": "Application to register in the RO e-Factura Register (form 082, 2026)",
+  "cnpp": "National Public Pension House (CNPP)",
+  "inspectia_muncii": "Labour Inspectorate",
+  "asf_registru": "ASF public register (including pension funds)",
+  "ceccar_tablou": "CECCAR members register (chartered accountants)",
+  "ccf_registru": "Register of the Chamber of Tax Consultants",
+  "primaria": "Your town hall (local taxes department)",
+  "angajator_hr": "Your employer’s HR or payroll department",
+  "furnizor": "Your supplier (customer account or the number on your bill)",
+  "fond_pensii": "Your private pension fund (details are on the yearly statement)",
+  "anofm": "ANOFM, the National Employment Agency (it leads you to your county agency)",
+  "scoala": "Your child’s school or kindergarten (the office)",
+  "asociatia_proprietari": "Your building’s owners or tenants association"
+ }
+}

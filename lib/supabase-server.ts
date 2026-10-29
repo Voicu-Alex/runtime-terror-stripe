@@ -3,9 +3,10 @@ import { createClient } from "@supabase/supabase-js";
 
 /** Clientul Supabase cu cheia secretă. Doar pe server: cheia nu ajunge niciodată în browser. */
 export function supabaseServer() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  // ca scripts/supabase-client.mjs și scripts/legi/db.mjs: merge și SUPABASE_URL
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
   const cheie = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !cheie) throw new Error("Lipsesc NEXT_PUBLIC_SUPABASE_URL și SUPABASE_SECRET_KEY (sau SUPABASE_SERVICE_ROLE_KEY).");
+  if (!url || !cheie) throw new Error("Lipsesc NEXT_PUBLIC_SUPABASE_URL (sau SUPABASE_URL) și SUPABASE_SECRET_KEY (sau SUPABASE_SERVICE_ROLE_KEY).");
   return createClient(url, cheie, { auth: { persistSession: false, autoRefreshToken: false } });
 }
 
