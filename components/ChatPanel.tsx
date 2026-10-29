@@ -1,8 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, type ReactNode } from "react";
 import { useAsistent } from "@/components/AsistentProvider";
 import { useLimba } from "@/components/Limba";
+import { useAbonament } from "@/components/useAbonament";
+import { PRET_BANI } from "@/lib/abonament";
 import { CATALOG } from "@/lib/catalog";
 import { arePropuneri } from "@/lib/chat-ui";
 import { etichetaTagL } from "@/lib/i18n";
@@ -12,7 +15,11 @@ const LAW_STARTERS = ["De ce mă privește?", "Ce trebuie să fac?", "Când intr
 
 export function ChatPanel({ modal = false, open = true, onClose, action }: { modal?: boolean; open?: boolean; onClose?: () => void; action?: ReactNode }) {
   const { t, limba } = useLimba();
-  const { session, send, retry, setDraft, confirm, reject, demoName } = useAsistent();
+  const { session, send: trimite, retry, setDraft, confirm, reject, demoName } = useAsistent();
+  // Asistentul e pentru abonații Pro (ADR 0002): fără Pro, conversația se vede estompată și nu trimite nimic.
+  const abonament = useAbonament();
+  const blocat = !abonament?.activ;
+  const send = blocat ? () => {} : trimite;
   const dialog = useRef<HTMLDialogElement>(null);
   const editor = useRef<HTMLTextAreaElement>(null);
   const scroll = useRef<HTMLDivElement>(null);
@@ -84,6 +91,8 @@ export function ChatPanel({ modal = false, open = true, onClose, action }: { mod
         {t("Despre legea:")} <strong className="text-v3-ink">{limba === "en" && context.rezumat_en ? context.rezumat_en : context.rezumat}</strong>
       </p>}
     </div>
+    <div className="relative flex min-h-0 flex-1 flex-col">
+    <div inert={blocat || undefined} aria-hidden={blocat || undefined} className={`flex min-h-0 flex-1 flex-col ${blocat ? "blur-[4px] select-none" : ""}`}>
     <div ref={scroll} role="log" aria-label={t("Conversația cu asistentul")} aria-live="polite" className="min-h-0 flex-1 space-y-5 overflow-y-auto overscroll-contain px-4 py-5 sm:px-6">
       {session.mesaje.length === 0 && <div className="max-w-[44rem]">
         <p className="m-0 max-w-[36ch] font-head text-[22px] leading-snug font-bold text-v3-ink">{t("Bună! Ce ai vrea să afli despre banii tăi și legile noi?")}</p>
@@ -131,6 +140,17 @@ export function ChatPanel({ modal = false, open = true, onClose, action }: { mod
           className="grid min-h-11 min-w-11 place-items-center rounded-lg bg-v3-ink text-lg font-bold text-v3-on-ink disabled:opacity-40">↑</button>
       </form>
       <p className="m-0 mt-2 text-[11px] text-v3-ink-2">{t("Informare, nu consultanță financiară sau juridică.")}</p>
+    </div>
+    </div>
+    {blocat && <div className="absolute inset-0 grid place-items-center p-5">
+      <div className="max-w-[36ch] rounded-2xl border border-v3-line bg-v3-card p-5 text-center shadow-xl">
+        <p className="m-0 font-head text-[19px] leading-tight font-extrabold text-v3-ink">{t("Asistentul e pentru abonații Pro.")}</p>
+        <p className="m-0 mt-2 text-[14px] leading-relaxed text-v3-ink-2">{t("Întrebi orice despre legile care te privesc și primești răspunsul cu sursa lângă.")}</p>
+        <Link href="/abonament" onClick={onClose} className="mt-4 inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
+          {t("Upgrade la Pro")} · {PRET_BANI / 100} {t("lei/lună")}
+        </Link>
+      </div>
+    </div>}
     </div>
   </div>;
 

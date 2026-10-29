@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import { auth } from "@/auth";
 import { esteCerereChat, raspundeDemoChat } from "@/lib/chat-asistent";
 import { raspundeModelChat } from "@/lib/chat-asistent-model";
 import { adresaDin, contorNou, inregistreaza, limiteDinEnv } from "@/lib/limita";
+import { stareDupaEmail, stripe } from "@/lib/stripe";
 
 export const runtime = "nodejs";
 const NO_STORE = { headers: { "Cache-Control": "no-store" } };
@@ -23,8 +25,22 @@ async function citesteCorpLimitat(req: Request): Promise<string> {
   return text + decoder.decode();
 }
 
-/** Conversație fără persistență pe server; fără cheie sau la eroare, răspuns din catalog. */
+/** Asistentul e pentru abonații Pro (ADR 0002): starea se citește de la Stripe, ca în /api/abonament/stare. */
+async function proActiv(): Promise<boolean> {
+  const email = (await auth())?.user?.email;
+  const s = stripe();
+  if (!email || !s) return false;
+  try {
+    return (await stareDupaEmail(s, email)).activ;
+  } catch (e) {
+    console.error("Stripe stare (asistent):", e instanceof Error ? e.message : e);
+    return false;
+  }
+}
+
+/** Conversație fără persistență pe server; fără cheie sau la eroare, răspuns din catalog. Doar cu Pro activ. */
 export async function POST(req: Request) {
+  if (!(await proActiv())) return NextResponse.json({ eroare: "doar cu abonament Pro" }, { status: 403, ...NO_STORE });
   let body: unknown;
   try {
     body = JSON.parse(await citesteCorpLimitat(req));
