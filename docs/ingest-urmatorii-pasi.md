@@ -72,6 +72,29 @@ npm run legi:zilnic -- --de-la 315777
 `legi:zilnic --dry-run --max 3`, apoi cu baza: un act nou descoperit → triat → interpretat → apare în `/admin/acte`
 (fără `?demo=1`) → aprobat → rând în `schimbari` + intrare în `data/catalog.json`.
 
+## Beneficii calculabile (29 oct 2026, după-amiază)
+
+Măsurat pe cele 18 interpretări v3: 16 din 97 schimbări aveau formulă; dintre schimbările active cu bani (cost sau
+câștig, neexpirate), 14 din 49. Ce lipsea, din notele modelului: tipuri de formulă (sume pe an, procent dintr-o valoare,
+multipli de salariu minim), câmpuri de profil (valoarea locuinței, prețul mașinii, cifra de afaceri…) și cota veche,
+pe care formele consolidate nu o conțin niciodată.
+
+Construit (commit-urile fc050280 … ea76e86f):
+- `lib/formule-tip.ts`: `suma_fixa` (lună/an), `procent_din_camp` (cu `peste` și `plafon`), `multiplu_referinta`;
+  `schimbare_cota` acceptă `cota_veche: null, sursa_veche: null` împreună; `formulaCompleta`.
+- `data/referinte.json` + `lib/referinte.ts`: constante sursate (act, articol, link, verificat la). Singura valoare:
+  salariul minim brut 4.325 lei de la 1 iul 2026 (HG 146/2026). Valoarea de dinainte: TODO, nu e sursată în repo.
+- `lib/profil.ts`: 7 câmpuri noi (valoare impozabilă locuință, preț mașină, cifră de afaceri, câștig investiții,
+  chirie încasată, consum gaz kWh/an, impozit pe venit anul trecut), cu etichete RO/EN și întrebări pe card.
+- `lib/verificari-interpretare.ts`: avertismente soft `calculabil` și `formula_incompleta` (nu pică poarta) și
+  numărătoarea „calculabile X din Y” în toate rezumatele.
+- `/admin/acte`: revizorul completează cota veche și sursa înainte de aprobare; o formulă incompletă nu ajunge în catalog.
+- Instrucțiuni v4 (regula 6: formulă obligatorie la cost/câștig când numărul e în text); `--reinterpreteaza`.
+
+De verificat după rularea v4 pe cele 18 acte: raportul calculabile înainte/după (`group by instructiuni_versiune`).
+Codul fiscal (8 articole cerute) depășește limita de 32.000 de tokeni la răspuns: de rulat separat cu limită mai mare
+sau cu loturi pe articole.
+
 ## Capătul deschis: aprobarea nu ajunge la utilizatori
 
 `lib/aprobare.ts` scrie `data/catalog.json` pe discul serverului și un rând în `schimbari`. Aplicația citește JSON-ul

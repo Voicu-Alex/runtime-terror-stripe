@@ -8,6 +8,8 @@
   - `legi:zilnic` (`lib/zilnic.ts`): descopera `--reia` → triaj → interpreteaza, rând în `rulari` (sursa `zilnic`); `.github/workflows/legi-zilnic.yml` (cron 04:00 UTC, dispatch cu dry-run). Secretele le pune Andrei în GitHub.
 - Verificat: tsc curat, 251 teste; lanțul pe fișiere cu Portalul real (7 id-uri, 1 candidat → Haiku „nu”, corect) și 2 acte interpretate prin API (ambele „nu atinge banii”, corect: HG de siguranță pe rețea, ordin a cărui schemă e în anexă lipsă).
 - BLOCAT la fel: tabelele `acte/interpretari/rulari/cursor_surse` NU există în Supabase (404 la 29 oct), `SUPABASE_DB_URL` are `[YOUR-PASSWORD]`, pagina Supabase cere login. Andrei: SQL Editor → `supabase/acte.sql` → Run, sau parola + `npm run legi:migreaza`. Apoi pașii D din `docs/ingest-urmatorii-pasi.md` (incarca sweep din `../legi-ingest/scratch`, importa cele 18 interpretări, cursor 315776) și prima rulare `legi:zilnic`.
+- Beneficii calculabile (Andrei: „build it all”): tipuri noi de formulă, referințe sursate, 7 câmpuri de profil, cota veche completată de om în admin, instrucțiuni v4, verificări soft; 295 teste. Detalii în `docs/ingest-urmatorii-pasi.md`. Rularea v4 pe cele 18 acte (`--reinterpreteaza`, Sonnet): în curs / de măsurat; Codul fiscal depășește 32k tokeni la răspuns.
+- Altă sesiune („Laws database population”) a rulat în acest worktree interpretarea celor 96 triat_da (v3, Sonnet) și o descoperire 315786–316000; nu le-am atins.
 - Capăt deschis (decizie de echipă): aprobarea scrie `data/catalog.json` pe disc; aplicația nu citește din Supabase, deci un act aprobat ajunge la utilizatori doar prin `supabase:sync` + commit + push pe main.
 
 ## Deploy descriere mutat pe main (29 oct 2026)
