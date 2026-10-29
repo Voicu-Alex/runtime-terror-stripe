@@ -54,20 +54,39 @@ npm run legi:aproba -- <id> --revizor <email>                               # al
 Fără API: descoperirea citește paginile direct, iar interpretarea o fac subagenții Claude Code. Cheia Anthropic se
 folosește doar pentru verificarea de paritate pe 3–5 acte (`eval/interpreteaza-api.mjs`).
 
-## Volum
+## Volum și ce a dat prima rulare (29 oct 2026, noaptea)
 
 | | Pe an (aprox.) | De unde |
 |---|---|---|
 | Documente pe Portal, toate tipurile | ≈ 11.000 | intervalul de id-uri ian → oct 2026 |
 | Legi | 204 până pe 29 oct 2026; 248 în 2025; 332 în 2024 | lista cdep.ro |
 | Numere din Monitorul Oficial, Partea I | ≈ 1.130–1.300 | numerele din decembrie 2024 și 2025 |
-| OUG / OG / HG / Ordine | TODO după prima parcurgere | `rulari`, `acte` pe `tip_act` |
 
-Regulile de triaj (tip de act, emitent, cuvinte din titlu) păstrează o parte mică din total; din ele, triajul cu
-Haiku păstrează doar actele care ating banii unei persoane. Rezultatele primei rulări: TODO.
+**Parcurgerea ultimelor 6 săptămâni** (id 314500 → 315900, `--dry-run --dump scratch/sweep`, 1 cerere / 2 s): la ora
+scrierii 508 pagini, 508 răspunsuri 200, 0 lipsă, 0 erori, 0 reîncercări (jurnal: `scratch/sweep-log.txt`). Rularea
+continuă singură și se reia cu `--reia` sau cu `--de-la <ultimul id>`.
 
-## Ce nu e verificat încă
+| Pasul | Rezultat pe primele 508 acte |
+|---|---|
+| Tipuri | ORDIN 206, HOTĂRÂRE 104, DECIZIA (CCR) 49, RAPORT 40, DECRET 34, DECIZIE 22, RECTIFICARE 8, altele |
+| Regulile de triaj | 167 candidați (33%), 341 respinși |
+| Triajul Haiku (subagenți, 125 de candidați în 7 loturi de 20) | 43 ating banii (34% din candidați, ≈ 9% din total), 82 nu |
+| Interpretate cu Sonnet (6 alese din cele 43) | 3 cu schimbări (burse 450/300/300 lei, rovinieta pe categorii, alocația de plasament și alocația pentru tineri), 3 respinse corect la triajul fin (banii merg la instituții sau anexa lipsește) |
 
-- Limita reală de cereri a Portalului: nu e documentată; am stat la 1 cerere / 2 s.
-- Data intrării în vigoare: dacă pagina actului o conține; altfel rămâne din text sau de la model.
+Deci din ≈ 31 de acte pe zi rămân ≈ 3 pe zi de interpretat, adică ≈ 1.000 pe an. Cu subagenți: 1–3 minute pe act. Prin
+API, la prețul Haiku măsurat (0,006 USD pe act): ≈ 6 USD pe an; cu Sonnet ≈ 90 USD pe an.
+
+**Actele campaniilor și cele alese** (12, aduse după id): 88 de schimbări propuse, 76 cu etichetă (aprobabile), toate
+citatele găsite textual; detalii și paritatea cu API-ul în `docs/eval-modele.md`, runda 4.
+
+## Ce nu e verificat încă și ce lipsește
+
+- Limita reală de cereri a Portalului: nu e documentată; am stat la 1 cerere / 2 s și n-am primit niciun 403/429.
+- Pagina actului nu dă data intrării în vigoare; modelul o ia din text sau aplică regula generală (regula 13), marcată.
+- Pagina actului nu conține mereu anexele (ex. regulamentul voucherelor de vacanță, Ordinul 5.651/2026): un act poate
+  părea gol. De adăugat: urmărirea linkurilor spre anexe.
+- Scrierea în Supabase (`legi:migreaza`, `legi:incarca`, `legi:importa`, `legi:aproba`, /admin/acte pe date reale) nu a
+  rulat: lipsește parola bazei în `SUPABASE_DB_URL`.
+- Triajul Haiku e reglat pe recall („de citit integral” când textul e tăiat la 4.000 de caractere): despăgubirile de
+  expropriere trec ca „ating banii” deși privesc câțiva proprietari.
 - Proiectele (SGG) nu sunt implementate.
