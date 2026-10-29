@@ -396,6 +396,8 @@ const EN: Record<string, string> = {
   "pe an": "a year",
   // v6: Pentru tine, Noutăți, Planul meu (components/PentruTine.tsx, Noutati.tsx, PlanulMeu.tsx)
   "Pentru tine": "For you",
+  "exemplu, persoană fictivă": "example, fictional person",
+  "Pe profilul tău": "On your profile",
   "Noutăți": "News",
   Stare: "Status",
   Toate: "All",

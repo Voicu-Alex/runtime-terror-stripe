@@ -269,3 +269,112 @@ html.ld-blocat { overflow: hidden }
   .ld-h2 { margin-bottom: 20px }
   .ld-ecran { padding-top: 80px; padding-bottom: 28px }
 }
+
+/*
+ * SPIKE (29 oct): trei direcții vizuale pentru aplicație, comutabile cu ?stil=a|b|c (components/Stil.tsx).
+ * CSS-ul de aici e în afara layer-elor, deci bate utilitarele Tailwind fără !important.
+ * A = aer și suprafețe (fără borduri, umbre moi), B = panoul verde din landing, C = tipografie, aproape fără carduri.
+ */
+[data-stil] main#continut { max-width: 1180px; padding-top: 8px; position: relative; overflow: clip }
+[data-stil] .pt-radacina { display: block }
+[data-stil] .pt-filtre { display: none }
+[data-stil] .pt-pastile { display: flex; margin: 22px 0 0; padding: 0 0 4px; overflow: visible; flex-wrap: wrap }
+[data-stil] .pt-main { display: flex; flex-direction: column; min-width: 0 }
+[data-stil] .pt-hero { order: -10; position: relative; padding: 18px 0 8px }
+[data-stil] .pt-eyebrow { margin: 0 0 10px; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--color-v3-ink-2) }
+[data-stil] .pt-h1 { margin: 0; font-family: var(--font-head); font-weight: 800; letter-spacing: -.025em; line-height: 1; font-size: clamp(34px, 4.4vw, 54px); max-width: 14ch; color: var(--color-v3-ink) }
+[data-stil] .pt-bilant { order: -9 }
+[data-stil] .pt-pastile { order: -8 }
+[data-stil] .pt-cauta { order: -7; margin-top: 14px }
+[data-stil] .pt-exemplu { order: -6; margin-top: 14px; padding: 12px 16px; font-size: 13.5px; border-radius: 14px }
+[data-stil] .pt-exemplu p:first-child { font-size: 10.5px }
+[data-stil] .pt-exemplu p:nth-child(2) { font-size: 14px }
+[data-stil] .pt-exemplu p:last-child { font-size: 13px; margin-top: 4px }
+[data-stil] .pt-bilant-titlu { display: none }
+[data-stil] .pt-cifre { gap: 0 56px; margin: 0 0 10px }
+[data-stil] .pt-cifre b { font-size: clamp(44px, 5vw, 64px); letter-spacing: -.045em }
+[data-stil] .pt-cifre b small { font-size: 14px; margin-left: 8px }
+[data-stil] .pt-bara { height: 10px; border-radius: 6px; gap: 1px }
+[data-stil] .pt-bilant-nota { margin-top: 6px }
+[data-stil] .pt-lista-titlu { font-family: var(--font-sans); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--color-v3-ink-2); border: 0; padding: 0; margin: 28px 0 12px }
+[data-stil] .pt-lista-titlu span { letter-spacing: 0; text-transform: none; font-weight: 500 }
+[data-stil] .pt-lista > li > button > span:nth-child(3) { font-size: 18px; letter-spacing: -.01em; font-weight: 600 }
+[data-stil] .pt-lista > li > button > span:first-child { font-size: 12.5px; color: var(--color-v3-ink-2) }
+[data-stil] .pt-lista > li > button > span:nth-child(2) { font-size: 28px; font-weight: 700; letter-spacing: -.03em }
+[data-stil] .pt-antet { position: relative; z-index: 2 }
+@media (min-width: 1024px) {
+  [data-stil="a"] .pt-radacina, [data-stil="c"] .pt-radacina { display: grid; grid-template-columns: minmax(0, 1fr) 300px; column-gap: 40px }
+  [data-stil="b"] .pt-radacina { display: grid; grid-template-columns: 380px minmax(0, 1fr); column-gap: 28px; align-items: start }
+  [data-stil] .pt-termene { margin-top: 24px }
+}
+
+/* ===== A: aer și suprafețe ===== */
+html[data-stil="a"] { --color-v3-paper: #F4F4F2; --color-v3-card: #FFFFFF; --color-v3-tint2: #FFFFFF; --sp-umbra: 0 1px 2px rgba(17, 24, 39, .04), 0 12px 32px -12px rgba(17, 24, 39, .14); --sp-glow: .10 }
+html[data-stil="a"][data-theme="dark"] { --color-v3-paper: #141416; --color-v3-card: #1D1D21; --color-v3-tint2: #1D1D21; --color-v3-line: #2C2C31; --sp-umbra: inset 0 1px 0 rgba(255, 255, 255, .04), 0 20px 50px -20px rgba(0, 0, 0, .7); --sp-glow: .18 }
+[data-stil="a"] .pt-hero::before { content: ""; position: absolute; left: -420px; top: -460px; width: 1100px; height: 800px; background: radial-gradient(closest-side, color-mix(in srgb, var(--color-v3-pos) calc(var(--sp-glow) * 100%), transparent), transparent); pointer-events: none; z-index: -1 }
+[data-stil="a"] .pt-bilant { background: none; border: 0; padding: 0; margin-top: 18px }
+[data-stil="a"] .pt-cauta, [data-stil="a"] .pt-freemium, [data-stil="a"] .pt-termene, [data-stil="a"] .pt-lista > li { background: var(--color-v3-card); border: 0; box-shadow: var(--sp-umbra); border-radius: 20px }
+[data-stil="a"] .pt-cauta { border-radius: 14px }
+[data-stil="a"] .pt-lista > li { padding: 4px 24px; margin-bottom: 12px }
+[data-stil="a"] .pt-pastile button { border: 0; box-shadow: var(--sp-umbra); background: var(--color-v3-card); color: var(--color-v3-ink-2); font-weight: 600; font-size: 13.5px }
+[data-stil="a"] .pt-pastile button[aria-pressed="true"] { background: var(--color-v3-ink); color: var(--color-v3-on-ink) }
+[data-stil="a"] .pt-termene { padding: 20px 22px }
+[data-stil="a"] .pt-termene-titlu { border: 0; padding: 0; margin: 0 0 6px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--color-v3-ink-2) }
+[data-stil="a"] .pt-termene li:last-child { border: 0 }
+
+/* ===== B: panoul verde din landing ===== */
+html[data-stil="b"] { --color-v3-paper: #F4F4F2; --sp-umbra: 0 1px 2px rgba(17, 24, 39, .04), 0 12px 32px -12px rgba(17, 24, 39, .14) }
+html[data-stil="b"][data-theme="dark"] { --color-v3-paper: #141416; --color-v3-card: #1D1D21; --color-v3-line: #2C2C31 }
+[data-stil="b"] main#continut::before { content: ""; position: absolute; left: -200px; top: -300px; width: 1300px; height: 1000px; background: radial-gradient(closest-side, color-mix(in srgb, var(--color-v3-pos) 10%, transparent), transparent); pointer-events: none }
+[data-stil="b"][data-theme="dark"] main#continut::before { background: radial-gradient(closest-side, color-mix(in srgb, var(--color-v3-pos) 16%, transparent), transparent) }
+[data-stil="b"] .pt-stanga { position: relative; margin-top: 14px }
+[data-stil="b"] .pt-stanga .pt-bilant { margin: 0; border: 0; border-radius: 28px; padding: 26px 26px 22px; color: #fff; position: relative; overflow: hidden;
+  background: linear-gradient(170deg, #0F7A3C 0%, #0A3F23 55%, #0D2B1B 100%); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6) }
+[data-stil="b"] .pt-stanga .pt-bilant::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(400px 200px at 90% -10%, rgba(255, 255, 255, .18), transparent 60%) }
+[data-stil="b"] .pt-stanga .pt-hero { padding: 0 0 14px }
+[data-stil="b"] .pt-stanga .pt-eyebrow, [data-stil="b"] .pt-stanga .pt-eticheta { color: #B7F0CB }
+[data-stil="b"] .pt-stanga .pt-h1 { color: #fff; font-size: 34px }
+[data-stil="b"] .pt-stanga .pt-cifre { flex-direction: column; align-items: stretch; gap: 14px }
+[data-stil="b"] .pt-stanga .pt-cifre b { font-size: 46px }
+[data-stil="b"] .pt-stanga .pt-cifre b small, [data-stil="b"] .pt-stanga .pt-bilant-nota, [data-stil="b"] .pt-stanga .pt-bare button span { color: #D1FAE5 }
+[data-stil="b"] .pt-stanga .pt-neg { color: #FFB4B4 } [data-stil="b"] .pt-stanga .pt-pos { color: #A7F3C3 }
+[data-stil="b"] .pt-stanga .pt-bilant .bg-v3-neg { background: #FF6B6B } [data-stil="b"] .pt-stanga .pt-bilant .bg-v3-pos { background: #86EFAC }
+[data-stil="b"] .pt-stanga .pt-bilant .text-v3-ink, [data-stil="b"] .pt-stanga .pt-bilant .text-v3-ink-2 { color: #E6FBEE }
+[data-stil="b"] .pt-stanga .pt-bara { background: rgba(255, 255, 255, .14) }
+[data-stil="b"] .pt-stanga .pt-termene { margin-top: 20px; padding: 0 6px }
+[data-stil="b"] .pt-termene-titlu { border: 0; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--color-v3-ink-2) }
+[data-stil="b"] .pt-main { padding-top: 14px }
+[data-stil="b"] .pt-cauta { order: -9; margin-top: 0; border-radius: 14px; border: 0; box-shadow: var(--sp-umbra) }
+[data-stil="b"] .pt-pastile { margin-top: 12px }
+[data-stil="b"] .pt-pastile button { border: 0; background: color-mix(in srgb, var(--color-v3-card) 70%, transparent); font-weight: 600; font-size: 13.5px }
+[data-stil="b"] .pt-pastile button[aria-pressed="true"] { background: var(--color-v3-ink); color: var(--color-v3-on-ink) }
+[data-stil="b"] .pt-lista-titlu { margin-top: 22px }
+[data-stil="b"] .pt-lista > li { border-radius: 18px; margin-bottom: 10px; padding: 2px 22px; background: color-mix(in srgb, var(--color-v3-card) 70%, transparent);
+  backdrop-filter: blur(10px); border: 1px solid color-mix(in srgb, var(--color-v3-ink) 8%, transparent) }
+[data-stil="b"] .pt-freemium { border: 0; box-shadow: var(--sp-umbra); border-radius: 18px }
+
+/* ===== C: tipografie, aproape fără carduri ===== */
+html[data-stil="c"] { --sp-glow: .07 }
+html[data-stil="c"][data-theme="dark"] { --color-v3-paper: #141416; --color-v3-card: #1D1D21; --color-v3-line: #2C2C31; --sp-glow: .12 }
+[data-stil="c"] main#continut { max-width: 1060px }
+[data-stil="c"] main#continut::before { content: ""; position: absolute; right: -400px; top: -500px; width: 1100px; height: 800px; background: radial-gradient(closest-side, color-mix(in srgb, var(--color-v3-pos) calc(var(--sp-glow) * 100%), transparent), transparent); pointer-events: none }
+[data-stil="c"] .pt-radacina { grid-template-columns: minmax(0, 1fr) 220px }
+[data-stil="c"] .pt-hero { padding: 26px 0 0 }
+[data-stil="c"] .pt-h1 { font-size: clamp(32px, 4vw, 46px) }
+[data-stil="c"] .pt-bilant { background: none; border: 0; border-radius: 0; padding: 20px 0 22px; margin: 0; border-bottom: 1px solid var(--color-v3-line) }
+[data-stil="c"] .pt-cifre b { font-family: var(--font-head); font-weight: 800; font-size: clamp(40px, 4.4vw, 56px) }
+[data-stil="c"] .pt-eticheta { font-size: 12px; letter-spacing: .06em; text-transform: uppercase }
+[data-stil="c"] .pt-bare { display: none }
+[data-stil="c"] .pt-pastile { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--color-v3-line); gap: 6px 26px }
+[data-stil="c"] .pt-pastile button { border: 0; background: none; padding: 0; min-height: 28px; border-radius: 0; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--color-v3-ink-2) }
+[data-stil="c"] .pt-pastile button[aria-pressed="true"] { background: none; color: var(--color-v3-ink); text-decoration: underline; text-underline-offset: 9px; text-decoration-thickness: 2px }
+[data-stil="c"] .pt-cauta { order: -5; border: 0; border-bottom: 1px solid var(--color-v3-line); border-radius: 0; background: none; margin: 0; padding-right: 0 }
+[data-stil="c"] .pt-cauta input { padding-left: 0 }
+[data-stil="c"] .pt-exemplu { border: 0; background: none; padding: 10px 0 0; border-radius: 0; margin: 0 }
+[data-stil="c"] .pt-freemium { border: 0; border-radius: 0; background: none; padding: 16px 0; border-bottom: 1px solid var(--color-v3-line); margin: 0 }
+[data-stil="c"] .pt-lista-titlu { margin-top: 24px }
+[data-stil="c"] .pt-lista > li > button { padding: 22px 0 }
+[data-stil="c"] .pt-lista > li > button > span:nth-child(3) { font-size: 20px }
+[data-stil="c"] .pt-lista > li > button > span:nth-child(2) { font-family: var(--font-head); font-weight: 800; font-size: 34px; letter-spacing: -.04em }
+[data-stil="c"] .pt-termene-titlu { border: 0; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--color-v3-ink-2) }
+[data-stil="c"] .pt-termene b { font-family: var(--font-head); font-weight: 800; font-size: 28px }

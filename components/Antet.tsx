@@ -6,6 +6,7 @@ import { useLimba } from "@/components/Limba";
 import { MeniuProfil } from "@/components/MeniuProfil";
 import { SemnBuzunar } from "@/components/Logo";
 import { useAbonament } from "@/components/useAbonament";
+import { useStil } from "@/components/Stil";
 import type { StareAbonament } from "@/lib/abonament";
 
 // Antetul: logo-ul și numele în stânga, Pro și meniul contului în dreapta, secțiunile dedesubt.
@@ -24,8 +25,38 @@ export function Antet() {
   const { t } = useLimba();
   const cale = usePathname();
   const stare = useAbonament();
+  const stil = useStil();
   // Pe landing (/) nu apar: pagina are bara ei minimală (components/Acasa.tsx).
   if (cale === "/") return null;
+  // SPIKE A/B/C: o singură bară, ca pe landing: marca în stânga, secțiunile uppercase la mijloc, contul în dreapta.
+  if (stil)
+    return (
+      <header className="pt-antet">
+        <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-x-4 px-4 py-2.5 sm:py-3.5 lg:px-6">
+          <Link href="/" className="flex min-w-0 items-center gap-2.5 no-underline">
+            <SemnBuzunar className="h-7 lg:h-8" />
+            <b className="font-head text-[22px] leading-none font-extrabold tracking-[-.02em] whitespace-nowrap text-v3-ink">{t("Buzunar")}</b>
+            {stare?.activ && <ChipPro />}
+          </Link>
+          <nav aria-label={t("Secțiuni")} className="order-3 flex basis-full gap-6 overflow-x-auto sm:order-none sm:basis-auto">
+            {SECTIUNI.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                aria-current={activ(cale, s.href) ? "page" : undefined}
+                className="flex min-h-11 shrink-0 items-center text-[12px] font-bold tracking-[.16em] whitespace-nowrap text-v3-ink-2 uppercase no-underline hover:text-v3-ink aria-[current=page]:text-v3-ink"
+              >
+                {t(s.text)}
+              </Link>
+            ))}
+          </nav>
+          <span className="flex items-center gap-2">
+            <ButonPro stare={stare} />
+            <MeniuProfil stare={stare} />
+          </span>
+        </div>
+      </header>
+    );
   // Bara de secțiuni e în afara <header>: sticky se oprește la marginea părintelui,
   // iar în <header> s-ar fi oprit imediat sub ea. Ca frate al lui <main>, rămâne sus pe tot scroll-ul.
   return (
