@@ -239,6 +239,7 @@ const EN: Record<string, string> = {
   "Pro (demo)": "Pro (demo)",
   "fără plată, doar pe acest dispozitiv": "no payment, this device only",
   "demo": "demo",
+  "abonament activ": "active subscription",
   "Ai Pro (demo).": "You have Pro (demo).",
   "Vezi aplicația ca un abonat, fără plată. Ține doar pe acest dispozitiv.": "See the app as a subscriber, without paying. Only on this device.",
   "Oprește Pro (demo)": "Turn off Pro (demo)",
