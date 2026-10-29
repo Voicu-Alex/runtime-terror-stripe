@@ -56,6 +56,17 @@ export type Profil = {
 export const PROFIL_GOL: Profil = { taguri: [], valori: {} };
 
 const CHEIE = "cipm.profil.v1";
+const ascultatori = new Set<() => void>();
+let profilMemorie: Profil | null = null;
+export function abonareProfil(ascultator: () => void): () => void {
+  ascultatori.add(ascultator);
+  return () => { ascultatori.delete(ascultator); };
+}
+export function profilCurent(): Profil | null { return profilMemorie; }
+function anunta(profil: Profil) {
+  profilMemorie = profil;
+  ascultatori.forEach((f) => f());
+}
 
 /** Adaugă etichete și valori peste un profil existent, fără dubluri. Funcție pură. */
 export function adaugaInProfil(profil: Profil, taguri: TagId[], valori: Valori = {}): Profil {
@@ -74,19 +85,24 @@ export function scoateDinProfil(profil: Profil, tag: TagId): Profil {
 /** Profilul stă doar pe dispozitiv (localStorage). Orice eroare de storage dă profilul gol. */
 export function incarcaProfil(): Profil {
   if (typeof window === "undefined") return PROFIL_GOL;
+  if (profilMemorie) return profilMemorie;
   try {
     const brut = window.localStorage.getItem(CHEIE);
-    if (!brut) return PROFIL_GOL;
-    return normalizeaza(JSON.parse(brut));
+    const profil = brut ? normalizeaza(JSON.parse(brut)) : PROFIL_GOL;
+    anunta(profil);
+    return profil;
   } catch {
+    anunta(PROFIL_GOL);
     return PROFIL_GOL;
   }
 }
 
 export function salveazaProfil(profil: Profil): void {
   if (typeof window === "undefined") return;
+  const curat = normalizeaza(profil);
+  anunta(curat);
   try {
-    window.localStorage.setItem(CHEIE, JSON.stringify(normalizeaza(profil)));
+    window.localStorage.setItem(CHEIE, JSON.stringify(curat));
   } catch {
     // storage blocat (private mode etc.): profilul rămâne doar în memorie
   }
@@ -94,6 +110,7 @@ export function salveazaProfil(profil: Profil): void {
 
 export function stergeProfil(): void {
   if (typeof window === "undefined") return;
+  anunta(PROFIL_GOL);
   try {
     window.localStorage.removeItem(CHEIE);
   } catch {
