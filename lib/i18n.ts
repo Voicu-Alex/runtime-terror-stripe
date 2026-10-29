@@ -521,6 +521,7 @@ const EN: Record<string, string> = {
   Nu: "No",
   Gata: "Done",
   "Sar peste": "Skip",
+  "Răspunsuri la întrebarea curentă": "Answers to the current question",
   "Prefer formularul": "I prefer the form",
   "Încarc un document sau folosesc formularul": "I'll upload a document or use the form",
   "Înapoi la conversație": "Back to the conversation",
