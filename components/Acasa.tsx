@@ -279,8 +279,8 @@ const INTREBARI: [Text, Text][] = [
   [
     { ro: "Ce date îmi luați?", en: "What data do you take?" },
     {
-      ro: "Nu conectăm banca. Profilul completat de mână e salvat în browser. Dacă încarci un document, fișierul ajunge la serverul aplicației și, pentru analiza AI, la Anthropic; îți spunem asta înainte, iar formularul manual rămâne alternativa.",
-      en: "We never connect to your bank. A profile filled in by hand is saved in your browser. If you upload a document, the file goes to our server and, for the AI analysis, to Anthropic; we tell you before you upload, and the manual form remains an alternative.",
+      ro: "Nu conectăm banca. Profilul completat de mână e salvat în browser. Dacă încarci un document, fișierul ajunge la serverul aplicației și, pentru analiza AI, la modelul Claude; îți spunem asta înainte, iar formularul manual rămâne alternativa.",
+      en: "We never connect to your bank. A profile filled in by hand is saved in your browser. If you upload a document, the file goes to our server and, for the AI analysis, to the Claude model; we tell you before you upload, and the manual form remains an alternative.",
     },
   ],
   [
