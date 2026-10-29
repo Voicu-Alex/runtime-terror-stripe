@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F2 · Bilanț</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+/* F2 · Bilanț: în locul articolului și al benzii de cifre, bilanțul lunar pe o bară.
+   Fiecare segment e o lege, la scară; verdele e ce poți recupera. Simularea mută cifra pe loc. */
+.bil{background:linear-gradient(180deg,var(--tint2),#fff 70%);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px 20px;margin-bottom:28px}
+.bil h1{font:800 22px/1.2 var(--head);margin:0 0 16px}
+.nums{display:flex;flex-wrap:wrap;gap:12px 40px;align-items:flex-end;margin-bottom:18px}
+.nums div{min-width:150px}
+.nums span{display:block;font-size:13.5px;color:var(--ink-2);margin-bottom:4px}
+.nums b{font:800 40px/1 var(--head);letter-spacing:-.02em}
+.nums b small{font:600 14px var(--sans);color:var(--ink-3);margin-left:4px;letter-spacing:0}
+.nums .net b{font-size:28px}
+.track{display:flex;gap:2px;height:30px;border-radius:8px;overflow:hidden;margin:0 0 8px}
+.seg{border:0;padding:0;min-width:6px;position:relative;transition:filter .15s}
+.seg:hover{filter:brightness(.9)}
+.seg.neg{background:var(--neg)}
+.seg.pos{background:#BFE3CC}
+.seg.pos.on{background:var(--pos)}
+.gtrack{height:18px;width:var(--w);border-radius:6px}
+.leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--ink-2);margin:0 0 14px}
+.leg button{border:0;background:none;padding:0;display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--ink-2)}
+.leg button:hover{color:var(--ink);text-decoration:underline}
+.leg i{width:10px;height:10px;border-radius:3px;background:var(--neg)}
+.leg i.p{background:var(--pos)}
+.leg b{color:var(--ink);font-weight:600}
+.cap{font-size:13px;color:var(--ink-3);margin:0}
+.lh{font:800 19px/1.2 var(--head);margin:0 0 4px;display:flex;justify-content:space-between;align-items:baseline}
+.lh span{font:500 13.5px var(--sans);color:var(--ink-3)}
+@media (max-width:760px){
+  .bil{padding:18px 16px 16px;margin-bottom:20px}
+  .nums{gap:12px 24px}
+  .nums b{font-size:34px}
+  .nums .net b{font-size:24px}
+  .track{height:24px}
+}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr"></header>
+<nav class="nav" id="nav"></nav>
+<div class="page">
+  <aside class="filters"><h3>Arată</h3><div id="f"></div><p class="fnote">Andrei, 32. Profilul rămâne pe telefon.</p></aside>
+  <main>
+    <div class="chiprow" id="chips"></div>
+    <section class="bil" id="bil" aria-live="polite"></section>
+    <h2 class="lh">Toate actele care te privesc<span>după cât te costă</span></h2>
+    <div class="list" id="list"></div>
+    <p class="disc">Nu e sfat financiar. Arătăm efectul legii pe profilul tău și ce permite legea.</p>
+  </main>
+  <aside class="aside" id="aside"></aside>
+</div>
+<nav class="bnav" id="bnav"></nav>
+<script src="../v4/data.js"></script>
+<script src="common.js"></script>
+<script>
+function render(){
+  var now = totalNow(), sg = simGain(), all = gainAll();
+  var cost = ITEMS.filter(function(i){ return U.inForce(i) && i.impact < 0; }).sort(function(a,b){ return a.impact - b.impact; });
+  var gain = ITEMS.filter(function(i){ return i.gain && i.status !== 'termen_depasit'; }).sort(function(a,b){ return b.gain - a.gain; });
+  var s = '<h1>Bilanțul tău pe lună, din legile care te privesc</h1><div class="nums">';
+  s += '<div><span>Te costă deja</span><b class="neg">−' + lei0(-now) + '<small>lei/lună</small></b></div>';
+  s += '<div><span>Poți recupera, cu ce permite legea</span><b class="pos">+' + lei0(all) + '<small>lei/lună</small></b></div>';
+  if (sg) s += '<div class="net"><span>Cu ce ai simulat</span><b class="neg">−' + lei0(-(now + sg)) + '<small>lei/lună</small></b></div>';
+  s += '</div>';
+  s += '<div class="track" role="img" aria-label="Ce te costă fiecare lege">' + cost.map(function(i){ return '<button class="seg neg" style="flex:' + (-i.impact) + '" data-open="' + i.id + '" title="' + i.short + ': ' + U.lei(i.impact) + '"></button>'; }).join('') + '</div>';
+  s += '<div class="leg">' + cost.map(function(i){ return '<button data-open="' + i.id + '"><i></i>' + i.short + ' <b>−' + lei0(-i.impact) + '</b></button>'; }).join('') + '</div>';
+  s += '<div class="track gtrack" style="--w:' + (all / -now * 100) + '%">' + gain.map(function(i){ return '<button class="seg pos' + (S.sim[i.id] ? ' on' : '') + '" style="flex:' + i.gain + '" data-sim="' + i.id + '" aria-pressed="' + !!S.sim[i.id] + '" title="Simulează: ' + i.short + ' +' + U.num(i.gain) + '"></button>'; }).join('') + '</div>';
+  s += '<div class="leg">' + gain.map(function(i){ return '<button data-sim="' + i.id + '" aria-pressed="' + !!S.sim[i.id] + '"><i class="p" style="' + (S.sim[i.id] ? '' : 'background:#BFE3CC') + '"></i>' + i.short + ' <b>+' + U.num(i.gain) + '</b></button>'; }).join('') + '</div>';
+  s += '<p class="cap">Barele sunt la aceeași scară. Atinge o bară verde ca să simulezi acțiunea. O parte din ce poți recupera se aplică abia din 2027. Sumele marcate sunt calculul nostru pe profilul tău.</p>';
+  document.getElementById('bil').innerHTML = s;
+  var v = visible().sort(function(a,b){ return Math.abs(b.impact || b.gain) - Math.abs(a.impact || a.gain); });
+  document.getElementById('list').innerHTML = v.map(function(i){ return row(i, 520); }).join('');
+  var fh = filters(); document.getElementById('f').innerHTML = fh; document.getElementById('chips').innerHTML = fh;
+  document.getElementById('aside').innerHTML = aside();
+}
+shell(); bind(render); render();
+</script>
+</body>
+</html>
