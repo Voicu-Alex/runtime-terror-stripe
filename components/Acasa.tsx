@@ -126,8 +126,8 @@ const PROMISIUNI: { mare: [Text, Text]; intrebare: Text; raspuns: Text }[] = [
     mare: [{ ro: "Arătăm", en: "We show" }, { ro: "efectul legii.", en: "the law's effect." }],
     intrebare: { ro: "E sfat financiar?", en: "Is this financial advice?" },
     raspuns: {
-      ro: "Nu. Îți arătăm ce schimbă legea și ce acțiuni permite ea. Nu recomandăm produse: trimitem la instrumente oficiale, iar furnizorii apar în ordine alfabetică.",
-      en: "No. We show what the law changes and which actions it allows. We do not recommend products: we link to official tools, and providers are listed alphabetically.",
+      ro: "Nu. Îți arătăm ce schimbă legea și ce acțiuni permite ea. Nu recomandăm produse: trimitem întâi la instrumentele oficiale, iar firmele sponsorizate sunt marcate ca atare.",
+      en: "No. We show what the law changes and which actions it allows. We do not recommend products: we link to official tools first, and sponsored firms are marked as such.",
     },
   },
   {
