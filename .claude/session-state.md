@@ -5,6 +5,8 @@
 - Logo în aplicație: buzunar în culoarea --color-v3-logo (gri cald; accentul albastru din v3 vechi nu mai e în app), monedă --color-v3-pos. components/Logo.tsx; iconițe/OG în lib/marca.tsx.
 - Telefon: logo stânga, limba un singur buton, tema în subsol; acasă nu mai are 807 px lățime (bilanț); butonul Asistent jos-dreapta peste tot; focus curat în câmpul de chat.
 - Verificat: tsc, 264 teste, telefon 375 lumină/întuneric în panoul de browser, desktop/tabletă în captures/ui-dupa-*. Serverul pornit din Bash pe :3020 (limita de 5 servere de preview era plină).
+- Pas 2 (cererea lui Andrei): logo + nume în stânga pe toate mărimile; „Profil” scos din bara de secțiuni; în dreapta Pro + buton rotund de profil (components/MeniuProfil.tsx) cu: cont (Intră / email + Ieși din cont), Etichetele mele (/profil#etichete), Adaugă un document (/profil#document), Planul meu, Vorbește cu asistentul, Temă închisă, Limba, Upgrade la Pro. Pe /profil butonul are inel.
+- Verificat pe telefon: meniul, EN, tema închisă, linkul la etichete. Neverificat: starea conectat și „Ieși din cont” (fără cont de test).
 - Deschis: push + PR (depinde de PR-ul asistentului); ESLint nu rulează cu configul din repo.
 
 
