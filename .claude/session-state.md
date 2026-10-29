@@ -1,91 +1,40 @@
 # Session state
 
-Updated: 2026-10-28 14:40
+Updated: 2026-10-29 05:20
 
-## Context
-Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product: **"Ce înseamnă pentru mine"**. Locked direction (v2, 28 Oct 2026, with Andrei): standalone app, no bank integrations, no Stripe for now; strictly financial impact across niches; profile = tags incl. work domain; onboarding by chat with an assistant (placeholder in mockup) with form fallback; feed of notifications, each item ends in lei/month + dated action + link to the law article + "te privește ca: tags"; statuses proiect / adoptat / în vigoare / termen depășit. Non-financial effects are a later step. Plan file (v1, partly superseded): `~/.claude/plans/make-a-mockup-based-effervescent-sutherland.md`.
+## Branch `legi-ingest` (worktree `.claude/worktrees/legi-ingest`, off `deploy-descriere`)
 
-## Done (session 1, this clone, branch `andrei`)
-- v1 (committed 03243bc): 4-question profile → timeline → simulate → "Planul meu" bar; kept at `mockup/v1/index.html`.
-- v2 `mockup/index.html`: notification overlay (hero = Pilon II payout, Legea 2/2026, applies 5 Jan 2027; header shows "5 ian 2026 · demo"), three tabs (Noutăți feed, Planul meu, Profil with tag chips + chat placeholder), 12 rules with verified act / MO ref / Portal Legislativ link / article / explanatory source / "verificat la", tag intersection drives the feed per persona (Andrei IT+SRL, Maria PFA HoReCa, Ion pensionar). TODAY = 2026-10-28. My edits on top of the builder: CTA uses window.scrollTo (scrollIntoView scrolled the embedding pane); `.imp .v.zero` 17px for "informativ".
-- `docs/produs.md` / `docs/product.md` rewritten for v2 (tags, feed, notification, standalone, no Stripe, "Mai departe" for non-financial) + Sources table with legislatie.just.ro links and confidence per rule.
-- `docs/research-v2.md`: researcher output (13 rows). Window 1 Sep–28 Oct 2026: no new act found, hence the Pilon II hero.
-- Captures `captures/v2-0*.jpg` (phone 375px, RO and EN, Andrei and Maria, expanded Pilon II card with legal source, dividend card "deadline passed", profile tab). Verified in DOM: simulate toggle moves the bar (−11.248 → −11.048), 7 Portal Legislativ IDs match research, dividend switch disabled.
-- Artifact of the mockup: https://claude.ai/artifact/TXdexkw3rpvSMaU25mHW4n (republish from mockup/index.html keeps the URL).
+Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) → /admin/acte → catalog. Planul aprobat:
+`~/.claude/plans/make-a-branch-off-spicy-llama.md`. Documentație: `docs/ingest.md`, `docs/surse-de-date.md` (sondarea).
 
-## Done (session 2, same clone)
-- `mockup/descriere.html`: Romanian product description page for the jury (6 tag families incl. Domeniul meu, asistent/formular, LLM reads Monitorul Oficial, notificare → flux + Planul meu, standalone, no Stripe/bank), answers the 4 PDF points, criteria table, sources. Opening notification = Pilon II / Legea 2/2026 + Pilon III before 31 dec 2026.
-- Domain tag now has a real example: OUG 156/2024 (MO 1334/31 dec 2024), IT/construcții/agricultură/ind. alimentară lose income-tax exemption from Jan 2025, ≈520 lei/lună at brut 8.000 (tax only; Pilon II part not verified). Demo set is now 8 acts.
-- `docs/rethinking_financial_futures_hackathon_stripe.pdf` copied in and linked from the page. Served on port 8766 (`descriere` in launch.json). Capture: `captures/07-descriere-desktop.png`.
+### Făcut (commitat local, nepushuit)
+- `supabase/acte.sql` (acte, interpretari, rulari, cursor_surse; recenzat de Opus), `scripts/legi/db.mjs`, `migreaza.mjs`
+  (pg, TLS verificat, CA opțional `SUPABASE_DB_CA`).
+- `lib/portal.ts` (parserul paginii de act, 4 fixturi reale), `lib/portal-client.ts` (1 cerere / 2 s, backoff, plafon;
+  id lipsă = HTTP 500 cu pagina „Error”, numărat ca 404), `lib/triaj-reguli.ts`.
+- `scripts/legi/descopera.mts` (`--ids`, `--de-la/--pana-la`, `--dry-run`, `--dump <dir>`, `--cauta-oug`),
+  `export-lot.mts` (`--din <dir>` fără bază), `importa-interpretari.mts` (poarta cu verificări), `aproba.mts`,
+  `respinge.mts`, `export-inbox.mts` (formatul PR #34), `incarca.mts` (dump → acte).
+- `lib/interpretare.ts` (spreSchimbare/spreGhid), `lib/verificari-interpretare.ts`, `lib/aprobare.ts`,
+  instrucțiuni v3 (+ regula 13: data intrării în vigoare dedusă din regula generală).
+- `/admin/acte` (+ `?demo=1`), aprobare pe schimbare. Capturi `captures/legi-admin-0*.png`.
+- 181 teste, tsc curat. Build neverificat.
 
-## Next step
-- Andrei reviews v2 captures / artifact. Open decision: use the Claude API in the prototype for profile-tag extraction and MO classification (with cache fallback), which reverses the earlier "no API" choice.
-- On approval → prototype (Vite + React + TS, rule engine with tests, tag matching, no Stripe) per plan file Slice 3, updated for v2.
+### Rulat
+- 12 acte (campanii + alese) aduse cu `--dry-run --dump scratch/acte`; loturi în `scratch/lot/` (Codul fiscal doar art.
+  84, 84^1, 97, 155, 156, 170; Legea 239 art. XII–XIII; Legea 76 art. 33^1…76^5). OUG 8/2026 = Portal 307580.
+- 11/12 interpretări Sonnet (subagenți) în `scratch/lot/portal_<id>.json`; poarta: 8 ok, 3 cu schimbări fără etichetă
+  (cripto/titluri, TVA 21% general, asigurare voluntară de șomaj) care rămân neaprobabile. OUG 8/2026 încă rulează.
+- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) în `--dry-run --dump scratch/sweep`, jurnal `scratch/sweep-log.txt`.
+- Paritate API (Haiku) pe 3 loturi: `scratch/lot-api/`. Spot-check Opus pe 5 interpretări: în curs.
 
-## Open in tools
-- Browser pane: http://localhost:8767 (preview "mockup-v2", absolute path to ./mockup; "mockup" on 8765 resolved against the old session folder). Port 8766 = session 2 description page.
-- Branch: `andrei` on https://github.com/Voicu-Alex/runtime-terror-stripe, base `main`.
+### BLOCAT: baza de date
+`.env.local` are `SUPABASE_DB_URL` comentat, cu `[YOUR-PASSWORD]`. Fără el nu merg `legi:migreaza`, `legi:incarca`,
+`legi:importa`, `legi:aproba` și pagina /admin/acte pe date reale. După ce Andrei pune parola (sau lipește
+`supabase/acte.sql` în SQL Editor): `npm run legi:migreaza && npm run legi:incarca -- --din scratch/acte --din scratch/sweep
+&& npm run legi:importa -- --model claude-sonnet-5-5 --driver subagent`.
 
-## Open questions for Andrei
-- API in the prototype: yes/no, and whose key.
-- Hero notification is my pick (Pilon II); change it if you want a cost figure in the first ten seconds (IT exemption −650 lei/lună is the biggest, but it dates from Jan 2025).
-
-## Known deltas / not verified
-- Article link text on the Pilon II card wraps to three lines; fine on phone, could be shortened.
-- 1280px layout of v2 not captured (pane was narrow); column is max-width 680 like v1.
-- Articles marked "de confirmat" (OUG 156/2024, Legea 239/2025, Cod fiscal art. 78) were not read in the act text; building-tax and construction figures are press-only.
-- Haiku inspector not run (no browser tool); captures graded by the orchestrator.
-
-## Design v3 (28 oct, după-amiază, clona lui Matei)
-- **Ales: varianta F „Revistă · gri șobolan”** în `mockup/v3/index.html` (`?v=f`). Decizia și motivele: `docs/adr/0001-design-v3-revista-gri.md`. Înlocuiește v2 ca design de referință.
-- Variantele A, B, C (sesiunea de design) și D (albastru), E (turcoaz) rămân în fișier pentru comparație; se trece între ele cu ←/→.
-- Titlurile celor 12 acte au fost rescrise în limbaj clar (cu valoarea de dinainte acolo unde e confirmată), deci se schimbă în toate variantele.
-- Capturi: `captures/v3-*` (inclusiv `v3-f-desktop-1280.png`, `v3-f-2-noutati-top.png`). Capturi pe telefon prin `mockup/frame.html` (Chrome headless pe Windows nu randează sub ~500px).
-- Context: `docs/echipa/design-brief.md`, `docs/research-competitori.md` (concurenți, capturi în `captures/competitori/`).
-- Încă de făcut: Planul meu / Profil / onboarding în stilul F; decizia despre marcajul „estimare” în listă.
-- NIMIC din toate acestea nu e commitat încă.
-
-## Latest (14:40)
-- `mockup/index.html` (served on :8767 by the other session's server): added the "Exemplu real: OUG 156/2024..." note under the Domeniu group in the Profil tab (i18n key `pf.domainEx`, RO+EN). Capture: `captures/08-app-profil-domeniu-exemplu.jpg`. NOT committed yet; awaiting Andrei's go-ahead to commit + push to andrei and main.
-- main was fast-forwarded to andrei at 19165ec and pushed.
-- OUG 156/2024 cards (it_scutire, constructii_facilitati) now cite art. LXIV pct. 7 (abrogă Codul fiscal art. 60 pct. 2 / pct. 5 și 7), verified in the official text on legislatie.just.ro/293109 (applies from Jan 2025 income); "de verificat" chip removed from constructii; its secondary link switched to KPMG. Capture: captures/09-app-card-it-sursa.jpg. Branch: andrei-2.
-- Open question: IT card in index.html says -650 lei/lună, descriere.html says ≈520 lei/lună (tax only, brut 8.000). Pick one number before the pitch.
-- Servers running: :8765 (other session), :8766 (descriere, this repo root), :8767 (mockup/ folder).
-
-## Latest (session 3, branch `andrei-flux`, worktree `.claude/worktrees/andrei-flux`)
-- `andrei-2` and the main checkout belong to another agent: do not touch them.
-- `andrei-flux` = origin/voicu (PR #12, Voicu's skeleton) + merge of main (fixes the .gitignore conflict that blocks PR #12) + issue #3 card. Earlier standalone version kept on local branch `andrei-flux-v1` (2f1ce59).
-- Design reference is now `mockup/v3/index.html?v=f` (PR #13, ADR 0001). Card follows its list row: kicker, title, amount right, deadline, status + act. Levels: Zero = closed row, Curios = opened row, Expert = "Arată-mi legea".
-- Added: `components/CardSchimbare.tsx`, `lib/card.ts` (+7 tests), `lib/persoane-demo.ts` (Andrei brut 8.000 → IT −520), `/flux?p=andrei|maria|ion` sorted by impact, Inter + Raleway fonts, "Flux" nav link, one_click = https://posf.ro/comparator on energy and gas actions.
-- 28 tests pass, tsc clean, build green (needs network for Google Fonts).
-- Captures: `captures/flux-00-ref-v3f-*` (reference) vs `captures/flux-01-*` (result).
-- Not pushed. Open with Voicu: energy/gas formulas return null (shown "— de calculat"); Status lacks termen_depasit (derived in lib/card.ts); one_click is a bare URL (button label generic "Compară oferte"); catalog titles are not the rewritten v3 titles.
-- Next: "Planul meu" toggle, `/notificare`, `/admin` + BroadcastChannel, then PR.
-
-## Latest (session 3, 18:30, `andrei-flux`, local only)
-- Merged origin/voicu 792924b (profile numbers, 7 tag families, 3 new acts, AI Act footer, 4 more test docs). 32 tests, tsc, build green.
-- Voicu asked (PR #12 comment) to test the Portal SOAP API from a browser: works from browser AND from Node/curl here (200, no UA or honest UA, no spoofing). `Text` = base text, not consolidated. Written up in `docs/surse-de-date.md`.
-- Catalog fixes from official text: alocatie_copii (Legea 61/1993 art. 3 via OUG 126/2021, 243 lei from 2022 indexed; 292 lei = press), varsta_pensionare (Legea 360/2023, MO 1089/4 dec 2023, art. 47, art. 167; annex 5 schedule TODO), alocatie_sustinere_familie: **Legea 277/2010 abrogated 1 ian 2024** by Legea 196/2016 art. 96 lit. b) → entry now cites Legea 196/2016 (VMI), thresholds TODO.
-- Team blocker found: `origin/andrei-2` (other agent) has a full prototype on its OWN Next 16 skeleton (flux, admin, notificare, setari, documente, pipeline, 111 tests), colliding with Voicu's PR #12 (Next 15) and this branch. Needs a team decision on which skeleton wins. PR #12 still CONFLICTING with main (.gitignore), fixed only here.
-- 19:00: pushed b1e3962 to origin/voicu (merge main → .gitignore conflict fixed, PR #12 now MERGEABLE/CLEAN; 25 tests, tsc ok). andrei-flux merged it, fonts moved from next/font to a <link> (next/font broke 2 of 4 builds on the Google download), demo personas got an_nastere/nr_copii (Maria no longer sees varsta_pensionare). andrei-flux pushed. Capture: captures/flux-02-lista-maria-375.jpg.
-- andrei-2 is a separate part of the project (Andrei, 28 oct): leave it out.
-
-## Latest (session 3, 19:30, branch `andrei-continut` from main 5471f11, local only)
-- main now has PRs #9 #10 #11 #12 #14 merged. No open PRs.
-- Wired: `lib/continut.ts` (+10 tests): Iasmina's content/niveluri.json → card levels (7 acts, explicit id map, sentences with TODO dropped); Haggy's business/parteneri.json → energy/gas suppliers under the ANRE comparator, alphabetical, utm, "partener" label only if affiliate; Chris's modal (content/modal-specialist.md + business/profesionisti.md table) with CECCAR / CCF registers verified on their sites. Catalog: pilon2_plata → "consultant fiscal", varsta_pensionare → null (no regulated pensions consultant, per Chris).
-- Card: open row = Zero; "De ce?" = Curios; "Arată-mi legea" = Expert (Iasmina's text + sources). "Găsește un {profesie}" stays after a passed deadline.
-- 42 tests, tsc, build green. Captures: captures/continut-0*.jpg.
-- Gotcha: `next build` in the same folder breaks a running `next dev` (shared .next); stop dev or rm -rf .next and restart.
-- Content conflicts to raise: gas action says "blochează un preț fix" but Iasmina/Chris say nothing to do until 31 mar 2027; child allowance title states 292 lei (press) as fact.
-- 19:50: MISTAKE: ran `gh pr merge 15` assuming it was mine; #15 was Voicu's (same feature: Iasmina levels into catalog + Chris modal, no registry link). main stayed healthy (32 tests). Reconciled: kept Voicu's catalog (`specialist` field), my card + lib/continut now read `s.specialist`; varsta_pensionare profesionist → null. Merged my #16 (069a82a). main == andrei-continut, 42 tests, build ok, no open PRs. Voicu not told yet (needs Andrei's OK to comment).
-- Lesson: always merge by the number `gh pr create` printed.
-- 20:20: key in .env.local works. Route fixed for claude-opus-5-5 (forced tool_choice = 400 → output_config.format json_schema; no minimum/maximum on number; max_tokens 16000; refusal handled). Real API: 7-doc check 4/7, then 6/6 after prompt rules 7-8 (run stopped on Andrei's request).
-- Andrei: test agent behaviour with Claude Code subagents, NOT the API key, until the app is ready. Subagent run (Opus, read-only, reading INSTRUCTIUNI_MODEL + SCHEMA_ANALIZA + one doc): 7/7 match scripts/verifica-test-docs.mjs expectations.
-- Commit 44c9e50 on andrei-continut, local, not pushed. .env.local still holds the key: a real upload on /documente would call the API.
-- 21:00: model eval (subagents, no API key): eval/ (descarca-acte.mjs, genereaza-documente.py, interpretare/instructiuni.md, scor.mjs, numara-actiuni.mjs, asteptari-*.json, legi/*.txt, rezultate/{sonnet,haiku}/). 13 docs (7 Voicu + 6 new) and 9 laws (3 golden, 4 new 2026, 2 negatives). Final: docs 13/13 both; laws all automatic checks pass both; Sonnet proposes more actions (6 vs 4). Fix round: rule 9 (bank statements: no tags). Write-up: docs/eval-modele.md. Recommendation: Haiku for docs + triage, Sonnet for interpretation (team decision; route still on claude-opus-5-5).
-- 22:00: plan steps 1-4 implemented (Fable advisor reviewed design and result): data/destinatii.json + lib/destinatii.ts + scripts/verifica-destinatii.mjs (10/10 URLs); typed actions (tip/cine_aplica/destinatie) in lib/catalog.ts + validator, all 14 catalog actions typed; lib/formule-tip.ts (4 parametrized types, parametriInText) wired into potrivire; HG 146/2026 in catalog (diferenta_prag 4325, condiție brut ≥ 4050 from OUG 89/2025); Elena (fictional, salariu_minim, no brut) + components/Flux.tsx (typed values per persona in localStorage) + "spune-ne X" form on the card. Law prompt v2; re-run: active changes with action Haiku 3/15→15/15, Sonnet 5/12→11/11, destinations 11/11 and 8/8, formula numbers in text 4/4 and 1/1. 63 tests, tsc, build pass. Captures captures/pas1-*, pas4-*.
-- Open for Andrei/team: add Elena to the persona list in CLAUDE.md (not edited); a "buying a home" tag (Sonnet left Legea 161 untagged); verify the 6 proposed destinations; gas action text conflict.
-- 23:00: merged main (Matei's v3 F flux, ListaFlux/FluxMeu, RO/EN, ghid /legi, Ioana, cumpar_locuinta tag, 5 new acts) into andrei-continut; steps 1-4 re-applied on their structure. "Spune-ne X" lives in ListaFlux: demo → cipm.demo.<id>.valori, real profile → adaugaInProfil + salveazaProfil. Andrei decided: home-buying cards use cumpar_locuinta only (not chirias/proprietar). tva_locuinta: Legea 161/2026 as modificat_prin + refund action (from 1 oct 2026; ANAF order number not found → "de verificat"). Destinations: +anofm (verified), +scoala, +asociatia_proprietari; ANAF refund procedure and energy-poverty page not found. 94 tests, tsc, build pass; 11/11 destination URLs. Captures: captures/merge-0*.jpg. Local only, not pushed.
-- Team note: tva_locuinta catalog entry says Legea 141/2025 (expired 2025) while its ghid entry describes the Legea 161 refund; the card header still shows "termen depășit".
-- 23:45: real API test (Andrei asked). Laws via eval/interpreteaza-api.mjs: Haiku 5.5 and Sonnet 5.5 pass every automatic check on 9 acts; measured cost $0.04 vs $0.85. Documents via the real route (Opus 5.5), eval/documente-api.mjs: run 1 11/13 (salariu_net missing on payslips; 0/"" filler values that FormularProfil would have saved into the profile), fixed with nullable-required schema + curataValori; run 2 13/13 but a 0.05 "rural" on the gas bill, fixed with rule 10 + drop < 0.2; run 3 13/13 clean. 97 tests, tsc, build pass. Doc cost not measured (route doesn't log usage), est. ~$0.4/run.
-- 22:10 (29 oct): merged origin/main (#24-#26) into andrei-continut. Catalog merged per id: teammates' text + my typed actions; salariu_minim_2026 existed on both sides, kept their niveluri/rezumat/sursa_explicativa and my conditii (brut >= 4050), formula_tip, 2 typed actions, detailed articol. Ghid = main's. Typed the 21 new actions from main (ajutor_incalzire / saracie_energetica / burse without destination: no matching verified desk). CardSchimbare: "spune-ne X" form + destination button used bg-white, unreadable in the new dark mode -> theme tokens. 97 tests, tsc, build pass.
+### Corecturi la campanii (de spus lui Andrei)
+- Prima de stabilitate (OUG 11/2026, art. 76^5) e doar pentru tineri NEET 16–29 ani înregistrați la agenție, nu pentru
+  oricine la primul job.
+- `cei_d` din catalog e cont de investiții, nu certificat energetic; art. 111 nu mai are prag de 450.000 lei din 2023.
