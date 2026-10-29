@@ -67,4 +67,13 @@ describe("triajReguli", () => {
     expect(t("ORDIN", "Ordin privind o taxă", null).candidat).toBe(true);
     expect(t("ORDIN", "Ordin organizatoric", null).candidat).toBe(false);
   });
+
+  it("ORDIN al Ministerului Educației fără cuvinte cheie nu e candidat (autorizarea unei școli)", () => {
+    const r = t("ORDIN", "Ordin privind acordarea autorizației de funcționare provizorie unității de învățământ Școala Primară X", "MINISTERUL EDUCAȚIEI ȘI CERCETĂRII");
+    expect(r.candidat).toBe(false);
+  });
+  it("ORDIN ANAF cu titlu administrativ (numire) nu e candidat; cu cuvânt cheie rămâne", () => {
+    expect(t("ORDIN", "Ordin privind numirea unui director", "AGENȚIA NAȚIONALĂ DE ADMINISTRARE FISCALĂ").candidat).toBe(false);
+    expect(t("ORDIN", "Ordin privind impozitul pe venit și numirea comisiei", "AGENȚIA NAȚIONALĂ DE ADMINISTRARE FISCALĂ").candidat).toBe(true);
+  });
 });

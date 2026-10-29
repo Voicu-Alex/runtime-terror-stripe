@@ -5,21 +5,40 @@
  *                                                   în <export>/lot-<n>.md, pentru agenții Haiku
  *   --din scratch/sweep --aplica scratch/triaj      citește <aplica>/*.json ({ "portal:123": { "atinge_banii": true, "motiv": "..." } })
  *                                                   și scrie în fișierele din --din stare_procesare triat_da / triat_nu + triaj.model
+ *   --din scratch/sweep --reevalueaza                   rulează din nou regulile de triaj pe rândurile fără verdict de model
  * Rândurile ajung apoi în Supabase cu `legi:incarca` (sau direct, când descopera rulează cu bază).
  */
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
+import { triajReguli } from "../../lib/triaj-reguli.ts";
 
 const { values: arg } = parseArgs({
-  options: { din: { type: "string" }, export: { type: "string" }, aplica: { type: "string" }, marime: { type: "string", default: "10" }, caractere: { type: "string", default: "4000" } },
+  options: { din: { type: "string" }, export: { type: "string" }, aplica: { type: "string" }, reevalueaza: { type: "boolean", default: false }, marime: { type: "string", default: "10" }, caractere: { type: "string", default: "4000" } },
 });
-if (!arg.din || (arg.export === undefined) === (arg.aplica === undefined)) {
-  console.error("Dă --din <dir> și exact una dintre --export <dir> sau --aplica <dir>.");
+const moduri = [arg.export !== undefined, arg.aplica !== undefined, arg.reevalueaza].filter(Boolean).length;
+if (!arg.din || moduri !== 1) {
+  console.error("Dă --din <dir> și exact una dintre --export <dir>, --aplica <dir> sau --reevalueaza.");
   process.exit(1);
 }
 const fisiere = (await readdir(arg.din)).filter((f) => f.endsWith(".json"));
 const rand = async (f: string) => JSON.parse(await readFile(path.join(arg.din!, f), "utf8"));
+
+if (arg.reevalueaza) {
+  const dupaStare = new Map<string, number>();
+  for (const f of fisiere) {
+    const r = await rand(f);
+    if (!["candidat", "respins_reguli"].includes(r.stare_procesare) || r.triaj?.model) { dupaStare.set(r.stare_procesare, (dupaStare.get(r.stare_procesare) ?? 0) + 1); continue; }
+    const reguli = triajReguli(r);
+    const fortat = r.triaj?.reguli?.fortat === true;
+    r.triaj = { ...(r.triaj ?? {}), reguli: { ...reguli, ...(fortat ? { fortat: true } : {}) } };
+    r.stare_procesare = fortat || reguli.candidat ? "candidat" : "respins_reguli";
+    await writeFile(path.join(arg.din, f), JSON.stringify(r) + "\n");
+    dupaStare.set(r.stare_procesare, (dupaStare.get(r.stare_procesare) ?? 0) + 1);
+  }
+  for (const [k, v] of [...dupaStare].sort()) console.log(`${String(v).padStart(6)}  ${k}`);
+  process.exit(0);
+}
 
 if (arg.export) {
   const candidati: Record<string, unknown>[] = [];

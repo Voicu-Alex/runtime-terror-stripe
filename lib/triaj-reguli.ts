@@ -30,8 +30,10 @@ const EMITENTI_BANI: [RegExp, string][] = [
   [/\bASF\b|AUTORITATEA DE SUPRAVEGHERE FINANCIARA/, "ASF"],
   [/\bBNR\b|BANCA NATIONALA/, "BNR"],
   [/\bANOFM\b|AGENTIA NATIONALA PENTRU OCUPAREA FORTEI DE MUNCA/, "ANOFM"],
-  [/MINISTERUL EDUCATIEI/, "Ministerul Educației (burse)"],
 ];
+
+/** Titluri care nu ating banii nimănui, chiar când emitentul e relevant (autorizări, acreditări, numiri). */
+const TITLURI_ADMINISTRATIVE = /AUTORIZATI|ACREDITAR|\bNUMIRE|\bNUMIREA|REVOCAR|ELIBERAR\w* DIN FUNCTIE|INCETAREA (RAPORTULUI|DETASARII)|CONFERIR|\bSTRUCTURA ORGANIZATORICA|REGULAMENTUL? DE ORGANIZARE/;
 
 /** Rădăcini de cuvinte din titlu (pe text normalizat, fără diacritice). */
 const CUVINTE_CHEIE: [RegExp, string][] = [
@@ -81,10 +83,16 @@ export function triajReguli(act: ActPentruTriaj): RezultatTriaj {
       return { candidat: false, motive: [`tip ${act.tip_act} al Curții Constituționale: verifică legi, nu stabilește sume`] };
     }
     const motive: string[] = [];
-    const emitentBani = EMITENTI_BANI.find(([re]) => re.test(emitent));
-    if (emitentBani) motive.push(`emitent relevant pentru bani: ${emitentBani[1]}`);
     const cuvinte = CUVINTE_CHEIE.filter(([re]) => re.test(titlu)).map(([, nume]) => nume);
     if (cuvinte.length) motive.push(`cuvinte cheie în titlu: ${cuvinte.join(", ")}`);
+    const emitentBani = EMITENTI_BANI.find(([re]) => re.test(emitent));
+    if (emitentBani) {
+      // emitentul singur nu ajunge când titlul e administrativ (autorizări, numiri)
+      if (!cuvinte.length && TITLURI_ADMINISTRATIVE.test(titlu)) {
+        return { candidat: false, motive: [`tip ${act.tip_act} al ${emitentBani[1]}, dar titlu administrativ (autorizare, numire, organizare)`] };
+      }
+      motive.push(`emitent relevant pentru bani: ${emitentBani[1]}`);
+    }
     if (motive.length) return { candidat: true, motive };
     return { candidat: false, motive: [`tip ${act.tip_act} fără emitent relevant pentru bani și fără cuvinte cheie în titlu`] };
   }
