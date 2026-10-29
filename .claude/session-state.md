@@ -7,7 +7,7 @@
 - Verificat: tsc, 264 teste, telefon 375 lumină/întuneric în panoul de browser, desktop/tabletă în captures/ui-dupa-*. Serverul pornit din Bash pe :3020 (limita de 5 servere de preview era plină).
 - Pas 2 (cererea lui Andrei): logo + nume în stânga pe toate mărimile; „Profil” scos din bara de secțiuni; în dreapta Pro + buton rotund de profil (components/MeniuProfil.tsx) cu: cont (Intră / email + Ieși din cont), Etichetele mele (/profil#etichete), Adaugă un document (/profil#document), Planul meu, Vorbește cu asistentul, Temă închisă, Limba, Upgrade la Pro. Pe /profil butonul are inel.
 - Verificat pe telefon: meniul, EN, tema închisă, linkul la etichete. Neverificat: starea conectat și „Ieși din cont” (fără cont de test).
-- PR #43 deschis; main adus în branch (conflict doar în acest fișier). Check-ul Vercel pică din lipsă de acces, nu din cod. ESLint nu rulează cu configul din repo.
+- PR #43 deschis; main adus în branch (conflict doar în acest fișier). Găzduirea e AWS Amplify (https://main.d35dxj4gdere6m.amplifyapp.com/), nu Vercel: check-ul Vercel de pe PR e rămas de la vechea găzduire, de ignorat. Imaginea de previzualizare arăta spre localhost:3000 pe producție; acum ia adresa din AUTH_URL (verificat doar că AUTH_URL e cerută în amplify.yml, nu și că e setată în consolă). ESLint nu rulează cu configul din repo.
 
 ## Latest (29 oct 2026): branch `legi-pipeline` (worktree `.claude/worktrees/legi-pipeline`), pipeline-ul de ingestie fără om
 - Branch nou din `main` (e74eb78d) cu `legi-ingest` inclus (merge 4c17e28d). Planul a ce lipsea: `docs/ingest-urmatorii-pasi.md`.
