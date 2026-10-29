@@ -1,0 +1,56 @@
+{
+  "act": "HG 146/2026",
+  "mo": null,
+  "publicat_la": null,
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Salariul minim brut crește la 4.325 lei pe lună de la 1 iulie 2026",
+      "rezumat_en": "Gross minimum wage rises to 4,325 lei a month from 1 July 2026",
+      "taguri": [
+        "salariu_minim",
+        "angajat"
+      ],
+      "in_vigoare_de_la": "2026-07-01",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [
+        {
+          "camp": "salariu_brut",
+          "op": "<",
+          "valoare": 4325
+        }
+      ],
+      "formula": null,
+      "formula_tip": {
+        "tip": "diferenta_prag",
+        "parametri": {
+          "camp": "salariu_brut",
+          "prag": 4325,
+          "perioada": "luna"
+        }
+      },
+      "articol": "art. 1",
+      "citat": "la suma de 4.325 lei lunar, pentru un program normal de lucru în medie de 166,667 ore pe lună, reprezentând 25,949 lei/oră",
+      "niveluri": {
+        "zero": "De la 1 iulie 2026, salariul de bază minim brut pe țară este de 4.325 lei pe lună, sau 25,949 lei pe oră.",
+        "curios": "Salariul de bază minim brut garantat în plată crește la 4.325 lei pe lună, pentru un program normal de 166,667 ore pe lună. Echivalentul este 25,949 lei pe oră. Dacă ai un salariu brut de bază sub 4.325 lei, angajatorul trebuie să ajungă la acest prag. Dacă ai deja mai mult, nu se schimbă nimic.",
+        "expert": "Art. 1 stabilește, din 1 iulie 2026, salariul de bază minim brut pe țară garantat în plată, prevăzut la art. 164 alin. (1) din Legea nr. 53/2003, la 4.325 lei lunar, fără sporuri și alte adaosuri, pentru 166,667 ore pe lună (25,949 lei/oră). Art. 2 abrogă HG 1.506/2024 de la aceeași dată. Vechea sumă nu apare în textul primit, deci creșterea exactă față de ea nu e calculată aici."
+      },
+      "actiuni": [
+        {
+          "tip": "verifica",
+          "cine_aplica": "angajator",
+          "text": "Verifică pe fluturașul de salariu din iulie 2026 încoace că salariul de bază brut, fără sporuri, nu e sub 4.325 lei pe lună pentru un program normal. Dacă ai un program parțial, verifică tariful orar, care trebuie să fie cel puțin 25,949 lei pe oră.",
+          "termen": null,
+          "destinatie": "angajator_hr",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "ridicata",
+      "nota": "Textul nu are data publicării în Monitorul Oficial, iar antetul spune „necunoscută” pentru intrarea în vigoare. Data de 1 iulie 2026 e cea din articolul 1, deci e sigură. Verifică numărul Monitorului Oficial și data publicării pe Portalul Legislativ. Vechea sumă din HG 1.506/2024 nu e în textul primit, deci diferența față de ea nu e calculată aici. Formula calculează doar cât lipsește până la 4.325 lei, dacă salariul brut e sub prag."
+    }
+  ]
+}

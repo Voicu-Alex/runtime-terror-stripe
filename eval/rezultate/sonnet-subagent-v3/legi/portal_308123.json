@@ -1,0 +1,173 @@
+{
+  "act": "OUG 11/2026",
+  "mo": "MO 181 / 9 mar 2026",
+  "publicat_la": "2026-03-09",
+  "atinge_banii": true,
+  "schimbari": [
+    {
+      "rezumat": "Tinerii NEET înregistrați la ANOFM primesc 1.000 lei lunar un an, apoi 1.250 lei lunar, la primul job cu contract pe durată nedeterminată",
+      "rezumat_en": "Young NEETs registered with the employment agency get 1,000 lei a month for a year, then 1,250 lei a month, at their first full-time open-ended job",
+      "taguri": [
+        "caut_primul_job"
+      ],
+      "in_vigoare_de_la": "2026-03-09",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [
+        {
+          "camp": "varsta",
+          "op": ">=",
+          "valoare": 16
+        },
+        {
+          "camp": "varsta",
+          "op": "<",
+          "valoare": 30
+        }
+      ],
+      "formula": null,
+      "formula_tip": {
+        "tip": "suma_fixa_lunar",
+        "parametri": {
+          "lei": 1000
+        }
+      },
+      "articol": "art. I pct. 15 (art. 76^5 alin. (1))",
+      "citat": "se încadrează pentru prima dată în muncă, cu normă întreagă și pe durată nedeterminată, potrivit legii, beneficiază, din bugetul asigurărilor pentru șomaj, de o primă de stabilitate, neimpozabilă",
+      "niveluri": {
+        "zero": "Dacă ai între 16 și 29 de ani, nu lucrezi și nici nu înveți, ești înscris la agenția pentru ocuparea forței de muncă și ți se încheie primul contract de muncă pe durată nedeterminată cu normă întreagă, primești o primă lunară neimpozabilă timp de 24 de luni: 1.000 lei lunar în primele 12 luni și 1.250 lei lunar în lunile 13-24.",
+        "curios": "Prima de stabilitate vine din bugetul asigurărilor pentru șomaj, nu de la angajator. Primești 1.000 lei lunar în primele 12 luni de la angajare și 1.250 lei lunar în următoarele 12 luni. Suma este neimpozabilă și nu se plătesc contribuții sociale obligatorii pe ea. Se acordă proporțional cu timpul lucrat efectiv, dar și pentru concediul de odihnă. Nu primești prima dacă te angajezi la stat sau la o firmă controlată de stat sau de o primărie, iar dacă pleci prea devreme, trebuie să returnezi banii.",
+        "expert": "Art. 76^5 din Legea 76/2002, introdus prin art. I pct. 15. Alin. (1): tinerii NEET înregistrați în evidența agenției județene (sau a municipiului București), încadrați pentru prima dată în muncă, cu normă întreagă, pe durată nedeterminată, primesc lunar timp de 24 de luni: 1.000 lei pentru primele 12 luni și 1.250 lei pentru următoarele 12 luni consecutive; prima e neimpozabilă și fără contribuții sociale obligatorii (art. 2 alin. (2) Cod fiscal). NEET înseamnă persoane de la 16 ani până la împlinirea vârstei de 30 de ani, fără loc de muncă, care nu urmează o formă de învățământ și nu participă la formare profesională (preambul). Alin. (2): nu se acordă dacă te încadrezi la instituții și autorități publice, regii autonome și societăți cu capital majoritar de stat sau al unităților administrativ-teritoriale, autorități autonome ale Parlamentului, institute naționale de cercetare-dezvoltare publice, institute și comisii finanțate public ai căror conducători sunt ordonatori de credite. Alin. (3): proporțională cu timpul efectiv lucrat și acordată și pe perioada concediului de odihnă. Alin. (4): dacă îți încetează raportul de muncă la primul angajator și te încadrezi în maximum 60 de zile la alt angajator din afara categoriilor excluse, în aceleași condiții (normă întreagă, durată nedeterminată), păstrezi dreptul; cele 60 de zile nu intră în cele 24 de luni. Alin. (5)-(6): restitui integral sumele dacă raportul de muncă încetează în mai puțin de 24 de luni pe temeiul art. 55 lit. b), art. 61 lit. a) sau art. 81 din Codul muncii; recuperarea se face conform art. 47, pe baza deciziilor agenției. Alin. (7): nu se cumulează cu prima de inserție (art. 73^1 alin. (1)), prima de activare (art. 73^2 alin. (1)), primele de mobilitate (art. 74 și 75) și prima de relocare (art. 76^2)."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Verifică dacă ești în evidența agenției pentru ocuparea forței de muncă de care aparții; legea cere ca tânărul NEET să fie înregistrat acolo. Începe de pe pagina ANOFM, de unde ajungi la agenția județului tău.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        },
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Întreabă agenția cum se cere prima de stabilitate după angajare; ordonanța spune doar că se acordă pe baza deciziilor agenției, nu cum se depune cererea.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Condiția de vârstă (de la 16 ani până la împlinirea a 30) vine din preambulul ordonanței, care definește tinerii NEET; art. 76^5 folosește doar termenul. Prima nu e pentru oricine e înregistrat la agenție, ci doar pentru tineri NEET, la primul job pe durată nedeterminată cu normă întreagă. Formula acoperă primele 12 luni (1.000 lei); 1.250 lei lunar în lunile 13-24 e în text, dar suma_fixa_lunar nu are două trepte, deci nu se calculează totalul. Data intrării în vigoare (2026-03-09) e dedusă: ordonanța de urgență se aplică de la publicare, iar textul nu prevede altă dată. Modalitatea de cerere și plată nu e în ordonanță (art. IV cere ministerului să modifice normele în 30 de zile), de verificat. Conținutul art. 55 lit. b), art. 61 lit. a) și art. 81 din Codul muncii nu e în text. Lăsate pe dinafară: art. 75^1 alin. (4) lit. h) și i) (locuință în localitatea de muncă, pentru prima de încadrare și de instalare), pentru că efectul nu se vede din text (partea introductivă a alineatului lipsește); art. 22 alin. (2) (venit asigurat la asigurarea facultativă pentru șomaj), pentru că nu avem publicul vizat și nici limitele vechi."
+    },
+    {
+      "rezumat": "Angajatorii primesc 2.250 lei lunar, 12 luni, pentru fiecare șomer din categoriile vizate (tineri NEET, peste 50 de ani, șomeri de lungă durată) angajat pe durată nedeterminată",
+      "rezumat_en": "Employers get 2,250 lei a month for 12 months for each unemployed hire from the listed groups (young NEETs, over 50s, long-term unemployed) on an open-ended contract",
+      "taguri": [
+        "micro"
+      ],
+      "in_vigoare_de_la": "2026-03-09",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "castig",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": {
+        "tip": "suma_fixa_lunar",
+        "parametri": {
+          "lei": 2250
+        }
+      },
+      "articol": "art. I pct. 17 (art. 85 alin. (1))",
+      "citat": "primesc lunar, pe o perioadă de 12 luni, pentru fiecare persoană angajată din aceste categorii, o sumă în cuantum de 2.250 lei, cu obligația menținerii desfășurării raporturilor de muncă sau de serviciu cel puțin 18 luni",
+      "niveluri": {
+        "zero": "Dacă ai un SRL și angajezi pe durată nedeterminată un șomer din categoriile prevăzute de lege, primești 2.250 lei lunar timp de 12 luni pentru fiecare astfel de angajat.",
+        "curios": "Suma vine din bugetul asigurărilor pentru șomaj și se acordă pentru fiecare persoană angajată din categoriile din lege: șomeri de peste 50 de ani, părinți unici susținători, șomeri de lungă durată, tineri NEET, mame șomere cu cel puțin 3 copii în întreținere sub 18 ani și altele. Trebuie să menții raporturile de muncă cel puțin 18 luni. Pentru șomerii de lungă durată, tinerii sub 30 de ani se încadrează după 6 luni de șomaj, ceilalți după mai mult de 12 luni.",
+        "expert": "Art. 85 alin. (1) modificat: angajatorii care încadrează pe perioadă nedeterminată șomeri în vârstă de peste 50 de ani, părinți unici susținători ai familiilor monoparentale, șomeri de lungă durată, tineri NEET, persoane de la art. 16 lit. g), mame șomere cu cel puțin 3 copii în întreținere cu vârste de până la 18 ani sau persoane care au executat o pedeapsă privativă de libertate ori au fost condamnate la alte măsuri neprivative dispuse de organele judiciare, primesc lunar 2.250 lei pe 12 luni pentru fiecare persoană, cu obligația menținerii raporturilor cel puțin 18 luni. Alin. (3): facilitatea se păstrează dacă beneficiarul pierde ulterior statutul de părinte unic susținător sau de persoană cu handicap, sau dacă încetează măsurile de protecție. Alin. (5): 2.250 lei lunar pentru șomerii care ajung la pensie în 2 ani, până la îndeplinirea condițiilor. Art. 5 pct. IV^2: șomer de lungă durată înseamnă șomer mai mult de 12 luni la peste 30 de ani și 6 luni între 16 și 30 de ani. Art. III: convențiile încheiate înainte de intrarea în vigoare rămân sub legea veche."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă angajezi o persoană din categoriile din lege, cere la agenția pentru ocuparea forței de muncă măsura de stimulare înainte să semnezi contractul și află condițiile de la agenție; ordonanța nu descrie cum se depune cererea.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "scazuta",
+      "nota": "Etichetă aproximativă: micro acoperă SRL-urile mici care angajează, dar măsura privește orice angajator. Suma 2.250 lei e pe fiecare persoană angajată din categorii, lunar, 12 luni; formula suma_fixa_lunar nu ține cont de câte persoane angajezi și se aplică doar dacă angajezi. Intrarea în vigoare 2026-03-09 e dedusă din publicare. Definiția șomerului de lungă durată (art. 5 pct. IV^2: peste 12 luni la peste 30 de ani, 6 luni pentru 16-30 de ani) e doar o precizare a categoriei; textul nu dă definiția veche, deci nu o tratăm ca drept separat. Cererea și condițiile de acordare nu sunt în ordonanță (norme metodologice), de verificat. Convențiile încheiate înainte de intrarea în vigoare rămân sub vechea lege (art. III)."
+    },
+    {
+      "rezumat": "Indemnizația de șomaj primită necuvenit se returnează fără obligații fiscale accesorii dacă o plătești în 180 de zile de la decizie",
+      "rezumat_en": "Unemployment benefit paid by mistake can be repaid with no accessory tax charges if you pay within 180 days of the agency's decision",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2026-03-09",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "termen",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 6 (art. 47 alin. (4) și (5)); art. II",
+      "citat": "se recuperează fără perceperea de obligații fiscale accesorii, dacă acestea sunt restituite de beneficiari în termen de maximum 180 de zile de la comunicarea deciziilor emise de agențiile pentru ocuparea forței de muncă",
+      "niveluri": {
+        "zero": "Dacă agenția constată că ai primit indemnizație de șomaj care nu ți se cuvenea, o poți returna fără obligații fiscale accesorii dacă o plătești în 180 de zile de la decizie.",
+        "curios": "Dacă un control constată că ai primit indemnizație de șomaj necuvenit, agenția îți comunică o decizie. Dacă returnezi suma în maximum 180 de zile de la comunicarea ei, nu se adaugă obligații fiscale accesorii. După cele 180 de zile se aplică regulile din Legea 500/2002, iar obligațiile accesorii se calculează inclusiv pentru cele 180 de zile.",
+        "expert": "Art. 47 alin. (4): prin derogare de la art. 73^1 din Legea 500/2002, sumele constatate ca prejudicii de organele de control, reprezentând indemnizație de șomaj acordată necuvenit, se recuperează fără obligații fiscale accesorii dacă sunt restituite în maximum 180 de zile de la comunicarea deciziilor agențiilor. Alin. (5): după acest termen se aplică art. 73^1 din Legea 500/2002, cu obligații accesorii calculate inclusiv pentru cele 180 de zile. Art. II: pentru sumele constatate și nerecuperate la intrarea în vigoare a ordonanței, se aplică aceleași reguli, iar cele 180 de zile se numără de la data intrării în vigoare a ordonanței."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Dacă ai primit o decizie de la agenție pentru indemnizație de șomaj acordată necuvenit, returnează suma în cel mult 180 de zile de la data la care ți s-a comunicat decizia.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Textul nu spune ce înseamnă obligații fiscale accesorii; sensul exact vine din Legea 500/2002 și din Codul de procedură fiscală, care nu sunt în text. Pentru sumele deja constatate, cele 180 de zile încep de la intrarea în vigoare a ordonanței; intrarea în vigoare e dedusă la 2026-03-09 (publicare), deci termenul de 180 de zile pentru aceste sume a trecut dacă nu există altă dată; de verificat. Termenul personal rămâne null pentru că el începe de la comunicarea deciziei fiecărui om."
+    },
+    {
+      "rezumat": "Dacă demisionezi în perioada unei măsuri de stimulare a angajării, poți primi alta abia după 24 de luni de la reînregistrarea la agenție",
+      "rezumat_en": "If you resign during a job-incentive measure, you can get another one only 24 months after you re-register with the employment agency",
+      "taguri": [
+        "somer"
+      ],
+      "in_vigoare_de_la": "2026-03-09",
+      "pana_la": null,
+      "termen_actiune": null,
+      "status": "in_vigoare",
+      "directie": "info",
+      "conditii": [],
+      "formula": null,
+      "formula_tip": null,
+      "articol": "art. I pct. 30 (art. 95 alin. (1^1a) și (1^1b))",
+      "citat": "ale căror raporturi de muncă au încetat prin demisie în perioada de acordare a acestor măsuri sau în perioada în care există obligația legală de menținere a desfășurării raporturilor de muncă",
+      "niveluri": {
+        "zero": "Dacă demisionezi cât timp ești angajat printr-o măsură de stimulare a angajării, poți intra într-o astfel de măsură din nou abia după 24 de luni.",
+        "curios": "Persoanele angajate prin măsurile de stimulare care demisionează în perioada de acordare a măsurii sau cât timp angajatorul trebuie să mențină postul pot fi încadrate din nou prin astfel de măsuri doar după minimum 24 de luni de la reînregistrarea la agenție. Regula nu se aplică dacă demisia a fost cauzată de încălcări grave ale drepturilor tale de către angajator, stabilite printr-o hotărâre judecătorească definitivă sau prin acte definitive ale organelor abilitate.",
+        "expert": "Art. 95 alin. (1^1a): termen de minimum 24 de luni de la reînregistrarea la agenția în a cărei rază teritorială persoana are domiciliul sau reședința, pentru reîncadrarea prin măsurile de la alin. (1^1). Alin. (1^1b): excepție pentru demisia determinată de încălcări grave ale drepturilor salariatului de către angajator, constatate prin hotărâre judecătorească definitivă sau prin acte definitive ale organelor abilitate."
+      },
+      "actiuni": [
+        {
+          "tip": "fa",
+          "cine_aplica": "tu",
+          "text": "Înainte să demisionezi cât timp ești angajat printr-o măsură de stimulare a angajării, întreabă agenția cum te afectează termenul de 24 de luni.",
+          "termen": null,
+          "destinatie": "anofm",
+          "destinatie_propusa": null
+        }
+      ],
+      "incredere": "medie",
+      "nota": "Măsurile de la art. 95 alin. (1^1) nu sunt enumerate în text, deci nu știm sigur dacă regula atinge și prima de stabilitate din art. 76^5; de verificat în Legea 76/2002 consolidată."
+    }
+  ]
+}
