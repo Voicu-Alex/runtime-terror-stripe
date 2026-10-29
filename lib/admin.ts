@@ -17,3 +17,24 @@ export function areAcces(email: string | null | undefined, lista: string | null 
   if (!lista?.trim()) return !productie;
   return esteAdmin(email, lista);
 }
+
+/**
+ * Cota veche completată de revizor, din câmpurile `cota_veche_<i>` și `sursa_veche_<i>` ale formularului de aprobare.
+ * Contează doar schimbările alese; dacă un câmp din pereche e completat, trebuie amândouă, iar cota un număr finit.
+ */
+export function completariDinFormular(
+  formData: { get(nume: string): unknown },
+  alese: number[],
+): { completari: Record<number, { cota_veche: number; sursa_veche: string }>; eroare?: string } {
+  const completari: Record<number, { cota_veche: number; sursa_veche: string }> = {};
+  for (const i of alese) {
+    const cota = String(formData.get(`cota_veche_${i}`) ?? "").trim().replace(",", ".");
+    const sursa = String(formData.get(`sursa_veche_${i}`) ?? "").trim();
+    if (!cota && !sursa) continue;
+    const nr = cota ? Number(cota) : NaN;
+    if (!cota || !sursa) return { completari, eroare: `Schimbarea ${i}: completează și cota veche, și sursa (act, articol).` };
+    if (!Number.isFinite(nr)) return { completari, eroare: `Schimbarea ${i}: cota veche trebuie să fie un număr.` };
+    completari[i] = { cota_veche: nr, sursa_veche: sursa };
+  }
+  return { completari };
+}

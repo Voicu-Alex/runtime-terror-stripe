@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Aprobă o interpretare propusă: scrie data/catalog.json și data/ghid.json și rândurile din Supabase.
- *   node --env-file=.env.local --import tsx scripts/legi/aproba.mts <id> [--schimbari 0,2] [--revizor adresa@email]
+ *   node --env-file=.env.local --import tsx scripts/legi/aproba.mts <id> [--schimbari 0,2] [--cota-veche 1:10:"Legea 227/2015, art. 123"] [--revizor adresa@email]
+ * `--cota-veche <i>:<cota>:<sursa>` (repetabil) completează vechea cotă a unei schimbări `schimbare_cota` la care modelul n-a găsit-o.
  * `id` e interpretari.id. Fără --schimbari se aprobă toate schimbările din interpretare.
  */
 import { parseArgs } from "node:util";
@@ -11,6 +12,7 @@ const { values: arg, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     schimbari: { type: "string" },
+    "cota-veche": { type: "string", multiple: true },
     revizor: { type: "string", default: process.env.REVIZOR ?? "linie-de-comanda" },
   },
 });
@@ -26,8 +28,19 @@ if (schimbari && schimbari.some((i) => !Number.isInteger(i) || i < 0)) {
   process.exit(1);
 }
 
+const completari: Record<number, { cota_veche: number; sursa_veche: string }> = {};
+for (const x of arg["cota-veche"] ?? []) {
+  const m = /^(\d+):([^:]+):(.+)$/.exec(x);
+  const cota = m ? Number(m[2].trim().replace(",", ".")) : NaN;
+  if (!m || !Number.isFinite(cota) || !m[3].trim()) {
+    console.error(`--cota-veche trebuie să fie <indice>:<cota>:<sursa> (primit „${x}”).`);
+    process.exit(1);
+  }
+  completari[Number(m[1])] = { cota_veche: cota, sursa_veche: m[3].trim() };
+}
+
 try {
-  const r = await aprobaInterpretare(id, { schimbari, revizor: arg.revizor! });
+  const r = await aprobaInterpretare(id, { schimbari, completari, revizor: arg.revizor! });
   console.log(`Aprobat: ${r.schimbareIds.join(", ")}`);
   if (r.avertisment) console.warn(`Atenție: ${r.avertisment}`);
 } catch (e) {

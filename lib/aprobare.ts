@@ -8,12 +8,18 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { clientSupabase, explicaEroarea } from "../scripts/legi/db.mjs";
 import { valideazaCatalog, type Schimbare } from "./catalog";
+import { formulaCompleta } from "./formule-tip";
 import { valideazaGhid, type IntrareGhid } from "./ghid";
 import { spreGhid, spreSchimbare, type ActBrut, type InterpretareAct } from "./interpretare";
 
 export type OptiuniAprobare = {
   /** indecșii schimbărilor din `rezultat.schimbari` de aprobat; lipsă = toate */
   schimbari?: number[];
+  /**
+   * cota veche și sursa ei pentru schimbările `schimbare_cota` la care modelul n-a găsit-o în text, pe indicele schimbării.
+   * Intră doar în catalog și în nota_revizor; `interpretari.rezultat` rămâne cum a propus-o modelul.
+   */
+  completari?: Record<number, { cota_veche: number; sursa_veche: string }>;
   /** adresa celui care aprobă, scrisă în nota_revizor */
   revizor: string;
   /** data verificării (ISO); lipsă = azi */
@@ -76,7 +82,7 @@ async function incarca(dep: Dependinte, id: number) {
 }
 
 /** Aprobarea propriu-zisă, cu dependințele date. `aprobaInterpretare` o apelează cu cele reale. */
-export async function aprobaCu(dep: Dependinte, id: number, { schimbari, revizor, azi }: OptiuniAprobare): Promise<RezultatAprobare> {
+export async function aprobaCu(dep: Dependinte, id: number, { schimbari, revizor, azi, completari }: OptiuniAprobare): Promise<RezultatAprobare> {
   const { interpretare, act } = await incarca(dep, id);
   if (interpretare.stare !== "propus") throw new Error(`Interpretarea ${id} e deja „${interpretare.stare}”.`);
   const rezultat = interpretare.rezultat as InterpretareAct;
@@ -84,6 +90,22 @@ export async function aprobaCu(dep: Dependinte, id: number, { schimbari, revizor
   if (!alese.length) throw new Error("Nu e nicio schimbare de aprobat.");
   for (const i of alese) if (!Number.isInteger(i) || i < 0 || i >= rezultat.schimbari.length) throw new Error(`Schimbarea ${i} nu există în interpretarea ${id}.`);
   if (new Set(alese).size !== alese.length) throw new Error("Aceeași schimbare e aleasă de două ori.");
+
+  // completările se aplică pe o copie: rezultatul stocat nu se rescrie
+  const completate = structuredClone(rezultat);
+  const note: string[] = [];
+  for (const i of alese) {
+    const f = completate.schimbari[i].formula_tip;
+    const c = completari?.[i];
+    if (c && f?.tip === "schimbare_cota" && f.parametri.cota_veche == null) {
+      const sursa = c.sursa_veche?.trim();
+      if (!Number.isFinite(c.cota_veche) || !sursa) throw new Error(`Schimbarea ${i}: cota veche și sursa trebuie completate amândouă.`);
+      f.parametri.cota_veche = c.cota_veche;
+      f.parametri.sursa_veche = sursa;
+      note.push(`${i}: ${c.cota_veche}% (${sursa})`);
+    }
+    if (f && !formulaCompleta(f)) throw new Error(`Schimbarea ${i}: cota veche lipsește; completează cota veche și sursa înainte de aprobare.`);
+  }
 
   const dataVerificarii = azi ?? dep.acum().toISOString().slice(0, 10);
   const textCatalog = await dep.citeste("catalog");
@@ -95,10 +117,10 @@ export async function aprobaCu(dep: Dependinte, id: number, { schimbari, revizor
   const noi: Schimbare[] = [];
   const noiGhid: IntrareGhid[] = [];
   for (const i of alese) {
-    const s = spreSchimbare(rezultat, i, act, { verificat_la: dataVerificarii, existente: ids });
+    const s = spreSchimbare(completate, i, act, { verificat_la: dataVerificarii, existente: ids });
     ids.add(s.id);
     noi.push(s);
-    noiGhid.push(spreGhid(s, rezultat, i));
+    noiGhid.push(spreGhid(s, completate, i));
   }
   const catalogNou = valideazaCatalog([...catalog, ...noi]);
   const ghidNou = valideazaGhid([...ghid, ...noiGhid], catalogNou);
@@ -125,7 +147,7 @@ export async function aprobaCu(dep: Dependinte, id: number, { schimbari, revizor
   const acum = dep.acum().toISOString();
   const { error: e1 } = await dep.client
     .from("interpretari")
-    .update({ stare: "aprobat", schimbare_ids: schimbareIds, nota_revizor: revizor, decis_la: acum })
+    .update({ stare: "aprobat", schimbare_ids: schimbareIds, nota_revizor: note.length ? `${revizor}; cota veche completată: ${note.join("; ")}` : revizor, decis_la: acum })
     .eq("id", id);
   if (e1) throw new Error(`interpretari: ${explicaEroarea(e1)}`);
   const { error: e2 } = await dep.client.from("acte").update({ stare_procesare: "aprobat" }).eq("id", act.id);

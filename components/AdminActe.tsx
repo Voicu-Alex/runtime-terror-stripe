@@ -1,6 +1,7 @@
 import { FormularAproba, FormularRespinge } from "@/components/admin-acte/FormulareDecizie";
 import { dataScurta } from "@/lib/card";
 import { TAGURI } from "@/lib/taguri";
+import { esteFormulaTip, formulaCompleta } from "@/lib/formule-tip";
 import type { RandInterpretare, SchimbarePropusa, Verificari } from "@/lib/supabase-server";
 
 // Aspectul urmează „Revistă, pe gri” (mockup/v3/index.html?v=f, ADR 0001): verde pentru bani în plus,
@@ -110,13 +111,18 @@ function SectiuneAct({ r }: { r: RandInterpretare }) {
           <FormularAproba
             id={r.id}
             blocatAct={blocatAct}
-            optiuni={rezultat.schimbari.map((s, i) => ({ rezumat: s.rezumat, picate: picate.filter((x) => x.schimbare === i).map((x) => x.mesaj) }))}
+            optiuni={rezultat.schimbari.map((s, i) => ({ rezumat: s.rezumat, cotaLipsa: areCotaLipsa(s.formula_tip), picate: picate.filter((x) => x.schimbare === i).map((x) => x.mesaj) }))}
           />
           <FormularRespinge id={r.id} />
         </div>
       )}
     </section>
   );
+}
+
+/** O `schimbare_cota` la care modelul n-a găsit vechea cotă în text: revizorul o completează la aprobare. */
+function areCotaLipsa(f: unknown): boolean {
+  return esteFormulaTip(f) && f.tip === "schimbare_cota" && !formulaCompleta(f);
 }
 
 function PanouVerificari({ v }: { v: Verificari | null }) {

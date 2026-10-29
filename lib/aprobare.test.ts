@@ -114,6 +114,63 @@ describe("aprobaCu", () => {
   });
 });
 
+describe("aprobaCu: cota veche completată", () => {
+  const incompleta = () => {
+    const rez = structuredClone(interp);
+    rez.schimbari[0].formula_tip = {
+      tip: "schimbare_cota",
+      parametri: { camp: "dividende_anuale", cota_veche: null, cota_noua: 16, perioada: "an", sursa_veche: null },
+    };
+    return rez;
+  };
+  const dependinteCu = (rez: typeof interp) => {
+    const { client, scrieri } = clientFals();
+    const orig = client.from.bind(client);
+    (client as any).from = (tabel: string) => {
+      const l: any = orig(tabel);
+      if (tabel !== "interpretari") return l;
+      const maybe = l.maybeSingle;
+      l.maybeSingle = async () => {
+        const r = await maybe();
+        return { ...r, data: { ...r.data, rezultat: rez } };
+      };
+      return l;
+    };
+    return { ...dependinte(client), scrieri };
+  };
+
+  it("fără completări refuză, cu mesaj clar, și nu scrie nimic", async () => {
+    const { dep, scrise } = dependinteCu(incompleta());
+    await expect(aprobaCu(dep, 7, { revizor: "x" })).rejects.toThrow("Schimbarea 0: cota veche lipsește; completează cota veche și sursa înainte de aprobare.");
+    expect(scrise.catalog).toBeUndefined();
+  });
+
+  it("cu completări scrie cota și sursa în catalog, le trece în nota_revizor și lasă rezultatul stocat neschimbat", async () => {
+    const rez = incompleta();
+    const inainte = JSON.stringify(rez);
+    const { dep, scrise, scrieri } = dependinteCu(rez);
+    await aprobaCu(dep, 7, { revizor: "andrei@exemplu.ro", completari: { 0: { cota_veche: 10, sursa_veche: "Legea 227/2015, art. 97" } } });
+    expect((scrise.catalog.at(-1) as any).formula_tip.parametri).toMatchObject({ cota_veche: 10, sursa_veche: "Legea 227/2015, art. 97", cota_noua: 16 });
+    const nota = scrieri.find((s) => s.tabel === "interpretari" && s.op === "update")!.valoare.nota_revizor as string;
+    expect(nota).toContain("cota veche completată: 0: 10% (Legea 227/2015, art. 97)");
+    expect(nota).toContain("andrei@exemplu.ro");
+    expect(JSON.stringify(rez)).toBe(inainte);
+  });
+
+  it("ignoră completările pentru o schimbare nealeasă", async () => {
+    const rez = incompleta();
+    rez.schimbari.push(structuredClone(interp.schimbari[0]));
+    const { dep, scrise } = dependinteCu(rez);
+    await aprobaCu(dep, 7, { revizor: "x", schimbari: [1], completari: { 0: { cota_veche: 10, sursa_veche: "Legea 227/2015, art. 97" } } });
+    expect(scrise.catalog.at(-1)).not.toHaveProperty("formula_tip.parametri.cota_veche");
+  });
+
+  it("respinge o completare fără sursă", async () => {
+    const { dep } = dependinteCu(incompleta());
+    await expect(aprobaCu(dep, 7, { revizor: "x", completari: { 0: { cota_veche: 10, sursa_veche: "  " } } })).rejects.toThrow(/amândouă/);
+  });
+});
+
 describe("respingeCu", () => {
   it("marchează interpretarea și actul ca respinse", async () => {
     const { client, scrieri } = clientFals();
