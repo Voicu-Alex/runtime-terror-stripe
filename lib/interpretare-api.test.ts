@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { pregatesteRand, urcaInterpretare } from "./importa-interpretare";
-import { FISIERE_SISTEM, FISIER_INSTRUCTIUNI, PRETURI, construiesteSistem, costUsd, extrageJson, interpreteazaText, type ClientMesaje } from "./interpretare-api";
+import { FISIERE_SISTEM, FISIER_INSTRUCTIUNI, PRETURI, construiesteSistem, costUsd, cuReincercare, extrageJson, interpreteazaText, type ClientMesaje } from "./interpretare-api";
 import { interp } from "./interpretare.fixtura";
 
 const usage = { input_tokens: 1000, output_tokens: 500, cache_creation_input_tokens: 2000, cache_read_input_tokens: 10000 };
@@ -111,20 +111,50 @@ describe("pregatesteRand / urcaInterpretare", () => {
     expect(rand.lot.text_hash).toMatch(/^[0-9a-f]{64}$/);
     expect(pregatesteRand(baza).rand.lot).not.toHaveProperty("usage");
   });
-  it("upsert apoi actualizarea stării, cu garda", async () => {
-    const jurnal: unknown[] = [];
-    const sb = {
-      from: (t: string) => ({
-        upsert: async (_r: unknown, o: unknown) => (jurnal.push([t, "upsert", o]), { data: null, error: null }),
-        update: (v: unknown) => ({
-          eq: (c: string, x: string) => ({ in: async (c2: string, l: string[]) => (jurnal.push([t, v, c, x, c2, l]), { data: null, error: null }) }),
+  /** Client fals: `acte.update(...).eq().in().select()` întoarce `trecute`, `interpretari.upsert` se notează în jurnal. */
+  const clientFals = (trecute: { id: string }[], jurnal: unknown[]) => ({
+    from: (t: string) => ({
+      upsert: async (_r: unknown, o: unknown) => (jurnal.push([t, "upsert", o]), { data: null, error: null }),
+      update: (v: unknown) => ({
+        eq: (c: string, x: string) => ({
+          in: (c2: string, l: string[]) => ({ select: async (col: string) => (jurnal.push([t, v, c, x, c2, l, col]), { data: trecute, error: null }) }),
         }),
       }),
-    };
-    await urcaInterpretare(sb, pregatesteRand(baza).rand, "portal:1");
+    }),
+  });
+  it("actualizarea stării, cu garda, apoi upsert", async () => {
+    const jurnal: unknown[] = [];
+    const rez = await urcaInterpretare(clientFals([{ id: "portal:1" }], jurnal), pregatesteRand(baza).rand, "portal:1");
+    expect(rez).toEqual({ urcat: true });
     expect(jurnal).toEqual([
+      ["acte", { stare_procesare: "interpretat" }, "id", "portal:1", "stare_procesare", ["candidat", "triat_da", "nou"], "id"],
       ["interpretari", "upsert", { onConflict: "act_id,model,driver,instructiuni_versiune" }],
-      ["acte", { stare_procesare: "interpretat" }, "id", "portal:1", "stare_procesare", ["candidat", "triat_da", "nou"]],
     ]);
+  });
+  it("act aprobat/respins: nu se atinge nimic, nici rândul din interpretari", async () => {
+    const jurnal: unknown[] = [];
+    const rez = await urcaInterpretare(clientFals([], jurnal), pregatesteRand(baza).rand, "portal:1");
+    expect(rez).toEqual({ urcat: false, motiv: "actul nu e în stare candidat/triat_da/nou" });
+    expect(jurnal.some((j) => (j as unknown[])[1] === "upsert")).toBe(false);
+  });
+});
+
+describe("cuReincercare", () => {
+  const asteapta = async () => {};
+  it("reîncearcă o dată la 429/5xx/overloaded", async () => {
+    for (const eroare of [Object.assign(new Error("x"), { status: 429 }), Object.assign(new Error("x"), { status: 503 }), new Error("Overloaded")]) {
+      let n = 0;
+      const rez = await cuReincercare(async () => (++n === 1 ? Promise.reject(eroare) : "ok"), { asteapta });
+      expect(rez).toBe("ok");
+      expect(n).toBe(2);
+    }
+  });
+  it("nu reîncearcă la 400 și renunță după a doua eroare", async () => {
+    let n = 0;
+    await expect(cuReincercare(async () => (++n, Promise.reject(Object.assign(new Error("rău"), { status: 400 }))), { asteapta })).rejects.toThrow("rău");
+    expect(n).toBe(1);
+    n = 0;
+    await expect(cuReincercare(async () => (++n, Promise.reject(Object.assign(new Error("tot 500"), { status: 500 }))), { asteapta })).rejects.toThrow("tot 500");
+    expect(n).toBe(2);
   });
 });

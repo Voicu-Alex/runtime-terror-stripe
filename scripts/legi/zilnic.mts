@@ -29,11 +29,11 @@ import { parseArgs } from "node:util";
 import {
   IMPLICITE,
   PASI,
+  STARI_PROCESARE,
   argumentePas,
   calculeazaInterval,
   claseazaIesire,
   formateazaDelta,
-  numaraStari,
   opresteRularea,
   tabelDelta,
   type Pas,
@@ -83,9 +83,14 @@ const deLaArg = arg["de-la"] === undefined ? null : numar(arg["de-la"], "de-la")
 const sb = optiuni.dryRun ? null : clientSupabase({ scriere: true });
 
 async function numaraActele() {
-  const { data, error } = await sb!.from("acte").select("stare_procesare").limit(100000);
-  if (error) iesi(explicaEroarea(error));
-  return numaraStari(data as { stare_procesare: string }[]);
+  // PostgREST taie select-ul la 1000 de rânduri, deci numărăm pe stare, cu count exact și fără rânduri.
+  const rezultate = await Promise.all(STARI_PROCESARE.map((stare) => sb!.from("acte").select("id", { count: "exact", head: true }).eq("stare_procesare", stare)));
+  const numar: Record<string, number> = {};
+  rezultate.forEach(({ count, error }, i) => {
+    if (error) iesi(explicaEroarea(error));
+    numar[STARI_PROCESARE[i]] = count ?? 0;
+  });
+  return numar;
 }
 
 let cursor: number | null = null;
@@ -200,4 +205,4 @@ if (esteBuget && !opritLa) log("Interpretare: oprită de buget (nu e eroare).");
 log(opritLa ? `Oprit la ${opritLa}: ${motivOprire}.` : "Rulare completă.");
 
 const codFinal = opritLa ? (claseazaIesire(opritLa, pasi.at(-1)!.cod_iesire) === "oprit_portal" ? 2 : 1) : 0;
-process.exit(codFinal);
+process.exitCode = codFinal;

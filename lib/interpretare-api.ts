@@ -78,10 +78,25 @@ export type RezultatApi =
 
 const PAUZA_REINCERCARE_MS = 20_000;
 
-function esteTranzitorie(e: unknown): boolean {
+export function esteTranzitorie(e: unknown): boolean {
   const status = (e as { status?: number } | null)?.status;
   if (typeof status === "number") return status === 429 || status >= 500;
   return /overloaded|rate.?limit/i.test(e instanceof Error ? e.message : String(e));
+}
+
+/** Rulează `fn`; la o eroare tranzitorie (429/5xx/overloaded) așteaptă 20 s și mai încearcă o dată. */
+export async function cuReincercare<T>(
+  fn: () => Promise<T>,
+  { asteapta = (ms: number) => new Promise<void>((r) => setTimeout(r, ms)), laReincercare }: { asteapta?: (ms: number) => Promise<void>; laReincercare?: (e: unknown) => void } = {},
+): Promise<T> {
+  try {
+    return await fn();
+  } catch (e) {
+    if (!esteTranzitorie(e)) throw e;
+    laReincercare?.(e);
+    await asteapta(PAUZA_REINCERCARE_MS);
+    return await fn();
+  }
 }
 
 /**
@@ -102,13 +117,7 @@ export async function interpreteazaText(
   const t0 = Date.now();
   let r: MesajFinal;
   try {
-    try {
-      r = await client.messages.stream(params).finalMessage();
-    } catch (e) {
-      if (!esteTranzitorie(e)) throw e;
-      await asteapta(PAUZA_REINCERCARE_MS);
-      r = await client.messages.stream(params).finalMessage();
-    }
+    r = await cuReincercare(() => client.messages.stream(params).finalMessage(), { asteapta });
   } catch (e) {
     const status = (e as { status?: number } | null)?.status;
     return { ok: false, motiv: "eroare", detalii: `${status ? `${status} ` : ""}${e instanceof Error ? e.message : String(e)}` };

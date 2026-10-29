@@ -3,6 +3,7 @@
  * Funcții pure, fără I/O și fără SDK; apelul la API și scrierea în bază sunt în scripts/legi/triaj.mts.
  * Verdictul modelului e o propunere; poarta rămâne omul din /admin/acte.
  */
+import { costUsd, extrageJson } from "./interpretare-api";
 
 export type ActPentruTriajModel = {
   id: string;
@@ -10,7 +11,7 @@ export type ActPentruTriajModel = {
   tip_act: string;
   emitent: string | null;
   mo_ref: string | null;
-  text: string;
+  text: string | null;
   triaj?: { reguli?: { motive?: string[] } } | null;
 };
 
@@ -40,7 +41,7 @@ Doar un obiect JSON, fără alt text, cu cheia fiecărui act din lot (id-ul exac
 export function construiesteLot(acte: ActPentruTriajModel[], caractere = 4000): string {
   return acte
     .map((r) => {
-      const text = String(r.text);
+      const text = r.text == null || String(r.text).trim() === "" ? "[fără text]" : String(r.text);
       return `## ${r.id}\n\n**${String(r.titlu).replace(/\s+/g, " ").trim()}**\nTip: ${r.tip_act} · Emitent: ${r.emitent ?? "?"} · ${r.mo_ref ?? ""}\nMotivele regulilor: ${(r.triaj?.reguli?.motive ?? []).join("; ")}\n\n${text.slice(0, caractere)}${text.length > caractere ? "\n[…text tăiat…]" : ""}\n`;
     })
     .join("\n---\n\n");
@@ -50,20 +51,8 @@ export type RezultatVerdicte = { verdicte: Record<string, VerdictModel>; lipsa: 
 
 /** Scoate JSON-ul dintr-un răspuns brut (bloc ```json sau text în jurul acoladelor) și îl validează. */
 export function parseazaVerdicte(raspuns: string, ids: string[]): RezultatVerdicte {
-  const dinBloc = raspuns.match(/```(?:json)?\s*([\s\S]*?)```/)?.[1];
-  const candidate = [dinBloc, raspuns.slice(raspuns.indexOf("{"), raspuns.lastIndexOf("}") + 1)].filter((c): c is string => !!c);
-  let obiect: Record<string, unknown> | null = null;
-  for (const c of candidate) {
-    try {
-      const v = JSON.parse(c);
-      if (v && typeof v === "object" && !Array.isArray(v)) {
-        obiect = v;
-        break;
-      }
-    } catch {
-      /* încearcă următoarea variantă */
-    }
-  }
+  const parsat = extrageJson(raspuns);
+  const obiect = parsat && typeof parsat === "object" && !Array.isArray(parsat) ? (parsat as Record<string, unknown>) : null;
   if (!obiect) return { verdicte: {}, lipsa: [...ids], invalide: [] };
 
   const verdicte: Record<string, VerdictModel> = {};
@@ -86,16 +75,9 @@ export type UtilizareApi = {
   cache_read_input_tokens?: number | null;
 };
 
-/** Prețuri de listă, $ pe milion de tokeni (aceleași ca în eval/interpreteaza-api.mjs). */
-const PRET: Record<string, { in: number; out: number; cache_w: number; cache_r: number }> = {
-  "claude-haiku-5-5": { in: 0.1, out: 0.5, cache_w: 0.125, cache_r: 0.01 },
-  "claude-sonnet-5-5": { in: 2, out: 10, cache_w: 2.5, cache_r: 0.2 },
-};
-
+/** Costul unui răspuns de triaj; un singur tabel de prețuri, în lib/interpretare-api.ts. */
 export function costTriajUsd(usage: UtilizareApi, model: string): number {
-  const p = PRET[model];
-  if (!p) throw new Error(`Model fără preț cunoscut: ${model}`);
-  return ((usage.input_tokens ?? 0) * p.in + (usage.cache_creation_input_tokens ?? 0) * p.cache_w + (usage.cache_read_input_tokens ?? 0) * p.cache_r + (usage.output_tokens ?? 0) * p.out) / 1e6;
+  return costUsd(usage, model);
 }
 
 /** Noul `triaj` și noua stare, ca la `triaj.mts --aplica`. `azi` e data ISO (aaaa-ll-zz). */

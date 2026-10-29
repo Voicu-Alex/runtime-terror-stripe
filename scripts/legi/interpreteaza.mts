@@ -23,7 +23,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
-import { liniiVerificare, pregatesteRand, urcaInterpretare } from "../../lib/importa-interpretare.ts";
+import { liniiVerificare, pregatesteRand, STARI_ASTEAPTA, urcaInterpretare } from "../../lib/importa-interpretare.ts";
 import { interpreteazaText, construiesteSistem, PRETURI } from "../../lib/interpretare-api.ts";
 import { textPentruModel } from "../../lib/lot.ts";
 import { clientSupabase, verifica } from "./db.mjs";
@@ -47,13 +47,20 @@ const { values: arg } = parseArgs({
 const model = arg.model!;
 const bugetUsd = Number(arg["buget-usd"]);
 const max = Number(arg.max);
+const pozitiv = (v: number, nume: "max" | "buget-usd") => {
+  if (!Number.isFinite(v) || v <= 0) {
+    console.error(`--${nume} trebuie să fie un număr pozitiv, am primit „${arg[nume]}”.`);
+    process.exit(1); // abandon înainte de orice lucru asincron
+  }
+};
+pozitiv(max, "max");
+pozitiv(bugetUsd, "buget-usd");
 const azi = new Date().toISOString().slice(0, 10);
 const cheiFisier = (id: string) => id.replace(/[^A-Za-z0-9._-]/g, "_");
 
 async function main(): Promise<number> {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("Lipsește ANTHROPIC_API_KEY din .env.local.");
   if (!PRETURI[model]) throw new Error(`Model fără preț cunoscut: ${model} (modele: ${Object.keys(PRETURI).join(", ")}).`);
-  if (!Number.isFinite(bugetUsd) || bugetUsd <= 0) throw new Error("--buget-usd trebuie să fie un număr pozitiv.");
   if (arg.din && !arg.out) throw new Error("Cu --din dă și --out <director>.");
   if (!["triat_da", "candidat"].includes(arg.stare!)) throw new Error("--stare: triat_da sau candidat.");
 
@@ -70,8 +77,13 @@ async function main(): Promise<number> {
   } else {
     const coloane = "id, titlu, url, mo_ref, publicat_la, data_vigoare, text, lungime, articole, triaj, stare_procesare";
     let q = sb!.from("acte").select(coloane);
-    q = vrute ? q.in("id", vrute) : q.eq("stare_procesare", arg.stare!).order("id").limit(max);
+    q = vrute ? q.in("id", vrute).in("stare_procesare", STARI_ASTEAPTA) : q.eq("stare_procesare", arg.stare!).order("id").limit(max);
     const randuri: any[] = verifica(await q, "acte") ?? [];
+    if (vrute) {
+      // id-urile cerute care nu sunt în stare candidat/triat_da/nou (aprobate, respinse, inexistente) nu se reinterpretează
+      const gasite = new Set(randuri.map((a) => a.id));
+      for (const id of vrute) if (!gasite.has(id)) console.error(`! ${id}: sărit, nu există sau nu e în stare ${STARI_ASTEAPTA.join("/")}`);
+    }
     elemente = randuri.map((a) => {
       if (!a.text) return { id: a.id, text: null, problema: "actul nu are text în Supabase" };
       const t = textPentruModel(a);
@@ -88,7 +100,7 @@ async function main(): Promise<number> {
   const client = new Anthropic();
   const dirOut = arg.out ?? null;
   const dirErori = dirOut ?? path.join(RAD, "scratch", "interpretare-erori");
-  if (dirOut) await mkdir(dirOut, { recursive: true });
+  if (dirOut && !arg["dry-run"]) await mkdir(dirOut, { recursive: true });
 
   const total = { input: 0, cache_write: 0, cache_read: 0, output: 0, usd: 0, secunde: 0 };
   let incercate = 0;
@@ -139,27 +151,30 @@ async function main(): Promise<number> {
     console.log(`    ${r.secunde.toFixed(1)} s · $${r.usd.toFixed(4)} · cache citit ${cost.cache_read}`);
     if (!verificari.ok) picate++;
 
+    if (arg["dry-run"]) continue;
     if (dirOut) await writeFile(path.join(dirOut, `${cheiFisier(el.id)}.json`), JSON.stringify(r.interpretare, null, 2) + "\n");
     else if (sb) {
-      if (arg["dry-run"]) continue;
-      await urcaInterpretare(sb, rand, el.id, verifica);
+      const rez = await urcaInterpretare(sb, rand, el.id, verifica);
+      if (!rez.urcat) console.log(`    sărit, ${rez.motiv}`);
     }
   }
 
   const costFinal = { model, actele: incercate, ok, verificari_picate: picate, apeluri_esuate: esuate, ...total, usd: Number(total.usd.toFixed(4)) };
-  if (dirOut) await writeFile(path.join(dirOut, "cost.json"), JSON.stringify(costFinal, null, 2) + "\n");
+  if (dirOut && !arg["dry-run"]) await writeFile(path.join(dirOut, "cost.json"), JSON.stringify(costFinal, null, 2) + "\n");
   console.log(
     `\n${incercate} acte încercate, ${ok} interpretate, ${picate} cu verificări picate, ${esuate} apeluri eșuate · $${total.usd.toFixed(4)} · ${total.secunde.toFixed(0)} s` +
-      (arg["dry-run"] && !dirOut ? " (dry-run, nimic urcat)" : "") +
+      (arg["dry-run"] ? " (dry-run, nimic scris)" : "") +
       (oprit ? ` · oprit de buget, ${ramase} acte rămase` : ""),
   );
   return oprit ? 2 : 0;
 }
 
 main().then(
-  (cod) => process.exit(cod),
+  (cod) => {
+    process.exitCode = cod;
+  },
   (e) => {
     console.error(`Eroare: ${e instanceof Error ? e.message : String(e)}`);
-    process.exit(1);
+    process.exitCode = 1;
   },
 );

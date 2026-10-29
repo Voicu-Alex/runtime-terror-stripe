@@ -6,6 +6,9 @@
 #   NEXT_PUBLIC_SUPABASE_URL   adresa proiectului Supabase
 #   SUPABASE_SECRET_KEY        cheia secretă (service role) Supabase; scrie în acte, rulari, cursor_surse
 #
+# Un dry-run nu scrie în Supabase, dar tot apelează modelul (triaj și interpretare, plafonate: 5 acte, 2 interpretări, $0,2), deci
+# costă câțiva bani din cheia Anthropic.
+#
 # Prima rulare TREBUIE să fie manuală, cu dry_run bifat (Actions -> legi-zilnic -> Run workflow, de_la = un id recent,
 # de ex. 315770): arată dacă Portalul (legislatie.just.ro) acceptă adresele IP ale runner-elor GitHub. Rețeaua unui coleg
 # a primit 403. Dacă și aici primim 403/429, scriptul se oprește cu codul 2 și un mesaj clar; atunci cron-ul se mută pe
@@ -18,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Dry-run: nu scrie în Supabase, doar citește câteva pagini de pe Portal (cere de_la)'
+        description: 'Dry-run: nu scrie în Supabase, citește câteva pagini de pe Portal și apelează modelul pe câteva acte (câțiva bani; cere de_la)'
         type: boolean
         default: true
       de_la:
@@ -55,7 +58,7 @@ jobs:
               echo "dry_run cere de_la (un număr, de ex. 315770)." >&2
               exit 1
             fi
-            node --import tsx scripts/legi/zilnic.mts --dry-run --de-la "$DE_LA" --pas-ids 5 --max-cereri 5
+            node --import tsx scripts/legi/zilnic.mts --dry-run --de-la "$DE_LA" --pas-ids 5 --max-cereri 5 --max-triaj 5 --max-interpretari 2 --buget-usd 0.2
           else
             node --import tsx scripts/legi/zilnic.mts
           fi

@@ -10,6 +10,8 @@
  *                                                   triaj fără om, prin API-ul Anthropic: ia candidații din baza de date (fără --din)
  *                                                   sau din fișiere (cu --din <dir>), trimite loturi modelului și scrie verdictele
  *                                                   ca --aplica. --dry-run doar afișează verdictele. Cere ANTHROPIC_API_KEY.
+ *                                                   Cod de ieșire: 1 dacă vreun lot a eșuat (refuz, JSON nevalid, eroare de API), ca `zilnic` să nu
+ *                                                   noteze pasul ca reușit; actele din loturile eșuate rămân `candidat`, le reia rularea următoare.
  * Rândurile ajung apoi în Supabase cu `legi:incarca` (sau direct, când descopera rulează cu bază).
  */
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
@@ -17,6 +19,7 @@ import path from "node:path";
 import { parseArgs } from "node:util";
 import Anthropic from "@anthropic-ai/sdk";
 import { triajReguli } from "../../lib/triaj-reguli.ts";
+import { cuReincercare } from "../../lib/interpretare-api.ts";
 import { construiesteLot, costTriajUsd, INSTRUCTIUNI_TRIAJ, parseazaVerdicte, verdictInTriaj } from "../../lib/triaj-model.ts";
 
 const { values: arg } = parseArgs({
@@ -70,29 +73,19 @@ async function triajApi(): Promise<number> {
   const candidati = await sursa.candidati();
   const client = new Anthropic();
   const total = { acte: 0, da: 0, nu: 0, lipsa: 0, usd: 0, loturiEsuate: 0 };
-  const dormi = (ms: number) => new Promise((r) => setTimeout(r, ms));
-  const cheama = async (corp: string) => {
-    for (let incercare = 0; ; incercare++) {
-      try {
-        return await client.messages
+  const cheama = (corp: string) =>
+    cuReincercare(
+      () =>
+        client.messages
           .stream({
             model,
             max_tokens: 4000,
             system: [{ type: "text", text: INSTRUCTIUNI_TRIAJ, cache_control: { type: "ephemeral" } }],
             messages: [{ role: "user", content: `${corp}\n\nÎntoarce doar obiectul JSON cu un verdict pentru fiecare act de mai sus.` }],
           })
-          .finalMessage();
-      } catch (e) {
-        const status = e instanceof Anthropic.APIError ? e.status : undefined;
-        if (incercare === 0 && status !== undefined && (status === 429 || status >= 500)) {
-          console.error(`  ${status}, reîncerc după 20 s`);
-          await dormi(20_000);
-          continue;
-        }
-        throw e;
-      }
-    }
-  };
+          .finalMessage(),
+      { laReincercare: (e) => console.error(`  ${e instanceof Anthropic.APIError ? e.status : "eroare tranzitorie"}, reîncerc după 20 s`) },
+    );
 
   for (let i = 0, lot = 0; i < candidati.length; i += marime, lot++) {
     const parte = candidati.slice(i, i + marime);
@@ -100,7 +93,13 @@ async function triajApi(): Promise<number> {
     const t0 = Date.now();
     try {
       const r = await cheama(construiesteLot(parte as unknown as Parameters<typeof construiesteLot>[0], caractere));
-      const usd = costTriajUsd(r.usage, model);
+      // un cost care nu se poate calcula nu trebuie să arunce verdicte valide
+      let usd = 0;
+      try {
+        usd = costTriajUsd(r.usage, model);
+      } catch (e) {
+        console.error(`! lot ${lot}: cost necalculat (${(e as Error).message}), număr 0`);
+      }
       total.usd += usd;
       if (r.stop_reason === "refusal") { console.error(`✗ lot ${lot}: refuz, actele rămân neatinse (${ids.join(", ")})`); total.loturiEsuate++; continue; }
       const brut = r.content.flatMap((b) => (b.type === "text" ? [b.text] : [])).join("");
@@ -123,17 +122,21 @@ async function triajApi(): Promise<number> {
     }
   }
   console.log(`\n${total.acte} acte · ${total.da} da / ${total.nu} nu · fără verdict ${total.lipsa} · loturi eșuate ${total.loturiEsuate} · $${total.usd.toFixed(4)}${arg["dry-run"] ? " · dry-run, nimic scris" : ""}`);
-  return total.acte === 0 && total.loturiEsuate > 0 ? 1 : 0;
+  if (total.loturiEsuate > 0) console.log(`Cod de ieșire 1: ${total.loturiEsuate} loturi eșuate (actele lor rămân candidat).`);
+  return total.loturiEsuate > 0 ? 1 : 0;
 }
 
-if (arg.api) {
-  try { process.exit(await triajApi()); } catch (e) { console.error((e as Error).message); process.exit(1); }
-}
-
-const fisiere = (await readdir(arg.din!)).filter((f) => f.endsWith(".json"));
+const fisiere = arg.api ? [] : (await readdir(arg.din!)).filter((f) => f.endsWith(".json"));
 const rand = async (f: string) => JSON.parse(await readFile(path.join(arg.din!, f), "utf8"));
 
-if (arg.reevalueaza) {
+if (arg.api) {
+  try {
+    process.exitCode = await triajApi();
+  } catch (e) {
+    console.error((e as Error).message);
+    process.exitCode = 1;
+  }
+} else if (arg.reevalueaza) {
   const dupaStare = new Map<string, number>();
   for (const f of fisiere) {
     const r = await rand(f);
@@ -146,10 +149,7 @@ if (arg.reevalueaza) {
     dupaStare.set(r.stare_procesare, (dupaStare.get(r.stare_procesare) ?? 0) + 1);
   }
   for (const [k, v] of [...dupaStare].sort()) console.log(`${String(v).padStart(6)}  ${k}`);
-  process.exit(0);
-}
-
-if (arg.export) {
+} else if (arg.export) {
   const candidati: Record<string, unknown>[] = [];
   for (const f of fisiere) {
     const r = await rand(f);
@@ -175,8 +175,7 @@ if (arg.export) {
     if (r.stare_procesare !== "candidat") continue;
     const v = verdicte[r.id];
     if (!v) { lipsa++; continue; }
-    r.stare_procesare = v.atinge_banii ? "triat_da" : "triat_nu";
-    r.triaj = { ...(r.triaj ?? {}), model: { atinge_banii: v.atinge_banii, motiv: v.motiv, model: v.model ?? "claude-haiku-5-5 (subagent)", la: new Date().toISOString().slice(0, 10) } };
+    Object.assign(r, verdictInTriaj(r.triaj, v, v.model ?? "claude-haiku-5-5 (subagent)", new Date().toISOString().slice(0, 10)));
     await writeFile(path.join(arg.din, f), JSON.stringify(r) + "\n");
     v.atinge_banii ? da++ : nu++;
   }

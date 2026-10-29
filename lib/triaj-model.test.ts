@@ -58,12 +58,23 @@ describe("parseazaVerdicte", () => {
   });
 });
 
+describe("construiesteLot fără text", () => {
+  it("text null sau gol devine [fără text], nu „null”", () => {
+    const lot = construiesteLot([{ ...act("a"), text: null }, { ...act("b"), text: "  " }]);
+    expect(lot).not.toContain("null");
+    expect(lot.match(/\[fără text\]/g)).toHaveLength(2);
+  });
+});
+
 describe("costTriajUsd", () => {
   it("calculează cu prețurile Haiku și Sonnet", () => {
     const u = { input_tokens: 1e6, output_tokens: 1e6, cache_creation_input_tokens: 1e6, cache_read_input_tokens: 1e6 };
     expect(costTriajUsd(u, "claude-haiku-5-5")).toBeCloseTo(0.1 + 0.5 + 0.125 + 0.01, 6);
     expect(costTriajUsd(u, "claude-sonnet-5-5")).toBeCloseTo(2 + 10 + 2.5 + 0.2, 6);
     expect(costTriajUsd({}, "claude-haiku-5-5")).toBe(0);
+  });
+  it("folosește același tabel ca interpretarea (Opus inclus)", () => {
+    expect(costTriajUsd({ input_tokens: 1e6 }, "claude-opus-5-5")).toBeCloseTo(4, 6);
   });
   it("aruncă pentru model necunoscut", () => {
     expect(() => costTriajUsd({}, "x")).toThrow();

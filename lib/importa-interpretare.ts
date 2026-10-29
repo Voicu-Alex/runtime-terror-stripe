@@ -61,6 +61,9 @@ export function liniiVerificare(cheie: string, interp: InterpretareAct, v: Rezul
   return [`${v.ok ? "✓" : "!"} ${cheie}: ${interp.atinge_banii ? "atinge banii" : "nu atinge banii"}, ${rezumat}`, ...v.picate.map((p) => `    - ${p.mesaj}`)];
 }
 
+/** Stările în care un act așteaptă interpretarea. */
+export const STARI_ASTEAPTA = ["candidat", "triat_da", "nou"];
+
 /** Cât din clientul Supabase folosim (db.mjs nu are tipuri). */
 type ClientDb = { from(tabel: string): any };
 type Verifica = (raspuns: any, eticheta: string) => any;
@@ -70,10 +73,21 @@ const verificaImplicit: Verifica = ({ data, error }, unde) => {
 };
 
 /**
- * Upsert în `interpretari` (cheia: act, model, driver, versiune) și, doar dacă actul încă așteaptă interpretarea
- * (candidat | triat_da | nou), trecerea lui în `interpretat`. `verifica` implicit aruncă la `error`; scripturile pasează `verifica` din scripts/legi/db.mjs (mesaj clar când tabelele lipsesc).
+ * Trecerea actului în `interpretat`, doar dacă încă așteaptă interpretarea (candidat | triat_da | nou), și abia apoi upsert în
+ * `interpretari` (cheia: act, model, driver, versiune). Dacă actul nu e în aceste stări, nu se scrie nimic și se întoarce `urcat: false`. `verifica` implicit aruncă la `error`; scripturile pasează `verifica` din scripts/legi/db.mjs (mesaj clar când tabelele lipsesc).
  */
-export async function urcaInterpretare(sb: ClientDb, rand: RandInterpretare, actId: string, verifica: Verifica = verificaImplicit): Promise<void> {
+export async function urcaInterpretare(
+  sb: ClientDb,
+  rand: RandInterpretare,
+  actId: string,
+  verifica: Verifica = verificaImplicit,
+): Promise<{ urcat: true } | { urcat: false; motiv: string }> {
+  // Întâi trecerea actului, cu gardă: un act aprobat/respins nu-și pierde rândul din `interpretari` printr-un upsert.
+  const trecut = verifica(
+    await sb.from("acte").update({ stare_procesare: "interpretat" }).eq("id", actId).in("stare_procesare", STARI_ASTEAPTA).select("id"),
+    `acte (${actId})`,
+  );
+  if (!Array.isArray(trecut) || trecut.length === 0) return { urcat: false, motiv: "actul nu e în stare candidat/triat_da/nou" };
   verifica(await sb.from("interpretari").upsert(rand, { onConflict: "act_id,model,driver,instructiuni_versiune" }), `interpretari (${actId})`);
-  verifica(await sb.from("acte").update({ stare_procesare: "interpretat" }).eq("id", actId).in("stare_procesare", ["candidat", "triat_da", "nou"]), `acte (${actId})`);
+  return { urcat: true };
 }

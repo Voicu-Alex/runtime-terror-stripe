@@ -10,7 +10,6 @@
  * Lotul: <dir>/<id>.txt (textul primit de model, cu antetul din export-lot) și <id>.json (obiectul întors de model).
  * Un răspuns cu verificări picate se urcă totuși (ca omul să vadă de ce), dar pagina /admin/acte nu lasă aprobarea.
  */
-import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
@@ -66,7 +65,8 @@ for (const f of fisiere.sort()) {
   if (!v.ok) picate++;
   if (!sb) continue;
 
-  await urcaInterpretare(sb, rand, actId, verifica);
-  urcate++;
+  const rez = await urcaInterpretare(sb, rand, actId, verifica);
+  if (rez.urcat) urcate++;
+  else console.log(`  ${actId}: sărit, ${rez.motiv}`);
 }
 console.log(`\n${fisiere.length} răspunsuri, ${picate} cu verificări picate${sb ? `, ${urcate} urcate în interpretari (propus)` : " (dry-run, nimic urcat)"}`);

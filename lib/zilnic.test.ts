@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { argumentePas, calculeazaInterval, claseazaIesire, formateazaDelta, IMPLICITE, numaraStari, opresteRularea, tabelDelta } from "./zilnic";
+import { argumentePas, calculeazaInterval, claseazaIesire, formateazaDelta, IMPLICITE, numaraStari, opresteRularea, STARI_PROCESARE, tabelDelta } from "./zilnic";
 
 describe("calculeazaInterval", () => {
   it("cu cursor: pana_la = cursor + pas, de_la rămâne la --reia", () => {
@@ -58,6 +58,14 @@ describe("claseazaIesire", () => {
 describe("tabel de diferențe", () => {
   it("numără stările", () => {
     expect(numaraStari([{ stare_procesare: "nou" }, { stare_procesare: "nou" }, { stare_procesare: "candidat" }])).toEqual({ nou: 2, candidat: 1 });
+  });
+  it("lista stărilor e cea din constrângerea bazei și intră în tabel chiar la zero", () => {
+    expect([...STARI_PROCESARE]).toEqual(["nou", "respins_reguli", "candidat", "triat_nu", "triat_da", "interpretat", "aprobat", "respins", "eroare"]);
+    const zero = Object.fromEntries(STARI_PROCESARE.map((s) => [s, 0]));
+    const t = tabelDelta(zero, { ...zero, candidat: 4, nou: 2 });
+    expect(t).toHaveLength(STARI_PROCESARE.length);
+    expect(t.find((r) => r.stare === "candidat")).toEqual({ stare: "candidat", inainte: 0, dupa: 4, delta: 4 });
+    expect(t.find((r) => r.stare === "aprobat")).toEqual({ stare: "aprobat", inainte: 0, dupa: 0, delta: 0 });
   });
   it("uniune de stări, diferențe cu semn", () => {
     const t = tabelDelta({ candidat: 5, nou: 1 }, { candidat: 2, interpretat: 3, nou: 1 });

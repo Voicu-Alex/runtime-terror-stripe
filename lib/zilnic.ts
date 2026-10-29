@@ -66,6 +66,9 @@ export function claseazaIesire(pas: Pas, cod: number | null): Rezultat {
 /** Rularea se oprește la portal blocat și la eroare; bugetul consumat nu e eroare. */
 export const opresteRularea = (r: Rezultat) => r === "oprit_portal" || r === "eroare";
 
+/** Stările din constrângerea de verificare a coloanei `acte.stare_procesare` (ordinea fluxului). */
+export const STARI_PROCESARE = ["nou", "respins_reguli", "candidat", "triat_nu", "triat_da", "interpretat", "aprobat", "respins", "eroare"] as const;
+
 export function numaraStari(randuri: { stare_procesare: string }[]): Record<string, number> {
   const m: Record<string, number> = {};
   for (const r of randuri) m[r.stare_procesare] = (m[r.stare_procesare] ?? 0) + 1;
