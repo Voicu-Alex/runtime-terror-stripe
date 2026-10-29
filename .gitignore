@@ -33,5 +33,9 @@ scratch/
 # build local (Vite)
 /dist/
 
+# Playwright
+/test-results/
+/playwright-report/
+
 # machete temporare din brainstorming (superpowers)
 .superpowers/

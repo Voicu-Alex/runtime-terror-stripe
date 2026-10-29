@@ -261,6 +261,12 @@ function AsistentProfil() {
     aplica(raspundeRapid(stare, intrebare.raspunsuri.filter((r) => alegeri.includes(r.eticheta))));
   }
 
+  function omite() {
+    if (seTrimite) return;
+    setText("");
+    aplica(sarPeste(stareRef.current));
+  }
+
   async function trimite() {
     const mesaj = text.trim();
     if (!mesaj || seTrimite || stare.terminat) return;
@@ -302,9 +308,6 @@ function AsistentProfil() {
             <span className="text-[13px] text-v3-ink-2">
               {t("pasul")} {Math.min(stare.pas, 6)} {t("din 6")}
             </span>
-            <button type="button" onClick={() => aplica(sarPeste(stare))} disabled={stare.terminat} className={`${btnLink} disabled:opacity-40`}>
-              {t(SAR_PESTE)}
-            </button>
           </>
         )}
       </div>
@@ -368,13 +371,14 @@ function AsistentProfil() {
         </div>
 
         {intrebare && !stare.terminat && (
-          <div className="flex flex-wrap gap-2 pt-1">
+          <div role="group" aria-label={t("Răspunsuri la întrebarea curentă")} className="flex flex-wrap gap-2 pt-1">
             {intrebare.raspunsuri.map((r) => {
               const pe = alegeri.includes(r.eticheta);
               return (
                 <button
                   key={r.eticheta}
                   type="button"
+                  disabled={seTrimite}
                   aria-pressed={intrebare.multiple ? pe : undefined}
                   onClick={() => atinge(r.eticheta)}
                   className={`min-h-11 rounded-full border-2 border-v3-ink px-4 text-[15px] font-bold ${
@@ -385,16 +389,24 @@ function AsistentProfil() {
                 </button>
               );
             })}
-            {intrebare.multiple && (
+            {intrebare.multiple && alegeri.length > 0 && (
               <button
                 type="button"
                 onClick={gata}
-                disabled={alegeri.length === 0}
+                disabled={seTrimite}
                 className="min-h-11 rounded-full bg-v3-ink px-5 text-[15px] font-bold text-v3-on-ink disabled:opacity-40"
               >
                 {t("Gata")}
               </button>
             )}
+            <button
+              type="button"
+              onClick={omite}
+              disabled={seTrimite}
+              className="min-h-11 rounded-full border border-v3-line bg-v3-card px-4 text-[15px] font-bold text-v3-ink underline underline-offset-2 disabled:opacity-40"
+            >
+              {t(SAR_PESTE)}
+            </button>
           </div>
         )}
 
