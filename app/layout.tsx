@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Antet, Subsol, SariLaContinut } from "@/components/Antet";
 import { LimbaProvider } from "@/components/Limba";
 import { SCRIPT_TEMA } from "@/components/Tema";
+import { SCRIPT_STIL } from "@/components/Stil";
 import { AsistentProvider } from "@/components/AsistentProvider";
 import "./globals.css";
 
@@ -46,6 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Tema înainte de prima afișare, ca pagina să nu clipească în tema greșită */}
         <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
+        {/* SPIKE: stilul (A/B/C) din ?stil= sau localStorage, tot înainte de prima afișare */}
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_STIL }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}

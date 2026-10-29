@@ -7,6 +7,7 @@ import { useLimba } from "@/components/Limba";
 import { useAbonament } from "@/components/useAbonament";
 import { useAprobate } from "@/components/useAprobate";
 import { useProfil } from "@/components/useProfil";
+import { ComutatorStil, useStil } from "@/components/Stil";
 import { evenimente } from "@/components/RevistaFlux";
 import { ETICHETA_STARE, bani, cuSemn, dataScurta, vedere, zile, ZILE_URGENT, type VedereCard } from "@/lib/card";
 import { CATALOG } from "@/lib/catalog";
@@ -53,6 +54,8 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
   const profilReal = useProfil();
   const abonament = useAbonament();
   const aprobate = useAprobate();
+  // SPIKE: stilul A/B/C (components/Stil.tsx). Fără stil, pagina e cea actuală.
+  const stil = useStil();
 
   // Profilul: persoana fictivă din ?p=, altfel profilul tău, altfel exemplul Andrei (ca în v6), marcat clar ca exemplu.
   const areProfil = !!profilReal && profilReal.taguri.length > 0;
@@ -122,10 +125,22 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
   const inCatalog = q && vizibile.length === 0 ? CATALOG.filter((s) => normal(`${s.rezumat} ${s.rezumat_en ?? ""} ${s.act}`).includes(normal(q))).length : 0;
   const filtrat = cat !== "toate" || st !== "toate" || !!tag || !!q;
 
+  const hero = stil ? <Hero n={randuri.length} nume={persoana?.nume ?? null} /> : null;
+  const bilant = <Bilant randuri={randuri} acces={acces} antet={stil === "b" ? hero : null} />;
+  const termene = <Termene randuri={randuri} acces={acces} azi={azi} />;
+
   return (
-    <div className="grid gap-x-8 lg:grid-cols-[170px_minmax(0,1fr)_230px]">
+    <div className="pt-radacina grid gap-x-8 lg:grid-cols-[170px_minmax(0,1fr)_230px]">
+      <ComutatorStil />
+      {/* SPIKE B: bilanțul (panoul verde) și termenele în coloana din stânga */}
+      {stil === "b" && (
+        <div className="pt-stanga">
+          {bilant}
+          {termene}
+        </div>
+      )}
       {/* Filtre: coloană pe desktop, pastile pe telefon */}
-      <aside aria-label={t("Filtre")} className="hidden lg:block">
+      <aside aria-label={t("Filtre")} className="pt-filtre hidden lg:block">
         <Filtre titlu={t("Categorie")}>
           <Buton on={cat === "toate"} n={randuri.filter((r) => potrivit(r, "cat")).length} onClick={() => setCat("toate")}>
             {t("Toate")}
@@ -148,8 +163,9 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
         </Filtre>
       </aside>
 
-      <div className="min-w-0">
-        <label className="flex items-center rounded-xl border border-v3-line bg-v3-card pr-1.5 focus-within:border-v3-accent">
+      <div className="pt-main min-w-0">
+        {stil !== "b" && hero}
+        <label className="pt-cauta flex items-center rounded-xl border border-v3-line bg-v3-card pr-1.5 focus-within:border-v3-accent">
           <span className="sr-only">{t("Caută o lege sau o etichetă")}</span>
           <input
             type="search"
@@ -164,7 +180,7 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
           </svg>
         </label>
 
-        <div className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 lg:hidden">
+        <div className="pt-pastile -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 lg:hidden">
           <Pastila on={st === "toate" && cat === "toate"} n={randuri.length} onClick={() => (setSt("toate"), setCat("toate"))}>
             {t("Toate")}
           </Pastila>
@@ -182,7 +198,7 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
 
         {persoana ? (
           // Exemplul e marcat vizibil ca fictiv, cu tot profilul lui, ca să nu fie luat drept al cititorului.
-          <section aria-label={t("Exemplu")} className="mt-3 rounded-2xl border border-dashed border-v3-accent bg-v3-accent-soft p-4">
+          <section aria-label={t("Exemplu")} className="pt-exemplu mt-3 rounded-2xl border border-dashed border-v3-accent bg-v3-accent-soft p-4">
             <p className="m-0 text-[11.5px] font-extrabold tracking-[.12em] text-v3-accent uppercase">{t("Exemplu · persoană fictivă")}</p>
             <p className="m-0 mt-1 text-[15.5px] leading-snug text-v3-ink">
               <b>{persoana.nume}</b> · {persoana.profil.taguri.map((x) => etichetaTagL(limba, x)).join(", ")}
@@ -195,7 +211,7 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
             </p>
           </section>
         ) : (
-          <p className="mt-3 mb-0 text-sm text-v3-ink-2">
+          <p className="pt-exemplu mt-3 mb-0 text-sm text-v3-ink-2">
             {t("Profilul tău:")} {profil.taguri.map((x) => etichetaTagL(limba, x)).join(", ")} ·{" "}
             <Link href="/profil" className="text-v3-ink underline decoration-v3-line underline-offset-2">
               {t("modifică")}
@@ -205,10 +221,10 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
 
         <Freemium premium={premium} ramase={ramase} profilCompletat={profilCompletat} />
 
-        <Bilant randuri={randuri} acces={acces} />
+        {stil !== "b" && bilant}
 
         {taguriProfil.length > 1 && (
-          <div className="mt-5 flex flex-wrap items-center gap-1.5 text-[13.5px] text-v3-ink-2">
+          <div className="pt-etichete mt-5 flex flex-wrap items-center gap-1.5 text-[13.5px] text-v3-ink-2">
             {t("Caută după etichetă:")}
             {taguriProfil.map((x) => (
               <button
@@ -224,7 +240,7 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
           </div>
         )}
 
-        <h2 className="mt-5 mb-0 flex items-baseline justify-between gap-3 border-b border-v3-line pb-2 font-head text-[19px] font-extrabold text-v3-ink">
+        <h2 className="pt-lista-titlu mt-5 mb-0 flex items-baseline justify-between gap-3 border-b border-v3-line pb-2 font-head text-[19px] font-extrabold text-v3-ink">
           {filtrat ? t("Rezultate") : persoana ? t("Acte și scenarii de explorat") : t("Acte pe etichetele tale")}
           <span className="font-sans text-[13.5px] font-medium text-v3-ink-2">
             {vizibile.length} {vizibile.length === 1 ? t("act") : t("acte")}
@@ -232,7 +248,7 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
         </h2>
 
         {vizibile.length ? (
-          <ul className="m-0 list-none p-0">
+          <ul className="pt-lista m-0 list-none p-0">
             {vizibile.map((r) =>
               acces(r.p.schimbare.id) ? (
                 <CardSchimbare
@@ -257,10 +273,27 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
             )}
           </p>
         )}
-        <p className="mt-4 text-[13px] text-v3-ink-2">{t("Nu e sfat financiar. Arătăm efectul legii pe profilul tău și ce permite legea.")}</p>
+        <p className="pt-nota mt-4 text-[13px] text-v3-ink-2">{t("Nu e sfat financiar. Arătăm efectul legii pe profilul tău și ce permite legea.")}</p>
       </div>
 
-      <Termene randuri={randuri} acces={acces} azi={azi} />
+      {stil !== "b" && termene}
+    </div>
+  );
+}
+
+/** SPIKE: titlul mare al paginii („22 de legi îți ating banii anul ăsta.”), ca pe landing. */
+function Hero({ n, nume }: { n: number; nume: string | null }) {
+  const { t, limba } = useLimba();
+  const titlu =
+    limba === "en"
+      ? `${n} ${n === 1 ? "law touches" : "laws touch"} your money this year.`
+      : n === 1
+        ? "O lege îți atinge banii anul ăsta."
+        : `${n}${n >= 20 ? " de" : ""} legi îți ating banii anul ăsta.`;
+  return (
+    <div className="pt-hero">
+      <p className="pt-eyebrow">{nume ? `${nume} · ${t("exemplu, persoană fictivă")}` : t("Pe profilul tău")}</p>
+      <h1 className="pt-h1">{titlu}</h1>
     </div>
   );
 }
@@ -307,7 +340,7 @@ function Freemium({ premium, ramase, profilCompletat }: { premium: boolean; rama
   const { t } = useLimba();
   if (premium) return null;
   return (
-    <section className="mt-4 rounded-2xl border border-v3-line bg-v3-card p-5">
+    <section className="pt-freemium mt-4 rounded-2xl border border-v3-line bg-v3-card p-5">
       <h2 className="m-0 font-head text-[18px] font-extrabold text-v3-ink">
         {t("Deblocări gratuite")} · {ramase} {ramase === 1 ? t("disponibilă") : t("disponibile")}
       </h2>
@@ -401,7 +434,7 @@ function Suma({ v }: { v: VedereCard }) {
 }
 
 /** Bilanțul din v6: costurile și ce poți păstra, ca bare; o bară duce la legea ei. */
-function Bilant({ randuri, acces }: { randuri: Rand[]; acces: (id: string) => boolean }) {
+function Bilant({ randuri, acces, antet }: { randuri: Rand[]; acces: (id: string) => boolean; antet?: React.ReactNode }) {
   const { t , limba } = useLimba();
   // un cost rămâne cost și după ce termenul acțiunii a trecut (impozitul pe dividende se plătește în continuare);
   // ce n-a intrat încă în vigoare și proiectele nu intră
@@ -427,13 +460,14 @@ function Bilant({ randuri, acces }: { randuri: Rand[]; acces: (id: string) => bo
       </>
     );
   return (
-    <section className="mt-4 rounded-2xl border border-v3-line bg-linear-to-b from-v3-tint2 to-v3-card p-5 sm:p-6">
-      <h2 className="m-0 mb-4 font-head text-[21px] leading-[1.2] font-extrabold text-v3-ink">{t("Bilanț pe an, pe profilul tău")}</h2>
-      <div className="mb-4 flex flex-wrap items-end gap-x-11 gap-y-3">
+    <section className="pt-bilant mt-4 rounded-2xl border border-v3-line bg-linear-to-b from-v3-tint2 to-v3-card p-5 sm:p-6">
+      {antet}
+      <h2 className="pt-bilant-titlu m-0 mb-4 font-head text-[21px] leading-[1.2] font-extrabold text-v3-ink">{t("Bilanț pe an, pe profilul tău")}</h2>
+      <div className="pt-cifre mb-4 flex flex-wrap items-end gap-x-11 gap-y-3">
         {!!costuri.length && (
           <div>
-            <span className="mb-1 block text-[13.5px] text-v3-ink-2">{t("Costuri din legi")}</span>
-            <b className="font-num text-[40px] leading-none font-semibold tracking-[-.03em] text-v3-neg tabular-nums">
+            <span className="pt-eticheta mb-1 block text-[13.5px] text-v3-ink-2">{t("Costuri din legi")}</span>
+            <b className="pt-neg font-num text-[40px] leading-none font-semibold tracking-[-.03em] text-v3-neg tabular-nums">
               {cuSemn(totalCost, limba)}
               <small className="ml-1 font-sans text-[14px] font-semibold tracking-normal text-v3-ink-2">{t("lei/an")}</small>
             </b>
@@ -441,8 +475,8 @@ function Bilant({ randuri, acces }: { randuri: Rand[]; acces: (id: string) => bo
         )}
         {!!castiguri.length && (
           <div>
-            <span className="mb-1 block text-[13.5px] text-v3-ink-2">{t("Ce poți păstra, dacă faci ce permite legea")}</span>
-            <b className="font-num text-[40px] leading-none font-semibold tracking-[-.03em] text-v3-pos tabular-nums">
+            <span className="pt-eticheta mb-1 block text-[13.5px] text-v3-ink-2">{t("Ce poți păstra, dacă faci ce permite legea")}</span>
+            <b className="pt-pos font-num text-[40px] leading-none font-semibold tracking-[-.03em] text-v3-pos tabular-nums">
               +{bani(totalCastig, limba)}
               <small className="ml-1 font-sans text-[14px] font-semibold tracking-normal text-v3-ink-2">{t("lei/an")}</small>
             </b>
@@ -454,8 +488,8 @@ function Bilant({ randuri, acces }: { randuri: Rand[]; acces: (id: string) => bo
         { lista: castiguri, val: castig, culoare: "bg-v3-pos", w: totalCost ? Math.max(12, Math.min(100, (totalCastig / -totalCost) * 100)) : 100 },
       ].map(({ lista, val, culoare, w }, i) =>
         lista.length ? (
-          <div key={i} className="mb-3">
-            <div className="mb-2 flex h-7 gap-0.5 overflow-hidden rounded-lg" style={{ width: `${w}%` }}>
+          <div key={i} className="pt-bare mb-3">
+            <div className="pt-bara mb-2 flex h-7 gap-0.5 overflow-hidden rounded-lg" style={{ width: `${w}%` }}>
               {lista.map((r) => (
                 <button
                   key={r.p.schimbare.id}
@@ -487,7 +521,7 @@ function Bilant({ randuri, acces }: { randuri: Rand[]; acces: (id: string) => bo
           </div>
         ) : null,
       )}
-      <p className="m-0 text-[12.5px] text-v3-ink-2">{t("Sumele sunt calculul nostru pe profil, nu cifre scrise în lege. Proiectele nu intră în bilanț.")}</p>
+      <p className="pt-bilant-nota m-0 text-[12.5px] text-v3-ink-2">{t("Sumele sunt calculul nostru pe profil, nu cifre scrise în lege. Proiectele nu intră în bilanț.")}</p>
     </section>
   );
 }
@@ -501,10 +535,10 @@ function Termene({ randuri, acces, azi }: { randuri: Rand[]; acces: (id: string)
     azi,
     limba,
   ).slice(0, 7);
-  if (!ev.length) return <aside className="hidden lg:block" />;
+  if (!ev.length) return <aside className="pt-termene hidden lg:block" />;
   return (
-    <aside aria-label={t("Termene și ce urmează")} className="mt-8 lg:mt-0">
-      <h3 className="m-0 mb-1 border-b border-v3-line pb-2 text-[13px] font-bold text-v3-ink">{t("Termene și ce urmează")}</h3>
+    <aside aria-label={t("Termene și ce urmează")} className="pt-termene mt-8 lg:mt-0">
+      <h3 className="pt-termene-titlu m-0 mb-1 border-b border-v3-line pb-2 text-[13px] font-bold text-v3-ink">{t("Termene și ce urmează")}</h3>
       <ul className="m-0 list-none p-0">
         {ev.map((x) => {
           const [y, m, d] = x.iso.split("-").map(Number);
