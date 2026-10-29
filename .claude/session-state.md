@@ -1,6 +1,6 @@
 # Session state
 
-Updated: 2026-10-29 05:20
+Updated: 2026-10-29 05:35
 
 ## Branch `legi-ingest` (worktree `.claude/worktrees/legi-ingest`, off `deploy-descriere`)
 
@@ -23,10 +23,14 @@ Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) �
 ### Rulat
 - 12 acte (campanii + alese) aduse cu `--dry-run --dump scratch/acte`; loturi în `scratch/lot/` (Codul fiscal doar art.
   84, 84^1, 97, 155, 156, 170; Legea 239 art. XII–XIII; Legea 76 art. 33^1…76^5). OUG 8/2026 = Portal 307580.
-- 11/12 interpretări Sonnet (subagenți) în `scratch/lot/portal_<id>.json`; poarta: 8 ok, 3 cu schimbări fără etichetă
-  (cripto/titluri, TVA 21% general, asigurare voluntară de șomaj) care rămân neaprobabile. OUG 8/2026 încă rulează.
-- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) în `--dry-run --dump scratch/sweep`, jurnal `scratch/sweep-log.txt`.
-- Paritate API (Haiku) pe 3 loturi: `scratch/lot-api/`. Spot-check Opus pe 5 interpretări: în curs.
+- 12/12 interpretări Sonnet (subagenți), 88 schimbări, 76 cu etichetă; copii în `eval/rezultate/sonnet-subagent-v3/legi/`.
+  Spot-check Opus pe cele 5 campanii → corecturi aplicate, regulile 14–16 în instrucțiuni. Paritate API (Haiku, 0,019 USD)
+  pe 3 loturi: aceeași formă și verificări (`eval/rezultate/haiku-api-v3/legi/`).
+- Parcurgerea ultimelor 6 săptămâni (id 314500–315900) rulează în fundal în `--dry-run --dump scratch/sweep` (jurnal
+  `scratch/sweep-log.txt`); la 05:35: 508 pagini, 0 erori. Triaj Haiku pe primii 125 de candidați: 43 da / 82 nu
+  (`scratch/triaj/verdict-*.json`, aplicate în fișiere). 6 acte din parcurgere interpretate (3 cu schimbări).
+- Rămas: după ce se termină parcurgerea, `legi:triaj --reevalueaza`, `--export` pentru candidații noi, triaj Haiku,
+  `--aplica`; apoi, cu baza: `legi:incarca --din scratch/acte --din scratch/sweep`, `legi:importa`, aprobări în /admin/acte.
 
 ### BLOCAT: baza de date
 `.env.local` are `SUPABASE_DB_URL` comentat, cu `[YOUR-PASSWORD]`. Fără el nu merg `legi:migreaza`, `legi:incarca`,
