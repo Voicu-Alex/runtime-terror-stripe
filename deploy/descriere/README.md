@@ -34,5 +34,10 @@ nu e al nostru (fără drept de admin, deci fără secrete în Actions).
 - **Log:** `pct exec 107 -- journalctl -u descriere-deploy -n 20`.
 - **Rollback:** dai revert pe `main`, sau `pct rollback 107 <snapshot>`.
 
-Cheia de deploy se adaugă în GitHub → repo → Settings → Deploy keys (doar citire); cheia publică
-se afișează la finalul `install.sh`. Doar un admin al repo-ului o poate adăuga.
+## Accesul la GitHub
+
+Cheia containerului (`/etc/descriere-deploy/deploy_key.pub`, afișată la finalul `install.sh`) e
+adăugată pe contul GitHub al lui Andrei („descriere-deploy CT107 (homelab)”, 29 oct 2026), pentru
+că doar un admin al repo-ului poate adăuga o cheie de deploy. Atenție: o cheie pe cont poate
+citi **și scrie** în toate repo-urile contului. După hackathon, ori se șterge din
+github.com/settings/keys, ori un admin o mută în Settings → Deploy keys (doar citire).
