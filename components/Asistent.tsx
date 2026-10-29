@@ -26,8 +26,11 @@ import { aziISO, potriveste } from "@/lib/potrivire";
 import { dataScurta, zile } from "@/lib/card";
 import type { TagId } from "@/lib/taguri";
 import { etichetaTagL } from "@/lib/i18n";
+import Link from "next/link";
 import { useLimba } from "@/components/Limba";
 import { FormularProfil } from "@/components/FormularProfil";
+import { useAbonament } from "@/components/useAbonament";
+import { PRET_BANI } from "@/lib/abonament";
 
 type Props = { mod: "profil" } | { mod: "lege"; id: string; titlu: string; onInchide: () => void; profil?: Profil };
 
@@ -182,6 +185,9 @@ function AsistentProfil() {
   const [alegeri, setAlegeri] = useState<string[]>([]);
   const [baza, setBaza] = useState<Profil>(PROFIL_GOL);
   const sfarsit = useRef<HTMLDivElement>(null);
+  // Conversația e pentru abonații Pro (ADR 0002): fără Pro se vede estompată și nu răspunde; formularul rămâne liber.
+  const abonament = useAbonament();
+  const blocat = !abonament?.activ;
 
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get("p");
@@ -269,7 +275,7 @@ function AsistentProfil() {
 
   async function trimite() {
     const mesaj = text.trim();
-    if (!mesaj || seTrimite || stare.terminat) return;
+    if (!mesaj || seTrimite || stare.terminat || blocat) return;
     setSeTrimite(true);
     let etichete: Extrasa[] = [];
     try {
@@ -314,7 +320,24 @@ function AsistentProfil() {
 
       {formular && <FormularProfil />}
 
-      <div hidden={formular} className="space-y-5 pb-16">
+      <div hidden={formular} className="relative">
+      {blocat && (
+        <div className="absolute inset-x-0 top-20 z-10 flex justify-center px-2">
+          <div className="max-w-[38ch] rounded-2xl border border-v3-line bg-v3-card p-5 text-center shadow-xl">
+            <p className="m-0 font-head text-[19px] leading-tight font-extrabold text-v3-ink">{t("Asistentul e pentru abonații Pro.")}</p>
+            <p className="m-0 mt-2 text-[14px] leading-relaxed text-v3-ink-2">{t("Îți descrii situația în cuvintele tale și profilul se completează singur. Formularul și documentul rămân gratuite.")}</p>
+            <div className="mt-4 flex flex-wrap justify-center gap-2">
+              <Link href="/abonament" className="inline-flex min-h-11 items-center rounded-[10px] bg-v3-ink px-4 text-[14px] font-bold text-v3-on-ink no-underline hover:bg-v3-ink-strong">
+                {t("Upgrade la Pro")} · {PRET_BANI / 100} {t("lei/lună")}
+              </Link>
+              <button type="button" onClick={() => setFormular(true)} className="inline-flex min-h-11 items-center rounded-[10px] border border-v3-ink bg-v3-card px-4 text-[14px] font-bold text-v3-ink">
+                {t("Folosesc formularul")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      <div inert={blocat || undefined} aria-hidden={blocat || undefined} className={`space-y-5 pb-16 ${blocat ? "blur-[4px] select-none" : ""}`}>
         <div className="rounded-2xl bg-v3-band px-4 py-3 text-[15px] text-v3-band-ink" aria-live="polite">
           {nrActe === 0 ? (
             <b>{t("Până acum: niciun act")}</b>
@@ -453,6 +476,7 @@ function AsistentProfil() {
           </button>
         </form>
         )}
+      </div>
       </div>
     </div>
   );
