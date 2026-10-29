@@ -33,4 +33,4 @@ Romania changed VAT, dividend tax, health contributions, sector tax exemptions, 
 Pro is a monthly subscription through Stripe Checkout, linked to the Google account email, with the customer portal for cancelling. Stripe Managed Payments handles VAT as the merchant of record. *(docs/adr/0002-abonament-stripe.md)*
 
 **The legal texts are in Romanian. Is that a problem?**
-The interface, titles and actions are in English and Romanian; the detailed legal explanations stay in Romanian because they quote the law. That is the right default for a Romanian product. *(lib/i18n.ts)*
+The whole app works in English and Romanian, including the legal explanations; the Romanian text is the verified one, and the English is an unofficial translation with the same facts and figures. Quotes from the law stay in Romanian, with the translation underneath. *(data/traduceri-en.json, lib/traduceri.ts)*

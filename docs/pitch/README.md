@@ -42,8 +42,10 @@ Prima fază e un **video de pitch de maximum 3 minute, în engleză**. Juriul î
 
 Nu e potrivit pentru video-ul principal: juriul cere un „credible product experience”, adică aplicația reală, filmată, cu voce. E bun pentru o deschidere sau un final de 10–15 secunde, rulat **după** ce aplicația e gata, pentru că citește codul. Verificați fiecare cifră care apare în el: regula „nimic inventat” se aplică și acolo.
 
+## Engleza
+
+În engleză (`?lang=en`) nu mai rămâne nimic în română în afară de numele aplicației, nume proprii și citatele din lege din `/admin`, care au dedesubt traducerea neoficială. Traducerile textelor din date stau în `data/traduceri-en.json`, separat de catalog: cine schimbă textul românesc actualizează și traducerea, iar `lib/traduceri.test.ts` pică dacă structura nu se mai potrivește.
+
 ## Ce n-a apucat să intre (dacă e timp)
 
-- `/legi` („Toate legile”) are conținutul ghidului doar în română. Interfața e în engleză, textele nu.
-- Nivelurile Curios și Expert de pe card rămân în română (sunt citate juridice). Zero, titlul și acțiunile sunt în engleză.
 - Etichetele fără niciun act în catalog: `chirias`, `rural`, `sanatate`, `intretin_handicap`. Cine le bifează vede mai puțin. Plus eticheta „investitor”, care lipsește. Amândouă cer cercetare cu surse verificate, nu traducere.
