@@ -1,6 +1,7 @@
 import { FormularAproba, FormularRespinge } from "@/components/admin-acte/FormulareDecizie";
 import { dataScurta } from "@/lib/card";
 import { TAGURI } from "@/lib/taguri";
+import { esteFormulaTip, formulaCompleta } from "@/lib/formule-tip";
 import type { RandInterpretare, SchimbarePropusa, Verificari } from "@/lib/supabase-server";
 
 // Aspectul urmează „Revistă, pe gri” (mockup/v3/index.html?v=f, ADR 0001): verde pentru bani în plus,
@@ -110,7 +111,7 @@ function SectiuneAct({ r }: { r: RandInterpretare }) {
           <FormularAproba
             id={r.id}
             blocatAct={blocatAct}
-            optiuni={rezultat.schimbari.map((s, i) => ({ rezumat: s.rezumat, picate: picate.filter((x) => x.schimbare === i).map((x) => x.mesaj) }))}
+            optiuni={rezultat.schimbari.map((s, i) => ({ rezumat: s.rezumat, cotaLipsa: areCotaLipsa(s.formula_tip), picate: picate.filter((x) => x.schimbare === i).map((x) => x.mesaj) }))}
           />
           <FormularRespinge id={r.id} />
         </div>
@@ -119,9 +120,15 @@ function SectiuneAct({ r }: { r: RandInterpretare }) {
   );
 }
 
+/** O `schimbare_cota` la care modelul n-a găsit vechea cotă în text: revizorul o completează la aprobare. */
+function areCotaLipsa(f: unknown): boolean {
+  return esteFormulaTip(f) && f.tip === "schimbare_cota" && !formulaCompleta(f);
+}
+
 function PanouVerificari({ v }: { v: Verificari | null }) {
   if (!v)
     return <p className="m-0 mt-3 text-[13.5px] text-v3-ink-2">Verificările automate nu au rulat pe această interpretare.</p>;
+  const avertismente = v.avertismente ?? [];
   return (
     <div className="mt-3 grid gap-2.5 md:grid-cols-2">
       <div className="rounded-[10px] border border-v3-pos/30 bg-v3-pos-soft p-3">
@@ -155,6 +162,22 @@ function PanouVerificari({ v }: { v: Verificari | null }) {
           </ul>
         )}
       </div>
+      {avertismente.length > 0 && (
+        <div className="rounded-[10px] border border-amber-300 bg-amber-50 p-3 md:col-span-2">
+          <p className="m-0 mb-1 text-[11px] font-extrabold tracking-[.1em] text-amber-800 uppercase">Avertismente ({avertismente.length})</p>
+          <ul className="m-0 list-none space-y-1 p-0 text-[13.5px] text-v3-ink">
+            {avertismente.map((x, i) => (
+              <li key={i} className="flex gap-2">
+                <span aria-hidden="true" className="text-amber-800">!</span>
+                <span>
+                  {x.mesaj}
+                  {typeof x.schimbare === "number" && <span className="text-v3-ink-2"> (schimbarea {x.schimbare + 1})</span>}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

@@ -549,6 +549,13 @@ const CAMP_EN: Record<CampValoare, string> = {
   varsta_copil_mic: "age of the youngest child",
   persoane_intretinere: "dependants",
   impozit_cladiri_anual: "building tax per year",
+  valoare_impozabila_locuinta: "taxable value of the home",
+  pret_masina: "purchase price of the car",
+  cifra_afaceri_anuala: "turnover per year",
+  castig_investitii_anual: "investment gains per year",
+  chirie_incasata_lunara: "rent received per month",
+  consum_gaz_anual_kwh: "gas use per year (kWh)",
+  impozit_venit_anual_precedent: "income tax paid last year",
 };
 
 export function etichetaTagL(limba: Limba, tag: TagId): string {

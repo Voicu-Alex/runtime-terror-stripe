@@ -11,13 +11,13 @@ import type { StareAbonament } from "@/lib/abonament";
 // Antetul: logo-ul și numele în stânga, Pro și meniul contului în dreapta, secțiunile dedesubt.
 // Profilul, tema și limba sunt în meniul contului (components/MeniuProfil.tsx), nu în bara de secțiuni.
 const SECTIUNI = [
-  { href: "/", text: "Pentru tine" },
+  { href: "/aplicatie", text: "Pentru tine" },
   { href: "/legi", text: "Toate legile" },
 ];
 
-/** „/” e activ doar pe pagina principală și pe fluxul vechi; restul, după prefix. */
+/** „Pentru tine” (/aplicatie) e activ și pe fluxul vechi; restul, după prefix. Pe landing (/) nu e activ nimic. */
 function activ(cale: string, href: string): boolean {
-  return href === "/" ? cale === "/" || cale.startsWith("/flux") : cale.startsWith(href);
+  return href === "/aplicatie" ? cale.startsWith("/aplicatie") || cale.startsWith("/flux") : cale.startsWith(href);
 }
 
 export function Antet() {

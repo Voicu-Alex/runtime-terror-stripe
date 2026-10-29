@@ -5,7 +5,7 @@ import type { IntrareGhid } from "./ghid";
 import { TAGURI, esteTag, type TagId } from "./taguri";
 
 /**
- * Din interpretarea modelului (eval/interpretare/instructiuni.md, v3) în intrările pe care le citește aplicația:
+ * Din interpretarea modelului (eval/interpretare/instructiuni.md, v4) în intrările pe care le citește aplicația:
  * `Schimbare` (data/catalog.json) și `IntrareGhid` (data/ghid.json). Funcții pure; scrierea fișierelor și a
  * bazei e în lib/aprobare.ts. Tipurile de mai jos descriu ce întoarce modelul, nu ce acceptă catalogul: câmpurile
  * sunt largi (string), iar lib/verificari-interpretare.ts verifică înainte de aprobare că valorile sunt valide.
@@ -181,6 +181,7 @@ export function spreGhid(schimbare: Schimbare, interp: InterpretareAct, i: numbe
     pasi: pasi.length ? pasi : [schimbare.niveluri.zero],
     solutie: null,
   };
-  if (s.nota) g.nota = s.nota;
+  // `s.nota` e pentru revizor (ce e de verificat, de ce lipsește formula); rămâne în `interpretari` și în /admin/acte,
+  // nu în ghidul citit de utilizatori.
   return g;
 }

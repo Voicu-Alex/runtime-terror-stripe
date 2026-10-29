@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Notează rezultatele din eval/rezultate/<model>/{documente,legi}/ față de așteptări.
-//   node eval/scor.mjs [cale-asteptari-documente.json] [cale-asteptari-legi.json]
+//   node --import tsx eval/scor.mjs [cale-asteptari-documente.json] [cale-asteptari-legi.json]
 // Verificările automate sunt regulile pe care le-ar aplica și pipeline-ul înainte de /admin:
 // etichete doar din listă, date personale nemascate, citat găsit în textul actului, date, linkuri.
 import { readFile, readdir } from "node:fs/promises";

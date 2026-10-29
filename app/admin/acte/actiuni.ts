@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
-import { areAcces } from "@/lib/admin";
+import { areAcces, completariDinFormular } from "@/lib/admin";
 import { aprobaInterpretare, respingeInterpretare } from "@/lib/aprobare";
 
 export type StareActiune = { eroare?: string; ok?: string };
@@ -20,8 +20,10 @@ export async function aproba(_anterior: StareActiune, formData: FormData): Promi
     const schimbari = formData.getAll("schimbare").map(Number).filter(Number.isInteger);
     if (!Number.isInteger(id)) throw new Error("Lipsește id-ul interpretării.");
     if (!schimbari.length) throw new Error("Bifează cel puțin o schimbare de aprobat.");
+    const { completari, eroare } = completariDinFormular(formData, schimbari);
+    if (eroare) throw new Error(eroare);
     const rev = await revizor();
-    const r = await aprobaInterpretare(id, { schimbari, revizor: rev, azi: new Date().toISOString().slice(0, 10) });
+    const r = await aprobaInterpretare(id, { schimbari, completari, revizor: rev, azi: new Date().toISOString().slice(0, 10) });
     revalidatePath("/admin/acte");
     return { ok: `Aprobat: ${r.schimbareIds.join(", ")}` };
   } catch (e) {

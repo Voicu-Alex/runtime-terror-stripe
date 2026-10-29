@@ -1,13 +1,29 @@
 # Session state
 
-## Latest (29 oct 2026): logo + UI responsive pe branch `ui-logo-responsive` (worktree .claude/worktrees/ui-logo), commit 41238c97, NEPUSHUIT
+## Latest (29 oct 2026): logo + UI responsive pe branch `ui-logo-responsive` (worktree .claude/worktrees/ui-logo), PUSHUIT, PR #43 (Voicu-Alex/runtime-terror-stripe)
 - Din origin/main a2280499 + merge local `codex/assistant-current-ui` (asistentul nu e încă pe main; merge curat).
 - Logo în aplicație: buzunar în culoarea --color-v3-logo (gri cald; accentul albastru din v3 vechi nu mai e în app), monedă --color-v3-pos. components/Logo.tsx; iconițe/OG în lib/marca.tsx.
 - Telefon: logo stânga, limba un singur buton, tema în subsol; acasă nu mai are 807 px lățime (bilanț); butonul Asistent jos-dreapta peste tot; focus curat în câmpul de chat.
 - Verificat: tsc, 264 teste, telefon 375 lumină/întuneric în panoul de browser, desktop/tabletă în captures/ui-dupa-*. Serverul pornit din Bash pe :3020 (limita de 5 servere de preview era plină).
 - Pas 2 (cererea lui Andrei): logo + nume în stânga pe toate mărimile; „Profil” scos din bara de secțiuni; în dreapta Pro + buton rotund de profil (components/MeniuProfil.tsx) cu: cont (Intră / email + Ieși din cont), Etichetele mele (/profil#etichete), Adaugă un document (/profil#document), Planul meu, Vorbește cu asistentul, Temă închisă, Limba, Upgrade la Pro. Pe /profil butonul are inel.
 - Verificat pe telefon: meniul, EN, tema închisă, linkul la etichete. Neverificat: starea conectat și „Ieși din cont” (fără cont de test).
-- Deschis: push + PR (depinde de PR-ul asistentului); ESLint nu rulează cu configul din repo.
+- PR #43 deschis; main adus în branch (conflict doar în acest fișier). Check-ul Vercel pică din lipsă de acces, nu din cod. ESLint nu rulează cu configul din repo.
+
+## Latest (29 oct 2026): branch `legi-pipeline` (worktree `.claude/worktrees/legi-pipeline`), pipeline-ul de ingestie fără om
+- Branch nou din `main` (e74eb78d) cu `legi-ingest` inclus (merge 4c17e28d). Planul a ce lipsea: `docs/ingest-urmatorii-pasi.md`.
+- Construit de 3 builderi (Sonnet), inspectat, nimic pushuit:
+  - `legi:triaj --api` (Haiku, `lib/triaj-model.ts`): triajul candidaților din bază sau din fișiere, scrie `triaj.model` + `triat_da/triat_nu`.
+  - `legi:interpreteaza` (`lib/lot.ts`, `lib/interpretare-api.ts`, `lib/importa-interpretare.ts`): interpretare prin API cu cache, verificări, upsert în `interpretari (propus)`; mod pe fișiere `--din/--out`; `--buget-usd`. Model implicit Sonnet 5.5 (`LEGI_MODEL_INTERPRETARE`).
+  - `legi:zilnic` (`lib/zilnic.ts`): descopera `--reia` → triaj → interpreteaza, rând în `rulari` (sursa `zilnic`); `.github/workflows/legi-zilnic.yml` (cron 04:00 UTC, dispatch cu dry-run). Secretele le pune Andrei în GitHub.
+- Verificat: tsc curat, 251 teste; lanțul pe fișiere cu Portalul real (7 id-uri, 1 candidat → Haiku „nu”, corect) și 2 acte interpretate prin API (ambele „nu atinge banii”, corect: HG de siguranță pe rețea, ordin a cărui schemă e în anexă lipsă).
+- DEBLOCAT: tabelele există și sunt pline (parola e în `SUPABASE_DB_URL`). Pașii D sunt făcuți: 1.077 acte, cele 18 interpretări din `legi-ingest/scratch/lot` importate.
+- Beneficii calculabile (Andrei: „build it all”): tipuri noi de formulă, referințe sursate, 7 câmpuri de profil, cota veche completată de om în admin, instrucțiuni v4, verificări soft; 295 teste. Detalii în `docs/ingest-urmatorii-pasi.md`. Rularea v4 pe cele 18 acte (`--reinterpreteaza`, Sonnet): în curs / de măsurat; Codul fiscal depășește 32k tokeni la răspuns.
+- Sesiunea „Laws database population” (29 oct): triaj Haiku pe 71 candidați (8 da); interpretare Sonnet (instrucțiuni v3) pe toți cei 96 triat_da → 0 candidat, 0 triat_da în bază; 115 rânduri în `interpretari`, toate `propus`, nimic aprobat (aprobarea rămâne la om în /admin/acte, care arată 109). ≈ 39 acte noi ating banii: 14 trec toate verificările, restul pică doar „nicio etichetă” (nișe: exproprieri, agricultură, sănătate). Verificat de mână pe textul din bază: tichet de masă 45 lei, tichet de creșă 770 lei, cogenerare 0,0157 lei/kWh, Tezaur 6,50/7,00/7,50%. Cost ≈ 4,75 USD. Descoperirea după 315785: niciun act nou până la 315866; Portalul a căzut de 2 ori („fetch failed”). Captură `captures/legi-admin-live-109.jpg`.
+- Catalog: Andrei a cerut „review them yourself and put them in”. Am revizuit cele 17 propuneri care trec poarta și nu erau în catalog; am aprobat 24 de schimbări din 9 acte (commit bf66810d) → 66 schimbări din 32 de acte, verificat pe /legi (captură `captures/legi-catalog-66-bursa-01.jpg`). Lăsate în /admin pentru demo: #32 (tarife semincere), #65/#67 (ordine doar cu titlu), #71, #82 (minimis, anexă lipsă), #89 (fizioterapeuți), #97 (hrana albine) plus cele 24 care pică poarta (etichete lipsă) și cele 10 deja în catalog. Legea 161/2026 sărită: restituirea TVA e deja în catalog.
+- Nota modelului nu mai ajunge în ghidul pentru utilizatori (`spreGhid`); rămâne în interpretari și în /admin.
+- Rularea v4 (Sonnet) pe cele 18: Codul fiscal, OUG 156/2024 și Legea 141/2025 depășesc 32k tokeni la răspuns (JSON tăiat); restul rulează la ≈ 2 min și ≈ 0,2 USD pe act. Măsurat la 16/18: 7 acte tăiate la max_tokens (cele mari, unde sunt banii), iar pe cele reușite v4 nu aduce formule în plus (v3 2/9 vs v4 2/13 schimbări active cu bani). Concluzie: v4 trebuie scurtat (niveluri mai scurte, `--max-tokens` mai mare) înainte de orice reinterpretare; propunerile v3 rămân cele valabile.
+- Publicat (Andrei: „put it in the database and make it so its in prod”): `supabase:import` (66/66 în schimbari/ghid), main (PR #39) îmbinat în legi-pipeline, engleză pentru cele 24 de intrări noi (testele de acoperire EN de pe main), `next build` ok, main avansat la legi-pipeline și pushuit → producția e acum AWS Amplify pe main: https://main.d35dxj4gdere6m.amplifyapp.com/ (Andrei, 29 oct). Verificat live: /legi arată 68 rezultate (66 din catalog + 2 proiecte), bursa de merit prezentă; captură `captures/prod-amplify-legi-68-01.jpg`. descriere.andreidobrin.com dădea 523 la verificare.
+- Capăt deschis (decizie de echipă): aprobarea scrie `data/catalog.json` pe disc; aplicația nu citește din Supabase, deci un act aprobat ajunge la utilizatori doar prin `supabase:sync` + commit + push pe main.
 
 
 Updated: 2026-10-29 05:35
@@ -82,6 +98,7 @@ Ingestia actelor: Portal Legislativ → Supabase → interpretare (subagenți) �
 - Prima de stabilitate (OUG 11/2026, art. 76^5) e doar pentru tineri NEET 16–29 ani înregistrați la agenție, nu pentru
   oricine la primul job.
 - `cei_d` din catalog e cont de investiții, nu certificat energetic; art. 111 nu mai are prag de 450.000 lei din 2023.
+
 
 ## Final (29 oct 2026, 06:45, limită de utilizare atinsă)
 - Parcurgerea 314500–315900 s-a încheiat în 3 rulări (jurnale în `eval/rezultate/triaj-2026-10-29/`): 1.065 acte, 0 erori,
@@ -220,6 +237,14 @@ Hackathon Nexxt × Stripe "Rethinking Financial Futures" (Romania only). Product
 - Decizie propusă (nu adoptată): Capacitor 8 peste Next.js, WebView pe `http://10.0.2.2:3200` (dev server de pe laptop; aplicația nu e publicată nicăieri), notificare locală din `lib/notificari.ts`, FCM ca extindere blocată de Firebase. `docs/adr/0005-android-capacitor.md` (status propus) și `docs/android/plan.md` (tichete T0–T5 pentru Astra) sunt scrise în worktree-ul `.claude/worktrees/android` pe branch-ul `android`, necommitate.
 - Branch-ul `android` a fost creat la 89096cf3 = vârful curent al `deploy-descriere`, care tocmai fusese avansat (fast-forward) pe `legi-ingest` de altă sesiune; include deci cele 18 commit-uri legi-ingest, nu doar deploy-ul (641cb7f1). De confirmat cu Andrei.
 - Limită cunoscută: Google refuză OAuth în WebView; Pro se demonstrează pe web, pe telefon notificare → flux → card.
+
+## Final (29 oct 2026, 06:45, limită de utilizare atinsă)
+- Parcurgerea 314500–315900 s-a încheiat în 3 rulări (jurnale în `eval/rezultate/triaj-2026-10-29/`): 1.065 acte, 0 erori,
+  0 reîncercări; după 315411 id-urile au goluri mari (313 lipsă din 469), pragul de oprire e acum 200 la rând.
+- Stări finale în `scratch/sweep`: 723 respinse de reguli, 96 triat_da, 178 triat_nu, 68 candidați netriați (loturile se fac
+  cu `legi:triaj --din scratch/sweep --export scratch/triaj4`). Verdictele Haiku sunt în `eval/rezultate/triaj-2026-10-29/`.
+- Blocat tot pe `SUPABASE_DB_URL`; pașii de după sunt mai sus. Nimic pushuit.
+
 ## Latest (Chris, 29 oct ~01:30, branch `chris-demo`, PR #34, not merged)
 - Pitch is a 3-min video in English (phase 1). Read `docs/pitch/README.md` first: script, slides advice, jury Q&A, Vercel to-dos, open decisions (Pro price 15 vs 49,99/299; IT −520 vs −650).
 - Added: `PRO_DESCHIS_DEMO=1` (feed open for the jury, default off), rate limit on `/api/analiza-document` (lib/limita.ts), landing bilingual (components/Acasa.tsx), `text_en` on all 43 actions and `niveluri.zero_en` on all 42 acts, `/surse`, `/admin` (real Sonnet 5.5 proposals from eval/rezultate/sonnet-api → data/inbox-mo.json; approve shows the card live in other tabs via localStorage), PWA manifest + icons + OG image, `scripts/inregistreaza-demo.mjs` (records 7 scenes to captures/video/, needs `npm i --no-save playwright-core`).

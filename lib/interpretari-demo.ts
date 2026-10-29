@@ -53,5 +53,47 @@ export function interpretariDemo(): RandInterpretare[] {
       },
     });
   }
+  randuri.push(randCotaLipsa(id));
   return randuri;
+}
+
+/** Rând inventat (act fictiv, cifre fictive): o schimbare de cotă la care vechea cotă nu e în text, ca să apară câmpurile de completare. */
+function randCotaLipsa(id: number): RandInterpretare {
+  const rezultat: RezultatInterpretare = {
+    act: "Lege fictivă nr. 0/2026 (demo)",
+    mo: "MO 0 / 1 ian 2026 (fictiv)",
+    publicat_la: "2026-10-28",
+    atinge_banii: true,
+    schimbari: [
+      {
+        rezumat: "Impozitul pe dividende crește la 12% (act fictiv, demo)",
+        rezumat_en: "Dividend tax rises to 12% (fictitious act, demo)",
+        taguri: ["srl_dividende"],
+        in_vigoare_de_la: "2027-01-01",
+        pana_la: null,
+        status: "adoptat",
+        directie: "cost",
+        formula: null,
+        formula_tip: {
+          tip: "schimbare_cota",
+          parametri: { camp: "dividende_anuale", cota_veche: null, cota_noua: 12, perioada: "an", sursa_veche: null },
+        },
+        articol: "art. 1 (fictiv)",
+        citat: "cota de impozit pe dividende este de 12%",
+        niveluri: { zero: "Plătești mai mult pe dividende.", curios: "Cota nouă e 12%; cea veche nu e în text.", expert: "Cota veche trebuie completată din actul în vigoare." },
+        actiuni: [],
+        incredere: "medie",
+        nota: "Rând fictiv pentru demo.",
+      },
+    ],
+  };
+  return {
+    id,
+    model: "claude-haiku-5-5",
+    driver: "api",
+    creat_la: "2026-10-28T11:00:00Z",
+    rezultat,
+    verificari: { trecute: [{ cod: "formula_valida", mesaj: "Formulele sunt cunoscute sau lipsesc." }], picate: [], ok: true },
+    act: { titlu: "Lege fictivă (demo)", mo_ref: rezultat.mo, url: "https://legislatie.just.ro/", publicat_la: rezultat.publicat_la, tip_act: null, numar: null, an: null, lungime: null },
+  };
 }
