@@ -1,3 +1,4 @@
+import { ButonAsistent } from "@/components/ButonAsistent";
 import { FormularProfil } from "@/components/FormularProfil";
 import { T } from "@/components/Limba";
 import { PlanulMeu } from "@/components/PlanulMeu";
@@ -17,6 +18,7 @@ export default function PaginaProfil() {
             <T k="Poți completa profilul manual sau prin analiza unui document cu AI." />
           </p>
         </div>
+        <ButonAsistent />
         <FormularProfil />
       </div>
       <PlanulMeu />

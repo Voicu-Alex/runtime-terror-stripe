@@ -1,0 +1,117 @@
+[
+  {
+    "id": "tva",
+    "termen": "TVA",
+    "aliasuri": [
+      "taxa pe valoarea adaugata"
+    ],
+    "definitie": "TVA este o taxă plătită la cumpărarea multor produse și servicii. Banii ajung la stat. Legea spune când se plătește această taxă.",
+    "sursa": {
+      "titlu": "Legea nr. 227/2015 privind Codul fiscal",
+      "articol": "art. 265",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/196995",
+      "verificatLa": "2026-10-29"
+    },
+    "pe_scurt": "Pe scurt: TVA este o taxă pe cumpărături care ajunge la stat. Nu toate cumpărăturile au aceleași reguli."
+  },
+  {
+    "id": "cass",
+    "termen": "CASS",
+    "aliasuri": [
+      "contributia de asigurari sociale de sanatate",
+      "contributia la sanatate"
+    ],
+    "definitie": "CASS sunt banii plătiți pentru asigurarea de sănătate. Legea stabilește pentru ce venituri se plătește și cine este scutit.",
+    "sursa": {
+      "titlu": "Legea nr. 227/2015 privind Codul fiscal",
+      "articol": "art. 153–155",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/196995",
+      "verificatLa": "2026-10-29"
+    },
+    "pe_scurt": "Pe scurt: CASS este contribuția pentru sănătate. Dacă trebuie să o plătești depinde de veniturile tale și de excepțiile din lege."
+  },
+  {
+    "id": "cas",
+    "termen": "CAS",
+    "aliasuri": [
+      "contributia de asigurari sociale",
+      "contributia la pensie"
+    ],
+    "definitie": "CAS sunt banii plătiți pentru pensia de la stat. Legea stabilește cine plătește, pentru ce venituri și cum se calculează suma.",
+    "sursa": {
+      "titlu": "Legea nr. 227/2015 privind Codul fiscal",
+      "articol": "art. 136–138",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/196995",
+      "verificatLa": "2026-10-29"
+    },
+    "pe_scurt": "Pe scurt: CAS este contribuția pentru pensia de la stat. Nu este același lucru cu CASS, contribuția pentru sănătate."
+  },
+  {
+    "id": "dividend",
+    "termen": "Dividend",
+    "aliasuri": [
+      "dividende",
+      "venit din dividende"
+    ],
+    "definitie": "Un dividend înseamnă bani sau bunuri primite de la o firmă pentru că deții o parte din ea. Nu orice plată făcută de firmă este dividend: legea prevede și excepții.",
+    "sursa": {
+      "titlu": "Legea nr. 227/2015 privind Codul fiscal",
+      "articol": "art. 7 pct. 11",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/196995",
+      "verificatLa": "2026-10-29"
+    },
+    "pe_scurt": "Pe scurt: deții o parte dintr-o firmă, iar firma îți dă bani sau bunuri pentru asta. Acea plată poate fi un dividend; există și excepții în lege."
+  },
+  {
+    "id": "deducere",
+    "termen": "Deducere fiscală / cheltuială deductibilă",
+    "aliasuri": [
+      "deductibil fiscal",
+      "deductibilitate fiscala",
+      "cheltuieli deductibile",
+      "deducere fiscala"
+    ],
+    "definitie": "O cheltuială deductibilă se poate scădea din suma pe care se calculează impozitul. Asta poate însemna un impozit mai mic. Nu înseamnă că primești înapoi toți banii cheltuiți. Legea stabilește ce cheltuieli se acceptă și în ce limite.",
+    "sursa": {
+      "titlu": "Legea nr. 227/2015 privind Codul fiscal",
+      "articol": "art. 25 alin. (1); art. 68 alin. (1)",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/196995",
+      "verificatLa": "2026-10-29"
+    },
+    "pe_scurt": "Pe scurt: pentru unele cheltuieli, legea te lasă să plătești un impozit mai mic. Dar nu primești înapoi toată cheltuiala. Se aplică doar în condițiile prevăzute de lege."
+  },
+  {
+    "id": "pilon2",
+    "termen": "Pilonul II",
+    "aliasuri": [
+      "pilon ii",
+      "pensii administrate privat",
+      "fond de pensii administrat privat"
+    ],
+    "definitie": "Pilonul II este o pensie privată, în plus față de pensia de la stat. O parte din contribuția pentru pensie merge într-un fond privat, care investește acești bani.",
+    "sursa": {
+      "titlu": "Legea nr. 411/2004 privind fondurile de pensii administrate privat",
+      "articol": "art. 1 alin. (2)–(3)",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/83682",
+      "verificatLa": "2026-10-29"
+    },
+    "pe_scurt": "Pe scurt: o parte din banii plătiți pentru pensie merge la un fond privat. Fondul îi investește pentru o pensie în plus față de cea de la stat."
+  },
+  {
+    "id": "pilon3",
+    "termen": "Pilonul III",
+    "aliasuri": [
+      "pilon iii",
+      "pensii facultative",
+      "fond de pensii facultative"
+    ],
+    "definitie": "Pilonul III este o pensie privată la care alegi dacă participi. Banii pot fi plătiți de tine sau de angajator, după regulile fondului.",
+    "sursa": {
+      "titlu": "Legea nr. 204/2006 privind pensiile facultative",
+      "articol": "art. 1–2; art. 76 alin. (1)",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/266815",
+      "verificatLa": "2026-10-29"
+    },
+    "pe_scurt": "Pe scurt: Pilonul III este o pensie privată opțională. Alegi dacă participi; banii pot veni de la tine sau de la angajator."
+  }
+]

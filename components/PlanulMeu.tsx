@@ -82,6 +82,7 @@ export function PlanulMeu() {
         <ul className="m-0 list-none p-0">
           {din.map((p) => (
             <CardSchimbare
+              asistentOwner={exemplu ? "demo:andrei" : "personal"}
               key={p.schimbare.id}
               p={p}
               valori={profil.valori}

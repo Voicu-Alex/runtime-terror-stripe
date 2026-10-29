@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Antet, Subsol, SariLaContinut } from "@/components/Antet";
 import { LimbaProvider } from "@/components/Limba";
 import { SCRIPT_TEMA } from "@/components/Tema";
+import { AsistentProvider } from "@/components/AsistentProvider";
 import "./globals.css";
 
 // Fonturile designului de referință (v3 F): Inter pentru text și sume, Raleway pentru titluri mari.
@@ -47,10 +48,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen antialiased">
         <LimbaProvider>
+          <AsistentProvider>
           <SariLaContinut />
           <Antet />
           <main id="continut" tabIndex={-1} className="mx-auto max-w-[1080px] px-4 py-6">{children}</main>
           <Subsol />
+          </AsistentProvider>
         </LimbaProvider>
       </body>
     </html>
