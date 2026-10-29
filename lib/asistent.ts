@@ -233,6 +233,11 @@ export function scoate(s: Stare, tag: TagId): Stare {
   return n;
 }
 
+/** Etichetele eliminate în altă parte nu trebuie readăugate de următorul pas. */
+export function sincronizeazaProfil(s: Stare, profil: Profil): Stare {
+  return s.extrase.reduce((n, e) => profil.taguri.includes(e.tag) ? n : scoate(n, e.tag), s);
+}
+
 /** „Gata. Am notat: salariu, IT, …. Le poți schimba oricând din Profil.” (parcurs.md §2, mesajul de final) */
 export function rezumat(s: Stare): string {
   if (s.extrase.length === 0) return "Gata. Nu am notat nicio etichetă. Le poți adăuga oricând din Profil.";

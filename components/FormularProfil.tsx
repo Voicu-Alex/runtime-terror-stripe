@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { CATALOG } from "@/lib/catalog";
 import type { AnalizaDocument, TipDocument } from "@/lib/analiza-document";
 import { MARIME_MAXIMA, TIPURI_FISIER_ACCEPTATE } from "@/lib/analiza-document";
 import {
   adaugaInProfil,
   CAMPURI_VALORI,
-  incarcaProfil,
-  PROFIL_GOL,
+  profilCurent,
   salveazaProfil,
   scoateDinProfil,
   stergeProfil,
@@ -21,6 +20,7 @@ import { aziISO, potriveste } from "@/lib/potrivire";
 import { FAMILII, tagurileFamiliei, TAGURI, type Familie, type TagId } from "@/lib/taguri";
 import { useLimba } from "@/components/Limba";
 import { campL, etichetaTagL, familieL } from "@/lib/i18n";
+import { useProfil } from "@/components/useProfil";
 import { confirmaProfil } from "@/lib/voce";
 
 /**
@@ -51,7 +51,7 @@ type Citire = {
 type Stare = { pas: "liber" } | { pas: "analiza"; fisier: string };
 
 export function FormularProfil() {
-  const [profil, setProfil] = useState<Profil | null>(null);
+  const profil = useProfil();
   const [stare, setStare] = useState<Stare>({ pas: "liber" });
   const [citiri, setCitiri] = useState<Citire[]>([]);
   const [manual, setManual] = useState(false);
@@ -62,7 +62,6 @@ export function FormularProfil() {
   const eticheta = (x: TagId) => etichetaTagL(limba, x);
   const camp = (c: CampValoare) => campL(limba, c, CAMPURI_VALORI[c].eticheta);
 
-  useEffect(() => setProfil(incarcaProfil()), []);
 
   const nrActe = useMemo(() => (profil ? potriveste(profil, CATALOG, aziISO()).length : 0), [profil]);
 
@@ -70,7 +69,6 @@ export function FormularProfil() {
 
   function pune(nou: Profil) {
     salveazaProfil(nou);
-    setProfil(nou);
   }
 
   async function citeste(fisiere: FileList | null) {
@@ -101,6 +99,8 @@ export function FormularProfil() {
           const x = analiza.valori[k];
           if (typeof x === "number") valori[k] = x;
         }
+        // Chatul poate confirma etichete în timp ce documentul este analizat.
+        curent = profilCurent() ?? curent;
         const adaugate = sigure.filter((t) => !curent.taguri.includes(t));
         curent = adaugaInProfil(curent, sigure, valori);
         pune(curent);
@@ -354,7 +354,6 @@ export function FormularProfil() {
             <span>{t("Ștergi profilul de pe acest dispozitiv?")}</span>
             <button type="button" className="min-h-11 rounded-lg bg-v3-urg px-3 font-semibold text-v3-on-ink" onClick={() => {
               stergeProfil();
-              setProfil(PROFIL_GOL);
               setCitiri([]);
               setErori([]);
               setConfirmaStergere(false);

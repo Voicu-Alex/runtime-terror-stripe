@@ -13,13 +13,14 @@ import {
   SAR_PESTE,
   sarPeste,
   scoate,
+  sincronizeazaProfil,
   type Extrasa,
   type MesajIstoric,
   type RaspunsLege,
   type RaspunsProfil,
   type Stare,
 } from "@/lib/asistent";
-import { incarcaProfil, PROFIL_GOL, salveazaProfil, scoateDinProfil, type Profil } from "@/lib/profil";
+import { abonareProfil, incarcaProfil, PROFIL_GOL, salveazaProfil, scoateDinProfil, type Profil } from "@/lib/profil";
 import { PERSOANE_DEMO } from "@/lib/persoane-demo";
 import { aziISO, potriveste } from "@/lib/potrivire";
 import { dataScurta, zile } from "@/lib/card";
@@ -173,6 +174,8 @@ function AsistentProfil() {
   const router = useRouter();
   const { t, limba } = useLimba();
   const [stare, setStare] = useState<Stare>(() => porneste());
+  const stareRef = useRef(stare);
+  function puneStare(nou: Stare) { stareRef.current = nou; setStare(nou); }
   const [formular, setFormular] = useState(false);
   const [text, setText] = useState("");
   const [seTrimite, setSeTrimite] = useState(false);
@@ -180,7 +183,17 @@ function AsistentProfil() {
   const [baza, setBaza] = useState<Profil>(PROFIL_GOL);
   const sfarsit = useRef<HTMLDivElement>(null);
 
-  useEffect(() => setBaza(incarcaProfil()), []);
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search).get("p");
+    if (p && Object.hasOwn(PERSOANE_DEMO, p)) return;
+    const actualizeaza = () => {
+      const profil = incarcaProfil();
+      setBaza(profil);
+      puneStare(sincronizeazaProfil(stareRef.current, profil));
+    };
+    actualizeaza();
+    return abonareProfil(actualizeaza);
+  }, []);
 
   // Meniul contului duce la /profil#document, #etichete (formularul) sau #asistent (conversația).
   useEffect(() => {
@@ -201,7 +214,7 @@ function AsistentProfil() {
     const p = new URLSearchParams(window.location.search).get("p");
     if (p && Object.prototype.hasOwnProperty.call(PERSOANE_DEMO, p)) {
       const persoana = PERSOANE_DEMO[p as keyof typeof PERSOANE_DEMO];
-      setStare(redaDinTaguri(persoana.profil.taguri as TagId[]));
+      puneStare(redaDinTaguri(persoana.profil.taguri as TagId[]));
       setBaza(persoana.profil as Profil);
     }
   }, []);
@@ -231,7 +244,7 @@ function AsistentProfil() {
     if (scos) p = scoateDinProfil(p, scos);
     salveazaProfil(inProfil(nou, p));
     if (scos) setBaza(scoateDinProfil(baza, scos));
-    setStare(nou);
+    puneStare(nou);
     setAlegeri([]);
   }
 
@@ -268,7 +281,7 @@ function AsistentProfil() {
     }
     setText("");
     setSeTrimite(false);
-    aplica(raspundeLiber(stare, mesaj, etichete));
+    aplica(raspundeLiber(stareRef.current, mesaj, etichete));
   }
 
   function vezi() {
@@ -279,8 +292,8 @@ function AsistentProfil() {
   const btnLink = "min-h-11 px-1 text-[14.5px] font-bold text-v3-ink underline underline-offset-2";
 
   return (
-    <div id="asistent" className="scroll-mt-14 space-y-3">
-      <div className="sticky top-12 z-10 -mx-4 flex items-center justify-between gap-2 border-b border-v3-line bg-[var(--fundal)] px-4">
+    <div id="asistent" className="scroll-mt-14 space-y-5">
+      <div className="sticky top-12 z-10 -mx-4 flex items-center justify-between gap-2 border-b border-v3-line bg-[var(--fundal)] px-4 py-2">
         <button type="button" onClick={() => setFormular((f) => !f)} aria-pressed={formular} className={btnLink}>
           {formular ? t("Înapoi la conversație") : t("Încarc un document sau folosesc formularul")}
         </button>
@@ -298,7 +311,7 @@ function AsistentProfil() {
 
       {formular && <FormularProfil />}
 
-      <div hidden={formular} className="space-y-3">
+      <div hidden={formular} className="space-y-5 pb-16">
         <div className="rounded-2xl bg-v3-band px-4 py-3 text-[15px] text-v3-band-ink" aria-live="polite">
           {nrActe === 0 ? (
             <b>{t("Până acum: niciun act")}</b>
@@ -310,47 +323,49 @@ function AsistentProfil() {
           )}
         </div>
 
-        {stare.mesaje.map((m, i) =>
-          m.rol === "etichete" ? (
-            <ul key={i} className="m-0 flex list-none flex-wrap gap-2 p-0">
-              {m.etichete.map((e) => {
-                const eticheta = etichetaTagL(limba, e.tag);
-                return (
-                  <li
-                    key={e.tag}
-                    className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-v3-ink bg-v3-card py-1 pr-1 pl-3 text-[14px]"
-                  >
-                    <b className="text-v3-ink">{eticheta}</b>
-                    {e.din && (
-                      <span className="text-[12px] text-v3-ink-2">
-                        {t("din")} «{e.din}»
-                      </span>
-                    )}
-                    <button
-                      type="button"
-                      aria-label={`${t("Scoate")} ${eticheta}`}
-                      onClick={() => aplica(scoate(stare, e.tag), e.tag)}
-                      className="grid size-8 place-items-center rounded-full text-base font-bold text-v3-ink-2 hover:text-v3-ink"
+        <div className="flex flex-col gap-3 py-1 sm:gap-4">
+          {stare.mesaje.map((m, i) =>
+            m.rol === "etichete" ? (
+              <ul key={i} className="m-0 flex list-none flex-wrap gap-2 p-0">
+                {m.etichete.map((e) => {
+                  const eticheta = etichetaTagL(limba, e.tag);
+                  return (
+                    <li
+                      key={e.tag}
+                      className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-v3-ink bg-v3-card py-1 pr-1 pl-3 text-[14px]"
                     >
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          ) : (
-            <p
-              key={i}
-              className={`m-0 max-w-[85%] rounded-2xl border px-4 py-2.5 text-[15.5px] leading-snug ${
-                m.rol === "om"
-                  ? "ml-auto border-v3-ink bg-v3-ink text-v3-on-ink"
-                  : "border-v3-line bg-v3-card text-v3-ink"
-              }`}
-            >
-              {m.rol === "asistent" ? t(m.text) : m.text}
-            </p>
-          ),
-        )}
+                      <b className="text-v3-ink">{eticheta}</b>
+                      {e.din && (
+                        <span className="text-[12px] text-v3-ink-2">
+                          {t("din")} «{e.din}»
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        aria-label={`${t("Scoate")} ${eticheta}`}
+                        onClick={() => aplica(scoate(stare, e.tag), e.tag)}
+                        className="grid size-8 place-items-center rounded-full text-base font-bold text-v3-ink-2 hover:text-v3-ink"
+                      >
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              <p
+                key={i}
+                className={`m-0 w-fit max-w-[90%] rounded-2xl border px-4 py-3 text-[15.5px] leading-relaxed sm:max-w-[85%] sm:px-5 ${
+                  m.rol === "om"
+                    ? "ml-auto border-v3-ink bg-v3-ink text-v3-on-ink"
+                    : "border-v3-line bg-v3-card text-v3-ink"
+                }`}
+              >
+                {m.rol === "asistent" ? t(m.text) : m.text}
+              </p>
+            ),
+          )}
+        </div>
 
         {intrebare && !stare.terminat && (
           <div className="flex flex-wrap gap-2 pt-1">
@@ -406,7 +421,7 @@ function AsistentProfil() {
             e.preventDefault();
             void trimite();
           }}
-          className="sticky bottom-0 -mx-4 flex gap-2 bg-[var(--fundal)] px-4 py-3"
+          className="sticky bottom-[calc(4rem+env(safe-area-inset-bottom))] -mx-4 flex gap-2 bg-[var(--fundal)] px-4 py-3"
         >
           <input
             value={text}

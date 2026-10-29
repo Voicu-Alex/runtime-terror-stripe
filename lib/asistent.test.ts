@@ -16,6 +16,7 @@ import {
   rezumat,
   sarPeste,
   scoate,
+  sincronizeazaProfil,
   type Stare,
 } from "./asistent";
 
@@ -30,6 +31,15 @@ function toateTagurile(s: Stare): TagId[] {
 }
 
 describe("asistentul de profil", () => {
+  it("nu readaugă la pasul următor etichetele eliminate din chat și păstrează profilul actualizat", () => {
+    const initial = raspundeLiber(porneste(), "Sunt angajat", [{ tag: "angajat" }]);
+    const profil = { taguri: ["parinte" as const], valori: { nr_copii: 2 } };
+    const actualizat = sincronizeazaProfil(initial, profil);
+    expect(toateTagurile(actualizat)).not.toContain("angajat");
+    expect(actualizat.pas).toBe(initial.pas);
+    expect(inProfil(sarPeste(actualizat), profil)).toEqual(profil);
+    expect(toateTagurile(initial)).toContain("angajat");
+  });
   it("porneste: pas 1, mesajul de start și prima întrebare", () => {
     const s = porneste();
     expect(s.pas).toBe(1);

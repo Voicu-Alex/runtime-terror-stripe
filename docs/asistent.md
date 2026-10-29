@@ -39,3 +39,9 @@ Răspunsurile rapide nu părăsesc browserul. Textul scris liber și, la întreb
 - „Nu știu ce e Pilonul II” din parcurs.md lipsește: explicația cere sursa ASF.
 - Ruta cu cheie reală nu a fost rulată în această ramură; testele nu ating rețeaua.
 - `docs/voce.md` §11 spune „nu adaugă un chat liber”; de actualizat când fișierul ajunge pe `main`.
+
+## Chatul flotant
+
+Butonul din dreapta jos deschide o conversație generală despre legi și termeni, inclusiv pe `/aplicatie`. Păstrează asistentul de profil și dialogul existent al fiecărui card. Endpoint-ul separat `POST /api/asistent/chat` validează mesajul, istoricul și contextul, fără persistență pe server. Propunerile de profil cer confirmare; exemplele demo au conversații separate de profilul personal.
+
+Cu `ANTHROPIC_API_KEY`, explicațiile pe dovezi verificate folosesc API-ul real, fără raționament intern în bugetul scurt. Sursele rămân cele selectate de server. Fără cheie, la eroare sau dacă răspunsul conține cifre/linkuri noi, chatul revine la textul catalogului. Filtrul nu dovedește corectitudinea semantică. Limitele per instanță sunt `LIMITA_ASISTENT_PE_ORA` (20) și `LIMITA_ASISTENT_PE_ZI` (150), transmise la runtime prin `amplify.yml`.
