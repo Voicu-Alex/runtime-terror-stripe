@@ -130,3 +130,6 @@ citatele găsite textual; detalii și paritatea cu API-ul în `docs/eval-modele.
 - Triajul Haiku e reglat pe recall („de citit integral” când textul e tăiat la 4.000 de caractere): despăgubirile de
   expropriere trec ca „ating banii” deși privesc câțiva proprietari.
 - Proiectele (SGG) nu sunt implementate.
+- Golurile de id-uri de lângă prezent (după 315411, 313 lipsă din 469 la 29 oct): nu știm dacă Portalul le umple mai târziu.
+  Dacă da, un cursor care a trecut de ele pierde actele respective; de verificat peste o săptămână câteva id-uri lipsă din
+  29 oct, iar dacă apar, descoperirea are nevoie de o a doua trecere peste golurile recente.

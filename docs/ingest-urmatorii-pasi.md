@@ -62,8 +62,10 @@ construiește și se testează în modul pe fișiere (`--dry-run`, `--din <dir>`
 ```bash
 npm run legi:migreaza
 npm run legi:incarca -- --din ../legi-ingest/scratch/acte --din ../legi-ingest/scratch/sweep   # 12 + 1.065 acte
-npm run legi:importa -- --dir ../legi-ingest/scratch/lot --model claude-sonnet-5-5 --driver subagent  # 18 interpretări
-# cursorul: ultimul id cu act real din parcurgere e 315776 (nu 315900: după 315411 id-urile au goluri)
+npm run legi:importa -- --dir ../legi-ingest/scratch/lot --model claude-sonnet-5-5 --driver subagent  # 18 interpretări (toate în stări candidat/triat_da, verificat 29 oct)
+# cursorul nu există încă: prima trecere pornește explicit de după ultimul id cu act real din parcurgere (315776;
+# nu 315900: după 315411 id-urile au goluri). descopera salvează cursorul la sfârșit, de aici încolo merge --reia.
+npm run legi:zilnic -- --de-la 315777
 ```
 
 ### E. Capăt la capăt

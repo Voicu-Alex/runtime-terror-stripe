@@ -25,7 +25,7 @@ on:
         type: boolean
         default: true
       de_la:
-        description: 'Primul id de pe Portal (obligatoriu când dry_run este bifat)'
+        description: 'Primul id de pe Portal (obligatoriu când dry_run este bifat; fără dry_run, pornește prima rulare când nu există cursor)'
         type: string
         required: false
 
@@ -59,6 +59,9 @@ jobs:
               exit 1
             fi
             node --import tsx scripts/legi/zilnic.mts --dry-run --de-la "$DE_LA" --pas-ids 5 --max-cereri 5 --max-triaj 5 --max-interpretari 2 --buget-usd 0.2
+          elif echo "$DE_LA" | grep -Eq '^[0-9]+$'; then
+            # Prima rulare adevărată, când nu există încă un cursor: de_la pornește descoperirea, iar descopera salvează cursorul.
+            node --import tsx scripts/legi/zilnic.mts --de-la "$DE_LA"
           else
             node --import tsx scripts/legi/zilnic.mts
           fi
