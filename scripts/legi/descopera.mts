@@ -9,11 +9,14 @@
  *   node --env-file=.env.local --import tsx scripts/legi/descopera.mts --reia --pana-la 315900
  *   node --env-file=.env.local --import tsx scripts/legi/descopera.mts --cauta-oug 8/2026
  *
- * Opțiuni: --max 1500, --pauza 2000 (ms), --dry-run (fără Supabase: scrie linii JSON pe stdout, textul tăiat).
+ * Opțiuni: --max 1500, --pauza 2000 (ms), --dry-run (fără Supabase: scrie linii JSON pe stdout, textul tăiat),
+ * --dump <dir> (rândul complet, cu text, în <dir>/<id>.json; cu --dry-run e calea fără bază de date).
  * Jurnalul și rezumatul merg pe stderr; stdout e curat (linii JSON în --dry-run). Cod de ieșire 2 când Portalul
  * ne oprește (403/429/5xx după reîncercări).
  */
 import { createHash } from "node:crypto";
+import { mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
 import { parseArgs } from "node:util";
 import { ClientPortal, PlafonAtins, PortalIndisponibil } from "../../lib/portal-client.ts";
 import { esteLipsa, parseazaPaginaAct, URL_ACT, type ActParsat } from "../../lib/portal.ts";
@@ -34,6 +37,9 @@ const { values: arg } = parseArgs({
     max: { type: "string", default: "1500" },
     pauza: { type: "string", default: "2000" },
     "dry-run": { type: "boolean", default: false },
+    // scrie rândul complet (cu tot textul) în <dir>/<id>.json; merge și în --dry-run, ca export-lot --din să poată
+    // pregăti loturile înainte să existe tabelele
+    dump: { type: "string" },
   },
 });
 
@@ -213,6 +219,12 @@ async function proceseaza(idNum: number) {
     articole: act.articole,
   };
   numara(dupaTip, act.tip_act || "?");
+
+  if (arg.dump) {
+    await mkdir(arg.dump, { recursive: true });
+    const rand = { id, sursa: "portal", sursa_id: sursaId, ...campuriText, triaj, stare_procesare: stareProcesare };
+    await writeFile(path.join(arg.dump, id.replace(":", "-") + ".json"), JSON.stringify(rand) + "\n");
+  }
 
   if (!existent) {
     contor.noi++;

@@ -14,7 +14,8 @@
     "legi:export-lot": "node --env-file=.env.local --import tsx scripts/legi/export-lot.mts",
     "legi:aproba": "node --env-file=.env.local --import tsx scripts/legi/aproba.mts",
     "legi:respinge": "node --env-file=.env.local --import tsx scripts/legi/respinge.mts",
-    "legi:export-inbox": "node --env-file=.env.local --import tsx scripts/legi/export-inbox.mts"
+    "legi:export-inbox": "node --env-file=.env.local --import tsx scripts/legi/export-inbox.mts",
+    "legi:importa": "node --env-file=.env.local --import tsx scripts/legi/importa-interpretari.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.3.0",

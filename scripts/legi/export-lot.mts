@@ -4,8 +4,9 @@
  *   node --env-file=.env.local --import tsx scripts/legi/export-lot.mts --stare candidat --max 20 --dir scratch/lot
  *   node --env-file=.env.local --import tsx scripts/legi/export-lot.mts --ids portal:293109,portal:305208
  * Nu vorbește cu Portalul, doar cu Supabase. Scrie și <dir>/manifest.json.
+ *   --din scratch/acte   citește rândurile din fișierele scrise de `descopera --dump` (fără Supabase)
  */
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import { articolDupaNumar, type ActParsat } from "../../lib/portal.ts";
@@ -19,20 +20,33 @@ const { values: arg } = parseArgs({
     ids: { type: "string" },
     max: { type: "string", default: "20" },
     dir: { type: "string", default: "scratch/lot" },
+    din: { type: "string" },
   },
 });
 
-if ((arg.stare === undefined) === (arg.ids === undefined)) {
-  console.error("Alege exact una: --stare candidat|triat_da sau --ids portal:123,portal:456.");
+if (!arg.din && (arg.stare === undefined) === (arg.ids === undefined)) {
+  console.error("Alege exact una: --stare candidat|triat_da sau --ids portal:123,portal:456 (sau --din <dir>).");
   process.exit(1);
 }
 
-const sb = clientSupabase();
-const coloane = "id, titlu, url, data_vigoare, text, lungime, articole, triaj";
-let q = sb.from("acte").select(coloane);
-if (arg.ids !== undefined) q = q.in("id", arg.ids.split(",").map((s) => s.trim()));
-else q = q.eq("stare_procesare", arg.stare!).order("id").limit(Number(arg.max));
-const acte: any[] = verifica(await q, "acte") ?? [];
+let acte: any[];
+if (arg.din) {
+  const vrute = arg.ids ? new Set(arg.ids.split(",").map((s) => s.trim())) : null;
+  const fisiere = (await readdir(arg.din)).filter((f) => f.endsWith(".json") && f !== "manifest.json");
+  acte = [];
+  for (const f of fisiere) {
+    const r = JSON.parse(await readFile(path.join(arg.din, f), "utf8"));
+    if (!vrute || vrute.has(r.id)) acte.push(r);
+  }
+  acte.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+} else {
+  const sb = clientSupabase();
+  const coloane = "id, titlu, url, data_vigoare, text, lungime, articole, triaj";
+  let q = sb.from("acte").select(coloane);
+  if (arg.ids !== undefined) q = q.in("id", arg.ids.split(",").map((s) => s.trim()));
+  else q = q.eq("stare_procesare", arg.stare!).order("id").limit(Number(arg.max));
+  acte = verifica(await q, "acte") ?? [];
+}
 if (!acte.length) {
   console.error("Niciun act găsit.");
   process.exit(1);
