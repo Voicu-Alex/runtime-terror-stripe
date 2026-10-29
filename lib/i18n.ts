@@ -87,7 +87,7 @@ const EN: Record<string, string> = {
   Profil: "Profile",
   "Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică.":
     "AI-generated analysis, check the tags. Information, not financial or legal advice.",
-  "Textele legilor sunt în română.": "Legal texts are in Romanian.",
+  "Traducerea în engleză e neoficială; textul verificat e cel în română.": "The English translation is unofficial; the verified text is the Romanian one.",
 
   // acasă
   "Fiecare lege nouă, tradusă în lei pe an pentru tine.": "Every new law, translated into lei per year for you.",
@@ -288,7 +288,7 @@ const EN: Record<string, string> = {
   ani: "years",
 
   // Pro (abonamentul)
-  "Ce înseamnă pentru mine": "Ce înseamnă pentru mine",
+  Buzunar: "Pocket",
   "Upgrade la": "Upgrade to",
   "Upgrade la Pro": "Upgrade to Pro",
   "legi te privesc. Vezi cât te costă fiecare.": "laws affect you. See what each one costs you.",
@@ -419,6 +419,12 @@ const EN: Record<string, string> = {
   "Ghiduri deschise și acțiuni bifate": "Open guides and ticked actions",
   "Nu ai deschis încă un ghid complet.": "You have not opened a full guide yet.",
   "Explorează actele pentru tine": "Explore the laws for you",
+  // Toate legile (components/ToateLegile.tsx)
+  "Tot ce s-a publicat, nu doar ce te privește. Deschide o lege ca să vezi cât poți salva și ce poți face, pas cu pas. Proiectele pot să se schimbe sau să nu fie adoptate.":
+    "Everything published, not only what concerns you. Open a law to see how much you can save and what you can do, step by step. Drafts may change or not be adopted.",
+  Ordine: "Order",
+  "Cele mai noi": "Newest",
+  "Cât poți salva": "Most you can save",
 };
 
 /** Are textul intrare în dicționarul EN (chiar dacă traducerea e identică, ca un nume propriu). */

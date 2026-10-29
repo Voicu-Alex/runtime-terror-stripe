@@ -2,7 +2,7 @@ import { SurseLimitari, type StatisticiCatalog } from "@/components/SurseLimitar
 import destinatii from "@/data/destinatii.json";
 import { CATALOG } from "@/lib/catalog";
 
-export const metadata = { title: "Surse și limitări · Ce înseamnă pentru mine" };
+export const metadata = { title: "Surse și limitări · Buzunar" };
 
 /** Cifrele paginii se calculează din catalog, ca să nu rămână în urmă când se adaugă acte. */
 function statistici(): StatisticiCatalog {

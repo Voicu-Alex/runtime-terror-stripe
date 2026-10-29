@@ -1,6 +1,6 @@
 import { Abonare } from "@/components/Abonare";
 
-export const metadata = { title: "Abonament · Ce înseamnă pentru mine" };
+export const metadata = { title: "Abonament · Buzunar" };
 
 export default function PaginaAbonament() {
   return (

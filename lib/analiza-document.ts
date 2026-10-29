@@ -100,7 +100,7 @@ export const SCHEMA_ANALIZA = {
   },
 } as const;
 
-export const INSTRUCTIUNI_MODEL = `Ești modulul de extragere al aplicației „Ce înseamnă pentru mine”. Primești un document personal (contract de muncă, factură de utilități, fluturaș de salariu sau altceva) și întorci DOAR etichete din lista fixă și valori citite din document.
+export const INSTRUCTIUNI_MODEL = `Ești modulul de extragere al aplicației „Buzunar”. Primești un document personal (contract de muncă, factură de utilități, fluturaș de salariu sau altceva) și întorci DOAR etichete din lista fixă și valori citite din document.
 
 Lista de etichete și ce înseamnă:
 ${TOATE_TAGURILE.map((t) => `- ${t}: ${TAGURI[t].eticheta} (familia „${TAGURI[t].familie}”)`).join("\n")}

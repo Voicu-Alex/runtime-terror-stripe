@@ -7,12 +7,10 @@ import { ComutatorTema } from "@/components/Tema";
 import { useAbonament } from "@/components/useAbonament";
 
 // Antetul „Revistă” din mockup/v3/index.html?v=f (ADR 0001): logo centrat cu slogan, navigare cu majuscule dedesubt.
-// Secțiunile urmează macheta v6 (Pentru tine, Noutăți, Planul meu, Profil), plus „Toate legile”.
+// Trei secțiuni: Pentru tine (macheta v6), Toate legile (noutățile și ghidul) și Profil (cu Planul meu).
 const SECTIUNI = [
   { href: "/", text: "Pentru tine" },
-  { href: "/noutati", text: "Noutăți" },
   { href: "/legi", text: "Toate legile" },
-  { href: "/plan", text: "Planul meu" },
   { href: "/profil", text: "Profil" },
 ];
 
@@ -36,7 +34,7 @@ export function Antet() {
           </span>
           <Link href="/" className="min-w-0 text-center no-underline">
             <b className="block font-head text-[clamp(15px,4.4vw,22px)] leading-[1.1] font-extrabold tracking-[-.02em] text-balance text-v3-logo lg:whitespace-nowrap lg:text-[34px]">
-              Ce înseamnă pentru mine
+              {t("Buzunar")}
             </b>
             <span className="mt-[3px] hidden text-[10.5px] font-semibold tracking-[.16em] text-v3-ink-2 uppercase min-[400px]:block lg:text-[11.5px]">
               {t("Legea, pe banii tăi")}
@@ -98,7 +96,7 @@ export function Subsol() {
     <footer className="mx-auto max-w-[1080px] border-t border-v3-line px-4 pt-4 pb-8 text-[12.5px] text-v3-ink-2">
       {/* AI Act, art. 50: conținutul generat cu AI e marcat pe fiecare ecran, nu doar unde apare. */}
       {t("Analiză generată cu AI, verifică etichetele. Informare, nu consultanță financiară sau juridică.")}
-      {limba === "en" && <> {t("Textele legilor sunt în română.")}</>}
+      {limba === "en" && <> {t("Traducerea în engleză e neoficială; textul verificat e cel în română.")}</>}
       <Link href="/surse" className="ml-1 font-semibold text-v3-ink-2 underline decoration-v3-line underline-offset-2">
         {t("Surse și limitări")}
       </Link>{" "}

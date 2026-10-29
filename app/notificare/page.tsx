@@ -3,7 +3,7 @@ import { CATALOG } from '@/lib/catalog';
 import { persoanaDemo, idPersoana } from '@/lib/persoane-demo';
 import { potriveste } from '@/lib/potrivire';
 
-export const metadata = { title: 'Previzualizare notificări · Ce înseamnă pentru mine' };
+export const metadata = { title: 'Previzualizare notificări · Buzunar' };
 
 export default async function PaginaNotificare({ searchParams }: { searchParams: Promise<{ p?: string; data?: string }> }) {
   const params = await searchParams;

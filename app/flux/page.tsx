@@ -10,7 +10,7 @@ import { potriveste } from "@/lib/potrivire";
 // Data demo-ului (CLAUDE.md, session-state): fluxul persoanelor demo se vede ca pe 28 oct 2026.
 const AZI_DEMO = "2026-10-28";
 
-export const metadata = { title: "Fluxul meu · Ce înseamnă pentru mine" };
+export const metadata = { title: "Fluxul meu · Buzunar" };
 
 export default async function Flux({ searchParams }: { searchParams: Promise<{ p?: string; sort?: string }> }) {
   const { p, sort } = await searchParams;

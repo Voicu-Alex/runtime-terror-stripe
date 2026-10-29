@@ -13,7 +13,7 @@ import { persoanaDemo } from "@/lib/persoane-demo";
 import { incarcaPlan, salveazaPlan } from "@/lib/plan";
 import { aziISO, planulMeu, potriveste } from "@/lib/potrivire";
 
-// „Planul meu” din v6: ce ai bifat că faci și ghidurile deschise. Totul stă pe dispozitiv.
+// „Planul meu” din v6, în pagina de profil: ce ai bifat că faci și ghidurile deschise. Totul stă pe dispozitiv.
 export function PlanulMeu() {
   const { t , limba } = useLimba();
   const profilReal = useProfil();
@@ -43,8 +43,10 @@ export function PlanulMeu() {
   }
 
   return (
-    <div className="mx-auto max-w-[760px]">
-      <h1 className="m-0 font-head text-[clamp(28px,6vw,38px)] leading-[1.12] font-extrabold tracking-[-.015em] text-v3-ink">{t("Planul meu")}</h1>
+    <section id="planul-meu" aria-labelledby="planul-meu-titlu" className="scroll-mt-20 border-t border-v3-line pt-6">
+      <h2 id="planul-meu-titlu" className="m-0 font-head text-[clamp(24px,5.4vw,30px)] leading-[1.15] font-extrabold tracking-[-.015em] text-v3-ink">
+        {t("Planul meu")}
+      </h2>
       <p className="mt-2 mb-4 text-[16px] text-v3-ink-2">
         {exemplu ? t("Exemplu pe profilul Andrei, 32.") : t("Pe profilul tău.")}{" "}
         {t("Bifează „Adaug în planul meu” pe o lege și apare aici, cu cât păstrezi pe an.")}
@@ -73,9 +75,9 @@ export function PlanulMeu() {
         </div>
       </section>
 
-      <h2 className="mt-6 mb-0 border-b border-v3-line pb-2 font-head text-[19px] font-extrabold text-v3-ink">
+      <h3 className="mt-6 mb-0 border-b border-v3-line pb-2 font-head text-[19px] font-extrabold text-v3-ink">
         {t("Ghiduri deschise și acțiuni bifate")}
-      </h2>
+      </h3>
       {din.length ? (
         <ul className="m-0 list-none p-0">
           {din.map((p) => (
@@ -104,6 +106,6 @@ export function PlanulMeu() {
           )}
         </p>
       )}
-    </div>
+    </section>
   );
 }

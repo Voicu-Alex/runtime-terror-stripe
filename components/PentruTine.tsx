@@ -269,7 +269,7 @@ export function PentruTine({ demoId }: { demoId: string | null }) {
           <p className="py-6 text-[15px] text-v3-ink-2">
             {t("Nimic nu se potrivește.")}{" "}
             {inCatalog > 0 && (
-              <Link href={`/noutati?q=${encodeURIComponent(q)}`} className="font-semibold text-v3-ink underline underline-offset-2">
+              <Link href={`/legi?q=${encodeURIComponent(q)}`} className="font-semibold text-v3-ink underline underline-offset-2">
                 {t("Caută în tot catalogul")} ({inCatalog})
               </Link>
             )}
