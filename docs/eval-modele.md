@@ -137,3 +137,37 @@ Rezultatele brute: `eval/rezultate/{sonnet,haiku}/{documente,legi}/`. Așteptăr
 - Costul pe API e estimat din prețul de listă, nu măsurat.
 - Runda 2: o singură rulare pe model. Cardul salariului minim apare doar de la 4.050 lei brut (minimul anterior, OUG 89/2025), ca să nu afișeze o sumă umflată la normă parțială; o normă parțială reală nu primește deci deloc cardul. Suma netă din brut nu e calculată (lipsește tabelul de deduceri).
 - Destinațiile propuse de modele nu au fost încă verificate și adăugate în listă.
+
+## Runda 4: pipeline-ul de ingestie, subagenți vs API pe aceleași loturi (29 oct 2026, noaptea)
+
+Branch `legi-ingest` (`docs/ingest.md`). Cele 12 acte ale campaniilor și cele alese au fost aduse de pe Portal
+(`descopera --dump`), tăiate pe articole unde erau coduri întregi (`export-lot`) și interpretate de 12 subagenți Sonnet 5.5,
+unul pe act, cu instrucțiunile v3. Poarta de import (`lib/verificari-interpretare.ts`, aceleași verificări ca
+`eval/scor.mjs`, plus condiții, date ISO, `rezumat_en`) a dat:
+
+| | Subagenți Sonnet 5.5 |
+|---|---|
+| Acte / schimbări propuse | 12 / 80 |
+| Citate găsite textual în lot | 80/80 |
+| Acte fără nicio verificare picată | 9/12 |
+| Schimbări blocate la aprobare (fără etichetă din listă: cripto, titluri, TVA 21% general, asigurare voluntară de șomaj) | 8/80 |
+| Alte verificări picate | 0 |
+
+Paritate cu API-ul (Andrei: „doar câteva prin API”): aceleași 3 loturi, Haiku 5.5 prin `eval/interpreteaza-api.mjs`
+(`LOT=scratch/lot`), 0,019 USD în total.
+
+| Act | Subagent Sonnet | API Haiku | Diferențe |
+|---|---|---|---|
+| HG 146/2026 | 1 schimbare, `diferenta_prag` 4.325, `verifica`/angajator | identic | doar formularea titlului |
+| Legea 161/2026 | 2 schimbări (fereastra 9% expirată; restituirea), `cumpar_locuinta` | identic | formulare |
+| OUG 11/2026 | 5 schimbări (prima de stabilitate `suma_fixa_lunar` 1.000, 4 secundare) | 8 schimbări (în plus: subvenția angajatorului de 2.250 lei etichetată `micro`, șomajul de lungă durată sub 30 de ani, victime ale violenței) | Haiku taie mai larg; ambele dau prima de stabilitate doar tinerilor NEET 16–29 |
+
+Poarta a prins la API `publicat_la: null` pe două acte: loturile fuseseră exportate înainte să adăugăm linia „Publicat în”
+în antet. Cu antetul nou nu se mai întâmplă.
+
+**Concluzie:** aceeași formă, aceleași verificări, aceeași poartă pentru ambii driveri; subagenții sunt înlocuitorul
+API-ului doar pe durata hackathonului. Corectură de fond găsită de interpretare: prima de stabilitate (OUG 11/2026, art.
+76^5) e doar pentru tinerii NEET de 16–29 de ani înregistrați la agenție, nu pentru oricine la primul job.
+
+**Neverificat:** o singură rulare pe act; conținutul celor 80 de schimbări nu a fost citit rând cu rând de un om
+(spot-check Opus pe 5 acte: vezi mai jos, dacă există).
