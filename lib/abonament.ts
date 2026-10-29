@@ -17,6 +17,8 @@ export type StareAbonament = {
   panaLa: string | null;
   /** se oprește la finalul perioadei (anulat din portal) */
   seOpreste: boolean;
+  /** Pro pornit din comutatorul de demo (components/useAbonament.ts), nu plătit */
+  demo?: boolean;
 };
 
 export const FARA_ABONAMENT: StareAbonament = { conectat: false, email: null, activ: false, status: null, panaLa: null, seOpreste: false };
