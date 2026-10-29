@@ -21,7 +21,7 @@ Tot restul rămâne determinist: potrivirea, lei/lună, termenele, fluxul.
 
 | Fișier | Rol |
 |---|---|
-| `lib/asistent.ts` | Cele 6 întrebări (textele din parcurs.md), mașina de stări a conversației, regula de sărit pasul 3, tipurile cererii și răspunsului API, validarea `esteCerere`, `redaDinTaguri` pentru demo |
+| `lib/asistent.ts` | Cele 6 întrebări (textele din parcurs.md), mașina de stări a conversației, regula de sărit pasul 3 și întrebările deja răspunse în cuvintele omului, tipurile cererii și răspunsului API, validarea `esteCerere`, `redaDinTaguri` pentru demo |
 | `lib/demo-asistent.ts` | Modul fără cheie: cuvinte-cheie → etichete; răspunsuri despre o lege numai din niveluri, ghid și acțiuni |
 | `lib/asistent-prompt.ts` | Promptul de sistem (blocul din `docs/voce.md` §9 și exemplele §7) și blocul DATE pentru un card |
 | `app/api/asistent/route.ts` | POST, două moduri. Fără `ANTHROPIC_API_KEY` sau la orice eroare: demo. `profil` → `claude-haiku-5-5` cu schemă JSON (enum de etichete); `lege` → `claude-sonnet-5-5`, text. Nu stochează și nu loghează conținut. |
